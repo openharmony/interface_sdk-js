@@ -99,6 +99,37 @@ declare namespace http {
      * @param options Optional parameters {@link HttpRequestOptions}.
      * @param callback Returns {@link HttpResponse}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
