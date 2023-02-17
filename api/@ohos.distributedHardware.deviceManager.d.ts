@@ -543,12 +543,12 @@ declare namespace deviceManager {
      * delete credential information.
      *
      * @since 10
-     * @param credentialInfo delete credential params.
+     * @param queryInfo delete credential params.
      * @param callback Indicates the callback to be invoked upon deleteCredential
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */  
-    deleteCredential(deleteInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
+    deleteCredential(queryInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
 
     /**
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
