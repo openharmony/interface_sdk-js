@@ -132,13 +132,13 @@ declare namespace mdns {
      * Enables listening for discoveryStart events of mDNS services.
      */
     on(type: 'discoveryStart',
-       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MDNS_ERR}>): void;
+       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MDNSError}>): void;
 
     /**
      * Enables listening for discoveryStop events of mDNS services.
      */
     on(type: 'discoveryStop',
-       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MDNS_ERR}>): void;
+       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MDNSError}>): void;
 
     /**
      * Enables listening for serviceFound events of mDNS services.
@@ -195,7 +195,7 @@ declare namespace mdns {
     value: Array<number>;
   }
 
-  export enum MDNS_ERR {
+  export enum MDNSError {
     /**
      * Indicates that the operation failed due to   internal error.
      */
@@ -214,4 +214,7 @@ declare namespace mdns {
   }
 }
 
+/**
+ * @since 10
+ */
 export default mdns;
