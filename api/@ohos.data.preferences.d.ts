@@ -165,13 +165,14 @@ declare namespace preferences {
         /**
          * Obtains the value of a preference. It is a synchronized method.
          *
-         * <p>Returns the value matching the specified key if it is found; returns undefined otherwise.
+         * <p>Returns the value matching the specified key if it is found; returns the default value otherwise.
          *
          * @param {string} key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+         * @param {ValueType} defValue - Indicates the default value to return.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @since 10
          */
-        get(key: string): ValueType;
+        getSync(key: string, defValue: ValueType): ValueType;
 
         /**
          * Obtains all the keys and values of a preferences in an object.
@@ -191,13 +192,12 @@ declare namespace preferences {
         getAll(): Promise<Object>;
 
         /**
-         * Obtains all the keys and values of a preferences in an object. It is a synchronized method relative
-         * to {@link getAll}.
+         * Obtains all the keys and values of a preferences in an object. It is a synchronized method.
          *
          * @returns {Object} the values and keys in an object.
          * @since 10
          */
-        getKeysAndValues(): Object;
+        getAllSync(): Object;
 
         /**
          * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
@@ -222,8 +222,8 @@ declare namespace preferences {
         has(key: string): Promise<boolean>;
 
         /**
-         * Checks whether the {@link Preferences} object contains a preferences matching a specified key. It is a
-         * synchronized method relative to {@link has}.
+         * Checks whether the {@link Preferences} object contains a preferences matching a specified key.It is
+         * a synchronized method.
          *
          * @param {string} key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
          * @returns {boolean} {@code true} if the {@link Preferences} object contains
@@ -231,7 +231,7 @@ declare namespace preferences {
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @since 10
          */
-        contains(key: string): boolean;
+        hasSync(key: string): boolean;
 
         /**
          * Sets an int value for the key in the {@link Preferences} object.
@@ -264,8 +264,7 @@ declare namespace preferences {
         put(key: string, value: ValueType): Promise<void>;
 
         /**
-         * Sets an int value for the key in the {@link Preferences} object. It is a synchronized method relative
-         * to {@link put}.
+         * Sets an int value for the key in the {@link Preferences} object. It is a synchronized method.
          *
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
          * file.
@@ -276,7 +275,7 @@ declare namespace preferences {
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @since 10
          */
-        add(key: string, value: ValueType): void;
+        putSync(key: string, value: ValueType): void;
 
         /**
          * Deletes the preferences with a specified key from the {@link Preferences} object.
@@ -307,8 +306,7 @@ declare namespace preferences {
         delete(key: string): Promise<void>;
 
         /**
-         * Deletes the preferences with a specified key from the {@link Preferences} object. It is a synchronized
-         * method relative to {@link delete}.
+         * Deletes the preferences with a specified key from the {@link Preferences} object. It is a synchronized method.
          *
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
          * file.
@@ -318,7 +316,7 @@ declare namespace preferences {
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @since 9
          */
-        remove(key: string): void;
+        deleteSync(key: string): void;
 
         /**
          * Clears all preferences from the {@link Preferences} object.
@@ -341,15 +339,14 @@ declare namespace preferences {
         clear(): Promise<void>;
 
         /**
-         * Clears all preferences from the {@link Preferences} object. It is a synchronized method relative to
-         * {@link clear}.
+         * Clears all preferences from the {@link Preferences} object. It is a synchronized method.
          *
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
          *
          * @returns {Promise<void>} a promise object.
          * @since 9
          */
-        purge(): void;
+        clearSync(): void;
 
         /**
          * Asynchronously saves the {@link Preferences} object to the file.
