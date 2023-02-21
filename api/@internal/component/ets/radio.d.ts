@@ -47,6 +47,40 @@ declare interface RadioOptions {
 }
 
 /**
+ * Set radio Style.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface RadioStyle {
+  /**
+   * Set the background color when the radio box is checked.
+   * @type { ResourceColor } checkedBackgroundColor - the background color when the radio box is checked.
+   * @default #007DFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  checkedBackgroundColor?: ResourceColor;
+
+  /**
+   * Set the bolder color when the radio box is unchecked.
+   * @type { ResourceColor } uncheckedBorderColor - the bolder color when the radio box is unchecked.
+   * @default #182431
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  uncheckedBorderColor?: ResourceColor;
+ 
+  /**
+   * Set the indicator color when the radio box is checked.
+   * @type { ResourceColor } indicatorColor - the indicator color when the radio box is checked.
+   * @default #FFFFFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  indicatorColor?: ResourceColor;
+}
+
+/**
  * Provides an interface for creating a radio box.
  * @since 8
  */
@@ -97,6 +131,14 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @since 9
    */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
+
+  /**
+   * Set the radio style.
+   * @param { RadioStyle } value - the radio style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  radioStyle(value?: RadioStyle): RadioAttribute;
 }
 
 declare const Radio: RadioInterface;
