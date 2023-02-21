@@ -135,9 +135,9 @@ declare namespace preferences {
      */
     interface Preferences {
         /**
-         * Obtains the value of a preferences in the int format.
+         * Obtains the value of a preference.
          *
-         * <p>If the value is {@code null} or not in the int format, the default value is returned.
+         * <p>Returns the value matching the specified key if it is found; returns the default value otherwise.
          *
          * @param {string} key - Indicates the key of the preferences. It cannot be {@code null} or empty.
          * @param {ValueType} defValue - Indicates the default value to return.
@@ -149,9 +149,9 @@ declare namespace preferences {
         get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
 
         /**
-         * Obtains the value of a preferences in the int format.
+         * Obtains the value of a preference.
          *
-         * <p>If the value is {@code null} or not in the int format, the default value is returned.
+         * <p>Returns the value matching the specified key if it is found; returns the default value otherwise.
          *
          * @param {string} key - Indicates the key of the preferences. It cannot be {@code null} or empty.
          * @param {ValueType} defValue - Indicates the default value to return.
@@ -161,6 +161,17 @@ declare namespace preferences {
          * @since 9
          */
         get(key: string, defValue: ValueType): Promise<ValueType>;
+
+        /**
+         * Obtains the value of a preference. It is a synchronized method.
+         *
+         * <p>Returns the value matching the specified key if it is found; returns undefined otherwise.
+         *
+         * @param {string} key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @since 10
+         */
+        get(key: string): ValueType;
 
         /**
          * Obtains all the keys and values of a preferences in an object.
@@ -175,10 +186,18 @@ declare namespace preferences {
          * Obtains all the keys and values of a preferences in an object.
          *
          * @returns {Promise<Object>} the values and keys in an object.
-         * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @since 9
          */
         getAll(): Promise<Object>;
+
+        /**
+         * Obtains all the keys and values of a preferences in an object. It is a synchronized
+         * method relative to {@link getAll}.
+         *
+         * @returns {Object} the values and keys in an object.
+         * @since 10
+         */
+        getKeysAndValues(): Object;
 
         /**
          * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
@@ -201,6 +220,18 @@ declare namespace preferences {
          * @since 9
          */
         has(key: string): Promise<boolean>;
+
+        /**
+         * Checks whether the {@link Preferences} object contains a preferences matching a specified key. It is a
+         * synchronized method relative to {@link has}.
+         *
+         * @param {string} key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+         * @returns {boolean} {@code true} if the {@link Preferences} object contains
+         *         a preferences with the specified key; returns {@code false} otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @since 10
+         */
+        contains(key: string): boolean;
 
         /**
          * Sets an int value for the key in the {@link Preferences} object.
@@ -233,6 +264,20 @@ declare namespace preferences {
         put(key: string, value: ValueType): Promise<void>;
 
         /**
+         * Sets an int value for the key in the {@link Preferences} object. It is a synchronized method relative to {@link put}.
+         *
+         * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+         * file.
+         *
+         * @param {string} key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+         * @param {ValueType} value - Indicates the value of the preferences.
+         *        <tt>MAX_KEY_LENGTH</tt>.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @since 10
+         */
+        add(key: string, value: ValueType): void;
+
+        /**
          * Deletes the preferences with a specified key from the {@link Preferences} object.
          *
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
@@ -261,6 +306,20 @@ declare namespace preferences {
         delete(key: string): Promise<void>;
 
         /**
+         * Deletes the preferences with a specified key from the {@link Preferences} object. It is a synchronized
+         * method relative to {@link delete}.
+         *
+         * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+         * file.
+         *
+         * @param {string} key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
+         *        <tt>MAX_KEY_LENGTH</tt>.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @since 9
+         */
+        remove(key: string): void;
+
+        /**
          * Clears all preferences from the {@link Preferences} object.
          *
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
@@ -279,6 +338,16 @@ declare namespace preferences {
          * @since 9
          */
         clear(): Promise<void>;
+
+        /**
+         * Clears all preferences from the {@link Preferences} object. It is a synchronized method relative to {@link clear}.
+         *
+         * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
+         *
+         * @returns {Promise<void>} a promise object.
+         * @since 9
+         */
+        purge(): void;
 
         /**
          * Asynchronously saves the {@link Preferences} object to the file.
