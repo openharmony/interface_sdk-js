@@ -191,8 +191,8 @@ declare namespace preferences {
         getAll(): Promise<Object>;
 
         /**
-         * Obtains all the keys and values of a preferences in an object. It is a synchronized
-         * method relative to {@link getAll}.
+         * Obtains all the keys and values of a preferences in an object. It is a synchronized method relative
+         * to {@link getAll}.
          *
          * @returns {Object} the values and keys in an object.
          * @since 10
@@ -264,7 +264,8 @@ declare namespace preferences {
         put(key: string, value: ValueType): Promise<void>;
 
         /**
-         * Sets an int value for the key in the {@link Preferences} object. It is a synchronized method relative to {@link put}.
+         * Sets an int value for the key in the {@link Preferences} object. It is a synchronized method relative
+         * to {@link put}.
          *
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
          * file.
@@ -340,7 +341,8 @@ declare namespace preferences {
         clear(): Promise<void>;
 
         /**
-         * Clears all preferences from the {@link Preferences} object. It is a synchronized method relative to {@link clear}.
+         * Clears all preferences from the {@link Preferences} object. It is a synchronized method relative to
+         * {@link clear}.
          *
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
          *
