@@ -307,5 +307,24 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   style(value: ProgressStyleOptions): ProgressAttribute;
 }
 
+/**
+ * Defines Progress Component.
+ * @since 7
+ */
+/**
+ * Defines Progress Component.
+ * @form
+ * @since 9
+ */
 declare const Progress: ProgressInterface;
+
+/**
+ * Defines Progress Component instance.
+ * @since 7
+ */
+/**
+ * Defines Progress Component instance.
+ * @form
+ * @since 9
+ */
 declare const ProgressInstance: ProgressAttribute;

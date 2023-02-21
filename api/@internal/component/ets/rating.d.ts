@@ -90,5 +90,24 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   onChange(callback: (value: number) => void): RatingAttribute;
 }
 
+/**
+ * Defines Rating Component.
+ * @since 7
+ */
+/**
+ * Defines Rating Component.
+ * @form
+ * @since 9
+ */
 declare const Rating: RatingInterface;
+
+/**
+ * Defines Rating Component instance.
+ * @since 7
+ */
+/**
+ * Defines Rating Component instance.
+ * @form
+ * @since 9
+ */
 declare const RatingInstance: RatingAttribute;

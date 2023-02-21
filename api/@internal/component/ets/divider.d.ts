@@ -92,5 +92,24 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   lineCap(value: LineCapStyle): DividerAttribute;
 }
 
+/**
+ * Defines Divider Component.
+ * @since 7
+ */
+/**
+ * Defines Divider Component.
+ * @form
+ * @since 9
+ */
 declare const Divider: DividerInterface;
+
+/**
+ * Defines Divider Component instance.
+ * @since 7
+ */
+/**
+ * Defines Divider Component instance.
+ * @form
+ * @since 9
+ */
 declare const DividerInstance: DividerAttribute;

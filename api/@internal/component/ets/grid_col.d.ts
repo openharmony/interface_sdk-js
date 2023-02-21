@@ -127,5 +127,16 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
     order(value: number | GridColColumnOption): GridRowAttribute;
 }
 
+/**
+ * Defines GridCol Component.
+ * @form
+ * @since 9
+ */
 declare const GridCol: GridColInterface
+
+/**
+ * Defines GridCol Component instance.
+ * @form
+ * @since 9
+ */
 declare const GridColInstance: GridColAttribute;

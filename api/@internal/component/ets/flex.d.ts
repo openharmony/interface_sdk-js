@@ -112,5 +112,24 @@ interface FlexInterface {
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
 
+/**
+ * Defines Flex Component.
+ * @since 7
+ */
+/**
+ * Defines Flex Component.
+ * @form
+ * @since 9
+ */
 declare const Flex: FlexInterface;
+
+/**
+ * Defines Flex Component instance.
+ * @since 7
+ */
+/**
+ * Defines Flex Component instance.
+ * @form
+ * @since 9
+ */
 declare const FlexInstance: FlexAttribute;

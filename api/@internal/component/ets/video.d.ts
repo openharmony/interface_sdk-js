@@ -264,5 +264,14 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onError(event: () => void): VideoAttribute;
 }
 
+/**
+ * Defines Video Component.
+ * @since 7
+ */
 declare const Video: VideoInterface;
+
+/**
+ * Defines Video Component instance.
+ * @since 7
+ */
 declare const VideoInstance: VideoAttribute;

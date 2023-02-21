@@ -1979,5 +1979,24 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   onReady(event: () => void): CanvasAttribute;
 }
 
+/**
+ * Defines Canvas Component.
+ * @since 8
+ */
+/**
+ * Defines Canvas Component.
+ * @form
+ * @since 9
+ */
 declare const Canvas: CanvasInterface;
+
+/**
+ * Defines Canvas Component instance.
+ * @since 8
+ */
+/**
+ * Defines Canvas Component instance.
+ * @form
+ * @since 9
+ */
 declare const CanvasInstance: CanvasAttribute;
