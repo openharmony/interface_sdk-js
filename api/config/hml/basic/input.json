@@ -63,6 +63,18 @@
         },
         {
           "name": "password"
+        },
+        {
+          "name": "submit",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
+        },
+        {
+          "name": "reset",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ]
     },

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,11 +22,11 @@ import { AsyncCallback, Callback } from './basic';
  */
 declare namespace wifiManager {
     /**
-     * Enables Wi-Fi.
+     * Enable Wi-Fi.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @throws {BusinessError} 2501003 - Failed for wifi is closing.
@@ -37,11 +37,11 @@ declare namespace wifiManager {
     function enableWifi(): void;
 
     /**
-     * Disables Wi-Fi.
+     * Disable Wi-Fi.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @throws {BusinessError} 2501004 - Failed for wifi is opening.
@@ -52,7 +52,7 @@ declare namespace wifiManager {
     function disableWifi(): void;
 
     /**
-     * Queries the Wi-Fi status
+     * Query the Wi-Fi status
      *
      * @returns Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
      *
@@ -66,24 +66,21 @@ declare namespace wifiManager {
     function isWifiActive(): boolean;
 
     /**
-     * Scans Wi-Fi hotspot.
+     * Scan Wi-Fi hotspot.
      *
      * <p>This API works in asynchronous mode.</p>
-     *
-     * @returns Returns {@code true} if the scanning is successful, returns {@code false} otherwise.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
-     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      */
     function scan(): void;
 
     /**
-     * Obtains the hotspot information that scanned.
+     * Obtain the scanned sta list.
      *
      * @returns Returns information about scanned Wi-Fi hotspot if any.
      *
@@ -94,25 +91,10 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
      */
-    function getScanResults(): Promise<Array<WifiScanInfo>>;
-    function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
+    function getScanInfoList(): Array<WifiScanInfo>;
 
     /**
-     * Obtains the scanned results.
-     *
-     * @returns Returns information about scanned Wi-Fi hotspot if any.
-     *
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2501000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
-     */
-    function getScanResultsSync(): Array<WifiScanInfo>;
-
-    /**
-     * Adds Wi-Fi connection configuration to the device.
+     * Add Wi-Fi connection configuration to the device.
      *
      * <p>The configuration will be updated when the configuration is added.</p>
      *
@@ -121,7 +103,7 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -133,7 +115,7 @@ declare namespace wifiManager {
     function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
      /**
-     * Adds a specified candidate hotspot configuration and returns the networkId.
+     * Add a specified candidate hotspot configuration and returns the networkId.
      *
      * <p>This method adds one configuration at a time. After this configuration is added,
      *     your device will determine whether to connect to the hotspot.
@@ -153,11 +135,10 @@ declare namespace wifiManager {
      function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
      /**
-      * Removes a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
+      * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
       * to be removed.
       *
       * @param networkId - Network ID which will be removed.
-      * @throws {ErrorCode} when failed to remove the hotspot configuration.
       * @returns {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
       *
       * @since 9
@@ -172,11 +153,11 @@ declare namespace wifiManager {
      function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Obtains the list of all existing candidate Wi-Fi configurations which added by ourself.
+     * Obtain the list of all existed candidate Wi-Fi configurations which added by ourself.
      *
      * <p>You can obtain only the Wi-Fi configurations you created on your own application.
      *
-     * @returns Returns the list of all existing Wi-Fi configurations you created on your application.
+     * @returns Returns the list of all existed Wi-Fi configurations you created on your application.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -188,7 +169,7 @@ declare namespace wifiManager {
     function getCandidateConfigs(): Array<WifiDeviceConfig>;
 
     /**
-     * Connect to a specified candidate hotspot configuration, only the configuration which is added by ourself
+     * Connect to a specified candidate hotspot by networkId, only the configuration which is added by ourself
      * is allowed to be connected.
      *
      * <p>This method connect to a configuration at a time.
@@ -206,13 +187,13 @@ declare namespace wifiManager {
      function connectToCandidateConfig(networkId: number): void;
 
     /**
-     * Connects to Wi-Fi network.
+     * Connect to Wi-Fi hotspot by networkId.
      *
      * @param networkId ID of the connected network.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -224,13 +205,13 @@ declare namespace wifiManager {
     function connectToNetwork(networkId: number): void;
 
     /**
-     * Connects to Wi-Fi network.
+     * Connect to Wi-Fi hotspot by WifiDeviceConfig.
      *
-     * @param config Indicates the device configuration for connection to the Wi-Fi network.
+     * @param config Indicates the device configuration for connection to the Wi-Fi hotspot.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -243,11 +224,11 @@ declare namespace wifiManager {
     function connectToDevice(config: WifiDeviceConfig): void;
 
     /**
-     * Disconnect Wi-Fi network.
+     * Disconnect connection between sta and Wi-Fi hotspot.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -257,7 +238,7 @@ declare namespace wifiManager {
     function disconnect(): void;
 
     /**
-     * Calculates the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
+     * Calculate the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
      *
      * @param rssi Indicates the Wi-Fi RSSI.
      * @param band Indicates the Wi-Fi frequency band.
@@ -265,22 +246,20 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
-     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
     function getSignalLevel(rssi: number, band: number): number;
 
     /**
-     * Obtains information about a Wi-Fi connection.
+     * Obtain connection information about the Wi-Fi connection.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -291,12 +270,12 @@ declare namespace wifiManager {
     function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
     /**
-     * Checks whether a Wi-Fi connection has been set up.
+     * Check whether the Wi-Fi connection has been set up.
      *
      * @returns Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -305,14 +284,14 @@ declare namespace wifiManager {
     function isConnected(): boolean;
 
     /**
-     * Obtains the features supported by this device.
+     * Obtain the features supported by the device.
      *
      * <p>To check whether this device supports a specified feature.
      *
      * @returns Returns the features supported by this device.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2401000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.Core
@@ -322,7 +301,7 @@ declare namespace wifiManager {
     function getSupportedFeatures(): number;
 
     /**
-     * Checks whether this device supports a specified feature.
+     * Check whether the device supports a specified feature.
      *
      * @param featureId Indicates the ID of the feature.
      * @returns Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
@@ -337,16 +316,17 @@ declare namespace wifiManager {
     function isFeatureSupported(featureId: number): boolean;
 
     /**
-     * Obtains the MAC address of a Wi-Fi device. Wi-Fi must be enabled.
+     * Obtain the MAC address of a Wi-Fi device. Wi-Fi must be enabled.
      *
      * <p>The MAC address is unique and cannot be changed.
      *
      * @returns Returns the MAC address of the Wi-Fi device.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_LOCAL_MAC and ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
@@ -354,7 +334,7 @@ declare namespace wifiManager {
     function getDeviceMacAddress(): string[];
 
     /**
-     * Obtains the IP information of a Wi-Fi connection.
+     * Obtain the IP information of the Wi-Fi connection.
      *
      * <p>The IP information includes the host IP address, gateway address, and DNS information.
      *
@@ -369,7 +349,7 @@ declare namespace wifiManager {
     function getIpInfo(): IpInfo;
 
     /**
-     * Obtains the country code of this device.
+     * Obtain the country code of the device.
      *
      * @returns Returns the country code of this device.
      * @since 9
@@ -386,7 +366,7 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -397,11 +377,11 @@ declare namespace wifiManager {
     function reassociate(): void;
 
     /**
-     * Re-connects to current network.
+     * Re-connect to current network.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -412,14 +392,12 @@ declare namespace wifiManager {
     function reconnect(): void;
 
     /**
-     * Obtains the list of all existing Wi-Fi configurations.
-     *
-     * <p>You can obtain only the Wi-Fi configurations you created on your own application.
+     * Obtain the list of all existed Wi-Fi configurations.
      *
      * @returns Returns the list of all existing Wi-Fi configurations you created on your application.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -429,7 +407,7 @@ declare namespace wifiManager {
     function getDeviceConfigs(): Array<WifiDeviceConfig>;
 
     /**
-     * Updates the specified Wi-Fi configuration.
+     * Update the specified Wi-Fi configuration.
      *
      * @param config Indicates the Wi-Fi configuration to update.
      *
@@ -437,7 +415,7 @@ declare namespace wifiManager {
      *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -445,17 +423,17 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
-    function updateNetwork(config: WifiDeviceConfig): number;
+    function updateDeviceConfig(config: WifiDeviceConfig): number;
 
     /**
-     * Disables a specified network.
+     * Disable the specified DeviceConfig by networkId.
      *
-     * <p>The disabled network will not be associated with again.
+     * <p>The disabled DeviceConfig will not be associated with again.
      *
-     * @param netId Identifies the network to disable.
+     * @param networkId Identifies the network to disable.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -463,34 +441,34 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function disableNetwork(netId: number): void;
+    function disableDeviceConfig(networkId: number): void;
 
     /**
-     * Removes all the saved Wi-Fi configurations.
+     * Remove all the saved Wi-Fi configurations.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function removeAllNetwork(): void;
+    function removeAllDeviceConfigs(): void;
 
     /**
-     * Deletes a Wi-Fi network with a specified ID.
+     * Remove a Wi-Fi DeviceConfig with networkId.
      *
-     * <p>After a Wi-Fi network is deleted, its configuration will be deleted from the list of Wi-Fi configurations.
-     * If the Wi-Fi network is being connected, the connection will be interrupted.
-     * The application can only delete Wi-Fi networks it has created.
+     * <p>After a Wi-Fi DeviceConfig is removed, its configuration will be deleted from the list of Wi-Fi configurations.
+     * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
+     * The application can only delete Wi-Fi DeviceConfig it has created.
      *
-     * @param id Indicates the ID of the Wi-Fi network,
+     * @param networkId indicate the ID of the Wi-Fi DeviceConfig,
      *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -498,16 +476,16 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function removeDevice(id: number): void;
+    function removeDeviceConfig(networkId: number): void;
 
     /**
-     * Enables a Wi-Fi hotspot.
+     * Enable Wi-Fi hotspot function.
      *
      * <p>This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -517,14 +495,14 @@ declare namespace wifiManager {
     function enableHotspot(): void;
 
     /**
-     * Disables a Wi-Fi hotspot.
+     * Disable Wi-Fi hotspot function.
      *
      * <p>This method is asynchronous. If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
      *
      * @returns Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -534,12 +512,12 @@ declare namespace wifiManager {
     function disableHotspot(): void;
 
     /**
-     * Checks whether a device serving as a Wi-Fi hotspot supports both the 2.4 GHz and 5 GHz Wi-Fi.
+     * Check whether a device serving as a Wi-Fi hotspot supports both the 2.4 GHz and 5 GHz Wi-Fi.
      *
      * @returns Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -549,12 +527,12 @@ declare namespace wifiManager {
      function isHotspotDualBandSupported(): boolean;
 
     /**
-     * Checks whether Wi-Fi hotspot is active on a device.
+     * Check whether Wi-Fi hotspot is active on a device.
      *
      * @returns Returns {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -564,9 +542,7 @@ declare namespace wifiManager {
     function isHotspotActive(): boolean;
 
     /**
-     * Sets the hotspot for a device.
-     *
-     * <p>Only OPEN and WPA2 PSK hotspot can be configured.
+     * Set the hotspot configuration for the device.
      *
      * @param config Indicates the Wi-Fi hotspot configuration.
      *     The SSID and {@code securityType} must be available and correct.
@@ -574,7 +550,7 @@ declare namespace wifiManager {
      * @returns Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
@@ -585,12 +561,12 @@ declare namespace wifiManager {
     function setHotspotConfig(config: HotspotConfig): void;
 
     /**
-     * Obtains the Wi-Fi hotspot configuration.
+     * Obtain the Wi-Fi hotspot configuration.
      *
-     * @returns Returns the configuration of an existing or enabled Wi-Fi hotspot.
+     * @returns Returns the configuration of an existed or enabled Wi-Fi hotspot.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -600,24 +576,24 @@ declare namespace wifiManager {
     function getHotspotConfig(): HotspotConfig;
 
     /**
-     * Obtains the list of clients that are connected to a Wi-Fi hotspot.
+     * Obtain the list of stations that are connected to the Wi-Fi hotspot.
      *
      * <p>This method can only be used on a device that serves as a Wi-Fi hotspot.
      *
      * @returns Returns the list of clients that are connected to the Wi-Fi hotspot.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
-    function getStations(): Array<StationInfo>;
+    function getHotspotStations(): Array<StationInfo>;
 
     /**
-     * Obtains information about a P2P connection.
+     * Obtain information about the P2P connection.
      *
      * @returns Returns the P2P connection information.
      * @since 9
@@ -631,7 +607,7 @@ declare namespace wifiManager {
     function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
 
     /**
-     * Obtains information about the current group.
+     * Obtain information about the current p2p group.
      *
      * @returns Returns the current group information.
      * @since 9
@@ -641,11 +617,11 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      */
-    function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
-    function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
+    function getCurrentP2pGroup(): Promise<WifiP2pGroupInfo>;
+    function getCurrentP2pGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
     /**
-     * Obtains the information about the found devices.
+     * Obtain the information about the found devices.
      *
      * @returns Returns the found devices list.
      * @since 9
@@ -659,10 +635,10 @@ declare namespace wifiManager {
     function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
     /**
-     * Obtains the information about own device info. 
+     * Obtain the information about own device information. 
      *
      * <p> deviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
-	 * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+     * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
      *
      * @returns Returns the information about own device info.
      * @since 9
@@ -676,9 +652,9 @@ declare namespace wifiManager {
     function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 
     /**
-     * Creates a P2P group.
+     * Create a P2P group.
      *
-     * @param config Indicates the configuration for creating a group.
+     * @param config Indicates the configuration for a group.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
@@ -687,10 +663,10 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function createGroup(config: WifiP2PConfig): void;
+    function createP2pGroup(config: WifiP2PConfig): void;
 
     /**
-     * Removes a P2P group.
+     * Remove a P2P group.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -699,10 +675,10 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function removeGroup(): void;
+    function removeP2pGroup(): void;
 
     /**
-     * Initiates a P2P connection to a device with the specified configuration.
+     * Initiate a P2P connection to a device with the specified configuration.
      *
      * @param config Indicates the configuration for connecting to a specific group.
      * @since 9
@@ -716,7 +692,7 @@ declare namespace wifiManager {
     function p2pConnect(config: WifiP2PConfig): void;
 
     /**
-     * Disconnect a P2P connection.
+     * Stop an ongoing p2p connection that is being established.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -728,7 +704,7 @@ declare namespace wifiManager {
     function p2pCancelConnect(): void;
 
     /**
-     * Discover Wi-Fi P2P devices.
+     * Start discover Wi-Fi P2P devices.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -737,10 +713,10 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      */
-    function startDiscoverDevices(): void;
+    function startDiscoverP2pDevices(): void;
 
     /**
-     * Stops discovering Wi-Fi P2P devices.
+     * Stop discover Wi-Fi P2P devices.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -749,15 +725,15 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function stopDiscoverDevices(): void;
+    function stopDiscoverP2pDevices(): void;
 
     /**
-     * Deletes the persistent P2P group with the specified network ID.
+     * Delete the persistent P2P group with the specified network ID.
      *
      * @param netId Indicates the network ID of the group to be deleted.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
@@ -765,15 +741,15 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function deletePersistentGroup(netId: number): void;
+    function deletePersistentP2pGroup(netId: number): void;
 
     /**
-     * Obtains information about the groups.
+     * Obtain information about the groups.
      *
      * @returns Returns the groups information.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
@@ -784,12 +760,12 @@ declare namespace wifiManager {
     function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
     /**
-     * Sets the name of the Wi-Fi P2P device.
+     * Set the name of the Wi-Fi P2P device.
      *
-     * @param devName Indicates the name to be set.
+     * @param devName Indicate the name to be set.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
@@ -797,12 +773,12 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function setDeviceName(devName: string): void;
+    function setP2pDeviceName(devName: string): void;
 
     /**
      * Subscribe Wi-Fi status change events.
      *
-     * @returns Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
@@ -921,7 +897,7 @@ declare namespace wifiManager {
      * @returns Returns 0: stream none, 1: stream down, 2: stream up, 3: stream bidirectional
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -938,7 +914,7 @@ declare namespace wifiManager {
       *
       * @since 9
       * @throws {BusinessError} 201 - Permission denied.
-      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+      * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
       * @throws {BusinessError} 401 - Invalid parameters.
       * @throws {BusinessError} 801 - Capability not supported.
       * @throws {BusinessError} 2501000 - Operation failed.
@@ -954,7 +930,7 @@ declare namespace wifiManager {
      * @returns Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -970,7 +946,7 @@ declare namespace wifiManager {
      * @returns Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
@@ -983,10 +959,10 @@ declare namespace wifiManager {
     /**
      * Subscribe Wi-Fi hotspot state change events.
      *
-     * @returns Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
@@ -1002,7 +978,7 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
@@ -1017,7 +993,7 @@ declare namespace wifiManager {
      * @returns Returns StationInfo
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
@@ -1034,7 +1010,7 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
@@ -1050,7 +1026,7 @@ declare namespace wifiManager {
      * @returns Returns {@link #StationInfo} object
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
@@ -1066,7 +1042,7 @@ declare namespace wifiManager {
      * @returns Returns {@link #StationInfo} object
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
@@ -1188,7 +1164,6 @@ declare namespace wifiManager {
     /**
      * Subscribe P2P persistent group change events.
      *
-     * @returns Returns void
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
@@ -1308,6 +1283,12 @@ declare namespace wifiManager {
         /** Client certificate alias */
         clientCertAliases: string;
 
+        /** content of user's certificate */
+        certEntry: Uint8Array;
+
+        /** Password of user's certificate */
+        certPassword: string;
+
         /** Alternate subject match */
         altSubjectMatch: string;
 
@@ -1335,50 +1316,50 @@ declare namespace wifiManager {
         ssid: string;
 
         /** Wi-Fi bssid(MAC): the length is 6 */
-        bssid: string;
+        bssid?: string;
 
         /** Wi-Fi key: maximum length is 64 */
         preSharedKey: string;
 
         /** Hide SSID or not, false(default): not hide */
-        isHiddenSsid: boolean;
+        isHiddenSsid?: boolean;
 
         /** Security type: reference definition of WifiSecurityType */
         securityType: WifiSecurityType;
 
         /** The UID of the Wi-Fi configuration creator */
         /* @systemapi */
-        creatorUid: number;
+        creatorUid?: number;
 
         /** Disable reason */
         /* @systemapi */
-        disableReason: number;
+        disableReason?: number;
 
         /** Allocated networkId */
         /* @systemapi */
-        netId: number;
+        netId?: number;
 
         /** Random mac type */
         /* @systemapi */
-        randomMacType: number;
+        randomMacType?: number;
 
         /** Random mac address, the length is 6 */
         /* @systemapi */
-        randomMacAddr: string;
+        randomMacAddr?: string;
 
         /** IP Type */
         /* @systemapi */
-        ipType: IpType;
+        ipType?: IpType;
 
         /** IP config of static */
         /* @systemapi */
-        staticIp: IpConfig;
+        staticIp?: IpConfig;
 
         /**
          * EAP config info.
          * @systemapi
          */
-        eapConfig: WifiEapConfig;
+        eapConfig?: WifiEapConfig;
     }
 
     /**

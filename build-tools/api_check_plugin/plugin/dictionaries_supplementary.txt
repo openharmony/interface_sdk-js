@@ -18,6 +18,7 @@ alerting
 algrithom
 aligns
 alpha
+alpnprotocols
 alterase
 alternating
 altitudes
@@ -129,6 +130,7 @@ cyclewindows
 daltonization
 darkest
 dataability
+dataresubmissionhandler
 datashare
 datasync
 dbm
@@ -233,6 +235,7 @@ fulfills
 gamepad
 gba
 geofence
+getunfilteredlinkurl
 glasses
 gnss
 graphicseditor
@@ -298,6 +301,7 @@ ineffective
 injects
 ino
 inputer
+inputers
 inputevent
 inputmethod
 inputmethodengine
@@ -422,11 +426,14 @@ ofb
 offhook
 offscreen
 oncancel
+ondataresubmission
+ondataresubmitted
 onexit
 onfinish
 onframe
 onmessageerror
 onrepeat
+oobinline
 oper
 operated
 operatorconfigs
@@ -476,9 +483,11 @@ pooled
 ppid
 pread
 precisiontype
+precomposed
 precon
 preempted
 preferentially
+preloads
 premises
 premultiplied
 premultiply
@@ -525,6 +534,8 @@ resmgr
 resourceschedule
 restores
 restricts
+resubmission
+resubmitted
 resultsets
 resumed
 retried
@@ -547,6 +558,7 @@ ruim
 rwt
 s5
 sac
+sae
 sak
 satellites
 scdma
@@ -606,12 +618,12 @@ subassembies
 subcomponents
 subnode
 subpixel
-suscriber
 subscrbers
 subscribale
 subscribes
 subtypes
 superimposed
+suscriber
 suscribes
 suspends
 switchvideomode
@@ -632,6 +644,7 @@ talkback
 taskmanager
 taskpool
 tbla
+tcpnodelay
 tdscdma
 telecom
 tethering
@@ -641,6 +654,8 @@ textclock
 texttimer
 thirdparty
 timeinterfaceimpl
+tlsv12
+tlsv13
 tnf
 totalsize
 touchpad
@@ -675,6 +690,7 @@ unconditional
 unduck
 unducked
 unequal
+unfiltered
 unfocused
 unhold
 unicom

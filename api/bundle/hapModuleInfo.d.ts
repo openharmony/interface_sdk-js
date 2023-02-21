@@ -16,7 +16,7 @@
 import { AbilityInfo } from "./abilityInfo";
 
 /**
- * @name Obtains configuration information about an module.
+ * @name Obtains configuration information about a module.
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @deprecated since 9

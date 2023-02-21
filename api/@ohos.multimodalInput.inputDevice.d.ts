@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+* Copyright (c) 2021-2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -25,18 +25,21 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 declare namespace inputDevice {
   /**
    * @since 9
+   * Add or remove device
    */
   type ChangedType = 'add' | 'remove';
 
   /**
    * @since 9
+   * The type of input device
    */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
    * @since 9
+   * Axis Type of the input event
    */
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'toolMajor' | 'NULL';
+  type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null';
 
   /**
    * @since 9

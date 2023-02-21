@@ -275,12 +275,6 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_DATA_CLEARED = "usual.event.PACKAGE_DATA_CLEARED",
 
     /**
-     * This commonEvent means the user has cleared the package cache.
-     * @since 9
-     */
-     COMMON_EVENT_PACKAGE_CACHE_CLEARED = "usual.event.PACKAGE_CACHE_CLEARED",
-
-    /**
      * This commonEvent means the packages have been suspended.
      */
     COMMON_EVENT_PACKAGES_SUSPENDED = "usual.event.PACKAGES_SUSPENDED",
@@ -857,20 +851,6 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_ACTIVE = "common.event.IVI_ACTIVE",
 
     /**
-     * @since 9
-     * The usb state change events.
-     * This is a protected common event that can only be sent by system.
-     */
-    COMMON_EVENT_USB_STATE = "usual.event.hardware.usb.action.USB_STATE",
-
-    /**
-     * @since 9
-     * The usb port changed.
-     * This is a protected common event that can only be sent by system.
-     */
-    COMMON_EVENT_USB_PORT_CHANGED = "usual.event.hardware.usb.action.USB_PORT_CHANGED",
-
-    /**
      * The usb device attached.
      * This is a protected common event that can only be sent by system.
      */
@@ -935,41 +915,6 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_EJECT = "usual.event.data.DISK_EJECT",
 
     /**
-     * The external storage was removed.
-     * This is a protected common event that can only be sent by system.
-     * @since 9
-     */
-    COMMON_EVENT_VOLUME_REMOVED = "usual.event.data.VOLUME_REMOVED",
-
-    /**
-     * The external storage was unmounted.
-     * This is a protected common event that can only be sent by system.
-     * @since 9
-     */
-    COMMON_EVENT_VOLUME_UNMOUNTED = "usual.event.data.VOLUME_UNMOUNTED",
-
-    /**
-     * The external storage was mounted.
-     * This is a protected common event that can only be sent by system.
-     * @since 9
-     */
-    COMMON_EVENT_VOLUME_MOUNTED = "usual.event.data.VOLUME_MOUNTED",
-
-    /**
-     * The external storage was bad removal.
-     * This is a protected common event that can only be sent by system.
-     * @since 9
-     */
-    COMMON_EVENT_VOLUME_BAD_REMOVAL = "usual.event.data.VOLUME_BAD_REMOVAL",
-
-    /**
-     * The external storage was eject.
-     * This is a protected common event that can only be sent by system.
-     * @since 9
-     */
-    COMMON_EVENT_VOLUME_EJECT = "usual.event.data.VOLUME_EJECT",
-
-    /**
      * The visible of account was updated.
      * This is a protected common event that can only be sent by system.
      */
@@ -999,27 +944,6 @@ declare namespace commonEvent {
      * @since 8
      */
     COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN",
-
-    /**
-     * The notification slot has been updated.
-     * This is a protected common event that can only be sent by system.
-     * @since 9
-     */
-     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE",
-
-    /**
-     * Indicate the action of a common event that the spn display information has been updated.
-     * This common event can be triggered only by system.
-     * @since 9
-     */
-    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED",
-
-    /**
-     * Indicate the result of quick fix apply.
-     * This common event can be triggered only by system.
-     * @since 9
-     */
-    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
   }
 }
 

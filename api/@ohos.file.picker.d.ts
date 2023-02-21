@@ -38,7 +38,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface PhotoSelectOptions {
+    class PhotoSelectOptions {
         /**
          * The Type of the file in the picker window.
          * @type {PhotoViewMIMETypes}
@@ -59,7 +59,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface PhotoSelectResult {
+    class PhotoSelectResult {
         /**
          * The uris for the selected files.
          * @type {Array<string>}
@@ -80,7 +80,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-     interface PhotoSaveOptions {
+    class PhotoSaveOptions {
         /**
          * The names of the files to be saved.
          * @type {Array<string>}
@@ -94,7 +94,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface PhotoViewPicker {
+    class PhotoViewPicker {
         /**
          * Pull up the photo picker based on the selection mode.
          *
@@ -125,7 +125,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface DocumentSelectOptions {
+    class DocumentSelectOptions {
     }
 
     /**
@@ -133,7 +133,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface DocumentSaveOptions {
+    class DocumentSaveOptions {
         /**
          * The names of the files to be saved.
          * Currently, only single file is supported.
@@ -148,7 +148,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */    
-    interface DocumentViewPicker {
+    class DocumentViewPicker {
         /**
          * Pull up the document picker based on the selection mode.
          * Currently, only single file is supported.
@@ -181,7 +181,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface AudioSelectOptions {
+    class AudioSelectOptions {
     }
 
     /**
@@ -189,7 +189,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface AudioSaveOptions {
+    class AudioSaveOptions {
         /**
          * The names of the files to be saved.
          * Currently, only single file is supported.
@@ -204,7 +204,7 @@ declare namespace picker {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */ 
-    interface AudioViewPicker {
+    class AudioViewPicker {
         /**
          * Pull up the audio picker based on the selection mode.
          * Currently, only single file is supported.
@@ -232,3 +232,5 @@ declare namespace picker {
         save(callback: AsyncCallback<Array<string>>) : void;
     }
 }
+
+export default picker;

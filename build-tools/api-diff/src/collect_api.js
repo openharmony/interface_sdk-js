@@ -147,18 +147,18 @@ function deleteRepeatApi(oldApis, newApis, newFilesApi, oldFilesApi) {
 function collectSameTypeFun(apiArr) {
 	apiArr.forEach(api => {
 		let sameNameFun = '';
-		let otherTypeMethodText = ''
+		let number = 0
 		apiArr.forEach(newApi => {
-			if (api.dtsPath.replace(newDir,'') === newApi.dtsPath.replace(newDir,'') && api.className === newApi.className &&
+			if (api.dtsPath.replace(newDir, '') === newApi.dtsPath.replace(newDir, '') && api.className === newApi.className &&
 				api.methodName === newApi.methodName && api.apiType == 'Method' && api.funType === newApi.funType) {
 				if (sameNameFun.indexOf(newApi.methodText) < 0 && api.funType === 'callback') {
 					sameNameFun += `\n${newApi.methodText}`;
 					api.callbackMethodText = sameNameFun;
 				} else if (api.funType === 'Promise') {
 					api.promiseMethodText = api.methodText;
-				}else if (api.funType !== 'Promise' && api.funType !== 'callback') {
-					otherTypeMethodText += `\n${newApi.methodText}`;
-					api.otherTypeMethodText = otherTypeMethodText;
+				} else if (!api.funType) {
+					number++;
+					api.note = number;
 				}
 			}
 		})
@@ -232,15 +232,15 @@ function collectDeprecatedDiff(newDeprecated, oldDeprecated, startDiffNew, start
 }
 
 function getDiffApisBaseNew(newDiffApis, oldDiffApis, diffApis, subsystemMap, fileNameMap) {
-	const notes = ''
+	const notes = '';
+	const diffMethodTextSet = new Set();
 	newDiffApis.forEach(newApi => {
-		let flag = ''
 		let diffOld = 'NA';
 		let diffNew = 'NA';
 		const tmpApis = [];
-		const diffMethodTextSet = new Set();
+
 		oldDiffApis.forEach(oldApi => {
-			if (newApi.dtsPath.replace(newDir,'') === oldApi.dtsPath.replace(oldDir,'')) {
+			if (newApi.dtsPath.replace(newDir, '') === oldApi.dtsPath.replace(oldDir, '')) {
 				tmpApis.push(oldApi);
 			}
 		})
@@ -254,9 +254,8 @@ function getDiffApisBaseNew(newDiffApis, oldDiffApis, diffApis, subsystemMap, fi
 			} else {
 				let oldSameClassApis = handleApiByClassName(tmpApis, newApi, newDiffApis).oldSameClassApi;
 				let oldMethodTexts = handleApiByClassName(tmpApis, newApi, newDiffApis).oldMethodTexts;
-				let newSameClassApis = handleApiByClassName(tmpApis, newApi, newDiffApis).newSameClassApi;
-				getNewAddApi(oldMethodTexts, newSameClassApis, diffApis, subsystemMap, fileNameMap);
-				collectSameClassDiff(oldSameClassApis, newApi, diffNew, diffOld, diffApis, subsystemMap, fileNameMap, diffMethodTextSet);				
+				collectSameClassDiff(oldSameClassApis, newApi, diffNew, diffOld, diffApis, subsystemMap, fileNameMap, diffMethodTextSet);
+				getNewAddApi(oldMethodTexts, diffApis, subsystemMap, fileNameMap, diffMethodTextSet, newApi);
 			}
 		}
 	})
@@ -276,23 +275,22 @@ function collectSameClassDiff(oldSameClassApis, newApi, diffNew, diffOld, diffAp
 	} else {
 		oldSameClassApis.forEach(oldApi => {
 			if (newApi.methodName === oldApi.methodName && newApi.apiType.toString() === oldApi.apiType.toString()) {
-				collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, diffMethodTextSet);				
+				collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, diffMethodTextSet);
 			}
 		})
 
 	}
 }
-function getNewAddApi(oldMethodTexts, newSameClassApis, diffApis, subsystemMap, fileNameMap) {
-	newSameClassApis.forEach(sameClassApi => {
-		if (!oldMethodTexts.has(sameClassApi.methodText.replace(/\r|\n|\s+|\,|\;/g, ''))) {
-			const notes = '';
-			const flag = '新增';
-			const diffNew = '类名：' + sameClassApi.className + '\n方法or属性：' + sameClassApi.methodText;
-			const diffOld = 'NA';
-			let sysCapInfo = getSubsystemBySyscap(sameClassApi, sameClassApi.sysCap);
-			diffApis.push(getApiInfoWithFlag(sameClassApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap))
-		}
-	})
+function getNewAddApi(oldMethodTexts, diffApis, subsystemMap, fileNameMap, diffMethodTextSet, newApi) {
+	if (!oldMethodTexts.has(newApi.methodText.replace(/\r|\n|\s+|\,|\;/g, '')) &&
+		!diffMethodTextSet.has(newApi.methodText)) {
+		const notes = '';
+		const flag = '新增';
+		const diffNew = '类名：' + newApi.className + '\n方法or属性：' + newApi.methodText;
+		const diffOld = 'NA';
+		let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
+		diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap))
+	}
 }
 function collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, diffMethodTextSet) {
 	let startDiffOld = ''
@@ -314,7 +312,7 @@ function collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, 
 		collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffApis, newApi.promiseMethodText,
 			oldApi.promiseMethodText, subsystemMap, fileNameMap);
 	}
-	if (!newApi.funType && !oldApi.funType && newApi.methodText !== oldApi.methodText) {
+	if (!newApi.funType && !oldApi.funType && newApi.methodText !== oldApi.methodText && newApi.note < 2) {
 		diffMethodTextSet.add(newApi.methodText);
 		collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffApis, newApi.methodText,
 			oldApi.methodText, subsystemMap, fileNameMap);
@@ -404,7 +402,7 @@ function collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, d
 	} else if (newApi.methodName === '') {
 		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className
 	} else {
-		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className;+ '\n方法 or 属性: ' + newApi.methodText;
+		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className; + '\n方法 or 属性: ' + newApi.methodText;
 	}
 	let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
 	diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
@@ -460,7 +458,7 @@ function handleApiByClassName(tmpApis, newApi, newDiffApis) {
 			newSameClassApi.push(apiText);
 		}
 	})
-	return { oldSameClassApi, oldMethodTexts, newMethodTexts, newSameClassApi };
+	return { oldSameClassApi, oldMethodTexts, newMethodTexts };
 }
 
 function collectVersionDiff(newVersion, oldVersion, startDiffNew, startDiffOld, diffApis,
@@ -567,7 +565,7 @@ function getDiffApisBaseOld(newDiffApis, oldDiffApis, diffApis, subsystemMap, fi
 		let diffNew = 'NA';
 		const tmpApis = [];
 		newDiffApis.forEach(newApi => {
-			if (oldApi.dtsPath.replace(oldDir,'') === newApi.dtsPath.replace(newDir,'')) {
+			if (oldApi.dtsPath.replace(oldDir, '') === newApi.dtsPath.replace(newDir, '')) {
 				tmpApis.push(newApi);
 			}
 		})
@@ -700,7 +698,7 @@ async function exportDiffApiInfo(exportType, compileApiInfos, exportFileName) {
 }
 
 function exportDiffMd(subsystem, diffInfos) {
-	let finalContent = `| 操作 | 新版本 | 旧版本 | d.ts文件 |
+	let finalContent = `| 操作 | 旧版本 | 新版本 | d.ts文件 |
 | ---- | ------ | ------ | -------- |\n`
 	for (let i = 0; i < diffInfos.length; i++) {
 		let apiData = diffInfos[i];
@@ -722,7 +720,7 @@ function diffBySbusystem(compileApiInfos) {
 	let filePath = __dirname.replace('\\src', '') + '\\subsystem.json';
 	let subsystemArr = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 	let flagArr = ['新增', '删除', 'model有变化', '访问级别有变化', '废弃版本有变化', '起始版本有变化', '权限有变化',
-		'删除(权限)', '新增(错误码)', '新增(权限)', '错误码有变化', '访问级别有变化', '函数有变化'];
+		'删除(权限)', '新增(错误码)', '新增(权限)', '错误码有变化', 'SysCap有变化', '函数有变化'];
 	subsystemArr.forEach(subsystem => {
 		let diffInfos = [];
 		compileApiInfos.forEach(api => {
@@ -821,4 +819,3 @@ const urlObject = fs.readFileSync(__dirname.replace('\\src', '') + '\\url.json',
 const oldDir = JSON.parse(urlObject).oldDir;
 const newDir = JSON.parse(urlObject).newDir;
 unCompressAllZipFilesAndCompile(newDir, oldDir)
-

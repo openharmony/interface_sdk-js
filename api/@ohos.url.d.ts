@@ -344,7 +344,7 @@ declare namespace url {
          * base: Base URL to parse if input is not absolute.
          * @since 7
          * @deprecated since 9
-         * @useinstead ohos.URL.constructor
+         * @useinstead ohos.url.URL.parseURL
          */
         constructor(url: string, base?: string | URL);
 
@@ -355,7 +355,7 @@ declare namespace url {
         constructor();
 
         /**
-         * Check the validity of parameters
+         * Replaces the original constructor to process arguments and return a url object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param url Absolute or relative input URL to resolve. Base is required if input is relative.
