@@ -374,6 +374,8 @@ lux
 mah
 mcc
 md5
+mdns
+mdns_err
 mediaquery
 meid
 messageerror
