@@ -528,41 +528,6 @@ declare namespace huks {
         HUKS_ERROR_UPDATE_ROOT_KEY_MATERIAL_FAIL = -37,
         HUKS_ERROR_VERIFICATION_FAILED = -38,
 
-        /**
-         * @name HUKS_ERROR_GET_USERIAM_SECINFO_FAILED
-         * @since 9
-         * @syscap SystemCapability.Security.Huks
-         */
-        HUKS_ERROR_GET_USERIAM_SECINFO_FAILED = -40,
-
-        /**
-         * @name HUKS_ERROR_GET_USERIAM_AUTHINFO_FAILED
-         * @since 9
-         * @syscap SystemCapability.Security.Huks
-         */
-        HUKS_ERROR_GET_USERIAM_AUTHINFO_FAILED = -41,
-
-        /**
-         * @name HUKS_ERROR_USER_AUTH_TYPE_NOT_SUPPORT
-         * @since 9
-         * @syscap SystemCapability.Security.Huks
-         */
-        HUKS_ERROR_USER_AUTH_TYPE_NOT_SUPPORT = -42,
-
-        /**
-         * @name HUKS_ERROR_KEY_AUTH_FAILED
-         * @since 9
-         * @syscap SystemCapability.Security.Huks
-         */
-        HUKS_ERROR_KEY_AUTH_FAILED = -43,
-
-        /**
-         * @name HUKS_ERROR_DEVICE_NO_CREDENTIAL
-         * @since 9
-         * @syscap SystemCapability.Security.Huks
-         */
-        HUKS_ERROR_DEVICE_NO_CREDENTIAL = -44,
-
         HUKS_ERROR_CHECK_GET_ALG_FAIL = -100,
         HUKS_ERROR_CHECK_GET_KEY_SIZE_FAIL = -101,
         HUKS_ERROR_CHECK_GET_PADDING_FAIL = -102,
@@ -589,18 +554,6 @@ declare namespace huks {
         HUKS_ERROR_INVALID_SALT = -123,
         HUKS_ERROR_INVALID_ITERATION = -124,
         HUKS_ERROR_INVALID_OPERATION = -125,
-        /**
-         * @name HUKS_ERROR_INVALID_WRAPPED_FORMAT
-         * @since 9
-         * @syscap SystemCapability.Security.Huks
-         */
-        HUKS_ERROR_INVALID_WRAPPED_FORMAT = -126,
-        /**
-         * @name HUKS_ERROR_INVALID_USAGE_OF_KEY
-         * @since 9
-         * @syscap SystemCapability.Security.Huks
-         */
-        HUKS_ERROR_INVALID_USAGE_OF_KEY = -127,
 
         HUKS_ERROR_INTERNAL_ERROR = -999,
         HUKS_ERROR_UNKNOWN_ERROR = -1000,
