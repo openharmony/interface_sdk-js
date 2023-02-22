@@ -975,7 +975,7 @@ declare class On {
    * @param {string} bundleName The bundleName of the specified window.
    * @returns {On} this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
-   * @since 9
+   * @since 10
    * @test
    */
   window(bundleName: string): On;
