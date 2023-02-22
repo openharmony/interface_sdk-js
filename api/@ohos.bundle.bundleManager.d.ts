@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,12 +16,12 @@
 import { AsyncCallback } from './basic';
 import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
-import { HapModuleInfo as _HapModuleInfo } from './bundleManager/HapModuleInfo';
 import { PermissionDef as _PermissionDef } from  './bundleManager/PermissionDef';
 import { ElementName as _ElementName }  from './bundleManager/ElementName';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
 import * as _BundleInfo from './bundleManager/BundleInfo';
+import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
 import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
 /**
@@ -542,6 +542,75 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
      * @since 9
      */
     LOCKED,
+  }
+
+  /**
+   * Indicates module type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum ModuleType {
+    /**
+     * Indicates entry type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    ENTRY = 1,
+    /**
+     * Indicates feature type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FEATURE = 2,
+    /**
+     * Indicates shared type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SHARED = 3,
+  }
+
+  /**
+   * Indicates bundle type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum BundleType {
+    /**
+    * Indicates app
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    APP = 0,
+    /*
+    * Indicates atomic service
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    ATOMIC_SERVICE = 1,
+  }
+
+  /**
+   * Indicates the atomic module type when atomicService is split.
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum AtomicServiceModuleType {
+    /**
+    * Indicates the module is home in atomic service.
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    NORMAL = 0,
+    /*
+    * Indicates the module is normal in atomic service.
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    MAIN = 1,
   }
 
   /**
@@ -1255,11 +1324,25 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
   export type SignatureInfo = _BundleInfo.SignatureInfo;
 
   /**
-   * Obtains configuration information about an module.
+   * Obtains configuration information about a module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  export type HapModuleInfo = _HapModuleInfo;
+  export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
+
+  /**
+   * Obtains preload information about a module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type PreloadItem = _HapModuleInfo.PreloadItem;
+
+  /**
+   * Obtains dependency information about a module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type Dependency = _HapModuleInfo.Dependency;
 
   /**
    * Obtains configuration information about an ability.

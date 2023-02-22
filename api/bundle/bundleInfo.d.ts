@@ -195,7 +195,7 @@ export interface BundleInfo {
   readonly isCompressNativeLibs: boolean;
 
   /**
-    * @default Obtains configuration information about an module
+    * @default Obtains configuration information about a module
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
