@@ -779,7 +779,7 @@ declare enum Direction {
  * @syscap SystemCapability.Test.UiTest
  * @since 10
  */
-declare enum MouseButtonId {
+declare enum MouseButton {
   /**
    * Left button of the mouse.
    * @syscap SystemCapability.Test.UiTest
@@ -970,7 +970,7 @@ declare class On {
   isChildOf(on: On): On;
   
   /**
-   * Specifies the bundleName of the window in which the target Component is located.
+   * Specifies the bundleName of the application which the window that the target Component is located belongs.
    * @syscap SystemCapability.Test.UiTest
    * @param {string} bundleName The bundleName of the specified window.
    * @returns {On} this {@link On} object.
@@ -978,7 +978,7 @@ declare class On {
    * @since 10
    * @test
    */
-  window(bundleName: string): On;
+  bundleName(bundleName: string): On;
 }
 
 /**
@@ -1449,17 +1449,16 @@ declare class Driver {
   drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
 
   /**
-   * Capture the specified area of current screen and save as picture which PNG format.
+   * Capture current screen and save as picture which PNG format.
    * @syscap SystemCapability.Test.UiTest
    * @param {string} savePath the path where to store the picture.
-   * @param {Rect} rect The specified area of current screen, default full screen.
    * @returns {boolean} true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
-   * @since 10
+   * @since 9
    * @test
    */
-  screenCap(savePath: string, rect?: Rect): Promise<boolean>;
+  screenCap(savePath: string): Promise<boolean>;
 
   /**
    * Set the rotation of the device display.
@@ -1587,7 +1586,7 @@ declare class Driver {
    * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
    * @syscap SystemCapability.Test.UiTest
    * @param {Point} p The coordinate of the pecified location.
-   * @param {MouseButtonId} btnId The button of Mouse.
+   * @param {MouseButton} btnId The button of Mouse.
    * @param {number} key1 the first keyCode.
    * @param {number} key2 the second keyCode.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
@@ -1595,7 +1594,7 @@ declare class Driver {
    * @since 10
    * @test
    */
-  mouseClick(p: Point, btnId: MouseButtonId, key1?: number, key2?: number): Promise<void>;
+  mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
   
   /**
    * Move the mouse cusor to the specified location.
@@ -1622,6 +1621,19 @@ declare class Driver {
    * @test
    */
   mouseScroll(p: Point, adown: boolean, d: number, key1?: number, key2?: number): Promise<void>;
+  
+  /**
+   * Capture the specified area of current screen and save as picture which PNG format.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {string} savePath the path where to store the picture.
+   * @param {Rect} rect The specified area of current screen, default full screen.
+   * @returns {boolean} true if screen-capturing and file-storing are completed successfully,false otherwise.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @since 10
+   * @test
+   */
+  screenCap(savePath: string, rect?: Rect): Promise<boolean>;
 }
 
 /**
@@ -1842,4 +1854,4 @@ declare const BY: By;
  */
 declare const ON: On;
 
-export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix, Direction, MouseButtonId};
+export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix, Direction, MouseButton};
