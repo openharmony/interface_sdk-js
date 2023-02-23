@@ -61,4 +61,24 @@ export default class EnterpriseAdminExtensionAbility {
      * @since 9
      */
     onBundleRemoved(bundleName: string): void;
+
+    /**
+     * Called back when an app is started.
+     * @param { string } bundleName - bundleName indicates the name of the app started.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    onAppStart(bundleName: string): void;
+
+    /**
+     * Called back when an app is stopped.
+     * @param { string } bundleName - bundleName indicates the name of the app stopped.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    onAppStop(bundleName: string): void;
 }
