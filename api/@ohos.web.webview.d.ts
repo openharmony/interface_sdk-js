@@ -558,6 +558,15 @@ declare namespace webview {
         static initializeWebEngine(): void;
 
         /**
+         * Enables debugging of web contents.
+         * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 9
+         */
+        static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
+
+        /**
          * Checks whether the web page can go forward.
          *
          * @throws { BusinessError } 17100001 - Init error.
