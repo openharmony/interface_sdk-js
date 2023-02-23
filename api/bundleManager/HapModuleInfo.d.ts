@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,7 +15,8 @@
 
 import { AbilityInfo } from "./AbilityInfo";
 import { ExtensionAbilityInfo } from "./ExtensionAbilityInfo";
-import { Metadata } from './Metadata'
+import { Metadata } from './Metadata';
+import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Obtains configuration information about a hap module.
@@ -135,4 +136,68 @@ export interface HapModuleInfo {
     * @since 9
     */
   readonly hashValue: string;
+
+   /**
+    * Indicates the type of the module
+    * @type {bundleManager.ModuleType}
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+  readonly type: bundleManager.ModuleType;
+
+   /**
+    * Indicates the dependency module that this module depends on
+    * @type {Array<Dependency>}
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+  readonly dependencies: Array<Dependency>;
+
+   /**
+    * Indicates the preload module
+    * @type {Array<PreloadItem>}
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+  readonly preloads: Array<PreloadItem>;
+
+   /**
+    * Indicates the atomic module type when atomicService is split
+    * @type {bundleManager.AtomicServiceModuleType}
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+   readonly atomicServiceModuleType: bundleManager.AtomicServiceModuleType;
+}
+
+/**
+ * Indicates the dependency
+ * @typedef Dependency
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
+ */
+export interface Dependency {
+  /**
+   * Indicates the module name
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly moduleName: string;
+}
+
+/**
+ * Indicates the preloadItem
+ * @typedef PreloadItem
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
+ */
+export interface PreloadItem{
+  /**
+   * Indicates the module name need preload
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+  */
+  readonly moduleName: string;
 }
