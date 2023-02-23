@@ -134,7 +134,7 @@ declare namespace window {
     TYPE_POINTER,
     /**
      * Float camera.
-     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+     * @systemapi Hide this for inner system use.
      * @since 9
      * @StageModelOnly
      */
