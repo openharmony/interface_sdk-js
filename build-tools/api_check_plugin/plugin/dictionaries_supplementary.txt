@@ -179,6 +179,7 @@ donot
 downlink
 dpad
 drains
+dragbar
 drawbuffer
 dsf
 dtmf
@@ -617,6 +618,7 @@ storei
 storge
 stroked
 subassembies
+subassemblies
 subcomponents
 subnode
 subpixel
