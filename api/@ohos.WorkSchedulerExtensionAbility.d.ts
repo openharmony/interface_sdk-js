@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import workScheduler from "./@ohos.resourceschedule.workScheduler";
-import WorkSchedulerExtensionContext from "./application/WorkSchedulerExtensionContext";
+import workScheduler from './@ohos.resourceschedule.workScheduler';
+import WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
 
 /**
  * Class of the work scheduler extension ability.
@@ -24,32 +24,32 @@ import WorkSchedulerExtensionContext from "./application/WorkSchedulerExtensionC
  * @since 9
  */
 export default class WorkSchedulerExtensionAbility {
-    /**
-     * Indicates work scheduler extension ability context.
-     *
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
-     * @since 10
-     */
-    context: WorkSchedulerExtensionContext;
+  /**
+   * Indicates work scheduler extension ability context.
+   *
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @StageModelOnly
+   * @since 10
+   */
+  context: WorkSchedulerExtensionContext;
 
-    /**
-     * Called back when a work is started.
-     *
-     * @param {workScheduler.WorkInfo} work - The info of work.
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
-     * @since 9
-     */
-    onWorkStart(work: workScheduler.WorkInfo): void;
+  /**
+   * Called back when a work is started.
+   *
+   * @param {workScheduler.WorkInfo} work - The info of work.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @StageModelOnly
+   * @since 9
+   */
+  onWorkStart(work: workScheduler.WorkInfo): void;
 
-    /**
-     * Called back when a work is stopped.
-     *
-     * @param {workScheduler.WorkInfo} work - The info of work.
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
-     * @since 9
-     */
-    onWorkStop(work: workScheduler.WorkInfo): void;
+  /**
+   * Called back when a work is stopped.
+   *
+   * @param {workScheduler.WorkInfo} work - The info of work.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @StageModelOnly
+   * @since 9
+   */
+  onWorkStop(work: workScheduler.WorkInfo): void;
 }

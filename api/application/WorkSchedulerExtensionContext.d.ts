@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ExtensionContext from "./ExtensionContext";
+import ExtensionContext from './ExtensionContext';
 
 /**
  * The context of work scheduler extension. It allows access to
