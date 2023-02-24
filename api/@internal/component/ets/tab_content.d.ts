@@ -70,5 +70,14 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 }
 
+/**
+ * Defines TabContent Component.
+ * @since 7
+ */
 declare const TabContent: TabContentInterface;
+
+/**
+ * Defines TabContent Component instance.
+ * @since 7
+ */
 declare const TabContentInstance: TabContentAttribute;

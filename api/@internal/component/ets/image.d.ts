@@ -327,5 +327,24 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   onFinish(event: () => void): ImageAttribute;
 }
 
+/**
+ * Defines Image Component.
+ * @since 7
+ */
+/**
+ * Defines Image Component.
+ * @form
+ * @since 9
+ */
 declare const Image: ImageInterface;
+
+/**
+ * Defines Image Component instance.
+ * @since 7
+ */
+/**
+ * Defines Image Component instance.
+ * @form
+ * @since 9
+ */
 declare const ImageInstance: ImageAttribute;

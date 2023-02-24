@@ -127,4 +127,8 @@ interface LazyForEachInterface {
   ): LazyForEachInterface;
 }
 
+/**
+ * Defines LazyForEach Component.
+ * @since 7
+ */
 declare const LazyForEach: LazyForEachInterface;

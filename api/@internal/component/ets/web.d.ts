@@ -2023,5 +2023,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   pinchSmooth(isEnabled: boolean): WebAttribute;
 }
 
+/**
+ * Defines Web Component.
+ * @since 8
+ */
 declare const Web: WebInterface;
+
+/**
+ * Defines Web Component instance.
+ * @since 8
+ */
 declare const WebInstance: WebAttribute;

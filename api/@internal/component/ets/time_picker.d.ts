@@ -111,5 +111,14 @@ declare class TimePickerDialog {
   static show(options?: TimePickerDialogOptions);
 }
 
+/**
+ * Defines TimePicker Component.
+ * @since 8
+ */
 declare const TimePicker: TimePickerInterface;
+
+/**
+ * Defines TimePicker Component instance.
+ * @since 8
+ */
 declare const TimePickerInstance: TimePickerAttribute;

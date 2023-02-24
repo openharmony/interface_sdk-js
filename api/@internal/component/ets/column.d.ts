@@ -72,5 +72,24 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   justifyContent(value: FlexAlign): ColumnAttribute;
 }
 
+/**
+ * Defines Column Component.
+ * @since 7
+ */
+/**
+ * Defines Column Component.
+ * @form
+ * @since 9
+ */
 declare const Column: ColumnInterface;
+
+/**
+ * Defines Column Component instance.
+ * @since 7
+ */
+/**
+ * Defines Column Component instance.
+ * @form
+ * @since 9
+ */
 declare const ColumnInstance: ColumnAttribute;

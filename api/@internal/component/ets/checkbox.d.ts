@@ -114,5 +114,24 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   onChange(callback: (value: boolean) => void): CheckboxAttribute;
 }
 
+/**
+ * Defines Checkbox Component.
+ * @since 8
+ */
+/**
+ * Defines Checkbox Component.
+ * @form
+ * @since 9
+ */
 declare const Checkbox: CheckboxInterface;
+
+/**
+ * Defines Checkbox Component instance.
+ * @since 8
+ */
+/**
+ * Defines Checkbox Component instance.
+ * @form
+ * @since 9
+ */
 declare const CheckboxInstance: CheckboxAttribute;

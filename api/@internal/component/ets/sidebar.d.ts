@@ -170,5 +170,14 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   sideBarPosition(value: SideBarPosition): SideBarContainerAttribute;
 }
 
+/**
+ * Defines SideBarContainer Component.
+ * @since 8
+ */
 declare const SideBarContainer: SideBarContainerInterface;
+
+/**
+ * Defines SideBarContainer Component instance.
+ * @since 8
+ */
 declare const SideBarContainerInstance: SideBarContainerAttribute;

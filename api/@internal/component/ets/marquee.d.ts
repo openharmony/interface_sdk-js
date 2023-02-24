@@ -134,5 +134,24 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   onFinish(event: () => void): MarqueeAttribute;
 }
 
+/**
+ * Defines Marquee Component.
+ * @since 8
+ */
+/**
+ * Defines Marquee Component.
+ * @form
+ * @since 9
+ */
 declare const Marquee: MarqueeInterface;
+
+/**
+ * Defines Marquee Component instance.
+ * @since 8
+ */
+/**
+ * Defines Marquee Component instance.
+ * @form
+ * @since 9
+ */
 declare const MarqueeInstance: MarqueeAttribute;

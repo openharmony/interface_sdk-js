@@ -188,5 +188,14 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ScrollAttribute;
 }
 
+/**
+ * Defines Scroll Component.
+ * @since 7
+ */
 declare const Scroll: ScrollInterface;
+
+/**
+ * Defines Scroll Component instance.
+ * @since 7
+ */
 declare const ScrollInstance: ScrollAttribute;

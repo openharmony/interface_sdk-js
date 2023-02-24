@@ -187,11 +187,23 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 }
 
 /**
+ * Defines ListItem Component instance.
  * @since 7
  */
 /**
+ * Defines ListItem Component instance.
  * @form
  * @since 9
  */
 declare const ListItemInstance: ListItemAttribute;
+
+/**
+ * Defines ListItem Component.
+ * @since 7
+ */
+/**
+ * Defines ListItem Component.
+ * @form
+ * @since 9
+ */
 declare const ListItem: ListItemInterface;

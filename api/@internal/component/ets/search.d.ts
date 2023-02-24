@@ -114,5 +114,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   textAlign(value: TextAlign): SearchAttribute;
 }
 
+/**
+ * Defines Search Component.
+ * @since 8
+ */
 declare const Search: SearchInterface;
+
+/**
+ * Defines Search Component instance.
+ * @since 8
+ */
 declare const SearchInstance: SearchAttribute;

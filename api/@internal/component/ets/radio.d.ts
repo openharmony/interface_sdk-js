@@ -99,5 +99,24 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 }
 
+/**
+ * Defines Radio Component.
+ * @since 8
+ */
+/**
+ * Defines Radio Component.
+ * @form
+ * @since 9
+ */
 declare const Radio: RadioInterface;
+
+/**
+ * Defines Radio Component instance.
+ * @since 8
+ */
+/**
+ * Defines Radio Component instance.
+ * @form
+ * @since 9
+ */
 declare const RadioInstance: RadioAttribute;

@@ -154,5 +154,14 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupPosition(value: Position): AlphabetIndexerAttribute;
 }
 
+/**
+ * Defines AlphabetIndexer Component.
+ * @since 7
+ */
 declare const AlphabetIndexer: AlphabetIndexerInterface;
+
+/**
+ * Defines AlphabetIndexer Component instance.
+ * @since 7
+ */
 declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;
