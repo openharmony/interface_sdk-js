@@ -115,5 +115,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   onSelect(callback: (index: number, value?: string) => void): SelectAttribute;
 }
 
+/**
+ * Defines Select Component.
+ * @since 8
+ */
 declare const Select: SelectInterface;
+
+/**
+ * Defines Select Component instance.
+ * @since 8
+ */
 declare const SelectInstance: SelectAttribute;

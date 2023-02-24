@@ -225,5 +225,24 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   draggable(value: boolean): TextAttribute;
 }
 
+/**
+ * Defines Text Component instance.
+ * @since 7
+ */
+/**
+ * Defines Text Component instance.
+ * @form
+ * @since 9
+ */
 declare const TextInstance: TextAttribute;
+
+/**
+ * Defines Text Component.
+ * @since 7
+ */
+/**
+ * Defines Text Component.
+ * @form
+ * @since 9
+ */
 declare const Text: TextInterface;

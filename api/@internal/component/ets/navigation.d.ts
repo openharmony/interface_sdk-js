@@ -247,5 +247,14 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
+/**
+ * Defines Navigation Component.
+ * @since 8
+ */
 declare const Navigation: NavigationInterface;
+
+/**
+ * Defines Navigation Component instance.
+ * @since 8
+ */
 declare const NavigationInstance: NavigationAttribute;

@@ -2032,5 +2032,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   allowWindowOpenMethod(flag : boolean): WebAttribute;
 }
 
+/**
+ * Defines Web Component.
+ * @since 8
+ */
 declare const Web: WebInterface;
+
+/**
+ * Defines Web Component instance.
+ * @since 8
+ */
 declare const WebInstance: WebAttribute;

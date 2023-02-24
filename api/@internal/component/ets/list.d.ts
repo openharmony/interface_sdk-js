@@ -369,5 +369,24 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
 }
 
+/**
+ * Defines List Component.
+ * @since 7
+ */
+/**
+ * Defines List Component.
+ * @form
+ * @since 9
+ */
 declare const List: ListInterface;
+
+/**
+ * Defines List Component instance.
+ * @since 7
+ */
+/**
+ * Defines List Component instance.
+ * @form
+ * @since 9
+ */
 declare const ListInstance: ListAttribute;

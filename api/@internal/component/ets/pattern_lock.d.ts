@@ -102,5 +102,14 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   autoReset(value: boolean): PatternLockAttribute;
 }
 
+/**
+ * Defines PatternLock Component.
+ * @since 9
+ */
 declare const PatternLock: PatternLockInterface;
+
+/**
+ * Defines PatternLock Component instance.
+ * @since 9
+ */
 declare const PatternLockInstance: PatternLockAttribute;

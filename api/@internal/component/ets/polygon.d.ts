@@ -59,5 +59,24 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   points(value: Array<any>): PolygonAttribute;
 }
 
+/**
+ * Defines Polygon Component.
+ * @since 7
+ */
+/**
+ * Defines CheckboxGroup Component.
+ * @form
+ * @since 9
+ */
 declare const Polygon: PolygonInterface;
+
+/**
+ * Defines Polygon Component instance.
+ * @since 7
+ */
+/**
+ * Defines Polygon Component instance.
+ * @form
+ * @since 9
+ */
 declare const PolygonInstance: PolygonAttribute;

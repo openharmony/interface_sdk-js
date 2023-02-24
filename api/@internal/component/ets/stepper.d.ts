@@ -61,5 +61,14 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   onPrevious(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 }
 
+/**
+ * Defines Stepper Component.
+ * @since 8
+ */
 declare const Stepper: StepperInterface;
+
+/**
+ * Defines Stepper Component instance.
+ * @since 8
+ */
 declare const StepperInstance: StepperAttribute;
