@@ -92,7 +92,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   type(value: PanelType): PanelAttribute;
 
   /**
-   * Called when determining whether dragbar exists.
+   * Called when determining whether dragBar exists.
    * @since 7
    */
   dragBar(value: boolean): PanelAttribute;

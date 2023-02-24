@@ -197,7 +197,7 @@ declare const Animator: AnimatorInterface;
 
 /**
  * Defines Animator Component instance.
- * @since 9
+ * @since 7
  * @systemapi
  */
 declare const AnimatorInstance: AnimatorAttribute;
