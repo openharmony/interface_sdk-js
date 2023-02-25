@@ -33,7 +33,8 @@ declare namespace uriPermissionManager {
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param fromTokenId Indicates the access token of the application which URI belong to.
      * @param targetTokenId Indicates the access token of the target application.
-     * @return Returns 0 if the verification is successful, otherwise returns -1.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied.
      */
     function grantUriPermission(uri: string, flag: wantConstant.Flags, fromTokenId: number, targetTokenId: number, callback: AsyncCallback<number>): void;
     function grantUriPermission(uri: string, flag: wantConstant.Flags, fromTokenId: number, targetTokenId: number): Promise<number>;
@@ -46,7 +47,8 @@ declare namespace uriPermissionManager {
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param targetTokenId Indicates the access token of the target application.
-     * @return Returns 0 if the verification is successful, otherwise returns -1.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied.
      */
 	function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetTokenId: number, callback: AsyncCallback<number>): void;
     function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetTokenId: number): Promise<number>;
