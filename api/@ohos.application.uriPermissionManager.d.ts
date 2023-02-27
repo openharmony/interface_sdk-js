@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@ import wantConstant from "./@ohos.ability.wantConstant";
 /**
  * The management class for uri of file.
  *
- * @since 9
+ * @since 10
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
@@ -27,7 +27,7 @@ declare namespace uriPermissionManager {
     /**
      * Grant URI to another application
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
@@ -42,7 +42,7 @@ declare namespace uriPermissionManager {
     /**
      * Grant URI from self to another application
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
@@ -50,8 +50,20 @@ declare namespace uriPermissionManager {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-	function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetTokenId: number, callback: AsyncCallback<number>): void;
+    function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetTokenId: number, callback: AsyncCallback<number>): void;
     function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetTokenId: number): Promise<number>;
+
+    /**
+     * Remove all URI from one application
+     *
+     * @since 10
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param tokenId Indicates the access token of the application need to remove uri.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied.
+     */
+    function grantUriPermissionFromSelf(tokenId: number, callback: AsyncCallback<number>): void;
+    function grantUriPermissionFromSelf(tokenId: number): Promise<number>;
 }
 
 export default uriPermissionManager;
