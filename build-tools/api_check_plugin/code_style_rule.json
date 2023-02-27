@@ -501,7 +501,8 @@
         "Preferences.Core",
         "DataShare.Core",
         "DataShare.Consumer",
-        "DataShare.Provider"
+        "DataShare.Provider",
+        "UDMF.Core"
       ],
       "Ability": [
         "AbilityBase",
