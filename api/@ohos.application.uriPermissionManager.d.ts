@@ -62,8 +62,8 @@ declare namespace uriPermissionManager {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-    function grantUriPermissionFromSelf(tokenId: number, callback: AsyncCallback<number>): void;
-    function grantUriPermissionFromSelf(tokenId: number): Promise<number>;
+    function removeUriPermission(tokenId: number, callback: AsyncCallback<number>): void;
+    function removeUriPermission(tokenId: number): Promise<number>;
 }
 
 export default uriPermissionManager;
