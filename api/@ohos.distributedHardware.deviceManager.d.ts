@@ -524,6 +524,7 @@ declare namespace deviceManager {
      * @param requestInfo Request credential params.
      * @param callback Indicates the callback to be invoked upon requestCredential
      * @throws {BusinessError} 401 - Input parameter error.
+     * @returns return device registerInfo, it include deviceId, devicePk, useId and version.
      * @systemapi this method can be used only by system applications.
      */  
     requestCredential(requestInfo: string, callback: AsyncCallback<{registerInfo: string}>): void;
@@ -535,6 +536,7 @@ declare namespace deviceManager {
      * @param credentialInfo Import credential params.
      * @param callback Indicates the callback to be invoked upon importCredential
      * @throws {BusinessError} 401 - Input parameter error.
+     * @returns return the groupId to which the device belongs.
      * @systemapi this method can be used only by system applications.
      */  
     importCredential(credentialInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
@@ -546,6 +548,7 @@ declare namespace deviceManager {
      * @param queryInfo delete credential params.
      * @param callback Indicates the callback to be invoked upon deleteCredential
      * @throws {BusinessError} 401 - Input parameter error.
+     * @returns return the groupId to which the device belongs.
      * @systemapi this method can be used only by system applications.
      */  
     deleteCredential(queryInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
