@@ -28,6 +28,14 @@ declare class TextAreaController {
    * @since 8
    */
   caretPosition(value: number): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @since 10
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
