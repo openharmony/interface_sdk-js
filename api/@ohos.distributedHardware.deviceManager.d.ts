@@ -521,7 +521,7 @@ declare namespace deviceManager {
      * Request credential information.
      *
      * @since 10
-     * @param requestInfo Request credential params.
+     * @param requestInfo Request credential params, the params is json string, it include version and userId.
      * @param callback Indicates the callback to be invoked upon requestCredential
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns return device registerInfo, it include deviceId, devicePk, useId and version.
@@ -533,8 +533,10 @@ declare namespace deviceManager {
      * Import credential information.
      *
      * @since 10
-     * @param credentialInfo Import credential params.
-     * @param callback Indicates the callback to be invoked upon importCredential
+     * @param credentialInfo Import credential params, the params is json string, it include processType, authType,
+     * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
+     * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
+     * @param callback Indicates the callback to be invoked upon importCredential.
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns return the groupId to which the device belongs.
      * @systemapi this method can be used only by system applications.
@@ -545,7 +547,7 @@ declare namespace deviceManager {
      * delete credential information.
      *
      * @since 10
-     * @param queryInfo delete credential params.
+     * @param queryInfo delete credential params. the params is json string, it include processType, authType, userId.
      * @param callback Indicates the callback to be invoked upon deleteCredential
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns return the groupId to which the device belongs.
