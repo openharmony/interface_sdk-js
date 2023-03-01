@@ -171,6 +171,39 @@ declare namespace installer {
      * @since 9
      */
     recover(bundleName: string, installParam?: InstallParam) : Promise<void>;
+
+    /**
+     * Uninstall a shared bundle.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
+     * @param { AsyncCallback } callback - The callback of uninstalling shared bundle result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700101 - The system service is excepted.
+     * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
+     * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    uninstall(uninstallParam: UninstallParam, callback : AsyncCallback<void>) : void;
+
+    /**
+     * Uninstall a shared bundle.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700101 - The system service is excepted.
+     * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
+     * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    uninstall(uninstallParam: UninstallParam) : Promise<void>;
   }
 
   /**
@@ -245,6 +278,29 @@ declare namespace installer {
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
+  }
+
+  /**
+   * Provides parameters required for uninstalling shared bundle.
+   * @typedef UninstallParam
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface UninstallParam {
+    /**
+     * Indicates the shared bundle name
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    bundleName: string;
+
+    /**
+     * Indicates the shared version code. If default, indicates that all version sharing bundles are uninstalled
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    versionCode?: number;
   }
 }
 
