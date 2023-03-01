@@ -742,7 +742,7 @@ declare interface WindowFilter {
  * @syscap SystemCapability.Test.UiTest
  * @since 10
  */
-declare enum Direction {
+declare enum UiDirection {
   /**
    * Left.
    * @syscap SystemCapability.Test.UiTest
@@ -967,7 +967,7 @@ declare class On {
    * @since 10
    * @test
    */
-  isChildOf(on: On): On;
+  within(on: On): On;
   
   /**
    * Specifies the bundleName of the application which the window that the target Component is located belongs.
@@ -978,7 +978,7 @@ declare class On {
    * @since 10
    * @test
    */
-  bundleName(bundleName: string): On;
+  inWindow(bundleName: string): On;
 }
 
 /**
@@ -1573,14 +1573,14 @@ declare class Driver {
   /**
    * Inject fling on the device display.
    * @syscap SystemCapability.Test.UiTest
-   * @param {Direction} direction The direction of this action.
+   * @param {UiDirection} direction The direction of this action.
    * @param {number} speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 10
    * @test
    */
-  fling(direction: Direction, speed: number): Promise<void>;
+  fling(direction: UiDirection, speed: number): Promise<void>;
   
   /**
    * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
@@ -1633,7 +1633,7 @@ declare class Driver {
    * @since 10
    * @test
    */
-  screenCap(savePath: string, rect?: Rect): Promise<boolean>;
+  screenCaputure(savePath: string, rect?: Rect): Promise<boolean>;
 }
 
 /**
