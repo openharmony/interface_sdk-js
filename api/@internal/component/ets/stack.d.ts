@@ -55,5 +55,24 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
   alignContent(value: Alignment): StackAttribute;
 }
 
+/**
+ * Defines Stack Component.
+ * @since 7
+ */
+/**
+ * Defines Stack Component.
+ * @form
+ * @since 9
+ */
 declare const Stack: StackInterface;
+
+/**
+ * Defines Stack Component instance.
+ * @since 7
+ */
+/**
+ * Defines Stack Component instance.
+ * @form
+ * @since 9
+ */
 declare const StackInstance: StackAttribute;

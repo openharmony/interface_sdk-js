@@ -254,5 +254,16 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
     onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 }
 
+/**
+ * Defines GridRow Component.
+ * @form
+ * @since 9
+ */
 declare const GridRow: GridRowInterface;
+
+/**
+ * Defines GridRow Component instance.
+ * @form
+ * @since 9
+ */
 declare const GridRowInstance: GridRowAttribute;

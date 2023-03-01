@@ -29,4 +29,8 @@ interface ForEachInterface {
   ): ForEachInterface;
 }
 
+/**
+ * Defines ForEach Component.
+ * @since 7
+ */
 declare const ForEach: ForEachInterface;

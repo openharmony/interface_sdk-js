@@ -661,13 +661,13 @@ declare interface Point {
    * @type number
    * @since 9
    */
-  readonly X: number;
+  readonly x: number;
   /**
    * The y-coordinate of the coordinate point.
    * @type number
    * @since 9
    */
-  readonly Y: number;
+  readonly y: number;
 }
 
 /**

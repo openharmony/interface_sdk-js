@@ -69,8 +69,14 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
 }
 
 /**
+ * Defines ListItemGroup Component instance.
  * @since 9
  */
 declare const ListItemGroupInstance: ListItemGroupAttribute;
+
+/**
+ * Defines ListItemGroup Component.
+ * @since 9
+ */
 declare const ListItemGroup: ListItemGroupInterface;
   

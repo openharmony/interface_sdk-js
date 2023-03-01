@@ -195,5 +195,24 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   mesh(value: Array<any>, column: number, row: number): ShapeAttribute;
 }
 
+/**
+ * Defines Shape Component.
+ * @since 7
+ */
+/**
+ * Defines Shape Component.
+ * @form
+ * @since 9
+ */
 declare const Shape: ShapeInterface;
+
+/**
+ * Defines Shape Component instance.
+ * @since 7
+ */
+/**
+ * Defines Shape Component instance.
+ * @form
+ * @since 9
+ */
 declare const ShapeInstance: ShapeAttribute;

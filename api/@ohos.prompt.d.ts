@@ -36,12 +36,7 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
-    /**
-     * Text to display.
-     * @type { string | Resource }
-     * @since 9
-     */
-    message: string | Resource;
+    message: string;
 
     /**
      * Duration of toast dialog box. The default value is 1500.
@@ -67,21 +62,13 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
-    /**
-     * @type { string | Resource }
-     * @since 9
-     */
-    text: string | Resource;
+    text: string;
 
     /**
      * @type { string }
      * @since 8
      */
-    /**
-     * @type { string | Resource }
-     * @since 9
-     */
-    color: string | Resource;
+    color: string;
   }
 
   /**
@@ -105,24 +92,14 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
-    /**
-     * Title of the text to display.
-     * @type { string | Resource }
-     * @since 9
-     */
-    title?: string | Resource;
+    title?: string;
 
     /**
      * Text body.
      * @type { string }
      * @since 8
      */
-    /**
-     * Text body.
-     * @type { string | Resource }
-     * @since 9
-     */
-    message?: string | Resource;
+    message?: string;
 
     /**
      * Array of buttons in the dialog box.
@@ -154,12 +131,7 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
-    /**
-     * Title of the text to display.
-     * @type { string | Resource }
-     * @since 9
-     */
-    title?: string | Resource;
+    title?: string;
 
     /**
      * Array of buttons in the dialog box.

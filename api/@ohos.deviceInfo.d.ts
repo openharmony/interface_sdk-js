@@ -82,6 +82,7 @@ declare namespace deviceInfo {
      * Obtains the hardware profile represented by a string.
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
+     * @deprecated since 9
      */
     const hardwareProfile: string;
 

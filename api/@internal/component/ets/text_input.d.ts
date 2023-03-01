@@ -302,5 +302,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   style(value: TextInputStyle): TextInputAttribute;
 }
 
+/**
+ * Defines TextInput Component.
+ * @since 7
+ */
 declare const TextInput: TextInputInterface;
+
+/**
+ * Defines TextInput Component instance.
+ * @since 7
+ */
 declare const TextInputInstance: TextInputAttribute;

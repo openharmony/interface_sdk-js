@@ -35,10 +35,36 @@ declare class SearchController {
  * @since 8
  */
 interface SearchInterface {
-  (options?: { value?: string;
-      placeholder?: string;
-      icon?: string;
-      controller?: SearchController
+  (options?: { 
+  /**
+   * Text input in the search text box
+   * @type { string }
+   * @since 8
+   */
+  value?: string;
+  /**
+   * Text displayed when there is no input
+   * @type { string }
+   * @since 8
+   */
+  /**
+   * Text displayed when there is no input
+   * @type { ResourceStr }
+   * @since 10
+   */
+    placeholder?: ResourceStr;
+  /**
+   * Path to the search icon
+   * @type { string }
+   * @since 8
+   */
+    icon?: string;
+  /**
+   * Controller of the <Search> component
+   * @type { SearchController }
+   * @since 8
+   */
+    controller?: SearchController
   }): SearchAttribute;
 }
 
@@ -114,5 +140,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   textAlign(value: TextAlign): SearchAttribute;
 }
 
+/**
+ * Defines Search Component.
+ * @since 8
+ */
 declare const Search: SearchInterface;
+
+/**
+ * Defines Search Component instance.
+ * @since 8
+ */
 declare const SearchInstance: SearchAttribute;

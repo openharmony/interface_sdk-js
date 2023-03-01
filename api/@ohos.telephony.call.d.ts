@@ -31,6 +31,8 @@ declare namespace call {
    * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
    * that the call is or can be connected.
    * @permission ohos.permission.PLACE_CALL
+   * @deprecated since 9
+   * @useinstead telephony.call#dialCall
    */
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
@@ -221,10 +223,25 @@ declare namespace call {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
-  function answer(callId: number, callback: AsyncCallback<void>): void;
-  function answer(callId?: number): Promise<void>;
+  function answerCall(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Answers the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to answer.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function answerCall(callId?: number): Promise<void>;
 
   /**
    * Answers the incoming call without callId.
@@ -239,7 +256,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function answer(callback: AsyncCallback<void>): void;
+  function answerCall(callback: AsyncCallback<void>): void;
 
   /**
    * Hang up the foreground call.
@@ -253,10 +270,25 @@ declare namespace call {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
-  function hangup(callId: number, callback: AsyncCallback<void>): void;
-  function hangup(callId?: number): Promise<void>;
+  function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Hang up the foreground call.
+   *
+   * @param callId Indicates the identifier of the call to hangup.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function hangUpCall(callId?: number): Promise<void>;
 
   /**
    * Hang up the foreground call without callId.
@@ -271,7 +303,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function hangup(callback: AsyncCallback<void>): void;
+  function hangUpCall(callback: AsyncCallback<void>): void;
 
   /**
    * Reject the incoming call.
@@ -286,11 +318,43 @@ declare namespace call {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
-  function reject(callId: number, callback: AsyncCallback<void>): void;
-  function reject(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
-  function reject(callId?: number, options?: RejectMessageOptions): Promise<void>;
+  function rejectCall(callId: number, callback: AsyncCallback<void>): void;
+
+    /**
+   * Reject the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+
+    /**
+   * Reject the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
    * Reject the incoming call without callId.
@@ -306,8 +370,23 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function reject(callback: AsyncCallback<void>): void;
-  function reject(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+  function rejectCall(callback: AsyncCallback<void>): void;
+
+  /**
+   * Reject the incoming call without callId.
+   *
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function rejectCall(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Keep a call on hold.

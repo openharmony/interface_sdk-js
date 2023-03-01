@@ -188,7 +188,12 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @type { (string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle) }
    * @since 9
    */
-  title(value: string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
+  /**
+   * Navigation title
+   * @type { (ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle) }
+   * @since 10
+   */
+  title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
 
   /**
    * Navigation subtitle
@@ -247,5 +252,14 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
+/**
+ * Defines Navigation Component.
+ * @since 8
+ */
 declare const Navigation: NavigationInterface;
+
+/**
+ * Defines Navigation Component instance.
+ * @since 8
+ */
 declare const NavigationInstance: NavigationAttribute;
