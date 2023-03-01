@@ -480,6 +480,34 @@ declare namespace avSession {
     off(type: 'outputDeviceChange', callback?: (device: OutputDeviceInfo) => void): void;
 
     /**
+     * Register session output device change callback
+     * @param type Registration Type
+     * @param callback Used to handle event when the common command is received
+     * The callback provide the command name and command args
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 10
+     */
+    on(type: 'commonCommand', callback: (command: string, args: {[key: string]: Object}) => void): void;
+
+    /**
+     * Unregister session output device change callback
+     * @param type Registration Type
+     * @param callback Used to cancel a specific listener
+     * The callback provide the command name and command args
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'commonCommand', callback: (command: string, args: {[key: string]: Object}) => void): void;
+
+    /**
      * Activate the session, indicating that the session can accept control commands
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -979,6 +1007,38 @@ declare namespace avSession {
      */
     sendControlCommand(command: AVControlCommand, callback: AsyncCallback<void>): void;
     sendControlCommand(command: AVControlCommand): Promise<void>;
+
+    /**
+     * Send common commands to this session
+     * @param command The command name to be send.
+     * @param args The parameters of private commands
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws {BusinessError} {@link #ERR_CODE_COMMAND_INVALID} - command not supported
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
+     * @throws {BusinessError} {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
+     * @systemapi
+     * @since 10
+     */
+    sendCommonCommand(command: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+
+    /**
+     * Send common commands to this session
+     * @param command The command name to be send.
+     * @param args The parameters of private commands
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws {BusinessError} {@link #ERR_CODE_COMMAND_INVALID} - command not supported
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
+     * @throws {BusinessError} {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
+     * @systemapi
+     * @since 10
+     */
+    sendCommonCommand(command: string, args: {[key: string]: Object}): Promise<void>;
 
     /**
      * Register metadata changed callback
