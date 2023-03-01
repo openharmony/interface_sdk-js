@@ -31,13 +31,13 @@ declare namespace uriPermissionManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * @param { string } fromBundleName - Indicates the application bundle name which URI belong to.
-     * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+     * @param fromTokenId Indicates the access token of the application which URI belong to.
+     * @param targetTokenId Indicates the access token of the target application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-    function grantUriPermission(uri: string, flag: wantConstant.Flags, fromBundleName: string, targetBundleName: string, callback: AsyncCallback<number>): void;
-    function grantUriPermission(uri: string, flag: wantConstant.Flags, fromBundleName: string, targetBundleName: string): Promise<number>;
+    function grantUriPermission(uri: string, flag: wantConstant.Flags, fromTokenId: number, targetTokenId: number, callback: AsyncCallback<number>): void;
+    function grantUriPermission(uri: string, flag: wantConstant.Flags, fromTokenId: number, targetTokenId: number): Promise<number>;
 
     /**
      * Grant URI from self to another application
@@ -46,24 +46,24 @@ declare namespace uriPermissionManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+     * @param targetTokenId Indicates the access token of the target application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-    function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetBundleName: string, callback: AsyncCallback<number>): void;
-    function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
+    function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetTokenId: number, callback: AsyncCallback<number>): void;
+    function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetTokenId: number): Promise<number>;
 
     /**
-     * Remove all URI from one application
+     * revoke all URI permission from one application
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param { string } BundleName Indicates the bundleName of the application need to remove uri.
+     * @param tokenId Indicates the access token of the application need to revoke URI.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-    function removeUriPermission(BundleName: string, callback: AsyncCallback<number>): void;
-    function removeUriPermission(BundleName: string): Promise<number>;
+    function revokeUriPermission(tokenId: number, callback: AsyncCallback<number>): void;
+    function revokeUriPermission(tokenId: number): Promise<number>;
 }
 
 export default uriPermissionManager;
