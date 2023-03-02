@@ -479,6 +479,35 @@ declare namespace wifiManager {
     function removeDeviceConfig(networkId: number): void;
 
     /**
+     * Check whether the current device supports the specified band.
+     *
+     * @returns Returns {@code true} if the specified band is supported, returns {@code false} otherwise.
+     *
+     * @since 10
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
+     */
+    function isBandTypeSupported(bandType: WifiBandType): boolean;
+
+    /**
+     * Obtain the supported 5G channel list of the device.
+     *
+     * @returns Returns 5G channel list.
+     * @since 10
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
+     * @systemapi Hide this for inner system use.
+     */
+    function get5GHzChannelList(): Array<number>;
+
+    /**
      * Enable Wi-Fi hotspot function.
      *
      * <p>This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
@@ -1528,6 +1557,35 @@ declare namespace wifiManager {
     }
 
     /**
+     * Wi-Fi band type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+     enum WifiBandType {
+        WIFI_BAND_2G,
+        WIFI_BAND_5G,
+		WIFI_BAND_6G,
+    }
+
+    /**
+     * Wi-Fi standard.
+     *
+     * @since 10
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+     enum WifiStandard {
+        WIFI_STANDARD_UNDEFINED,
+        WIFI_STANDARD_11A,
+		WIFI_STANDARD_11B,
+        WIFI_STANDARD_11G,
+		WIFI_STANDARD_11N,
+        WIFI_STANDARD_11AC,
+		WIFI_STANDARD_11AX,
+        WIFI_STANDARD_11AD,
+    }
+
+    /**
      * Wi-Fi connection information.
      *
      * @since 9
@@ -1552,6 +1610,30 @@ declare namespace wifiManager {
 
         /** The speed of a Wi-Fi access point. */
         linkSpeed: number;
+
+        /**
+         * The rx speed of a Wi-Fi access point. 
+         *
+         * @since 10
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
+		rxLinkSpeed: number;
+
+        /**
+         * max tx speed of a Wi-Fi access point. 
+         *
+         * @since 10
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
+		maxSupportedTxLinkSpeed: number;
+
+        /**
+         * max rx speed of a Wi-Fi access point. 
+         *
+         * @since 10
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
+		maxSupportedRxLinkSpeed: number;
 
         /** The frequency of a Wi-Fi access point. */
         frequency: number;
@@ -1590,6 +1672,22 @@ declare namespace wifiManager {
 
         /** The state of this Wi-Fi connection. */
         connState: ConnState;
+
+        /**
+         * Channel width of the connected hotspot. 
+         *
+         * @since 10
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
+		channelWidth: WifiChannelWidth;
+
+        /**
+         * wifi standard of current connection. 
+         *
+         * @since 10
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
+		wifiStandard: WifiStandard;
     }
 
     /**
@@ -1637,6 +1735,14 @@ declare namespace wifiManager {
 
         /** The frequency band of the Wi-Fi hotspot */
         band: number;
+
+        /**
+         * The channel of the Wi-Fi hotspot. 
+         *
+         * @since 10
+         * @syscap SystemCapability.Communication.WiFi.AP.Core
+         */
+        channel: number;
 
         /** The password of the Wi-Fi hotspot */
         preSharedKey: string;
