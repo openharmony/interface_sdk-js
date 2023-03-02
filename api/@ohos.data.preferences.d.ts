@@ -314,7 +314,7 @@ declare namespace preferences {
          * @param {string} key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
          *        <tt>MAX_KEY_LENGTH</tt>.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @since 9
+         * @since 10
          */
         deleteSync(key: string): void;
 
@@ -344,7 +344,7 @@ declare namespace preferences {
          * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
          *
          * @returns {Promise<void>} a promise object.
-         * @since 9
+         * @since 10
          */
         clearSync(): void;
 
