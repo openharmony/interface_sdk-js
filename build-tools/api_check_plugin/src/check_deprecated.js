@@ -20,25 +20,25 @@ function checkDeprecated(node, sourcefile, fileName) {
   const apiNote = getAPINote(node);
   const apiNoteArr = apiNote.split('*');
   let hasDeprecatedError = false;
-  let errorInfo = "";
+  let errorInfo = '';
   apiNoteArr.forEach(note => {
     if (note.match(new RegExp('@deprecated'))) {
       const deprecatedNote = note.replace('@deprecated', '').trim();
       const regx = /since [0-9]/;
       const arr = deprecatedNote.match(regx);
-      if (arr != null) {
+      if (arr !== null) {
         const errorNote = deprecatedNote.replace(arr[0], '');
         if (/[A-z]/.test(errorNote)) {
           hasDeprecatedError = true;
-          if (errorInfo !== "") {
+          if (errorInfo !== '') {
             errorInfo += `,${note}`;
           } else {
             errorInfo += note;
           }
         }
-      } else if (arr == null) {
+      } else if (arr === null) {
         hasDeprecatedError = true;
-        if (errorInfo !== "") {
+        if (errorInfo !== '') {
           errorInfo += `,${note}`;
         } else {
           errorInfo += note;
