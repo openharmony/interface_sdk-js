@@ -1854,4 +1854,5 @@ declare const BY: By;
  */
 declare const ON: On;
 
-export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix, UiDirection, MouseButton};
+export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix,
+  UiDirection, MouseButton};
