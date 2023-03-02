@@ -2030,6 +2030,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   allowWindowOpenMethod(flag : boolean): WebAttribute;
+
+  /**
+   * Triggered when the playing state of audio on web page changed.
+   * @param callback The playing state of audio on web page.
+   * @since 10
+   */
+  onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
 }
 
 /**
