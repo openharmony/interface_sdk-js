@@ -1309,6 +1309,12 @@ declare namespace wifiManager {
         /** Client certificate alias */
         clientCertAliases: string;
 
+        /** content of user's certificate */
+        certEntry: Uint8Array;
+
+        /** Password of user's certificate */
+        certPassword: string;
+
         /** Alternate subject match */
         altSubjectMatch: string;
 
