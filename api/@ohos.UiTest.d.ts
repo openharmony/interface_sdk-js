@@ -1585,7 +1585,7 @@ declare class Driver {
   /**
    * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
    * @syscap SystemCapability.Test.UiTest
-   * @param {Point} p The coordinate of the pecified location.
+   * @param {Point} p The coordinate of the specified location.
    * @param {MouseButton} btnId The button of Mouse.
    * @param {number} key1 the first keyCode.
    * @param {number} key2 the second keyCode.
@@ -1597,9 +1597,9 @@ declare class Driver {
   mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
   
   /**
-   * Move the mouse cusor to the specified location.
+   * Move the mouse cursor to the specified location.
    * @syscap SystemCapability.Test.UiTest
-   * @param {Point} p The coordinate of the pecified location.
+   * @param {Point} p The coordinate of the specified location.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 10
@@ -1610,8 +1610,8 @@ declare class Driver {
   /**
    * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
    * @syscap SystemCapability.Test.UiTest
-   * @param {Point} p The coordinate of the pecified location.
-   * @param {boolean} adown Whether the mouse wheel rolls down.
+   * @param {Point} p The coordinate of the specified location.
+   * @param {boolean} down Whether the mouse wheel rolls down.
    * @param {number} d The number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
    * @param {number} key1 the first keyCode.
    * @param {number} key2 the second keyCode.
@@ -1620,7 +1620,7 @@ declare class Driver {
    * @since 10
    * @test
    */
-  mouseScroll(p: Point, adown: boolean, d: number, key1?: number, key2?: number): Promise<void>;
+  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
   
   /**
    * Capture the specified area of current screen and save as picture which PNG format.
