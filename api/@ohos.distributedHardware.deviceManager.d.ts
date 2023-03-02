@@ -524,10 +524,10 @@ declare namespace deviceManager {
      * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
      * @param { AsyncCallback<{registerInfo: string}> } callback - Indicates the callback to be invoked upon requestCredential
      * @throws {BusinessError} 401 - Input parameter error.
-     * @returns Returns device registerInfo, it include deviceId, devicePk, useId and version.
+     * @returns Returns device credential registerInfo, it include deviceId, devicePk, useId and version.
      * @systemapi this method can be used only by system applications.
      */  
-    requestCredential(requestInfo: string, callback: AsyncCallback<{registerInfo: string}>): void;
+    requestCredentialRegisterInfo(requestInfo: string, callback: AsyncCallback<{registerInfo: string}>): void;
 
     /**
      * Import credential information.
