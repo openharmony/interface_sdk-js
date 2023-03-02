@@ -1565,7 +1565,7 @@ declare namespace wifiManager {
      enum WifiBandType {
         WIFI_BAND_2G,
         WIFI_BAND_5G,
-		WIFI_BAND_6G,
+        WIFI_BAND_6G,
     }
 
     /**
@@ -1577,11 +1577,11 @@ declare namespace wifiManager {
      enum WifiStandard {
         WIFI_STANDARD_UNDEFINED,
         WIFI_STANDARD_11A,
-		WIFI_STANDARD_11B,
+        WIFI_STANDARD_11B,
         WIFI_STANDARD_11G,
-		WIFI_STANDARD_11N,
+        WIFI_STANDARD_11N,
         WIFI_STANDARD_11AC,
-		WIFI_STANDARD_11AX,
+        WIFI_STANDARD_11AX,
         WIFI_STANDARD_11AD,
     }
 
@@ -1617,7 +1617,7 @@ declare namespace wifiManager {
          * @since 10
          * @syscap SystemCapability.Communication.WiFi.STA
          */
-		rxLinkSpeed: number;
+        rxLinkSpeed: number;
 
         /**
          * max tx speed of a Wi-Fi access point. 
@@ -1625,7 +1625,7 @@ declare namespace wifiManager {
          * @since 10
          * @syscap SystemCapability.Communication.WiFi.STA
          */
-		maxSupportedTxLinkSpeed: number;
+        maxSupportedTxLinkSpeed: number;
 
         /**
          * max rx speed of a Wi-Fi access point. 
@@ -1633,7 +1633,7 @@ declare namespace wifiManager {
          * @since 10
          * @syscap SystemCapability.Communication.WiFi.STA
          */
-		maxSupportedRxLinkSpeed: number;
+        maxSupportedRxLinkSpeed: number;
 
         /** The frequency of a Wi-Fi access point. */
         frequency: number;
@@ -1679,7 +1679,7 @@ declare namespace wifiManager {
          * @since 10
          * @syscap SystemCapability.Communication.WiFi.STA
          */
-		channelWidth: WifiChannelWidth;
+        channelWidth: WifiChannelWidth;
 
         /**
          * wifi standard of current connection. 
@@ -1687,7 +1687,7 @@ declare namespace wifiManager {
          * @since 10
          * @syscap SystemCapability.Communication.WiFi.STA
          */
-		wifiStandard: WifiStandard;
+        wifiStandard: WifiStandard;
     }
 
     /**
