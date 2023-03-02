@@ -49,6 +49,15 @@
    */
   declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
   
+  /**
+ * Defines MenuItemGroup Component.
+ * @since 9
+ */
   declare const MenuItemGroup: MenuItemGroupInterface;
+
+  /**
+ * Defines MenuItemGroup Component instance.
+ * @since 9
+ */
   declare const MenuItemGroupInstance: MenuItemGroupAttribute;
   

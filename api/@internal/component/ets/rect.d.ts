@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Provides an interface for drawing rectangles.
  * @since 7
  */
+/**
+ * Provides an interface for drawing rectangles.
+ * @form
+ * @since 9
+ */
 interface RectInterface {
   /**
    * Use new function to create Rect.
    * @since 7
+   */
+  /**
+   * Use new function to create Rect.
+   * @form
+   * @since 9
    */
   new (
     value?:
@@ -41,6 +51,11 @@ interface RectInterface {
    * Called when a rectangle is created.
    * @since 7
    */
+  /**
+   * Called when a rectangle is created.
+   * @form
+   * @since 9
+   */
   (
     value?:
       {
@@ -60,10 +75,19 @@ interface RectInterface {
 /**
  * @since 7
  */
+/**
+ * @form
+ * @since 9
+ */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet width is set.
    * @since 7
+   */
+  /**
+   * Called when the fillet width is set.
+   * @form
+   * @since 9
    */
   radiusWidth(value: number | string): RectAttribute;
 
@@ -71,11 +95,21 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * Called when the fillet height is set.
    * @since 7
    */
+  /**
+   * Called when the fillet height is set.
+   * @form
+   * @since 9
+   */
   radiusHeight(value: number | string): RectAttribute;
 
   /**
    * Called when the fillet size is set.
    * @since 7
+   */
+  /**
+   * Called when the fillet size is set.
+   * @form
+   * @since 9
    */
   radius(value: number | string | Array<any>): RectAttribute;
 }
@@ -88,6 +122,7 @@ declare const Rect: RectInterface;
 declare const RectInStance: RectAttribute;
 
 /**
+ * @form
  * @since 9
  */
 declare const RectInstance: RectAttribute;

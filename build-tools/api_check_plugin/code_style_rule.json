@@ -10,6 +10,7 @@
       "extends",
       "famodelonly",
       "fires",
+      "form",
       "interface",
       "namespace",
       "param",

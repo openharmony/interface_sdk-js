@@ -85,6 +85,15 @@
     onChange(callback: (selected: boolean) => void): MenuItemAttribute;
   }
   
+  /**
+ * Defines MenuItem Component.
+ * @since 9
+ */
   declare const MenuItem: MenuItemInterface;
+
+  /**
+ * Defines MenuItem Component instance.
+ * @since 9
+ */
   declare const MenuItemInstance: MenuItemAttribute;
   

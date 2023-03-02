@@ -134,5 +134,14 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onChange(event: (index: number) => void): TabsAttribute;
 }
 
+/**
+ * Defines Tabs Component.
+ * @since 7
+ */
 declare const Tabs: TabsInterface;
+
+/**
+ * Defines Tabs Component instance.
+ * @since 7
+ */
 declare const TabsInstance: TabsAttribute;

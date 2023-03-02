@@ -126,5 +126,14 @@ declare class TextPickerDialog {
   static show(options?: TextPickerDialogOptions);
 }
 
+/**
+ * Defines TextPicker Component.
+ * @since 8
+ */
 declare const TextPicker: TextPickerInterface;
+
+/**
+ * Defines TextPicker Component instance.
+ * @since 8
+ */
 declare const TextPickerInstance: TextPickerAttribute;

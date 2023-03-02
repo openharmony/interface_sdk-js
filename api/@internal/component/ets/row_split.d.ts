@@ -37,5 +37,14 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   resizeable(value: boolean): RowSplitAttribute;
 }
 
+/**
+ * Defines RowSplit Component.
+ * @since 7
+ */
 declare const RowSplit: RowSplitInterface;
+
+/**
+ * Defines RowSplit Component instance.
+ * @since 7
+ */
 declare const RowSplitInstance: RowSplitAttribute;

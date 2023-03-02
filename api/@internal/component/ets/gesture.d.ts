@@ -490,10 +490,44 @@ interface GestureGroupInterface {
   onCancel(event: () => void): GestureGroupInterface;
 }
 
+/**
+ * Defines TapGesture Component.
+ * @since 7
+ */
 declare const TapGesture: TapGestureInterface;
+
+/**
+ * Defines LongPressGesture Component.
+ * @since 7
+ */
 declare const LongPressGesture: LongPressGestureInterface;
+
+/**
+ * Defines PanGesture Component.
+ * @since 7
+ */
 declare const PanGesture: PanGestureInterface;
+
+/**
+ * Defines SwipeGesture Component.
+ * @since 7
+ */
 declare const SwipeGesture: SwipeGestureInterface;
+
+/**
+ * Defines PinchGesture Component.
+ * @since 7
+ */
 declare const PinchGesture: PinchGestureInterface;
+
+/**
+ * Defines RotationGesture Component.
+ * @since 7
+ */
 declare const RotationGesture: RotationGestureInterface;
+
+/**
+ * Defines GestureGroup Component.
+ * @since 7
+ */
 declare const GestureGroup: GestureGroupInterface;
