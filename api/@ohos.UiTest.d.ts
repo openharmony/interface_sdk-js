@@ -1633,7 +1633,7 @@ declare class Driver {
    * @since 10
    * @test
    */
-  screenCaputure(savePath: string, rect?: Rect): Promise<boolean>;
+  screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
 }
 
 /**
