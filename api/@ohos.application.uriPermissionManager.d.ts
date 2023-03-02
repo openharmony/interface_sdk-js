@@ -54,16 +54,17 @@ declare namespace uriPermissionManager {
     function grantUriPermissionFromSelf(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
     /**
-     * Remove all URI from one application
+     * Remove specific URI from one application
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param uri File URI need to be removed
      * @param { string } BundleName Indicates the bundleName of the application need to remove uri.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-    function removeUriPermission(BundleName: string, callback: AsyncCallback<number>): void;
-    function removeUriPermission(BundleName: string): Promise<number>;
+    function removeUriPermission(uri: string, BundleName: string, callback: AsyncCallback<number>): void;
+    function removeUriPermission(uri: string, BundleName: string): Promise<number>;
 }
 
 export default uriPermissionManager;
