@@ -1857,6 +1857,7 @@ declare interface CustomPopupOptions {
 /**
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 declare interface PixelStretchEffectOptions {
@@ -1864,6 +1865,7 @@ declare interface PixelStretchEffectOptions {
    * top property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    * The default value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   top?: Length;
@@ -1872,6 +1874,7 @@ declare interface PixelStretchEffectOptions {
    * bottom property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    * The default value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   bottom?: Length;
@@ -1880,6 +1883,7 @@ declare interface PixelStretchEffectOptions {
    * left property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    * The default value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   left?: Length;
@@ -1888,6 +1892,7 @@ declare interface PixelStretchEffectOptions {
    * right property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    * The default value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   right?: Length;
