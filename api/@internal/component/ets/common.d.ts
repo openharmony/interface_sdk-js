@@ -1973,8 +1973,20 @@ declare interface PopupOptions {
   /**
    * placement On Top
    * @since 7
+   * @deprecated since 10
+   * @useinstead PopupOptions#placement
    */
   placementOnTop?: boolean;
+
+  /**
+   * Placement of popup
+   * supports four positions: top, bottom, left and right
+   * @type { Placement }
+   * @default bottom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  placement?: Placement;
 
   /**
    * The first button.
