@@ -803,7 +803,7 @@ declare type TransitionEffects = {
 };
 
 /**
- * Defines the transtion effect
+ * Defines the transition effect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -813,6 +813,7 @@ declare class TransitionEffect<
 > {
   /**
    * Defines an identity transition effect
+   * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -820,6 +821,7 @@ declare class TransitionEffect<
 
   /**
    * Defines an opacity transition effect
+   * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -827,6 +829,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide transition effect
+   * @type { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -840,6 +843,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide & switch transition effect
+   * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -2495,8 +2499,9 @@ declare class CommonMethod<T> {
    */
   /**
    * Transition parameter
-   * @since 10
    * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
   transition(value: TransitionOptions | TransitionEffect): T;
 
