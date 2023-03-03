@@ -2336,7 +2336,7 @@ declare class CommonMethod<T> {
    * The larger the blurring radius, the more blurring the content.
    * If the value is 0, the content blurring effect is not blurring.
    * @form
-   * @since 9   
+   * @since 9
    */
   blur(value: number): T;
 
@@ -2980,7 +2980,7 @@ declare class CommonMethod<T> {
    * Set the light up effect of the component
    * @param {number} value - set the degree to which the component lights up, value range [0, 1].
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
-   * @default 1.
+   * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
