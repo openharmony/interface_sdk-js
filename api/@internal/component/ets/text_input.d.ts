@@ -105,6 +105,7 @@ declare class TextInputController {
    * Text selection is achieved by specifying the start and end positions of the text.
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   setTextSelection(selectionStart: number, selectionEnd: number): void;
