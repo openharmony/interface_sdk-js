@@ -397,6 +397,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * Launch type
    * @enum {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   export enum LaunchType {
@@ -410,6 +411,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
     /**
      * Indicates that the ability can have multiple instances
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
      * @since 9
      */
     MULTITON = 1,

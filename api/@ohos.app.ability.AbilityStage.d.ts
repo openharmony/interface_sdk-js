@@ -22,6 +22,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * The class of an ability stage.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 export default class AbilityStage {
@@ -38,6 +39,7 @@ export default class AbilityStage {
      * Called back when an ability stage is started for initialization.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onCreate(): void;

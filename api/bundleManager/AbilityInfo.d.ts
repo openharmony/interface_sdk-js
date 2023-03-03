@@ -21,6 +21,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * Obtains configuration information about an ability
  * @typedef AbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
  * @since 9
  */
 export interface AbilityInfo {
@@ -28,6 +29,7 @@ export interface AbilityInfo {
    * Indicates the name of the bundle containing the ability
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly bundleName: string;
@@ -36,6 +38,7 @@ export interface AbilityInfo {
    * Indicates the name of the .hap package to which the capability belongs
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly moduleName: string;
@@ -44,6 +47,7 @@ export interface AbilityInfo {
    * Ability simplified class name
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly name: string;
@@ -52,6 +56,7 @@ export interface AbilityInfo {
    * Indicates the label of the ability
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly label: string;
@@ -60,6 +65,7 @@ export interface AbilityInfo {
    * Indicates the label id of the ability
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly labelId: number;
@@ -68,6 +74,7 @@ export interface AbilityInfo {
    * Indicates the ability
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly description: string;
@@ -76,6 +83,7 @@ export interface AbilityInfo {
    * Indicates the description id of the ability
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly descriptionId: number;
@@ -84,6 +92,7 @@ export interface AbilityInfo {
    * Indicates the icon of the ability
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly icon: string;
@@ -92,6 +101,7 @@ export interface AbilityInfo {
    * Indicates the icon id of the ability
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly iconId: number;
@@ -133,6 +143,7 @@ export interface AbilityInfo {
    * Enumerates ability launch type
    * @type {bundleManager.LaunchType}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly launchType: bundleManager.LaunchType;
@@ -184,6 +195,7 @@ export interface AbilityInfo {
    * Obtains configuration information about an application
    * @type {ApplicationInfo}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly applicationInfo: ApplicationInfo;

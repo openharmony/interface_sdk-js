@@ -21,6 +21,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * Obtains configuration information about an application
  * @typedef ApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
  * @since 9
  */
 export interface ApplicationInfo {
@@ -28,6 +29,7 @@ export interface ApplicationInfo {
    * Indicates the application name, which is the same as {@code bundleName}
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly name: string;
@@ -36,6 +38,7 @@ export interface ApplicationInfo {
    * Description of application
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly description: string;
@@ -44,6 +47,7 @@ export interface ApplicationInfo {
    * Indicates the description id of the application
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly descriptionId: number;
@@ -60,6 +64,7 @@ export interface ApplicationInfo {
    * Indicates the label of the application
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly label: string;
@@ -68,6 +73,7 @@ export interface ApplicationInfo {
    * Indicates the label id of the application
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly labelId: number;
@@ -76,6 +82,7 @@ export interface ApplicationInfo {
    * Indicates the icon of the application
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly icon: string;
@@ -84,6 +91,7 @@ export interface ApplicationInfo {
    * Indicates the icon id of the application
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly iconId: number;
@@ -108,6 +116,7 @@ export interface ApplicationInfo {
    * Indicates the application source code path
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly codePath: string;

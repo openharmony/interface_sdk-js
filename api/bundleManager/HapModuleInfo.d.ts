@@ -22,6 +22,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * Obtains configuration information about a hap module.
  * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
  * @since 9
  */
 export interface HapModuleInfo {
@@ -29,6 +30,7 @@ export interface HapModuleInfo {
    * Indicates the name of this hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly name: string;
@@ -37,30 +39,37 @@ export interface HapModuleInfo {
    * Indicates the icon of this hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly icon: string;
 
-   /**
-    * Indicates the icon id of this hap module
-    * @type {number}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the icon id of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 9
+   */
   readonly iconId: number;
 
    /**
     * Indicates the label of this hap module
-    * @type {string}
+    *
+    * @type { string }
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @crossplatform
     * @since 9
     */
    readonly label: string;
 
    /**
     * Indicates the label id of this hap module
-    * @type {number}
+    *
+    * @type { number }
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @crossplatform
     * @since 9
     */
    readonly labelId: number;
@@ -69,6 +78,7 @@ export interface HapModuleInfo {
    * Describes the hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly description: string;
@@ -77,6 +87,7 @@ export interface HapModuleInfo {
    * Indicates the description of this hap module
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly descriptionId: number;
@@ -85,6 +96,7 @@ export interface HapModuleInfo {
    * Indicates main elementName of the hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly mainElementName: string;
@@ -93,6 +105,7 @@ export interface HapModuleInfo {
    * Obtains configuration information about abilities
    * @type {Array<AbilityInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly abilitiesInfo: Array<AbilityInfo>;
