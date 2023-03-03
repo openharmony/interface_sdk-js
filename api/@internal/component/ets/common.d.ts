@@ -1864,7 +1864,7 @@ declare interface PixelStretchEffectOptions {
   /**
    * top property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
-   * The default value is 0.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -1873,7 +1873,7 @@ declare interface PixelStretchEffectOptions {
   /**
    * bottom property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
-   * The default value is 0.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -1882,7 +1882,7 @@ declare interface PixelStretchEffectOptions {
   /**
    * left property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
-   * The default value is 0.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -1891,7 +1891,7 @@ declare interface PixelStretchEffectOptions {
   /**
    * right property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
-   * The default value is 0.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -2336,7 +2336,7 @@ declare class CommonMethod<T> {
    * The larger the blurring radius, the more blurring the content.
    * If the value is 0, the content blurring effect is not blurring.
    * @form
-   * @since 9
+   * @since 9   
    */
   blur(value: number): T;
 
@@ -2970,7 +2970,7 @@ declare class CommonMethod<T> {
    * Set the spherical effect of the component.
    * @param {number} value - set the degree of spherification of component, value range [0, 1].
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
-   * The default value is 0.
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -2980,7 +2980,7 @@ declare class CommonMethod<T> {
    * Set the light up effect of the component
    * @param {number} value - set the degree to which the component lights up, value range [0, 1].
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
-   * The default value is 1.
+   * @default 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
