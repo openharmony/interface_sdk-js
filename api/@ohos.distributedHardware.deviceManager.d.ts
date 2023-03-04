@@ -610,7 +610,7 @@ declare namespace deviceManager {
      */
     on(type: 'uiStateChange', callback: Callback<{ param: string }>): void;
 
-     /**
+    /**
       * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
       *
       * @since 9
