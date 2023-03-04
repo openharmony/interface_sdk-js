@@ -44,6 +44,27 @@ interface SelectInterface {
 }
 
 /**
+ * The enum for arrow position in the select
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ArrowPosition {
+  /**
+   * The value of arrow position end
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  END = 0,
+  /**
+   * The value of arrow position start
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  START = 1
+}
+
+/**
  * The commonMethod of select.
  * @since 8
  */
@@ -113,6 +134,22 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 8
    */
   onSelect(callback: (index: number, value?: string) => void): SelectAttribute;
+
+  /**
+   * Set the space for text and icon in select
+   * @param { Length } value - indicates the length of the space
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  space(value: Length): SelectAttribute;
+
+  /**
+   * Set the layout direction for text and arrow in select
+   * @param { ArrowPosition } value - indicates the arrow position in the select
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  arrowPosition(value: ArrowPosition): SelectAttribute;
 }
 
 declare const Select: SelectInterface;
