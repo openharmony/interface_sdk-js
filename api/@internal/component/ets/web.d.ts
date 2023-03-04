@@ -463,6 +463,14 @@ declare class HttpAuthHandler {
   confirm(priKeyFile : string, certChainFile : string): void;
 
   /**
+   * Confirm to use the specified private key and client certificate chain.
+   * @param Uri is the key of the private key and user certificate chain.
+   *
+   * @since 10
+   */
+  confirm(authUri : string): void;
+
+  /**
    * Cancel this certificate request.
    * @since 9
    */
