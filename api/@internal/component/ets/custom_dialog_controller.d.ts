@@ -80,6 +80,7 @@ declare interface CustomDialogControllerOptions {
 
   /**
    * Whether to display in the sub window.
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
