@@ -184,6 +184,22 @@ export interface Dependency {
    * @since 9
    */
   readonly moduleName: string;
+
+  /**
+   * Indicates the bundle name of the dependency
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly bundleName: string;
+
+  /**
+   * Indicates the version code of the dependency
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly versionCode: number;
 }
 
 /**
