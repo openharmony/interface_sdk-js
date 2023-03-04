@@ -540,7 +540,7 @@ declare namespace deviceManager {
      */
     unAuthenticateDevice(deviceInfo: DeviceInfo): void;
 
-     /**
+    /**
      * verify auth info, such as pin code.
      *
      * @param authInfo device auth info o verify
@@ -558,7 +558,7 @@ declare namespace deviceManager {
      * @param params Indicates the input param of the user.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
-     */  
+     */
     setUserOperation(operateAction: number, params: string): void;
 
     /**
@@ -570,7 +570,7 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns device credential registerInfo, it include deviceId, devicePk, useId and version.
      * @systemapi this method can be used only by system applications.
-     */  
+     */
     requestCredentialRegisterInfo(requestInfo: string, callback: AsyncCallback<{registerInfo: string}>): void;
 
     /**
@@ -584,7 +584,7 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns the groupId to which the device belongs.
      * @systemapi this method can be used only by system applications.
-     */  
+     */
     importCredential(credentialInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
 
     /**
@@ -596,7 +596,7 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns the groupId to which the device belongs.
      * @systemapi this method can be used only by system applications.
-     */  
+     */
     deleteCredential(queryInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
 
     /**
