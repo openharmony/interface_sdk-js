@@ -463,8 +463,8 @@ declare class HttpAuthHandler {
   confirm(priKeyFile : string, certChainFile : string): void;
 
   /**
-   * Confirm to use the credentials contain sign info and client certificates info.
-   * @param authUri is the key of credentials.
+   * Confirm to use the authUri.
+   * @param authUri is the key of credentials.The credentials contain sign info and client certificates info.
    *
    * @since 10
    */
