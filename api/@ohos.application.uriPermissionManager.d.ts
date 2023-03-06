@@ -47,6 +47,7 @@ declare namespace uriPermissionManager {
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param { string } fromBundleName - Indicates the application bundle name which URI belong to.
      * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+     * @param { callback } callback - Unregister a callback function for listening for notifications.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
@@ -73,6 +74,7 @@ declare namespace uriPermissionManager {
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+     * @param { callback } callback - Unregister a callback function for listening for notifications.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
@@ -97,6 +99,7 @@ declare namespace uriPermissionManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri File URI need to be revoke
      * @param { string } BundleName Indicates the bundleName of the application need to remove uri.
+     * @param { callback } callback - Unregister a callback function for listening for notifications.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
