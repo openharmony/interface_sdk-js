@@ -153,6 +153,20 @@ declare enum Color {
 }
 
 /**
+ * Common enum of color strategy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ColoringStrategy {
+  /**
+   * Use the inverse color strategy
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  INVERT = "invert",
+}
+
+/**
  * Image display mode
  * @since 7
  */

@@ -2156,6 +2156,15 @@ declare class CommonMethod<T> {
   borderImage(value: BorderImageOption): T;
 
   /**
+   * Provides the general foreground color capability of UI components, and assigns color values
+   * according to the characteristics of components.
+   * @param {ResourceColor | ColoringStrategy} value indicates the color or color selection strategy
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  foregroundColor(value: ResourceColor | ColoringStrategy): T;
+
+  /**
    * Trigger a click event when a click is clicked.
    * @since 7
    */
