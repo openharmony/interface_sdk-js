@@ -1335,6 +1335,30 @@ declare interface BackgroundBlurStyleOptions {
 }
 
 /**
+ * Provide an interface for the text style of picker
+ * @interface PickerTextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface PickerTextStyle {
+  /**
+   * Define the text color of picker.
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color?: ResourceColor;
+  /**
+   * Define the text font of picker.
+   * Only support size and weight.
+   * @type { Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  font?: Font;
+}
+
+/**
  * Define the options of shadow
  * @since 7
  */
