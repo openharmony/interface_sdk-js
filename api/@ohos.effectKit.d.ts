@@ -94,7 +94,7 @@ declare namespace effectKit {
     getLargestProportionColor(): Color;
 
     /**
-     * get highest saturation color of an image
+     * Get highest saturation color of an image
      * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
      * @returns {Color} Highest saturation color picked in the image.
@@ -102,7 +102,7 @@ declare namespace effectKit {
     getHighestSaturationColor(): Color;
 
     /**
-     * get average color of an image
+     * Get average color of an image
      * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
      * @returns {Color} Average color calculated in the image.
@@ -110,7 +110,7 @@ declare namespace effectKit {
     getAverageColor(): Color;
 
     /**
-     * determine whether the color is black or white or gray
+     * Determine whether the color is black or white or gray
      * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param {color} number The 32 bit ARGB color to discriminate.
