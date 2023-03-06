@@ -2971,7 +2971,7 @@ declare class CommonMethod<T> {
 
   /**
    * Set the spherical effect of the component.
-   * @param {number} value - set the degree of spherification of component, value range [0, 1].
+   * @param {number} value - set the degree of sphericize of component, value range [0, 1].
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
