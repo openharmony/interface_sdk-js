@@ -2985,7 +2985,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  lightupEffect(value: number): T;
+  lightUpEffect(value: number): T;
 
   /**
    * Set the edge pixel stretch effect of the Component.
