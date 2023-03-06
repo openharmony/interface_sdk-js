@@ -1217,6 +1217,19 @@ declare namespace webview {
          * @since 10
          */
         getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
+
+        /**
+         * Set audio muted.
+         *
+         * @param { boolean } mute - Set the audio muted or not.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 10
+         */
+        setAudioMuted(mute: boolean): void;
     }
 }
 
