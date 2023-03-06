@@ -89,7 +89,7 @@ declare namespace effectKit {
      * Get largest proportion color of an image
      * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @returns {Color} Largestest proportion color picked in the image.
+     * @returns {Color} Largest proportion color picked in the image.
      */
     getLargestProportionColor(): Color;
 
