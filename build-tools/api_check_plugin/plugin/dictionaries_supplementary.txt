@@ -363,6 +363,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightupEffect
 lpx
 lru
 lshort
