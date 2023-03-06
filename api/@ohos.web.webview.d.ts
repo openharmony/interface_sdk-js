@@ -465,12 +465,222 @@ declare namespace webview {
         static deleteSessionCookie(): void;
     }
 
+  /**
+   * Enum type supplied to {@link onMessageEventExt} for indicating the type of web message.
+   * @since 10
+   * @syscap SystemCapability.Web.Webview.Core
+   */
+  enum WebMessageType {
+    /**
+     * Unsupported data type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    NOT_SUPPORT,
+
+    /**
+     * The string data type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    STRING,
+
+    /**
+     * The number data type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    NUMBER,
+
+    /**
+     * The boolean data type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    BOOLEAN,
+
+    /**
+     * The arraybuffer data type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    ARRAY_BUFFER,
+
+    /**
+     * The array data type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    ARRAY,
+
+    /**
+     * The error data type.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    ERROR
+  }
+
+  /**
+   * The message received or sent from web message port.
+   * @since 10
+   * @syscap SystemCapability.Web.Webview.Core
+   */
+  class WebMessageExt {
+    /**
+     * Get the type of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    getType(): WebMessageType;
+
+    /**
+     * Get the string value of the web message.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    getString(): string;
+
+    /**
+     * Get the number value of the web message.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    getNumber(): number;
+
+    /**
+     * Get the boolean value of the web message.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    getBoolean(): boolean;
+
+    /**
+     * Get the array buffer value of the web message.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    getArrayBuffer(): ArrayBuffer;
+
+    /**
+     * Get the array value of the web message.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    getArray(): Array<string | number | boolean>;
+
+    /**
+     * Get the error value of the web message.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    getError(): Error;
+
+    /**
+     * Set the type of the web message.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    setType(type: WebMessageType): void;
+
+    /**
+     * Set the string value of the web message.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    setString(message: string): void;
+
+    /**
+     * Set the number value of the web message.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    setNumber(message: number): void;
+
+    /**
+     * Set the boolean value of the web message.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    setBoolean(message: boolean): void;
+
+    /**
+     * Set the array buffer value of the web message.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    setArrayBuffer(message: ArrayBuffer): void;
+
+    /**
+     * Set the array value of the web message.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    setArray(message: Array<string | number | boolean>): void;
+
+    /**
+     * Set the error value of the web message.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    setError(message: Error): void;
+  }
+
     type WebMessage = ArrayBuffer | string;
     /**
      * Define html web message port.
      * @since 9
      */
     interface WebMessagePort {
+      /**
+       * The flag indicates whether more formats are supported than string and array buffers.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      isExtentionType?: boolean;
+
         /**
          * Close port.
          * @since 9
@@ -496,6 +706,28 @@ declare namespace webview {
          * @since 9
          */
         onMessageEvent(callback: (result: WebMessage) => void): void;
+
+      /**
+       * Post a message to other port.
+       * @param { WebMessageExt } message - Message to send.
+       * @throws { BusinessError } 401 - Invalid input parameter.
+       * @throws { BusinessError } 17100010 - Can not post message using this port.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      postMessageEventExt(message: WebMessageExt): void;
+
+      /**
+       * Receive message from other port.
+       * @param { (result: WebMessageExt) => void } callback - Callback function for receiving messages.
+       * @throws { BusinessError } 401 - Invalid input parameter.
+       * @throws { BusinessError } 17100006 - Can not register message event using this port.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      onMessageEventExt(callback: (result: WebMessageExt) => void): void;
     }
 
     /**
@@ -565,6 +797,121 @@ declare namespace webview {
          * @since 9
          */
         getItemAtIndex(index: number): HistoryItem;
+    }
+
+    /**
+     * Enum type supplied to {@link runJavaScriptExt} for indicating the result of JavaScript code execution.
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    enum JsMessageType {
+      /**
+       * Unsupported data type.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      NOT_SUPPORT,
+
+      /**
+       * The string data type.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      STRING,
+
+      /**
+       * The number data type.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      NUMBER,
+
+      /**
+       * The boolean data type.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      BOOLEAN,
+
+      /**
+       * The arraybuffer data type.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      ARRAY_BUFFER,
+
+      /**
+       * The array data type.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      ARRAY
+    }
+
+    /**
+     * The message for indicating the of result of JavaScript code execution.
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    class JsMessageExt {
+      /**
+       * Get the type of the JavaScript code execution result.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      getType(): JsMessageType;
+
+      /**
+       * Get the string value of the JavaScript code execution result.
+       * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      getString(): string;
+
+      /**
+       * Get the number value of the JavaScript code execution result.
+       * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      getNumber(): number;
+
+      /**
+       * Get the boolean value of the JavaScript code execution result.
+       * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      getBoolean(): boolean;
+
+      /**
+       * Get the array buffer value of the JavaScript code execution result.
+       * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      getArrayBuffer(): ArrayBuffer;
+
+      /**
+       * Get the array value of the the JavaScript code execution result.
+       * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      getArray(): Array<string | number | boolean>;
     }
 
     /**
@@ -877,17 +1224,30 @@ declare namespace webview {
          */
         requestFocus(): void;
 
-        /**
-         * Create web message ports
-         *
-         * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
-         * @returns { Array<WebMessagePort> } An array represent 2 WebMessagePort, then can use
-         *                                    those ports to communication with html pages.
-         *
-         * @since 9
-         */
-        createWebMessagePorts(): Array<WebMessagePort>;
+      /**
+       * Create web message ports
+       *
+       * @throws { BusinessError } 17100001 - Init error.
+       *                           The WebviewController must be associated with a Web component.
+       * @returns { Array<WebMessagePort> } An array represent 2 WebMessagePort, then can use
+       *                                    those ports to communication with html pages.
+       *
+       * @since 9
+       */
+      /**
+       * Create web message ports
+       *
+       * @param [isExtentionType = false] Set whether the web message port supports extention type.
+       * @throws { BusinessError } 401 - Invalid input parameter.
+       * @throws { BusinessError } 17100001 - Init error.
+       *                           The WebviewController must be associated with a Web component.
+       * @returns { Array<WebMessagePort> } An array represent 2 WebMessagePort, then can use
+       *                                    those ports to communication with html pages.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      createWebMessagePorts(isExtentionType?: boolean): Array<WebMessagePort>;
 
         /**
          * Post web message port to html
@@ -1014,6 +1374,25 @@ declare namespace webview {
          */
         runJavaScript(script: string): Promise<string>;
         runJavaScript(script: string, callback: AsyncCallback<string>): void;
+
+      /**
+       * Execute JavaScript code in the context of the currently displayed page, and return the result.
+       *
+       * @param { string } script - JavaScript Script.
+       * @param { AsyncCallback<JsMessageExt> } callback - Callbacks execute JavaScript script results.
+       * @throws { BusinessError } 401 - Invalid input parameter.
+       * @throws { BusinessError } 17100001 - Init error.
+       *                           The WebviewController must be associated with a Web component.
+       * @returns { Promise<JsMessageExt> } A promise is solved after the JavaScript script is executed.
+       *                              This parameter will be the result of JavaScript script execution.
+       *                              If the JavaScript script fails to execute or has no return value,
+       *                              a none type value will be returned.
+       *
+       * @since 10
+       * @syscap SystemCapability.Web.Webview.Core
+       */
+      runJavaScriptExt(script: string): Promise<JsMessageExt>;
+      runJavaScriptExt(script: string, callback: AsyncCallback<JsMessageExt>): void;
 
         /**
          * Gets the url of current Web page.
