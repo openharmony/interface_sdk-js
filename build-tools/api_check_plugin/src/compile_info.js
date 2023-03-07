@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const path = require('path');
-const result = require('../check_result.json');
-const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require('../src/utils');
+const path = require("path")
+const result = require("../check_result.json");
+const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require("../src/utils");
 
 /**
  * 
@@ -47,10 +47,8 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     type: type,
     errorInfo: errorInfo,
     version: getApiInfo(node).version,
-    basename: path.basename(fileName).replace(/\.d\.ts/g, ''),
-    level: level,
-    apiName: node.symbol ? node.symbol.escapedName : '',
-    apiFullText: node.getFullText()
-  });
+    basename: path.basename(fileName).replace(/\.d\.ts/g, ""),
+    level: level
+  })
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;
