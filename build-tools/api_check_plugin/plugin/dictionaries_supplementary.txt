@@ -331,6 +331,7 @@ kaihong
 kbdillum
 kbdinputassist
 kbps
+keyof
 keyframe
 keyguard
 keyusage
@@ -362,6 +363,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightupEffect
 lpx
 lru
 lshort
