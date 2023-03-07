@@ -98,7 +98,7 @@ interface RefreshOptions {
 interface RefreshInterface {
   /**
    * Called when the drop-down refresh is set.
-   * @param value The options of refresh component.
+   * @param { RefreshOptions } value - The options of refresh component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
