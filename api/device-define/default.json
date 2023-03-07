@@ -77,6 +77,7 @@
     "SystemCapability.Multimedia.MediaLibrary.Core",
     "SystemCapability.Multimedia.MediaLibrary.SmartAlbum",
     "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
+    "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
     "SystemCapability.Telephony.CallManager",
     "SystemCapability.Telephony.CellularCall",

@@ -68,6 +68,7 @@
     "SystemCapability.Multimedia.MediaLibrary.Core",
     "SystemCapability.Multimedia.MediaLibrary.SmartAlbum",
     "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
+    "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Global.I18n",
     "SystemCapability.Global.ResourceManager",
     "SystemCapability.Customization.ConfigPolicy",
