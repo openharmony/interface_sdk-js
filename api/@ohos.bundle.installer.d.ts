@@ -180,7 +180,6 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700101 - The system service is excepted.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -196,7 +195,6 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700101 - The system service is excepted.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
