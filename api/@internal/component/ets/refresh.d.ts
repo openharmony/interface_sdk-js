@@ -98,7 +98,7 @@ interface RefreshOptions {
 interface RefreshInterface {
   /**
    * Called when the drop-down refresh is set.
-   * @param { { refreshing: boolean; offset?: number | string; friction?: number | string } }
+   * @param value The options of refresh component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
