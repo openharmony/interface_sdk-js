@@ -115,7 +115,14 @@ interface ImageInterface {
    * @form
    * @since 9
    */
-  (src: string | PixelMap | Resource): ImageAttribute;
+  /**
+   * Set src to obtain images
+   * @form
+   * @param { PixelMap | ResourceStr | DrawableDescriptor } src
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
 }
 
 /**
