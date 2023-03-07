@@ -19,6 +19,7 @@ import {AsyncCallback} from "./basic";
 import {Callback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
+import cert from './@ohos.security.cert';
 
 /**
  * This module provides the capability to manage web modules.
@@ -97,6 +98,30 @@ declare namespace webview {
          * @since 9
          */
         Unknown
+    }
+
+    /**
+     * Defines the mode for using HttpDns.
+     * @since 10
+     */
+    enum SecureDnsMode {
+        /**
+         * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
+         * @since 10
+         */
+        Off = 0,
+        /**
+         * By default, the set HttpDns server is used for dns resolution, and if it fails,
+         * the system dns is used for resolution.
+         * @since 10
+         */
+        Auto = 1,
+        /**
+         * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
+         * fall back to the system dns, which will directly cause the page to fail to load.
+         * @since 10
+         */
+        SecureOnly = 2,
     }
 
     /**
@@ -556,6 +581,19 @@ declare namespace webview {
          * @since 9
          */
         static initializeWebEngine(): void;
+
+
+        /**
+         * Set web engine to use HttpDns server to resolve dns.
+         * @param { secureDnsMode } Mode using HttpDns.
+         * @param { serverConfig } The configuration of the HttpDns server.
+         *                         Must be https protocol and only allow one server to be configured.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 10
+         */
+        static setHttpDns(secureDnsMode: SecureDnsMode, serverConfig: string): void;
+
 
         /**
          * Enables debugging of web contents.
@@ -1156,6 +1194,42 @@ declare namespace webview {
          * @since 9
          */
         static customizeSchemes(schemes: Array<WebCustomScheme>): void;
+
+        /**
+         * Get certificate for the current website.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a web component.
+         * @returns { Promise<Array<cert.X509Cert>> } the promise of the current website's certificate.
+         *
+         * @since 10
+         */
+        getCertificate(): Promise<Array<cert.X509Cert>>;
+
+        /**
+         * Get certificate for the current website.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a web component.
+         * @param {AsyncCallback<Array<cert.X509Cert>>} callback - the callback of getCertificate.
+         *
+         * @since 10
+         */
+        getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
+
+        /**
+         * Set audio muted.
+         *
+         * @param { boolean } mute - Set the audio muted or not.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 10
+         */
+        setAudioMuted(mute: boolean): void;
     }
 }
 

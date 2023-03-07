@@ -38,6 +38,15 @@
 
   }
   
+  /**
+ * Defines Menu Component.
+ * @since 9
+ */
   declare const Menu: MenuInterface;
+
+  /**
+ * Defines Menu Component instance.
+ * @since 9
+ */
   declare const MenuInstance: MenuAttribute;
   

@@ -66,5 +66,24 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   points(value: Array<any>): PolylineAttribute;
 }
 
+/**
+ * Defines Polyline Component.
+ * @since 7
+ */
+/**
+ * Defines Polyline Component.
+ * @form
+ * @since 9
+ */
 declare const Polyline: PolylineInterface;
+
+/**
+ * Defines Polyline Component instance.
+ * @since 7
+ */
+/**
+ * Defines Polyline Component instance.
+ * @form
+ * @since 9
+ */
 declare const PolylineInstance: PolylineAttribute;

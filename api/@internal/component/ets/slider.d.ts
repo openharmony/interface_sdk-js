@@ -315,5 +315,24 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 }
 
+/**
+ * Defines Slider Component.
+ * @since 7
+ */
+/**
+ * Defines Slider Component.
+ * @form
+ * @since 9
+ */
 declare const Slider: SliderInterface;
+
+/**
+ * Defines Slider Component instance.
+ * @since 7
+ */
+/**
+ * Defines Slider Component instance.
+ * @form
+ * @since 9
+ */
 declare const SliderInstance: SliderAttribute;

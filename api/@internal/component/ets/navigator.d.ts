@@ -85,5 +85,14 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   params(value: object): NavigatorAttribute;
 }
 
+/**
+ * Defines Navigator Component.
+ * @since 7
+ */
 declare const Navigator: NavigatorInterface;
+
+/**
+ * Defines Navigator Component instance.
+ * @since 7
+ */
 declare const NavigatorInstance: NavigatorAttribute;

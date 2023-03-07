@@ -135,5 +135,24 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   closeEffect(value: boolean): DataPanelAttribute;
 }
 
+/**
+ * Defines DataPanel Component.
+ * @since 7
+ */
+/**
+ * Defines DataPanel Component.
+ * @form
+ * @since 9
+ */
 declare const DataPanel: DataPanelInterface
+
+/**
+ * Defines DataPanel Component instance.
+ * @since 7
+ */
+/**
+ * Defines DataPanel Component instance.
+ * @form
+ * @since 9
+ */
 declare const DataPanelInstance: DataPanelAttribute;

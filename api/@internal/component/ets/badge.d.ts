@@ -256,5 +256,24 @@ interface BadgeInterface {
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
+/**
+ * Defines Badge Component.
+ * @since 7
+ */
+/**
+ * Defines Badge Component.
+ * @form
+ * @since 9
+ */
 declare const Badge: BadgeInterface;
+
+/**
+ * Defines Badge Component instance.
+ * @since 7
+ */
+/**
+ * Defines Badge Component instance.
+ * @form
+ * @since 9
+ */
 declare const BadgeInstance: BadgeAttribute;

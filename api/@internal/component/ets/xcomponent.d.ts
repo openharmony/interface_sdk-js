@@ -76,5 +76,14 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   onDestroy(event: () => void): XComponentAttribute;
 }
 
+/**
+ * Defines XComponent Component.
+ * @since 8
+ */
 declare const XComponent: XComponentInterface;
+
+/**
+ * Defines XComponent Component instance.
+ * @since 8
+ */
 declare const XComponentInstance: XComponentAttribute;

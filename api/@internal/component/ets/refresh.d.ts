@@ -123,5 +123,14 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   onRefreshing(callback: () => void): RefreshAttribute;
 }
 
+/**
+ * Defines Refresh Component.
+ * @since 8
+ */
 declare const Refresh: RefreshInterface;
+
+/**
+ * Defines Refresh Component instance.
+ * @since 8
+ */
 declare const RefreshInstance: RefreshAttribute;

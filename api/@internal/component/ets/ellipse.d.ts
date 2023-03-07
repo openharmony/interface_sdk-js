@@ -55,5 +55,24 @@ interface EllipseInterface {
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
+/**
+ * Defines Ellipse Component.
+ * @since 7
+ */
+/**
+ * Defines Ellipse Component.
+ * @form
+ * @since 9
+ */
 declare const Ellipse: EllipseInterface;
+
+/**
+ * Defines Ellipse Component instance.
+ * @since 7
+ */
+/**
+ * Defines Ellipse Component instance.
+ * @form
+ * @since 9
+ */
 declare const EllipseInstance: EllipseAttribute;

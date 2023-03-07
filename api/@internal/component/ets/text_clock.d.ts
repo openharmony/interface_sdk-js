@@ -97,5 +97,14 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   fontFamily(value: ResourceStr): TextClockAttribute;
 }
 
+/**
+ * Defines TextClock Component.
+ * @since 8
+ */
 declare const TextClock: TextClockInterface;
+
+/**
+ * Defines TextClock Component instance.
+ * @since 8
+ */
 declare const TextClockInstance: TextClockAttribute;
