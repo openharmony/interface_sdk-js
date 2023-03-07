@@ -243,7 +243,7 @@ declare type Context = import('../api/application/Context').default;
  * @StageModelOnly
  * @since 9
  */
- declare function postCardAction(component: Object, action: Object): void;
+declare function postCardAction(component: Object, action: Object): void;
 
 /**
  * Defines the data type of the interface restriction.
@@ -435,8 +435,8 @@ interface ICurve {
    * Get curve value by fraction.
    * @form
    * @since 9
-   */ 
-  interpolate(fraction : number) : number;
+   */
+  interpolate(fraction: number): number;
 }
 
 /**
@@ -717,6 +717,8 @@ declare interface RotateOptions {
 /**
  * Defines the param of transition.
  * @since 7
+ * @deprecated since 10
+ * @useinstead TransitionEffect
  */
 declare interface TransitionOptions {
   /**
@@ -744,6 +746,186 @@ declare interface TransitionOptions {
    * @since 7
    */
   rotate?: RotateOptions;
+}
+
+/**
+ * Defines the Edge object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TransitionEdge {
+  /**
+   * Top edge
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TOP,
+
+  /**
+   * Bottom edge
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BOTTOM,
+
+  /**
+   * Start edge
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  START,
+
+  /**
+   * End edge
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  END
+}
+
+/**
+ * Defines all transition effects.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type TransitionEffects = {
+  identity: undefined;
+  opacity: number;
+  slideSwitch: undefined;
+  move: TransitionEdge;
+  translate: TranslateOptions;
+  rotate: RotateOptions;
+  scale: ScaleOptions;
+  asymmetric: {
+    appear: TransitionEffect;
+    disappear: TransitionEffect;
+  };
+};
+
+/**
+ * Defines the transition effect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class TransitionEffect<
+  Type extends keyof TransitionEffects = keyof TransitionEffects,
+  Effect extends TransitionEffects[Type] = TransitionEffects[Type]
+> {
+  /**
+   * Defines an identity transition effect
+   * @type { TransitionEffect<"identity"> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static readonly IDENTITY: TransitionEffect<"identity">;
+
+  /**
+   * Defines an opacity transition effect
+   * @type { TransitionEffect<"opacity"> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static readonly OPACITY: TransitionEffect<"opacity">;
+
+  /**
+   * Defines a slide transition effect
+   * @type { TransitionEffect<"asymmetric"> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static readonly SLIDE: TransitionEffect<
+    "asymmetric",
+    {
+      appear: TransitionEffect<"move", TransitionEdge>;
+      disappear: TransitionEffect<"move", TransitionEdge>;
+    }
+  >;
+
+  /**
+   * Defines a slide & switch transition effect
+   * @type { TransitionEffect<"slideSwitch"> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static readonly SLIDE_SWITCH: TransitionEffect<"slideSwitch">;
+
+  /**
+   * Creates a translate transition effect
+   * @param { TranslateOptions } options translate options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static translate(options: TranslateOptions): TransitionEffect<"translate">;
+
+  /**
+   * Creates a rotation transition effect
+   * @param { RotateOptions } options rotate options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static rotate(options: RotateOptions): TransitionEffect<"rotate">;
+
+  /**
+   * Creates a scale transition effect
+   * @param { ScaleOptions } options scale options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static scale(options: ScaleOptions): TransitionEffect<"scale">;
+
+  /**
+   * Creates an opacity transition effect with alpha value
+   * @param { number } alpha opacity alpha value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static opacity(alpha: number): TransitionEffect<"opacity">;
+
+  /**
+   * Creates a move transition effect
+   * @param { TransitionEdge } edge the edge that component will move to
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static move(edge: TransitionEdge): TransitionEffect<"move">;
+
+  /**
+   * Creates an asymmetric transition effect
+   * @param { TransitionEffect } appear the transition which will be attached when the component is appear
+   * @param { TransitionEffect } disappear the transition which will be attached when the component is disappear
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static asymmetric(
+    appear: TransitionEffect,
+    disappear: TransitionEffect
+  ): TransitionEffect<"asymmetric">;
+
+  /**
+   * TransitionEffect constructor
+   * @param { Type extends keyof TransitionEffects } type transition type
+   * @param { Effect extends TransitionEffects[Type] } effect transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor(type: Type, effect: Effect);
+
+  /**
+   * Set the animation of current transition effect
+   * @param { AnimateParam } value animation parameters
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  animation(value: AnimateParam): TransitionEffect;
+
+  /**
+   * Combines another transition effect
+   * @param { TransitionEffect } transitionEffect transition effect which is be combined
+   * @returns { TransitionEffect } combined transition effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
 
 /**
@@ -1767,13 +1949,13 @@ declare interface PopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?: Length;
+  arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
    * @since 9
    */
-   showInSubWindow?: boolean;
+  showInSubWindow?: boolean;
 
   /**
    * The mask to block gesture events of popup.
@@ -1837,13 +2019,13 @@ declare interface CustomPopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?: Length;
+  arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
    * @since 9
    */
-   showInSubWindow?: boolean;
+  showInSubWindow?: boolean;
 
   /**
    * The mask to block gesture events of popup.
@@ -2093,8 +2275,8 @@ declare class CommonMethod<T> {
    * @param { BackgroundBlurStyleOptions } options
    * @since 10
    */
-   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
-  
+  backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
   /**
    * Opacity
    * @since 7
@@ -2135,7 +2317,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderStyle(value: EdgeStyles): T;
+  borderStyle(value: EdgeStyles): T;
 
   /**
    * Border width
@@ -2157,7 +2339,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderWidth(value: EdgeWidths): T;
+  borderWidth(value: EdgeWidths): T;
 
   /**
    * Border color
@@ -2175,7 +2357,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderColor(value: EdgeColors): T;
+  borderColor(value: EdgeColors): T;
 
   /**
    * Border radius
@@ -2193,7 +2375,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderRadius(value: BorderRadiuses): T;
+  borderRadius(value: BorderRadiuses): T;
 
   /**
    * Border image
@@ -2313,8 +2495,15 @@ declare class CommonMethod<T> {
    * Transition parameter
    * @form
    * @since 9
+   * @param { TransitionOptions } value transition options
    */
-  transition(value: TransitionOptions): T;
+  /**
+   * Transition parameter
+   * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  transition(value: TransitionOptions | TransitionEffect): T;
 
   /**
    * Bind gesture recognition.
@@ -3014,7 +3203,7 @@ declare class CommonMethod<T> {
  * @form
  * @since 9
  */
-declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
+declare class CommonAttribute extends CommonMethod<CommonAttribute> { }
 
 /**
  * CommonInterface for ide.

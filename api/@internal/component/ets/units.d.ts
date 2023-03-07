@@ -97,7 +97,7 @@ declare type Margin = Padding;
  * Defines the border width property.
  * @since 9
  */
- declare type EdgeWidths = {
+declare type EdgeWidths = {
   /**
    * top property.
    * @since 9
