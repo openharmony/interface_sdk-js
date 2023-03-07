@@ -16,30 +16,30 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel, FileType, permissionFile } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
 
 function getPermissionBank() {
   const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
-  const permissionFilesPath = path.resolve(__dirname, '../../../../../',
-    "base/global/system_resources/systemres/main/config.json");
-  const content = fs.readFileSync(permissionFilesPath, 'utf-8');
-  const permissionFileContent = JSON.parse(content);
-  const permissionTagsObj = permissionFileContent.module.definePermissions;
-  permissionTagsObj.forEach((item) => {
-    permissionTags.push(item.name);
-  })
+  if (fs.existsSync(permissionFile)) {
+    const permissionFileContent = require('../config/config.json');
+    const permissionTagsObj = permissionFileContent.module.definePermissions;
+    permissionTagsObj.forEach((item) => {
+      permissionTags.push(item.name);
+    });
+  }
   const permissionRuleSets = new Set(permissionTags);
-  return permissionRuleSets
+  return permissionRuleSets;
 }
+exports.getPermissionBank = getPermissionBank;
 
 function checkPermission(node, sourcefile, fileName) {
   const permissionRuleSet = getPermissionBank();
   const apiNote = getAPINote(node);
   let hasPermissionError = false;
-  let errorInfo = "";
+  let errorInfo = '';
   let apiNoteArr = [];
   if (apiNote.match(new RegExp('@permission'))) {
     apiNoteArr = apiNote.split(/ *\* *\@/g);
@@ -54,18 +54,18 @@ function checkPermission(node, sourcefile, fileName) {
           if (permissionStr !== '') {
             if (!permissionRuleSet.has(permissionStr)) {
               hasPermissionError = true;
-              if (errorInfo !== "") {
+              if (errorInfo !== '') {
                 errorInfo += `,${permissionStr}`;
               } else {
                 errorInfo += permissionStr;
               }
             }
           }
-        })
+        });
       } else {
         if (!permissionRuleSet.has(permissionNote) && !/N\/A/.test(permissionNote)) {
           hasPermissionError = true;
-          if (errorInfo !== "") {
+          if (errorInfo !== '') {
             errorInfo += `,${permissionNote}`;
           } else {
             errorInfo += permissionNote;

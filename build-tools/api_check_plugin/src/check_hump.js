@@ -16,7 +16,7 @@
 const path = require('path');
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { ErrorType, ErrorLevel } = require('./utils');
-const rules = require("../code_style_rule.json");
+const rules = require('../code_style_rule.json');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkAPINameOfHump(node, sourcefile, fileName) {
@@ -53,7 +53,7 @@ function checkAPIFileName(sourcefile, fileName) {
   });
   if (exportAssignments.size > 1) {
     addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-      `This API file can only have one export default statement.`, ErrorLevel.MIDDLE);
+      'This API file can only have one export default statement.', ErrorLevel.MIDDLE);
   } else if (exportAssignments.size === 1) {
     const basename = path.basename(fileName);
     if (/^@ohos|@system/g.test(basename)) {
@@ -61,15 +61,15 @@ function checkAPIFileName(sourcefile, fileName) {
         const lastModuleName = basename.split('.').at(-1);
         if (moduleNames.has(exportAssignment) && !checkSmallHump(lastModuleName)) {
           addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-            `This API file should be named by small hump.`, ErrorLevel.MIDDLE);
+            'This API file should be named by small hump.', ErrorLevel.MIDDLE);
         } else if (!checkLargeHump(lastModuleName)) {
           addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-            `This API file should be named by large hump.`, ErrorLevel.MIDDLE);
+            'This API file should be named by large hump.', ErrorLevel.MIDDLE);
         }
       }
     } else if (!checkSmallHump(basename)) {
       addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-        `This API file should be named by small hump.`, ErrorLevel.MIDDLE);
+        'This API file should be named by small hump.', ErrorLevel.MIDDLE);
     }
   }
 }
@@ -87,7 +87,7 @@ function checkLargeHump(word) {
 }
 
 function checkSmallHump(word) {
-  const namingWhitelistSet = new Set(rules.namingWhitelist)
+  const namingWhitelistSet = new Set(rules.namingWhitelist);
   if (namingWhitelistSet.has(word)) {
     return true;
   }
