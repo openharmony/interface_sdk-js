@@ -380,7 +380,8 @@
         "MediaLibrary.DistributedCore",
         "Media.AVPlayer",
         "Media.AVRecorder",
-        "Image.ImageCreator"
+        "Image.ImageCreator",
+        "SystemSound.Core"
       ],
       "Telephony": [
         "CoreService",
@@ -529,7 +530,8 @@
       "Cloud": [
         "AAID",
         "OAID",
-        "VAID"
+        "VAID",
+        "Push"
       ],
       "XTS": [
         "DeviceAttest",
