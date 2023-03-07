@@ -1855,6 +1855,53 @@ declare interface CustomPopupOptions {
 }
 
 /**
+ * Set the edge blur effect distance of the corresponding defense line of the component
+ * When the component expand out, no re-layout is triggered
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface PixelStretchEffectOptions {
+  /**
+   * top property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  top?: Length;
+
+  /**
+   * bottom property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bottom?: Length;
+
+  /**
+   * left property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  left?: Length;
+
+  /**
+   * right property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  right?: Length;
+}
+
+/**
  * CommonMethod.
  * @since 7
  */
@@ -2929,7 +2976,33 @@ declare class CommonMethod<T> {
    * Trigger a visible area change event.
    * @since 9
    */
-   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+
+  /**
+   * Set the spherical effect of the component.
+   * @param {number} value - set the degree of spherical effect, value range [0, 1].
+   * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  sphericalEffect(value: number): T;
+
+  /**
+   * Set the light up effect of the component
+   * @param {number} value - set the degree to which the component lights up, value range [0, 1].
+   * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  lightUpEffect(value: number): T;
+
+  /**
+   * Set the edge pixel stretch effect of the Component.
+   * @param {PixelStretchEffectOptions} options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  pixelStretchEffect(options: PixelStretchEffectOptions): T;
 }
 
 /**
