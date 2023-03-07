@@ -2037,6 +2037,31 @@ declare interface CustomPopupOptions {
 }
 
 /**
+ * Defines the menu options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface MenuOptions {
+  /**
+   * Sets the title of the menu window.
+   * @type { ResourceStr }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  title?: ResourceStr;
+
+  /**
+   * Sets the position offset of the menu window.
+   * @type { Position }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  offset?: Position;
+}
+
+/**
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3134,9 +3159,17 @@ declare class CommonMethod<T> {
 
   /**
    * Menu control
+   * @param { { value: ResourceStr; action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @since 7
    */
-  bindMenu(content: { value: string; action: () => void }[] | CustomBuilder): T;
+  /**
+   * Menu control
+   * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
+   * @param { MenuOptions } options - Indicates the options of menu.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bindMenu(content: { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder, options?: MenuOptions): T;
 
   /**
    * ContextMenu control
