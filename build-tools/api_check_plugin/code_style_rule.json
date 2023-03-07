@@ -2,6 +2,7 @@
   "decorators": {
     "customDoc": [
       "constant",
+      "crossplatform",
       "default",
       "deprecated",
       "enum",
