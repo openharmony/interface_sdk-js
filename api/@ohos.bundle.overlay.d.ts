@@ -45,6 +45,7 @@ declare namespace overlay {
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
    * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
@@ -90,6 +91,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
@@ -109,6 +111,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
@@ -127,6 +130,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
@@ -146,6 +150,7 @@ declare namespace overlay {
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
    * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
