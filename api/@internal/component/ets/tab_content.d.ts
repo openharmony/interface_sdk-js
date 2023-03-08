@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * Define SubTabBarStyle, the style is text and underline.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ */
+ declare class SubTabBarStyle {
+  /**
+   * constructor.
+   * @since 9
+   */
+  constructor(content: string | Resource);
+}
+
+/**
+ * Define BottomTabBarStyle, the style is icon and text.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ */
+ declare class BottomTabBarStyle {
+  /**
+   * constructor.
+   * @since 9
+   */
+  constructor(icon: string | Resource, text: string | Resource);
+}
 
 /**
  * Provides an interface for switching the content view on a tab page.
@@ -36,7 +62,22 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    */
   tabBar(value: string | Resource | CustomBuilder |
     { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
+
+  /**
+   * Called when tabbar is entered.
+   * @since 9
+   */
+   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 }
 
+/**
+ * Defines TabContent Component.
+ * @since 7
+ */
 declare const TabContent: TabContentInterface;
+
+/**
+ * Defines TabContent Component instance.
+ * @since 7
+ */
 declare const TabContentInstance: TabContentAttribute;

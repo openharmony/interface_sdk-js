@@ -384,9 +384,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @returns Returns a list of application accounts.
-         * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @since 9
@@ -422,10 +420,8 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @param owner Indicates the account owner of your application or third-party applications.
          * @returns Returns a list of application accounts.
-         * @throws {BusinessError} 201 - permission denied.	
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid owner.
@@ -1002,13 +998,6 @@ declare namespace appAccount {
          * @since 8
          */
         token: string;
-
-        /**
-         * The account to which the token belongs.
-         *
-         * @since 9
-         */
-        account?: AppAccountInfo;
     }
 
     /**
@@ -1390,13 +1379,6 @@ declare namespace appAccount {
          * @since 8
          */
         onRequestRedirected: (request: Want) => void;
-
-        /**
-         * Notifies the client that the request is continued.
-         * @returns void.
-         * @since 9
-         */
-        onRequestContinued?: () => void;
     }
 
     /**
@@ -1524,7 +1506,7 @@ declare namespace appAccount {
          * @returns void.
          * @since 9
          */
-        isAccountRemovable(name: string, callback: AuthCallback): void;
+        checkAccountRemovable(name: string, callback: AuthCallback): void;
 
         /**
          * Gets the remote object of the authenticator for remote procedure call.

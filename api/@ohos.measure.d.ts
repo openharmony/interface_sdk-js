@@ -32,39 +32,88 @@ export interface MeasureOptions {
     textContent: string;
 
     /**
+     * Text display area of width.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    constraintWidth?: number | string | Resource;
+
+    /**
      * Font Size.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontSize?: number|string|Resource;
+    fontSize?: number | string | Resource;
 
     /**
      * Font style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontStyle?: number|FontStyle;
+    fontStyle?: number | FontStyle;
 
     /**
      * Font weight.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontWeight?: number|string|FontWeight;
+    fontWeight?: number | string | FontWeight;
 
     /**
      * Font list of text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontFamily?: string|Resource;
+    fontFamily?: string | Resource;
 
     /**
      * Distance between text fonts.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    letterSpacing?: number|string;
+    letterSpacing?: number | string;
+
+    /**
+     * Alignment of text.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    textAlign?: number | TextAlign;
+
+    /**
+     * Overflow mode of the font.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    overflow?: number | TextOverflow;
+
+    /**
+     * Maximum number of lines of text.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    maxLines?: number;
+
+    /**
+     * Vertical center mode of the font.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    lineHeight?: number | string | Resource;
+
+    /**
+     * Baseline offset.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    baselineOffset?: number | string;
+
+    /**
+     * Type of letter in the text font
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    textCase?: number | TextCase;
 }
 
 /**
@@ -80,4 +129,13 @@ export default class MeasureText {
      * @since 9
      */
     static measureText(options: MeasureOptions): double;
+
+    /**
+     * Displays the text width and height.
+     * @param { MeasureOptions } options - Options of measure area occupied by text.
+     * @returns { SizeOptions } width and height for text to display \
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    static measureTextSize(options: MeasureOptions): SizeOptions;
 }

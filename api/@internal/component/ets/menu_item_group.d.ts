@@ -22,13 +22,13 @@
      * Defines the header display info.
      * @since 9
      */
-    header?: CustomBuilder;
+    header?: ResourceStr | CustomBuilder;
   
     /**
      * Defines the footer display info.
      * @since 9
      */
-    footer?: CustomBuilder;
+    footer?: ResourceStr | CustomBuilder;
   }
   
   /**
@@ -49,6 +49,15 @@
    */
   declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
   
+  /**
+ * Defines MenuItemGroup Component.
+ * @since 9
+ */
   declare const MenuItemGroup: MenuItemGroupInterface;
+
+  /**
+ * Defines MenuItemGroup Component instance.
+ * @since 9
+ */
   declare const MenuItemGroupInstance: MenuItemGroupAttribute;
   

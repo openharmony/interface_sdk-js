@@ -84,6 +84,39 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     getMainColorSync(): Color;
+
+    /**
+     * Get largest proportion color of an image
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @returns {Color} Largest proportion color picked in the image.
+     */
+    getLargestProportionColor(): Color;
+
+    /**
+     * Get highest saturation color of an image
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @returns {Color} Highest saturation color picked in the image.
+     */
+    getHighestSaturationColor(): Color;
+
+    /**
+     * Get average color of an image
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @returns {Color} Average color calculated in the image.
+     */
+    getAverageColor(): Color;
+
+    /**
+     * Determine whether the color is black or white or gray
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param {color} number The 32 bit ARGB color to discriminate.
+     * @returns {boolean} Result of judging black, white and gray.
+     */
+    isBlackOrWhiteOrGrayColor(color:number): boolean;
   }
 
   /**

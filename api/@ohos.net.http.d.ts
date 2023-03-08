@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,7 @@
  */
 
 import {AsyncCallback, Callback} from "./basic";
+import connection from "./@ohos.net.connection";
 
 /**
  * Provides http related APIs.
@@ -22,6 +23,11 @@ import {AsyncCallback, Callback} from "./basic";
  * @syscap SystemCapability.Communication.NetStack
  */
 declare namespace http {
+  /**
+   * @since 10
+   */
+  type HttpProxy = connection.HttpProxy;
+
   /**
    * Creates an HTTP request task.
    */
@@ -75,6 +81,14 @@ declare namespace http {
      * @since 9
      */
     usingProtocol?: HttpProtocol; // default is automatically specified by the system.
+
+    /**
+     * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
+     * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
+     *
+     * @since 10
+     */
+    usingProxy?: boolean | HttpProxy; // default is false.
   }
 
   export interface HttpRequest {
@@ -85,10 +99,169 @@ declare namespace http {
      * @param options Optional parameters {@link HttpRequestOptions}.
      * @param callback Returns {@link HttpResponse}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
+
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param callback Returns the callback of request2, should use on_headersReceive and on_dataReceive
+     *        to get http response.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
+     * @since 10
+     */
+    request2(url: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @param callback Returns the callback of request2, should use on_headersReceive and on_dataReceive
+     *        to get http response.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
+     * @since 10
+     */
+    request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @returns The promise returned by the function, should use on_headersReceive and on_dataReceive
+     *        to get http response.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
+     * @since 10
+     */
+    request2(url: string, options?: HttpRequestOptions): Promise<void>;
 
     /**
      * Destroys an HTTP request.
@@ -131,6 +304,48 @@ declare namespace http {
      * @since 8
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
+
+    /**
+     * Registers an observer for receiving HTTP Response data events continuously.
+     *
+     * @since 10
+     */
+    on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
+
+    /**
+     * Unregisters an observer for receiving HTTP Response data events continuously.
+     *
+     * @since 10
+     */
+     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
+
+    /**
+     * Registers an observer for receiving HTTP Response data ends events.
+     *
+     * @since 10
+     */
+     on(type: "dataEnd", callback: Callback<void>): void;
+
+    /**
+     * Unregisters an observer for receiving HTTP Response data ends events.
+     *
+     * @since 10
+     */
+     off(type: "dataEnd", callback?: Callback<void>): void;
+
+    /**
+     * Registers an observer for progress of receiving HTTP Response data events.
+     *
+     * @since 10
+     */
+     on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+
+    /**
+     * Unregisters an observer for progress of receiving HTTP Response data events.
+     *
+     * @since 10
+     */
+     off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
   export enum RequestMethod {
@@ -198,8 +413,17 @@ declare namespace http {
    * @since 9
    */
   export enum HttpDataType {
+    /**
+     * The returned type is string.
+     */
     STRING,
+    /**
+     * The returned type is Object.
+     */
     OBJECT = 1,
+    /**
+     * The returned type is ArrayBuffer.
+     */
     ARRAY_BUFFER = 2,
   }
 
@@ -238,7 +462,7 @@ declare namespace http {
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
    *
-   * @param cacheSize the size of cache, default is 10*1024*1024(10MB).
+   * @param cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @since 9
    */
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;

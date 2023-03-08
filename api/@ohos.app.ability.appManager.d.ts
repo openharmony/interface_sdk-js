@@ -17,8 +17,7 @@ import { AsyncCallback } from './basic';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
-import { ProcessRunningInfo as _ProcessRunningInfo } from './application/ProcessRunningInfo';
-import { ProcessRunningInformation as _ProcessRunningInformation } from './application/ProcessRunningInformation';
+import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 
 /**
  * This module provides the function of app manager service.
@@ -264,24 +263,49 @@ declare namespace appManager {
     /**
      * Get information about running processes
      * @permission ohos.permission.GET_RUNNING_INFO
-     * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
+     * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @since 9
      */
-    function getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
+    function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
     /**
      * Get information about running processes
      * @permission ohos.permission.GET_RUNNING_INFO
-     * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
+     * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+    /**
+     * Check whether the shared bundle is running.
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { string } bundleName - Indicates the bundle name of the shared bundle.
+     * @param { number } versionCode - Indicates the version code of the shared bundle.
+     * @returns { Promise<boolean> } Returns the shared bundle running result. The result is true if running, false otherwise.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since 10
      */
-    function getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
+    function isSharedBundleRunning(bundleName: string, versionCode: number): Promise<boolean>;
+
+    /**
+     * Check whether the shared bundle is running.
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { string } bundleName - Indicates the bundle name of the shared bundle.
+     * @param { number } versionCode - Indicates the version code of the shared bundle.
+     * @param { AsyncCallback<boolean> } callback - The callback of checking the shared bundle running result. The result is true if running, false otherwise.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 10
+     */
+    function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
+
 
     /**
      * The ability or extension state data.
@@ -308,18 +332,11 @@ declare namespace appManager {
     export type ApplicationStateObserver = _ApplicationStateObserver.default
 
     /**
-     * The class of an process running information.
+     * The class of a process information.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
-    export type ProcessRunningInfo = _ProcessRunningInfo
-
-    /**
-     * The class of a process running information.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export type ProcessRunningInformation = _ProcessRunningInformation
+    export type ProcessInformation = _ProcessInformation
 }
 
 export default appManager;

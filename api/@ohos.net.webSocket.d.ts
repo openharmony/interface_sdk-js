@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -53,6 +53,8 @@ declare namespace webSocket {
      * @param options Optional parameters {@link WebSocketRequestOptions}.
      * @param callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
@@ -64,6 +66,8 @@ declare namespace webSocket {
      * @param data Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
      * @param callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<boolean>): void;
     send(data: string | ArrayBuffer): Promise<boolean>;
@@ -74,6 +78,8 @@ declare namespace webSocket {
      * @param options Optional parameters {@link WebSocketCloseOptions}.
      * @param callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     close(callback: AsyncCallback<boolean>): void;
     close(options: WebSocketCloseOptions, callback: AsyncCallback<boolean>): void;

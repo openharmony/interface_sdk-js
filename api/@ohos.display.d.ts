@@ -137,14 +137,60 @@ declare namespace display {
   }
 
   /**
+   * Enumerates the display orientation.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 10
+   */
+  enum Orientation {
+    /**
+     * Indicate that the display content is in portrait mode.
+     */
+    PORTRAIT = 0,
+
+    /**
+     * Indicate that the display content is in landscape mode.
+     */
+    LANDSCAPE = 1,
+
+    /**
+     * Indicate that the display content is in the opposite direction of the portrait mode.
+     */
+    PORTRAIT_INVERTED = 2,
+
+    /**
+     * Indicate that the display content is in the opposite direction of the landscape mode.
+     */
+    LANDSCAPE_INVERTED = 3,
+  }
+
+  /**
    * Rectangle
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
   interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * @since 9
+     */
     left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * @since 9
+     */
     top: number;
+
+    /**
+     * Width of the rectangle, in pixels.
+     * @since 9
+     */
     width: number;
+    
+    /**
+     * Height of the rectangle, in pixels.
+     * @since 9
+     */
     height: number;
   }
 
@@ -154,9 +200,28 @@ declare namespace display {
    * @since 9
    */
   interface WaterfallDisplayAreaRects {
+    /**
+     * Indicates the size of left side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly left: Rect;
+
+    /**
+     * Indicates the size of right side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly right: Rect;
+
+    /**
+     * Indicates the size of top side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly top: Rect;
+
+    /**
+     * Indicates the size of bottom side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly bottom: Rect;
   }
 
@@ -168,11 +233,13 @@ declare namespace display {
   interface CutoutInfo {
     /**
      * Bounding rectangles of the cutout areas of the display.
+     * @since 9
      */
     readonly boundingRects: Array<Rect>;
 
     /**
-     * Rectangles of curved parts on each side of a waterfall display. 
+     * Rectangles of curved parts on each side of a waterfall display.
+     * @since 9
      */
     readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
   }
@@ -227,6 +294,12 @@ declare namespace display {
      * Display resolution.
      */
     densityDPI: number;
+
+    /**
+     * Display orientation.
+     * @since 10
+     */
+    orientation: Orientation;
 
     /**
      * Display density, in pixels. The value for a low-resolution display is 1.0.

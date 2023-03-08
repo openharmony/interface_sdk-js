@@ -19,6 +19,7 @@ import {AsyncCallback} from "./basic";
 import {Callback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
+import cert from './@ohos.security.cert';
 
 /**
  * This module provides the capability to manage web modules.
@@ -31,7 +32,7 @@ declare namespace webview {
      * Defines the Web's request/response header.
      * @since 9
      */
-    interface HeaderV9 {
+    interface WebHeader {
         /**
          * Gets the key of the request/response header.
          * @since 9
@@ -49,7 +50,7 @@ declare namespace webview {
      * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
      * @since 9
      */
-    enum HitTestTypeV9 {
+    enum WebHitTestType {
         /**
          * The edit text.
          * @since 9
@@ -96,7 +97,31 @@ declare namespace webview {
          * Other unknown HitTest.
          * @since 9
          */
-        Unknown,
+        Unknown
+    }
+
+    /**
+     * Defines the mode for using HttpDns.
+     * @since 10
+     */
+    enum SecureDnsMode {
+        /**
+         * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
+         * @since 10
+         */
+        Off = 0,
+        /**
+         * By default, the set HttpDns server is used for dns resolution, and if it fails,
+         * the system dns is used for resolution.
+         * @since 10
+         */
+        Auto = 1,
+        /**
+         * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
+         * fall back to the system dns, which will directly cause the page to fail to load.
+         * @since 10
+         */
+        SecureOnly = 2,
     }
 
     /**
@@ -110,7 +135,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        type: HitTestTypeV9;
+        type: WebHitTestType;
 
         /**
          * Get the hit test extra data.
@@ -165,9 +190,9 @@ declare namespace webview {
      *
      * @param type Types of web event.
      * @param callback Indicate callback used to receive the web event.
-     * 
+     *
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * 
+     *
      * @since 9
      */
     function once(type: string, callback: Callback<void>): void;
@@ -184,7 +209,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        static deleteAllData() : void;
+        static deleteAllData(): void;
 
         /**
          * Delete the storage data with the origin.
@@ -194,7 +219,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
-        static deleteOrigin(origin : string): void;
+        static deleteOrigin(origin: string): void;
 
         /**
          * Get current all the web storage origins.
@@ -203,8 +228,8 @@ declare namespace webview {
          * @throws { BusinessError } 17100012 - Invalid web storage origin.
          * @since 9
          */
-        static getOrigins() : Promise<Array<WebStorageOrigin>>;
-        static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>) : void;
+        static getOrigins(): Promise<Array<WebStorageOrigin>>;
+        static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
         /**
          * Get the web storage quota with the origin.
@@ -213,8 +238,8 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
-        static getOriginQuota(origin : string) : Promise<number>;
-        static getOriginQuota(origin : string, callback : AsyncCallback<number>) : void;
+        static getOriginQuota(origin: string): Promise<number>;
+        static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
         /**
          * Get the web storage quota with the origin.
@@ -223,8 +248,8 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
-        static getOriginUsage(origin : string) : Promise<number> ;
-        static getOriginUsage(origin : string, callback : AsyncCallback<number>) : void;
+        static getOriginUsage(origin: string): Promise<number> ;
+        static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
     }
 
     /**
@@ -270,55 +295,6 @@ declare namespace webview {
          * @since 9
          */
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
-      }
-
-      /**
-       * Provides asynchronous methods for manage the webview.
-       *
-       * @since 9
-       */
-      class WebAsyncController {
-          /**
-           * Constructor.
-           *
-           * @param { WebController } controller WebAsyncController needs a WebController 
-           *                          to associate with corresponding nweb.
-           *
-           * @since 9
-           */
-          constructor(controller: WebController);
-
-          /**
-           * Stores the current page as a web archive.
-           *
-           * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-           * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
-           *                               the url and the generated offline webpage will be stored in the directory
-           *                               specified by baseName. If it is true, the offline webpage will be directly
-           *                               stored in the path specified by baseName.
-           * @returns { Promise<string> } A promise resolved after the web archive has been stored.
-           *                              The parameter will either be the filename under which the file was stored,
-           *                              or empty if storing the file failed.
-           *
-           * @since 9
-           */
-          storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
-
-          /**
-           * Stores the current page as a web archive.
-           *
-           * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-           * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
-           *                               the url and the generated offline webpage will be stored in the directory
-           *                               specified by baseName. If it is true, the offline webpage will be directly
-           *                               stored in the path specified by baseName.
-           * @param { AsyncCallback<string> } callback - Called after the web archive has been stored.
-           *                                             The parameter will either be the filename under which the file
-           *                                             was stored, or empty if storing the file failed.
-           *
-           * @since 9
-           */
-          storeWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
       }
 
     /**
@@ -378,8 +354,8 @@ declare namespace webview {
          *
          * @since 9
          */
-        static getStoredGeolocation() : Promise<Array<string>>;
-        static getStoredGeolocation(callback : AsyncCallback<Array<string>>): void;
+        static getStoredGeolocation(): Promise<Array<string>>;
+        static getStoredGeolocation(callback: AsyncCallback<Array<string>>): void;
     }
 
       /**
@@ -437,7 +413,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept cookies.
          * By default this is set to be true.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -457,7 +433,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept thirdparty cookies.
          * By default this is set to be false.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -578,14 +554,14 @@ declare namespace webview {
          * @since 9
          */
         size: number;
-        
+
         /**
          * Get history entry at given index.
-         * 
+         *
          * @param { number } index Index of back forward list entry.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @returns { HistoryItem } HistoryItem at given index in back forward list.
-         * 
+         *
          * @since 9
          */
         getItemAtIndex(index: number): HistoryItem;
@@ -605,6 +581,28 @@ declare namespace webview {
          * @since 9
          */
         static initializeWebEngine(): void;
+
+
+        /**
+         * Set web engine to use HttpDns server to resolve dns.
+         * @param { SecureDnsMode } Mode using HttpDns.
+         * @param { string } The configuration of the HttpDns server.
+         *                   Must be https protocol and only allow one server to be configured.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 10
+         */
+        static setHttpDns(secureDnsMode: SecureDnsMode, secureDnsConfig: string): void;
+
+
+        /**
+         * Enables debugging of web contents.
+         * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 9
+         */
+        static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
         /**
          * Checks whether the web page can go forward.
@@ -721,7 +719,7 @@ declare namespace webview {
          * Loads the data or URL.
          *
          * @param { string | Resource } url - The URL to load.
-         * @param { Array<HeaderV9> } [headers] - Additional HTTP request header for URL.
+         * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -730,18 +728,18 @@ declare namespace webview {
          *
          * @since 9
          */
-        loadUrl(url: string | Resource, headers?: Array<HeaderV9>): void;
+        loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
         /**
          * Gets the type of HitTest.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { HitTestTypeV9 } The type of HitTest.
+         * @returns { WebHitTestType } The type of HitTest.
          *
          * @since 9
          */
-        getHitTest(): HitTestTypeV9;
+        getHitTest(): WebHitTestType;
 
         /**
          * Stores the current page as a web archive.
@@ -765,7 +763,7 @@ declare namespace webview {
          * @since 9
          */
         storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
-        storeWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
+        storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
 
         /**
          * Let the Web zoom by.
@@ -919,7 +917,7 @@ declare namespace webview {
          * Registers the JavaScript object and method list.
          *
          * @param { object } object - Application side JavaScript objects participating in registration.
-         * @param { string } name - The name of the registered object, which is consistent with the 
+         * @param { string } name - The name of the registered object, which is consistent with the
          *                          object name called in the window.
          * @param { Array<string> } methodList - Thr method of the application side JavaScript object participating
          *                                       in the registration.
@@ -1015,7 +1013,7 @@ declare namespace webview {
          * @since 9
          */
         runJavaScript(script: string): Promise<string>;
-        runJavaScript(script: string, callback : AsyncCallback<string>): void;
+        runJavaScript(script: string, callback: AsyncCallback<string>): void;
 
         /**
          * Gets the url of current Web page.
@@ -1039,7 +1037,7 @@ declare namespace webview {
          * @since 9
          */
         pageUp(top:boolean): void;
- 
+
         /**
          * Scroll the contents of this Webview down by half the view size.
          *
@@ -1051,29 +1049,29 @@ declare namespace webview {
          * @since 9
          */
         pageDown(bottom:boolean): void;
- 
+
         /**
          * Gets the original url of current Web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { string } Return the the original url of the current page.
+         * @returns { string } Return the original url of the current page.
          *
          * @since 9
          */
         getOriginalUrl(): string;
- 
+
         /**
-         * Gets the original url of current Web page.
+         * Gets the favicon of current Web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { string } Return the the original url of the current page.
+         * @returns { image.PixelMap } Return the favicon bitmap of the current page.
          *
          * @since 9
          */
         getFavicon(): image.PixelMap;
- 
+
         /**
          * Put network state for web. Which is used to set window.navigator.isOnline property in
          * JavaScript.
@@ -1086,7 +1084,7 @@ declare namespace webview {
          * @since 9
          */
         setNetworkAvailable(enable: boolean): void;
-        
+
         /**
          * Query if current document has image.
          *
@@ -1100,7 +1098,7 @@ declare namespace webview {
          */
         hasImage(): Promise<boolean>;
         hasImage(callback: AsyncCallback<boolean>): void;
- 
+
         /**
          * Get back forward stack list from current webview.
          *
@@ -1111,11 +1109,11 @@ declare namespace webview {
          * @since 9
          */
         getBackForwardEntries(): BackForwardList;
- 
+
         /**
          * Remove resource cache in application. So this method will remove all cache for all web components in the
          * same application.
-         * 
+         *
          * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
          *                               in ram.
          * @throws { BusinessError } 401 - Invalid input parameter.
@@ -1128,8 +1126,8 @@ declare namespace webview {
         /**
          * Scroll to the position.
          *
-         * @param { boolean } x - the x of the position.
-         * @param { boolean } y - the y of the position.
+         * @param { number } x - the x of the position.
+         * @param { number } y - the y of the position.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1141,8 +1139,8 @@ declare namespace webview {
         /**
          * Scroll by the delta position.
          *
-         * @param { boolean } deltaX - the delta x of the position.
-         * @param { boolean } deltaY - the delta y of the position.
+         * @param { number } deltaX - the delta x of the position.
+         * @param { number } deltaY - the delta y of the position.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1154,8 +1152,8 @@ declare namespace webview {
         /**
          * Slide by the speed.
          *
-         * @param { boolean } vx - the x speed of the speed.
-         * @param { boolean } vy - the y speed of the speed.
+         * @param { number } vx - the x speed of the speed.
+         * @param { number } vy - the y speed of the speed.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1173,22 +1171,22 @@ declare namespace webview {
          *
          * @since 9
          */
-        serializeWebState() : Uint8Array;
+        serializeWebState(): Uint8Array;
 
         /**
          * Restoring the web access stack, that is, the history of access.
-         * 
+         *
          * @param { Uint8Array } state - Web access stack after serialization.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          * @since 9
          */
-        restoreWebState(state: Uint8Array) : void;
+        restoreWebState(state: Uint8Array): void;
 
         /**
          * Set whether the Web custom scheme supports cross domain and fetch requests.
-         * 
+         *
          * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
          *
          * @throws { BusinessError } 401 - Invalid input parameter.
@@ -1196,6 +1194,42 @@ declare namespace webview {
          * @since 9
          */
         static customizeSchemes(schemes: Array<WebCustomScheme>): void;
+
+        /**
+         * Get certificate for the current website.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a web component.
+         * @returns { Promise<Array<cert.X509Cert>> } the promise of the current website's certificate.
+         *
+         * @since 10
+         */
+        getCertificate(): Promise<Array<cert.X509Cert>>;
+
+        /**
+         * Get certificate for the current website.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a web component.
+         * @param {AsyncCallback<Array<cert.X509Cert>>} callback - the callback of getCertificate.
+         *
+         * @since 10
+         */
+        getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
+
+        /**
+         * Set audio muted.
+         *
+         * @param { boolean } mute - Set the audio muted or not.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 10
+         */
+        setAudioMuted(mute: boolean): void;
     }
 }
 

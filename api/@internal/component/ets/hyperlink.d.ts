@@ -39,5 +39,14 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
 
+/**
+ * Defines Hyperlink Component.
+ * @since 7
+ */
 declare const Hyperlink: HyperlinkInterface;
+
+/**
+ * Defines Hyperlink Component instance.
+ * @since 7
+ */
 declare const HyperlinkInterface: HyperlinkAttribute;

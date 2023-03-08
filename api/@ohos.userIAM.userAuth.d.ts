@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -191,20 +191,20 @@ declare namespace userAuth {
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.getVersion
          */
-        getVersion() : number;
+        getVersion(): number;
 
         /**
          * Check whether the authentication capability is available.
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param authType Credential type for authentication.
          * @param authTrustLevel Trust level of authentication result.
-         * @returns Returns a check result, which is specified by getAvailableStatus.
+         * @returns Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum, **201** is check permission failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.getAvailableStatus
          */
-        getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel) : number;
+        getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): number;
 
         /**
          * Executes authentication.
@@ -212,7 +212,7 @@ declare namespace userAuth {
          * @param challenge Pass in challenge value.
          * @param authType Type of authentication.
          * @param authTrustLevel Trust level of authentication result.
-         * @param callback Return result and acquireInfo through callback.
+         * @param callback Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum, **201** is check permission failed.
          * @returns Returns ContextId for cancel.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
@@ -225,13 +225,13 @@ declare namespace userAuth {
          * Cancel authentication with ContextID.
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param contextID Cancel authentication and pass in ContextID.
-         * @returns Returns a number value indicating whether Cancel authentication was successful.
+         * @returns Returns a number value indicating whether Cancel authentication was successful, the value of number is related to the ResultCode enum, **201** is check permission failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthInstance.cancel
          */
-        cancelAuth(contextID : Uint8Array) : number;
+        cancelAuth(contextID: Uint8Array): number;
     }
 
     /**
@@ -248,14 +248,14 @@ declare namespace userAuth {
          * If the authentication is passed, the authentication token is returned in extraInfo,
          * If the authentication fails, the remaining authentication times are returned in extraInfo,
          * If the authentication executor is locked, the freezing time is returned in extraInfo.
-         * @param result Authentication result code.
+         * @param result Authentication result code, the value of result code is related to the ResultCode enum, **201** is check permission failed.
          * @param extraInfo Pass the specific information for different situation.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
          */
-        onResult: (result : number, extraInfo : AuthResult) => void;
+        onResult: (result: number, extraInfo: AuthResult) => void;
 
         /**
          * During an authentication, the TipsCode is returned through the callback.
@@ -267,7 +267,7 @@ declare namespace userAuth {
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
          */
-        onAcquireInfo ?: (module : number, acquire : number, extraInfo : any) => void;
+        onAcquireInfo ?: (module: number, acquire: number, extraInfo: any) => void;
     }
 
     /**
@@ -307,7 +307,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.userIAM.userAuth.ResultCodeV9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode
      */
     enum ResultCode {
         /**
@@ -319,7 +319,7 @@ declare namespace userAuth {
         SUCCESS = 0,
 
         /**
-         * Indicates the the result is failure or ability is not supported.
+         * Indicates that authentication failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
          * @deprecated since 9
@@ -633,7 +633,7 @@ declare namespace userAuth {
          * @type {number}
          * @since 9
          */
-        result : number;
+        result: number;
 
         /**
          * The authentication token if the authentication is passed.
@@ -669,14 +669,14 @@ declare namespace userAuth {
          * @type {number}
          * @since 9
          */
-        module : number;
+        module: number;
 
         /**
          * Tip information, used to prompt the business to perform some operations.
          * @type {number}
          * @since 9
          */
-        tip : number;
+        tip: number;
     }
 
     /**
@@ -712,7 +712,7 @@ declare namespace userAuth {
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @throws { BusinessError } 201 - Permission verification failed.
          * @throws { BusinessError } 401 - Incorrect parameters.
-         * @throws { BusinessError } 12500001 - Execution failed.
+         * @throws { BusinessError } 12500001 - Authentication failed.
          * @throws { BusinessError } 12500002 - General operation error.
          * @throws { BusinessError } 12500003 - The operation is canceled.
          * @throws { BusinessError } 12500004 - The operation is time-out.
@@ -763,7 +763,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    function getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): void;
+    function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
 
     /**
      * Get Authentication instance.
@@ -778,7 +778,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    function getAuthInstance(challenge : Uint8Array, authType : UserAuthType, authTrustLevel : AuthTrustLevel): AuthInstance;
+    function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
 
     /**
      * Enum for operation result.
@@ -786,7 +786,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    enum ResultCodeV9 {
+    enum UserAuthResultCode {
         /**
          * Indicates that the result is success or ability is supported.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -795,7 +795,7 @@ declare namespace userAuth {
         SUCCESS = 12500000,
 
         /**
-         * Indicates the result is failure or ability is not supported.
+         * Indicates that the authentication result is failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 9
          */
@@ -857,7 +857,6 @@ declare namespace userAuth {
          */
         NOT_ENROLLED = 12500010
     }
-
 }
 
 export default userAuth;

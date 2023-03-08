@@ -70,7 +70,7 @@ declare namespace hiAppEvent {
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      */
-    namespace Event {
+    namespace event {
         /**
          * User login event.
          *
@@ -102,7 +102,7 @@ declare namespace hiAppEvent {
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      */
-    namespace Param {
+    namespace param {
         /**
          * User id.
          *

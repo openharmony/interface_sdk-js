@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
-import { ElementName }  from './bundleManager/elementName';
+import { ElementName }  from './bundleManager/ElementName';
 
 /**
  * The class of an ability manager.
@@ -28,7 +28,7 @@ import { ElementName }  from './bundleManager/elementName';
  */
 declare namespace abilityManager {
     /**
-     * Enum for the ability state
+     * Enum for the ability state.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -36,6 +36,7 @@ declare namespace abilityManager {
      */
     export enum AbilityState {
         INITIAL = 0,
+        FOCUS = 2,
         FOREGROUND = 9,
         BACKGROUND = 10,
         FOREGROUNDING = 11,
@@ -67,7 +68,7 @@ declare namespace abilityManager {
     function updateConfiguration(config: Configuration): Promise<void>;
 
     /**
-     * Get information about running abilities
+     * Get information about running UI abilities.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -78,7 +79,7 @@ declare namespace abilityManager {
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
     /**
-     * Get information about the running ability
+     * Get information about running UI abilities.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The callback is used to return the array of AbilityRunningInfo.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -89,7 +90,7 @@ declare namespace abilityManager {
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 
     /**
-     * Get information about running extensions
+     * Get information about running extensions.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { number } upperLimit - Get the maximum limit of the number of messages.
      * @returns { Promise<Array<ExtensionRunningInfo>> } Returns the array of ExtensionRunningInfo.
@@ -101,7 +102,7 @@ declare namespace abilityManager {
     function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
 
     /**
-     * Get information about running extensions
+     * Get information about running extensions.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { number } upperLimit - Get the maximum limit of the number of messages.
      * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - The callback is used to return the array of ExtensionRunningInfo.

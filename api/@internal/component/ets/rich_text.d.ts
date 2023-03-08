@@ -43,5 +43,14 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   onComplete(callback: () => void): RichTextAttribute;
 }
 
+/**
+ * Defines RichText Component.
+ * @since 8
+ */
 declare const RichText: RichTextInterface;
+
+/**
+ * Defines RichText Component instance.
+ * @since 8
+ */
 declare const RichTextInstance: RichTextAttribute;

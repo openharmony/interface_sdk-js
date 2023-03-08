@@ -518,7 +518,7 @@ declare namespace bundle {
     * @returns Returns the PixelMap object representing the icon of the specified ability.
     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
     * @deprecated since 9
-    * @useinstead ohos.bundle.bundleManager#getAbilityIcon
+    * @useinstead ohos.resourceManager#getMediaContent
     */
   function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;

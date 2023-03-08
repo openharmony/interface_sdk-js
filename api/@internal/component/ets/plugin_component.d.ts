@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,11 +26,11 @@ interface PluginComponentTemplate {
    */
   source: string;
   /**
-   * Defines the ability name.
+   * Defines the bundle name of the Template.
    * @since 9
    * @systemapi
    */
-  ability: string;
+  bundleName: string;
 }
 
 /**
@@ -68,5 +68,16 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
   onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }
 
+/**
+ * Defines PluginComponent Component.
+ * @since 9
+ * @systemapi
+ */
 declare const PluginComponent: PluginComponentInterface;
+
+/**
+ * Defines PluginComponent Component instance.
+ * @since 9
+ * @systemapi
+ */
 declare const PluginComponentInstance: PluginComponentAttribute;

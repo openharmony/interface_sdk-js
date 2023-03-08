@@ -15,19 +15,19 @@
 
 /// <reference path="../../component/common_ts_ets_api.d.ts"/>
 
-import { AbilityInfo } from "../bundleManager/abilityInfo";
+import { AbilityInfo } from "../bundleManager/AbilityInfo";
 import { AbilityResult } from "../ability/abilityResult";
 import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
-import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
+import { HapModuleInfo } from "../bundleManager/HapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.app.ability.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";
-import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
+import dialogRequest from "../@ohos.app.ability.dialogRequest";
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -68,6 +68,19 @@ export default class UIAbilityContext extends Context {
      * @param want { Want } - Indicates the ability to start.
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -80,6 +93,19 @@ export default class UIAbilityContext extends Context {
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -92,6 +118,19 @@ export default class UIAbilityContext extends Context {
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -103,9 +142,23 @@ export default class UIAbilityContext extends Context {
      * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
      * @param { Want } want - Indicates the ability to start.
      * @returns { Promise<Caller> } Returns the Caller interface.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -117,7 +170,22 @@ export default class UIAbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -132,7 +200,22 @@ export default class UIAbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -147,7 +230,22 @@ export default class UIAbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -160,6 +258,19 @@ export default class UIAbilityContext extends Context {
      * @param { Want } want - Indicates the ability to start.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -172,6 +283,19 @@ export default class UIAbilityContext extends Context {
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -184,6 +308,19 @@ export default class UIAbilityContext extends Context {
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<AbilityResult> } Returns the result of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -196,7 +333,22 @@ export default class UIAbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -211,7 +363,22 @@ export default class UIAbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -226,7 +393,22 @@ export default class UIAbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<AbilityResult> } Returns the result of startAbility.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -238,7 +420,16 @@ export default class UIAbilityContext extends Context {
      * Starts a new service extension ability.
      * @param { Want } want - Indicates the want info to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -250,7 +441,16 @@ export default class UIAbilityContext extends Context {
      * Starts a new service extension ability.
      * @param { Want } want - Indicates the want info to start.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -264,7 +464,17 @@ export default class UIAbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -278,7 +488,17 @@ export default class UIAbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -290,7 +510,15 @@ export default class UIAbilityContext extends Context {
      * Stops a service within the same application.
      * @param { Want } want - Indicates the want info to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -302,7 +530,15 @@ export default class UIAbilityContext extends Context {
      * Stops a service within the same application.
      * @param { Want } want - Indicates the want info to start.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -316,7 +552,16 @@ export default class UIAbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -330,7 +575,16 @@ export default class UIAbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -342,6 +596,12 @@ export default class UIAbilityContext extends Context {
      * Destroys this Page ability.
      * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -352,6 +612,12 @@ export default class UIAbilityContext extends Context {
      * Destroys this Page ability.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -364,6 +630,12 @@ export default class UIAbilityContext extends Context {
      * @param { AbilityResult } parameter - Indicates the result to return.
      * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -376,6 +648,12 @@ export default class UIAbilityContext extends Context {
      * @param { AbilityResult } parameter - Indicates the result to return.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -388,6 +666,10 @@ export default class UIAbilityContext extends Context {
      * @param { ConnectOptions } options - The remote object instance
      * @returns { number } Returns the number code of the ability connected
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -401,7 +683,13 @@ export default class UIAbilityContext extends Context {
      * @param { number } accountId - The account to connect
      * @param { ConnectOptions } options - The remote object instance
      * @returns { number } Returns the number code of the ability connected
+     * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+     * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -414,6 +702,10 @@ export default class UIAbilityContext extends Context {
      * @param { number } connection - The number code of the ability connected
      * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -425,6 +717,10 @@ export default class UIAbilityContext extends Context {
      * @param { number } connection - The number code of the ability connected
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -436,6 +732,8 @@ export default class UIAbilityContext extends Context {
      * @param { string } label - The label of ability that showed in recent missions.
      * @param { AsyncCallback<void> } callback - The callback of setMissionLabel.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -447,6 +745,8 @@ export default class UIAbilityContext extends Context {
      * @param { string } label - The label of ability that showed in recent missions.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -458,6 +758,8 @@ export default class UIAbilityContext extends Context {
      * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
      * @param { AsyncCallback<void> } callback - The callback of setMissionIcon.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -470,6 +772,8 @@ export default class UIAbilityContext extends Context {
      * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -478,38 +782,11 @@ export default class UIAbilityContext extends Context {
     setMissionIcon(icon: image.PixelMap): Promise<void>;
 
     /**
-     * Requests certain permissions from the system.
-     * @param { Array<string> } permissions - Indicates the list of permissions to be requested. This parameter
-     *                                        cannot be null or empty.
-     * @param { AsyncCallback<PermissionRequestResult> } requestCallback - The callback is used to return the permission
-     *                                                                     request result.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     * @deprecated since 9
-     * @useinstead @ohos.abilityAccessCtrl.requestPermissionsFromUser
-     */
-    requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>): void;
-
-    /**
-     * Requests certain permissions from the system.
-     * @param { Array<string> } permissions - Indicates the list of permissions to be requested. This parameter
-     *                                        cannot be null or empty.
-     * @returns { Promise<PermissionRequestResult> } Returns the permission request result.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     * @deprecated since 9
-     * @useinstead @ohos.abilityAccessCtrl.requestPermissionsFromUser
-     */
-    requestPermissionsFromUser(permissions: Array<string>): Promise<PermissionRequestResult>;
-
-    /**
      * Restore window stage data in ability continuation
      * @param { LocalStorage } localStorage - the storage data used to restore window stage
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -520,8 +797,73 @@ export default class UIAbilityContext extends Context {
      * Check to see ability is in terminating state.
      * @returns { boolean } Returns true when ability is in terminating state, else returns false.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @StageModelOnly
      * @since 9
      */
     isTerminating(): boolean;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
+
+    /**
+     * Requests certain permissions from the system.
+     * @param want { Want } - Indicates the dialog service to start.
+     * @param { AsyncCallback<RequestResult> } result - The callback is used to return the request result.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
+    requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
+
+    /**
+     * Requests certain permissions from the system.
+     * @param want { Want } - Indicates the dialog service to start.
+     * @returns { Promise<request.RequestResult> } Returns the request result.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
+    requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
 }

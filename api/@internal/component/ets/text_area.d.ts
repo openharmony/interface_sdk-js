@@ -28,6 +28,14 @@ declare class TextAreaController {
    * @since 8
    */
   caretPosition(value: number): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @since 10
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
@@ -162,5 +170,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   copyOption(value: CopyOptions): TextAreaAttribute;
 }
 
+/**
+ * Defines TextArea Component.
+ * @since 7
+ */
 declare const TextArea: TextAreaInterface;
+
+/**
+ * Defines TextArea Component instance.
+ * @since 7
+ */
 declare const TextAreaInstance: TextAreaAttribute;

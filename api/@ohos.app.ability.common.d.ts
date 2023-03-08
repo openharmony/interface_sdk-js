@@ -20,14 +20,14 @@ import * as _BaseContext from './application/BaseContext';
 import * as _Context from './application/Context';
 import * as _ExtensionContext from './application/ExtensionContext';
 import * as _FormExtensionContext from './application/FormExtensionContext';
+import * as _ServiceExtensionContext from './application/ServiceExtensionContext';
 import * as _EventHub from './application/EventHub';
-import * as _PermissionRequestResult from './application/PermissionRequestResult';
 import { PacMap as _PacMap } from "./ability/dataAbilityHelper";
 import { AbilityResult as _AbilityResult } from "./ability/abilityResult";
 import { ConnectOptions as _ConnectOptions } from "./ability/connectOptions";
 
 /**
- * The context of an application. It allows access to application-specific resources.
+ * This module provides application context classes and common data structures.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @since 9
@@ -92,21 +92,14 @@ declare namespace common {
     export type FormExtensionContext = _FormExtensionContext.default
 
     /**
-     * File area mode
+     * The context of service extension. It allows access to
+     * serviceExtension-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
      * @StageModelOnly
      * @since 9
      */
-    export enum AreaMode {
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL1 = 0,
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL2 = 1
-    }
+    export type ServiceExtensionContext = _ServiceExtensionContext.default
 
     /**
      * The event center of a context, support the subscription and publication of events.
@@ -115,15 +108,6 @@ declare namespace common {
      * @since 9
      */
     export type EventHub = _EventHub.default
-
-    /**
-     * The result of requestPermissionsFromUser with asynchronous callback.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     * @deprecated since 9
-     */
-    export type PermissionRequestResult = _PermissionRequestResult.default
 
     /**
      * Defines a PacMap object for storing a series of values.

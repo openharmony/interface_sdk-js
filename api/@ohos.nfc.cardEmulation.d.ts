@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import { ElementName }  from './bundleManager/elementName';
+import { ElementName }  from './bundleManager/ElementName';
 
 /**
  * Provides methods to operate or manage NFC card emulation.
@@ -82,7 +82,7 @@ declare namespace cardEmulation {
    * Checks whether a service is default for given type.
    *
    * @param { ElementName } elementName - The element name of the service ability
-   * @param { CardType } type - The type to query, pyament or other.
+   * @param { CardType } type - The type to query, payment or other.
    * @returns { boolean } Returns true if the service is default, otherwise false.
    * @permission ohos.permission.NFC_CARD_EMULATION
    * @throws { BusinessError } 201 - Permission denied.
@@ -114,7 +114,7 @@ declare namespace cardEmulation {
     startHCE(aidList: string[]): boolean;
 
     /**
-     * Starts the HCE, regitser more aids and allows this application to be preferred while in foreground.
+     * Starts the HCE, register more aids and allows this application to be preferred while in foreground.
      *
      * @param { ElementName } elementName - The element name of the service ability
      * @param { string[] } aidList - The aid list to be registered by this service, allowed to be empty.

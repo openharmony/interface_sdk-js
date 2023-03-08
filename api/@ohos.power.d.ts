@@ -18,6 +18,7 @@ import {AsyncCallback, BusinessError} from './basic';
 /**
  * Provides interfaces to manage power.
  *
+ * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7
  */
@@ -30,6 +31,7 @@ declare namespace power {
      * @permission ohos.permission.REBOOT
      * @param {string} reason Indicates the shutdown reason.
      * @throws {BusinessError} 201 - If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the reason is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @systemapi
@@ -60,8 +62,10 @@ declare namespace power {
      * @param {string} reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
      * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
      * @throws {BusinessError} 201 - If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the reason is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -85,6 +89,7 @@ declare namespace power {
      *
      * @returns Returns true if the device is active; returns false otherwise.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     function isActive(): boolean;
@@ -93,8 +98,10 @@ declare namespace power {
      * Wakes up the device to turn on the screen.
      *
      * @param {string} detail Indicates the detail information who request wakeup.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the detail is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -103,7 +110,9 @@ declare namespace power {
     /**
      * Suspends the device to turn off the screen.
      *
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -114,6 +123,7 @@ declare namespace power {
      *
      * @returns The power mode {@link DevicePowerMode} of current device .
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     function getPowerMode(): DevicePowerMode;
@@ -125,7 +135,10 @@ declare namespace power {
      * @param {DevicePowerMode} mode Indicates power mode {@link DevicePowerMode} to set.
      * @param {AsyncCallback<void>} callback Indicates the callback of setting the power mode.
      * @throws {BusinessError} 201 – If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If mode or callback is not valid.
+     * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -137,7 +150,10 @@ declare namespace power {
      * @permission ohos.permission.POWER_OPTIMIZATION
      * @param {DevicePowerMode} mode Indicates power mode {@link DevicePowerMode} to set.
      * @throws {BusinessError} 201 – If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If mode or callback is not valid.
+     * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -146,27 +162,32 @@ declare namespace power {
     /**
      * Power mode of a device.
      *
+     * @enum {number}
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     export enum DevicePowerMode {
         /**
          * Normal power mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_NORMAL = 600,
         /**
          * Power save mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_POWER_SAVE,
         /**
          * Performance power mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_PERFORMANCE,
         /**
          * Extreme power save mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_EXTREME_POWER_SAVE

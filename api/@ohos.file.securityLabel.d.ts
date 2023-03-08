@@ -24,7 +24,7 @@ import { AsyncCallback } from "./basic";
 
 declare namespace securityLabel {
 
-  type dataLevel = 's0'|'s1'|'s2'|'s3'|'s4';
+  type DataLevel = 's0'|'s1'|'s2'|'s3'|'s4';
   /**
    * Set the SecurityLabel.
    *
@@ -42,8 +42,8 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900041  - Quota exceeded
    * @throws { BusinessError } 13900042  - Unknown error
    */
-  function setSecurityLabel(path: string, type: dataLevel): Promise<void>;
-  function setSecurityLabel(path: string, type: dataLevel, callback: AsyncCallback<void>): void;
+  function setSecurityLabel(path: string, type: DataLevel): Promise<void>;
+  function setSecurityLabel(path: string, type: DataLevel, callback: AsyncCallback<void>): void;
 
   /**
    * Set the SecurityLabel with sync interface.
@@ -62,7 +62,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900041  - Quota exceeded
    * @throws { BusinessError } 13900042  - Unknown error
    */
-  function setSecurityLabelSync(path: string, type: dataLevel): void;
+  function setSecurityLabelSync(path: string, type: DataLevel): void;
 
     /**
    * Get the SecurityLabel.

@@ -80,26 +80,26 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * Requests certain permissions from the user.
          *
          * @param context The context that initiates the permission request.
-         * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+         * @param permissionList Indicates the list of permissions to be requested. This parameter cannot be null or empty.
          * @returns Returns the {@link PermissionRequestResult}.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
          * @since 9
          * @StageModelOnly
          */
-        requestPermissionsFromUser(context: Context, permissions: Array<Permissions>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
-        requestPermissionsFromUser(context: Context, permissions: Array<Permissions>) : Promise<PermissionRequestResult>;
+        requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
+        requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>) : Promise<PermissionRequestResult>;
 
         /**
          * Grants a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
-         * @param permissionFlag Flag of permission state.
+         * @param permissionFlags Flags of permission state.
          * @returns { void | Promise<void> } No callback return Promise otherwise return void.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
          * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flag value is invalid.
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
          * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
          * @throws { BusinessError } 12100003 - The specified permission does not exist.
          * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission. Either the application is a sandbox or the tokenID is from a remote device.
@@ -108,19 +108,19 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @systemapi
          * @since 8
          */
-        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number): Promise<void>;
-        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number, callback: AsyncCallback<void>): void;
+        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
+        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number, callback: AsyncCallback<void>): void;
 
         /**
          * Revoke a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be revoked.
-         * @param permissionFlag Flag of permission state.
+         * @param permissionFlags Flags of permission state.
          * @returns { void | Promise<void> } No callback return Promise otherwise return void.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
          * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flag value is invalid.
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
          * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
          * @throws { BusinessError } 12100003 - The specified permission does not exist.
          * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission. Either the application is a sandbox or the tokenID is from a remote device.
@@ -129,14 +129,14 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @systemapi
          * @since 8
          */
-        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number): Promise<void>;
-        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number, callback: AsyncCallback<void>): void;
+        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
+        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number, callback: AsyncCallback<void>): void;
 
         /**
-         * Queries specified permission flag of the given application.
+         * Queries specified permission flags of the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
-         * @returns Return permission flag.
+         * @returns Return permission flags.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
          * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -169,7 +169,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications change.
          *        </li>
          *        </ul>
-         * @param permissionNameList A list of permissions that specifies the permissions to be listened on. The value in the list can be:
+         * @param permissionList A list of permissions that specifies the permissions to be listened on. The value in the list can be:
          *        <ul>
          *        <li>{@code empty} - Indicates that the application can be notified if any permission state of the specified applications changes.
          *        </li>
@@ -189,25 +189,25 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @systemapi
          * @since 9
          */
-        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<Permissions>, callback: Callback<PermissionStateChangeInfo>): void;
+        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionList: Array<Permissions>, callback: Callback<PermissionStateChangeInfo>): void;
 
         /**
          * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
          * @param tokenIDList A list of tokenIds that specifies the applications being listened on. it should correspond to the value registered by function of "on", whose type is "permissionStateChange".
-         * @param permissionNameList A list of permissions that specifies the permissions being listened on. it should correspond to the value registered by function of "on", whose type is "permissionStateChange".
+         * @param permissionList A list of permissions that specifies the permissions being listened on. it should correspond to the value registered by function of "on", whose type is "permissionStateChange".
          * @param callback Callback used to listen for the permission state changed event.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
          * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID in list is all invalid, or the permissionName in list is all invalid.
-         * @throws { BusinessError } 12100004 - The interface is not used with "on".
+         * @throws { BusinessError } 12100004 - The interface is not used together with "on".
          * @throws { BusinessError } 12100007 - Service is abnormal.
          * @throws { BusinessError } 12100008 - Out of memory.
          * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
          * @systemapi
          * @since 9
          */
-        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<Permissions>, callback?: Callback<PermissionStateChangeInfo>): void;
+        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionList: Array<Permissions>, callback?: Callback<PermissionStateChangeInfo>): void;
     }
   
     /**

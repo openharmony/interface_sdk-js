@@ -13,86 +13,91 @@
  * limitations under the License.
  */
 
+import UIAbilityContext from './application/UIAbilityContext';
+import Want from './@ohos.app.ability.Want';
+
 /**
- * This module provides the capability to app recovery.
+ * This module provides the capability of app recovery.
+ * You can use this capability to save state and restart the application
+ * which let end user continue their workflow when app error occurs.
+ * This api support restart the app when js crash or app freeze occurs currently.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
 declare namespace appRecovery {
     /**
-     * The type of no restart mode.
+     * The flag that determines when to restart you app.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
     enum RestartFlag {
         /**
-         * NONE: no restart restrictions
+         * No restart restrictions.
          */
         ALWAYS_RESTART = 0,
 
         /**
-         * CPP_CRASH_NO_RESTART: Do not restart if process terminates due to cpp exception
+         * Restart if current app process encounter uncaught js/ts/ets exception.
          */
-        CPP_CRASH_NO_RESTART = 0x0001,
+        RESTART_WHEN_JS_CRASH = 0x0001,
 
         /**
-         * JS_CRASH_NO_RESTART: Do not restart if process terminates due to js/ts/ets exception
+         * Restart if the main thread of current app process block more than 6 seconds.
          */
-        JS_CRASH_NO_RESTART = 0x0002,
+        RESTART_WHEN_APP_FREEZE = 0x0002,
 
         /**
-         * APP_FREEZE_NO_RESTART: Do not restart if process terminates due to application not responding
-         */
-        APP_FREEZE_NO_RESTART = 0x0004,
-
-        /**
-         * NO_RESTART: Do not restart
+         * Do not restart in any scenario.
          */
         NO_RESTART = 0xFFFF,
     }
 
     /**
-     * The type of when to save.
+     * The flag that determines when to save ability state.
+     * When start saving ability state, the { ohos.app.ability.UiAbility.onSaveState } will be called and
+     * the page stack of current ability will be saved automatically.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
     enum SaveOccasionFlag {
         /**
-         * SAVE_WHEN_ERROR is saving when an error occurs.
+         * Saving ability state when an error occurs.
+         * The error in current situation has the same semantic with { errorManager } defines
+         * which means the state that the application cannot continue to work but allows developer to handle.
          */
         SAVE_WHEN_ERROR = 0x0001,
 
         /**
-         * SAVE_WHEN_CREATE is saving on background.
+         * Saving ability state when ability is in background.
          */
         SAVE_WHEN_BACKGROUND = 0x0002,
     }
 
     /**
-     * The type of where to save.
+     * The flag that determines how to save the ability state.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
     enum SaveModeFlag {
         /**
-         * SAVE_WITH_FILE is saving to file.
+         * Save state to file immediately.
          */
         SAVE_WITH_FILE = 0x0001,
 
         /**
-         * SAVE_WITH_SHARED_MEMORY is saving to shared memory.
+         * Keep state in memory and flush to file when error occurs or { restartApp } is invoked.
          */
         SAVE_WITH_SHARED_MEMORY = 0x0002,
     }
 
     /**
-     * Enable appRecovery and app supports save and restore
-     * @param restart no restart mode
-     * @param saveOccasion The type of When to save
-     * @param saveMode The type of where to save
+     * Enable appRecovery function.
+     * @param { RestartFlag } The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
+     * @param { SaveOccasionFlag } The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
+     * @param { SaveModeFlag } The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -100,7 +105,9 @@ declare namespace appRecovery {
     function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag) : void;
 
     /**
-     * Restart App when called
+     * Restart current process and launch the first ability(the entry ability in most cases) of current process.
+     * The previous saved state will be filled in the { want.wantParams } of { UIAbility.onCreate } interface.
+     * and the { param } of { UIAbility.onCreate } will be set to APP_RECOVERY.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -108,13 +115,34 @@ declare namespace appRecovery {
     function restartApp(): void;
 
     /**
-     * Save App state data when called
-     * @returns true if save data successfully, otherwise false
+     * Set the want that will be used when app restart initiated by appRecovery.
+     * @param { Want } want that defines the ability you want to start
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    function setRestartWant(want: Want): void;
+
+    /**
+     * Actively save application state.
+     * The ability framework will call { UIAbility.onSaveState } of first launched ability and
+     * persist state as { saveOccasion } flag from { enableAppRecovery } interface.
+     * @returns true if save data successfully, otherwise false.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
     function saveAppState(): boolean;
+    /**
+     * Save the ability state according to the context.
+     * @param { UIAbilityContext } [context] - context indicates the ability context you want to save state.
+     * If context is not specified, the onSaveState will be invoked on all the recoverable abilities in current process.
+     * @returns true if save data successfully, otherwise false.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    function saveAppState(context?: UIAbilityContext): boolean;
 }
 
 export default appRecovery;

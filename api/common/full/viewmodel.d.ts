@@ -1342,7 +1342,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
-   * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   * @returns PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @since 9
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
@@ -2122,7 +2122,7 @@ export interface CanvasRenderingContext2D {
    * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
-   * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   * @returns PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @since 9
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap

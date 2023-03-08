@@ -19,6 +19,7 @@
  * <p>Battery information includes the remaining battery power,
  * voltage, temperature, model, and charger type.
  *
+ * @namespace batteryInfo
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 6
  */
@@ -73,40 +74,51 @@ declare namespace batteryInfo {
 
     /**
      * Battery capacity level of the current device.
+     * @type {BatteryCapacityLevel}
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
      */
     const batteryCapacityLevel: BatteryCapacityLevel;
 
     /**
      * Estimated remaining time for the current device to be fully charged, in ms.
+     * @type {number}
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @systemapi
      * @since 9
      */
     const estimatedRemainingChargeTime: number;
 
     /**
      * Battery total energy of the current device, in mAh.
-     * @since 9
+     * @type {number}
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
+     * @since 9
      */
     const totalEnergy: number;
 
     /**
      * Battery immediate current of the current device, in mA.
-     * @since 9
+     * @type {number}
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
+     * @since 9
      */
     const nowCurrent: number;
 
     /**
      * Battery remaining energy of the current device, in mAh.
-     * @since 9
+     * @type {number}
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
+     * @since 9
      */
     const remainingEnergy: number;
 
     /**
      * Charger type of a device.
-     *
+     * 
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6
      */
@@ -135,7 +147,7 @@ declare namespace batteryInfo {
 
     /**
      * Battery charging status of a device.
-     *
+     * 
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6
      */
@@ -164,7 +176,7 @@ declare namespace batteryInfo {
 
     /**
      * Battery health status of a device.
-     *
+     * 
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6
      */
@@ -203,105 +215,116 @@ declare namespace batteryInfo {
 
     /**
      * Battery capacity level of a device.
-     *
+     * @enum {number}
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
      */
     export enum BatteryCapacityLevel {
         /**
-         * The battery is in unknown capacity level.
-         * @since 9
-         */
-        LEVEL_NONE,
-        /**
          * The battery is in full capacity level.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
         LEVEL_FULL,
         /**
          * The battery is in high capacity level.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
         LEVEL_HIGH,
         /**
          * The battery is in normal capacity level.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
         LEVEL_NORMAL,
         /**
          * The battery is in low capacity level.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
         LEVEL_LOW,
         /**
-         * The battery is in critical low capacity level.
+         * The battery is in warning low capacity level.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
-        LEVEL_CRITICAL
+        LEVEL_WARNING,
+        /**
+         * The battery is in critical low capacity level.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
+         * @since 9
+         */
+        LEVEL_CRITICAL,
+        /**
+         * The battery is in the lowest capacity level, system will shut down automatically in a few seconds.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
+         * @since 9
+         */
+        LEVEL_SHUTDOWN
     }
 
     /**
-     * Extra key code of common event COMMON_EVENT_BATTERY_CHANGED.
-     *
+     * Extra key of common event COMMON_EVENT_BATTERY_CHANGED.
+     * @enum {string}
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
      */
-    export enum CommonEventBatteryChangedCode {
+    export enum CommonEventBatteryChangedKey {
         /**
-         * Extra code of state of charge (SoC).
+         * Extra code of batterySOC.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
-        EXTRA_SOC = 0,
+        EXTRA_SOC = "soc",
         /**
-         * Extra code of voltage.
+         * Extra code of chargingStatus.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
-        EXTRA_VOLTAGE,
+        EXTRA_CHARGE_STATE = "chargeState",
         /**
-         * Extra code of temperature.
+         * Extra code of healthStatus.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
-        EXTRA_TEMPERATURE,
-        /**
-         * Extra code of healthState.
-         * @since 9
-         */
-        EXTRA_HEALTH_STATE,
+        EXTRA_HEALTH_STATE = "healthState",
         /**
          * Extra code of pluggedType.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
-        EXTRA_PLUGGED_TYPE,
+        EXTRA_PLUGGED_TYPE = "pluggedType",
         /**
-         * Extra code of maxCurrent.
+         * Extra code of voltage.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
-        EXTRA_MAX_CURRENT,
-        /**
-         * Extra code of maxVoltage.
-         * @since 9
-         */
-        EXTRA_MAX_VOLTAGE,
-        /**
-         * Extra code of chargeState.
-         * @since 9
-         */
-        EXTRA_CHARGE_STATE,
-        /**
-         * Extra code of chargeCounter.
-         * @since 9
-         */
-        EXTRA_CHARGE_COUNTER,
-        /**
-         * Extra code of if battery is present.
-         * @since 9
-         */
-        EXTRA_PRESENT,
+        EXTRA_VOLTAGE = "voltage",
         /**
          * Extra code of technology.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
          * @since 9
          */
-        EXTRA_TECHNOLOGY
+        EXTRA_TECHNOLOGY = "technology",
+        /**
+         * Extra code of batteryTemperature.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
+         * @since 9
+         */
+        EXTRA_TEMPERATURE = "temperature",
+        /**
+         * Extra code of isBatteryPresent.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
+         * @since 9
+         */
+        EXTRA_PRESENT = "present",
+        /**
+         * Extra code of batteryCapacityLevel.
+         * @syscap SystemCapability.PowerManager.BatteryManager.Core
+         * @since 9
+         */
+        EXTRA_CAPACITY_LEVEL = "capacityLevel",
     }
 }
 export default batteryInfo;

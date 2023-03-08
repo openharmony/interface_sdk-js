@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,16 +14,16 @@
  */
 
 import { AsyncCallback } from './basic';
-import { ApplicationInfo as _ApplicationInfo } from './bundleManager/applicationInfo';
-import { Metadata as _Metadata } from './bundleManager/metadata';
-import { HapModuleInfo as _HapModuleInfo } from './bundleManager/hapModuleInfo';
-import { PermissionDef as _PermissionDef } from  './bundleManager/permissionDef';
-import { ElementName as _ElementName }  from './bundleManager/elementName';
+import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
+import { Metadata as _Metadata } from './bundleManager/Metadata';
+import { PermissionDef as _PermissionDef } from  './bundleManager/PermissionDef';
+import { ElementName as _ElementName }  from './bundleManager/ElementName';
+import { SharedBundleInfo as _SharedBundleInfo }  from './bundleManager/SharedBundleInfo';
 import Want from './@ohos.app.ability.Want';
-import image from './@ohos.multimedia.image';
-import * as _AbilityInfo from './bundleManager/abilityInfo';
-import * as _BundleInfo from './bundleManager/bundleInfo';
-import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
+import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import * as _BundleInfo from './bundleManager/BundleInfo';
+import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
+import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
 /**
  * This module is used to obtain package information of various applications installed on the current device.
@@ -331,6 +331,13 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
     PREVIEW = 14,
 
     /**
+     * Indicates extension info with type of print
+     * @since 10
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     */
+    PRINT = 15,
+
+    /**
      * Indicates extension info with type of unspecified
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -406,7 +413,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    STANDARD = 1,
+    MULTITON = 1,
 
     /**
      * Indicates that the ability can have specified instances
@@ -546,6 +553,90 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
   }
 
   /**
+   * Indicates module type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum ModuleType {
+    /**
+     * Indicates entry type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    ENTRY = 1,
+    /**
+     * Indicates feature type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FEATURE = 2,
+    /**
+     * Indicates shared type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SHARED = 3,
+  }
+
+  /**
+   * Indicates bundle type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum BundleType {
+    /**
+    * Indicates app
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    APP = 0,
+    /*
+    * Indicates atomic service
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    ATOMIC_SERVICE = 1,
+  }
+
+  /**
+   * Indicates the atomic module type when atomicService is split.
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum AtomicServiceModuleType {
+    /**
+    * Indicates the module is home in atomic service.
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    NORMAL = 0,
+    /*
+    * Indicates the module is normal in atomic service.
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    MAIN = 1,
+  }
+
+  /**
+   * Shared bundle compatible policy
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export enum CompatiblePolicy {
+    /**
+     * Indicates that the app is a shared bundle and the shared bundle type is backward compatibility
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    BACKWARD_COMPATIBILITY = 1,
+  }
+
+  /**
    * Obtains own bundleInfo.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
@@ -573,6 +664,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -592,6 +684,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -610,6 +703,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<ApplicationInfo> } callback - The callback of getting application info result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -629,6 +723,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<ApplicationInfo> } The result of getting the application info.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -646,6 +741,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user id.
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -662,6 +758,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user id.
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -677,6 +774,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -693,6 +791,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -709,6 +808,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - userId Indicates the user ID.
    * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified ability is not found.
@@ -730,6 +830,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - userId Indicates the user ID.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
@@ -751,6 +852,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
@@ -772,6 +874,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
@@ -789,6 +892,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } uid - Indicates the UID of an application.
    * @param { AsyncCallback<string> } callback - The callback of getting bundle name.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -803,6 +907,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } uid - Indicates the UID of an application.
    * @returns { Promise<string> } Returns the bundle name.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -818,6 +923,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle archive info result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700022 - The hapFilePath is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -833,6 +939,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @returns { Promise<BundleInfo> } Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700022 - The hapFilePath is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -847,6 +954,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
    * @param { AsyncCallback<void> } callback - The callback of cleaning bundle cache files result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
@@ -862,6 +970,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
    * @returns { Promise<void> } Clean bundle cache files result
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
@@ -878,6 +987,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @param { AsyncCallback<void> } callback - The callback of setting app enabled result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -893,6 +1003,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @returns { Promise<void> } set app enabled result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -908,6 +1019,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @param { AsyncCallback<void> } callback - The callback of setting ability enabled result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified abilityInfo is not found.
@@ -924,6 +1036,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @returns { Promise<void> } set ability enabled result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified abilityInfo is not found.
@@ -937,6 +1050,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Checks whether a specified application is enabled.
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback - The callback of checking application enabled result. The result is true if enabled, false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -949,6 +1063,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Checks whether a specified application is enabled.
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @returns { Promise<boolean> }  Returns true if the application is enabled; returns false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -961,6 +1076,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Checks whether a specified ability is enabled.
    * @param { AbilityInfo } info - Indicates information about the ability to check.
    * @param { AsyncCallback<boolean> } callback - The callback of checking ability enabled result. The result is true if enabled, false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified abilityName is not found.
@@ -974,6 +1090,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Checks whether a specified ability is enabled.
    * @param { AbilityInfo } info - Indicates information about the ability to check.
    * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified abilityName is not found.
@@ -992,6 +1109,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<Want> } callback - The callback for starting the application's main ability.
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -1010,6 +1128,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<Want> } callback - The callback for starting the application's main ability.
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -1029,6 +1148,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Want> } the Want for starting the application's main ability.
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -1111,6 +1231,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { string } permissionName - Indicates permission name.
    * @param { AsyncCallback<PermissionDef> } callback - The callback of get permissionDef object result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700006 - The specified permission is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1125,6 +1246,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { string } permissionName - Indicates permission name.
    * @returns { Promise<PermissionDef> } Returns permissionDef object.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700006 - The specified permission is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1141,6 +1263,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { string } abilityName - Indicates the ability name.
    * @param { AsyncCallback<string> } callback - The callback of getting ability label result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -1162,6 +1285,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { string } abilityName - Indicates the ability name.
    * @returns { Promise<string> } Returns the label representing the label of the specified ability.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -1176,48 +1300,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
 
   /**
-   * Obtains the icon of a specified ability.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { AsyncCallAsyncCallback<image.PixelMap> } callback - The callback of getting ability icon result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
-   * @throws { BusinessError } 17700029 - The specified ability is disabled.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
-   * @systemapi
-   * @since 9
-   */
-  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
-
-  /**
-   * Obtains the icon of a specified ability.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @returns { Promise<image.PixelMap> } Returns the PixelMap object representing the icon of the specified ability.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
-   * @throws { BusinessError } 17700029 - The specified ability is disabled.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
-   * @systemapi
-   * @since 9
-   */
-  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
-
-  /**
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param  { string } bundleName - Indicates the application bundle name to be queried.
@@ -1225,6 +1307,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns Returns the ApplicationInfo object.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -1244,6 +1327,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -1254,6 +1338,64 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    */
    function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
    function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+
+  /**
+   * Obtains SharedBundleInfo of all shared bundle available in the system.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - The callback of getting a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAllSharedBundleInfo(callback: AsyncCallback<Array<SharedBundleInfo>>): void;
+
+  /**
+   * Obtains SharedBundleInfo of all shared bundle available in the system.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<Array<SharedBundleInfo>> } Returns a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAllSharedBundleInfo(): Promise<Array<SharedBundleInfo>>;
+
+  /**
+   * Obtains SharedBundleInfo of shared bundle by bundle name and module name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundleName of the application.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - The callback of getting a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSharedBundleInfo(bundleName: string,  moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
+
+  /**
+   * Obtains SharedBundleInfo of shared bundle by bundle name and module name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundleName of the application.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @returns { Promise<Array<SharedBundleInfo>> } Returns a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSharedBundleInfo(bundleName: string, moduleName: string): Promise<Array<SharedBundleInfo>>;
 
   /**
    * Obtains configuration information about an application.
@@ -1298,11 +1440,25 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
   export type SignatureInfo = _BundleInfo.SignatureInfo;
 
   /**
-   * Obtains configuration information about an module.
+   * Obtains configuration information about a module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  export type HapModuleInfo = _HapModuleInfo;
+  export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
+
+  /**
+   * Obtains preload information about a module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type PreloadItem = _HapModuleInfo.PreloadItem;
+
+  /**
+   * Obtains dependency information about a module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type Dependency = _HapModuleInfo.Dependency;
 
   /**
    * Obtains configuration information about an ability.
@@ -1339,6 +1495,13 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @since 9
    */
   export type ElementName = _ElementName;
+
+  /**
+   * Contains shared bundle info.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export type SharedBundleInfo = _SharedBundleInfo;
 }
 
 export default bundleManager;

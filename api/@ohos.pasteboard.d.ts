@@ -48,12 +48,14 @@ declare namespace pasteboard {
   const MIMETYPE_TEXT_URI: string;
   /**
    * Indicates MIME type of PixelMap.
+   * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   const MIMETYPE_PIXELMAP: string;
 
   /**
    * Indicates type of value.
+   * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   type ValueType = string | image.PixelMap | Want | ArrayBuffer;
@@ -104,6 +106,7 @@ declare namespace pasteboard {
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
    * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   function createData(mimeType: string, value: ValueType): PasteData;
@@ -154,6 +157,7 @@ declare namespace pasteboard {
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
    * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
@@ -168,24 +172,28 @@ declare namespace pasteboard {
   /**
    * Types of scope that PasteData can be pasted.
    * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
   enum ShareOption {
     /**
-     * InApp indicates that only paste in the same app is allowed.
+     * INAPP indicates that only paste in the same app is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
-    InApp,
+    INAPP,
     /**
-     * LocalDevice indicates that paste in any app in this device is allowed.
+     * LOCALDEVICE indicates that paste in any app in this device is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
-    LocalDevice,
+    LOCALDEVICE,
     /**
-     * CrossDevice indicates that paste in any app across devices is allowed.
+     * CROSSDEVICE indicates that paste in any app across devices is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
-    CrossDevice
+    CROSSDEVICE
   }
 
   interface PasteDataProperty {
@@ -220,6 +228,7 @@ declare namespace pasteboard {
      * Indicates the scope of clipboard data which can be pasted.
      * If it is not set or is incorrectly set, The default value is CrossDevice.
      * @type { ShareOption }
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     shareOption: ShareOption;
@@ -254,12 +263,14 @@ declare namespace pasteboard {
     /**
      * PixelMap in a record.
      * @type { image.PixelMap }
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     pixelMap: image.PixelMap;
     /**
      * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
      * @type { object }
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     data: {
@@ -278,18 +289,11 @@ declare namespace pasteboard {
 
     /**
      * Converts data in PasteData to text format.
-     * @param { AsyncCallback<string> } callback - the callback of convertToTextV9.
-     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<string>.
+     * @returns { string } the string returned by the function.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
-    convertToTextV9(callback: AsyncCallback<string>): void;
-
-    /**
-     * Converts data in PasteData to text format.
-     * @returns { Promise<string> } the promise returned by the function.
-     * @since 9
-     */
-    convertToTextV9(): Promise<string>;
+    toPlainText(): string;
   }
 
   interface PasteData {
@@ -342,6 +346,7 @@ declare namespace pasteboard {
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
      * @throws { BusinessError } 12900002 - The number of record exceeds the maximum limit.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     addRecord(mimeType: string, value: ValueType): void;
@@ -391,6 +396,7 @@ declare namespace pasteboard {
     /**
      * Gets the primary PixelMap record in a PasteData object.
      * @returns {image.PixelMap} pixelMap
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     getPrimaryPixelMap(): image.PixelMap;
@@ -406,6 +412,7 @@ declare namespace pasteboard {
      * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
      * @param { PasteDataProperty } property - save property to PasteData object.
      * @throws { BusinessError } 401 - if type of property is not PasteDataProperty.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     setProperty(property: PasteDataProperty): void;
@@ -426,6 +433,7 @@ declare namespace pasteboard {
      * @returns { PasteDataRecord } the record in PasteData with index.
      * @throws { BusinessError } 401 - if type of index is not number.
      * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     getRecord(index: number): PasteDataRecord;
@@ -459,6 +467,7 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @throws { BusinessError } 401 - if type of path is not string.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     hasType(mimeType: string): boolean;
@@ -478,6 +487,7 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @throws { BusinessError } 401 - if type of index is not number.
      * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     removeRecord(index: number): void;
@@ -498,6 +508,7 @@ declare namespace pasteboard {
      * @param { PasteDataRecord } record - the content of a new record.
      * @throws { BusinessError } 401 - if type of index is not number or type of record is not PasteDataRecord.
      * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
@@ -534,6 +545,7 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
      * @throws { BusinessError } 401 - if callback is not AsyncCallback<void>.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     clearData(callback: AsyncCallback<void>): void;
@@ -541,6 +553,7 @@ declare namespace pasteboard {
     /**
      * Clears the pasteboard.
      * @returns { Promise<void> } the promise returned by the clearData.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     clearData(): Promise<void>;
@@ -560,6 +573,7 @@ declare namespace pasteboard {
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     getData(callback: AsyncCallback<PasteData>): void;
@@ -568,6 +582,7 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     getData(): Promise<PasteData>;
@@ -586,6 +601,7 @@ declare namespace pasteboard {
      * Checks whether there is content in the system pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<boolean>.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     hasData(callback: AsyncCallback<boolean>): void;
@@ -593,6 +609,7 @@ declare namespace pasteboard {
     /**
      * Checks whether there is content in the system pasteboard.
      * @returns { Promise<boolean> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     hasData(): Promise<boolean>;
@@ -614,6 +631,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of data is not PasteData or type of callback is not AsyncCallback<void>.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
@@ -625,6 +643,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of data is not PasteData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     setData(data: PasteData): Promise<void>;

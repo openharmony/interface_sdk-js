@@ -10,6 +10,7 @@
       "extends",
       "famodelonly",
       "fires",
+      "form",
       "interface",
       "namespace",
       "param",
@@ -270,7 +271,8 @@
         "BundleFramework.Launcher",
         "BundleFramework.SandboxApp",
         "BundleFramework.QuickFix",
-        "BundleFramework.AppControl"
+        "BundleFramework.AppControl",
+        "BundleFramework.Overlay"
       ],
       "Developtools": [
         "Syscap"
@@ -475,6 +477,7 @@
         "AppFileService",
         "UserFileService",
         "UserFileManager",
+        "UserFileManager.DistributedCore",
         "UserFileManager.Core"
       ],
       "USB": [
@@ -498,7 +501,8 @@
         "Preferences.Core",
         "DataShare.Core",
         "DataShare.Consumer",
-        "DataShare.Provider"
+        "DataShare.Provider",
+        "UDMF.Core"
       ],
       "Ability": [
         "AbilityBase",
@@ -526,6 +530,10 @@
         "AAID",
         "OAID",
         "VAID"
+      ],
+      "XTS": [
+        "DeviceAttest",
+        "DeviceAttestLite"
       ]
     }
   }

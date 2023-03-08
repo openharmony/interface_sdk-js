@@ -58,8 +58,8 @@ import { Permissions } from './permissions'
      * @systemapi
      * @since 9
      */
-    function getPermissionUsedRecords(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
-    function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
+    function getPermissionUsedRecord(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
+    function getPermissionUsedRecord(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
 
     /**
      * Start using sensitive permission.
@@ -105,7 +105,7 @@ import { Permissions } from './permissions'
 
     /**
      * Subscribes to the change of active state of the specified permission.
-     * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @param permissionList Indicates the permission list, which are specified.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -118,23 +118,23 @@ import { Permissions } from './permissions'
      * @systemapi
      * @since 9
      */
-    function on(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback: Callback<ActiveChangeResponse>): void;
+    function on(type: 'activeStateChange', permissionList: Array<Permissions>, callback: Callback<ActiveChangeResponse>): void;
 
     /**
      * Unsubscribes to the change of active state of the specified permission.
-     * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @param permissionList Indicates the permission list, which are specified.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 12100001 - The parameter is invalid. The permissionName in list is all invalid or the list size is larger than 1024.
-     * @throws { BusinessError } 12100004 - The interface is not used with "on".
+     * @throws { BusinessError } 12100004 - The interface is not used together with "on".
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS
      * @systemapi
      * @since 9
      */
-    function off(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback?: Callback<ActiveChangeResponse>): void;
+    function off(type: 'activeStateChange', permissionList: Array<Permissions>, callback?: Callback<ActiveChangeResponse>): void;
 
     /**
      * Enum for permission for status.

@@ -21,7 +21,7 @@ import { ElementName }  from './elementName';
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
  * @deprecated since 9
- * @useinstead ohos.bundle.distributedBundle.RemoteAbilityInfo
+ * @useinstead ohos.bundle.distributedBundleManager.RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
     /**

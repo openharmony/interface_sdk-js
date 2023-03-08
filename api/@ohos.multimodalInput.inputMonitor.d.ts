@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -37,12 +37,14 @@ declare namespace inputMonitor {
 
     /**
      * Listens for touch input events.
+     * 
      * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
+     * @param type Event type, which is **touch**.
      * @param receiver Callback used to receive the reported data.
+     * @returns Callback for the input device event.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
      */
@@ -50,12 +52,14 @@ declare namespace inputMonitor {
 
     /**
      * Listens for mouse input events.
+     * 
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
+     * @param type Event type, which is **mouse**.
      * @param receiver Callback used to receive the reported data.
+     * @returns Callback for the input device event.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
      */
@@ -63,12 +67,14 @@ declare namespace inputMonitor {
 
     /**
      * Cancel listening for touch input events.
+     * 
      * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
+     * @param type Event type, which is **touch**.
      * @param receiver Callback used to receive the reported data.
+     * @returns Callback for the input device event.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
      */
@@ -76,12 +82,14 @@ declare namespace inputMonitor {
 
     /**
      * Cancel listening for mouse input events.
+     * 
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
+     * @param type Event type, which is **mouse**.
      * @param receiver Callback used to receive the reported data.
+     * @returns Callback for the input device event.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
      */

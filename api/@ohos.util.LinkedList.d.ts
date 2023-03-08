@@ -134,6 +134,7 @@ declare class LinkedList<T> {
    * @returns the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The removeFirstFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200017 - The element does not exist in this container.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -146,6 +147,7 @@ declare class LinkedList<T> {
    * @returns the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The removeLastFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
+   * @throws { BusinessError } 10200017 - The element does not exist in this container.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

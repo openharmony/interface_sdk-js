@@ -16,7 +16,7 @@
 import {ErrorCallback, AsyncCallback, Callback} from './basic';
 
 /**
- * @name audio
+ * @namespace audio
  * @since 7
  */
 declare namespace audio {
@@ -93,7 +93,7 @@ declare namespace audio {
   const DEFAULT_INTERRUPT_GROUP_ID: number;
 
   /**
-   * Obtains an AudioManager instance.
+   * Obtains an {@link AudioManager} instance.
    * @returns AudioManager object.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -101,7 +101,7 @@ declare namespace audio {
   function getAudioManager(): AudioManager;
 
   /**
-   * Obtains an AudioCapturer instance. This method uses an asynchronous callback to return the capturer instance.
+   * Obtains an {@link AudioCapturer} instance. This method uses an asynchronous callback to return the capturer instance.
    * @param options Capturer configurations.
    * @param callback Callback used to return the audio capturer instance.
    * @since 8
@@ -110,7 +110,7 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
 
   /**
-   * Obtains an AudioCapturer instance. This method uses a promise to return the capturer instance.
+   * Obtains an {@link AudioCapturer} instance. This method uses a promise to return the capturer instance.
    * @param options Capturer configurations.
    * @returns Promise used to return the audio capturer instance.
    * @since 8
@@ -119,7 +119,7 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
   /**
-   * Obtains an AudioRenderer instance. This method uses an asynchronous callback to return the renderer instance.
+   * Obtains an {@link AudioRenderer} instance. This method uses an asynchronous callback to return the renderer instance.
    * @param options Renderer configurations.
    * @param callback Callback used to return the audio renderer instance.
    * @since 8
@@ -128,7 +128,7 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer>): void;
 
   /**
-   * Obtains an AudioRenderer instance. This method uses a promise to return the renderer instance.
+   * Obtains an {@link AudioRenderer} instance. This method uses a promise to return the renderer instance.
    * @param options Renderer configurations.
    * @returns Promise used to return the audio renderer instance.
    * @since 8
@@ -137,7 +137,7 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
 
   /**
-   * Obtains a TonePlayer instance. This method uses an asynchronous callback to return the renderer instance.
+   * Obtains a {@link TonePlayer} instance. This method uses an asynchronous callback to return the renderer instance.
    * @param options Tone playing attribute.
    * @returns Promise used to return the tone player instance.
    * @since 9
@@ -147,7 +147,7 @@ declare namespace audio {
   function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer>): void;
 
   /**
-   * Obtains a TonePlayer instance. This method uses a promise to return the renderer instance.
+   * Obtains a {@link TonePlayer} instance. This method uses a promise to return the renderer instance.
    * @param options Tone playing attribute.
    * @returns Promise used to return the tone player instance.
    * @since 9
@@ -232,10 +232,30 @@ declare namespace audio {
     MEDIA = 3,
     /**
      * Audio stream for voice assistant.
+     * Audio volume for alarm purpose.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    ALARM = 4,
+    /**
+     * Audio volume for accessibility purpose.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    ACCESSIBILITY = 5,
+    /**
+     * Audio stream for voice assistant.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     VOICE_ASSISTANT = 9,
+    /**
+     * Audio volume for ultrasonic.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    ULTRASONIC = 10,
     /**
      * Audio stream for all common.
      * @since 9
@@ -652,6 +672,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     CONTENT_TYPE_RINGTONE = 5,
+    /**
+     * Ultrasonic content.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     */
+    CONTENT_TYPE_ULTRASONIC = 9
   }
 
   /**
@@ -685,11 +712,30 @@ declare namespace audio {
      */
     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
+     * Alarm usage.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_ALARM = 4,
+    /**
      * Notification or ringtone usage.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STREAM_USAGE_NOTIFICATION_RINGTONE = 6
+    STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
+    /**
+     * Accessibility usage, such as screen reader.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_ACCESSIBILITY = 8,
+    /**
+     * System usage, such as screen lock or key click.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     */
+    STREAM_USAGE_SYSTEM = 9,
   }
 
   /**
@@ -779,7 +825,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      */
-    uid: number;
+    uid?: number;
     /**
      * Renderer information.
      * @since 9
@@ -1495,7 +1541,7 @@ declare namespace audio {
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
 
     /**
-     * Obtains an AudioVolumeManager instance.
+     * Obtains an {@link AudioVolumeManager} instance.
      * @returns AudioVolumeManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -1503,7 +1549,7 @@ declare namespace audio {
     getVolumeManager(): AudioVolumeManager;
 
     /**
-     * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
+     * Obtains an {@link AudioStreamManager} instance.
      * @returns AudioStreamManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1511,7 +1557,7 @@ declare namespace audio {
     getStreamManager(): AudioStreamManager;
 
     /**
-     * Obtains an AudioRoutingManager instance.
+     * Obtains an {@link AudioRoutingManager} instance.
      * @returns AudioRoutingManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1706,6 +1752,44 @@ declare namespace audio {
      * @systemapi
      */
     selectInputDevice(inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
+     * Get output device for target audio renderer info.
+     * @param rendererInfo Audio renderer information
+     * @param callback Callback used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Get output device for target audio renderer info.
+     * @param rendererInfo Audio renderer information
+     * @returns Promise used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
+     * registered clients will receive the callback.
+     * @param rendererInfo Audio renderer information.
+     * @param callback Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * UnSubscribes to prefer output device change events.
+     * @param callback Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
   }
 
   /**

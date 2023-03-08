@@ -20,7 +20,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission N/A
  * @deprecated since 9
- * @useinstead ProcessRunningInformation
+ * @useinstead ProcessInformation
  */
 export interface ProcessRunningInfo {
     /**
@@ -28,7 +28,7 @@ export interface ProcessRunningInfo {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @deprecated since 9
-     * @useinstead ProcessRunningInformation.pid
+     * @useinstead ProcessInformation.pid
      */
     pid: number;
 
@@ -37,7 +37,7 @@ export interface ProcessRunningInfo {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @deprecated since 9
-     * @useinstead ProcessRunningInformation.uid
+     * @useinstead ProcessInformation.uid
      */
     uid: number;
 
@@ -46,7 +46,7 @@ export interface ProcessRunningInfo {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @deprecated since 9
-     * @useinstead ProcessRunningInformation.processName
+     * @useinstead ProcessInformation.processName
      */
     processName: string;
 
@@ -55,7 +55,7 @@ export interface ProcessRunningInfo {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @deprecated since 9
-     * @useinstead ProcessRunningInformation.bundleNames
+     * @useinstead ProcessInformation.bundleNames
      */
     bundleNames: Array<string>;
 }

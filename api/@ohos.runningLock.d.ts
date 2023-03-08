@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -51,6 +51,7 @@ declare namespace runningLock {
          * the lock is automatically released and the system hibernates if no other {@link RunningLock} is set.
          * @throws {BusinessError} 401 - If the timeout is not valid.
          * @throws {BusinessError} 4900101 - If connecting to the service failed.
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         hold(timeout: number): void;
@@ -70,6 +71,7 @@ declare namespace runningLock {
          *
          * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
          * @throws {BusinessError} 4900101 - If connecting to the service failed.
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         isHolding(): boolean;
@@ -91,6 +93,7 @@ declare namespace runningLock {
          *
          * @permission ohos.permission.RUNNING_LOCK
          * @throws {BusinessError} 4900101 - If connecting to the service failed.
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         unhold(): void;
@@ -103,11 +106,17 @@ declare namespace runningLock {
      * {@link BACKGROUND} ensures that applications can run in the background.
      * {@link PROXIMITY_SCREEN_CONTROL} determines whether to turn on or off the screen based on the proximity sensor.
      *
+     * @enum {number}
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7
      */
     export enum RunningLockType {
         /**
          * Indicates the lock that prevents the system from hibernating.
+         *
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
+         * @since 7
+         * @deprecated since 10
          */
         BACKGROUND = 1,
         /**
@@ -115,6 +124,8 @@ declare namespace runningLock {
          * For example, during a call, if the proximity sensor detects that the device is moving close to
          * the user's ear, the screen turns off; if the proximity sensor detects that the device is moving away
          * from the user's ear, the screen turns on.
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
+         * @since 7
          */
         PROXIMITY_SCREEN_CONTROL
     }
@@ -141,6 +152,7 @@ declare namespace runningLock {
      * @returns {boolean} Whether the specified {@link RunningLockType} is supported.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     function isSupported(type: RunningLockType): boolean;
@@ -178,6 +190,7 @@ declare namespace runningLock {
      * @param {RunningLockType} type Indicates the {@link RunningLockType}.
      * @param {AsyncCallback<RunningLock>)} callback Indicates the callback of {@link RunningLock} object.
      * @throws {BusinessError} 401 - If the name, type or callback is not valid.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
@@ -195,6 +208,7 @@ declare namespace runningLock {
      * @param {RunningLockType} type Indicates the {@link RunningLockType}.
      * @returns {Promise<RunningLock>} The {@link RunningLock} object.
      * @throws {BusinessError} 401 - If the name or type is not valid.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     function create(name: string, type: RunningLockType): Promise<RunningLock>;

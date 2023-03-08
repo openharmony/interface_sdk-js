@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -135,6 +135,8 @@ declare namespace socket {
      *
      * @param address Destination address. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
@@ -144,6 +146,8 @@ declare namespace socket {
      *
      * @param options Optional parameters {@link UDPSendOptions}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
     send(options: UDPSendOptions): Promise<void>;
@@ -151,6 +155,7 @@ declare namespace socket {
     /**
      * Closes a UDPSocket connection.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
      */
     close(callback: AsyncCallback<void>): void;
     close(): Promise<void>;
@@ -160,6 +165,7 @@ declare namespace socket {
      *
      * @param callback Callback used to return the result. {@link SocketStateBase}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
     getState(): Promise<SocketStateBase>;
@@ -169,6 +175,8 @@ declare namespace socket {
      *
      * @param options Optional parameters {@link UDPExtraOptions}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     setExtraOptions(options: UDPExtraOptions, callback: AsyncCallback<void>): void;
     setExtraOptions(options: UDPExtraOptions): Promise<void>;
@@ -256,6 +264,8 @@ declare namespace socket {
      *
      * @param address Destination address. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
@@ -265,6 +275,8 @@ declare namespace socket {
      *
      * @param options Optional parameters {@link TCPConnectOptions}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
     connect(options: TCPConnectOptions): Promise<void>;
@@ -274,6 +286,8 @@ declare namespace socket {
      *
      * @param options Optional parameters {@link TCPSendOptions}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
     send(options: TCPSendOptions): Promise<void>;
@@ -281,6 +295,7 @@ declare namespace socket {
     /**
      * Closes a TCPSocket connection.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
      */
     close(callback: AsyncCallback<void>): void;
     close(): Promise<void>;
@@ -290,6 +305,7 @@ declare namespace socket {
      *
      * @param callback Callback used to return the result. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
     getRemoteAddress(): Promise<NetAddress>;
@@ -299,6 +315,7 @@ declare namespace socket {
      *
      * @param callback Callback used to return the result. {@link SocketStateBase}
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
     getState(): Promise<SocketStateBase>;
@@ -308,6 +325,8 @@ declare namespace socket {
      *
      * @param options Optional parameters {@link TCPExtraOptions}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
@@ -490,11 +509,14 @@ declare namespace socket {
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
+     * Sets up a connection to the specified IP address and port number.
+     * Only TCP is supported.
+     *
+     * @param options Optional parameters {@link TLSConnectOptions}.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 2303104 - Interrupted system call.
      * @throws {BusinessError} 2303109 - Bad file number.
      * @throws {BusinessError} 2303111 - Resource temporarily unavailable try again.
-     * @throws {BusinessError} 2303113 - System permission denied.
      * @throws {BusinessError} 2303188 - Socket operation on non-socket.
      * @throws {BusinessError} 2303191 - Protocol wrong type for socket.
      * @throws {BusinessError} 2303198 - Address already in use.
@@ -559,7 +581,7 @@ declare namespace socket {
     /**
      * Password of the private key
      */
-    passwd?: string;
+    password?: string;
 
     /**
      * TLS protocol version

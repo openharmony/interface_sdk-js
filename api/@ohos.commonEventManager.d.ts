@@ -81,7 +81,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500004 - not System services or System app
    * @throws { BusinessError } 1500007 - message send error
    * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system erro
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -742,6 +742,14 @@ declare namespace commonEventManager {
     COMMON_EVENT_CHARGING = "usual.event.CHARGING",
 
     /**
+     * Sent when charge type changed.
+     *
+     * @since 10
+     * @systemapi
+     */
+    COMMON_EVENT_CHARGE_TYPE_CHANGED = "usual.event.CHARGE_TYPE_CHANGED",
+
+    /**
      * Sent when device's idle mode changed
      */
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = "usual.event.DEVICE_IDLE_MODE_CHANGED",
@@ -1008,7 +1016,14 @@ declare namespace commonEventManager {
      * Indicate the action of a common event that the user information has been updated.
      * This common event can be triggered only by system.
      */
-    COMMON_EVENT_USER_INFO_UPDATED = "usual.event.USER_INFO_UPDATED"
+    COMMON_EVENT_USER_INFO_UPDATED = "usual.event.USER_INFO_UPDATED",
+
+    /**
+     * Indicate http proxy has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+     COMMON_EVENT_HTTP_PROXY_CHANGE = "usual.event.HTTP_PROXY_CHANGE"
   }
 }
 

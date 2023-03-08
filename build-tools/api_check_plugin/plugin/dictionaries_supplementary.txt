@@ -18,12 +18,14 @@ alerting
 algrithom
 aligns
 alpha
+alpnprotocols
 alterase
 alternating
 altitudes
 amr
 annually
 antialias
+apdu
 apecified
 appselect
 arcs
@@ -45,6 +47,7 @@ audios
 authenticates
 authinfo
 autocorrect
+averr
 avoidareachange
 avrcp
 avsession
@@ -55,6 +58,7 @@ beta1
 bevels
 bgra
 bidirectionally
+bitrates
 bms
 bolder
 bonded
@@ -126,12 +130,16 @@ cyclewindows
 daltonization
 darkest
 dataability
+datareceive
+dataresubmissionhandler
 datashare
 datasync
+dbm
 dci
 ddmp
 deactivation
 decodes
+decomposed
 decompressed
 decompressing
 decr
@@ -172,6 +180,7 @@ donot
 downlink
 dpad
 drains
+dragbar
 drawbuffer
 dsf
 dtmf
@@ -228,6 +237,7 @@ fulfills
 gamepad
 gba
 geofence
+getunfilteredlinkurl
 glasses
 gnss
 graphicseditor
@@ -293,6 +303,7 @@ ineffective
 injects
 ino
 inputer
+inputers
 inputevent
 inputmethod
 inputmethodengine
@@ -316,9 +327,11 @@ ivi
 iwlan
 jis
 judged
+kaihong
 kbdillum
 kbdinputassist
 kbps
+keyof
 keyframe
 keyguard
 keyusage
@@ -350,6 +363,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightupEffect
 lpx
 lru
 lshort
@@ -364,6 +378,8 @@ lux
 mah
 mcc
 md5
+mdns
+mdns_err
 mediaquery
 meid
 messageerror
@@ -405,6 +421,7 @@ nextgroup
 nlink
 nmea
 nopadding
+normalizer
 notifies
 notifying
 numpad
@@ -414,12 +431,16 @@ oaep
 ofb
 offhook
 offscreen
+omapi
 oncancel
+ondataresubmission
+ondataresubmitted
 onexit
 onfinish
 onframe
 onmessageerror
 onrepeat
+oobinline
 oper
 operated
 operatorconfigs
@@ -454,6 +475,7 @@ perso
 personalisation
 pertaining
 photographing
+pickers
 pixelmap
 playpause
 playstate
@@ -468,9 +490,11 @@ pooled
 ppid
 pread
 precisiontype
+precomposed
 precon
 preempted
 preferentially
+preloads
 premises
 premultiplied
 premultiply
@@ -484,6 +508,7 @@ prohibits
 promisify
 provisioned
 proxyed
+psc
 psk
 pss
 puk
@@ -516,6 +541,8 @@ resmgr
 resourceschedule
 restores
 restricts
+resubmission
+resubmitted
 resultsets
 resumed
 retried
@@ -530,12 +557,15 @@ ringtones
 rle
 rmdir
 rotatable
+rscp
+rsrp
 rtd
 rtt
 ruim
 rwt
 s5
 sac
+sae
 sak
 satellites
 scdma
@@ -556,6 +586,7 @@ sfactor
 sha1
 shadertype
 sharedarraybuffer
+shenzhen
 shortkey
 shuts
 sigalgs
@@ -591,6 +622,7 @@ storei
 storge
 stroked
 subassembies
+subassemblies
 subcomponents
 subnode
 subpixel
@@ -599,9 +631,11 @@ subscribale
 subscribes
 subtypes
 superimposed
+suscriber
 suscribes
 suspends
 switchvideomode
+synched
 synchronizes
 synchronizing
 synth
@@ -618,6 +652,7 @@ talkback
 taskmanager
 taskpool
 tbla
+tcpnodelay
 tdscdma
 telecom
 tethering
@@ -627,6 +662,8 @@ textclock
 texttimer
 thirdparty
 timeinterfaceimpl
+tlsv12
+tlsv13
 tnf
 totalsize
 touchpad
@@ -661,6 +698,7 @@ unconditional
 unduck
 unducked
 unequal
+unfiltered
 unfocused
 unhold
 unicom
@@ -733,6 +771,7 @@ workscheduler
 woy
 wrappedvalue
 writemask
+wukong
 wwan
 x25519
 x509
