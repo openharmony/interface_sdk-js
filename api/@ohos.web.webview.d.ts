@@ -585,14 +585,14 @@ declare namespace webview {
 
         /**
          * Set web engine to use HttpDns server to resolve dns.
-         * @param { secureDnsMode } Mode using HttpDns.
-         * @param { serverConfig } The configuration of the HttpDns server.
-         *                         Must be https protocol and only allow one server to be configured.
+         * @param { SecureDnsMode } Mode using HttpDns.
+         * @param { string } The configuration of the HttpDns server.
+         *                   Must be https protocol and only allow one server to be configured.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
          * @since 10
          */
-        static setHttpDns(secureDnsMode: SecureDnsMode, serverConfig: string): void;
+        static setHttpDns(secureDnsMode: SecureDnsMode, secureDnsConfig: string): void;
 
 
         /**
