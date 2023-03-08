@@ -29,35 +29,36 @@ declare namespace uriPermissionManager {
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * @param { string } fromBundleName - Indicates the application bundle name which URI belong to.
      * @param { string } targetBundleName - Indicates the bundle name of authorization target.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-    function grantUriPermission(uri: string, flag: wantConstant.Flags, fromBundleName: string, targetBundleName: string): Promise<number>;
+    function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
    /**
      * Grant URI to another application
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * @param { string } fromBundleName - Indicates the application bundle name which URI belong to.
      * @param { string } targetBundleName - Indicates the bundle name of authorization target.
      * @param { callback } callback - Unregister a callback function for listening for notifications.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied.
      */
-   function grantUriPermission(uri: string, flag: wantConstant.Flags, fromBundleName: string, targetBundleName: string, callback: AsyncCallback<number>): void;
+   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, callback: AsyncCallback<number>): void;
 
     /**
      * Grant URI from self to another application
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param { string } targetBundleName - Indicates the bundle name of authorization target.
@@ -71,6 +72,7 @@ declare namespace uriPermissionManager {
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param { string } targetBundleName - Indicates the bundle name of authorization target.
@@ -85,6 +87,7 @@ declare namespace uriPermissionManager {
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
      * @param uri File URI need to be revoke
      * @param { string } BundleName Indicates the bundleName of the application need to remove uri.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -97,6 +100,7 @@ declare namespace uriPermissionManager {
      *
      * @since 10
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
      * @param uri File URI need to be revoke
      * @param { string } BundleName Indicates the bundleName of the application need to remove uri.
      * @param { callback } callback - Unregister a callback function for listening for notifications.
