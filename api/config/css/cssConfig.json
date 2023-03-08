@@ -6286,7 +6286,8 @@
         }
       ],
       "syscap": [
-        "SystemCapability.ArkUI.ArkUI.Full"
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
       ],
       "version": [
         {
