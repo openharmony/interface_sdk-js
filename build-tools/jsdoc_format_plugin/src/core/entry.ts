@@ -130,7 +130,9 @@ export class SingleFileProcessor extends BaseSourceCodeProcessor {
       }
     }
     // 报告落盘
-    context.getLogReporter().writeAllResults(OutputFileHelper.getLogReportFilePath(this.inputParam));
+    const reportFilePath: string = OutputFileHelper.getLogReportFilePath(this.inputParam);
+    context.getLogReporter().writeAllResults(reportFilePath);
+    LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}`);
     if (preResult.code === Code.OK) {
       preResult.content = `new d.ts file is ${newContext.getOutputFile()}`;
     }
@@ -180,8 +182,9 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
       }
     });
     // 报告落盘
-    context.getLogReporter().writeAllResults(OutputFileHelper.getLogReportFilePath(this.inputParam));
-    LogUtil.i('jsdoc-tool', `the report file is in ${OutputFileHelper.getLogReportFilePath(this.inputParam)}`);
+    const reportFilePath: string = OutputFileHelper.getLogReportFilePath(this.inputParam);
+    context.getLogReporter().writeAllResults(reportFilePath);
+    LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}`);
     return {
       code: errorSet.length > 0 ? Code.ERROR : Code.OK,
       content: errorSet.length > 0 ? JSON.stringify(errorSet)
