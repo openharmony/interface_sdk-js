@@ -431,6 +431,7 @@ oaep
 ofb
 offhook
 offscreen
+omapi
 oncancel
 ondataresubmission
 ondataresubmitted
