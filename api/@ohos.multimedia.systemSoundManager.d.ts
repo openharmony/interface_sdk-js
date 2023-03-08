@@ -1,8 +1,8 @@
   
-import type { AsyncCallback } from './basic';
-import type Context from './application/Context';
-import type { RingtonePlayer as _RingtonePlayer } from './multimedia/ringtonePlayer';
-import type { RingtoneOptions as _RingtoneOptions } from './multimedia/ringtonePlayer';
+import { AsyncCallback } from './basic';
+import Context from './application/Context';
+import { RingtonePlayer as _RingtonePlayer } from './multimedia/ringtonePlayer';
+import { RingtoneOptions as _RingtoneOptions } from './multimedia/ringtonePlayer';
 
 /**
  * Provides ringtone player interfaces.

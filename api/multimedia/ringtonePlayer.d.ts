@@ -1,6 +1,6 @@
-import type { Callback, AsyncCallback } from '../basic';
-import type audio from '../@ohos.multimedia.audio';
-import type media from '../@ohos.multimedia.media';
+import { Callback, AsyncCallback } from '../basic';
+import audio from '../@ohos.multimedia.audio';
+import media from '../@ohos.multimedia.media';
 
 /**
  * Interface for ringtone options.
