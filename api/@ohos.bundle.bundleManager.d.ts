@@ -1371,6 +1371,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - The callback of getting a list of SharedBundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1387,6 +1388,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @returns { Promise<Array<SharedBundleInfo>> } Returns a list of SharedBundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700002 - The specified moduleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
