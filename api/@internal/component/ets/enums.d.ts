@@ -2710,3 +2710,27 @@ declare enum TitleHeight {
    */
   MainWithSub,
 }
+
+/**
+ * Command key for hot key.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum CtrlKey {
+  /**
+   * ctrl.
+   * @since 10
+   */
+  CTRL = 0,
+
+  /**
+   * shift.
+   * @since 10
+   */
+  SHIFT = 1,
+  /**
+   * alt.
+   * @since 10
+   */
+  ALT = 2,
+}

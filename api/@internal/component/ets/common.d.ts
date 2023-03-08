@@ -3192,6 +3192,15 @@ declare class CommonMethod<T> {
    * @since 10
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
+
+  /**
+   * Sets hot keys
+   * @param { string } value , single character of the Combination key
+   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
 }
 
 /**
