@@ -420,6 +420,37 @@ declare interface BorderOptions {
 }
 
 /**
+ * Define the style of checkbox mark.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface MarkStyle {
+  /**
+   * Define the stroke color of checkbox mark.
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  strokeColor?: ResourceColor;
+
+  /**
+   * Define the size of checkbox mark.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  size?: Length;
+
+  /**
+   * Define the stroke width of checkbox mark.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  strokeWidth?: Length;
+}
+
+/**
  * Defines the ColorFilter object.
  * @since 9
  */
