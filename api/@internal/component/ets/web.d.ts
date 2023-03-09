@@ -2045,6 +2045,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
+
+  /**
+   * Triggered when the first content rendering of web page.
+   * @param navigationStartTick Absolute navigation start time, as TimeTicks.
+   * @param firstContentfulPaintMs Time to first contentful paint from navigation start.
+   * @since 10
+   */
+  onFirstContentfulPaint(callback: (event?: { navigationStartTick: number,
+      firstContentfulPaintMs: number }) => void): WebAttribute;
 }
 
 /**
