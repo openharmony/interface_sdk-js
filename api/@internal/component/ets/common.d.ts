@@ -222,7 +222,6 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * Obtains the Context object associated with a component on the page.
  * @param { Object } component - indicate the component on the page.
  * @StageModelOnly
- * @form
  * @since 9
  */
 declare function getContext(component?: Object): Context;
@@ -230,7 +229,6 @@ declare function getContext(component?: Object): Context;
 /**
  * Get context.
  * @StageModelOnly
- * @form
  * @since 9
  */
 declare type Context = import('../api/application/Context').default;
