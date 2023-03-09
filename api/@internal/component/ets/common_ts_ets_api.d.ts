@@ -525,6 +525,7 @@ declare const appStorage: AppStorage;
  * AppStorage singleton is sub-class of LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @form
  * @since 9
  */
 declare class LocalStorage {
@@ -534,6 +535,7 @@ declare class LocalStorage {
    * Property values must not be undefined.
    * @param initializingProperties Object containing keys and values. see set() for valid values
    *
+   * @form
    * @since 9
    */
   constructor(initializingProperties?: Object);
@@ -541,6 +543,7 @@ declare class LocalStorage {
   /**
    * Get current LocalStorage shared from stage.
    * @StageModelOnly
+   * @form
    * @since 9
    */
   static GetShared(): LocalStorage;
@@ -552,6 +555,7 @@ declare class LocalStorage {
    * @param propName searched property
    * @returns true if property with such name exists in LocalStorage
    *
+   * @form
    * @since 9
    */
   has(propName: string): boolean;
@@ -561,6 +565,7 @@ declare class LocalStorage {
    * same as ES6 Map.prototype.keys()
    * @returns return a Map Iterator
    *
+   * @form
    * @since 9
    */
   keys(): IterableIterator<string>;
@@ -570,6 +575,7 @@ declare class LocalStorage {
    * same as Map.prototype.size()
    * @returns return number of properties
    *
+   * @form
    * @since 9
    */
   size(): number;
@@ -580,6 +586,7 @@ declare class LocalStorage {
    * @param propName
    * @returns property value if found or undefined
    *
+   * @form
    * @since 9
    */
   get<T>(propName: string): T | undefined;
@@ -592,6 +599,7 @@ declare class LocalStorage {
    * @param newValue must be of type T and must not be undefined or null
    * @returns true on success, i.e. when above conditions are satisfied, otherwise false
    *
+   * @form
    * @since 9
    */
   set<T>(propName: string, newValue: T): boolean;
@@ -605,6 +613,7 @@ declare class LocalStorage {
    * @param newValue must be of type T and must not be undefined or null
    * @returns true on success, i.e. when above conditions are satisfied, otherwise false
    *
+   * @form
    * @since 9
    */
   setOrCreate<T>(propName: string, newValue: T): boolean;
@@ -616,6 +625,7 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<S>
    *
+   * @form
    * @since 9
    */
   link<T>(propName: string): SubscribedAbstractProperty<T>;
@@ -628,6 +638,7 @@ declare class LocalStorage {
    * @returns  instance of  SubscribedAbstractProperty<S>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
+   * @form
    * @since 9
    */
   setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
@@ -639,6 +650,7 @@ declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
+   * @form
    * @since 9
    */
   prop<S>(propName: string): SubscribedAbstractProperty<S>;
@@ -651,6 +663,7 @@ declare class LocalStorage {
    * @returns  instance of  SubscribedAbstractProperty<S>
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
+   * @form
    * @since 9
    */
   setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
@@ -673,6 +686,7 @@ declare class LocalStorage {
    * @param propName
    * @returns false if method failed
    *
+   * @form
    * @since 9
   */
   delete(propName: string): boolean;
@@ -683,6 +697,7 @@ declare class LocalStorage {
    * method returns false and deletes no properties if there is any property
    * that still has subscribers
    *
+   * @form
    * @since 9
    */
   clear(): boolean;
