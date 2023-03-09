@@ -1316,6 +1316,34 @@ declare enum AdaptiveColor {
 }
 
 /**
+ * Defines modal transition type.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ModalTransition {
+  /**
+   * Use default animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  Default,
+
+  /**
+   * Use none animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  None,
+
+  /**
+   * Use alpha animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  Alpha,  
+}
+
+/**
  * Defines the options of backgroundBlurStyle
  * @since 10
  */
@@ -3287,6 +3315,16 @@ declare class CommonMethod<T> {
    * @since 8
    */
   bindContextMenu(content: CustomBuilder, responseType: ResponseType): T;
+
+  /**
+   * Bind content cover
+   * @param { boolean } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ModalTransition } type - transition type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
 
   /**
    * Sets styles for component state.
