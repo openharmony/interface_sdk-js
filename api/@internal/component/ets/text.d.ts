@@ -223,6 +223,22 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 9
    */
   draggable(value: boolean): TextAttribute;
+
+  /**
+   * Called when the text shadow is set.
+   * @param { ShadowOptions } value - The shadow options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textShadow(value: ShadowOptions): TextAttribute;
+
+  /**
+   * Called when the height adaptive policy is set.
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
 }
 
 /**
