@@ -88,6 +88,30 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
+   * Set the selected font color of non-alphabetic part of the pop-up window.
+   * @param { ResourceColor } value - indicates the color of the selected font.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  popupSelectedColor(value: ResourceColor): AlphabetIndexerAttribute;
+
+  /**
+   * Set the unselected font color of non-alphabetic part of the pop-up window.
+   * @param { ResourceColor } value - indicates the color of the unselected font.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  popupUnselectedColor(value: ResourceColor): AlphabetIndexerAttribute;
+
+  /**
+   * Set the background color of non-alphabetic part of the pop-up window.
+   * @param { ResourceColor } value - indicates the color of background.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  popupItemBackgroundColor(value: ResourceColor): AlphabetIndexerAttribute;
+
+  /**
    * Whether to use pop-up index hints.
    * @since 7
    */
@@ -106,6 +130,15 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupFont(value: Font): AlphabetIndexerAttribute;
 
   /**
+   * Set the font style of non-alphabetic part of the prompt pop-up window.
+   * Family and style are not supported currently and will be fixed in future.
+   * @param { Font } value - indicates the style of the font.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  popupItemFont(value: Font): AlphabetIndexerAttribute;
+
+  /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
    * @since 7
    */
@@ -118,10 +151,21 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   font(value: Font): AlphabetIndexerAttribute;
 
   /**
-   * Alphabet index bar alignment style. The left and right alignment styles are supported, which affects the pop-up position of the pop-up window.
+   * Alphabet index bar alignment style. The left and right alignment styles are supported,
+   * which affects the pop-up position of the pop-up window.
+   * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  alignStyle(value: IndexerAlign): AlphabetIndexerAttribute;
+  /**
+   * Alphabet index bar alignment style. The left and right alignment styles are supported,
+   * which affects the pop-up position of the pop-up window.
+   * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
+   * @param { Length } offset - indicates the horizontal space between pop-up window and indexer bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  alignStyle(value: IndexerAlign, offset?: Length): AlphabetIndexerAttribute;
 
   /**
    * Index bar selection callback.
