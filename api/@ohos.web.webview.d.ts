@@ -1017,18 +1017,18 @@ declare namespace webview {
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { string } Return the the original url of the current page.
+         * @returns { string } Return the original url of the current page.
          *
          * @since 9
          */
         getOriginalUrl(): string;
 
         /**
-         * Gets the original url of current Web page.
+         * Gets the favicon of current Web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { string } Return the the original url of the current page.
+         * @returns { image.PixelMap } Return the favicon bitmap of the current page.
          *
          * @since 9
          */
@@ -1088,8 +1088,8 @@ declare namespace webview {
         /**
          * Scroll to the position.
          *
-         * @param { boolean } x - the x of the position.
-         * @param { boolean } y - the y of the position.
+         * @param { number } x - the x of the position.
+         * @param { number } y - the y of the position.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1101,8 +1101,8 @@ declare namespace webview {
         /**
          * Scroll by the delta position.
          *
-         * @param { boolean } deltaX - the delta x of the position.
-         * @param { boolean } deltaY - the delta y of the position.
+         * @param { number } deltaX - the delta x of the position.
+         * @param { number } deltaY - the delta y of the position.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1114,8 +1114,8 @@ declare namespace webview {
         /**
          * Slide by the speed.
          *
-         * @param { boolean } vx - the x speed of the speed.
-         * @param { boolean } vy - the y speed of the speed.
+         * @param { number } vx - the x speed of the speed.
+         * @param { number } vy - the y speed of the speed.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
