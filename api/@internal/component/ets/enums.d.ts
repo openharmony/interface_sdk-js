@@ -2248,6 +2248,13 @@ declare enum TextAlign {
    * @since 9
    */
   End,
+
+  /**
+   * Justify the text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  Justify,
 }
 
 /**
@@ -2261,37 +2268,44 @@ declare enum TextAlign {
  */
 declare enum TextOverflow {
   /**
-   * When the text is too long, it will be cropped and displayed.
+   * When the text overflows its dimensions, the text will not be cropped.
    * @since 7
    */
   /**
-   * When the text is too long, it will be cropped and displayed.
+   * When the text overflows its dimensions, the text will not be cropped.
+   * @form
+   * @since 9
+   */
+  None,
+
+  /**
+   * When the text overflows its dimensions, the text will be cropped and displayed.
+   * @since 7
+   */
+  /**
+   * When the text overflows its dimensions, the text will be cropped and displayed.
    * @form
    * @since 9
    */
   Clip,
 
   /**
-   * If the text is too long, the text that cannot be displayed shall be replaced by ellipsis.
+   * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
    * @since 7
    */
   /**
-   * If the text is too long, the text that cannot be displayed shall be replaced by ellipsis.
+   * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
    * @form
    * @since 9
    */
   Ellipsis,
 
   /**
-   * Text is not cropped when it is too long.
-   * @since 7
+   * When the text overflows its dimensions, the text will scroll for displaying.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  /**
-   * Text is not cropped when it is too long.
-   * @form
-   * @since 9
-   */
-  None,
+  Marquee,
 }
 
 /**
@@ -2391,6 +2405,32 @@ declare enum TextCase {
    * @since 9
    */
   UpperCase,
+}
+
+/**
+ * Enum of text height adaptation
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TextHeightAdaptivePolicy {
+  /**
+   * Maximum number of lines first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MAX_LINES_FIRST,
+  /**
+   * Minimum font size first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MIN_FONT_SIZE_FIRST,
+  /**
+   * Layout restrictions first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  LAYOUT_CONSTRAINT_FIRST,
 }
 
 /**
