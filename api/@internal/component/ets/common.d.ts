@@ -1887,6 +1887,29 @@ declare interface StateStyles {
 }
 
 /**
+ * Defines the options of popup message.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface PopupMessageOptions {
+  /**
+   * Sets the color of popup text.
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textColor?: ResourceColor;
+
+  /**
+   * Sets the font of popup text.
+   * @type { Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  font?: Font;
+}
+
+/**
  * Defines the popup options.
  * @since 7
  */
@@ -1964,6 +1987,22 @@ declare interface PopupOptions {
    * @since 10
    */
   mask?: boolean | { color: ResourceColor };
+
+  /**
+   * Sets the options of popup message.
+   * @type { PopupMessageOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  messageOptions?: PopupMessageOptions
+
+  /**
+   * Sets the space of between the popup and target.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  targetSpace?: Length
 }
 
 /**
@@ -2034,6 +2073,14 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   mask?: boolean | { color: ResourceColor };
+
+  /**
+   * Sets the space of between the popup and target.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  targetSpace?: Length
 }
 
 /**
