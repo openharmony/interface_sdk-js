@@ -52,7 +52,7 @@ declare enum RefreshStatus {
 /**
  * Defines the options of refresh component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
+ * @since 8
  */
 interface RefreshOptions {
   /**
