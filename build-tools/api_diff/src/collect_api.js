@@ -394,7 +394,8 @@ function collectTypeDiff(newType, oldType, startDiffNew, startDiffOld, diffApis,
 }
 
 function collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, diffOld) {
-	flag = '新增'
+	const flag = '新增';
+	let diffNew = '';
 	if (newApi.apiType === 'import') {
 		diffNew = '模块名: ' + newApi.packageName + '\nimport 信息: ' + newApi.headimport
 	} else if (newApi.apiType === 'export') {
@@ -402,7 +403,7 @@ function collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, d
 	} else if (newApi.methodName === '') {
 		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className
 	} else {
-		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className; + '\n方法 or 属性: ' + newApi.methodText;
+		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className + '\n方法 or 属性: ' + newApi.methodText;
 	}
 	let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
 	diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
@@ -504,7 +505,7 @@ function collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffA
 
 function collectErrorCodeDiff(newErrorCode, oldErrorCode, startDiffNew, startDiffOld, diffApis, subsystemMap, notes,
 	fileNameMap, newApi) {
-	flag = oldErrorCode ? 'API修改(错误码)' : '新增(错误码)';
+	flag = oldErrorCode === 'N/A' ? '新增(错误码)' : 'API修改(错误码)';
 	if (flag === '新增(错误码)') {
 		diffOld = 'NA';
 	} else if (flag === 'API修改(错误码)') {
