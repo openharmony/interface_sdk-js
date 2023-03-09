@@ -84,6 +84,30 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   lunar(value: boolean): DatePickerAttribute;
 
   /**
+   * Sets the text style of disappearing items
+   * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  disappearTextStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
+   * Sets the text style of normal items
+   * @param { PickerTextStyle } value - indicates the text style of normal items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
+   * Sets the text style of selected items
+   * @param { PickerTextStyle } value - indicates the text style of selected items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedTextStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
    * This event is triggered when a DatePicker date or time is selected.
    * @since 8
    */
@@ -100,7 +124,41 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 8
    */
   lunar?: boolean;
-
+  /**
+   * Indicates whether to show the time selector.
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showTime?: boolean;
+  /**
+   * Indicates whether to display the 24-hour clock.
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  useMilitaryTime?: boolean;
+  /**
+   * Text style of disappearing items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  disappearTextStyle?: PickerTextStyle;
+  /**
+   * Text style of normal items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textStyle?: PickerTextStyle;
+  /**
+   * Text style of selected items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedTextStyle?: PickerTextStyle;
   /**
    * Called when the OK button in the dialog is clicked.
    * @since 8
