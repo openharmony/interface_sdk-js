@@ -202,6 +202,11 @@ function parseJsDoc(node) {
 }
 exports.parseJsDoc = parseJsDoc;
 
-let permissionFile = path.resolve(__dirname, '../config/config.json');
+let systemPermissionFile = path.resolve(__dirname, '../../../../../',
+  "base/global/system_resources/systemres/main/config.json");
 
-exports.permissionFile = permissionFile;
+exports.systemPermissionFile = systemPermissionFile;
+
+exports.checkOption = {
+  permissionContent: undefined
+};
