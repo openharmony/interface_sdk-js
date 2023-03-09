@@ -2133,6 +2133,39 @@ declare interface MenuOptions {
 }
 
 /**
+ * Defines the ProgressMask class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class ProgressMask {
+  /**
+   * constructor.
+   * @param { number } value - indicates the current value of the progress.
+   * @param { number } total - indicates the total value of the progress.
+   * @param { ResourceColor } color - indicates the color of the mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor(value: number, total: number, color: ResourceColor);
+
+  /**
+   * Update the current value of the progress.
+   * @param { number } value - indicates the current value of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  updateProgress(value: number): void;
+
+  /**
+   * Update the color of the mask.
+   * @param { ResourceColor } value - indicates the color of the mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  updateColor(value: ResourceColor): void;
+}
+
+/**
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3192,10 +3225,17 @@ declare class CommonMethod<T> {
    */
   /**
    * Applies a mask of the specified shape to the current assembly.
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value - indicates the shape of the mask.
    * @form
    * @since 9
    */
-  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
    * Key. User can set an key to the component to identify it.
