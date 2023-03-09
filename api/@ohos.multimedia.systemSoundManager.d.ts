@@ -33,7 +33,7 @@ declare namespace systemSoundManager {
 
   /**
    * Gets system sound manager for all type sound.
-   * @return SystemSoundManager instance.
+   * @returns SystemSoundManager instance.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
    */
