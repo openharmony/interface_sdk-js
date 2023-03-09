@@ -175,5 +175,24 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
 }
 
+/**
+ * Defines CheckboxGroup Component.
+ * @since 8
+ */
+/**
+ * Defines CheckboxGroup Component.
+ * @form
+ * @since 9
+ */
 declare const CheckboxGroup: CheckboxGroupInterface;
+
+/**
+ * Defines CheckboxGroup Component instance.
+ * @since 8
+ */
+/**
+ * Defines CheckboxGroup Component instance.
+ * @form
+ * @since 9
+ */
 declare const CheckboxGroupInstance: CheckboxGroupAttribute;

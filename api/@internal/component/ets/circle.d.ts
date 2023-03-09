@@ -90,5 +90,24 @@ interface CircleInterface {
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 
+/**
+ * Defines Circle Component.
+ * @since 7
+ */
+/**
+ * Defines Circle Component.
+ * @form
+ * @since 9
+ */
 declare const Circle: CircleInterface;
+
+/**
+ * Defines Circle Component instance.
+ * @since 7
+ */
+/**
+ * Defines Circle Component instance.
+ * @form
+ * @since 9
+ */
 declare const CircleInstance: CircleAttribute;

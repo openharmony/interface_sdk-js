@@ -100,6 +100,15 @@ declare class TextInputController {
    * @since 8
    */
   caretPosition(value: number): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
@@ -302,5 +311,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   style(value: TextInputStyle): TextInputAttribute;
 }
 
+/**
+ * Defines TextInput Component.
+ * @since 7
+ */
 declare const TextInput: TextInputInterface;
+
+/**
+ * Defines TextInput Component instance.
+ * @since 7
+ */
 declare const TextInputInstance: TextInputAttribute;

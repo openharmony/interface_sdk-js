@@ -179,5 +179,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxHeight(value: Length): TextAreaAttribute;
 }
 
+/**
+ * Defines TextArea Component.
+ * @since 7
+ */
 declare const TextArea: TextAreaInterface;
+
+/**
+ * Defines TextArea Component instance.
+ * @since 7
+ */
 declare const TextAreaInstance: TextAreaAttribute;

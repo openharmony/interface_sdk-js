@@ -79,6 +79,15 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   hideTitleBar(value: boolean): NavDestinationAttribute;
 }
 
+/**
+ * Defines NavDestination Component.
+ * @since 9
+ */
 declare const NavDestination: NavDestinationInterface;
+
+/**
+ * Defines NavDestination Component instance.
+ * @since 9
+ */
 declare const NavDestinationInstance: NavDestinationAttribute;
      

@@ -77,6 +77,14 @@ declare interface CustomDialogControllerOptions {
   * @since 10
   */
   closeAnimation?: AnimateParam;
+
+  /**
+   * Whether to display in the sub window.
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showInSubWindow?: boolean;
 }
 
 /**

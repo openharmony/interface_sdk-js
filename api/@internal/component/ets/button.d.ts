@@ -222,5 +222,24 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontFamily(value: string | Resource): ButtonAttribute;
 }
 
+/**
+ * Defines Button Component.
+ * @since 7
+ */
+/**
+ * Defines Button Component.
+ * @form
+ * @since 9
+ */
 declare const Button: ButtonInterface;
+
+/**
+ * Defines Button Component instance.
+ * @since 7
+ */
+/**
+ * Defines Button Component instance.
+ * @form
+ * @since 9
+ */
 declare const ButtonInstance: ButtonAttribute;

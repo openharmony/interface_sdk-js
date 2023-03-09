@@ -79,5 +79,14 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   status(value?: ItemState): StepperItemAttribute;
 }
 
+/**
+ * Defines StepperItem Component instance.
+ * @since 8
+ */
 declare const StepperItemInstance: StepperItemAttribute;
+
+/**
+ * Defines StepperItem Component.
+ * @since 8
+ */
 declare const StepperItem: StepperItemInterface;

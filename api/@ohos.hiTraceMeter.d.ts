@@ -20,10 +20,12 @@
  * <p>This interfaces trace the start, end, and value changes of key processes that last for at least 3 ms.
  *
  * <p>Example:
- * To trace a name verification that is expected to complete within 5 ms:
+ * Track the beginning of a context:
  * <pre>{@code
- * hiTraceMeter.startTrace("checkName", 111, 5);
- * //your process
+ * hiTraceMeter.startTrace("checkName", 111);
+ * }</pre>
+ * Track the end of a context:
+ * <pre>{@code
  * hiTraceMeter.finishTrace("checkName", 111);
  * }</pre>
  * To trace the number of layers, which is 3:

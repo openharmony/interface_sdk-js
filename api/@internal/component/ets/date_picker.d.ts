@@ -130,5 +130,14 @@ declare class DatePickerDialog {
   static show(options?: DatePickerDialogOptions);
 }
 
+/**
+ * Defines DatePicker Component.
+ * @since 8
+ */
 declare const DatePicker: DatePickerInterface;
+
+/**
+ * Defines DatePicker Component instance.
+ * @since 8
+ */
 declare const DatePickerInstance: DatePickerAttribute;

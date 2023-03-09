@@ -68,5 +68,24 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
   justifyContent(value: FlexAlign): RowAttribute;
 }
 
+/**
+ * Defines Row Component.
+ * @since 7
+ */
+/**
+ * Defines Row Component.
+ * @form
+ * @since 9
+ */
 declare const Row: RowInterface;
+
+/**
+ * Defines Row Component instance.
+ * @since 7
+ */
+/**
+ * Defines Row Component instance.
+ * @form
+ * @since 9
+ */
 declare const RowInstance: RowAttribute;

@@ -87,5 +87,24 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   endPoint(value: Array<any>): LineAttribute;
 }
 
+/**
+ * Defines Line Component.
+ * @since 7
+ */
+/**
+ * Defines Line Component.
+ * @form
+ * @since 9
+ */
 declare const Line: LineInterface;
+
+/**
+ * Defines Line Component instance.
+ * @since 7
+ */
+/**
+ * Defines Line Component instance.
+ * @form
+ * @since 9
+ */
 declare const LineInstance: LineAttribute;

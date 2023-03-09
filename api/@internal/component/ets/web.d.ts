@@ -463,6 +463,14 @@ declare class HttpAuthHandler {
   confirm(priKeyFile : string, certChainFile : string): void;
 
   /**
+   * Confirm to use the authUri.The authUri can be obtained from certificate management.
+   * @param authUri is the key of credentials.The credentials contain sign info and client certificates info.
+   *
+   * @since 10
+   */
+  confirm(authUri : string): void;
+
+  /**
    * Cancel this certificate request.
    * @since 9
    */
@@ -2030,7 +2038,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   allowWindowOpenMethod(flag : boolean): WebAttribute;
+
+  /**
+   * Triggered when the playing state of audio on web page changed.
+   * @param callback The playing state of audio on web page.
+   * @since 10
+   */
+  onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
 }
 
+/**
+ * Defines Web Component.
+ * @since 8
+ */
 declare const Web: WebInterface;
+
+/**
+ * Defines Web Component instance.
+ * @since 8
+ */
 declare const WebInstance: WebAttribute;

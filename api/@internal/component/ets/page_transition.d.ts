@@ -136,5 +136,14 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
   onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExitInterface;
 }
 
+/**
+ * Defines PageTransitionEnter Component.
+ * @since 7
+ */
 declare const PageTransitionEnter: PageTransitionEnterInterface;
+
+/**
+ * Defines PageTransitionExit Component.
+ * @since 7
+ */
 declare const PageTransitionExit: PageTransitionExitInterface;

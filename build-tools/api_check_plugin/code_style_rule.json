@@ -2,6 +2,7 @@
   "decorators": {
     "customDoc": [
       "constant",
+      "crossplatform",
       "default",
       "deprecated",
       "enum",
@@ -271,7 +272,8 @@
         "BundleFramework.Launcher",
         "BundleFramework.SandboxApp",
         "BundleFramework.QuickFix",
-        "BundleFramework.AppControl"
+        "BundleFramework.AppControl",
+        "BundleFramework.Overlay"
       ],
       "Developtools": [
         "Syscap"
@@ -379,7 +381,8 @@
         "MediaLibrary.DistributedCore",
         "Media.AVPlayer",
         "Media.AVRecorder",
-        "Image.ImageCreator"
+        "Image.ImageCreator",
+        "SystemSound.Core"
       ],
       "Telephony": [
         "CoreService",
@@ -500,7 +503,8 @@
         "Preferences.Core",
         "DataShare.Core",
         "DataShare.Consumer",
-        "DataShare.Provider"
+        "DataShare.Provider",
+        "UDMF.Core"
       ],
       "Ability": [
         "AbilityBase",
@@ -527,7 +531,8 @@
       "Cloud": [
         "AAID",
         "OAID",
-        "VAID"
+        "VAID",
+        "Push"
       ],
       "XTS": [
         "DeviceAttest",

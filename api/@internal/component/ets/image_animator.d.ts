@@ -158,5 +158,14 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   onFinish(event: () => void): ImageAnimatorAttribute;
 }
 
+/**
+ * Defines ImageAnimator Component.
+ * @since 7
+ */
 declare const ImageAnimator: ImageAnimatorInterface;
+
+/**
+ * Defines ImageAnimator Component instance.
+ * @since 7
+ */
 declare const ImageAnimatorInstance: ImageAnimatorAttribute;

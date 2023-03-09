@@ -130,6 +130,7 @@ cyclewindows
 daltonization
 darkest
 dataability
+datareceive
 dataresubmissionhandler
 datashare
 datasync
@@ -179,6 +180,7 @@ donot
 downlink
 dpad
 drains
+dragbar
 drawbuffer
 dsf
 dtmf
@@ -329,6 +331,7 @@ kaihong
 kbdillum
 kbdinputassist
 kbps
+keyof
 keyframe
 keyguard
 keyusage
@@ -360,6 +363,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightupEffect
 lpx
 lru
 lshort
@@ -374,6 +378,8 @@ lux
 mah
 mcc
 md5
+mdns
+mdns_err
 mediaquery
 meid
 messageerror
@@ -425,6 +431,7 @@ oaep
 ofb
 offhook
 offscreen
+omapi
 oncancel
 ondataresubmission
 ondataresubmitted
@@ -615,6 +622,7 @@ storei
 storge
 stroked
 subassembies
+subassemblies
 subcomponents
 subnode
 subpixel

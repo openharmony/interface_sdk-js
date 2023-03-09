@@ -18,7 +18,7 @@
  * @since 3
  * @deprecated since 6
  */
- export interface BatteryResponse {
+export interface BatteryResponse {
     /**
      * Whether the battery is being charged.
      * @since 3

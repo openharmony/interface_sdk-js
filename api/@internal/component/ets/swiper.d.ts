@@ -244,5 +244,14 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onAnimationEnd(event: (index: number) => void): SwiperAttribute;
 }
 
+/**
+ * Defines Swiper Component.
+ * @since 7
+ */
 declare const Swiper: SwiperInterface;
+
+/**
+ * Defines Swiper Component instance.
+ * @since 7
+ */
 declare const SwiperInstance: SwiperAttribute;

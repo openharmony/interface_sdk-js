@@ -31,5 +31,14 @@ interface FlowItemInterface {
  */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
 
+/**
+ * Defines FlowItem Component.
+ * @since 9
+ */
 declare const FlowItem: FlowItemInterface
+
+/**
+ * Defines FlowItem Component instance.
+ * @since 9
+ */
 declare const FlowItemInstance: FlowItemAttribute;
