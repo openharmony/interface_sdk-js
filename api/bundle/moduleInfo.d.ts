@@ -14,20 +14,20 @@
  */
 
 /**
- * @name Stores module information about an application.
- * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.HapModuleInfo
+ * @name Stores module information about an application.
  */
- export interface ModuleInfo {
+export interface ModuleInfo {
   /**
    * The module name.
    *
    * @default Indicates the name of the .hap package to which the capability belongs
-   *
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
    */
   readonly moduleName: string;
 
@@ -35,9 +35,9 @@
    * The module source path.
    *
    * @default Indicates the module source dir of this module
-   *
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
    */
   readonly moduleSourceDir: string;
 }

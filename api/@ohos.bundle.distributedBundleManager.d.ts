@@ -19,6 +19,7 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteA
 
 /**
  * DistributedBundle manager.
+ *
  * @namespace distributedBundleManager
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
@@ -27,6 +28,7 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteA
 declare namespace distributedBundleManager {
   /**
    * Obtains information about the ability info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - Indicates the elementName.
    * @param { AsyncCallback<RemoteAbilityInfo> } callback - The callback of getting the ability info of the remote device.
@@ -46,6 +48,7 @@ declare namespace distributedBundleManager {
 
   /**
    * Obtains information about the ability info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - Indicates the elementName.
    * @returns { Promise<RemoteAbilityInfo> } Returns the ability info of the remote device.
@@ -65,6 +68,7 @@ declare namespace distributedBundleManager {
 
   /**
    * Obtains information about the abilities info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - the callback of getting the abilities info of the remote device.
@@ -80,10 +84,12 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-  function getRemoteAbilityInfo(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
+      callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
    * Obtains information about the abilities info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the abilities info of the remote device.
@@ -103,6 +109,7 @@ declare namespace distributedBundleManager {
 
   /**
    * Obtains information about the ability info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - Indicates the elementName.
    * @param { string } locale - Indicates the locale info
@@ -119,10 +126,12 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-  function getRemoteAbilityInfo(elementName: ElementName, locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
+   function getRemoteAbilityInfo(elementName: ElementName,
+      locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
 
   /**
    * Obtains information about the ability info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - Indicates the elementName.
    * @param { string } locale - Indicates the locale info
@@ -143,6 +152,7 @@ declare namespace distributedBundleManager {
 
   /**
    * Obtains information about the ability info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { string } locale - Indicates the locale info
@@ -159,10 +169,12 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-  function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
+      locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
    * Obtains information about the abilities info of the remote device.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { string } locale - Indicates the locale info
@@ -183,6 +195,7 @@ declare namespace distributedBundleManager {
 
   /**
    * Contains basic remote ability information.
+   *
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9
