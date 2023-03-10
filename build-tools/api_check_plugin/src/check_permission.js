@@ -16,20 +16,25 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getAPINote, ErrorType, ErrorLevel, FileType, permissionFile } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel, FileType, systemPermissionFile, checkOption } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
 
 function getPermissionBank() {
   const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
-  if (fs.existsSync(permissionFile)) {
-    const permissionFileContent = require('../config/config.json');
-    const permissionTagsObj = permissionFileContent.module.definePermissions;
-    permissionTagsObj.forEach((item) => {
-      permissionTags.push(item.name);
-    });
+  let permissionFileContent;
+  if (fs.existsSync(systemPermissionFile)) {
+    permissionFileContent = require(systemPermissionFile);
+  } else if (checkOption.permissionContent) {
+    permissionFileContent = JSON.parse(checkOption.permissionContent);
+  } else {
+    permissionFileContent = require('../config/config.json');
   }
+  const permissionTagsObj = permissionFileContent.module.definePermissions;
+  permissionTagsObj.forEach((item) => {
+    permissionTags.push(item.name);
+  });
   const permissionRuleSets = new Set(permissionTags);
   return permissionRuleSets;
 }
