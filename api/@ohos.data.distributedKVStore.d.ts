@@ -16,7 +16,7 @@
 import {AsyncCallback, Callback} from './basic';
 import {ValuesBucket} from './@ohos.data.ValuesBucket';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
-import Context from './application/Context';
+import Context from './application/BaseContext';
 
 /**
  * Provider interfaces to create a {@link KVManager} instance.
