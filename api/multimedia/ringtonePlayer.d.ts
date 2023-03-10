@@ -1,11 +1,12 @@
-import { Callback, AsyncCallback } from '../basic';
-import audio from '../@ohos.multimedia.audio';
-import media from '../@ohos.multimedia.media';
+import type { Callback, AsyncCallback } from '../basic';
+import type audio from '../@ohos.multimedia.audio';
+import type media from '../@ohos.multimedia.media';
 
 /**
  * Interface for ringtone options.
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @since 10
+ * @systemapi
  */
 export interface RingtoneOptions {
   /**
@@ -26,6 +27,7 @@ export interface RingtoneOptions {
  * Ringtone player object.
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @since 10
+ * @systemapi
  */
 export interface RingtonePlayer {
   /**
