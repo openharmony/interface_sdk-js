@@ -15,18 +15,21 @@ declare namespace systemSoundManager {
   /**
    * Enum for ringtone type.
    * @since 10
+   * @systemapi
    */
   enum RingtoneType {
     /**
      * Default type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     RINGTONE_TYPE_DEFAULT = 0,
     /**
      * Multi-sim type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     RINGTONE_TYPE_MULTISIM = 1,
   }
@@ -36,12 +39,14 @@ declare namespace systemSoundManager {
    * @returns SystemSoundManager instance.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   function getSystemSoundManager(): SystemSoundManager;
 
   /**
    * System sound manager object.
    * @since 10
+   * @systemapi
    */
   interface SystemSoundManager {
     /**
@@ -52,6 +57,7 @@ declare namespace systemSoundManager {
      * @param callback Callback used to return the set uri result.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     setSystemRingtoneUri(context: Context, uri: string, type: RingtoneType, callback: AsyncCallback<void>): void;
     /**
@@ -62,6 +68,7 @@ declare namespace systemSoundManager {
      * @returns Promise used to return the set uri result.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     setSystemRingtoneUri(context: Context, uri: string, type: RingtoneType): Promise<void>;
 
@@ -72,6 +79,7 @@ declare namespace systemSoundManager {
      * @param callback Callback used to return the ringtone uri maintained in system.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     getSystemRingtoneUri(context: Context, type: RingtoneType, callback: AsyncCallback<string>): void;
     /**
@@ -81,6 +89,7 @@ declare namespace systemSoundManager {
      * @returns Promise used to return the ringtone uri maintained in system.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     getSystemRingtoneUri(context: Context, type: RingtoneType): Promise<string>;
 
@@ -91,6 +100,7 @@ declare namespace systemSoundManager {
      * @param callback Callback used to return a ringtone player instance.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     getSystemRingtonePlayer(context: Context, type: RingtoneType, callback: AsyncCallback<RingtonePlayer>): void;
     /**
@@ -100,6 +110,7 @@ declare namespace systemSoundManager {
      * @returns Promise used to return a ringtone player instance.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @since 10
+     * @systemapi
      */
     getSystemRingtonePlayer(context: Context, type: RingtoneType): Promise<RingtonePlayer>;
   }
@@ -108,6 +119,7 @@ declare namespace systemSoundManager {
    * Ringtone player object.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   type RingtonePlayer = _RingtonePlayer;
 
@@ -115,6 +127,7 @@ declare namespace systemSoundManager {
    * Interface for ringtone options.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   type RingtoneOptions = _RingtoneOptions;
 }

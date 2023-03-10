@@ -13,12 +13,14 @@ export interface RingtoneOptions {
    * Ringtone volume.
    * @since 10
    * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
    */
   volume: number;
   /**
    * Loop value.
    * @since 10
    * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
    */
   loop: boolean;
 }
@@ -34,6 +36,7 @@ export interface RingtonePlayer {
    * Gets player state.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   readonly state: media.AVPlayerState;
 
@@ -42,6 +45,7 @@ export interface RingtonePlayer {
    * @param callback Callback used to return the title.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   getTitle(callback: AsyncCallback<string>): void;
   /**
@@ -49,6 +53,7 @@ export interface RingtonePlayer {
    * @returns Promise used to return the title.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   getTitle(): Promise<string>;
 
@@ -57,6 +62,7 @@ export interface RingtonePlayer {
    * @param callback Callback used to return AudioRendererInfo value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   getAudioRendererInfo(callback: AsyncCallback<audio.AudioRendererInfo>): void;
   /**
@@ -64,6 +70,7 @@ export interface RingtonePlayer {
    * @returns Promise used to return AudioRendererInfo value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   getAudioRendererInfo(): Promise<audio.AudioRendererInfo>;
 
@@ -73,6 +80,7 @@ export interface RingtonePlayer {
    * @param callback Callback used to return configuration result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   configure(options: RingtoneOptions, callback: AsyncCallback<void>): void;
   /**
@@ -81,6 +89,7 @@ export interface RingtonePlayer {
    * @returns Promise used to return configuration result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   configure(options: RingtoneOptions): Promise<void>;
 
@@ -89,6 +98,7 @@ export interface RingtonePlayer {
    * @param callback Callback used to return the starting result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   start(callback: AsyncCallback<void>): void;
   /**
@@ -96,6 +106,7 @@ export interface RingtonePlayer {
    * @returns Promise used to return the starting result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   start(): Promise<void>;
 
@@ -104,6 +115,7 @@ export interface RingtonePlayer {
    * @param callback Callback used to return the stopping result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   stop(callback: AsyncCallback<void>): void;
   /**
@@ -111,6 +123,7 @@ export interface RingtonePlayer {
    * @returns Promise used to return the stopping result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   stop(): Promise<void>;
 
@@ -119,6 +132,7 @@ export interface RingtonePlayer {
    * @param callback Callback used to return the releasing result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   release(callback: AsyncCallback<void>): void;
   /**
@@ -126,6 +140,7 @@ export interface RingtonePlayer {
    * @returns Promise used to return the releasing result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   release(): Promise<void>;
 
@@ -137,6 +152,7 @@ export interface RingtonePlayer {
    * @throws { BusinessError } 6800101 - if input parameter value error
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 10
+   * @systemapi
    */
   on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
 }
