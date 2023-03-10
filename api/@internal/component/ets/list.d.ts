@@ -301,6 +301,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when the slider start.
+   * @form
    * @since 9
    */
   onScrollStart(event: () => void): ListAttribute;
