@@ -518,6 +518,9 @@ function notMergeSameNameFun(packageName, className, methodName, apiInfo, apiTyp
 					firstApiInfo.permission = curApi.permission;
 					firstApiInfo.model = curApi.model;
 					firstApiInfo.deprecated = curApi.deprecated;
+					firstApiInfo.useinsteadInfo = curApi.useinsteadInfo;
+					firstApiInfo.typeInfo = curApi.typeInfo;
+					firstApiInfo.errorCode = curApi.errorCode;
 				}
 			}
 			addApi(packageName, className, methodName, childNode.getText().replace('declare', '').trim(),
@@ -621,12 +624,12 @@ function getDeprecatedInfo(notesStr) {
 
 function getErrorCode(notesStr) {
 	let errorCode = '';
-	if (/\@throws { BusinessError } \d{2,18}/g.test(notesStr)) {		
-		notesStr.replace(/\@throws { BusinessError } \d{2,18}/g, (code) => {
+	if (/\@throws (\{ BusinessError }|\{BusinessError})\s*(\d+)/g.test(notesStr)) {		
+		notesStr.replace(/\@throws (\{ BusinessError }|\{BusinessError})\s*(\d+)/g, (code) => {
 			if (errorCode === '') {
-				errorCode += `${code.replace(/\@throws { BusinessError } /, '')}`;
+				errorCode += `${code.replace(/\@throws (\{ BusinessError }|\{BusinessError})/, '')}`;
 			} else {
-				errorCode += `,${code.replace(/\@throws { BusinessError } /, '')}`;
+				errorCode += `,${code.replace(/\@throws (\{ BusinessError }|\{BusinessError})/, '')}`;
 			}
 		})
 	} else {
