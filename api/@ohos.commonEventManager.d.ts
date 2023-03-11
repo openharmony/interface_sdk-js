@@ -31,10 +31,10 @@ declare namespace commonEventManager {
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - parameter error
-   * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -46,10 +46,10 @@ declare namespace commonEventManager {
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - parameter error
-   * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -60,11 +60,12 @@ declare namespace commonEventManager {
    * @param { string } event - Specified the names of the common events.
    * @param { number } userId - Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
-   * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -77,11 +78,12 @@ declare namespace commonEventManager {
    * @param { number } userId - Specified the user to receive the common events.
    * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -129,6 +131,37 @@ declare namespace commonEventManager {
    * @since 9
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
+
+  /**
+   * Remove sticky common event.
+   * @permission ohos.permission.COMMONEVENT_STICKY
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of removeStickyCommonEvent.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not system service
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 10
+   */
+  function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove sticky common event.
+   * @permission ohos.permission.COMMONEVENT_STICKY
+   * @param { string } event - name of the common event.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not system service
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 10
+   */
+  function removeStickyCommonEvent(event: string): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.
