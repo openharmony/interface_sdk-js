@@ -3149,6 +3149,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+
+    /**
+     * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+     * triggered when audio recording is interrupted.
+     * @param callback Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     */
+    on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
   }
 
   /**
