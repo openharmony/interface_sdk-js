@@ -13,14 +13,8 @@
  * limitations under the License.
  */
 const parse = require('comment-parser');
-const { getAPINote, ErrorLevel, FileType, ErrorType } = require('../utils');
+const { getAPINote, ErrorLevel, FileType, ErrorType, tagsArrayOfOrder } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
-
-const labelOrderArray = [
-  'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
-  'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'form', 'example'
-];
 
 /**
  * 判断标签排列是否为升序
@@ -30,8 +24,8 @@ function isAscendingOrder(tags) {
   tags.forEach((tag, index) => {
     if (index + 1 < tags.length) {
       // 获取前后两个tag下标
-      const firstIndex = labelOrderArray.indexOf(tag.tag);
-      const secondIndex = labelOrderArray.indexOf(tags[index + 1].tag);
+      const firstIndex = tagsArrayOfOrder.indexOf(tag.tag);
+      const secondIndex = tagsArrayOfOrder.indexOf(tags[index + 1].tag);
 
       // 非自定义标签在前或数组降序时报错
       if ((firstIndex === -1 && secondIndex !== -1) || firstIndex > secondIndex) {

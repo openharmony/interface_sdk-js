@@ -5,7 +5,7 @@ import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } f
 
 export class RawSourceCodeProcessor implements ISourceCodeProcessor, sourceParser.INodeVisitorCallback {
   rawSourceCodeInfo?: RawSourceCodeInfoImpl;
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     const sourceParser: sourceParser.SourceCodeParser = context.getSourceParser(content);
     this.rawSourceCodeInfo = new RawSourceCodeInfoImpl(content);
     sourceParser.visitEachNodeComment(this, false);

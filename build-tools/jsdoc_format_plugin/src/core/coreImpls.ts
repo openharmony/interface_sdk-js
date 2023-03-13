@@ -112,14 +112,13 @@ export class OutputFileHelper {
 
   // 获取报告输出路径
   static getLogReportFilePath(inputParam: InputParameter): string {
-    const fileTimeStamp = FileUtils.getFileTimeStamp();
     const fileName = path.basename(inputParam.inputFilePath, '.d.ts');
     if (inputParam.outputFilePath) {
       const dirName = path.dirname(inputParam.outputFilePath);
-      return path.join(dirName, `${fileName}_${fileTimeStamp}.xlsx`);
+      return path.join(dirName, `${fileName}.xlsx`);
     } else {
       const dirName = path.dirname(inputParam.inputFilePath);
-      return path.join(dirName, `${fileName}_${fileTimeStamp}.xlsx`);
+      return path.join(dirName, `${fileName}.xlsx`);
     }
   }
 }
@@ -219,11 +218,11 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
       const hasComment: boolean = currentCommentNode.commentInfos ? currentCommentNode.commentInfos.length > 0 : false;
       const { line, character } = node.getSourceFile().getLineAndCharacterOfPosition(node.getStart());
       if (thiz.shouldNotifyCallback(node, hasComment, onlyVisitHasComment)) {
-        LogUtil.d('SourceCodeParserImpl', `kind: ${node.kind}, line: ${line}, ${JSON.stringify(currentCommentNode.commentInfos)}`);
+        LogUtil.d('SourceCodeParserImpl', `kind: ${node.kind}, line: ${line + 1}, ${JSON.stringify(currentCommentNode.commentInfos)}`);
         callback.onVisitNode(currentCommentNode);
       } else {
         LogUtil.d('SourceCodeParserImpl',
-          `skip, kind: ${node.kind}, line: ${line}, character: ${character}, commnet size: ${currentCommentNode.commentInfos?.length}`);
+          `skip, [ ${node.getText()} ] kind: ${node.kind}, line: ${line + 1}, character: ${character}, comment size: ${currentCommentNode.commentInfos?.length}`);
       }
       if (thiz.shouldForEachChildren(node)) {
         node.forEachChild((child) => {
@@ -798,6 +797,7 @@ export class InputParameter {
   outputFilePath: string | undefined;
   logLevel: string = '';
   splitUnionTypeApi: boolean = false;
+  branch: string = 'master';
   options: Options = new Options();
 
   parse() {
@@ -806,16 +806,20 @@ export class InputParameter {
       .name('jsdoc-tool')
       .description('CLI to format d.ts')
       .version('0.1.0')
+      .allowUnknownOption(true)
       .requiredOption('-i, --input <path>', `${StringResource.getString(StringResourceId.COMMAND_INPUT_DESCRIPTION)}`)
       .option('-o, --output <path>', `${StringResource.getString(StringResourceId.COMMAND_OUT_DESCRIPTION)}`)
       .option('-l, --logLevel <INFO,WARN,DEBUG,ERR>', `${StringResource.getString(StringResourceId.COMMAND_LOGLEVEL_DESCRIPTION)}`, 'INFO')
-      .option('-s, --split', `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false);
+      .option('-s, --split', `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false)
+      .option('-b, --branch <string>', `${StringResource.getString(StringResourceId.COMMAND_BRANCH)}`, 'master');
+
     program.parse();
     const options = program.opts();
     this.inputFilePath = options.input;
     this.outputFilePath = options.output;
     this.logLevel = options.logLevel;
     this.splitUnionTypeApi = options.split;
+    this.branch = options.branch;
     this.checkInput();
   }
 
@@ -859,6 +863,7 @@ export class InputParameter {
       }
     }
     this.options.splitUnionTypeApi = this.splitUnionTypeApi;
+    this.options.workingBranch = this.branch;
   }
 
   private checkFileExists(filePath: string) {
@@ -953,16 +958,16 @@ export class LogReporterImpl implements LogReporter {
     return this.modifyResultMap;
   }
 
-  writeCheckResults(path: string): void {
-    this.writer?.writeResults(this.checkResults, undefined, path);
+  async writeCheckResults(path: string): Promise<void> {
+    await this.writer?.writeResults(this.checkResults, undefined, path);
   }
 
-  writeModifyResults(path: string): void {
-    this.writer?.writeResults(undefined, this.modifyResults, path);
+  async writeModifyResults(path: string): Promise<void> {
+    await this.writer?.writeResults(undefined, this.modifyResults, path);
   }
 
-  writeAllResults(path: string): void {
-    this.writer?.writeResults(this.checkResults, this.modifyResults, path);
+  async writeAllResults(path: string): Promise<void> {
+    await this.writer?.writeResults(this.checkResults, this.modifyResults, path);
   }
 }
 
@@ -995,7 +1000,8 @@ export class ExcelWriter implements LogWriter {
     });
   }
 
-  writeResults(checkResults: Array<CheckLogResult> | undefined, modifyResults: Array<ModifyLogResult> | undefined, path: string): void {
+  async writeResults(checkResults: Array<CheckLogResult> | undefined,
+    modifyResults: Array<ModifyLogResult> | undefined, path: string): Promise<void> {
     if (checkResults) {
       const checkResultsSheet: excelJs.Worksheet = this.workBook.addWorksheet('待确认报告');
       checkResultsSheet.columns = this.checkResultsColumns;
@@ -1006,7 +1012,7 @@ export class ExcelWriter implements LogWriter {
       modifyResultsSheet.columns = this.modifyResultsColumns;
       modifyResultsSheet.addRows(modifyResults);
     }
-    this.workBook.xlsx.writeFile(path);
+    await this.workBook.xlsx.writeFile(path);
   }
 }
 

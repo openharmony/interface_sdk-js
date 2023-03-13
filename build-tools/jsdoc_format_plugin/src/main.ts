@@ -15,10 +15,39 @@
 
 import { JSDocModifierImpl } from './core/entry';
 import { IJSDocModifier } from './core/typedef';
+import { ConstantValue, StringResourceId } from './utils/constant';
+import { StringResource, StringUtils } from './utils/stringUtils';
 
 function main() {
+  checkEnvVersion();
   const jsDocModifier: IJSDocModifier = new JSDocModifierImpl();
   jsDocModifier.start();
+}
+
+function checkEnvVersion(): void {
+  const version = process.version;
+  const versionRegExp = /^v(\d+)\.(\d+)\.(\d+).*/;
+  const matchArray = version.match(versionRegExp);
+  const requiredVersions = [ConstantValue.MAJOR_V, ConstantValue.MINOR_V, ConstantValue.PATCH_V];
+  let showVersionWarning = true;
+  if (matchArray && matchArray.length === 4) {
+    for (let index = 0; index < 3; index++) {
+      const curV = Number(matchArray[index + 1]);
+      const requiredV = requiredVersions[index];
+      if (curV > requiredV || curV < requiredV) {
+        showVersionWarning = curV > requiredV;
+        break;
+      } else {
+        continue;
+      }
+    }
+  }
+  if (showVersionWarning) {
+    return;
+  }
+  let hintMessage = StringResource.getString(StringResourceId.VERSION_HINT);
+  hintMessage = StringUtils.formatString(hintMessage, requiredVersions);
+  console.warn('jsdoc-tool:', hintMessage);
 }
 
 main();

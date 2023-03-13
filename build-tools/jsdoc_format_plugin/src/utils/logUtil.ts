@@ -14,15 +14,15 @@
  */
 
 export enum LogLevel {
-  DEBUG = 0,
-  INFO = 1,
-  WARN = 2,
-  ERR = 3
+  DEBUG,
+  INFO,
+  WARN,
+  ERR
 }
 
 export class LogLevelUtil {
   static get(level: string): LogLevel {
-    for (let v = LogLevel.INFO; v <= LogLevel.ERR; v++) {
+    for (let v = LogLevel.DEBUG; v <= LogLevel.ERR; v++) {
       if (level === LogLevel[v]) {
         return v;
       }

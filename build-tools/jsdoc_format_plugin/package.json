@@ -4,8 +4,11 @@
   "description": "",
   "main": "",
   "scripts": {
-    "build": "webpack --mode=production",
-    "format": "ts-node src/main.ts -i ../../api/ -o result/"
+    "testAll": "npm install && mocha --config test/mocha/.mocharc.jsonc",
+    "testOnly": "nyc mocha --config test/mocha/.mocharc.jsonc --grep",
+    "pack": "webpack --mode=production",
+    "build": "npm run pack --bundle",
+    "formatSDK": "ts-node src/main.ts -i ../../api/ -o formatedSDK/"
   },
   "author": "",
   "license": "ISC",
@@ -30,6 +33,7 @@
     "json-loader": "^0.5.7",
     "mocha": "^7.1.1",
     "mochawesome": "^7.1.3",
+    "nyc": "^15.1.0",
     "terser-webpack-plugin": "^5.3.1",
     "ts-loader": "^9.2.8",
     "ts-node": "^10.9.1",

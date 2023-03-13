@@ -16,7 +16,7 @@
 import ts from 'typescript';
 import { Code } from '../utils/constant';
 import {
-  comment, Context, ISourceCodeProcessor, LogReporter, ModifyLogResult, ErrorInfo,
+  comment, Context, ISourceCodeProcessor, ModifyLogResult, ErrorInfo,
   ProcessResult, sourceParser, JSDocModifyType, MethodNodeType, ApiSplitProcessorInterface
 } from './typedef';
 import { CommentHelper, LogResult } from './coreImpls';
@@ -26,7 +26,7 @@ export class ApiSplitProcessor implements ISourceCodeProcessor, sourceParser.ITr
 
   context?: Context;
 
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     if (!context.getOptions().splitUnionTypeApi) {
       return { code: Code.OK, content: content };
     }

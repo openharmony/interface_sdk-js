@@ -30,6 +30,8 @@ const ZH_STRING_MAP: Map<number, string> = new Map([
   [StringResourceId.OUTPUT_SAME_WITH_INPUT, '输出文件路径与输入文件路径相同'],
   [StringResourceId.OUTPUT_SUBDIR_INPUT, '输出目录不能是输入目录的子目录'],
   [StringResourceId.START_MESSAGE, '正在处理, 请稍后 ...'],
+  [StringResourceId.COMMAND_BRANCH, 'OpenHarmony 分支名'],
+  [StringResourceId.VERSION_HINT, '告警, 需要nodejs $0.$1.$2+']
 ]);
 
 const EN_STRING_MAP: Map<number, string> = new Map([
@@ -47,6 +49,8 @@ const EN_STRING_MAP: Map<number, string> = new Map([
   [StringResourceId.OUTPUT_SAME_WITH_INPUT, 'the output file path is same as the input file path'],
   [StringResourceId.OUTPUT_SUBDIR_INPUT, 'the output directory cannot be a subdirectory of the input directory'],
   [StringResourceId.START_MESSAGE, 'Processing please wait ...'],
+  [StringResourceId.COMMAND_BRANCH, 'OpenHarmony branch name'],
+  [StringResourceId.VERSION_HINT, 'warning, nodejs version $0.$1.$2+ is required']
 ]);
 
 export class StringResource {
@@ -61,12 +65,20 @@ export class StringUtils {
     return str === undefined || str.length === 0;
   }
 
-  static hasSubstring(str: string, sub: string|RegExp): boolean {
+  static hasSubstring(str: string, sub: string | RegExp): boolean {
     return str.search(sub) !== -1;
   }
 
   static replaceAt(src: string, index: number, replacement: string) {
     return src.substring(0, index) + replacement + src.substring(index + replacement.length);
+  }
+
+  static formatString(pattern: string, args: Array<any>): string {
+    let newStr = pattern;
+    for (let index = 0; index < args.length; index++) {
+      newStr = newStr.replace(`$${index}`, `${args[index]}`);
+    }
+    return newStr;
   }
 }
 
