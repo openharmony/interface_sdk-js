@@ -1317,6 +1317,22 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
    function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number) : ApplicationInfo;
+
+  /**
+   * Obtains applicationInfo based on a given bundleName and bundleFlags.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param  { string } bundleName - Indicates the application bundle name to be queried.
+   * @param  { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
+   * @returns Returns the ApplicationInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
    function getApplicationInfoSync(bundleName: string, applicationFlags: number) : ApplicationInfo;
 
   /**
@@ -1337,6 +1353,22 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
    function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
+
+  /**
+   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @returns Returns the BundleInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
    function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
 
   /**
