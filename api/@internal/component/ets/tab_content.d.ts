@@ -78,7 +78,7 @@ interface IndicatorStyle {
   /**
    * Define the margin top of the indicator
    * @type { Length }
-   * @default 0
+   * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
