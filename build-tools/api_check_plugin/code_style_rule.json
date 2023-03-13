@@ -313,7 +313,8 @@
         "NetManager.Ethernet",
         "NetManager.NetSharing",
         "NetManager.MDNS",
-        "NetManager.Vpn"
+        "NetManager.Vpn",
+        "SecureElement"
       ],
       "Location": [
         "Location.Core",
