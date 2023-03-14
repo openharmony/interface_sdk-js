@@ -117,7 +117,11 @@ export class SingleFileProcessor extends BaseSourceCodeProcessor {
     // 报告落盘
     const reportFilePath: string = OutputFileHelper.getLogReportFilePath(this.inputParam);
     await context.getLogReporter().writeAllResults(reportFilePath);
-    LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}`);
+    if (context.getOptions().isTest) {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.json`);
+    } else {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.xlsx`);
+    }
     if (preResult.code === Code.OK) {
       preResult.content = `new d.ts file is ${newContext.getOutputFile()}`;
     }
@@ -169,7 +173,11 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
     // 报告落盘
     const reportFilePath: string = OutputFileHelper.getLogReportFilePath(this.inputParam);
     await context.getLogReporter().writeAllResults(reportFilePath);
-    LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}`);
+    if (context.getOptions().isTest) {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.json`);
+    } else {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.xlsx`);
+    }
     return {
       code: errorSet.length > 0 ? Code.ERROR : Code.OK,
       content: errorSet.length > 0 ? JSON.stringify(errorSet) :

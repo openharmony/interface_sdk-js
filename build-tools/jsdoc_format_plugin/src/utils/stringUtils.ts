@@ -31,7 +31,8 @@ const ZH_STRING_MAP: Map<number, string> = new Map([
   [StringResourceId.OUTPUT_SUBDIR_INPUT, '输出目录不能是输入目录的子目录'],
   [StringResourceId.START_MESSAGE, '正在处理, 请稍后 ...'],
   [StringResourceId.COMMAND_BRANCH, 'OpenHarmony 分支名'],
-  [StringResourceId.VERSION_HINT, '告警, 需要nodejs $0.$1.$2+']
+  [StringResourceId.VERSION_HINT, '告警, 需要nodejs $0.$1.$2+'],
+  [StringResourceId.COMMAND_TEST, '仅供内部测试使用']
 ]);
 
 const EN_STRING_MAP: Map<number, string> = new Map([
@@ -50,7 +51,8 @@ const EN_STRING_MAP: Map<number, string> = new Map([
   [StringResourceId.OUTPUT_SUBDIR_INPUT, 'the output directory cannot be a subdirectory of the input directory'],
   [StringResourceId.START_MESSAGE, 'Processing please wait ...'],
   [StringResourceId.COMMAND_BRANCH, 'OpenHarmony branch name'],
-  [StringResourceId.VERSION_HINT, 'warning, nodejs version $0.$1.$2+ is required']
+  [StringResourceId.VERSION_HINT, 'warning, nodejs version $0.$1.$2+ is required'],
+  [StringResourceId.COMMAND_TEST, 'just for internal test']
 ]);
 
 export class StringResource {

@@ -103,6 +103,7 @@ export class Options {
   };
   splitUnionTypeApi: boolean = false;
   workingBranch: string = 'master';
+  isTest: boolean = false;
 }
 
 

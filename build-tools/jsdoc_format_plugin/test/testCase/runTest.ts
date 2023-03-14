@@ -5,14 +5,17 @@ import { JSDocModifierImpl } from '../../src/core/entry';
 
 describe('testSingleFile', function () {
   const testFileDir = path.join(__dirname, '..', '/ut/');
-  const outFileDir = path.join(__dirname, '..', '/output/testSingleFile/');
+  const outputFileDir = path.join(__dirname, '..', '/output/testSingleFile/');
   const expectFileDir = path.join(__dirname, '..', '/expect/');
   const testFileNames = fs.readdirSync(testFileDir);
   const argLen = process.argv.length;
   testFileNames.forEach((testFileName) => {
     const testFilePath = path.join(testFileDir, testFileName);
-    const outputFilePath = path.join(outFileDir, testFileName);
+    const outputFilePath = path.join(outputFileDir, testFileName);
     const expectFilePath = path.join(expectFileDir, testFileName);
+    const baseName: string = path.basename(testFileName, '.d.ts');
+    const expectReportFilePath: string = path.join(expectFileDir, `${baseName}.json`);
+    const outputReportFilePath: string = path.join(outputFileDir, `${baseName}.json`);
     it('testFile#' + testFilePath, async function () {
       if (fs.existsSync(outputFilePath)) {
         fs.rmSync(outputFilePath);
@@ -23,6 +26,7 @@ describe('testSingleFile', function () {
       inputParams.push(testFilePath);
       inputParams.push('-o');
       inputParams.push(outputFilePath);
+      inputParams.push('-t');
       process.argv.splice(argLen, inputParams.length, ...inputParams);
       const testEntry = new JSDocModifierImpl();
       await testEntry.start();
@@ -30,6 +34,9 @@ describe('testSingleFile', function () {
       const outputFileContent: string = fs.readFileSync(outputFilePath, 'utf-8').replace(/\r\n/g, '\n');
       const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
       expect(outputFileContent).eql(expectFileContent);
+      const outputReportContent: string = fs.readFileSync(outputReportFilePath, 'utf-8').replace(/\r\n/g, '\n');
+      const expectReportContent: string = fs.readFileSync(expectReportFilePath, 'utf-8').replace(/\r\n/g, '\n');
+      expect(outputReportContent).eql(expectReportContent);
     });
   });
 });
@@ -47,6 +54,7 @@ describe('testMultiFiles', function () {
     inputParams.push(testFileDir);
     inputParams.push('-o');
     inputParams.push(outFileDir);
+    inputParams.push('-t');
     process.argv.splice(process.argv.length, 0, ...inputParams);
     const testEntry = new JSDocModifierImpl();
     await testEntry.start();
@@ -83,7 +91,8 @@ describe('testBundleSingleFile', function () {
       execFileSync(nodeExecute, [
         'build/bundle.js', '-s',
         '-i', `${testFilePath}`,
-        '-o', `${outputFilePath}`
+        '-o', `${outputFilePath}`,
+        '-t'
       ]);
       const outputFileContent: string = fs.readFileSync(outputFilePath, 'utf-8').replace(/\r\n/g, '\n');
       const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
@@ -104,7 +113,8 @@ describe('testBundleMultiFiles', function () {
     execFileSync(nodeExecute, [
       'build/bundle.js', '-s',
       '-i', `${testFileDir}`,
-      '-o', `${outFileDir}`
+      '-o', `${outFileDir}`,
+      '-t'
     ]);
   });
 

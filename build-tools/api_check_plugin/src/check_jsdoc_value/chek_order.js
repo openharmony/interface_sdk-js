@@ -73,9 +73,9 @@ function checkAPIDecorators(tag, node, sourcefile, fileName) {
   const decoratorRuleSet = new Set(docTags);
   if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
     APIDecoratorResult.checkResult = false;
-    APIDecoratorResult.errorInfo = 'jsdoc标签名称错误,请确认修改。'
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APIDecoratorResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
+    APIDecoratorResult.errorInfo = `@${tagName}标签不存在, 请使用合法的JSDoc标签.`;
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APIDecoratorResult.errorInfo,
+      FileType.JSDOC, ErrorLevel.LOW);
   }
   return APIDecoratorResult;
 }

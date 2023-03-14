@@ -41,7 +41,8 @@ export enum StringResourceId {
   OUTPUT_SUBDIR_INPUT,
   START_MESSAGE,
   COMMAND_BRANCH,
-  VERSION_HINT
+  VERSION_HINT,
+  COMMAND_TEST
 }
 
 export enum Instruct {
