@@ -16,7 +16,7 @@
 import {AsyncCallback, Callback} from './basic';
 import {ValuesBucket} from './@ohos.data.ValuesBucket';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
-import Context from './application/BaseContext';
+import BaseContext from './application/BaseContext';
 
 /**
  * Provider interfaces to create a {@link KVManager} instance.
@@ -44,7 +44,7 @@ declare namespace distributedKVStore {
          * if swap the area, you should close all the KV store and use the new Context to create the KVManager
          * @since 9
          */
-        context: Context;
+        context: BaseContext;
     }
 
     /**
