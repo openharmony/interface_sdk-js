@@ -31,7 +31,7 @@ declare namespace geolocation {
      * subscribe location changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'locationChange' } type - Indicates the type of the location service event.
+     * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
      * @param { LocationRequest } request - Indicates the location request parameters.
      * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
      * @syscap SystemCapability.Location.Location.Core
@@ -45,7 +45,7 @@ declare namespace geolocation {
      * unsubscribe location changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'locationChange' } type - Indicates the type of the location service event.
+     * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
      * @syscap SystemCapability.Location.Location.Core
      * @since 7
@@ -58,7 +58,7 @@ declare namespace geolocation {
      * subscribe location switch changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'locationServiceState' } type - Indicates the type of the location service event.
+     * @param { 'locationServiceState' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<boolean> } callback - Indicates the callback for reporting the location result.
      * @syscap SystemCapability.Location.Location.Core
      * @since 7
@@ -71,7 +71,7 @@ declare namespace geolocation {
      * unsubscribe location switch changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'locationServiceState' } type - Indicates the type of the location service event.
+     * @param { 'locationServiceState' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<boolean> } [callback] - Indicates the callback for reporting the location result.
      * @syscap SystemCapability.Location.Location.Core
      * @since 7
@@ -84,7 +84,7 @@ declare namespace geolocation {
      * subscribe to cache GNSS locations update messages
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'cachedGnssLocationsReporting' } type - Indicates the type of the location service event.
+     * @param { 'cachedGnssLocationsReporting' } type - Indicates the location service event to be subscribed to.
      * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
      * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
      * @syscap SystemCapability.Location.Location.Gnss
@@ -98,7 +98,7 @@ declare namespace geolocation {
      * unsubscribe to cache GNSS locations update messages
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'cachedGnssLocationsReporting' } type - Indicates the type of the location service event.
+     * @param { 'cachedGnssLocationsReporting' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 8
@@ -111,7 +111,7 @@ declare namespace geolocation {
      * subscribe gnss status changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'gnssStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'gnssStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<SatelliteStatusInfo> } callback - Indicates the callback for reporting the gnss status change.
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 8
@@ -124,7 +124,7 @@ declare namespace geolocation {
      * unsubscribe gnss status changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'gnssStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'gnssStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<SatelliteStatusInfo> } [callback] - Indicates the callback for reporting the gnss status change.
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 8
@@ -137,7 +137,7 @@ declare namespace geolocation {
      * subscribe nmea message changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'nmeaMessageChange' } type - Indicates the type of the location service event.
+     * @param { 'nmeaMessageChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<string> } callback - Indicates the callback for reporting the nmea message.
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 8
@@ -150,7 +150,7 @@ declare namespace geolocation {
      * unsubscribe nmea message changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'nmeaMessageChange' } type - Indicates the type of the location service event.
+     * @param { 'nmeaMessageChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<string> } [callback] - Indicates the callback for reporting the nmea message.
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 8
@@ -163,7 +163,7 @@ declare namespace geolocation {
      * add a geofence and subscribe geo fence status changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'fenceStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'fenceStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
      * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
      * @syscap SystemCapability.Location.Location.Geofence
@@ -177,7 +177,7 @@ declare namespace geolocation {
      * remove a geofence and unsubscribe geo fence status changed
      *
      * @permission ohos.permission.LOCATION
-     * @param { 'fenceStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'fenceStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
      * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
      * @syscap SystemCapability.Location.Location.Geofence
@@ -333,6 +333,7 @@ declare namespace geolocation {
      * @useinstead ohos.geoLocationManager/geoLocationManager.getAddressesFromLocationName
      */
     function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
+
     /**
      * obtain latitude and longitude info from location address
      *

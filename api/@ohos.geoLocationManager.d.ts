@@ -21,7 +21,6 @@ import { WantAgent } from './@ohos.wantAgent';
  * geocoding, reverse geocoding, country code, fencing and other functions.
  *
  * @namespace geoLocationManager
- * @syscap SystemCapability.Location.Location.Core
  * @since 9
  */
 declare namespace geoLocationManager {
@@ -29,7 +28,7 @@ declare namespace geoLocationManager {
      * Subscribe location changed.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'locationChange' } type - Indicates the type of the location service event.
+     * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
      * @param { LocationRequest } request - Indicates the location request parameters.
      * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -47,7 +46,7 @@ declare namespace geoLocationManager {
      * Unsubscribe location changed.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'locationChange' } type - Indicates the type of the location service event.
+     * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -63,7 +62,7 @@ declare namespace geoLocationManager {
     /**
      * Subscribe location switch changed.
      *
-     * @param { 'locationEnabledChange' } type - Indicates the type of the location service event.
+     * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<boolean> } callback - Indicates the callback for reporting the location switch status.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -76,7 +75,7 @@ declare namespace geoLocationManager {
     /**
      * Unsubscribe location switch changed.
      *
-     * @param { 'locationEnabledChange' } type - Indicates the type of the location service event.
+     * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<boolean> } [callback] - Indicates the callback for reporting the location switch status.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -90,7 +89,7 @@ declare namespace geoLocationManager {
      * Subscribe to cache GNSS locations update messages.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'cachedGnssLocationsChange' } type - Indicates the type of the location service event.
+     * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
      * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
      * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
      * @throws { BusinessError } 201 - Permission denied.
@@ -108,7 +107,7 @@ declare namespace geoLocationManager {
      * Unsubscribe to cache GNSS locations update messages.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'cachedGnssLocationsChange' } type - Indicates the type of the location service event.
+     * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -125,7 +124,7 @@ declare namespace geoLocationManager {
      * Subscribe satellite status changed.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'satelliteStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<SatelliteStatusInfo> } callback - Indicates the callback for reporting the satellite status.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -141,7 +140,7 @@ declare namespace geoLocationManager {
      * Unsubscribe satellite status changed.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'satelliteStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<SatelliteStatusInfo> } [callback] - Indicates the callback for reporting the satellite status.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -157,7 +156,7 @@ declare namespace geoLocationManager {
      * Subscribe nmea message changed.
      *
      * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'nmeaMessage' } type - Indicates the type of the location service event.
+     * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<string> } callback - Indicates the callback for reporting the nmea message.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -173,7 +172,7 @@ declare namespace geoLocationManager {
      * Unsubscribe nmea message changed.
      *
      * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'nmeaMessage' } type - Indicates the type of the location service event.
+     * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<string> } [callback] - Indicates the callback for reporting the nmea message.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -189,7 +188,7 @@ declare namespace geoLocationManager {
      * Add a geofence and subscribe geo fence status changed.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'gnssFenceStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
      * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
@@ -207,7 +206,7 @@ declare namespace geoLocationManager {
      * Remove a geofence and unsubscribe geo fence status changed.
      *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { 'gnssFenceStatusChange' } type - Indicates the type of the location service event.
+     * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
      * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
@@ -224,7 +223,7 @@ declare namespace geoLocationManager {
     /**
      * Registering the callback function for listening to country code changes.
      *
-     * @param { 'countryCodeChange' } type - Indicates the type of the location service event.
+     * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<CountryCode> } callback - Indicates the callback for reporting country code changes.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -238,7 +237,7 @@ declare namespace geoLocationManager {
     /**
      * Unregistering the callback function for listening to country code changes.
      *
-     * @param { 'countryCodeChange' } type - Indicates the type of the location service event.
+     * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<CountryCode> } [callback] - Indicates the callback for reporting country code changes.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -1616,7 +1615,7 @@ declare namespace geoLocationManager {
         COUNTRY_CODE_FROM_SIM,
 
         /**
-     	 * Obtains the current location for geocode query and obtains the country code from the result.
+     	 * Query the country code information from the reverse geocoding result.
     	 *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
