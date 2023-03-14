@@ -39,7 +39,10 @@ export enum StringResourceId {
   OUTPUT_MUST_DIR,
   OUTPUT_SAME_WITH_INPUT,
   OUTPUT_SUBDIR_INPUT,
-  START_MESSAGE
+  START_MESSAGE,
+  COMMAND_BRANCH,
+  VERSION_HINT,
+  COMMAND_TEST
 }
 
 export enum Instruct {
@@ -56,4 +59,19 @@ export class ConstantValue {
    * d.ts文件后缀名
    */
   static DTS_EXTENSION = '.d.ts';
+
+  /**
+   * nodejs 最低主版本号
+   */
+  static MAJOR_V = 15;
+
+  /**
+   * nodejs 最低子版本号
+   */
+  static MINOR_V = 0;
+
+  /**
+   * nodejs 最低修正版本号
+   */
+  static PATCH_V = 0;
 }

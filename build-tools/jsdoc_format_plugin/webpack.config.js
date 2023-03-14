@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-const path = require("path");
-const TerserPlugin = require("terser-webpack-plugin");
-const webpack = require("webpack");
-const packageInfo = require('./package.json')
+const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const webpack = require('webpack');
+const packageInfo = require('./package.json');
 
 module.exports = (env, argv) => {
   const config = {
@@ -39,12 +39,11 @@ module.exports = (env, argv) => {
           }
         },
         {
-          test: /\.json$/,
-          include: path.resolve(__dirname, 'src'),
-          loader: 'json-loader',
-          exclude: [
-            /node_modules/,
-            /test/
+          test: /build\.json$/,
+          use: [
+            {
+              loader: path.resolve(__dirname, 'loader/flavor.js')
+            }
           ]
         }
       ]
@@ -67,6 +66,6 @@ module.exports = (env, argv) => {
         entryOnly: true
       })
     ]
-  }
+  };
   return config;
-}
+};

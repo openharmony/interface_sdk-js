@@ -21,6 +21,13 @@ const { addAPICheckErrorLogs } = require('./compile_info');
 
 const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
 
+/**
+ * 门禁环境优先使用systemPermissionFile
+ * 本地环境从指定分支上下载
+ * 下载失败则使用默认配置
+ *
+ * @returns Set<string>
+ */
 function getPermissionBank() {
   const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
   let permissionFileContent;

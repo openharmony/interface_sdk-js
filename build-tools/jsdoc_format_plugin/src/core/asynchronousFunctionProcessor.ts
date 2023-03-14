@@ -26,7 +26,7 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
 
   context?: Context;
 
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     const sourceParser = context.getSourceParser(content);
     this.context = context;
     const sourceFile: ts.SourceFile | undefined = sourceParser.createSourceFile(content);
