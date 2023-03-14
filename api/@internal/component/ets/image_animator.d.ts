@@ -202,12 +202,6 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 7
    * @deprecated since 9
    */
-  /**
-   * Indicates whether to enable pre-decoding.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   preDecode(value: number): ImageAnimatorAttribute;
 
   /**

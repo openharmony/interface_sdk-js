@@ -340,22 +340,10 @@ interface SwiperInterface {
  * @since 8
  * @deprecated since 10
  */
-/**
- * Setting indicator style navigation.
- * @form
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
- */
 declare interface IndicatorStyle {
   /**
    * Set the indicator to the left.
    * @since 8
-   */
-  /**
-   * Set the indicator to the left.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    */
   left?: Length;
 
@@ -363,23 +351,11 @@ declare interface IndicatorStyle {
    * Set the indicator to the top.
    * @since 8
    */
-  /**
-   * Set the indicator to the top.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   top?: Length;
 
   /**
    * Set the indicator to the right.
    * @since 8
-   */
-  /**
-   * Set the indicator to the right.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    */
   right?: Length;
 
@@ -387,23 +363,11 @@ declare interface IndicatorStyle {
    * Set the indicator to the bottom.
    * @since 8
    */
-  /**
-   * Set the indicator to the bottom.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   bottom?: Length;
 
   /**
    * Set the indicator size.
    * @since 8
-   */
-  /**
-   * Set the indicator size.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    */
   size?: Length;
 
@@ -411,35 +375,17 @@ declare interface IndicatorStyle {
    * Setting indicator style mask.
    * @since 8
    */
-  /**
-   * Setting indicator style mask.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   mask?: boolean;
 
   /**
    * Set the indicator color.
    * @since 8
    */
-  /**
-   * Set the indicator color.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   color?: ResourceColor;
 
   /**
    * Set the navigation point color.
    * @since 8
-   */
-  /**
-   * Set the navigation point color.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    */
   selectedColor?: ResourceColor;
 }
@@ -634,12 +580,6 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Setting indicator style navigation.
    * @since 8
    * @deprecated since 10
-   */
-  /**
-   * Setting indicator style navigation.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    */
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
 
