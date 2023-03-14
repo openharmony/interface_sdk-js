@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 const parse = require('comment-parser');
-const { getAPINote, ErrorLevel, FileType, ErrorType, tagsArrayOfOrder } = require('../utils');
+const { getAPINote, ErrorLevel, FileType, ErrorType, tagsArrayOfOrder, commentNodeWhiteList } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
+const rules = require('../../code_style_rule.json');
 
 /**
  * 判断标签排列是否为升序
@@ -49,7 +50,7 @@ function checkApiOrder(node, sourcefile, fileName) {
         errorInfo: "",
       });
     } else {
-      let errorInfo = "the jsDoc order is wrong.";
+      let errorInfo = 'jsDoc标签顺序错误,请进行调整';
       checkOrderRusult.push({
         checkResult: false,
         errorInfo: errorInfo,
@@ -61,3 +62,21 @@ function checkApiOrder(node, sourcefile, fileName) {
   return checkOrderRusult;
 }
 exports.checkApiOrder = checkApiOrder;
+
+function checkAPIDecorators(tag, node, sourcefile, fileName) {
+  let APIDecoratorResult = {
+    checkResult: true,
+    errorInfo: '',
+  };
+  const tagName = tag.tag;
+  const docTags = [...rules.decorators['customDoc'], ...rules.decorators['jsDoc']];
+  const decoratorRuleSet = new Set(docTags);
+  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
+    APIDecoratorResult.checkResult = false;
+    APIDecoratorResult.errorInfo = 'jsdoc标签名称错误,请确认修改。'
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APIDecoratorResult.errorInfo, FileType.JSDOC,
+      ErrorLevel.LOW);
+  }
+  return APIDecoratorResult;
+}
+exports.checkAPIDecorators = checkAPIDecorators;

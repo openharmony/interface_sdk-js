@@ -16,7 +16,8 @@
 const path = require('path');
 const fs = require('fs');
 const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, tagsArrayOfOrder } = require('./utils');
-const { checkApiOrder } = require('./check_jsdoc_value/chek_order');
+const { checkApiOrder, checkAPIDecorators } = require('./check_jsdoc_value/chek_order');
+
 const ts = requireTypescriptModule();
 
 // 标签合法性校验
@@ -242,6 +243,10 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
     let throwsIndex = 0;
     // 值检验
     comment.tags.forEach(tag => {
+      const checkAPIDecorator = checkAPIDecorators(tag, node, sourcefile, fileName);
+      if (!checkAPIDecorator.checkResult) {
+        errorLogs.push(checkAPIDecorator);
+      }
       const { JsDocValueChecker } = require('./check_jsdoc_value/check_rest_value');
       const checker = JsDocValueChecker[tag.tag];
       if (checker) {
