@@ -426,17 +426,6 @@ declare namespace bluetooth {
     function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile;
 
     /**
-     * Obtains the instance of profile.
-     *
-     * @param profileId The profile id..
-     * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile } Returns the instance of profile.
-     * @since 9
-     * @deprecated since 9
-     * @useinstead ohos.bluetoothManager/bluetoothManager.getProfileInstance
-     */
-    function getProfileInst(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
-
-    /**
      * Base interface of profile.
      *
      * @deprecated since 9
@@ -584,129 +573,6 @@ declare namespace bluetooth {
          * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile.off#event:connectionStateChange
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
-    }
-
-    /**
-     * Manager hid host profile.
-     *
-     * @deprecated since 9
-     * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile
-     */
-    interface HidHostProfile extends BaseProfile {
-        /**
-         * Connect to device with hid host.
-         *
-         * @param device The address of the remote device to connect.
-         * @returns { boolean } {@code true} if the connect is in process; returns {@code false} otherwise.
-         * @since 9
-         * @permission ohos.permission.DISCOVER_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile#connect
-         */
-        connect(device: string): boolean;
-
-        /**
-         * Disconnect to device with hid host.
-         *
-         * @param device The address of the remote device to disconnect.
-         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
-         * @since 9
-         * @permission ohos.permission.DISCOVER_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile#disconnect
-         */
-        disconnect(device: string): boolean;
-
-        /**
-         * Subscribe the event reported when the profile connection state changes .
-         *
-         * @param type Type of the profile connection state changes event to listen for .
-         * @param callback Callback used to listen for event.
-         * @since 9
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile.on#event:connectionStateChange
-         */
-        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
-
-        /**
-         * Unsubscribe the event reported when the profile connection state changes.
-         *
-         * @param type Type of the profile connection state changes event to listen for.
-         * @param callback Callback used to listen for event.
-         * @since 9
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile.off#event:connectionStateChange
-         */
-        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
-    }
-
-    /**
-     * Manager pan profile.
-     *
-     * @deprecated since 9
-     * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile
-     */
-    interface PanProfile extends BaseProfile {
-        /**
-         * Disconnect to device with pan.
-         *
-         * @param device The address of the remote device to disconnect.
-         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
-         * @since 9
-         * @permission ohos.permission.USE_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile#disconnect
-         */
-        disconnect(device: string): boolean;
-
-        /**
-         * Subscribe the event reported when the profile connection state changes .
-         *
-         * @param type Type of the profile connection state changes event to listen for .
-         * @param callback Callback used to listen for event.
-         * @since 9
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile.on#event:connectionStateChange
-         */
-        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
-
-        /**
-         * Unsubscribe the event reported when the profile connection state changes.
-         *
-         * @param type Type of the profile connection state changes event to listen for.
-         * @param callback Callback used to listen for event.
-         * @since 9
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile.off#event:connectionStateChange
-         */
-        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
-
-        /**
-         * Enable bluetooth tethering.
-         *
-         * @param enable Specifies whether to enable tethering. The value {@code true} indicates
-         * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
-         * @since 9
-         * @permission ohos.permission.DISCOVER_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile#setTethering
-         */
-        setTethering(enable: boolean): void;
-
-        /**
-         * Obtains the tethering enable or disable.
-         *
-         * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
-         * @since 9
-         * @systemapi Hide this for inner system use.
-         * @deprecated since 9
-         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile#isTetheringOn
-         */
-        isTetheringOn(): boolean;
     }
 
     namespace BLE {
@@ -1526,54 +1392,6 @@ declare namespace bluetooth {
          * @since 7
          */
         serviceUuid?: string;
-
-        /**
-         * Service UUID mask.
-         * @since 9
-         */
-        serviceUuidMask?: string;
-
-        /**
-         * Service solicitation UUID mask.
-         * @since 9
-         */
-        serviceSolicitationUuid?: string;
-
-        /**
-         * Service solicitation UUID mask.
-         * @since 9
-         */
-        serviceSolicitationUuidMask?: string;
-
-        /**
-         * Service data.
-         * @since 9
-         */
-        serviceData?: ArrayBuffer;
-
-        /**
-         * Service data mask.
-         * @since 9
-         */
-        serviceDataMask?: ArrayBuffer;
-
-        /**
-         * Manufacture id.
-         * @since 9
-         */
-        manufactureId?: number;
-
-        /**
-         * Manufacture data.
-         * @since 9
-         */
-        manufactureData?: ArrayBuffer;
-
-        /**
-         * Manufacture data mask.
-         * @since 9
-         */
-        manufactureDataMask?: ArrayBuffer;
     }
 
     /**
@@ -1941,16 +1759,6 @@ declare namespace bluetooth {
          * @since 8
          */
         PROFILE_HANDS_FREE_AUDIO_GATEWAY = 4,
-
-        /**
-         * @since 9
-         */
-        PROFILE_HID_HOST = 6,
-
-        /**
-         * @since 9
-         */
-        PROFILE_PAN_NETWORK = 7,
     }
 }
 
