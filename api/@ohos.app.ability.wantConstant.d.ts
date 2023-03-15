@@ -74,7 +74,28 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    ABILITY_BACK_TO_OTHER_MISSION_STACK = "ability.params.backToOtherMissionStack"
+    ABILITY_BACK_TO_OTHER_MISSION_STACK = 'ability.params.backToOtherMissionStack',
+
+    /**
+     * Indicates the param of extra content title
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    CONTENT_TITLE_KEY = 'ohos.extra.param.key.contentTitle',
+
+    /**
+     * Indicates the param of extra shared abstract
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SHARE_ABSTRACT_KEY = 'ohos.extra.param.key.shareAbstract',
+
+    /**
+     * Indicates the param of extra shareURL
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl',
   }
 
   export enum Flags {
