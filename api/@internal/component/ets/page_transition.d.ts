@@ -257,6 +257,76 @@ declare class CommonTransition<T> {
 }
 
 /**
+ * Defines pageTransition constructor parameters.
+ *
+ * @interface PageTransitionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Defines pageTransition constructor parameters.
+ *
+ * @interface PageTransitionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface PageTransitionOptions {
+  /**
+   * RouteType in which the pageTransition can work.
+   * @type { ?RouteType }
+   * @since 7
+   */
+  /**
+   * RouteType in which the pageTransition can work.
+   * @type { ?RouteType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  type?: RouteType;
+  /**
+   * PageTransition animation duration, in ms.
+   * @type { ?number }
+   * @since 7
+   */
+  /**
+   * PageTransition animation duration, in ms.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  duration?: number;
+  /**
+   * PageTransition animation curve.
+   * @type { ?(Curve | string) }
+   * @since 7
+   */
+  /**
+   * PageTransition animation curve.
+   * @type { ?(Curve | string | ICurve) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  curve?: Curve | string | ICurve;
+  /**
+   * PageTransition animation delay time, in ms.
+   * @type { ?number }
+   * @since 7
+   */
+  /**
+   * PageTransition animation delay time, in ms.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  delay?: number;
+}
+ 
+/**
  * Provides an interface for page rotation mode.
  *
  * @interface PageTransitionEnterInterface
@@ -264,7 +334,7 @@ declare class CommonTransition<T> {
  * @since 7
  */
 /**
- * Provides an interface for page rotation mode.
+ * Provides an interface to set transition style when a page enters.
  *
  * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -275,7 +345,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
   /**
    * Called when page Jump animation is used.
    *
-   * @param { object } value
+   * @param { PageTransitionOptions } value
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -283,13 +353,13 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
   /**
    * Called when page Jump animation is used.
    *
-   * @param { object } value
+   * @param { PageTransitionOptions } value pageTransition options
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionEnterInterface;
+  (value: PageTransitionOptions): PageTransitionEnterInterface;
 
   /**
    * Called when the incoming parameter is the normalized progress of the current incoming animation.
@@ -300,9 +370,10 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @since 7
    */
   /**
-   * Called when the incoming parameter is the normalized progress of the current incoming animation.
+   * Called frame by frame to customize pageTransition animation when the page enters.
+   * The incoming parameter is the normalized progress of the current incoming animation.
    *
-   * @param { (type?: RouteType, progress?: number) => void } event
+   * @param { (type?: RouteType, progress?: number) => void } event animation callback frame by frame
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -319,7 +390,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
  * @since 7
  */
 /**
- * Provide an interface to exit the transition.
+ * Provide an interface to set transition style when a page exits.
  *
  * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -330,21 +401,21 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
   /**
    * Called when the transition is delayed.
    *
-   * @param { object } value
+   * @param { PageTransitionOptions } value
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Called when the transition is delayed.
+   * Called when page Jump animation is used.
    *
-   * @param { object } value
+   * @param { PageTransitionOptions } value pageTransition options
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionExitInterface;
+  (value: PageTransitionOptions): PageTransitionExitInterface;
 
   /**
    * Called when the input parameter is the normalized progress of the current exit animation.
@@ -355,7 +426,8 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @since 7
    */
   /**
-   * Called when the input parameter is the normalized progress of the current exit animation.
+   * Called frame by frame to customize pageTransition animation when the page exits.
+   * The input parameter is the normalized progress of the current exit animation.
    *
    * @param { (type?: RouteType, progress?: number) => void } event
    * @returns { PageTransitionExitInterface }
