@@ -4,6 +4,7 @@
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
+    "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.BundleManager.BundleFramework",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.BundleTool",
