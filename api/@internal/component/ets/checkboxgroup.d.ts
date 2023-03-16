@@ -164,6 +164,22 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
+   * Set the display border color of unselected checkbox.
+   * @param { ResourceColor } value - The color of border when checkboxgroup unselected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  unselectedColor(value: ResourceColor): CheckboxGroupAttribute;
+
+  /**
+   * Set the mark style of checkbox.
+   * @param { MarkStyle } value - The style configuration of checkboxgroup mark.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  mark(value: MarkStyle): CheckboxGroupAttribute;
+
+  /**
    * Called when the selection status changes.
    * @since 8
    */
@@ -175,5 +191,24 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
 }
 
+/**
+ * Defines CheckboxGroup Component.
+ * @since 8
+ */
+/**
+ * Defines CheckboxGroup Component.
+ * @form
+ * @since 9
+ */
 declare const CheckboxGroup: CheckboxGroupInterface;
+
+/**
+ * Defines CheckboxGroup Component instance.
+ * @since 8
+ */
+/**
+ * Defines CheckboxGroup Component instance.
+ * @form
+ * @since 9
+ */
 declare const CheckboxGroupInstance: CheckboxGroupAttribute;

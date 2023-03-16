@@ -37,6 +37,15 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   onStateChange(callback: (isActivated: boolean) => void): NavRouterAttribute;
 }
 
+/**
+ * Defines NavRouter Component.
+ * @since 9
+ */
 declare const NavRouter: NavRouterInterface;
+
+/**
+ * Defines NavRouter Component instance.
+ * @since 9
+ */
 declare const NavRouterInstance: NavRouterAttribute;
   

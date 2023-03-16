@@ -123,5 +123,14 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
 }
 
+/**
+ * Defines TextTimer Component.
+ * @since 8
+ */
 declare const TextTimer: TextTimerInterface;
+
+/**
+ * Defines TextTimer Component instance.
+ * @since 8
+ */
 declare const TextTimerInstance: TextTimerAttribute;

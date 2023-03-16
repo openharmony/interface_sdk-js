@@ -160,5 +160,14 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    onHeightChange(callback: (value: number) => void): PanelAttribute;
 }
 
+/**
+ * Defines Panel Component.
+ * @since 7
+ */
 declare const Panel: PanelInterface;
+
+/**
+ * Defines Panel Component instance.
+ * @since 7
+ */
 declare const PanelInstance: PanelAttribute;

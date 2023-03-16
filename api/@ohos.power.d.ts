@@ -18,6 +18,7 @@ import {AsyncCallback, BusinessError} from './basic';
 /**
  * Provides interfaces to manage power.
  *
+ * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7
  */
@@ -64,6 +65,7 @@ declare namespace power {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the reason is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -87,6 +89,7 @@ declare namespace power {
      *
      * @returns Returns true if the device is active; returns false otherwise.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     function isActive(): boolean;
@@ -98,6 +101,7 @@ declare namespace power {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the detail is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -108,6 +112,7 @@ declare namespace power {
      *
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -118,6 +123,7 @@ declare namespace power {
      *
      * @returns The power mode {@link DevicePowerMode} of current device .
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     function getPowerMode(): DevicePowerMode;
@@ -132,6 +138,7 @@ declare namespace power {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If mode or callback is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -146,6 +153,7 @@ declare namespace power {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If mode or callback is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
@@ -154,27 +162,32 @@ declare namespace power {
     /**
      * Power mode of a device.
      *
+     * @enum {number}
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
     export enum DevicePowerMode {
         /**
          * Normal power mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_NORMAL = 600,
         /**
          * Power save mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_POWER_SAVE,
         /**
          * Performance power mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_PERFORMANCE,
         /**
          * Extreme power save mode
+         * @syscap SystemCapability.PowerManager.PowerManager.Core
          * @since 9
          */
         MODE_EXTREME_POWER_SAVE

@@ -131,5 +131,24 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   textCase(value: TextCase): SpanAttribute;
 }
 
+/**
+ * Defines Span Component.
+ * @since 7
+ */
+/**
+ * Defines Span Component.
+ * @form
+ * @since 9
+ */
 declare const Span: SpanInterface;
+
+/**
+ * Defines Span Component instance.
+ * @since 7
+ */
+/**
+ * Defines Span Component instance.
+ * @form
+ * @since 9
+ */
 declare const SpanInstance: SpanAttribute;

@@ -199,12 +199,4 @@ export interface ApplicationInfo {
    * @since 9
    */
   readonly bundleType: bundleManager.BundleType;
-
-  /**
-   * Indicates whether split the application in atomicService.
-   * @type {boolean}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly split: boolean;
 }

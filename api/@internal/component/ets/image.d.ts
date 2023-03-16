@@ -115,7 +115,14 @@ interface ImageInterface {
    * @form
    * @since 9
    */
-  (src: string | PixelMap | Resource): ImageAttribute;
+  /**
+   * Set src to obtain images
+   * @form
+   * @param { PixelMap | ResourceStr | DrawableDescriptor } src
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
 }
 
 /**
@@ -328,5 +335,24 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   onFinish(event: () => void): ImageAttribute;
 }
 
+/**
+ * Defines Image Component.
+ * @since 7
+ */
+/**
+ * Defines Image Component.
+ * @form
+ * @since 9
+ */
 declare const Image: ImageInterface;
+
+/**
+ * Defines Image Component instance.
+ * @since 7
+ */
+/**
+ * Defines Image Component instance.
+ * @form
+ * @since 9
+ */
 declare const ImageInstance: ImageAttribute;

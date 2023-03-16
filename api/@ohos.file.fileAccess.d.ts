@@ -17,6 +17,7 @@ import { AsyncCallback, Callback } from "./basic";
 import Want from './@ohos.app.ability.Want';
 import Context from './application/Context';
 import { Filter } from './@ohos.file.fs';
+import image from './@ohos.multimedia.image';
 
 /**
  * This module provides the capability to access user public files.
@@ -954,6 +955,34 @@ declare namespace fileAccess {
          * @param {AsyncCallback<FileInfo>} callback - The callback is used to return a fileinfo object.
          */
         getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>) : void;
+
+        /**
+         * Get a PixelMap object by the uri in the promise way.
+         *
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected media file.
+         * @param {image.Size} size - Indicates Thumbnail's size.
+         * @returns {Promise<image.PixelMap>} Returns the PixelMap object.
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        getThumbnail(uri: string, size: image.Size) : Promise<image.PixelMap>;
+
+        /**
+         * Get a PixelMap object by the uri in the asyncCallback way.
+         *
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected media file.
+         * @param {image.Size} size - Indicates Thumbnail's size.
+         * @returns {AsyncCallback<image.PixelMap>} callback - Returns the PixelMap object.
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        getThumbnail(uri: string, size: image.Size, callback: AsyncCallback<image.PixelMap>) : void;
 
         /**
          * Get a RootIterator.

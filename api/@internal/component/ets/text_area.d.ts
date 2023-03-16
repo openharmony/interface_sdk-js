@@ -28,6 +28,15 @@ declare class TextAreaController {
    * @since 8
    */
   caretPosition(value: number): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
@@ -160,7 +169,24 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
+
+  /**
+   * Define the max height of the text area.
+   * @param { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxHeight(value: Length): TextAreaAttribute;
 }
 
+/**
+ * Defines TextArea Component.
+ * @since 7
+ */
 declare const TextArea: TextAreaInterface;
+
+/**
+ * Defines TextArea Component instance.
+ * @since 7
+ */
 declare const TextAreaInstance: TextAreaAttribute;

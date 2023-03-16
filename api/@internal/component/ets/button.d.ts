@@ -135,6 +135,61 @@ interface ButtonInterface {
 }
 
 /**
+ * LabelStyle object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface LabelStyle {
+  /**
+   * overflow mode.
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  overflow?: TextOverflow;
+
+  /**
+   * Label max lines.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */ 
+  maxLines?: number;
+
+  /**
+   * Min font size for adapted height.
+   * @type { number | ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  minFontSize?: number | ResourceStr;
+
+  /**
+   * Max font size for adapted height.
+   * @type { number | ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxFontSize?: number | ResourceStr;
+
+  /**
+   * Adapt text height option.
+   * @type { TextHeightAdaptivePolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  heightAdaptivePolicy?: TextHeightAdaptivePolicy;
+
+  /**
+   * Font style.
+   * @type { Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  font?: Font;
+}
+
+/**
  * Defines the button attribute functions.
  * @since 7
  */
@@ -220,7 +275,34 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 9
    */
   fontFamily(value: string | Resource): ButtonAttribute;
+
+  /**
+   * Set button label style.
+   * @param { LabelStyle } value - The label style configuration on button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  labelStyle(value: LabelStyle): ButtonAttribute;
 }
 
+/**
+ * Defines Button Component.
+ * @since 7
+ */
+/**
+ * Defines Button Component.
+ * @form
+ * @since 9
+ */
 declare const Button: ButtonInterface;
+
+/**
+ * Defines Button Component instance.
+ * @since 7
+ */
+/**
+ * Defines Button Component instance.
+ * @form
+ * @since 9
+ */
 declare const ButtonInstance: ButtonAttribute;

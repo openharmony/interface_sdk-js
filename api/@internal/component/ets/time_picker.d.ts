@@ -66,6 +66,30 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   useMilitaryTime(value: boolean): TimePickerAttribute;
 
   /**
+   * Sets the text style of disappearing items
+   * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  disappearTextStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
+   * Sets the text style of normal items
+   * @param { PickerTextStyle } value - indicates the text style of normal items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textStyle(value: PickerTextStyle): DatePickerAttribute;
+  
+  /**
+   * Sets the text style of selected items
+   * @param { PickerTextStyle } value - indicates the text style of selected items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedTextStyle(value: PickerTextStyle): DatePickerAttribute;
+ 
+  /**
    * This event is triggered when a TimePicker time is selected.
    * @since 8
    */
@@ -82,6 +106,27 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 8
    */
   useMilitaryTime?: boolean;
+  /**
+   * Text style of disappearing items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  disappearTextStyle?: PickerTextStyle;
+  /**
+   * Text style of normal items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textStyle?: PickerTextStyle;
+  /**
+   * Text style of selected items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedTextStyle?: PickerTextStyle;
   /**
    * Called when the OK button in the dialog is clicked.
    * @since 8
@@ -111,5 +156,14 @@ declare class TimePickerDialog {
   static show(options?: TimePickerDialogOptions);
 }
 
+/**
+ * Defines TimePicker Component.
+ * @since 8
+ */
 declare const TimePicker: TimePickerInterface;
+
+/**
+ * Defines TimePicker Component instance.
+ * @since 8
+ */
 declare const TimePickerInstance: TimePickerAttribute;

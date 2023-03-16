@@ -190,6 +190,65 @@ declare interface SliderOptions {
 }
 
 /**
+ * Declare SliderBlockType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum SliderBlockType {
+  /**
+   * Use the default block.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DEFAULT,
+
+  /**
+   * Use an image as the slider block.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  IMAGE,
+
+  /**
+   * Use a shape as the slider block.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SHAPE,
+}
+
+/**
+ * Defines the style of slider block.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface SliderBlockStyle {
+  /**
+   * Sets the type of slider block.
+   * @type { SliderBlockType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type: SliderBlockType;
+
+  /**
+   * Sets the image of slider block while the type is set to SliderBlockType.Image.
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  image?: ResourceStr;
+
+  /**
+   * Sets the shape of slider block while the type is set to SliderBlockType.Shape.
+   * @type { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
+}
+
+/**
  * Provides an interface for the slide bar component.
  * @since 7
  */
@@ -313,7 +372,82 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 9
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
+
+  /**
+   * Called when the border color of block is set.
+   * @param { ResourceColor } value - the border color of block.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  blockBorderColor(value: ResourceColor): SliderAttribute;
+
+  /**
+   * Called when the border width of block is set.
+   * @param { Length } value - the border width of block. 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  blockBorderWidth(value: Length): SliderAttribute;
+
+  /**
+   * Called when the color of step is set.
+   * @param { ResourceColor } value - the color of step. 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  stepColor(value: ResourceColor): SliderAttribute;
+
+  /**
+   * Called when the radius of track border is set.
+   * @param { Length } value - the radius of track border.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  trackBorderRadius(value: Length): SliderAttribute;
+
+  /**
+   * Called when the size of block is set.
+   * @param { SizeOptions } value - the size of block.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  blockSize(value: SizeOptions): SliderAttribute;
+
+  /**
+   * Called when the style of block is set.
+   * @param { SliderBlockStyle } value - the style of block.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  blockStyle(value: SliderBlockStyle): SliderAttribute;
+
+  /**
+   * Called when the diameter of step is set.
+   * @param { Length } value - the diameter of step.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  stepSize(value: Length): SliderAttribute;
 }
 
+/**
+ * Defines Slider Component.
+ * @since 7
+ */
+/**
+ * Defines Slider Component.
+ * @form
+ * @since 9
+ */
 declare const Slider: SliderInterface;
+
+/**
+ * Defines Slider Component instance.
+ * @since 7
+ */
+/**
+ * Defines Slider Component instance.
+ * @form
+ * @since 9
+ */
 declare const SliderInstance: SliderAttribute;

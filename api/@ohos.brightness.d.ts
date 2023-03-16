@@ -18,6 +18,7 @@ import {BusinessError} from './basic';
 /**
  * Provides interfaces to control the power of display.
  *
+ * @namespace brightness
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @systemapi
  * @since 7
@@ -30,6 +31,7 @@ declare namespace brightness {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the value is not valid.
      * @throws {BusinessError} 4700101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.DisplayPowerManager
      * @systemapi
      * @since 7
      */

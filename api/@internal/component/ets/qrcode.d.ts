@@ -68,5 +68,24 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   backgroundColor(value: ResourceColor): QRCodeAttribute;
 }
 
+/**
+ * Defines QRCode Component.
+ * @since 7
+ */
+/**
+ * Defines QRCode Component.
+ * @form
+ * @since 9
+ */
 declare const QRCode: QRCodeInterface;
+
+/**
+ * Defines QRCode Component instance.
+ * @since 7
+ */
+/**
+ * Defines QRCode Component instance.
+ * @form
+ * @since 9
+ */
 declare const QRCodeInstance: QRCodeAttribute;

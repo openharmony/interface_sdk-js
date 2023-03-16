@@ -102,13 +102,16 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
 }
 
 /**
+ * Defines LoadingProgress Component.
  * @since 8
  */
 /**
+ * Defines LoadingProgress Component.
  * @form
  * @since 9
  */
 declare const LoadingProgress: LoadingProgressInterface;
+
 /**
  * Loading Progress Extensions on Declarative Classes
  * @since 8

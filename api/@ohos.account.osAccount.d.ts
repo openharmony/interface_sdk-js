@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -986,6 +986,13 @@ declare namespace osAccount {
         * @since 8
         */
         accountName: string;
+
+        /**
+         * The account identifier in the domain.
+         * @type { ?string }
+         * @since 10
+         */
+        accountId?: string;
     }
 
     /**
@@ -1230,6 +1237,31 @@ declare namespace osAccount {
     }
 
     /**
+     * Provides the AuthStatusInfo type.
+     * @typedef AuthStatusInfo
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    interface AuthStatusInfo {
+        /**
+         * Indicates the remaining times that authentication can be performed.
+         * @type { number }
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        remainTimes: number;
+
+        /**
+         * Indicates the freezing time before performing the next authentication.
+         * @type { number }
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        freezingTime: number;
+    }
+
+    /**
      * Provides the definition of domain plugin.
      * @interface DomainPlugin
      * @syscap SystemCapability.Account.OsAccount
@@ -1245,6 +1277,63 @@ declare namespace osAccount {
          * @since 9
          */
         auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the specified domain account with a popup.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        authWithPopup(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the specified domain account with an authorization token.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { Uint8Array } token - Indicates the authorization token generated when PIN or biometric authentication is successful.
+         * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Gets the domain account information based on its domain and account name.
+         * @param { string } domain - Indicates the domain to which the account belongs.
+         * @param { string } accountName - Indicates the account name.
+         * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        getAccountInfo(domain: string, accountName: string, callback: AsyncCallback<DomainAccountInfo>): void;
+
+        /**
+         * Gets the domain authentication property for the specified domain account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { AsyncCallback<AuthStatusInfo> } callback - Indicates the callback for notifying the domain authentication status information.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        getAuthStatusInfo(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<AuthStatusInfo>): void;
+
+        /**
+         * Binds the specified domain account with an OS account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        bindAccount(domainAccountInfo: DomainAccountInfo, localId: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Unbind the specified domain account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
     }
 
     /**
@@ -1277,6 +1366,113 @@ declare namespace osAccount {
          * @since 9
          */
         static unregisterPlugin(): void;
+
+        /**
+         * Authenticates the specified domain account with a credential.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { Uint8Array } credential - Indicates the credential for authentication.
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainAccountInfo or credential.
+         * @throws { BusinessError } 12300003 - domain account does not exist.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300109 - authentication is canceled.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exist.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the domain account bound to the current OS account with a popup.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @static
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300003 - no domain account is bound.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300109 - authentication is canceled.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exist.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static authWithPopup(callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the domain account bound to the specified OS account with a popup.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @static
+         * @param { number } localId - Indicates the local ID of the specified OS account.
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId.
+         * @throws { BusinessError } 12300003 - no domain account is bound.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300109 - authentication is canceled.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exist.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static authWithPopup(localId: number, callback: IUserAuthCallback): void;
+
+        /**
+         * Checks whether the specified domain account exists.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the specified domain account exists.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainAccountInfo.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static hasAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Checks whether the specified domain account exists.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @returns { Promise<boolean> } Returns whether the specified domain account exists.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainAccountInfo.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static hasAccount(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
     }
 
     /**

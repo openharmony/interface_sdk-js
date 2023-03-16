@@ -37,5 +37,14 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   resizeable(value: boolean): ColumnSplitAttribute;
 }
 
+/**
+ * Defines ColumnSplit Component instance.
+ * @since 7
+ */
 declare const ColumnSplitInstance: ColumnSplitAttribute;
+
+/**
+ * Defines ColumnSplit Component.
+ * @since 7
+ */
 declare const ColumnSplit: ColumnSplitInterface;

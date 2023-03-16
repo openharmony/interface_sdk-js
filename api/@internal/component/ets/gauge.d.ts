@@ -103,5 +103,24 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   strokeWidth(length: Length): GaugeAttribute;
 }
 
+/**
+ * Defines Gauge Component.
+ * @since 8
+ */
+/**
+ * Defines Gauge Component.
+ * @form
+ * @since 9
+ */
 declare const Gauge: GaugeInterface;
+
+/**
+ * Defines Gauge Component instance.
+ * @since 8
+ */
+/**
+ * Defines Gauge Component instance.
+ * @form
+ * @since 9
+ */
 declare const GaugeInstance: GaugeAttribute;

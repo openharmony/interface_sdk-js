@@ -98,5 +98,14 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   onReachEnd(event: () => void): WaterFlowAttribute;
 }
 
+/**
+ * Defines WaterFlow Component.
+ * @since 9
+ */
 declare const WaterFlow: WaterFlowInterface;
+
+/**
+ * Defines WaterFlow Component instance.
+ * @since 9
+ */
 declare const WaterFlowInstance: WaterFlowAttribute;

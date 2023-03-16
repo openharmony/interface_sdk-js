@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -44,6 +44,186 @@ declare class SwiperController {
 }
 
 /**
+ * Defines the indicator class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class Indicator<T> {
+  /**
+   * Set the indicator to the left.
+   * @param { Length } value - the indicator to the left.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  left(value: Length): T;
+
+  /**
+   * Set the indicator to the top.
+   * @param { Length } value - the indicator to the left.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  top(value: Length): T;
+
+  /**
+   * Set the indicator to the right.
+   * @param { Length } value - the indicator to the right.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  right(value: Length): T;
+
+  /**
+   * Set the indicator to the bottom.
+   * @param { Length } value - the indicator to the bottom.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bottom(value: Length): T;
+
+  /**
+   * DotIndicator class object.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static dot(): DotIndicator;
+
+  /**
+   * DigitIndicator class object.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static digit(): DigitIndicator;
+}
+
+/**
+ * Define DotIndicator, the indicator type is dot.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class DotIndicator extends Indicator<DotIndicator> {
+  /**
+   * Constructor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor();
+
+  /**
+   * Set the indicator item width.
+   * @default 6vp
+   * @param { Length } value - the indicator item width.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  itemWidth(value: Length): DotIndicator;
+
+  /**
+   * Set the indicator item height.
+   * @default 24vp
+   * @param { Length } value - the indicator item height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  itemHeight(value: Length): DotIndicator;
+
+  /**
+   * Set the indicator item width.
+   * @default 6vp
+   * @param { Length } value - the indicator item width.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedItemWidth(value: Length): DotIndicator;
+
+  /**
+   * Set the indicator item height when selected.
+   * @default 24vp
+   * @param { Length } value - the indicator item height when selected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedItemHeight(value: Length): DotIndicator;
+
+  /**
+   * Setting indicator style mask.
+   * @default false
+   * @param { boolean } value - the indicator item mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  mask(value: boolean): DotIndicator;
+
+  /**
+   * Set the indicator color.
+   * @default #007DFF
+   * @param { ResourceColor } value - the indicator item color.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color(value: ResourceColor): DotIndicator;
+
+  /**
+   * Set the navigation point color.
+   * @default 10%#182431
+   * @param { ResourceColor } value - the indicator item when selected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedColor(value: ResourceColor): DotIndicator;
+}
+
+/**
+ * Define DigitIndicator, the indicator type is digit.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class DigitIndicator extends Indicator<DigitIndicator> {
+  /**
+   * Constructor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor();
+
+  /**
+   * Set the digital indicator font size when selected.
+   * @default 14sp
+   * @param { ResourceColor } fontColor - the indicator font size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  fontColor(value: ResourceColor): DigitIndicator;
+
+  /**
+   * Set the digital indicator font size when selected.
+   * @default 14sp
+   * @param { ResourceColor } selectedFontColor - the indicator font size when selected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedFontColor(value: ResourceColor): DigitIndicator;
+
+  /**
+   * Set the digital indicator font (just support fontSize and fontWeight).
+   * @param { digitFont } value - the indicator font color.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  digitFont(value: Font): DigitIndicator;
+
+  /**
+   * Set the digital indicator font (just support fontSize and fontWeight).
+   * @param { selectedDigitFont } value - the indicator font color when selected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedDigitFont(value: Font): DigitIndicator;
+}
+
+/**
  * Declare the size of the swiper on the spindle.
  * @since 7
  */
@@ -76,6 +256,7 @@ interface SwiperInterface {
 /**
  * Setting indicator style navigation.
  * @since 8
+ * @deprecated since 10
  */
 declare interface IndicatorStyle {
   /**
@@ -152,9 +333,16 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * Called when you set whether the navigation point indicator is enabled.
+   * @param { boolean } value - show indicator of the swiper indicator.
    * @since 7
    */
-  indicator(value: boolean): SwiperAttribute;
+  /**
+   * Set indicator is enabled, or set type style.
+   * @param { DotIndicator | DigitIndicator | boolean } value - the style value or show indicator of the swiper indicator.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
 
   /**
    * Called when setting whether to turn on cyclic sliding.
@@ -224,6 +412,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Setting indicator style navigation.
    * @since 8
+   * @deprecated since 10
    */
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
 
@@ -244,5 +433,14 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onAnimationEnd(event: (index: number) => void): SwiperAttribute;
 }
 
+/**
+ * Defines Swiper Component.
+ * @since 7
+ */
 declare const Swiper: SwiperInterface;
+
+/**
+ * Defines Swiper Component instance.
+ * @since 7
+ */
 declare const SwiperInstance: SwiperAttribute;

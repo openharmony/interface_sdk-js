@@ -19,6 +19,7 @@ import {AsyncCallback} from "./basic";
 import {Callback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
+import cert from './@ohos.security.cert';
 
 /**
  * This module provides the capability to manage web modules.
@@ -97,6 +98,30 @@ declare namespace webview {
          * @since 9
          */
         Unknown
+    }
+
+    /**
+     * Defines the mode for using HttpDns.
+     * @since 10
+     */
+    enum SecureDnsMode {
+        /**
+         * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
+         * @since 10
+         */
+        Off = 0,
+        /**
+         * By default, the set HttpDns server is used for dns resolution, and if it fails,
+         * the system dns is used for resolution.
+         * @since 10
+         */
+        Auto = 1,
+        /**
+         * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
+         * fall back to the system dns, which will directly cause the page to fail to load.
+         * @since 10
+         */
+        SecureOnly = 2,
     }
 
     /**
@@ -556,6 +581,19 @@ declare namespace webview {
          * @since 9
          */
         static initializeWebEngine(): void;
+
+
+        /**
+         * Set web engine to use HttpDns server to resolve dns.
+         * @param { SecureDnsMode } Mode using HttpDns.
+         * @param { string } The configuration of the HttpDns server.
+         *                   Must be https protocol and only allow one server to be configured.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 10
+         */
+        static setHttpDns(secureDnsMode: SecureDnsMode, secureDnsConfig: string): void;
+
 
         /**
          * Enables debugging of web contents.
@@ -1017,18 +1055,18 @@ declare namespace webview {
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { string } Return the the original url of the current page.
+         * @returns { string } Return the original url of the current page.
          *
          * @since 9
          */
         getOriginalUrl(): string;
 
         /**
-         * Gets the original url of current Web page.
+         * Gets the favicon of current Web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { string } Return the the original url of the current page.
+         * @returns { image.PixelMap } Return the favicon bitmap of the current page.
          *
          * @since 9
          */
@@ -1088,8 +1126,8 @@ declare namespace webview {
         /**
          * Scroll to the position.
          *
-         * @param { boolean } x - the x of the position.
-         * @param { boolean } y - the y of the position.
+         * @param { number } x - the x of the position.
+         * @param { number } y - the y of the position.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1101,8 +1139,8 @@ declare namespace webview {
         /**
          * Scroll by the delta position.
          *
-         * @param { boolean } deltaX - the delta x of the position.
-         * @param { boolean } deltaY - the delta y of the position.
+         * @param { number } deltaX - the delta x of the position.
+         * @param { number } deltaY - the delta y of the position.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1114,8 +1152,8 @@ declare namespace webview {
         /**
          * Slide by the speed.
          *
-         * @param { boolean } vx - the x speed of the speed.
-         * @param { boolean } vy - the y speed of the speed.
+         * @param { number } vx - the x speed of the speed.
+         * @param { number } vy - the y speed of the speed.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -1156,6 +1194,42 @@ declare namespace webview {
          * @since 9
          */
         static customizeSchemes(schemes: Array<WebCustomScheme>): void;
+
+        /**
+         * Get certificate for the current website.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a web component.
+         * @returns { Promise<Array<cert.X509Cert>> } the promise of the current website's certificate.
+         *
+         * @since 10
+         */
+        getCertificate(): Promise<Array<cert.X509Cert>>;
+
+        /**
+         * Get certificate for the current website.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a web component.
+         * @param {AsyncCallback<Array<cert.X509Cert>>} callback - the callback of getCertificate.
+         *
+         * @since 10
+         */
+        getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
+
+        /**
+         * Set audio muted.
+         *
+         * @param { boolean } mute - Set the audio muted or not.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 10
+         */
+        setAudioMuted(mute: boolean): void;
     }
 }
 

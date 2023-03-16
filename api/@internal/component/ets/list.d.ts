@@ -301,6 +301,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when the slider start.
+   * @form
    * @since 9
    */
   onScrollStart(event: () => void): ListAttribute;
@@ -369,5 +370,24 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
 }
 
+/**
+ * Defines List Component.
+ * @since 7
+ */
+/**
+ * Defines List Component.
+ * @form
+ * @since 9
+ */
 declare const List: ListInterface;
+
+/**
+ * Defines List Component instance.
+ * @since 7
+ */
+/**
+ * Defines List Component instance.
+ * @form
+ * @since 9
+ */
 declare const ListInstance: ListAttribute;

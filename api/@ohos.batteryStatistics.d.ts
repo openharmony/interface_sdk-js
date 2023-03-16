@@ -18,6 +18,7 @@ import {AsyncCallback, BusinessError} from "./basic";
 /**
  * Provides methods to get power consumption information.
  *
+ * @namespace batteryStats
  * @syscap SystemCapability.PowerManager.BatteryStatistics
  * @systemapi
  * @since 8
@@ -64,6 +65,7 @@ declare namespace batteryStats {
      * @returns {Promise<Array<BatteryStatsInfo>>} Power consumption information list.
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -76,6 +78,7 @@ declare namespace batteryStats {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the callback is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -88,6 +91,7 @@ declare namespace batteryStats {
      * @returns {number} Power consumption information(Mah).
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -100,6 +104,7 @@ declare namespace batteryStats {
      * @returns {number} Power consumption information(Percent).
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -113,6 +118,7 @@ declare namespace batteryStats {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -126,6 +132,7 @@ declare namespace batteryStats {
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -136,6 +143,7 @@ declare namespace batteryStats {
      *
      * <p>Power consumption information includes the uid, type and power consumption value.
      *
+     * @typedef BatteryStatsInfo
      * @systemapi
      * @since 8
      */
