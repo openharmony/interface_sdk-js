@@ -718,6 +718,40 @@ declare namespace call {
   function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
 
   /**
+   * Subscribe to the audioDeviceChange event.
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of Current AudioDevice.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceInfo>): void;
+
+  /**
+   * Unsubscribe from the audioDeviceChange event.
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of Current AudioDevice.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceInfo>): void;
+
+  /**
    * Judge whether to allow another new call.
    *
    * @param callback Returns {@code true} If the device currently allows new calls; returns {@code false} otherwise.
@@ -886,6 +920,20 @@ declare namespace call {
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
 
   /**
+   * Set the audio device.
+   *
+   * @param device Indicates the device of audio.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setAudioDevice(device: AudioDevice): Promise<void>;
+
+  /**
    * Set the audio device with options.
    *
    * @param device Indicates the device of audio.
@@ -988,6 +1036,70 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
   /**
+   * Close Unfinished ussd.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function closeUnFinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
+  function closeUnFinishedUssd(slotId: number): Promise<void>;
+
+  /**
+   * set voNR switch state
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param state Indicates the voNR state.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setVoNRState(slotId: number, state: number, callback: AsyncCallback<void>): void;
+  function setVoNRState(slotId: number, state: number): Promise<void>;
+
+  /**
+   * get voNR switch state
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param state Indicates the voNR state.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getVoNRState(slotId: number, callback: AsyncCallback<void>): void;
+  function getVoNRState(slotId: number): Promise<void>;
+
+  /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
+  function canSetCallTransferTime(slotId: number): Promise<boolean>;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -1009,6 +1121,40 @@ declare namespace call {
     DEVICE_WIRED_HEADSET,
     DEVICE_BLUETOOTH_SCO,
     DEVICE_MIC,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+    export enum AudioDeviceType  {
+      DEVICE_EARPIECE,
+      DEVICE_SPEAKER,
+      DEVICE_WIRED_HEADSET,
+      DEVICE_BLUETOOTH_SCO,
+    }
+
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface AudioDevice {
+    deviceType: AudioDeviceType;
+    address?: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface AudioDeviceInfo {
+    /** Indicates the list of support audiodevice. */
+    audioDeviceList: Array<AudioDevice>;
+    /** Indicates the type of current audiodevice. */
+    currentAudioDevice: AudioDevice;
+    /** Indicates the status of mute. */
+    isMuted: boolean;
   }
 
   /**
