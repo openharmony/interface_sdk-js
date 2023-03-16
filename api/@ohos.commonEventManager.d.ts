@@ -1083,13 +1083,6 @@ declare namespace commonEventManager {
     COMMON_EVENT_STK_ALPHA_IDENTIFIER = "usual.event.STK_ALPHA_IDENTIFIER",
 
     /**
-     * Indicate the action of a common event that the spn display information has been updated.
-     * This common event can be triggered only by system.
-     * @since 10
-     */
-    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED",
-
-    /**
      * Indicate the action of a common event that a new sms wappush has been received by the device.
      * This common event can be triggered only by system.
      * @since 10
