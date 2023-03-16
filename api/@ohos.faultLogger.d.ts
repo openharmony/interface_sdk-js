@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from "./basic";
+import type { AsyncCallback } from './basic';
 
 /**
  * This module provides the capability to query faultlog data.
