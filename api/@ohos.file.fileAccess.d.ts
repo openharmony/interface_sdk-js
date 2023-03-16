@@ -16,7 +16,7 @@
 import { AsyncCallback, Callback } from "./basic";
 import Want from './@ohos.app.ability.Want';
 import Context from './application/Context';
-import { Filter } from './@ohos.fileio';
+import { Filter } from './@ohos.file.fs';
 
 /**
  * This module provides the capability to access user public files.
