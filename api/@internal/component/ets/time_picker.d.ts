@@ -71,7 +71,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  disappearTextStyle(value: PickerTextStyle): DatePickerAttribute;
+  disappearTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
   /**
    * Sets the text style of normal items
@@ -79,7 +79,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  textStyle(value: PickerTextStyle): DatePickerAttribute;
+  textStyle(value: PickerTextStyle): TimePickerAttribute;
   
   /**
    * Sets the text style of selected items
@@ -87,7 +87,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  selectedTextStyle(value: PickerTextStyle): DatePickerAttribute;
+  selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
  
   /**
    * This event is triggered when a TimePicker time is selected.
