@@ -1127,12 +1127,12 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-    export enum AudioDeviceType  {
-      DEVICE_EARPIECE,
-      DEVICE_SPEAKER,
-      DEVICE_WIRED_HEADSET,
-      DEVICE_BLUETOOTH_SCO,
-    }
+  export enum AudioDeviceType {
+    DEVICE_EARPIECE,
+    DEVICE_SPEAKER,
+    DEVICE_WIRED_HEADSET,
+    DEVICE_BLUETOOTH_SCO,
+  }
 
 
   /**
