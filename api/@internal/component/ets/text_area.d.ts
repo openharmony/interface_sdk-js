@@ -169,14 +169,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
-
-  /**
-   * Define the max height of the text area.
-   * @param { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  maxHeight(value: Length): TextAreaAttribute;
 }
 
 /**
