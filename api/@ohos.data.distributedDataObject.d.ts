@@ -321,27 +321,9 @@ declare namespace distributedDataObject {
          * @param {AsyncCallback<SaveSuccessResponse>} callback
          *        {SaveSuccessResponse}: the response of save.
          * @throws {BusinessError} 401 - the parameter check failed.
+		 * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
-         */
-         /**
-         * Save object, after save object data successfully, the object data will not release when app existed,
-         * and resume data on saved device after app existed.
-         * the saved data secure level is S0, it is not safe, can only save public data, if there is privacy data,
-         * you should encrypt it
-         *
-         * The saved data will be released when
-         * 1. saved after 24h.
-         * 2. app uninstalled.
-         * 3. after resume data success, system will auto delete the saved data.
-         * 
-         * @param {string} deviceId - Indicates the device that will resume the object data.
-         * @param {AsyncCallback<SaveSuccessResponse>} callback
-         *        {SaveSuccessResponse}: the response of save.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 801 - Capability not supported.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-         * @since 10
          */
         save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void;
 
@@ -359,26 +341,9 @@ declare namespace distributedDataObject {
          * @param {string} deviceId - Indicates the device that will resume the object data.
          * @returns {Promise<SaveSuccessResponse>} {SaveSuccessResponse}: the response of save.
          * @throws {BusinessError} 401 - the parameter check failed.
+		 * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
-         */
-          /**
-         * Save object, after save object data successfully, the object data will not release when app existed,
-         * and resume data on saved device after app existed.
-         * the saved data secure level is S0, it is not safe, can only save public data, if there is privacy data,
-         * you should encrypt it.
-         *
-         * The saved data will be released when
-         * 1. saved after 24h.
-         * 2. app uninstalled.
-         * 3. after resume data success, system will auto delete the saved data.
-         * 
-         * @param {string} deviceId - Indicates the device that will resume the object data.
-         * @returns {Promise<SaveSuccessResponse>} {SaveSuccessResponse}: the response of save.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 801 - Capability not supported.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-         * @since 10
          */
         save(deviceId: string): Promise<SaveSuccessResponse>;
 
@@ -390,20 +355,9 @@ declare namespace distributedDataObject {
          * @param {AsyncCallback<RevokeSaveSuccessResponse>} callback
          *        {RevokeSaveSuccessResponse}: the response of revokeSave.
          * @throws {BusinessError} 401 - the parameter check failed.
+		 * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
-         */
-         /**
-         * Revoke save object, delete saved object immediately, if object is saved in local device,
-         * it will delete saved data on all trusted device.
-         * if object is saved in other device, it will delete data in local device.
-         * 
-         * @param {AsyncCallback<RevokeSaveSuccessResponse>} callback
-         *        {RevokeSaveSuccessResponse}: the response of revokeSave.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 801 - Capability not supported.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-         * @since 10
          */
         revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
 
@@ -414,19 +368,9 @@ declare namespace distributedDataObject {
          * 
          * @returns {Promise<RevokeSaveSuccessResponse>} {RevokeSaveSuccessResponse}: the response of revokeSave.
          * @throws {BusinessError} 401 - the parameter check failed.
+		 * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
-         */
-         /**
-         * Revoke save object, delete saved object immediately, if object is saved in local device,
-         * it will delete saved data on all trusted device.
-         * if object is saved in other device, it will delete data in local device.
-         * 
-         * @returns {Promise<RevokeSaveSuccessResponse>} {RevokeSaveSuccessResponse}: the response of revokeSave.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 801 - Capability not supported.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-         * @since 10
          */
         revokeSave(): Promise<RevokeSaveSuccessResponse>;
     }
