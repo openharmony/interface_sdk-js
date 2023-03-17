@@ -282,7 +282,8 @@ class JSDocModificationManager {
   static addParamTag(node: comment.CommentNode, commentInfo: comment.CommentInfo, tagName: string,
     context: Context | undefined): boolean {
     if (node.astNode && (ts.isMethodDeclaration(node.astNode) || ts.isMethodSignature(node.astNode) ||
-      ts.isFunctionDeclaration(node.astNode) || ts.isCallSignatureDeclaration(node.astNode))) {
+      ts.isFunctionDeclaration(node.astNode) || ts.isCallSignatureDeclaration(node.astNode) ||
+      ts.isConstructorDeclaration(node.astNode))) {
       let paramTagNum: number = 0;
       commentInfo.commentTags.forEach((tag: comment.CommentTag) => {
         if (tag.tag === 'param') {
