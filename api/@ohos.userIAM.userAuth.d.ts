@@ -232,7 +232,8 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param { UserAuthType } authType Credential type for authentication.
      * @param { AuthTrustLevel } authTrustLevel Trust level of authentication result.
-     * @returns { number } Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum, **201** is check permission failed.
+     * @returns { number } Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum,
+     * **201** is check permission failed.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -247,7 +248,8 @@ declare namespace userAuth {
      * @param { Uint8Array } challenge Pass in challenge value.
      * @param { UserAuthType } authType Type of authentication.
      * @param { AuthTrustLevel } authTrustLevel Trust level of authentication result.
-     * @param { IUserAuthCallback } callback Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum, **201** is check permission failed.
+     * @param { IUserAuthCallback } callback Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum,
+     * **201** is check permission failed.
      * @returns { Uint8Array } Returns ContextId for cancel.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
@@ -266,7 +268,8 @@ declare namespace userAuth {
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param { Uint8Array } contextID Cancel authentication and pass in ContextID.
-     * @returns { number } Returns a number value indicating whether Cancel authentication was successful, the value of number is related to the ResultCode enum, **201** is check permission failed.
+     * @returns { number } Returns a number value indicating whether Cancel authentication was successful, the value of number is related to the ResultCode
+     * enum, **201** is check permission failed.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
