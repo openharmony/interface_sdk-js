@@ -25,12 +25,7 @@ declare namespace wallpaper {
      * RgbaColor definition
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7
-     */
-    /**
-     * RgbaColor definition
-     * @syscap SystemCapability.MiscServices.Wallpaper
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @deprecated since 9
      */
     interface RgbaColor {
         /**
