@@ -50,7 +50,8 @@ declare namespace sim {
    *
    * @param slotId Indicates the ID of the SIM card slot.
    * @param callback Returns {@code true} if your application has been granted the operator permissions;
-   * returns {@code false} otherwise.
+   * returns {@code false} otherwise. If no SIM card is inserted or the SIM card is deactivated
+   * will be return {@code false}.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
