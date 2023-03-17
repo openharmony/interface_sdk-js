@@ -321,7 +321,7 @@ declare namespace distributedDataObject {
          * @param {AsyncCallback<SaveSuccessResponse>} callback
          *        {SaveSuccessResponse}: the response of save.
          * @throws {BusinessError} 401 - the parameter check failed.
-		 * @throws {BusinessError} 801 - Capability not supported.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
@@ -341,7 +341,7 @@ declare namespace distributedDataObject {
          * @param {string} deviceId - Indicates the device that will resume the object data.
          * @returns {Promise<SaveSuccessResponse>} {SaveSuccessResponse}: the response of save.
          * @throws {BusinessError} 401 - the parameter check failed.
-		 * @throws {BusinessError} 801 - Capability not supported.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
@@ -355,7 +355,7 @@ declare namespace distributedDataObject {
          * @param {AsyncCallback<RevokeSaveSuccessResponse>} callback
          *        {RevokeSaveSuccessResponse}: the response of revokeSave.
          * @throws {BusinessError} 401 - the parameter check failed.
-		 * @throws {BusinessError} 801 - Capability not supported.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
@@ -368,7 +368,7 @@ declare namespace distributedDataObject {
          * 
          * @returns {Promise<RevokeSaveSuccessResponse>} {RevokeSaveSuccessResponse}: the response of revokeSave.
          * @throws {BusinessError} 401 - the parameter check failed.
-		 * @throws {BusinessError} 801 - Capability not supported.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
