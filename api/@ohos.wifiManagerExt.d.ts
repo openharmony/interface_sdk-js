@@ -27,7 +27,7 @@ import { AsyncCallback, Callback } from './basic';
  */
 declare namespace wifiManagerExt {
     /**
-     * Enables a Wi-Fi hotspot.
+     * Enable a Wi-Fi hotspot.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -39,7 +39,7 @@ declare namespace wifiManagerExt {
      function enableHotspot(): void;
 
      /**
-      * Disables a Wi-Fi hotspot.
+      * Disable a Wi-Fi hotspot.
       *
       * @since 9
       * @throws {BusinessError} 201 - Permission denied.
@@ -51,7 +51,7 @@ declare namespace wifiManagerExt {
      function disableHotspot(): void;
 
     /**
-     * Obtains the supported power Mode.
+     * Obtain the supported power Mode.
      *
      * @returns Returns the array of supported power Mode.
      *
@@ -66,7 +66,7 @@ declare namespace wifiManagerExt {
      function getSupportedPowerMode(callback: AsyncCallback<Array<PowerMode>>): void;
 
     /**
-     * Obtains the current Wi-Fi power mode.
+     * Obtain the current Wi-Fi power mode.
      *
      * @returns Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
      *
