@@ -502,7 +502,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function get5GHzChannelList(): Array<number>;
@@ -1563,9 +1563,11 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      */
      enum WifiBandType {
+        WIFI_BAND_NONE,
         WIFI_BAND_2G,
         WIFI_BAND_5G,
         WIFI_BAND_6G,
+        WIFI_BAND_60G,
     }
 
     /**
