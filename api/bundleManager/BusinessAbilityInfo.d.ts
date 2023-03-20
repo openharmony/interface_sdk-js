@@ -28,7 +28,7 @@ export interface BusinessAbilityInfo {
   /**
    * Indicates the name of the bundle
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -38,7 +38,7 @@ export interface BusinessAbilityInfo {
   /**
    * Indicates the name of the module
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -48,7 +48,7 @@ export interface BusinessAbilityInfo {
   /**
    * Indicates the name of the business ability info
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -58,7 +58,7 @@ export interface BusinessAbilityInfo {
   /**
    * Indicates the label id of the business ability info
    *
-   * @type {number}
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -68,7 +68,7 @@ export interface BusinessAbilityInfo {
   /**
    * Indicates the description id of the business ability info
    *
-   * @type {number}
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -78,7 +78,7 @@ export interface BusinessAbilityInfo {
   /**
    * Indicates the icon id of the business ability info
    *
-   * @type {number}
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -88,7 +88,7 @@ export interface BusinessAbilityInfo {
   /**
    * Enumerates types of the business ability info
    *
-   * @type {businessRouter.BusinessType}
+   * @type { businessRouter.BusinessType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -98,7 +98,7 @@ export interface BusinessAbilityInfo {
   /**
    * Obtains configuration information about an application
    *
-   * @type {ApplicationInfo}
+   * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10

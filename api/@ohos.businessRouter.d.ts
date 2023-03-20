@@ -27,7 +27,8 @@ import type * as _BusinessAbilityInfo from './bundleManager/BusinessAbilityInfo'
 declare namespace businessRouter {
   /**
    * This enumeration value is used to identify various types of business ability info
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -44,7 +45,7 @@ declare namespace businessRouter {
 
     /**
      * Indicates business ability info with type of unspecified
-	 *
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -55,7 +56,7 @@ declare namespace businessRouter {
   /**
    * This filter value is used to filter business ability info
    *
-   * @name {number}
+   * @name { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -64,6 +65,7 @@ declare namespace businessRouter {
     /**
      * Indicates the type of business ability info
      *
+     * @type { businessRouter.BusinessType }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -73,6 +75,7 @@ declare namespace businessRouter {
     /**
      * Indicates the supported mime type of business ability info
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -82,6 +85,7 @@ declare namespace businessRouter {
     /**
      * Indicates the supported uri of business ability info
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
