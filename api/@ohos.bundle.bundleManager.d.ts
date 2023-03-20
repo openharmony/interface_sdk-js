@@ -593,27 +593,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
   }
 
   /**
-   * Indicates the atomic module type when atomicService is split.
-   * @enum {number}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  export enum AtomicServiceModuleType {
-    /**
-    * Indicates the module is home in atomic service.
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-    NORMAL = 0,
-    /*
-    * Indicates the module is normal in atomic service.
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-    MAIN = 1,
-  }
-
-  /**
    * Obtains own bundleInfo.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
