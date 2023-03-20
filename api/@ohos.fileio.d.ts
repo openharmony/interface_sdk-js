@@ -1201,57 +1201,6 @@ declare interface Dirent {
     isSymbolicLink(): boolean;
 }
 
-export type Filter = {
-    /**
-     * @type {Array<string>}
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @systemapi
-     * @since 9
-     * @readonly
-     */
-    suffix: Array<string>;
-    /**
-     * @type {Array<string>}
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @systemapi
-     * @since 9
-     * @readonly
-     */
-    displayName?: Array<string>;
-    /**
-     * @type {Array<string>}
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @systemapi
-     * @since 9
-     * @readonly
-     */
-    mimeType?: Array<string>;
-    /**
-     * @type {number}
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @systemapi
-     * @since 9
-     * @readonly
-     */
-    fileSizeOver?: number;
-    /**
-     * @type {number}
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @systemapi
-     * @since 9
-     * @readonly
-     */
-    lastModifiedAfter?: number;
-    /**
-     * @type {boolean}
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @systemapi
-     * @since 9
-     * @readonly
-     */
-    excludeMedia?: boolean;
-}
-
 /**
  * Stat
  * @syscap SystemCapability.FileManagement.File.FileIO
