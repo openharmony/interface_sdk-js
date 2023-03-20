@@ -13,78 +13,95 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from './ApplicationInfo';
-import businessRouter from './../@ohos.businessRouter';
+import type { ApplicationInfo } from './ApplicationInfo';
+import type businessRouter from './../@ohos.businessRouter';
 
+/**
+ * Contains basic business ability information.
+ *
+ * @typedef BusinessAbilityInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 10
+ */
+export interface BusinessAbilityInfo {
   /**
-   * Contains basic business ability information.
-   * @typedef BusinessAbilityInfo
-   * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
+   * Indicates the name of the bundle
+   *
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
    */
-  export interface BusinessAbilityInfo {
-    /**
-     * Indicates the name of the bundle
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly bundleName: string;
+  readonly bundleName: string;
 
-    /**
-     * Indicates the name of the module
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly moduleName: string;
+  /**
+   * Indicates the name of the module
+   *
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly moduleName: string;
 
-    /**
-     * Indicates the name of the service info
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly name: string;
+  /**
+   * Indicates the name of the business ability info
+   *
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly name: string;
 
-    /**
-     * Indicates the label id of the service info
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly labelId: number;
+  /**
+   * Indicates the label id of the business ability info
+   *
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly labelId: number;
 
-    /**
-     * Indicates the description id of the service info
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly descriptionId: number;
+  /**
+   * Indicates the description id of the business ability info
+   *
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly descriptionId: number;
 
-    /**
-     * Indicates the icon id of the service info
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly iconId: number;
+  /**
+   * Indicates the icon id of the business ability info
+   *
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly iconId: number;
 
-    /**
-     * Enumerates types of the service info
-     * @type {businessRouter.BusinessType}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly businessType: businessRouter.BusinessType;
+  /**
+   * Enumerates types of the business ability info
+   *
+   * @type {businessRouter.BusinessType}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly businessType: businessRouter.BusinessType;
 
-    /**
-     * Obtains configuration information about an application
-     * @type {ApplicationInfo}
-     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
-     * @since 10
-     */
-    readonly applicationInfo: ApplicationInfo;
-  }
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type {ApplicationInfo}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly applicationInfo: ApplicationInfo;
+}
