@@ -124,7 +124,7 @@ declare namespace businessRouter {
   function queryBusinessAbilityInfo(filter: BusinessAbilityFilter): Promise<Array<BusinessAbilityInfo>>;
   
   /**
-   * Obtains bunisess ability info.
+   * Obtains business ability info.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
