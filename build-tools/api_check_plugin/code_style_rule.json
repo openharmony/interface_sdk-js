@@ -2,10 +2,10 @@
   "decorators": {
     "customDoc": [
       "constant",
+      "crossplatform",
       "default",
       "deprecated",
       "enum",
-      "errorcode",
       "example",
       "extends",
       "famodelonly",
@@ -40,18 +40,12 @@
       "borrows",
       "class",
       "classdesc",
-      "constant",
       "constructs",
       "copyright",
-      "default",
-      "deprecated",
-      "enum",
       "event",
-      "example",
       "exports",
       "external",
       "file",
-      "fires",
       "function",
       "generator",
       "global",
@@ -61,7 +55,6 @@
       "inheritdoc",
       "inner",
       "instance",
-      "interface",
       "lends",
       "license",
       "listens",
@@ -71,26 +64,17 @@
       "mixin",
       "modifies",
       "module",
-      "namespace",
       "package",
-      "param",
       "private",
       "property",
       "protected",
       "public",
-      "readonly",
       "requires",
-      "returns",
       "see",
-      "since",
-      "static",
       "summary",
       "this",
       "todo",
-      "throws",
       "tutorial",
-      "type",
-      "typedef",
       "variation",
       "version",
       "yields",
@@ -271,7 +255,8 @@
         "BundleFramework.Launcher",
         "BundleFramework.SandboxApp",
         "BundleFramework.QuickFix",
-        "BundleFramework.AppControl"
+        "BundleFramework.AppControl",
+        "BundleFramework.Overlay"
       ],
       "Developtools": [
         "Syscap"
@@ -311,7 +296,8 @@
         "NetManager.Ethernet",
         "NetManager.NetSharing",
         "NetManager.MDNS",
-        "NetManager.Vpn"
+        "NetManager.Vpn",
+        "SecureElement"
       ],
       "Location": [
         "Location.Core",
@@ -379,7 +365,8 @@
         "MediaLibrary.DistributedCore",
         "Media.AVPlayer",
         "Media.AVRecorder",
-        "Image.ImageCreator"
+        "Image.ImageCreator",
+        "SystemSound.Core"
       ],
       "Telephony": [
         "CoreService",
@@ -500,7 +487,8 @@
         "Preferences.Core",
         "DataShare.Core",
         "DataShare.Consumer",
-        "DataShare.Provider"
+        "DataShare.Provider",
+        "UDMF.Core"
       ],
       "Ability": [
         "AbilityBase",
@@ -527,7 +515,8 @@
       "Cloud": [
         "AAID",
         "OAID",
-        "VAID"
+        "VAID",
+        "Push"
       ],
       "XTS": [
         "DeviceAttest",

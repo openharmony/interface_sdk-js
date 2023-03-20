@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -191,7 +191,7 @@ declare namespace userAuth {
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.getVersion
          */
-        getVersion() : number;
+        getVersion(): number;
 
         /**
          * Check whether the authentication capability is available.
@@ -204,7 +204,7 @@ declare namespace userAuth {
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.getAvailableStatus
          */
-        getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel) : number;
+        getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): number;
 
         /**
          * Executes authentication.
@@ -231,7 +231,7 @@ declare namespace userAuth {
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthInstance.cancel
          */
-        cancelAuth(contextID : Uint8Array) : number;
+        cancelAuth(contextID: Uint8Array): number;
     }
 
     /**
@@ -255,7 +255,7 @@ declare namespace userAuth {
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
          */
-        onResult: (result : number, extraInfo : AuthResult) => void;
+        onResult: (result: number, extraInfo: AuthResult) => void;
 
         /**
          * During an authentication, the TipsCode is returned through the callback.
@@ -267,7 +267,7 @@ declare namespace userAuth {
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
          */
-        onAcquireInfo ?: (module : number, acquire : number, extraInfo : any) => void;
+        onAcquireInfo ?: (module: number, acquire: number, extraInfo: any) => void;
     }
 
     /**
@@ -633,7 +633,7 @@ declare namespace userAuth {
          * @type {number}
          * @since 9
          */
-        result : number;
+        result: number;
 
         /**
          * The authentication token if the authentication is passed.
@@ -669,14 +669,14 @@ declare namespace userAuth {
          * @type {number}
          * @since 9
          */
-        module : number;
+        module: number;
 
         /**
          * Tip information, used to prompt the business to perform some operations.
          * @type {number}
          * @since 9
          */
-        tip : number;
+        tip: number;
     }
 
     /**
@@ -739,17 +739,6 @@ declare namespace userAuth {
     }
 
     /**
-     * Get version information.
-     * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @returns Returns version information.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
-     */
-    function getVersion(): number;
-
-    /**
      * Check whether the authentication capability is available.
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param authType Credential type for authentication.
@@ -763,7 +752,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    function getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): void;
+    function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
 
     /**
      * Get Authentication instance.
@@ -778,7 +767,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    function getAuthInstance(challenge : Uint8Array, authType : UserAuthType, authTrustLevel : AuthTrustLevel): AuthInstance;
+    function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
 
     /**
      * Enum for operation result.
@@ -857,7 +846,6 @@ declare namespace userAuth {
          */
         NOT_ENROLLED = 12500010
     }
-
 }
 
 export default userAuth;

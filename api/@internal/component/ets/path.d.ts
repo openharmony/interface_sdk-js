@@ -66,5 +66,24 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   commands(value: string): PathAttribute;
 }
 
+/**
+ * Defines Path Component.
+ * @since 7
+ */
+/**
+ * Defines Path Component.
+ * @form
+ * @since 9
+ */
 declare const Path: PathInterface;
+
+/**
+ * Defines Path Component instance.
+ * @since 7
+ */
+/**
+ * Defines Path Component instance.
+ * @form
+ * @since 9
+ */
 declare const PathInstance: PathAttribute;

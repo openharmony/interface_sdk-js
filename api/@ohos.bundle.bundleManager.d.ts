@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,12 +16,13 @@
 import { AsyncCallback } from './basic';
 import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
-import { HapModuleInfo as _HapModuleInfo } from './bundleManager/HapModuleInfo';
 import { PermissionDef as _PermissionDef } from  './bundleManager/PermissionDef';
 import { ElementName as _ElementName }  from './bundleManager/ElementName';
+import { SharedBundleInfo as _SharedBundleInfo }  from './bundleManager/SharedBundleInfo';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
 import * as _BundleInfo from './bundleManager/BundleInfo';
+import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
 import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
 /**
@@ -330,6 +331,13 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
     PREVIEW = 14,
 
     /**
+     * Indicates extension info with type of print
+     * @since 10
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     */
+    PRINT = 15,
+
+    /**
      * Indicates extension info with type of unspecified
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -405,7 +413,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    STANDARD = 1,
+    MULTITON = 1,
 
     /**
      * Indicates that the ability can have specified instances
@@ -542,6 +550,69 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
      * @since 9
      */
     LOCKED,
+  }
+
+  /**
+   * Indicates module type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum ModuleType {
+    /**
+     * Indicates entry type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    ENTRY = 1,
+    /**
+     * Indicates feature type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FEATURE = 2,
+    /**
+     * Indicates shared type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SHARED = 3,
+  }
+
+  /**
+   * Indicates bundle type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum BundleType {
+    /**
+    * Indicates app
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    APP = 0,
+    /*
+    * Indicates atomic service
+    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @since 9
+    */
+    ATOMIC_SERVICE = 1,
+  }
+
+  /**
+   * Shared bundle compatible policy
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export enum CompatiblePolicy {
+    /**
+     * Indicates that the app is a shared bundle and the shared bundle type is backward compatibility
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    BACKWARD_COMPATIBILITY = 1,
   }
 
   /**
@@ -1225,6 +1296,22 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
    function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number) : ApplicationInfo;
+
+  /**
+   * Obtains applicationInfo based on a given bundleName and bundleFlags.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param  { string } bundleName - Indicates the application bundle name to be queried.
+   * @param  { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
+   * @returns Returns the ApplicationInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
    function getApplicationInfoSync(bundleName: string, applicationFlags: number) : ApplicationInfo;
 
   /**
@@ -1245,7 +1332,81 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
    function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
+
+  /**
+   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @returns Returns the BundleInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
    function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+
+  /**
+   * Obtains SharedBundleInfo of all shared bundle available in the system.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - The callback of getting a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAllSharedBundleInfo(callback: AsyncCallback<Array<SharedBundleInfo>>): void;
+
+  /**
+   * Obtains SharedBundleInfo of all shared bundle available in the system.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<Array<SharedBundleInfo>> } Returns a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAllSharedBundleInfo(): Promise<Array<SharedBundleInfo>>;
+
+  /**
+   * Obtains SharedBundleInfo of shared bundle by bundle name and module name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundleName of the application.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - The callback of getting a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSharedBundleInfo(bundleName: string,  moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
+
+  /**
+   * Obtains SharedBundleInfo of shared bundle by bundle name and module name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundleName of the application.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @returns { Promise<Array<SharedBundleInfo>> } Returns a list of SharedBundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSharedBundleInfo(bundleName: string, moduleName: string): Promise<Array<SharedBundleInfo>>;
 
   /**
    * Obtains configuration information about an application.
@@ -1290,11 +1451,25 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
   export type SignatureInfo = _BundleInfo.SignatureInfo;
 
   /**
-   * Obtains configuration information about an module.
+   * Obtains configuration information about a module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  export type HapModuleInfo = _HapModuleInfo;
+  export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
+
+  /**
+   * Obtains preload information about a module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type PreloadItem = _HapModuleInfo.PreloadItem;
+
+  /**
+   * Obtains dependency information about a module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type Dependency = _HapModuleInfo.Dependency;
 
   /**
    * Obtains configuration information about an ability.
@@ -1331,6 +1506,13 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
   export type ElementName = _ElementName;
+
+  /**
+   * Contains shared bundle info.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export type SharedBundleInfo = _SharedBundleInfo;
 }
 
 export default bundleManager;

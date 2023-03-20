@@ -68,5 +68,24 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   onDec(event: () => void): CounterAttribute;
 }
 
+/**
+ * Defines Counter Component instance.
+ * @since 7
+ */
+/**
+ * Defines Counter Component instance.
+ * @form
+ * @since 9
+ */
 declare const CounterInstance: CounterAttribute;
+
+/**
+ * Defines Counter Component.
+ * @since 7
+ */
+/**
+ * Defines Counter Component.
+ * @form
+ * @since 9
+ */
 declare const Counter: CounterInterface;

@@ -742,7 +742,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead ohos.notificationManager.supportDoNotDisturbMode
+   * @useinstead ohos.notificationManager.isSupportDoNotDisturbMode
    */
   function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
   function supportDoNotDisturbMode(): Promise<boolean>;

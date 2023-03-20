@@ -14,16 +14,60 @@
  */
 
 /**
+ * Define the contents of each selector item.
+ * @interface TextPickerRangeContent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextPickerRangeContent {
+  /**
+   * Specifies the icon content.
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  icon: string | Resource;
+
+  /**
+   * Specifies the text content.
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  text?: string | Resource;
+}
+
+/**
  * Defines the options of TextPicker.
  * @since 8
  */
 declare interface TextPickerOptions {
   /**
    * Specifies the range of the text selector.
+   * @type { string[] | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
    */
-  range: string[] | Resource;
+  /**
+   * Specifies the range of the selector.
+   * Support the display of pictures, text and pictures plus text
+   * @type { string[] | Resource | TextPickerRangeContent[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  range: string[] | Resource | TextPickerRangeContent[];
   /**
    * Value of the current selection.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Value of the current selection.
+   * Only valid when only text is displayed.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
   value?: string;
   /**
@@ -53,6 +97,31 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 8
    */
   defaultPickerItemHeight(value: number | string): TextPickerAttribute;
+
+  /**
+   * Sets the text style of disappearing items
+   * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  disappearTextStyle(value: PickerTextStyle): TextPickerAttribute;
+
+  /**
+   * Sets the text style of normal items
+   * @param { PickerTextStyle } value - indicates the text style of normal items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textStyle(value: PickerTextStyle): TextPickerAttribute;
+ 
+  /**
+   * Sets the text style of selected items
+   * @param { PickerTextStyle } value - indicates the text style of selected items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedTextStyle(value: PickerTextStyle): TextPickerAttribute;
+
   /**
    * Called when the pop-up value is returned.
    * @since 8
@@ -67,7 +136,16 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   onCancel(callback: () => void): TextPickerAttribute;
   /**
    * Called when the OK button in the pop-up window is clicked.
+   * @param { (value: string, index: number) => void } callback - the callback of onChange.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * This event is triggered when a TextPicker item is selected.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   * @param { (value: string, index: number) => void } callback - the callback of onChange.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
   onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
 }
@@ -79,7 +157,16 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
 declare interface TextPickerResult {
   /**
    * The currently selected value.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * The currently selected value.
+   * Only valid when only text is displayed.When picture or picture plus text is displayed, the value of value is "".
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
   value: string;
   /**
@@ -99,6 +186,29 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 8
    */
   defaultPickerItemHeight?: number | string;
+  /**
+   * Text style of disappearing items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  disappearTextStyle?: PickerTextStyle;
+
+  /**
+   * Text style of normal items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textStyle?: PickerTextStyle;
+
+  /**
+   * Text style of selected items
+   * @type { PickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedTextStyle?: PickerTextStyle;
   /**
    * Called when the OK button in the dialog is clicked.
    * @since 8
@@ -128,5 +238,14 @@ declare class TextPickerDialog {
   static show(options?: TextPickerDialogOptions);
 }
 
+/**
+ * Defines TextPicker Component.
+ * @since 8
+ */
 declare const TextPicker: TextPickerInterface;
+
+/**
+ * Defines TextPicker Component instance.
+ * @since 8
+ */
 declare const TextPickerInstance: TextPickerAttribute;

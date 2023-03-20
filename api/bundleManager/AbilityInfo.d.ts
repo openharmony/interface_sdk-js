@@ -105,12 +105,12 @@ export interface AbilityInfo {
   readonly process: string;
 
   /**
-   * Indicates whether an ability can be called by other abilities
+   * Indicates whether this ability can be called by other abilities
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly isVisible: boolean;
+  readonly exported: boolean;
 
   /**
    * Enumerates types of templates that can be used by an ability

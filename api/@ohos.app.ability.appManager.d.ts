@@ -281,6 +281,33 @@ declare namespace appManager {
     function getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
     /**
+     * Check whether the shared bundle is running.
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { string } bundleName - Indicates the bundle name of the shared bundle.
+     * @param { number } versionCode - Indicates the version code of the shared bundle.
+     * @returns { Promise<boolean> } Returns the shared bundle running result. The result is true if running, false otherwise.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 10
+     */
+    function isSharedBundleRunning(bundleName: string, versionCode: number): Promise<boolean>;
+
+    /**
+     * Check whether the shared bundle is running.
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { string } bundleName - Indicates the bundle name of the shared bundle.
+     * @param { number } versionCode - Indicates the version code of the shared bundle.
+     * @param { AsyncCallback<boolean> } callback - The callback of checking the shared bundle running result. The result is true if running, false otherwise.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 10
+     */
+    function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
+
+
+    /**
      * The ability or extension state data.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -132,10 +132,10 @@ declare namespace osAccount {
         isOsAccountConstraintEnable(localId: number, constraint: string): Promise<boolean>;
 
         /**
-         * Checks whether a constraint has been enabled for an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-         * @param localId Indicates the local ID of the OS account.
-         * @param constraint Indicates the constraint to check. The value can be:
+         * Checks whether the given constraint is enabled for the specified OS account.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
          *        <ul>
          *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
          *        </li>
@@ -145,17 +145,39 @@ declare namespace osAccount {
          *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
          *        from unknown sources.</li>
          *        </ul>
-         * @returns Returns {@code true} if the constraint has been enabled for the OS account;
-         *         returns {@code false} otherwise.
-         * @throws {BusinessError} 201 - permission denied.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid localId or constraint.
-         * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
+         * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the constraint is enabled for the specified OS account.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId or constraint.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
          * @since 9
          */
-        checkConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
-        checkConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
+        checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Checks whether the given constraint is enabled for the specified OS account.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { string } constraint - Indicates the constraint to check. For example: the value can be:
+         *        <ul>
+         *        <li>{@code constraint.wifi.set} - Indicates the constraint on configuring the Wi-Fi access point.
+         *        </li>
+         *        <li>{@code constraint.sms.use} - Indicates the constraint on sending and receiving short messages.
+         *        </li>
+         *        <li>{@code constraint.calls.outgoing} - Indicates the constraint on making calls.</li>
+         *        <li>{@code constraint.unknown.sources.install} - Indicates the constraint on installing applications
+         *        from unknown sources.</li>
+         *        </ul>
+         * @returns { Promise<boolean> } Returns whether the given constraint is enabled for the specified OS account.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId or constraint.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
+         * @since 9
+         */
+        checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
         
         /**
          * Checks whether this OS account is a test OS account.
@@ -193,21 +215,48 @@ declare namespace osAccount {
         isOsAccountVerified(localId?: number): Promise<boolean>;
 
         /**
-         * Checks whether an OS account has been verified based on its ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-         * @param localId Indicates the local ID of the OS account.
-         * @returns Returns {@code true} if the OS account has been verified successfully;
-         *          returns {@code false} otherwise.
-         * @throws {BusinessError} 201 - permission denied.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid localId.
-         * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
+         * Checks whether the current OS account is verified.
+         * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the current OS account is verified.
+         * @throws { BusinessError } 12300001 - system service exception.
          * @since 9
          */
         checkOsAccountVerified(callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Checks whether the current OS account is verified.
+         * @returns { Promise<boolean> } Returns whether the current OS account is verified.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @since 9
+         */
+        checkOsAccountVerified(): Promise<boolean>;
+
+        /**
+         * Checks whether the specified OS account is verified.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the specified OS account is verified.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
+         * @since 9
+         */
         checkOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
-        checkOsAccountVerified(localId?: number): Promise<boolean>;
+
+        /**
+         * Checks whether the specified OS account is verified.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @returns { Promise<boolean> } Returns whether the specified OS account is verified.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
+         * @since 9
+         */
+        checkOsAccountVerified(localId: number): Promise<boolean>;
 
         /**
          * Removes an OS account based on its local ID.
@@ -304,20 +353,28 @@ declare namespace osAccount {
          * @returns Returns the local ID of the OS account.
          * @since 7
          * @deprecated since 9
-         * @useinstead osAccount.AccountManager#queryOsAccountLocalIdFromProcess
+         * @useinstead osAccount.AccountManager#getOsAccountLocalId
          */
         getOsAccountLocalIdFromProcess(callback: AsyncCallback<number>): void;
         getOsAccountLocalIdFromProcess(): Promise<number>;
 
         /**
-         * Queries the local ID of an OS account from the current process UID.
-         * @returns Returns the local ID of the OS account.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
+         * Gets the local ID of the current OS account.
+         * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the current OS account.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
          * @since 9
          */
-        queryOsAccountLocalIdFromProcess(callback: AsyncCallback<number>): void;
-        queryOsAccountLocalIdFromProcess(): Promise<number>;
+        getOsAccountLocalId(callback: AsyncCallback<number>): void;
+
+        /**
+         * Get the local ID of the current OS account.
+         * @returns { Promise<number> } Returns the local ID of the current account.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @since 9
+         */
+        getOsAccountLocalId(): Promise<number>;
 
         /**
          * Gets the local ID of an OS account from the process UID
@@ -325,49 +382,70 @@ declare namespace osAccount {
          * @returns Returns the local ID of the OS account.
          * @since 7
          * @deprecated since 9
-         * @useinstead osAccount.AccountManager#queryOsAccountLocalIdFromUid
+         * @useinstead osAccount.AccountManager#getOsAccountLocalIdForUid
          */
         getOsAccountLocalIdFromUid(uid: number, callback: AsyncCallback<number>): void;
         getOsAccountLocalIdFromUid(uid: number): Promise<number>;
 
         /**
-         * Queries the local ID of an OS account from the process UID.
-         * @param uid Indicates the process UID.
-         * @returns Returns the local ID of the OS account.
+         * Gets the local ID of the OS account associated with the specified UID.
+         * @param { number } uid - Indicates the process UID.
+         * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified UID.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid uid.
          * @since 9
          */
-        queryOsAccountLocalIdFromUid(uid: number, callback: AsyncCallback<number>): void;
-        queryOsAccountLocalIdFromUid(uid: number): Promise<number>;
+        getOsAccountLocalIdForUid(uid: number, callback: AsyncCallback<number>): void;
 
         /**
-         * Queries the local ID of an OS account which is bound to the specified domain account
+         * Get the local ID of the OS account associated with the specified UID.
+         * @param { number } uid - Indicates the process UID.
+         * @returns { Promise<number> } Returns the local ID of the OS account associated with the specified UID.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid uid.
+         * @since 9
+         */
+        getOsAccountLocalIdForUid(uid: number): Promise<number>;
+
+        /**
+         * Queries the local ID of an OS account which is bound to the specified domain account.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param domainInfo Indicates the domain account info.
          * @returns Returns the local ID of the OS account.
          * @since 8
          * @deprecated since 9
-         * @useinstead osAccount.AccountManager#queryOsAccountLocalIdFromDomain
+         * @useinstead osAccount.AccountManager#getOsAccountLocalIdForDomain
          */
         getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
         getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo): Promise<number>;
 
         /**
-         * Queries the ID of an account which is bound to the specified domain account
-         *
+         * Gets the local ID of the OS account associated with the specified domain account.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-         * @param domainInfo Indicates the domain account info.
-         * @returns Returns the local ID of the OS account.
-         * @throws {BusinessError} 201 - permission denied.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid domainInfo.
+         * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
+         * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified domain account.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainInfo.
          * @since 9
          */
-        queryOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
-        queryOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo): Promise<number>;
+        getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
+
+        /**
+         * Gets the local ID of the OS account associated with the specified domain account.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
+         * @returns { Promise<number> } Returns the local ID of the OS account associated with the specified domain account.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainInfo.
+         * @since 9
+         */
+        getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<number>;
 
         /**
          * Queries the maximum number of OS accounts that can be created on a device.
@@ -427,20 +505,28 @@ declare namespace osAccount {
          * @returns Returns a id list of OS accounts.
          * @since 8
          * @deprecated since 9
-         * @useinstead osAccount.AccountManager#getActivatedOsAccountIds
+         * @useinstead osAccount.AccountManager#getActivatedOsAccountLocalIds
          */
         queryActivatedOsAccountIds(callback: AsyncCallback<Array<number>>): void;
         queryActivatedOsAccountIds(): Promise<Array<number>>;
 
         /**
-         * Gets the id list of all activated accounts.
-         * @returns Returns a id list of OS accounts.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
+         * Gets the local IDs of all activated OS accounts.
+         * @param { AsyncCallback<Array<number>> } callback - Indicates the callback for getting the local IDs of all activated OS accounts.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
          * @since 9
          */
-        getActivatedOsAccountIds(callback: AsyncCallback<Array<number>>): void;
-        getActivatedOsAccountIds(): Promise<Array<number>>;
+        getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<number>>): void;
+
+        /**
+         * Gets the local IDs of all activated OS accounts.
+         * @returns { Promise<Array<number>> } Returns all activated accounts.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @since 9
+         */
+        getActivatedOsAccountLocalIds(): Promise<Array<number>>;
 
         /**
          * Creates an OS account using the local name and account type.
@@ -625,23 +711,34 @@ declare namespace osAccount {
          * @returns localId.
          * @since 8
          * @deprecated since 9
-         * @useinstead osAccount.AccountManager#queryOsAccountLocalIdBySerialNumber
+         * @useinstead osAccount.AccountManager#getOsAccountLocalIdForSerialNumber
          */
         getOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback<number>): void;
         getOsAccountLocalIdBySerialNumber(serialNumber: number): Promise<number>;
 
         /**
-         * Queries account ID according to serial number
-         * @param serialNumber Indicates serial number.
-         * @returns localId.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid serialNumber.
-         * @throws {BusinessError} 12300003 - the account indicated by serialNumber dose not exist.
+         * Gets the local ID of the OS account associated with the serial number.
+         * @param { number } serialNumber - Indicates serial number.
+         * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the serial number.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid serialNumber.
+         * @throws { BusinessError } 12300003 - the account indicated by serialNumber dose not exist.
          * @since 9
          */
-        queryOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback<number>): void;
-        queryOsAccountLocalIdBySerialNumber(serialNumber: number): Promise<number>;
+        getOsAccountLocalIdForSerialNumber(serialNumber: number, callback: AsyncCallback<number>): void;
+
+        /**
+         * Gets the local ID of the OS account associated with the serial number.
+         * @param { number } serialNumber - Indicates serial number.
+         * @returns { Promise<number> } Returns the local ID of the OS account associated with the serial number.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid serialNumber.
+         * @throws { BusinessError } 12300003 - the account indicated by serialNumber dose not exist.
+         * @since 9
+         */
+        getOsAccountLocalIdForSerialNumber(serialNumber: number): Promise<number>;
 
         /**
          * Obtain serial number according to localId.
@@ -649,23 +746,34 @@ declare namespace osAccount {
          * @returns serial number.
          * @since 8
          * @deprecated since 9
-         * @useinstead osAccount.AccountManager#querySerialNumberByOsAccountLocalId
+         * @useinstead osAccount.AccountManager#getSerialNumberForOsAccountLocalId
          */
         getSerialNumberByOsAccountLocalId(localId: number, callback: AsyncCallback<number>): void;
         getSerialNumberByOsAccountLocalId(localId: number): Promise<number>;
 
         /**
-         * Queries serial number according to account ID.
-         * @param localId Indicates the local ID of the OS account.
-         * @returns serial number.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid localId.
-         * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
+         * Gets the serial number for the specified os account local id.
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { AsyncCallback<number> } callback - Indicates the callback for getting the serial number for the specified os account local id.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
          * @since 9
          */
-        querySerialNumberByOsAccountLocalId(localId: number, callback: AsyncCallback<number>): void;
-        querySerialNumberByOsAccountLocalId(localId: number): Promise<number>;
+        getSerialNumberForOsAccountLocalId(localId: number, callback: AsyncCallback<number>): void;
+
+        /**
+         * Gets the serial number for the specified os account local id.
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @returns { Promise<number> } Returns the serial number according to local ID.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
+         * @since 9
+         */
+        getSerialNumberForOsAccountLocalId(localId: number): Promise<number>;
 
         /**
          * Subscribes to the change events of accounts.
@@ -705,18 +813,30 @@ declare namespace osAccount {
         off(type: 'activate' | 'activating', name: string, callback?: Callback<number>): void;
 
         /**
-         * Obtain bundle id from uid.
-         * @param uid Indicates the target uid.
-         * @returns bundle id.
-         * @throws {BusinessError} 202 - not system application.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid uid.
+         * Gets the bundle ID associated with the specified UID.
+         * @param { number } uid - Indicates the target uid.
+         * @param { AsyncCallback<number> } callback - Indicates the callback for getting the bundle ID associated with the specified UID.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid uid.
          * @systemapi Hide this for inner system use.
          * @since 9
          */
-        getBundleIdFromUid(uid: number, callback: AsyncCallback<number>): void;
-        getBundleIdFromUid(uid: number): Promise<number>;
+        getBundleIdForUid(uid: number, callback: AsyncCallback<number>): void;
+
+        /**
+         * Gets the bundle ID associated with the specified UID.
+         * @param { number } uid - Indicates the target uid.
+         * @returns { Promise<number> } Returns the bundle ID associated with the specified UID.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid uid.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        getBundleIdForUid(uid: number): Promise<number>;
 
         /**
          * Check whether current process belongs to the main account.
@@ -734,20 +854,38 @@ declare namespace osAccount {
         isMainOsAccount(): Promise<boolean>;
 
         /**
-         * Query the constraint source type list of the OS account.
+         * Gets a list of constraint source types for the specified os account.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-         * @returns Returns the constraint source type infos of the os account;
-         * @throws {BusinessError} 201 - permission denied.
-         * @throws {BusinessError} 202 - not system application.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid name or constraint.
-         * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { string } constraint - Indicates the constraint to query the source type.
+         * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - Indicates the callback for getting a list of constraint source types for the specified os account.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid name or constraint.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
          * @systemapi Hide this for inner system use.
          * @since 9
          */
-        queryOsAccountConstraintSourceTypes(localId: number, constraint: string, callback: AsyncCallback<Array<ConstraintSourceTypeInfo>>): void;
-        queryOsAccountConstraintSourceTypes(localId: number, constraint: string): Promise<Array<ConstraintSourceTypeInfo>>;
+        getOsAccountConstraintSourceTypes(localId: number, constraint: string, callback: AsyncCallback<Array<ConstraintSourceTypeInfo>>): void;
+
+        /**
+         * Gets a list of constraint source types for the specified os account.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { string } constraint - Indicates the constraint to query the source type.
+         * @returns { Promise<Array<ConstraintSourceTypeInfo>> } Returns a list of constraint source types for the specified os account.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid name or constraint.
+         * @throws { BusinessError } 12300003 - the account indicated by localId dose not exist.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        getOsAccountConstraintSourceTypes(localId: number, constraint: string): Promise<Array<ConstraintSourceTypeInfo>>;
     }
 
     /**
@@ -848,6 +986,13 @@ declare namespace osAccount {
         * @since 8
         */
         accountName: string;
+
+        /**
+         * The account identifier in the domain.
+         * @type { ?string }
+         * @since 10
+         */
+        accountId?: string;
     }
 
     /**
@@ -1092,6 +1237,31 @@ declare namespace osAccount {
     }
 
     /**
+     * Provides the AuthStatusInfo type.
+     * @typedef AuthStatusInfo
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    interface AuthStatusInfo {
+        /**
+         * Indicates the remaining times that authentication can be performed.
+         * @type { number }
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        remainTimes: number;
+
+        /**
+         * Indicates the freezing time before performing the next authentication.
+         * @type { number }
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        freezingTime: number;
+    }
+
+    /**
      * Provides the definition of domain plugin.
      * @interface DomainPlugin
      * @syscap SystemCapability.Account.OsAccount
@@ -1107,6 +1277,63 @@ declare namespace osAccount {
          * @since 9
          */
         auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the specified domain account with a popup.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        authWithPopup(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the specified domain account with an authorization token.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { Uint8Array } token - Indicates the authorization token generated when PIN or biometric authentication is successful.
+         * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Gets the domain account information based on its domain and account name.
+         * @param { string } domain - Indicates the domain to which the account belongs.
+         * @param { string } accountName - Indicates the account name.
+         * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        getAccountInfo(domain: string, accountName: string, callback: AsyncCallback<DomainAccountInfo>): void;
+
+        /**
+         * Gets the domain authentication property for the specified domain account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { AsyncCallback<AuthStatusInfo> } callback - Indicates the callback for notifying the domain authentication status information.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        getAuthStatusInfo(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<AuthStatusInfo>): void;
+
+        /**
+         * Binds the specified domain account with an OS account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        bindAccount(domainAccountInfo: DomainAccountInfo, localId: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Unbind the specified domain account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
     }
 
     /**
@@ -1139,6 +1366,113 @@ declare namespace osAccount {
          * @since 9
          */
         static unregisterPlugin(): void;
+
+        /**
+         * Authenticates the specified domain account with a credential.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { Uint8Array } credential - Indicates the credential for authentication.
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainAccountInfo or credential.
+         * @throws { BusinessError } 12300003 - domain account does not exist.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300109 - authentication is canceled.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exist.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the domain account bound to the current OS account with a popup.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @static
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300003 - no domain account is bound.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300109 - authentication is canceled.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exist.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static authWithPopup(callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the domain account bound to the specified OS account with a popup.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @static
+         * @param { number } localId - Indicates the local ID of the specified OS account.
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid localId.
+         * @throws { BusinessError } 12300003 - no domain account is bound.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300109 - authentication is canceled.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exist.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static authWithPopup(localId: number, callback: IUserAuthCallback): void;
+
+        /**
+         * Checks whether the specified domain account exists.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether the specified domain account exists.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainAccountInfo.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static hasAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Checks whether the specified domain account exists.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @returns { Promise<boolean> } Returns whether the specified domain account exists.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300002 - invalid domainAccountInfo.
+         * @throws { BusinessError } 12300013 - network exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static hasAccount(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
     }
 
     /**
@@ -1884,21 +2218,25 @@ declare namespace osAccount {
     enum ConstraintSourceType {
         /**
          * No constraints are set
+         * @since 9
          */
         CONSTRAINT_NOT_EXIST = 0,
 
         /**
          * Constraint is set by setOsAccountConstraints
+         * @since 9
          */
         CONSTRAINT_TYPE_BASE = 1,
 
         /**
          * Constraint is set by device owner
+         * @since 9
          */
         CONSTRAINT_TYPE_DEVICE_OWNER = 2,
 
         /**
          * Constraint is set by profile owner
+         * @since 9
          */
         CONSTRAINT_TYPE_PROFILE_OWNER = 3
     }
@@ -1914,11 +2252,13 @@ declare namespace osAccount {
         /**
          * Indicates the id of an os account who set the constraint.
          * When type is CONSTRAINT_NOT_EXIST or CONSTRAINT_TYPE_BASE, localId will be -1.
+         * @since 9
          */
         localId: number;
 
         /**
          * Indicates the source type of the constraint.
+         * @since 9
          */
         type: ConstraintSourceType;
     }

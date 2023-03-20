@@ -900,6 +900,14 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
    * @since 8
    */
+  /**
+   * Draw an image on a canvas
+   * @param image Picture objects drawn to the canvas.
+   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @form
+   * @since 9
+   */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
   /**
@@ -910,6 +918,16 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @since 8
+   */
+  /**
+   * Draw an image on a canvas
+   * @param image Picture objects drawn to the canvas.
+   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @form
+   * @since 9
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -925,6 +943,20 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @since 8
+   */
+  /**
+   *Draw an image on a canvas
+   * @param image Picture objects drawn to the canvas.
+   * @param sx x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param sy y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param sw Width of the rectangle (cropping) selection box of the image.
+   * @param sh Height of the rectangle (cropping) selection box of the image.
+   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @form
+   * @since 9
    */
   drawImage(
     image: ImageBitmap | PixelMap,
@@ -1819,6 +1851,14 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *    If the value is out of the range, the default value 0.92 is used.
    * @since 8
    */
+  /**
+   * Generate a character string in the data url format.
+   * @param type Image format. The default value is image/png.
+   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *    If the value is out of the range, the default value 0.92 is used.
+   * @form
+   * @since 9
+   */
   toDataURL(type?: string, quality?: any): string;
 
   /**
@@ -1851,6 +1891,14 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @since 8
+   */
+  /**
+   * Generate a character string in the data url format.
+   * @param type Image format. The default value is image/png.
+   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *    If the value is out of the range, the default value 0.92 is used.
+   * @form
+   * @since 9
    */
   toDataURL(type?: string, quality?: any): string;
 
@@ -1979,5 +2027,24 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   onReady(event: () => void): CanvasAttribute;
 }
 
+/**
+ * Defines Canvas Component.
+ * @since 8
+ */
+/**
+ * Defines Canvas Component.
+ * @form
+ * @since 9
+ */
 declare const Canvas: CanvasInterface;
+
+/**
+ * Defines Canvas Component instance.
+ * @since 8
+ */
+/**
+ * Defines Canvas Component instance.
+ * @form
+ * @since 9
+ */
 declare const CanvasInstance: CanvasAttribute;

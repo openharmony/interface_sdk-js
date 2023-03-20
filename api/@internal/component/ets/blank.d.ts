@@ -57,5 +57,24 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   color(value: ResourceColor): BlankAttribute;
 }
 
+/**
+ * Defines Blank Component.
+ * @since 7
+ */
+/**
+ * Defines Blank Component.
+ * @form
+ * @since 9
+ */
 declare const Blank: BlankInterface;
+
+/**
+ * Defines Blank Component instance.
+ * @since 7
+ */
+/**
+ * Defines Blank Component instance.
+ * @form
+ * @since 9
+ */
 declare const BlankInstance: BlankAttribute;

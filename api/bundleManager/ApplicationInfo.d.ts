@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,6 +15,7 @@
 
 import { Metadata } from './Metadata';
 import { Resource } from '../global/resource';
+import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Obtains configuration information about an application
@@ -188,6 +189,14 @@ export interface ApplicationInfo {
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   */ 
+   */
   readonly systemApp: boolean;
+
+  /**
+   * Indicates the type of application is APP or atomicService.
+   * @type {bundleManager.BundleType}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly bundleType: bundleManager.BundleType;
 }

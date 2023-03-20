@@ -17,10 +17,20 @@
  * looping function.
  * @since 7
  */
+/**
+ * looping function.
+ * @form
+ * @since 9
+ */
 interface ForEachInterface {
   /**
    * Set the value, array, and key.
    * @since 7
+   */
+  /**
+   * Set the value, array, and key.
+   * @form
+   * @since 9
    */
   (
     arr: Array<any>,
@@ -29,4 +39,13 @@ interface ForEachInterface {
   ): ForEachInterface;
 }
 
+/**
+ * Defines ForEach Component.
+ * @since 7
+ */
+/**
+ * Defines ForEach Component.
+ * @form
+ * @since 9
+ */
 declare const ForEach: ForEachInterface;

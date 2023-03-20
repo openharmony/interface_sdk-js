@@ -18,6 +18,7 @@ alerting
 algrithom
 aligns
 alpha
+alpnprotocols
 alterase
 alternating
 altitudes
@@ -129,6 +130,7 @@ cyclewindows
 daltonization
 darkest
 dataability
+datareceive
 dataresubmissionhandler
 datashare
 datasync
@@ -178,6 +180,7 @@ donot
 downlink
 dpad
 drains
+dragbar
 drawbuffer
 dsf
 dtmf
@@ -300,6 +303,7 @@ ineffective
 injects
 ino
 inputer
+inputers
 inputevent
 inputmethod
 inputmethodengine
@@ -327,6 +331,7 @@ kaihong
 kbdillum
 kbdinputassist
 kbps
+keyof
 keyframe
 keyguard
 keyusage
@@ -358,6 +363,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightupEffect
 lpx
 lru
 lshort
@@ -372,6 +378,8 @@ lux
 mah
 mcc
 md5
+mdns
+mdns_err
 mediaquery
 meid
 messageerror
@@ -399,6 +407,7 @@ muhenkan
 multifrequency
 multimodal
 multisample
+multisim
 multitask
 mutes
 narrowband
@@ -420,17 +429,19 @@ numpad
 nvalidates
 nweb
 oaep
-ondataresubmission
-ondataresubmitted
 ofb
 offhook
 offscreen
+omapi
 oncancel
+ondataresubmission
+ondataresubmitted
 onexit
 onfinish
 onframe
 onmessageerror
 onrepeat
+oobinline
 oper
 operated
 operatorconfigs
@@ -484,6 +495,7 @@ precomposed
 precon
 preempted
 preferentially
+preloads
 premises
 premultiplied
 premultiply
@@ -554,6 +566,7 @@ ruim
 rwt
 s5
 sac
+sae
 sak
 satellites
 scdma
@@ -581,6 +594,7 @@ sigalgs
 silenced
 slidable
 sliderstyle
+stk
 sm3
 smil
 smsc
@@ -610,15 +624,16 @@ storei
 storge
 stroked
 subassembies
+subassemblies
 subcomponents
 subnode
 subpixel
-suscriber
 subscrbers
 subscribale
 subscribes
 subtypes
 superimposed
+suscriber
 suscribes
 suspends
 switchvideomode
@@ -639,6 +654,7 @@ talkback
 taskmanager
 taskpool
 tbla
+tcpnodelay
 tdscdma
 telecom
 tethering
@@ -648,6 +664,8 @@ textclock
 texttimer
 thirdparty
 timeinterfaceimpl
+tlsv12
+tlsv13
 tnf
 totalsize
 touchpad
@@ -737,6 +755,7 @@ wakes
 waking
 wallpapers
 wapi
+wappush
 watchers
 waterflow
 wcdma

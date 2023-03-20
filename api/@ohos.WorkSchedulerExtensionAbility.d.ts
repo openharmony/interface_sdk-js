@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import workScheduler from "./@ohos.resourceschedule.workScheduler";
+import workScheduler from './@ohos.resourceschedule.workScheduler';
+import WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
 
 /**
  * Class of the work scheduler extension ability.
@@ -23,23 +24,32 @@ import workScheduler from "./@ohos.resourceschedule.workScheduler";
  * @since 9
  */
 export default class WorkSchedulerExtensionAbility {
-    /**
-     * Called back when a work is started.
-     *
-     * @param {workScheduler.WorkInfo} work - The info of work.
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
-     * @since 9
-     */
-    onWorkStart(work: workScheduler.WorkInfo): void;
+  /**
+   * Indicates work scheduler extension ability context.
+   *
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @StageModelOnly
+   * @since 10
+   */
+  context: WorkSchedulerExtensionContext;
 
-    /**
-     * Called back when a work is stopped.
-     *
-     * @param {workScheduler.WorkInfo} work - The info of work.
-     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-     * @StageModelOnly
-     * @since 9
-     */
-    onWorkStop(work: workScheduler.WorkInfo): void;
+  /**
+   * Called back when a work is started.
+   *
+   * @param {workScheduler.WorkInfo} work - The info of work.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @StageModelOnly
+   * @since 9
+   */
+  onWorkStart(work: workScheduler.WorkInfo): void;
+
+  /**
+   * Called back when a work is stopped.
+   *
+   * @param {workScheduler.WorkInfo} work - The info of work.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @StageModelOnly
+   * @since 9
+   */
+  onWorkStop(work: workScheduler.WorkInfo): void;
 }

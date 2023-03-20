@@ -27,9 +27,16 @@ export interface MeasureOptions {
     /**
      * Text to display.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @type { ( string ) }
      * @since 9
      */
-    textContent: string;
+    /**
+     * Text to display.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @type { ( string | Resource ) }
+     * @since 10
+     */
+    textContent: string | Resource;
 
     /**
      * Text display area of width.

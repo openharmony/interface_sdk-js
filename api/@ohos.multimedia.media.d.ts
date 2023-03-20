@@ -392,6 +392,13 @@ declare namespace media {
     fdSrc ?: AVFileDescriptor;
 
     /**
+     * DataSource descriptor. Supports mainstream media formats.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    dataSrc?: AVDataSrcDescriptor;
+
+    /**
      * Whether to loop media playback.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -736,6 +743,12 @@ declare namespace media {
     CACHED_DURATION = 4,
   }
 
+  /**
+   * Media file descriptor. The caller needs to ensure that the fd is valid and
+   * the offset and length are correct.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
   interface AVFileDescriptor {
     /**
      * The file descriptor of audio or video source from file system. The caller
@@ -760,6 +773,33 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     length?: number
+  }
+
+  /**
+    * DataSource descriptor. The caller needs to ensure that the fileSize and 
+    * callback is valid.
+    * @since 10
+    * @syscap SystemCapability.Multimedia.Media.AVPlayer
+    */
+  interface AVDataSrcDescriptor {
+    /**
+     * Size of the file, -1 means the file size is unknown, in this case,
+     * seek and setSpeed can't be executed, loop can't be set, and can't replay.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    fileSize: number;
+    /**
+     * Callback function implemented by users, which is used to fill data.
+     * @param buffer The buffer need to fill.
+     * @param length The stream length player want to get.
+     * @param pos The stream position player want get start, and is an optional parameter.
+     * When fileSize set to -1, this parameter is not used.
+     * @returns Returns length of the data to be filled.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    callback: (buffer: ArrayBuffer, length: number, pos?: number) => number;
   }
 
   /**

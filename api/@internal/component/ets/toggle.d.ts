@@ -123,5 +123,24 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   switchPointColor(color: ResourceColor): ToggleAttribute;
 }
 
+/**
+ * Defines Toggle Component.
+ * @since 8
+ */
+/**
+ * Defines Toggle Component.
+ * @form
+ * @since 9
+ */
 declare const Toggle: ToggleInterface;
+
+/**
+ * Defines Toggle Component instance.
+ * @since 8
+ */
+/**
+ * Defines Toggle Component instance.
+ * @form
+ * @since 9
+ */
 declare const ToggleInstance: ToggleAttribute;
