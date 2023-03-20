@@ -27,7 +27,7 @@
     readonly label?: string;
 
     /**
-     * The name of input method subtype.
+     * The name of input method.
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
