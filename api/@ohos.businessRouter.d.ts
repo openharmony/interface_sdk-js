@@ -75,7 +75,7 @@ declare namespace businessRouter {
     /**
      * Indicates the supported mime type of business ability info
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -85,7 +85,7 @@ declare namespace businessRouter {
     /**
      * Indicates the supported uri of business ability info
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
