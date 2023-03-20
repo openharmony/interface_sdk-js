@@ -556,34 +556,6 @@ declare namespace relationalStore
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns ?: Array<string>): Promise<ResultSet>;
 
         /**
-         * Queries remote data in the database based on specified conditions before Synchronizing Data.
-         *
-         * @param {string} device - indicates specified remote device.
-         * @param {string} table - indicates the target table.
-         * @param {RdbPredicates} predicates - the specified remote remote query condition by the instance object of {@link RdbPredicates}.
-         * @param {Array<string>} columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
-         * @param {AsyncCallback<ResultSet>} callback - the {@link ResultSet} object if the operation is successful.
-         * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-
-        /**
-         * Queries remote data in the database based on specified conditions before Synchronizing Data.
-         *
-         * @param {string} device - indicates specified remote device.
-         * @param {string} table - indicates the target table.
-         * @param {RdbPredicates} predicates - the specified remote remote query condition by the instance object of {@link RdbPredicates}.
-         * @param {Array<string>} columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
-         * @returns {Promise<ResultSet>} the {@link ResultSet} object if the operation is successful.
-         * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
-
-        /**
          * Queries data in the database based on SQL statement.
          *
          * @param {string} sql - indicates the SQL statement to execute.
@@ -709,6 +681,7 @@ declare namespace relationalStore
          * @param {Array<string>} tables - indicates the tables name you want to set.
          * @param {AsyncCallback<void>} callback - the callback of setDistributedTables.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -721,6 +694,7 @@ declare namespace relationalStore
          * @param {Array<string>} tables - indicates the tables name you want to set.
          * @returns {Promise<void>} the promise returned by the function.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -734,6 +708,7 @@ declare namespace relationalStore
          * @param {string} device - indicates the remote device.
          * @param {AsyncCallback<string>} callback - {string}: the distributed table name.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -747,6 +722,7 @@ declare namespace relationalStore
          * @param {string} device - indicates the remote device.
          * @returns {Promise<string>} {string}: the distributed table name.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -760,6 +736,7 @@ declare namespace relationalStore
          * @param {RdbPredicates} predicates - the specified sync condition by the instance object of {@link RdbPredicates}.
          * @param {AsyncCallback<Array<[string, number]>>} callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -773,10 +750,41 @@ declare namespace relationalStore
          * @param {RdbPredicates} predicates - the specified sync condition by the instance object of {@link RdbPredicates}.
          * @returns {Promise<Array<[string, number]>>} {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
         sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[ string, number ]>>;
+
+        /**
+         * Queries remote data in the database based on specified conditions before Synchronizing Data.
+         *
+         * @param {string} device - indicates specified remote device.
+         * @param {string} table - indicates the target table.
+         * @param {RdbPredicates} predicates - the specified remote remote query condition by the instance object of {@link RdbPredicates}.
+         * @param {Array<string>} columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
+         * @param {AsyncCallback<ResultSet>} callback - the {@link ResultSet} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+
+        /**
+         * Queries remote data in the database based on specified conditions before Synchronizing Data.
+         *
+         * @param {string} device - indicates specified remote device.
+         * @param {string} table - indicates the target table.
+         * @param {RdbPredicates} predicates - the specified remote remote query condition by the instance object of {@link RdbPredicates}.
+         * @param {Array<string>} columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
+         * @returns {Promise<ResultSet>} the {@link ResultSet} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
 
         /**
          * Registers an observer for the database. When data in the distributed database changes,
@@ -786,6 +794,7 @@ declare namespace relationalStore
          * @param {SubscribeType} type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
          * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the observer of data change events in the distributed database.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -798,6 +807,7 @@ declare namespace relationalStore
          * @param {SubscribeType} type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
          * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the data change observer already registered.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 801 - Capability not supported.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
