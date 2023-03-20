@@ -14,20 +14,20 @@
  */
 
 import { ApplicationInfo } from './ApplicationInfo';
-import serviceRouter from './../@ohos.serviceRouter';
+import businessRouter from './../@ohos.businessRouter';
 
   /**
-   * Service information about a bundle
-   * @typedef ServiceInfo
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * Contains basic business ability information.
+   * @typedef BusinessAbilityInfo
+   * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
    * @systemapi
    * @since 10
    */
-  export interface ServiceInfo {
+  export interface BusinessAbilityInfo {
     /**
      * Indicates the name of the bundle
      * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
     readonly bundleName: string;
@@ -35,7 +35,7 @@ import serviceRouter from './../@ohos.serviceRouter';
     /**
      * Indicates the name of the module
      * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
     readonly moduleName: string;
@@ -43,7 +43,7 @@ import serviceRouter from './../@ohos.serviceRouter';
     /**
      * Indicates the name of the service info
      * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
     readonly name: string;
@@ -51,7 +51,7 @@ import serviceRouter from './../@ohos.serviceRouter';
     /**
      * Indicates the label id of the service info
      * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
     readonly labelId: number;
@@ -59,7 +59,7 @@ import serviceRouter from './../@ohos.serviceRouter';
     /**
      * Indicates the description id of the service info
      * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
     readonly descriptionId: number;
@@ -67,31 +67,23 @@ import serviceRouter from './../@ohos.serviceRouter';
     /**
      * Indicates the icon id of the service info
      * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
     readonly iconId: number;
 
     /**
      * Enumerates types of the service info
-     * @type {serviceRouter.ExtensionServiceType}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @type {businessRouter.BusinessType}
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
-    readonly serviceType: serviceRouter.ExtensionServiceType;
-
-    /**
-     * The permissions that others need to use this service info
-     * @type {Array<string>}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly permissions: Array<string>;
+    readonly businessType: businessRouter.BusinessType;
 
     /**
      * Obtains configuration information about an application
      * @type {ApplicationInfo}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.BundleManager.BusinessRouterManager.Core
      * @since 10
      */
     readonly applicationInfo: ApplicationInfo;
