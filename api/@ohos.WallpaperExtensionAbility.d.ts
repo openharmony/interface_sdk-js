@@ -45,7 +45,7 @@ declare class WallpaperExtension {
   onWallpaperChanged(wallpaperType: number): void;
 
   /**
-   * Called once to destroy the exten.
+   * Called once to destroy the extension.
    *
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
