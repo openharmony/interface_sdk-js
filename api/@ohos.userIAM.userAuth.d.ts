@@ -739,17 +739,6 @@ declare namespace userAuth {
     }
 
     /**
-     * Get version information.
-     * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @returns Returns version information.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 9
-     */
-    function getVersion(): number;
-
-    /**
      * Check whether the authentication capability is available.
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param authType Credential type for authentication.
