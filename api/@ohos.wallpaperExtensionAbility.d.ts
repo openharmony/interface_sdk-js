@@ -39,6 +39,7 @@ declare class WallpaperExtension {
    * @param { number } wallpaperType - Indicates the wallpaper type.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
+   * @StageModelOnly
    * @since 9
    */
   onWallpaperChanged(wallpaperType: number): void;
