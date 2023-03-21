@@ -18,61 +18,75 @@
  *
  * @namespace charger
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
- * @since 10
  * @systemapi
+ * @since 10
  */
 declare namespace charger {
+  /**
+   * Indicates the type of the charger plugged-in.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @systemapi
+   * @since 10
+   */
+  export enum ChargeType {
     /**
-     * Indicates the type of the charger plugged-in.
+     * Unknown type
      *
-     * @enum {number}
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10
      */
-    export enum ChargeType {
-        /**
-         * Unknown type
-         * @syscap SystemCapability.PowerManager.BatteryManager.Core
-         * @since 10
-         */
-        NONE,
-        /**
-         * Wired normal type
-         * @syscap SystemCapability.PowerManager.BatteryManager.Core
-         * @since 10
-         */
-        WIRED_NORMAL,
-        /**
-         * Wired quick type
-         * @syscap SystemCapability.PowerManager.BatteryManager.Core
-         * @since 10
-         */
-        WIRED_QUICK,
-        /**
-         * Wired super quick type
-         * @syscap SystemCapability.PowerManager.BatteryManager.Core
-         * @since 10
-         */
-        WIRED_SUPER_QUICK,
-        /**
-         * Wireless normal type
-         * @syscap SystemCapability.PowerManager.BatteryManager.Core
-         * @since 10
-         */
-        WIRELESS_NORMAL,
-        /**
-         * Wireless quick type
-         * @syscap SystemCapability.PowerManager.BatteryManager.Core
-         * @since 10
-         */
-        WIRELESS_QUICK,
-        /**
-         * Wireless super quick type
-         * @syscap SystemCapability.PowerManager.BatteryManager.Core
-         * @since 10
-         */
-        WIRELESS_SUPER_QUICK,
-    }
+    NONE,
+    /**
+     * Wired normal type
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @systemapi
+     * @since 10
+     */
+    WIRED_NORMAL,
+    /**
+     * Wired quick type
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @systemapi
+     * @since 10
+     */
+    WIRED_QUICK,
+    /**
+     * Wired super quick type
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @systemapi
+     * @since 10
+     */
+    WIRED_SUPER_QUICK,
+    /**
+     * Wireless normal type
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @systemapi
+     * @since 10
+     */
+    WIRELESS_NORMAL,
+    /**
+     * Wireless quick type
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @systemapi
+     * @since 10
+     */
+    WIRELESS_QUICK,
+    /**
+     * Wireless super quick type
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @systemapi
+     * @since 10
+     */
+    WIRELESS_SUPER_QUICK
+  }
 }
 export default charger;
