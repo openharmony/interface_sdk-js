@@ -14,7 +14,7 @@
  */
 
 import type { ApplicationInfo } from './ApplicationInfo';
-import type businessAbilityRouter from './../@ohos.businessAbilityRouter';
+import type businessAbilityRouter from './../@ohos.app.businessAbilityRouter';
 
 /**
  * Contains basic business ability information.
