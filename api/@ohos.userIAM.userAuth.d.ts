@@ -177,7 +177,7 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param { AuthType } type Indicates the authentication type.
      * @param { SecureLevel } level Indicates the security level.
-     * @returns { Promise<number> } Returns authentication result, which is specified by AuthenticationResult.
+     * @returns { Promise<number> }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 6
      * @deprecated since 8
@@ -232,8 +232,8 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param { UserAuthType } authType Credential type for authentication.
      * @param { AuthTrustLevel } authTrustLevel Trust level of authentication result.
-     * @returns { number } Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum,
-     * **201** is check permission failed.
+     * @returns { number } Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum, **201** is
+     * check permission failed.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
