@@ -28,7 +28,7 @@ import { WantAgent } from './@ohos.wantAgent';
  */
 declare namespace geolocation {
     /**
-     * subscribe location changed
+     * Subscribe location changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
@@ -42,7 +42,7 @@ declare namespace geolocation {
     function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
 
     /**
-     * unsubscribe location changed
+     * Unsubscribe location changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
@@ -55,7 +55,7 @@ declare namespace geolocation {
     function off(type: 'locationChange', callback?: Callback<Location>): void;
 
     /**
-     * subscribe location switch changed
+     * Subscribe location switch changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'locationServiceState' } type - Indicates the location service event to be subscribed to.
@@ -68,7 +68,7 @@ declare namespace geolocation {
     function on(type: 'locationServiceState', callback: Callback<boolean>): void;
 
     /**
-     * unsubscribe location switch changed
+     * Unsubscribe location switch changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'locationServiceState' } type - Indicates the location service event to be subscribed to.
@@ -81,7 +81,7 @@ declare namespace geolocation {
     function off(type: 'locationServiceState', callback?: Callback<boolean>): void;
 
     /**
-     * subscribe to cache GNSS locations update messages
+     * Subscribe to cache GNSS locations update messages
      *
      * @permission ohos.permission.LOCATION
      * @param { 'cachedGnssLocationsReporting' } type - Indicates the location service event to be subscribed to.
@@ -95,7 +95,7 @@ declare namespace geolocation {
     function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
     /**
-     * unsubscribe to cache GNSS locations update messages
+     * Unsubscribe to cache GNSS locations update messages
      *
      * @permission ohos.permission.LOCATION
      * @param { 'cachedGnssLocationsReporting' } type - Indicates the location service event to be subscribed to.
@@ -108,7 +108,7 @@ declare namespace geolocation {
     function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>): void;
 
     /**
-     * subscribe gnss status changed
+     * Subscribe gnss status changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'gnssStatusChange' } type - Indicates the location service event to be subscribed to.
@@ -121,7 +121,7 @@ declare namespace geolocation {
     function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
     /**
-     * unsubscribe gnss status changed
+     * Unsubscribe gnss status changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'gnssStatusChange' } type - Indicates the location service event to be subscribed to.
@@ -134,7 +134,7 @@ declare namespace geolocation {
     function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
 
     /**
-     * subscribe nmea message changed
+     * Subscribe nmea message changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'nmeaMessageChange' } type - Indicates the location service event to be subscribed to.
@@ -147,7 +147,7 @@ declare namespace geolocation {
     function on(type: 'nmeaMessageChange', callback: Callback<string>): void;
 
     /**
-     * unsubscribe nmea message changed
+     * Unsubscribe nmea message changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'nmeaMessageChange' } type - Indicates the location service event to be subscribed to.
@@ -160,7 +160,7 @@ declare namespace geolocation {
     function off(type: 'nmeaMessageChange', callback?: Callback<string>): void;
 
     /**
-     * add a geofence and subscribe geo fence status changed
+     * Add a geofence and subscribe geo fence status changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'fenceStatusChange' } type - Indicates the location service event to be subscribed to.
@@ -174,7 +174,7 @@ declare namespace geolocation {
     function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
-     * remove a geofence and unsubscribe geo fence status changed
+     * Remove a geofence and unsubscribe geo fence status changed
      *
      * @permission ohos.permission.LOCATION
      * @param { 'fenceStatusChange' } type - Indicates the location service event to be subscribed to.
@@ -188,7 +188,7 @@ declare namespace geolocation {
     function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
-     * obtain current location
+     * Obtain current location
      *
      * @permission ohos.permission.LOCATION
      * @param { CurrentLocationRequest } request - Indicates the location request parameters.
@@ -201,7 +201,7 @@ declare namespace geolocation {
     function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
 
     /**
-     * obtain current location
+     * Obtain current location
      *
      * @permission ohos.permission.LOCATION
      * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
@@ -213,7 +213,7 @@ declare namespace geolocation {
     function getCurrentLocation(callback: AsyncCallback<Location>): void;
 
     /**
-     * obtain current location
+     * Obtain current location
      *
      * @permission ohos.permission.LOCATION
      * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
@@ -226,7 +226,7 @@ declare namespace geolocation {
     function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
 
     /**
-     * obtain last known location
+     * Obtain last known location
      *
      * @permission ohos.permission.LOCATION
      * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
@@ -238,7 +238,7 @@ declare namespace geolocation {
     function getLastLocation(callback: AsyncCallback<Location>): void;
 
     /**
-     * obtain last known location
+     * Obtain last known location
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<Location> } The promise returned by the function.
@@ -250,7 +250,7 @@ declare namespace geolocation {
     function getLastLocation(): Promise<Location>;
 
     /**
-     * obtain current location switch status
+     * Obtain current location switch status
      *
      * @permission ohos.permission.LOCATION
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for reporting the location switch result.
@@ -262,7 +262,7 @@ declare namespace geolocation {
     function isLocationEnabled(callback: AsyncCallback<boolean>): void;
 
     /**
-     * obtain current location switch status
+     * Obtain current location switch status
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<boolean> } The promise returned by the function.
@@ -274,7 +274,7 @@ declare namespace geolocation {
     function isLocationEnabled(): Promise<boolean>;
 
     /**
-     * request enable location
+     * Request enable location
      *
      * @permission ohos.permission.LOCATION
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for reporting the location switch status.
@@ -285,7 +285,7 @@ declare namespace geolocation {
     function requestEnableLocation(callback: AsyncCallback<boolean>): void;
 
     /**
-     * request enable location
+     * Request enable location
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<boolean> } The promise returned by the function.
@@ -296,7 +296,7 @@ declare namespace geolocation {
     function requestEnableLocation(): Promise<boolean>;
 
     /**
-     * obtain address info from location
+     * Obtain address info from location
      *
      * @permission ohos.permission.LOCATION
      * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
@@ -309,7 +309,7 @@ declare namespace geolocation {
     function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
 
     /**
-     * obtain address info from location
+     * Obtain address info from location
      *
      * @permission ohos.permission.LOCATION
      * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
@@ -322,7 +322,7 @@ declare namespace geolocation {
     function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
-     * obtain latitude and longitude info from location address
+     * Obtain latitude and longitude info from location address
      *
      * @permission ohos.permission.LOCATION
      * @param { GeoCodeRequest } request - Indicates the reverse geocode query parameters.
@@ -335,7 +335,7 @@ declare namespace geolocation {
     function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
 
     /**
-     * obtain latitude and longitude info from location address
+     * Obtain latitude and longitude info from location address
      *
      * @permission ohos.permission.LOCATION
      * @param { GeoCodeRequest } request - Indicates the reverse geocode query parameters.
@@ -348,7 +348,7 @@ declare namespace geolocation {
     function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
-     * obtain geocode service status
+     * Obtain geocode service status
      *
      * @permission ohos.permission.LOCATION
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for reporting the geocode service status.
@@ -360,7 +360,7 @@ declare namespace geolocation {
     function isGeoServiceAvailable(callback: AsyncCallback<boolean>): void;
 
     /**
-     * obtain geocode service status
+     * Obtain geocode service status
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<boolean> } The promise returned by the function.
@@ -372,7 +372,7 @@ declare namespace geolocation {
     function isGeoServiceAvailable(): Promise<boolean>;
 
     /**
-     * obtain the number of cached GNSS locations reported at a time
+     * Obtain the number of cached GNSS locations reported at a time
      *
      * @permission ohos.permission.LOCATION
      * @param { AsyncCallback<number> } callback - Indicates the callback for reporting the cached GNSS locations size.
@@ -384,7 +384,7 @@ declare namespace geolocation {
     function getCachedGnssLocationsSize(callback: AsyncCallback<number>): void;
 
     /**
-     * obtain the number of cached GNSS locations reported at a time
+     * Obtain the number of cached GNSS locations reported at a time
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<number> } The promise returned by the function.
@@ -396,7 +396,7 @@ declare namespace geolocation {
     function getCachedGnssLocationsSize(): Promise<number>;
 
     /**
-     * all prepared GNSS locations are returned to the application through the callback function,
+     * All prepared GNSS locations are returned to the application through the callback function,
      * and the bottom-layer buffer is cleared.
      *
      * @permission ohos.permission.LOCATION
@@ -409,7 +409,7 @@ declare namespace geolocation {
     function flushCachedGnssLocations(callback: AsyncCallback<boolean>): void;
 
     /**
-     * all prepared GNSS locations are returned to the application through the callback function,
+     * All prepared GNSS locations are returned to the application through the callback function,
      * and the bottom-layer buffer is cleared.
      *
      * @permission ohos.permission.LOCATION
@@ -422,7 +422,7 @@ declare namespace geolocation {
     function flushCachedGnssLocations(): Promise<boolean>;
 
     /**
-     * send extended commands to location subsystem.
+     * Send extended commands to location subsystem.
      *
      * @permission ohos.permission.LOCATION
      * @param { LocationCommand } command - Indicates the extended Command Message Body.
@@ -435,7 +435,7 @@ declare namespace geolocation {
     function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>): void;
 
     /**
-     * send extended commands to location subsystem.
+     * Send extended commands to location subsystem.
      *
      * @permission ohos.permission.LOCATION
      * @param { LocationCommand } command - Indicates the extended Command Message Body.
@@ -448,7 +448,7 @@ declare namespace geolocation {
     function sendCommand(command: LocationCommand): Promise<boolean>;
 
     /**
-     * satellite status information
+     * Satellite status information
      *
      * @interface SatelliteStatusInfo
      * @permission ohos.permission.LOCATION
@@ -467,7 +467,7 @@ declare namespace geolocation {
     }
 
     /**
-     * parameters for requesting to report cache location information
+     * Parameters for requesting to report cache location information
      *
      * @interface CachedGnssLocationsRequest
      * @permission ohos.permission.LOCATION
@@ -482,7 +482,7 @@ declare namespace geolocation {
     }
 
     /**
-     * configuring parameters in geo fence requests
+     * Configuring parameters in geo fence requests
      *
      * @interface GeofenceRequest
      * @permission ohos.permission.LOCATION
@@ -498,7 +498,7 @@ declare namespace geolocation {
     }
 
     /**
-     * configuring parameters in geo fence requests
+     * Configuring parameters in geo fence requests
      *
      * @interface Geofence
      * @permission ohos.permission.LOCATION
@@ -515,7 +515,7 @@ declare namespace geolocation {
     }
 
     /**
-     * configuring parameters in reverse geocode requests
+     * Configuring parameters in reverse geocode requests
      *
      * @interface ReverseGeoCodeRequest
      * @permission ohos.permission.LOCATION
@@ -532,7 +532,7 @@ declare namespace geolocation {
     }
 
     /**
-     * configuring parameters in geocode requests
+     * Configuring parameters in geocode requests
      *
      * @interface GeoCodeRequest
      * @permission ohos.permission.LOCATION
@@ -552,7 +552,7 @@ declare namespace geolocation {
     }
 
     /**
-     * data struct describes geographic locations.
+     * Data struct describes geographic locations.
      *
      * @interface GeoAddress
      * @permission ohos.permission.LOCATION
@@ -567,7 +567,8 @@ declare namespace geolocation {
          * A positive value indicates north latitude,
          * and a negative value indicates south latitude.
          *
-   	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @permission ohos.permission.LOCATION
+   	     * @syscap SystemCapability.Location.Location.Geocoder
     	 * @since 7
          * @deprecated since 9
          */
@@ -578,6 +579,7 @@ declare namespace geolocation {
          * A positive value indicates east longitude ,
          * and a negative value indicates west longitude .
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -597,6 +599,7 @@ declare namespace geolocation {
         /**
          * Indicates landmark of the location.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -606,6 +609,7 @@ declare namespace geolocation {
         /**
          * Indicates country code.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -615,6 +619,7 @@ declare namespace geolocation {
         /**
          * Indicates country name.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -624,6 +629,7 @@ declare namespace geolocation {
         /**
          * Indicates administrative region name.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -633,6 +639,7 @@ declare namespace geolocation {
         /**
          * Indicates sub-administrative region name.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -642,6 +649,7 @@ declare namespace geolocation {
         /**
          * Indicates locality information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -651,6 +659,7 @@ declare namespace geolocation {
         /**
          * Indicates sub-locality information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -660,6 +669,7 @@ declare namespace geolocation {
         /**
          * Indicates road name.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -669,6 +679,7 @@ declare namespace geolocation {
         /**
          * Indicates auxiliary road information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -678,6 +689,7 @@ declare namespace geolocation {
         /**
          * Indicates house information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -687,6 +699,7 @@ declare namespace geolocation {
         /**
          * Indicates postal code.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -696,6 +709,7 @@ declare namespace geolocation {
         /**
          * Indicates phone number.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -705,6 +719,7 @@ declare namespace geolocation {
         /**
          * Indicates website URL.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -714,6 +729,7 @@ declare namespace geolocation {
         /**
          * Indicates additional information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -723,6 +739,7 @@ declare namespace geolocation {
         /**
          * Indicates the amount of additional descriptive information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -731,7 +748,7 @@ declare namespace geolocation {
     }
 
     /**
-     * configuring parameters in location requests
+     * Configuring parameters in location requests
      *
      * @interface LocationRequest
      * @permission ohos.permission.LOCATION
@@ -749,7 +766,7 @@ declare namespace geolocation {
     }
 
     /**
-     * configuring parameters in current location requests
+     * Configuring parameters in current location requests
      *
      * @interface CurrentLocationRequest
      * @permission ohos.permission.LOCATION
@@ -766,7 +783,7 @@ declare namespace geolocation {
     }
 
     /**
-     * provides information about geographic locations
+     * Provides information about geographic locations
      *
      * @interface Location
      * @permission ohos.permission.LOCATION
@@ -781,6 +798,7 @@ declare namespace geolocation {
          * A positive value indicates north latitude,
          * and a negative value indicates south latitude.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -792,6 +810,7 @@ declare namespace geolocation {
          * A positive value indicates east longitude ,
          * and a negative value indicates west longitude .
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -801,6 +820,7 @@ declare namespace geolocation {
         /**
          * Indicates location altitude, in meters.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -810,6 +830,7 @@ declare namespace geolocation {
         /**
          * Indicates location accuracy, in meters.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -819,6 +840,7 @@ declare namespace geolocation {
         /**
          * Indicates speed, in m/s.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -828,6 +850,7 @@ declare namespace geolocation {
         /**
          * Indicates location timestamp in the UTC format.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -837,6 +860,7 @@ declare namespace geolocation {
         /**
          * Indicates direction information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -846,6 +870,7 @@ declare namespace geolocation {
         /**
          * Indicates location timestamp since boot.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -855,6 +880,7 @@ declare namespace geolocation {
         /**
          * Indicates additional information.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -864,6 +890,7 @@ declare namespace geolocation {
         /**
          * Indicates the amount of additional descriptive information.
      	 *
+         * @permission ohos.permission.LOCATION
      	 * @syscap SystemCapability.Location.Location.Core
      	 * @since 7
     	 * @deprecated since 9
@@ -872,7 +899,7 @@ declare namespace geolocation {
     }
 
     /**
-     * enum for location priority
+     * Enum for location priority
      *
      * @permission ohos.permission.LOCATION
      * @enum { number }
@@ -889,7 +916,7 @@ declare namespace geolocation {
     }
 
     /**
-     * enum for location scenario
+     * Enum for location scenario
      *
      * @permission ohos.permission.LOCATION
      * @enum { number }
@@ -908,7 +935,7 @@ declare namespace geolocation {
     }
 
     /**
-     * enum for error code
+     * Enum for error code
      *
      * @permission ohos.permission.LOCATION
      * @enum { number }
@@ -920,6 +947,7 @@ declare namespace geolocation {
         /**
          * Indicates input parameter error.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -929,6 +957,7 @@ declare namespace geolocation {
         /**
          * Indicates reverse geocode query failed.
     	 *
+         * @permission ohos.permission.LOCATION
      	 * @syscap SystemCapability.Location.Location.Core
     	 * @since 7
     	 * @deprecated since 9
@@ -938,6 +967,7 @@ declare namespace geolocation {
         /**
          * Indicates geocode query failed.
     	 *
+         * @permission ohos.permission.LOCATION
     	 * @syscap SystemCapability.Location.Location.Core
     	 * @since 7
     	 * @deprecated since 9
@@ -947,15 +977,17 @@ declare namespace geolocation {
         /**
          * Indicates positioning failed.
     	 *
-   	 * @syscap SystemCapability.Location.Location.Core
+         * @permission ohos.permission.LOCATION
+   	     * @syscap SystemCapability.Location.Location.Core
     	 * @since 7
-   	 * @deprecated since 9
+   	     * @deprecated since 9
          */
         LOCATOR_ERROR,
 
         /**
          * Indicates operation failure caused by abnormal location switch.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -965,6 +997,7 @@ declare namespace geolocation {
         /**
          * Indicates failed to get the last known location.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -974,6 +1007,7 @@ declare namespace geolocation {
         /**
          * Indicates location request timeout.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Core
          * @since 7
          * @deprecated since 9
@@ -982,7 +1016,7 @@ declare namespace geolocation {
     }
 
     /**
-     * enum for location privacy type
+     * Enum for location privacy type
      *
      * @permission ohos.permission.LOCATION
      * @enum { number }
