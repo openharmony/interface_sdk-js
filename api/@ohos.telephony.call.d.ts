@@ -1040,6 +1040,7 @@ declare namespace call {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param {AsyncCallback <void>} callback - void
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1051,6 +1052,23 @@ declare namespace call {
    * @since 10
    */
   function closeUnFinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Close Unfinished ussd.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns {Promise <void>} 
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function closeUnFinishedUssd(slotId: number): Promise<void>;
 
   /**
@@ -1059,6 +1077,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param state Indicates the voNR state.
+   * @param {AsyncCallback <boolean>} callback - if set was successful or not
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1069,8 +1088,26 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: number, callback: AsyncCallback<void>): void;
-  function setVoNRState(slotId: number, state: number): Promise<void>;
+  function setVoNRState(slotId: number, state: number, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * set voNR switch state
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param state Indicates the voNR state.
+   * @returns {Promise <boolean>} - if set was successful or not
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setVoNRState(slotId: number, state: number): Promise<boolean>;
 
   /**
    * get voNR switch state
@@ -1078,6 +1115,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param state Indicates the voNR state.
+   * @param {AsyncCallback <VoNRState>} callback - VoNR state
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1088,15 +1126,60 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getVoNRState(slotId: number, callback: AsyncCallback<void>): void;
-  function getVoNRState(slotId: number): Promise<void>;
+  function getVoNRState(slotId: number, callback: AsyncCallback<VoNRState>): void;
 
   /**
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * get voNR switch state
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns {Promise <VoNRState>} the voNR state.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getVoNRState(slotId: number): Promise<VoNRState>;
+
+  /**
+   * if user can set CallTransfer with Time
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param {AsyncCallback <boolean>} callback - if user can set
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * if user can set CallTransfer with Time
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns {Promise <boolean>} - if user can set
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function canSetCallTransferTime(slotId: number): Promise<boolean>;
 
   /**
@@ -1109,6 +1192,15 @@ declare namespace call {
     CALL_MODE_RECEIVE_ONLY,
     CALL_MODE_SEND_RECEIVE,
     CALL_MODE_VIDEO_PAUSED,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum VoNRState {
+    VONR_STATE_ON = 0,
+    VORN_STATE_OFF,
   }
 
   /**
