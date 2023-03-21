@@ -357,6 +357,48 @@ declare namespace pointer {
    * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
    */
   function isPointerVisible(): Promise<boolean>;
+
+  /**
+   * Sets whether the left and right mouse buttons is switched.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param isSwitched Indicates whether the pointer primary and secondary icon is switched. The value true
+   * indicates that primary and secondary icon is switched, and the value false indicates the opposite.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function setButtonSwitched(isSwitched: boolean, callback: AsyncCallback<void>): void;
+  /**
+   * Sets whether the left and right mouse buttons is switched.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param isSwitched Indicates whether the pointer primary and secondary icon is switched. The value true
+   * indicates that primary and secondary icon is switched, and the value false indicates the opposite.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function setButtonSwitched(isSwitched: boolean): Promise<void>;
+
+  /**
+   * Sets whether the mouse hover scroll is enabled in inactive window.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param enabled Indicates whether the mouse hover scroll is enabled in inactive window. The value true
+   * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function enableHoverScroll(enabled: boolean, callback: AsyncCallback<void>): void;
+  /**
+   * Sets whether mouse hover scroll is enabled in inactive window.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param enabled Indicates whether the mouse hover scroll is enabled in inactive window. The value true
+   * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function enableHoverScroll(enabled: boolean): Promise<void>;
 }
 
 export default pointer;
