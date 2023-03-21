@@ -19,12 +19,12 @@ import type * as _BusinessAbilityInfo from './bundleManager/BusinessAbilityInfo'
 /**
  * This module is used to obtain business ability information of various applications installed on the current device.
  *
- * @namespace businessRouter
+ * @namespace businessAbilityRouter
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10
  */
-declare namespace businessRouter {
+declare namespace businessAbilityRouter {
   /**
    * This enumeration value is used to identify various types of business ability info
    *
@@ -65,7 +65,7 @@ declare namespace businessRouter {
     /**
      * Indicates the type of business ability info
      *
-     * @type { businessRouter.BusinessType }
+     * @type { businessAbilityRouter.BusinessType }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -133,4 +133,4 @@ declare namespace businessRouter {
   export type BusinessAbilityInfo = _BusinessAbilityInfo.BusinessAbilityInfo;
 }
 
-export default businessRouter;
+export default businessAbilityRouter;

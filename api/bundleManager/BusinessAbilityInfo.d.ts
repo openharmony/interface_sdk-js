@@ -14,7 +14,7 @@
  */
 
 import type { ApplicationInfo } from './ApplicationInfo';
-import type businessRouter from './../@ohos.businessRouter';
+import type businessAbilityRouter from './../@ohos.businessAbilityRouter';
 
 /**
  * Contains basic business ability information.
@@ -88,12 +88,12 @@ export interface BusinessAbilityInfo {
   /**
    * Enumerates types of the business ability info
    *
-   * @type { businessRouter.BusinessType }
+   * @type { businessAbilityRouter.BusinessType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
    */
-  readonly businessType: businessRouter.BusinessType;
+  readonly businessType: businessAbilityRouter.BusinessType;
 
   /**
    * Obtains configuration information about an application
