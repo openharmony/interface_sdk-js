@@ -208,7 +208,6 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.getCurrentLocation
      */
     function getCurrentLocation(callback: AsyncCallback<Location>): void;
 
@@ -221,7 +220,6 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.getCurrentLocation
      */
     function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
 
@@ -245,7 +243,6 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.getLastLocation
      */
     function getLastLocation(): Promise<Location>;
 
@@ -269,7 +266,6 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.isLocationEnabled
      */
     function isLocationEnabled(): Promise<boolean>;
 
@@ -314,10 +310,9 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
      * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-     * @syscap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.getAddressesFromLocation
      */
     function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
@@ -340,10 +335,9 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param { GeoCodeRequest } request - Indicates the reverse geocode query parameters.
      * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
-     * @syscap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.getAddressesFromLocationName
      */
     function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
@@ -364,10 +358,9 @@ declare namespace geolocation {
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<boolean> } The promise returned by the function.
-     * @syscap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.isGeocoderAvailable
      */
     function isGeoServiceAvailable(): Promise<boolean>;
 
@@ -388,10 +381,9 @@ declare namespace geolocation {
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<number> } The promise returned by the function.
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @since 8
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.getCachedGnssLocationsSize
      */
     function getCachedGnssLocationsSize(): Promise<number>;
 
@@ -414,10 +406,9 @@ declare namespace geolocation {
      *
      * @permission ohos.permission.LOCATION
      * @returns { Promise<boolean> } The promise returned by the function.
-     * @syscap SystemCapability.Location.Location.Gnss
-     * @since 8
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.flushCachedGnssLocations
      */
     function flushCachedGnssLocations(): Promise<boolean>;
 
@@ -441,9 +432,8 @@ declare namespace geolocation {
      * @param { LocationCommand } command - Indicates the extended Command Message Body.
      * @returns { Promise<boolean> } The promise returned by the function.
      * @syscap SystemCapability.Location.Location.Core
-     * @since 8
+     * @since 7
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.sendCommand
      */
     function sendCommand(command: LocationCommand): Promise<boolean>;
 
@@ -590,6 +580,7 @@ declare namespace geolocation {
          * Indicates language used for the location description.
          * zh indicates Chinese, and en indicates English.
          *
+         * @permission ohos.permission.LOCATION
          * @syscap SystemCapability.Location.Location.Geocoder
          * @since 7
          * @deprecated since 9
@@ -978,8 +969,8 @@ declare namespace geolocation {
          * Indicates positioning failed.
     	 *
          * @permission ohos.permission.LOCATION
-   	     * @syscap SystemCapability.Location.Location.Core
-    	 * @since 7
+         * @syscap SystemCapability.Location.Location.Core
+         * @since 7
    	     * @deprecated since 9
          */
         LOCATOR_ERROR,
