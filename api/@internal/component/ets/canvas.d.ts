@@ -1217,7 +1217,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  filter(filter: string): void;
+  filter: string;
 
   /**
    * Creates a new, empty ImageData object of the specified size
@@ -1358,7 +1358,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  imageSmoothingQuality(quality: ImageSmoothingQuality): void;
+  imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
@@ -1624,7 +1624,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  direction(direction: CanvasDirection): void;
+  direction: CanvasDirection;
 
   /**
    * Font style. The default value is 10px sans-serif.
