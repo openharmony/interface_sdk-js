@@ -95,170 +95,130 @@ export declare class console {
   static error(message: string, ...arguments: any[]): void;
 
   /**
-   * Prints a message if value is false or ommited.
+   * Prints a message if value is false or omitted.
+   * @param { Object } value The value tested for being truthy.
+   * @param { Object[] } arguments Used as error message to print.
    * @static
-   * @param { object } value The value tested for being truthy.
-   * @param { any } arguments Used as error message to print.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static assert(value: object, ...arguments: any[]): void;
+  static assert(value?: Object, ...arguments: Object[]): void;
 
   /**
-   * @static
    * Maintains an internal counter specific to label and print the number of times
    * console.count() has been called with the given label.
-   * @param { string } label Counter name.
+   * @param { string } label Counter name. Default: "default".
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static count(label: string): void;
+  static count(label?: string): void;
 
   /**
-   * @static
    * Reset the internal counter specific to label.
-   * @param { string } label Counter name.
+   * @param { string } label Counter name. Default: "default".
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static countReset(label: string): void;
+  static countReset(label?: string): void;
 
   /**
-   * Prints "debug" logs.
-   * @param { string } message Text to print.
-   * @param { any } arguments Additional arguments to print.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 3
-   */
-  static debug(message: string, ...arguments: any[]): void;
-
-  /**
-   * @static
    * Prints properties of the specified JavaScript object.
-   * @param { object } dir A JavaScript object whose properties should be output.
+   * @param { Object } dir A JavaScript object whose properties should be output.
+   * @static
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static dir(dir: object): void;
+  static dir(dir?: Object): void;
 
   /**
-   * @static
    * This method calls console.log() passing it the arguments received. 
    * This method does not produce any XML formatting.
-   * @param { string } message Text to print.
+   * @param { Object[] } arguments Text to print.
+   * @static
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static dirxml(message: string): void;
-
-  /**
-   * Prints "error" logs.
-   * @param { string } message Text to print.
-   * @param { any } arguments Additional arguments to print.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 3
-   */
-  static error(message: string, ...arguments: any[]): void;
+  static dirxml(...arguments: Object[]): void;
   
   /**
-   * @static
    * Creates a new inline group, causing any subsequent console messages to be indented by an additional level.
-   * @param { string } label Name for the group.
-   * @param { any } arguments Additonal messages to print first.
+   * @param { Object[] } arguments messages to print first.
+   * @static
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static group(label: string, ...arguments: any[]): void;
+  static group(...arguments: Object[]): void;
 
   /**
-   * @static
    * Same as console.group()
+   * @param { Object[] } arguments messages to print first.
+   * @static
    * @syscap SystemCapability.Utils.Lang
    * @since 10
   */
-  static groupCollapsed(): void;
+  static groupCollapsed(...arguments: Object[]): void;
 
   /**
-   * @static
    * Exit current inline group.
+   * @static
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
   static groupEnd(): void;
-
-  /**
-   * @static
-   * Prints "log" logs.
-   * @param message Text to print.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 3
-   */
-  static log(message: string, ...arguments: any[]): void;
-
-  /**
-   * @static
-   * Prints "info" logs.
-   * @param message Text to print.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 3
-   */
-  static info(message: string, ...arguments: any[]): void;
-
-  /**
-   * @static
-   * Prints "warn" logs.
-   * @param message Text to print.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 3
-   */
-  static warn(message: string, ...arguments: any[]): void;
   
   /**
-   * @static
    * Prints tabular data as a table.
-   * @param { object } tableData tabular data.
+   * @param { Object } tableData tabular data.
+   * @static
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static table(tableData: object): void;
+  static table(tableData?: Object): void;
 
   /**
-  * @static
   * Start a timer.
-  * @param { string } label Timer name.
+  * @param { string } label Timer name. Default: "default".
+  * @static
+  * @throws { BusinessError } 401 - The parameter check failed.
   * @syscap SystemCapability.Utils.Lang
   * @since 10
   */
-  static time(label: string): void;
+  static time(label?: string): void;
 
   /**
-   * @static
    * End a timer and print time duration.
-   * @param { string } label Timer name.
+   * @param { string } label Timer name. Default: "default".
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static timeEnd(label: string): void;
+  static timeEnd(label?: string): void;
 
   /**
-   * @static
    * Print the elapsed time and other data arguments.
-   * @param { string } label Timer name.
-   * @param { any } arguments Text to print.
+   * @param { string }  label Timer name. Default: "default".
+   * @param { Object[] } arguments Text to print.
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static timeLog(label: string, ...arguments: any[]): void;
+  static timeLog(label?: string, ...arguments: Object[]): void;
 
   /**
-   * @static
    * Prints stack information for the current code location.
-   * @param { string } message Text to print.
-   * @param { any } arguments Additional arguments to print.
+   * @param { Object[] } arguments message to print.
+   * @static
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-   static trace(message: string, ...arguments: any[]): void;
+  static trace(...arguments: Object[]): void; 
 }
 
 /**
