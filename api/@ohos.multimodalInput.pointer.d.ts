@@ -226,6 +226,22 @@ declare namespace pointer {
   }
 
   /**
+   * mouse button.
+   * @Since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   */
+  enum PrimaryButton {
+    /**
+     * Left mouse button
+     */
+    LEFT,
+    /**
+     * Right mouse button
+     */
+    RIGHT
+  }
+
+  /**
    * Sets the pointer moving speed.
    * 
    * @since 9
@@ -359,46 +375,96 @@ declare namespace pointer {
   function isPointerVisible(): Promise<boolean>;
 
   /**
-   * Sets whether the left and right mouse buttons is switched.
+   * Sets mouse primary button.
    *
    * @since 10
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param isSwitched Indicates whether the pointer primary and secondary icon is switched. The value true
-   * indicates that primary and secondary icon is switched, and the value false indicates the opposite.
+   * @systemapi hide for inner use.
+   * @param primary Indicates mouse primary button. The value LEFT indicates that mouse primary button is
+   * left button, and the value RIGHT indicates that mouse primary button is right button.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function setButtonSwitched(isSwitched: boolean, callback: AsyncCallback<void>): void;
+  function setMousePrimaryButton(primary: PrimaryButton, callback: AsyncCallback<void>): void;
+
   /**
-   * Sets whether the left and right mouse buttons is switched.
+   * Sets mouse primary button.
    *
    * @since 10
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param isSwitched Indicates whether the pointer primary and secondary icon is switched. The value true
-   * indicates that primary and secondary icon is switched, and the value false indicates the opposite.
+   * @systemapi hide for inner use.
+   * @param primary Indicates mouse primary button. The value LEFT indicates that mouse primary button is
+   * left button, and the value RIGHT indicates that mouse primary button is right button.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function setButtonSwitched(isSwitched: boolean): Promise<void>;
+  function setMousePrimaryButton(primary: PrimaryButton): Promise<void>;
+
+  /**
+   * Gets mouse primary button.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function getMousePrimaryButton(callback: AsyncCallback<PrimaryButton>): void;
+
+  /**
+   * Gets mouse primary button.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function getMousePrimaryButton(): Promise<PrimaryButton>;
 
   /**
    * Sets whether the mouse hover scroll is enabled in inactive window.
    *
    * @since 10
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param enabled Indicates whether the mouse hover scroll is enabled in inactive window. The value true
+   * @systemapi hide for inner use.
+   * @param state Indicates whether the mouse hover scroll is enabled in inactive window. The value true
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function enableHoverScroll(enabled: boolean, callback: AsyncCallback<void>): void;
+  function setHoverScroll(state: boolean, callback: AsyncCallback<void>): void;
+
   /**
    * Sets whether mouse hover scroll is enabled in inactive window.
    *
    * @since 10
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param enabled Indicates whether the mouse hover scroll is enabled in inactive window. The value true
+   * @systemapi hide for inner use.
+   * @param state Indicates whether the mouse hover scroll is enabled in inactive window. The value true
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function enableHoverScroll(enabled: boolean): Promise<void>;
+  function setHoverScroll(state: boolean): Promise<void>;
+
+  /**
+   * Gets a status whether the mouse hover scroll is enabled in inactive window.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function getHoverScroll(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Gets a status whether mouse hover scroll is enabled in inactive window.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function getHoverScroll(): Promise<boolean>;
 }
 
 export default pointer;
