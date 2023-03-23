@@ -187,9 +187,9 @@ function isArkUIApiFile(fileName) {
  * xxx.xxx#event:xxx
  */
 function checkModule(moduleValue) {
-  return /^[A-Za-z]+\b(\.[A-Za-z]+\b)*$/.test(moduleValue) ||
-    /^[A-Za-z]+\b(\.[A-Za-z]+\b)*\#[A-Za-z]+\b$/.test(moduleValue) ||
-    /^[A-Za-z]+\b(\.[A-Za-z]+\b)*\#event:[A-Za-z]+\b$/.test(moduleValue);
+  return /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*$/.test(moduleValue) ||
+    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#[A-Za-z_]+\b$/.test(moduleValue) ||
+    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#event:[A-Za-z_]+\b$/.test(moduleValue);
 }
 
 function splitUseinsteadValue(useinsteadValue) {
@@ -212,14 +212,14 @@ function splitUseinsteadValue(useinsteadValue) {
     const fileNameArray = splitArray[0].split('.');
     if (fileNameArray.length === 1) {
       // arkui
-      if (!/^[A-Za-z]+\b$/.test(fileNameArray[0]) || !checkModule(splitArray[1])) {
+      if (!/^[A-Za-z_]+\b$/.test(fileNameArray[0]) || !checkModule(splitArray[1])) {
         splitResult.checkResult = false;
       }
     } else {
       // 非arkui
       let checkFileName = true;
       for (let i = 0; i < fileNameArray.length; i++) {
-        if (fileNameArray[0] !== 'ohos' || !/^[A-Za-z]+\b$/.test(fileNameArray[i])) {
+        if (fileNameArray[0] !== 'ohos' || !/^[A-Za-z_]+\b$/.test(fileNameArray[i])) {
           checkFileName = false;
         }
       }

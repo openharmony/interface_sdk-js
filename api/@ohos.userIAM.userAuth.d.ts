@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import type { AsyncCallback } from './basic';
 
 /**
  * User authentication
@@ -309,7 +309,7 @@ declare namespace userAuth {
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: any) => void;
+    onAcquireInfo?: (module: number, acquire: number, extraInfo: AuthResult) => void;
   }
 
   /**
