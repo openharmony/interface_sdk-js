@@ -2053,9 +2053,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onFirstContentfulPaint(callback: (event?: { navigationStartTick: number,
-      firstContentfulPaintMs: number }) => void): WebAttribute;
+    firstContentfulPaintMs: number }) => void): WebAttribute;
 
-  /**   
+  /**
    * Triggered when the resources loading is intercepted.
    * @param callback The triggered callback when the resources loading is intercepted.
    * @since 10
