@@ -309,7 +309,7 @@ declare namespace userAuth {
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
      */
-    onAcquireInfo?: (module: number, acquire: number, extraInfo: AuthResult) => void;
+    onAcquireInfo?: (module: number, acquire: number, extraInfo: any) => void;
   }
 
   /**
@@ -848,18 +848,6 @@ declare namespace userAuth {
      */
     cancel: () => void;
   }
-
-  /**
-   * Get version information.
-   *
-   * @permission ohos.permission.ACCESS_BIOMETRIC
-   * @returns { number } Returns version information.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 12500002 - General operation error.
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 9
-   */
-  function getVersion(): number;
 
   /**
    * Check whether the authentication capability is available.
