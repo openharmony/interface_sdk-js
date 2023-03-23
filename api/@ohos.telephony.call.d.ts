@@ -907,6 +907,7 @@ declare namespace call {
   /**
    * Set the audio device.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
    * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
@@ -922,6 +923,7 @@ declare namespace call {
   /**
    * Set the audio device.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -936,6 +938,7 @@ declare namespace call {
   /**
    * Set the audio device with options.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
    * @param options Indicates additional information, such as address of bluetooth.
    * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
@@ -1116,7 +1119,7 @@ declare namespace call {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param state Indicates the voNR state.
    * @param {AsyncCallback <VoNRState>} callback - VoNR state
-   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -1134,7 +1137,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns {Promise <VoNRState>} the voNR state.
-   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -1152,7 +1155,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {AsyncCallback <boolean>} callback - if user can set
-   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -1170,7 +1173,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns {Promise <boolean>} - if user can set
-   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -1181,6 +1184,40 @@ declare namespace call {
    * @since 10
    */
   function canSetCallTransferTime(slotId: number): Promise<boolean>;
+
+  /**
+   * Enters the secret code on the keypad
+   *
+   * @param inputCode indicates the secret code to enter.
+   * @param {AsyncCallback <void>} callback
+   * @permission ohos.permission.PLACE_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Enters the secret code on the keypad
+   *
+   * @param inputCode indicates the secret code to enter.
+   * @returns {Promise <void>} 
+   * @permission ohos.permission.PLACE_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function inputDialerSpecialCode(inputCode: string): Promise<void>;
 
   /**
    * @systemapi Hide this for inner system use.
