@@ -431,7 +431,7 @@ declare namespace pointer {
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function setHoverScroll(state: boolean, callback: AsyncCallback<void>): void;
+  function setHoverScrollState(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether mouse hover scroll is enabled in inactive window.
@@ -443,7 +443,7 @@ declare namespace pointer {
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function setHoverScroll(state: boolean): Promise<void>;
+  function setHoverScrollState(state: boolean): Promise<void>;
 
   /**
    * Gets a status whether the mouse hover scroll is enabled in inactive window.
@@ -454,7 +454,7 @@ declare namespace pointer {
    * @param callback Callback used to return the result.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function getHoverScroll(callback: AsyncCallback<boolean>): void;
+  function getHoverScrollState(callback: AsyncCallback<boolean>): void;
 
   /**
    * Gets a status whether mouse hover scroll is enabled in inactive window.
@@ -465,7 +465,7 @@ declare namespace pointer {
    * @returns Returns the result through a promise.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function getHoverScroll(): Promise<boolean>;
+  function getHoverScrollState(): Promise<boolean>;
 }
 
 export default pointer;
