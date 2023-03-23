@@ -21,7 +21,7 @@
  * @StageModelOnly
  * @since 9
  */
-declare class WallpaperExtension {
+declare class WallpaperExtensionAbility {
   /**
    * Called once to initialize the extension.
    *
@@ -55,4 +55,4 @@ declare class WallpaperExtension {
   onDestroy(): void;
 }
 
-export default WallpaperExtension;
+export default WallpaperExtensionAbility;
