@@ -30,7 +30,7 @@ export interface ISourceCodeProcessor {
    *
    * @param content
    */
-  process(context: Context, content: string): ProcessResult;
+  process(context: Context, content: string): Promise<ProcessResult>;
 }
 
 /**
@@ -101,8 +101,9 @@ export class Options {
   commentOptions = {
     emptyLineUnderDescrition: true
   };
-
   splitUnionTypeApi: boolean = false;
+  workingBranch: string = 'master';
+  isTest: boolean = false;
 }
 
 
@@ -616,19 +617,19 @@ export interface LogReporter {
    * 将校验结果报告落盘
    * @param path 报告落盘路径
    */
-  writeCheckResults(path: string): void;
+  writeCheckResults(path: string): Promise<void>;
 
   /**
    * 将整改结果报告落盘
    * @param path 报告落盘路径
    */
-  writeModifyResults(path: string): void;
+  writeModifyResults(path: string): Promise<void>;
 
   /**
    * 将结果报告落盘
    * @param path 报告落盘路径
    */
-  writeAllResults(path: string): void;
+  writeAllResults(path: string): Promise<void>;
 
   /**
    * 传入writer对象
@@ -693,7 +694,7 @@ export interface LogWriter {
    * @param modifyResults 整改结果集
    * @param path 报告落盘路径
    */
-  writeResults(checkResults: Array<CheckLogResult> | undefined, modifyResults: Array<ModifyLogResult> | undefined, path: string): void;
+  writeResults(checkResults: Array<CheckLogResult> | undefined, modifyResults: Array<ModifyLogResult> | undefined, path: string): Promise<void>;
 }
 
 /**
@@ -784,7 +785,7 @@ export namespace sourceParser {
  * 整改工具的API
  */
 export interface IJSDocModifier {
-  start(): void;
+  start(): Promise<void>;
 }
 
 interface OrderResultInfo {
@@ -819,11 +820,12 @@ export enum ErrorInfo {
   PARAM_FORAMT_DESCRIPTION_ERROR = '请自行添加第[$$]个参数的描述信息.',
   COMPLETE_TAG_INFORMATION = '补全第[$$]段JSDoc的@$$标签.',
   COMPLETE_INHERIT_TAG_INFORMATION = '第[$$]段JSDoc从父类继承@$$标签.',
-  COMPLETE_TAG_ERROR = '第[$$]段JSDoc缺少@$$标签, 请自行确认修改.',
-  COMPLETE_INTERFACE_TAG_ERROR = '第[$$]段JSDoc缺少@$$标签, 请自行确认补全@interface或者@type标签.',
+  COMPLETE_INHERIT_PERMISSION_TAG_ERROR = '第[$$]段JSDoc父类存在@$$标签, 请自行确认并补全相同标签.',
+  COMPLETE_TAG_ERROR = '第[$$]段JSDoc缺少@$$标签, 请自行确认并修改.',
+  COMPLETE_INTERFACE_TAG_ERROR = '第[$$]段JSDoc缺少@interface或@typedef标签, 请自行确认并补全@interface或@typedef标签.',
   MODIFY_TAG_ORDER_INFORMATION = '第[$$]段JSDoc标签顺序调整.',
   JSDOC_FORMAT_ERROR = 'JSDoc格式错误, 请检查.',
-  JSDOC_ILLEGAL_ERROR = '第[$$]段JSDoc校验失败: ',
+  JSDOC_ILLEGAL_ERROR = '第[$$]段JSDoc校验失败: \n',
   EVENT_SUBSCRIPTION_SPLITTION = '对事件订阅函数[$$]进行了拆分.',
   AYYNCHRONOUS_FUNCTION_JSDOC_COPY = '对异步函数[$$]进行了JSDoc复制.'
 }

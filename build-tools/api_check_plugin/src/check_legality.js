@@ -15,9 +15,10 @@
 
 const path = require('path');
 const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList } = require('./utils');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { checkApiOrder } = require('./check_jsdoc_value/chek_order');
+const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, tagsArrayOfOrder } = require('./utils');
+const { checkApiOrder, checkAPIDecorators } = require('./check_jsdoc_value/chek_order');
+
+const ts = requireTypescriptModule();
 
 // 标签合法性校验
 function checkJsDocLegality(node, sourcefile, checkInfoMap) {
@@ -68,10 +69,10 @@ function checkJsDocLegality(node, sourcefile, checkInfoMap) {
   );
   // 'param'
   legalityCheck(node, sourcefile, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['param'], true, checkInfoMap,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
     (currentNode, checkResult) => {
       if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration]).has(currentNode.kind)) {
+      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
         return true;
       }
       return currentNode.parameters && currentNode.parameters.length > 0;
@@ -95,7 +96,7 @@ function checkJsDocLegality(node, sourcefile, checkInfoMap) {
     }
   );
   // typedef/interface
-  legalityCheck(node, sourcefile, [ts.SyntaxKind.InterfaceDeclaration], ['interface'], true, checkInfoMap,
+  legalityCheck(node, sourcefile, [ts.SyntaxKind.InterfaceDeclaration], ['interface', 'typedef'], true, checkInfoMap,
     (currentNode, checkResult) => {
       return true;
     }
@@ -154,7 +155,7 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
           } else if (tag.tag === 'deprecated') {
             useinsteadResultObj.hasDeprecated = true;
           }
-        } if (tagName === 'interface' && (tag.tag === tagName || tag.tag === 'typedef')) {
+        } else if ((tagName === 'interface' || tagName === 'typedef') && (tag.tag === 'interface' || tag.tag === 'typedef')) {
           checkResult = true;
         } else if (tag.tag === tagName) {
           checkResult = true;
@@ -164,7 +165,7 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         }
       });
       if (tagName === 'param' && (ts.isMethodDeclaration(node) || ts.isMethodSignature(node) ||
-        ts.isFunctionDeclaration(node) || ts.isCallSignatureDeclaration(node))) {
+        ts.isFunctionDeclaration(node) || ts.isCallSignatureDeclaration(node) || ts.isConstructorDeclaration(node))) {
         parameterNum = node.parameters.length;
         checkResult = parameterNum !== paramTagNum;
       }
@@ -179,9 +180,14 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         (tagName === 'param' && paramTagNum > parameterNum)) && extraCheckCallback(node, checkResult)) {
         // 报错
         // console.log(`${sourcefile.fileName}, ${node.getText()} should not has @${tagName}`);
+
+        let errorInfo = `不允许使用[${tagName}]标签, 请检查标签使用方法.`;
+        if (tagName === 'param') {
+          errorInfo = `第[${parameterNum + 1}]个[${tagName}]标签多余, 请检查是否应该删除标签.`;
+        }
         checkInfoMap[index].illegalTags.push({
           checkResult: false,
-          errorInfo: `api第[${index + 1}]段JSDoc不允许使用[${tagName}]标签, 请检查标签使用方法`,
+          errorInfo: errorInfo,
           index: index
         });
       }
@@ -190,30 +196,70 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
   return checkInfoMap;
 }
 
-function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath) {
+// 标签重复性检查
+function checkTagsQuantity(comment, index) {
+  const multipleTags = ['throws', 'param']
+  const tagCountObj = {};
+  const checkResult = [];
+  comment.tags.forEach(tag => {
+    if (!tagCountObj[tag.tag]) {
+      tagCountObj[tag.tag] = 0;
+    }
+    tagCountObj[tag.tag] = tagCountObj[tag.tag] + 1;
+  });
+  for (const tagName in tagCountObj) {
+    if (tagCountObj[tagName] > 1 && multipleTags.indexOf(tagName) < 0) {
+      checkResult.push({
+        checkResult: false,
+        errorInfo: `[${tagName}]标签不允许重复使用, 请删除多余标签.`,
+        index: index
+      });
+    }
+  }
+  // interface/typedef互斥校验
+  if (tagCountObj['interface'] > 0 & tagCountObj['typedef'] > 0) {
+    checkResult.push({
+      checkResult: false,
+      errorInfo: 'interface标签与typedef标签不允许同时使用, 请确认接口类型.',
+      index: index
+    });
+  }
+  return checkResult;
+}
+
+function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName) {
   let { permissionFile } = require('./utils');
   if (permissionConfigPath && fs.existsSync(permissionConfigPath)) {
     permissionFile = permissionConfigPath;
   }
   const checkInfoMap = checkJsDocLegality(node, sourcefile, {});
   const checkInfoArray = [];
-  const checkOrderResult = checkApiOrder(node, sourcefile, sourcefile.fileName);
+  const checkOrderResult = checkApiOrder(node, sourcefile, fileName);
   checkOrderResult.forEach((result, index) => {
     checkInfoMap[index.toString()].orderResult = result;
   });
   const comments = parseJsDoc(node);
   comments.forEach((comment, index) => {
-    const errorLogs = [];
+    let errorLogs = [];
     let paramIndex = 0;
+    let throwsIndex = 0;
+    // 值检验
     comment.tags.forEach(tag => {
+      const checkAPIDecorator = checkAPIDecorators(tag, node, sourcefile, fileName);
+      if (!checkAPIDecorator.checkResult) {
+        errorLogs.push(checkAPIDecorator);
+      }
       const { JsDocValueChecker } = require('./check_jsdoc_value/check_rest_value');
       const checker = JsDocValueChecker[tag.tag];
       if (checker) {
         let valueCheckResult;
-        if (tag.tag === 'param') {
-          valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName, paramIndex);
+        if (tag.tag === 'param' && [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+        ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor].indexOf(node.kind) >= 0) {
+          valueCheckResult = checker(tag, node, sourcefile, fileName, paramIndex++);
+        } else if (tag.tag === 'throws') {
+          valueCheckResult = checker(tag, node, sourcefile, fileName, throwsIndex++);
         } else {
-          valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName);
+          valueCheckResult = checker(tag, node, sourcefile, fileName);
         }
         if (!valueCheckResult.checkResult) {
           valueCheckResult.index = index;
@@ -222,6 +268,9 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath) {
         }
       }
     });
+    // 标签数量校验
+    const quantityCheckResult = checkTagsQuantity(comment, index);
+    errorLogs = errorLogs.concat(quantityCheckResult);
     checkInfoMap[index.toString()].illegalTags = checkInfoMap[index.toString()].illegalTags.concat(errorLogs);
   });
   for (const key in checkInfoMap) {

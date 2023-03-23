@@ -31,6 +31,33 @@ declare class SearchController {
 }
 
 /**
+ * Enum for the style of cancel button
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum CancelButtonStyle {
+  /**
+   * The value of button style constant
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CONSTANT,
+  /**
+   * The value of button style invisible
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  INVISIBLE,
+  /**
+   * The value of button style input
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  INPUT
+}
+
+/**
  * The construct function of search
  * @since 8
  */
@@ -69,16 +96,134 @@ interface SearchInterface {
 }
 
 /**
+ * Defines the icon options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface IconOptions {
+  /**
+   * Set the icon size
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  size?: Length;
+	
+  /**
+   * Set the icon color
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color?: ResourceColor;
+	
+  /**
+   * Set the icon resource
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  src?: ResourceStr;
+}
+
+/**
+ * Defines the cursor style
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface CaretStyle {
+  /**
+   * Set the cursor width
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  width?: Length,
+	
+  /**
+   * Set the cursor color
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color?: ResourceColor,
+}
+
+/**
+ * Defines the SearchButton options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface SearchButtonOption {
+  /**
+   * Set the SearchButton fontSize
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  fontSize?: Length;
+	
+  /**
+   * Set the SearchButton fontColor
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  fontColor?: ResourceColor;
+}
+
+/**
  * The attribute function of search
  * @since 8
  */
 declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the search button text
+   * @param { string } value - indicates the text of the search button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  searchButton(value: string): SearchAttribute;
+  /**
+   * Set the search button text, fontSize and fontColor
+   * @param { string } value - indicates the text of the search button.
+   * @param { SearchButtonOption } option - indicates the fontSize and fontColor of the search button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  searchButton(value: string, option?: SearchButtonOption): SearchAttribute;
+  
+  /**
+   * Set the text Color
+   * @param { ResourceColor } value - indicates the color of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  fontColor(value: ResourceColor): SearchAttribute;
 
+  /**
+   * Set the search icon style
+   * @param { IconOptions } value - indicates the style of the search icon.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  searchIcon(value: IconOptions): SearchAttribute;
+  
+  /**
+   * Set the cancel button style
+   * @param { {style?: CancelButtonStyle, icon?: IconOptions} } value - indicates the style of the cancel button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  cancelButton(value: {style?: CancelButtonStyle, icon?: IconOptions}): SearchAttribute;
+  
+  /**
+   * Set the cursor style
+   * @param { CaretStyle } value - indicates the style of the cursor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretStyle(value: CaretStyle): SearchAttribute;
+  
   /**
    * Set the place hold text color
    * @since 8

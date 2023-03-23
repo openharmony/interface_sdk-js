@@ -16,7 +16,23 @@ const fs = require('fs');
 const path = require('path');
 const ExcelJS = require('exceljs');
 const cm = require('comment-parser');
-const ts = require(path.resolve(__dirname, '../node_modules/typescript'));
+function requireTypescriptModule() {
+  const buildOption = require('./build.json');
+  if (buildOption.isBundle) {
+    return require('typescript');
+  }
+  const tsPathArray = [
+    path.resolve(__dirname, "../node_modules/typescript"),
+    path.resolve(__dirname, "../../node_modules/typescript")
+  ];
+  if (fs.existsSync(tsPathArray[0])) {
+    return require(tsPathArray[0]);
+  } else if (fs.existsSync(tsPathArray[1])) {
+    return require(tsPathArray[1]);
+  }
+}
+exports.requireTypescriptModule = requireTypescriptModule;
+const ts = requireTypescriptModule();
 
 const commentNodeWhiteList = [
   ts.SyntaxKind.PropertySignature, ts.SyntaxKind.CallSignature, ts.SyntaxKind.MethodSignature,
@@ -27,6 +43,13 @@ const commentNodeWhiteList = [
   ts.SyntaxKind.LabeledStatement
 ];
 exports.commentNodeWhiteList = commentNodeWhiteList;
+
+const tagsArrayOfOrder = [
+  'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
+  'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'
+];
+exports.tagsArrayOfOrder = tagsArrayOfOrder;
 
 function getAPINote(node) {
   const apiLength = node.getText().length;
@@ -202,6 +225,11 @@ function parseJsDoc(node) {
 }
 exports.parseJsDoc = parseJsDoc;
 
-let permissionFile = path.resolve(__dirname, '../config/config.json');
+let systemPermissionFile = path.resolve(__dirname, '../../../../../',
+  "base/global/system_resources/systemres/main/config.json");
 
-exports.permissionFile = permissionFile;
+exports.systemPermissionFile = systemPermissionFile;
+
+exports.checkOption = {
+  permissionContent: undefined
+};

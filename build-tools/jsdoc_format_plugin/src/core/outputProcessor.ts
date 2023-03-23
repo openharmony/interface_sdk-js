@@ -22,7 +22,7 @@ import { CommentHelper } from './coreImpls';
 import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
 
 export class OutputProcessor implements ISourceCodeProcessor {
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     try {
       let outputContent = content;
       const formater = new Formatter(content);
@@ -36,7 +36,7 @@ export class OutputProcessor implements ISourceCodeProcessor {
 
       FileUtils.writeStringToFile(outputContent, context.getOutputFile());
       return { code: Code.OK, content: outputContent };
-    } catch(error) {
+    } catch (error) {
       LogUtil.e('OutputProcessor', `error: ${context.getInputFile()}, ${error}`);
       return { code: Code.OK, content: content };
     }
@@ -69,7 +69,7 @@ class Formatter implements sourceParser.INodeVisitorCallback {
 class NumberLiteralCaseRule {
   upperCase: boolean;
   sourceParser: sourceParser.SourceCodeParser;
-  content: string|undefined;
+  content: string | undefined;
 
   constructor(upperCase: boolean, sourceParser: sourceParser.SourceCodeParser) {
     this.upperCase = upperCase;

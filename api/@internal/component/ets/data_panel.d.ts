@@ -48,6 +48,87 @@ declare enum DataPanelType {
 }
 
 /**
+ * ColorStop type
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type ColorStop = {
+  /**
+   * Color property.
+   * @type { ResourceColor } color - the color value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color: ResourceColor;
+
+  /**
+   * Offset property.
+   * @type { Length } offset - the color offset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  offset: Length;
+}
+
+/**
+ * LinearGradient class
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class LinearGradient {
+  /**
+   * Constructor.
+   * @param { ColorStop[] } colorStops - the LinearGradient constructor parameter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor(colorStops: ColorStop[]);
+}
+
+/**
+ * Defines the options of Shadow.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface DataPanelShadowOption {
+  /**
+   * Current shadow radius.
+   * @type { number | Resource } radius - the current shadow radius.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default 5
+   * @since 10
+   */
+  radius?: number | Resource;
+
+  /**
+   * Current shadow colors.
+   * @type { Array<ResourceColor | LinearGradient> } colors - the current shadow colors.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default Consistent with valueColors
+   * @since 10
+   */
+  colors?: Array<ResourceColor | LinearGradient>;
+
+  /**
+   * Current shadow offsetX.
+   * @type { number | Resource } offsetX - the current shadow offsetX.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default 5
+   * @since 10
+   */
+  offsetX?: number | Resource;
+
+  /**
+   * Current shadow offsetY
+   * @type { number | Resource } offsetY - the current shadow offsetY.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default 5
+   * @since 10
+   */
+  offsetY?: number | Resource;
+}
+
+/**
  * Defines the options of DataPanel.
  * @since 7
  */
@@ -133,6 +214,38 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @since 9
    */
   closeEffect(value: boolean): DataPanelAttribute;
+
+  /**
+   * Set the value colors of the data ratio chart.
+   * @param { Array<ResourceColor | LinearGradient> } value - the value colors of the data ratio chart.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  valueColors(value: Array<ResourceColor | LinearGradient>): DataPanelAttribute;
+
+  /**
+   * Set track background color of the data ratio chart.
+   * @param { ResourceColor } value - track background color of the data ratio chart.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  trackBackgroundColor(value: ResourceColor): DataPanelAttribute;
+
+  /**
+   * Set the stroke width of the data ratio chart.
+   * @param { Length } value - the stroke width of the data ratio chart.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  strokeWidth(value: Length): DataPanelAttribute;
+
+  /**
+   * Set the shadow width of the data ratio chart.
+   * @param { DataPanelShadowOption } value - the track shadow width of the data ratio chart.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  trackShadow(value: DataPanelShadowOption): DataPanelAttribute;
 }
 
 /**

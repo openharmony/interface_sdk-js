@@ -222,7 +222,6 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * Obtains the Context object associated with a component on the page.
  * @param { Object } component - indicate the component on the page.
  * @StageModelOnly
- * @form
  * @since 9
  */
 declare function getContext(component?: Object): Context;
@@ -230,7 +229,6 @@ declare function getContext(component?: Object): Context;
 /**
  * Get context.
  * @StageModelOnly
- * @form
  * @since 9
  */
 declare type Context = import('../api/application/Context').default;
@@ -1316,6 +1314,34 @@ declare enum AdaptiveColor {
 }
 
 /**
+ * Defines modal transition type.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ModalTransition {
+  /**
+   * Use default animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  Default,
+
+  /**
+   * Use none animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  None,
+
+  /**
+   * Use alpha animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  Alpha,  
+}
+
+/**
  * Defines the options of backgroundBlurStyle
  * @since 10
  */
@@ -1332,6 +1358,30 @@ declare interface BackgroundBlurStyleOptions {
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
+}
+
+/**
+ * Provide an interface for the text style of picker
+ * @interface PickerTextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface PickerTextStyle {
+  /**
+   * Define the text color of picker.
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color?: ResourceColor;
+  /**
+   * Define the text font of picker.
+   * Only support size and weight.
+   * @type { Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  font?: Font;
 }
 
 /**
@@ -1887,6 +1937,29 @@ declare interface StateStyles {
 }
 
 /**
+ * Defines the options of popup message.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface PopupMessageOptions {
+  /**
+   * Sets the color of popup text.
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textColor?: ResourceColor;
+
+  /**
+   * Sets the font of popup text.
+   * @type { Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  font?: Font;
+}
+
+/**
  * Defines the popup options.
  * @since 7
  */
@@ -1900,8 +1973,20 @@ declare interface PopupOptions {
   /**
    * placement On Top
    * @since 7
+   * @deprecated since 10
+   * @useinstead PopupOptions#placement
    */
   placementOnTop?: boolean;
+
+  /**
+   * Placement of popup
+   * supports four positions: top, bottom, left and right
+   * @type { Placement }
+   * @default bottom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  placement?: Placement;
 
   /**
    * The first button.
@@ -1964,6 +2049,22 @@ declare interface PopupOptions {
    * @since 10
    */
   mask?: boolean | { color: ResourceColor };
+
+  /**
+   * Sets the options of popup message.
+   * @type { PopupMessageOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  messageOptions?: PopupMessageOptions
+
+  /**
+   * Sets the space of between the popup and target.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  targetSpace?: Length
 }
 
 /**
@@ -2034,6 +2135,72 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   mask?: boolean | { color: ResourceColor };
+
+  /**
+   * Sets the space of between the popup and target.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  targetSpace?: Length
+}
+
+/**
+ * Defines the menu options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface MenuOptions {
+  /**
+   * Sets the title of the menu window.
+   * @type { ResourceStr }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  title?: ResourceStr;
+
+  /**
+   * Sets the position offset of the menu window.
+   * @type { Position }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  offset?: Position;
+}
+
+/**
+ * Defines the ProgressMask class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class ProgressMask {
+  /**
+   * constructor.
+   * @param { number } value - indicates the current value of the progress.
+   * @param { number } total - indicates the total value of the progress.
+   * @param { ResourceColor } color - indicates the color of the mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor(value: number, total: number, color: ResourceColor);
+
+  /**
+   * Update the current value of the progress.
+   * @param { number } value - indicates the current value of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  updateProgress(value: number): void;
+
+  /**
+   * Update the color of the mask.
+   * @param { ResourceColor } value - indicates the color of the mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  updateColor(value: ResourceColor): void;
 }
 
 /**
@@ -2273,6 +2440,7 @@ declare class CommonMethod<T> {
    * blurStyle:Blur style type.
    * @param { BlurStyle } value
    * @param { BackgroundBlurStyleOptions } options
+   * @form
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
@@ -2501,6 +2669,7 @@ declare class CommonMethod<T> {
    * Transition parameter
    * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 10
    */
   transition(value: TransitionOptions | TransitionEffect): T;
@@ -3073,6 +3242,7 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    * @param { ShadowOptions | ShadowStyle } value
+   * @form
    * @since 10
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
@@ -3096,10 +3266,18 @@ declare class CommonMethod<T> {
    */
   /**
    * Applies a mask of the specified shape to the current assembly.
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value - indicates the shape of the mask.
    * @form
    * @since 9
    */
-  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */  
+  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
    * Key. User can set an key to the component to identify it.
@@ -3134,15 +3312,33 @@ declare class CommonMethod<T> {
 
   /**
    * Menu control
+   * @param { { value: ResourceStr; action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @since 7
    */
-  bindMenu(content: { value: string; action: () => void }[] | CustomBuilder): T;
+  /**
+   * Menu control
+   * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
+   * @param { MenuOptions } options - Indicates the options of menu.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bindMenu(content: { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder, options?: MenuOptions): T;
 
   /**
    * ContextMenu control
    * @since 8
    */
   bindContextMenu(content: CustomBuilder, responseType: ResponseType): T;
+
+  /**
+   * Bind content cover
+   * @param { boolean } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ModalTransition } type - transition type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
 
   /**
    * Sets styles for component state.

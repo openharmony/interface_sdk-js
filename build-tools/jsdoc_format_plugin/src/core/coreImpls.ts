@@ -15,6 +15,7 @@
 
 import path from 'path';
 import excelJs from 'exceljs';
+import fs from 'fs';
 import { Command } from 'commander';
 import { ConstantValue, Instruct, StringResourceId } from '../utils/constant';
 import { FileUtils } from '../utils/fileUtils';
@@ -58,7 +59,12 @@ export class ContextImpl implements Context {
   getLogReporter(): LogReporter {
     if (this.logReporter === undefined) {
       this.logReporter = new LogReporterImpl();
-      const writer: LogWriter = new ExcelWriter(this.logReporter);
+      let writer: LogWriter;
+      if (this.getOptions().isTest) {
+        writer = new logWriter.JsonWriter();
+      } else {
+        writer = new logWriter.ExcelWriter(this.logReporter);
+      }
       this.logReporter.setWriter(writer);
     }
     return this.logReporter;
@@ -112,14 +118,13 @@ export class OutputFileHelper {
 
   // 获取报告输出路径
   static getLogReportFilePath(inputParam: InputParameter): string {
-    const fileTimeStamp = FileUtils.getFileTimeStamp();
     const fileName = path.basename(inputParam.inputFilePath, '.d.ts');
     if (inputParam.outputFilePath) {
       const dirName = path.dirname(inputParam.outputFilePath);
-      return path.join(dirName, `${fileName}_${fileTimeStamp}.xlsx`);
+      return path.join(dirName, `${fileName}`);
     } else {
       const dirName = path.dirname(inputParam.inputFilePath);
-      return path.join(dirName, `${fileName}_${fileTimeStamp}.xlsx`);
+      return path.join(dirName, `${fileName}`);
     }
   }
 }
@@ -219,11 +224,11 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
       const hasComment: boolean = currentCommentNode.commentInfos ? currentCommentNode.commentInfos.length > 0 : false;
       const { line, character } = node.getSourceFile().getLineAndCharacterOfPosition(node.getStart());
       if (thiz.shouldNotifyCallback(node, hasComment, onlyVisitHasComment)) {
-        LogUtil.d('SourceCodeParserImpl', `kind: ${node.kind}, line: ${line}, ${JSON.stringify(currentCommentNode.commentInfos)}`);
+        LogUtil.d('SourceCodeParserImpl', `kind: ${node.kind}, line: ${line + 1}, ${JSON.stringify(currentCommentNode.commentInfos)}`);
         callback.onVisitNode(currentCommentNode);
       } else {
         LogUtil.d('SourceCodeParserImpl',
-          `skip, kind: ${node.kind}, line: ${line}, character: ${character}, commnet size: ${currentCommentNode.commentInfos?.length}`);
+          `skip, [ ${node.getText()} ] kind: ${node.kind}, line: ${line + 1}, character: ${character}, comment size: ${currentCommentNode.commentInfos?.length}`);
       }
       if (thiz.shouldForEachChildren(node)) {
         node.forEachChild((child) => {
@@ -798,6 +803,8 @@ export class InputParameter {
   outputFilePath: string | undefined;
   logLevel: string = '';
   splitUnionTypeApi: boolean = false;
+  branch: string = 'master';
+  test: boolean = false;
   options: Options = new Options();
 
   parse() {
@@ -806,16 +813,22 @@ export class InputParameter {
       .name('jsdoc-tool')
       .description('CLI to format d.ts')
       .version('0.1.0')
+      .allowUnknownOption(true)
       .requiredOption('-i, --input <path>', `${StringResource.getString(StringResourceId.COMMAND_INPUT_DESCRIPTION)}`)
       .option('-o, --output <path>', `${StringResource.getString(StringResourceId.COMMAND_OUT_DESCRIPTION)}`)
       .option('-l, --logLevel <INFO,WARN,DEBUG,ERR>', `${StringResource.getString(StringResourceId.COMMAND_LOGLEVEL_DESCRIPTION)}`, 'INFO')
-      .option('-s, --split', `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false);
+      .option('-s, --split', `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false)
+      .option('-b, --branch <string>', `${StringResource.getString(StringResourceId.COMMAND_BRANCH)}`, 'master')
+      .option('-t, --test', `${StringResource.getString(StringResourceId.COMMAND_TEST)}`, false);
+
     program.parse();
     const options = program.opts();
     this.inputFilePath = options.input;
     this.outputFilePath = options.output;
     this.logLevel = options.logLevel;
     this.splitUnionTypeApi = options.split;
+    this.branch = options.branch;
+    this.test = options.test;
     this.checkInput();
   }
 
@@ -859,6 +872,8 @@ export class InputParameter {
       }
     }
     this.options.splitUnionTypeApi = this.splitUnionTypeApi;
+    this.options.workingBranch = this.branch;
+    this.options.isTest = this.test;
   }
 
   private checkFileExists(filePath: string) {
@@ -953,60 +968,88 @@ export class LogReporterImpl implements LogReporter {
     return this.modifyResultMap;
   }
 
-  writeCheckResults(path: string): void {
-    this.writer?.writeResults(this.checkResults, undefined, path);
+  async writeCheckResults(path: string): Promise<void> {
+    await this.writer?.writeResults(this.checkResults, undefined, path);
   }
 
-  writeModifyResults(path: string): void {
-    this.writer?.writeResults(undefined, this.modifyResults, path);
+  async writeModifyResults(path: string): Promise<void> {
+    await this.writer?.writeResults(undefined, this.modifyResults, path);
   }
 
-  writeAllResults(path: string): void {
-    this.writer?.writeResults(this.checkResults, this.modifyResults, path);
+  async writeAllResults(path: string): Promise<void> {
+    await this.writer?.writeResults(this.checkResults, this.modifyResults, path);
   }
 }
 
-export class ExcelWriter implements LogWriter {
-  workBook: excelJs.Workbook = new excelJs.Workbook();
-  checkResultsColumns: Array<object> = [];
-  modifyResultsColumns: Array<object> = [];
+export namespace logWriter {
+  export class ExcelWriter implements LogWriter {
+    workBook: excelJs.Workbook = new excelJs.Workbook();
+    checkResultsColumns: Array<object> = [];
+    modifyResultsColumns: Array<object> = [];
 
-  constructor(logReporter: LogReporter) {
-    // 初始化列名
-    this.initCheckResultsColumns(logReporter.getCheckResultMap());
-    this.initModifyResultsColumns(logReporter.getModifyResultMap());
-  }
-
-  initCheckResultsColumns(checkResultMap: Map<string, string>): void {
-    checkResultMap.forEach((value: string, key: string) => {
-      this.checkResultsColumns.push({
-        'header': value,
-        'key': key
-      });
-    });
-  }
-
-  initModifyResultsColumns(modifyResultMap: Map<string, string>): void {
-    modifyResultMap.forEach((value: string, key: string) => {
-      this.modifyResultsColumns.push({
-        'header': value,
-        'key': key
-      });
-    });
-  }
-
-  writeResults(checkResults: Array<CheckLogResult> | undefined, modifyResults: Array<ModifyLogResult> | undefined, path: string): void {
-    if (checkResults) {
-      const checkResultsSheet: excelJs.Worksheet = this.workBook.addWorksheet('待确认报告');
-      checkResultsSheet.columns = this.checkResultsColumns;
-      checkResultsSheet.addRows(checkResults);
+    constructor(logReporter: LogReporter) {
+      // 初始化列名
+      this.initCheckResultsColumns(logReporter.getCheckResultMap());
+      this.initModifyResultsColumns(logReporter.getModifyResultMap());
     }
-    if (modifyResults) {
-      const modifyResultsSheet: excelJs.Worksheet = this.workBook.addWorksheet('整改报告');
-      modifyResultsSheet.columns = this.modifyResultsColumns;
-      modifyResultsSheet.addRows(modifyResults);
+
+    initCheckResultsColumns(checkResultMap: Map<string, string>): void {
+      checkResultMap.forEach((value: string, key: string) => {
+        this.checkResultsColumns.push({
+          'header': value,
+          'key': key
+        });
+      });
     }
-    this.workBook.xlsx.writeFile(path);
+
+    initModifyResultsColumns(modifyResultMap: Map<string, string>): void {
+      modifyResultMap.forEach((value: string, key: string) => {
+        this.modifyResultsColumns.push({
+          'header': value,
+          'key': key
+        });
+      });
+    }
+
+    async writeResults(checkResults: Array<CheckLogResult> | undefined,
+      modifyResults: Array<ModifyLogResult> | undefined, filePath: string): Promise<void> {
+      if (checkResults) {
+        const checkResultsSheet: excelJs.Worksheet = this.workBook.addWorksheet('待确认报告');
+        checkResultsSheet.columns = this.checkResultsColumns;
+        checkResultsSheet.addRows(checkResults);
+      }
+      if (modifyResults) {
+        const modifyResultsSheet: excelJs.Worksheet = this.workBook.addWorksheet('整改报告');
+        modifyResultsSheet.columns = this.modifyResultsColumns;
+        modifyResultsSheet.addRows(modifyResults);
+      }
+      const fileName: string = `${filePath}.xlsx`;
+      await this.workBook.xlsx.writeFile(fileName);
+    }
+  }
+
+  interface JsonResult {
+    checkResults: Array<CheckLogResult> | undefined,
+    modifyResults: Array<ModifyLogResult> | undefined
+  }
+
+  export class JsonWriter implements LogWriter {
+    async writeResults(checkResults: Array<CheckLogResult> | undefined,
+      modifyResults: Array<ModifyLogResult> | undefined, filePath: string): Promise<void> {
+      const results: JsonResult = {
+        checkResults: undefined,
+        modifyResults: undefined
+      }
+      if (checkResults) {
+        results.checkResults = checkResults;
+      }
+      if (modifyResults) {
+        results.modifyResults = modifyResults;
+      }
+      const jsonText: string = JSON.stringify(results, null, 2);
+      const fileName: string = `${filePath}.json`;
+      fs.writeFileSync(fileName, jsonText);
+    }
   }
 }
 

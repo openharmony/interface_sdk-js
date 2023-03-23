@@ -147,15 +147,18 @@ function deleteRepeatApi(oldApis, newApis, newFilesApi, oldFilesApi) {
 function collectSameTypeFun(apiArr) {
 	apiArr.forEach(api => {
 		let sameNameFun = '';
-		let number = 0
+		// 标记既不是Promise也不是callback的同名函数
+		let number = 0;
+		let sameNamePromiseText = ''
 		apiArr.forEach(newApi => {
 			if (api.dtsPath.replace(newDir, '') === newApi.dtsPath.replace(newDir, '') && api.className === newApi.className &&
 				api.methodName === newApi.methodName && api.apiType == 'Method' && api.funType === newApi.funType) {
 				if (sameNameFun.indexOf(newApi.methodText) < 0 && api.funType === 'callback') {
 					sameNameFun += `\n${newApi.methodText}`;
 					api.callbackMethodText = sameNameFun;
-				} else if (api.funType === 'Promise') {
-					api.promiseMethodText = api.methodText;
+				} else if (sameNamePromiseText.indexOf(newApi.methodText) < 0 && api.funType === 'Promise') {
+					sameNamePromiseText += `\n${newApi.methodText}`;
+					api.promiseMethodText = sameNamePromiseText;
 				} else if (!api.funType) {
 					number++;
 					api.note = number;
@@ -386,15 +389,16 @@ function collectTypeDiff(newType, oldType, startDiffNew, startDiffOld, diffApis,
 		flag = 'type有变化';
 	}
 	if (flag) {
-		diffOld = startDiffOld + '起始版本：' + oldType;
-		diffNew = startDiffNew + '起始版本：' + newType;
+		diffOld = startDiffOld + 'type：' + oldType;
+		diffNew = startDiffNew + 'type：' + newType;
 		let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
 		diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
 	}
 }
 
 function collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, diffOld) {
-	flag = '新增'
+	const flag = '新增';
+	let diffNew = '';
 	if (newApi.apiType === 'import') {
 		diffNew = '模块名: ' + newApi.packageName + '\nimport 信息: ' + newApi.headimport
 	} else if (newApi.apiType === 'export') {
@@ -402,7 +406,7 @@ function collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, d
 	} else if (newApi.methodName === '') {
 		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className
 	} else {
-		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className; + '\n方法 or 属性: ' + newApi.methodText;
+		diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className + '\n方法 or 属性: ' + newApi.methodText;
 	}
 	let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
 	diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
@@ -504,7 +508,7 @@ function collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffA
 
 function collectErrorCodeDiff(newErrorCode, oldErrorCode, startDiffNew, startDiffOld, diffApis, subsystemMap, notes,
 	fileNameMap, newApi) {
-	flag = oldErrorCode ? 'API修改(错误码)' : '新增(错误码)';
+	flag = oldErrorCode === 'N/A' ? '新增(错误码)' : 'API修改(错误码)';
 	if (flag === '新增(错误码)') {
 		diffOld = 'NA';
 	} else if (flag === 'API修改(错误码)') {

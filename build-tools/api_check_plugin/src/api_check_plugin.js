@@ -15,13 +15,13 @@
 
 const path = require('path');
 const fs = require('fs');
-const ts = require(path.resolve(__dirname, '../node_modules/typescript'));
 const { checkAPIDecorators } = require('./check_decorator');
 const { checkSpelling } = require('./check_spelling');
 const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
-const { hasAPINote, ApiCheckResult } = require('./utils');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
+const ts = requireTypescriptModule();
 let result = require('../check_result.json');
 
 function checkAPICodeStyle(url) {

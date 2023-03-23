@@ -258,6 +258,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
      * @param { ItemAlign } value - element alignment
      * @default ItemAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @form
      * @since 10
      */
     alignItems(value: ItemAlign): GridRowAttribute;

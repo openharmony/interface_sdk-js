@@ -30,27 +30,26 @@ import { Context, IJSDocModifier, ISourceCodeProcessor, LogReporter, ProcessResu
  */
 export class JSDocModifierImpl implements IJSDocModifier {
   tag: string = 'jsdoc-tool';
-  start(): void {
-    const inputParameter = new InputParameter();
-    try {
-      inputParameter.parse();
-    } catch (error) {
-      LogUtil.e(this.tag, error);
-      return;
-    }
-    this.startInternal(inputParameter);
+  async start(): Promise<void> {
+    await this.startInternal();
   }
 
-  startInternal(inputParameter: InputParameter) {
-    LogUtil.logLevel = LogLevelUtil.get(inputParameter.logLevel);
-    const sourceProcessor: ISourceCodeProcessor = this.getSourceProcessor(inputParameter);
-    const baseContext: Context = this.getBaseContext(inputParameter);
-    LogUtil.i(this.tag, StringResource.getString(StringResourceId.START_MESSAGE));
-    const result: ProcessResult = sourceProcessor.process(baseContext, '');
-    if (result.code !== Code.OK) {
-      LogUtil.e(this.tag, result.content);
-    } else {
-      LogUtil.i(this.tag, result.content);
+  async startInternal(): Promise<void> {
+    try {
+      const inputParameter = new InputParameter();
+      inputParameter.parse();
+      LogUtil.logLevel = LogLevelUtil.get(inputParameter.logLevel);
+      const sourceProcessor: ISourceCodeProcessor = this.getSourceProcessor(inputParameter);
+      const baseContext: Context = this.getBaseContext(inputParameter);
+      LogUtil.i(this.tag, StringResource.getString(StringResourceId.START_MESSAGE));
+      const result: ProcessResult = await sourceProcessor.process(baseContext, '');
+      if (result.code !== Code.OK) {
+        LogUtil.e(this.tag, result.content);
+      } else {
+        LogUtil.i(this.tag, result.content);
+      }
+    } catch (error) {
+      LogUtil.e(this.tag, error);
     }
   }
 
@@ -65,20 +64,6 @@ export class JSDocModifierImpl implements IJSDocModifier {
   }
 }
 
-
-export class JSDOcModifierTestEntry extends JSDocModifierImpl {
-
-  runTest(inputFile: string, outputFile: string) {
-    const inputParameter = new InputParameter();
-    inputParameter.inputFilePath = inputFile;
-    inputParameter.outputFilePath = outputFile;
-    inputParameter.splitUnionTypeApi = true;
-    inputParameter.getOptions().splitUnionTypeApi = true;
-    this.startInternal(inputParameter);
-  }
-}
-
-
 abstract class BaseSourceCodeProcessor implements ISourceCodeProcessor {
   inputParam: InputParameter;
 
@@ -86,7 +71,7 @@ abstract class BaseSourceCodeProcessor implements ISourceCodeProcessor {
     this.inputParam = inputParam;
   }
 
-  abstract process(context: Context, code: string): ProcessResult;
+  abstract process(context: Context, code: string): Promise<ProcessResult>;
 
   buildProcessorContext(parentContext: Context, inputFile: string): Context {
     return new ContextImpl(inputFile,
@@ -100,7 +85,7 @@ abstract class BaseSourceCodeProcessor implements ISourceCodeProcessor {
  */
 export class SingleFileProcessor extends BaseSourceCodeProcessor {
 
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     const inputFilePath = context.getInputFile();
     if (!inputFilePath) {
       return {
@@ -118,21 +103,25 @@ export class SingleFileProcessor extends BaseSourceCodeProcessor {
 
     let preResult = {
       code: Code.OK,
-      content: rawCodeStr!
+      content: rawCodeStr ? rawCodeStr : ''
     };
     const newContext = this.buildProcessorContext(context, context.getInputFile());
     const logReporter: LogReporter = context.getLogReporter();
     newContext.setLogReporter(logReporter);
     for (let processor of processorRegistry) {
-      preResult = processor.process(newContext, preResult.content);
+      preResult = await processor.process(newContext, preResult.content);
       if (preResult.code === Code.ERROR) {
         break;
       }
     }
     // 报告落盘
     const reportFilePath: string = OutputFileHelper.getLogReportFilePath(this.inputParam);
-    context.getLogReporter().writeAllResults(reportFilePath);
-    LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}`);
+    await context.getLogReporter().writeAllResults(reportFilePath);
+    if (context.getOptions().isTest) {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.json`);
+    } else {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.xlsx`);
+    }
     if (preResult.code === Code.OK) {
       preResult.content = `new d.ts file is ${newContext.getOutputFile()}`;
     }
@@ -144,7 +133,7 @@ export class SingleFileProcessor extends BaseSourceCodeProcessor {
  * 处理文件夹。
  */
 export class MultiFileProcessor extends BaseSourceCodeProcessor {
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     const intpuDir = context.getInputFile();
     if (!intpuDir) {
       return {
@@ -157,14 +146,14 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
     });
     const errorSet: Array<ProcessResult> = new Array();
     const logReporter: LogReporter = context.getLogReporter();
-    allSourceFiles.forEach((childFile) => {
+    for (const childFile of allSourceFiles) {
       const rawCodeStr = FileUtils.readFileContent(childFile);
       if (StringUtils.isEmpty(rawCodeStr)) {
         errorSet.push({
           code: Code.ERROR,
           content: `${childFile}: ${StringResource.getString(StringResourceId.INPUT_FILE_CONTENT_EMPTY)}`
         });
-        return;
+        continue;
       }
       const newContext = this.buildProcessorContext(context, childFile);
       newContext.setLogReporter(logReporter);
@@ -174,21 +163,25 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
       };
 
       for (let processor of processorRegistry) {
-        preValue = processor.process(newContext, preValue.content);
+        preValue = await processor.process(newContext, preValue.content);
         if (preValue.code !== Code.OK) {
           errorSet.push(preValue);
           break;
         }
       }
-    });
+    }
     // 报告落盘
     const reportFilePath: string = OutputFileHelper.getLogReportFilePath(this.inputParam);
-    context.getLogReporter().writeAllResults(reportFilePath);
-    LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}`);
+    await context.getLogReporter().writeAllResults(reportFilePath);
+    if (context.getOptions().isTest) {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.json`);
+    } else {
+      LogUtil.i('jsdoc-tool', `the report file is in ${reportFilePath}.xlsx`);
+    }
     return {
       code: errorSet.length > 0 ? Code.ERROR : Code.OK,
-      content: errorSet.length > 0 ? JSON.stringify(errorSet)
-        : `new d.ts file is in ${OutputFileHelper.getMultiOutputDir(this.inputParam)}`
+      content: errorSet.length > 0 ? JSON.stringify(errorSet) :
+        `new d.ts file is in ${OutputFileHelper.getMultiOutputDir(this.inputParam)}`
     };
   }
 }

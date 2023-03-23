@@ -32,11 +32,12 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
   context?: Context;
   rawSourceCodeInfo?: rawInfo.RawSourceCodeInfo;
 
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     this.context = context;
     const newParser = context.getSourceParser(content);
     this.logReporter = context.getLogReporter();
     this.rawSourceCodeInfo = context.getRawSourceCodeInfo();
+    await apiChecker.initEnv(context.getOptions().workingBranch);
     const newSourceFile = newParser.visitEachNodeComment(this, false);
     return {
       code: Code.OK,
@@ -48,7 +49,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     if (node.astNode) {
       const curNode: ts.Node = node.astNode;
       // 获取诊断信息
-      const checkResults = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile());
+      const checkResults = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile(), this.context?.getInputFile());
       const newCommentIndexs: number[] = [];
       const newCommentInfos: comment.CommentInfo[] = node.commentInfos ? [...node.commentInfos] : [];
       // 获取需要整改的JSDoc数组
@@ -95,10 +96,17 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
         const modifyResult: boolean = JSDocModificationManager.addTagFrommParentNode(node, commentInfo, tagName,
           this.context);
         if (modifyResult) {
-          const modifyLogResult: ModifyLogResult = LogResult.createModifyResult(curNode, newCommentInfos,
-            JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_INHERIT_TAG_INFORMATION, [`${jsdocNumber}`, `${tagName}`]),
-            this.context, apiName, JSDocModifyType.MISSING_TAG_COMPLETION);
-          this.logReporter?.addModifyResult(modifyLogResult);
+          if (tagName === 'permission') {
+            const checkLogResult: CheckLogResult = LogResult.createCheckResult(curNode, newCommentInfos,
+              JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_INHERIT_PERMISSION_TAG_ERROR, [`${jsdocNumber}`, `${tagName}`]),
+              this.context, apiName, JSDocCheckErrorType.INCOMPLETE_TAG);
+            this.logReporter?.addCheckResult(checkLogResult);
+          } else {
+            const modifyLogResult: ModifyLogResult = LogResult.createModifyResult(curNode, newCommentInfos,
+              JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_INHERIT_TAG_INFORMATION, [`${jsdocNumber}`, `${tagName}`]),
+              this.context, apiName, JSDocModifyType.MISSING_TAG_COMPLETION);
+            this.logReporter?.addModifyResult(modifyLogResult);
+          }
         }
       }
     });
@@ -120,11 +128,13 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
       }
       if (!modifier || !modifyResult) {
         let modifyErrorInfo: string = ErrorInfo.COMPLETE_TAG_ERROR;
+        let insteadInfo: string[] = [`${jsdocNumber}`, `${tagName}`];
         if (tagName === 'interface') {
           modifyErrorInfo = ErrorInfo.COMPLETE_INTERFACE_TAG_ERROR;
+          insteadInfo = [`${jsdocNumber}`];
         }
         const checkLogResult: CheckLogResult = LogResult.createCheckResult(curNode, newCommentInfos,
-          JSDocModificationManager.createErrorInfo(modifyErrorInfo, [`${jsdocNumber}`, `${tagName}`]),
+          JSDocModificationManager.createErrorInfo(modifyErrorInfo, insteadInfo),
           this.context, apiName, JSDocCheckErrorType.INCOMPLETE_TAG);
         this.logReporter?.addCheckResult(checkLogResult);
       }
@@ -241,7 +251,9 @@ class JSDocModificationManager {
     if (node.parentNode) {
       const pTag: comment.CommentTag | undefined = getParentTag(node.parentNode, tagName);
       if (pTag) {
-        commentInfo.commentTags.push(pTag);
+        if (tagName !== 'permission') {
+          commentInfo.commentTags.push(pTag);
+        }
         return true;
       }
     }
@@ -270,7 +282,8 @@ class JSDocModificationManager {
   static addParamTag(node: comment.CommentNode, commentInfo: comment.CommentInfo, tagName: string,
     context: Context | undefined): boolean {
     if (node.astNode && (ts.isMethodDeclaration(node.astNode) || ts.isMethodSignature(node.astNode) ||
-      ts.isFunctionDeclaration(node.astNode) || ts.isCallSignatureDeclaration(node.astNode))) {
+      ts.isFunctionDeclaration(node.astNode) || ts.isCallSignatureDeclaration(node.astNode) ||
+      ts.isConstructorDeclaration(node.astNode))) {
       let paramTagNum: number = 0;
       commentInfo.commentTags.forEach((tag: comment.CommentTag) => {
         if (tag.tag === 'param') {
@@ -298,7 +311,7 @@ class JSDocModificationManager {
             commentInfo.commentTags.push(newCommentTag);
             // 提示description缺失信息
             const checkLogResult: CheckLogResult = LogResult.createCheckResult(node.astNode, commentInfos,
-              JSDocModificationManager.createErrorInfo(ErrorInfo.PARAM_FORAMT_DESCRIPTION_ERROR, [`${i + 1}`]), context, apiName,
+              JSDocModificationManager.createErrorInfo(ErrorInfo.PARAM_FORAMT_DESCRIPTION_ERROR, [`${curIndex + 1}`]), context, apiName,
               JSDocCheckErrorType.PARAM_DESCRIPTION_WARNING);
             context?.getLogReporter().addCheckResult(checkLogResult);
           }
@@ -364,7 +377,6 @@ class JSDocModificationManager {
 const jsDocModifier: Map<string, JsDocModificationInterface> = new Map([
   ['constant', JSDocModificationManager.addTagWithoutValue],
   ['deprecated', JSDocModificationManager.addTagFrommParentNode],
-  ['enum', JSDocModificationManager.addTagWithValue],
   ['extends', JSDocModificationManager.addTagWithValue],
   ['famodelonly', JSDocModificationManager.addTagFrommParentNode],
   ['namespace', JSDocModificationManager.addTagWithValue],
@@ -382,10 +394,10 @@ const jsDocModifier: Map<string, JsDocModificationInterface> = new Map([
 const JSDOC_ORDER_TAGS_ARRAY = [
   'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
   'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'form', 'example'
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'
 ];
 
 /**
  * 继承标签白名单
  */
-const INHERIT_TAGS_ARRAY = ['deprecated', 'famodelonly', 'stagemodelonly', 'systemapi', 'test'];
+const INHERIT_TAGS_ARRAY = ['deprecated', 'famodelonly', 'stagemodelonly', 'systemapi', 'test', 'permission'];

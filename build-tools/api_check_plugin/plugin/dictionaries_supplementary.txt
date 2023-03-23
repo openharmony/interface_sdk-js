@@ -408,6 +408,7 @@ muhenkan
 multifrequency
 multimodal
 multisample
+multisim
 multitask
 mutes
 narrowband
@@ -594,6 +595,7 @@ sigalgs
 silenced
 slidable
 sliderstyle
+stk
 sm3
 smil
 smsc
@@ -754,6 +756,7 @@ wakes
 waking
 wallpapers
 wapi
+wappush
 watchers
 waterflow
 wcdma
