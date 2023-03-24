@@ -122,7 +122,7 @@ declare namespace cert {
      * Indicates the content of data blob.
      *
      * @type { Uint8Array }
-     * @syscap SystemCapability.Security.CryptoFramework
+     * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     data: Uint8Array;
@@ -140,7 +140,7 @@ declare namespace cert {
      * Indicates the content of data array.
      *
      * @type { Array<Uint8Array> }
-     * @syscap SystemCapability.Security.CryptoFramework
+     * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     data: Array<Uint8Array>;
