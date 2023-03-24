@@ -18,14 +18,7 @@ const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkSyscap(node, sourcefile, fileName) {
-  const syscapTags = rules.syscap.SystemCapability;
-  const syscapRuleSet = new Set();
-  for (const i in syscapTags) {
-    syscapTags[i].forEach(syscap => {
-      const syscapTag = 'SystemCapability.' + i + '.' + syscap;
-      syscapRuleSet.add(syscapTag);
-    });
-  }
+  const syscapRuleSet = new Set(rules.syscap.SystemCapability);
   const apiNote = getAPINote(node);
   const apiNoteArr = apiNote.split('*');
   let errorInfo = '';
