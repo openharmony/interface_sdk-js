@@ -326,6 +326,7 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
+   * @permission ohos.permission.INTERNET
    * @throws {BusinessError} 201 - the permissions check fails
    * @throws {BusinessError} 401 - the parameters check fails
    * @throws {BusinessError} 13400002 - bad file path
