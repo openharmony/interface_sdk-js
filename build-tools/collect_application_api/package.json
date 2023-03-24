@@ -13,6 +13,8 @@
     "exceljs": "^4.3.0",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
-    "typescript": "file:./deps/ohos-typescript-4.2.3-r2.tgz"
+    "typescript": "file:./deps/ohos-typescript-4.2.3-r2.tgz",
+    "@ohos/hvigor":"1.4.0",
+    "@ohos/hvigor-ohos-plugin":"1.4.0"
   }
 }

@@ -707,9 +707,15 @@ function exportDiffMd(subsystem, diffInfos) {
 	for (let i = 0; i < diffInfos.length; i++) {
 		let apiData = diffInfos[i];
 		let fileName = apiData.dtsPath ? path.basename(apiData.dtsPath) : apiData.packageName;
-		finalContent += `|${apiData.flag}|${apiData.diffOld.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|')}|` +
-			`${apiData.diffNew.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|')}|${fileName}|\n`;
+		const oldData = apiData.diffOld.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|').replace(/\<(?!br>)/g, '\\<');
+		const newData = apiData.diffNew.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|').replace(/\<(?!br>)/g, '\\<');
+		finalContent += `|${apiData.flag}|${oldData}|${newData}|${fileName}|\n`;
 	}
+	const mdFilesDir = `${__dirname.replace('src', '')}diff合集`;
+	if (!fs.existsSync(mdFilesDir)) {
+		fs.mkdirSync('../diff合集')
+	}
+
 	fs.writeFile(`../diff合集/js-apidiff-${subsystem}.md`, finalContent, function (err) {
 		if (err) {
 			console.log('WRITE FAILED:::', err);
