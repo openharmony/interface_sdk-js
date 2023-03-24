@@ -985,7 +985,7 @@ declare namespace inputMethodEngine {
      * Subscribe key up or down event
      *
      * @param { 'keyDown' | 'keyUp' } type - indicates the type of subscribe event.
-     * @param { (event: KeyEvent) => boolean } callback - indicats the callback function of on('keyDown'|'keyUp').
+     * @param { (event: KeyEvent) => boolean } callback - indicates the callback function of on('keyDown'|'keyUp').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1025,7 +1025,8 @@ declare namespace inputMethodEngine {
      * Subscribe selection change
      *
      * @param { 'selectionChange' } type - indicates the type of subscribe event.
-     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } callback - indicates the callback function of on('selectionChange').
+     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } callback - indicates the callback function
+     * of on('selectionChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1038,7 +1039,8 @@ declare namespace inputMethodEngine {
      * Unsubscribe selection change
      *
      * @param { 'selectionChange' } type - indicates the type of unsubscribe event.
-     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } callback - optional, indicates the callback function of off('selectionChange').
+     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } callback - optional,
+     * indicates the callback function of off('selectionChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
