@@ -719,6 +719,8 @@ declare namespace call {
 
   /**
    * Subscribe to the audioDeviceChange event.
+   * 
+   * The system subscribes the audioDeviceChange event.
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of Current AudioDevice.
@@ -736,6 +738,8 @@ declare namespace call {
 
   /**
    * Unsubscribe from the audioDeviceChange event.
+   * 
+   * The system subscribes the audioDeviceChange event.
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of Current AudioDevice.
@@ -922,6 +926,8 @@ declare namespace call {
 
   /**
    * Set the audio device.
+   * 
+   * The system set which audio device to use.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
