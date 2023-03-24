@@ -19,12 +19,14 @@
  * @deprecated since 7
  */
 export interface BrightnessResponse {
-    /**
-     * Screen brightness, which ranges from 1 to 255.
-     * @since 3
-     * @deprecated since 7
-     */
-    value: number;
+  /**
+   * Screen brightness, which ranges from 1 to 255.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  value: number;
 }
 
 /**
@@ -33,26 +35,32 @@ export interface BrightnessResponse {
  * @deprecated since 7
  */
 export interface GetBrightnessOptions {
-    /**
-     * Called when the current screen brightness is obtained.
-     * @since 3
-     * @deprecated since 7
-     */
-    success?: (data: BrightnessResponse) => void;
+  /**
+   * Called when the current screen brightness is obtained.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  success?: (data: BrightnessResponse) => void;
 
-    /**
-     * Called when the current screen brightness fails to be obtained.
-     * @since 3
-     * @deprecated since 7
-     */
-    fail?: (data: string, code: number) => void;
+  /**
+   * Called when the current screen brightness fails to be obtained.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  fail?: (data: string, code: number) => void;
 
-    /**
-     * Called when the execution is completed.
-     * @since 3
-     * @deprecated since 7
-     */
-    complete?: () => void;
+  /**
+   * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  complete?: () => void;
 }
 
 /**
@@ -61,37 +69,45 @@ export interface GetBrightnessOptions {
  * @deprecated since 7
  */
 export interface SetBrightnessOptions {
-    /**
-     * Screen brightness. The value is an integer ranging from 1 to 255.
-     * If the value is less than or equal to 0, value 1 will be used.
-     * If the value is greater than 255, value 255 will be used.
-     * If the value contains decimals, the integral part of the value will be used.
-     * For example, if value is 8.1 is set, value 8 will be used.
-     * @since 3
-     * @deprecated since 7
-     */
-    value: number;
+  /**
+   * Screen brightness. The value is an integer ranging from 1 to 255.
+   * If the value is less than or equal to 0, value 1 will be used.
+   * If the value is greater than 255, value 255 will be used.
+   * If the value contains decimals, the integral part of the value will be used.
+   * For example, if value is 8.1 is set, value 8 will be used.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  value: number;
 
-    /**
-     * Called when the setting is successful.
-     * @since 3
-     * @deprecated since 7
-     */
-    success?: () => void;
+  /**
+   * Called when the setting is successful.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  success?: () => void;
 
-    /**
-     * Called when the setting fails.
-     * @since 3
-     * @deprecated since 7
-     */
-    fail?: (data: string, code: number) => void;
+  /**
+   * Called when the setting fails.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  fail?: (data: string, code: number) => void;
 
-    /**
-     * Called when the execution is completed.
-     * @since 3
-     * @deprecated since 7
-     */
-    complete?: () => void
+  /**
+   * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  complete?: () => void;
 }
 
 /**
@@ -100,14 +116,16 @@ export interface SetBrightnessOptions {
  * @deprecated since 7
  */
 export interface BrightnessModeResponse {
-    /**
-     * The value can be 0 or 1.
-     * 0: The screen brightness is manually adjusted.
-     * 1: The screen brightness is automatically adjusted.
-     * @since 3
-     * @deprecated since 7
-     */
-    mode: number;
+  /**
+   * The value can be 0 or 1.
+   * 0: The screen brightness is manually adjusted.
+   * 1: The screen brightness is automatically adjusted.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  mode: number;
 }
 
 /**
@@ -116,26 +134,32 @@ export interface BrightnessModeResponse {
  * @deprecated since 7
  */
 export interface GetBrightnessModeOptions {
-    /**
-     * Called when the screen brightness adjustment mode is obtained.
-     * @since 3
-     * @deprecated since 7
-     */
-    success?: (data: BrightnessModeResponse) => void;
+  /**
+   * Called when the screen brightness adjustment mode is obtained.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  success?: (data: BrightnessModeResponse) => void;
 
-    /**
-     * Called when the screen brightness adjustment mode fails to be obtained.
-     * @since 3
-     * @deprecated since 7
-     */
-    fail?: (data: string, code: number) => void;
+  /**
+   * Called when the screen brightness adjustment mode fails to be obtained.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  fail?: (data: string, code: number) => void;
 
-    /**
-     * Called when the execution is completed.
-     * @since 3
-     * @deprecated since 7
-     */
-    complete?: () => void;
+  /**
+   * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  complete?: () => void;
 }
 
 /**
@@ -144,35 +168,43 @@ export interface GetBrightnessModeOptions {
  * @deprecated since 7
  */
 export interface SetBrightnessModeOptions {
-    /**
-     * The screen brightness mode.
-     * 0: The screen brightness is manually adjusted.
-     * 1: The screen brightness is automatically adjusted.
-     * @since 3
-     * @deprecated since 7
-     */
-    mode: number;
+  /**
+   * The screen brightness mode.
+   * 0: The screen brightness is manually adjusted.
+   * 1: The screen brightness is automatically adjusted.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  mode: number;
 
-    /**
-     * Called when the setting is successful.
-     * @since 3
-     * @deprecated since 7
-     */
-    success?: () => void;
+  /**
+   * Called when the setting is successful.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  success?: () => void;
 
-    /**
-     * Called when the setting fails.
-     * @since 3
-     * @deprecated since 7
-     */
-    fail?: (data: string, code: number) => void;
+  /**
+   * Called when the setting fails.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  fail?: (data: string, code: number) => void;
 
-    /**
-     * Called when the execution is completed.
-     * @since 3
-     * @deprecated since 7
-     */
-    complete?: () => void
+  /**
+   * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  complete?: () => void;
 }
 
 /**
@@ -181,33 +213,41 @@ export interface SetBrightnessModeOptions {
  * @deprecated since 7
  */
 export interface SetKeepScreenOnOptions {
-    /**
-     * Whether to always keep the screen on.
-     * @since 3
-     * @deprecated since 7
-     */
-    keepScreenOn: boolean;
+  /**
+   * Whether to always keep the screen on.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  keepScreenOn: boolean;
 
-    /**
-     * Called when the setting is successful.
-     * @since 3
-     * @deprecated since 7
-     */
-    success?: () => void;
+  /**
+   * Called when the setting is successful.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  success?: () => void;
 
-    /**
-     * Called when the setting fails.
-     * @since 3
-     * @deprecated since 7
-     */
-    fail?: (data: string, code: number) => void;
+  /**
+   * Called when the setting fails.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  fail?: (data: string, code: number) => void;
 
-    /**
-     * Called when the execution is completed.
-     * @since 3
-     * @deprecated since 7
-     */
-    complete?: () => void
+  /**
+   * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  complete?: () => void;
 }
 
 /**
@@ -216,43 +256,53 @@ export interface SetKeepScreenOnOptions {
  * @deprecated since 7
  */
 export default class Brightness {
-    /**
-     * Obtains the current screen brightness.
-     * @param options Options.
-     * @since 3
-     * @deprecated since 7
-     */
-    static getValue(options?: GetBrightnessOptions): void;
+  /**
+   * Obtains the current screen brightness.
+   *
+   * @param options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  static getValue(options?: GetBrightnessOptions): void;
 
-    /**
-     * Sets the screen brightness.
-     * @param options Options.
-     * @since 3
-     * @deprecated since 7
-     */
-    static setValue(options?: SetBrightnessOptions): void;
+  /**
+   * Sets the screen brightness.
+   *
+   * @param options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  static setValue(options?: SetBrightnessOptions): void;
 
-    /**
-     * Obtains the screen brightness adjustment mode.
-     * @param options Options.
-     * @since 3
-     * @deprecated since 7
-     */
-    static getMode(options?: GetBrightnessModeOptions): void;
+  /**
+   * Obtains the screen brightness adjustment mode.
+   *
+   * @param options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  static getMode(options?: GetBrightnessModeOptions): void;
 
-    /**
-     * Sets the screen brightness adjustment mode.
-     * @param options Options.
-     * @since 3
-     * @deprecated since 7
-     */
-    static setMode(options?: SetBrightnessModeOptions): void;
+  /**
+   * Sets the screen brightness adjustment mode.
+   *
+   * @param options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  static setMode(options?: SetBrightnessModeOptions): void;
 
-    /**
-     * Sets whether to always keep the screen on.
-     * @param options Options.
-     * @since 3
-     * @deprecated since 7
-     */
-    static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;
+  /**
+   * Sets whether to always keep the screen on.
+   *
+   * @param options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @since 3
+   * @deprecated since 7
+   */
+  static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;
 }
