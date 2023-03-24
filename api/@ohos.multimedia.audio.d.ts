@@ -1405,7 +1405,6 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @deprecated since 9
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:volumeChange
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
