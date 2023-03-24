@@ -85,17 +85,21 @@ function checkReturnsValue(tag, node, sourcefile, fileName, index) {
   const voidArr = ['void'];
   const tagValue = tag.type;
   if (commentNodeWhiteList.includes(node.kind)) {
-    const apiReturnsValue = node.type?.getText();
+    const apiReturnsValue = node.type ? node.type.getText() : '';
     if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
       returnsResult.checkResult = false;
       returnsResult.errorInfo = 'returns标签使用错误, 返回类型为void时不应该使用returns标签.';
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
         ErrorLevel.LOW);
-    } else if (tagValue !== apiReturnsValue) {
-      returnsResult.checkResult = false;
-      returnsResult.errorInfo = 'returns标签类型错误, 请检查标签类型是否与返回类型一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+    } else if (tagValue.replace(/\s+/g, '') !== apiReturnsValue.replace(/\s+/g, '')) {
+      if (node.type && ((ts.isTypeLiteralNode(node.type) && tag.type === 'object') || (ts.isFunctionTypeNode(node.type) && tag.type === 'function'))) {
+        return returnsResult;
+      } else {
+        returnsResult.checkResult = false;
+        returnsResult.errorInfo = 'returns标签类型错误, 请检查标签类型是否与返回类型一致.';
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
+          ErrorLevel.LOW);
+      }
     }
   }
   return returnsResult;
@@ -113,11 +117,15 @@ function checkParamValue(tag, node, sourcefile, fileName, index) {
     const apiParamInfos = node.parameters;
     if (apiParamInfos[index]) {
       const apiName = apiParamInfos[index].name.escapedText;
-      const apiType = apiParamInfos[index].type?.getText();
+      const apiType = apiParamInfos[index].type ? apiParamInfos[index].type.getText() : '';
       let errorInfo = '';
-      if (apiType !== tagTypeValue) {
-        paramResult.checkResult = false;
-        errorInfo += `第[${index + 1}]个param标签类型错误, 请检查是否与第[${index + 1}]个参数类型保持一致.`;
+      if (apiType.replace(/\s+/g, '') !== tagTypeValue.replace(/\s+/g, '')) {
+        if (apiParamInfos[index].type && ((ts.isTypeLiteralNode(apiParamInfos[index].type) && tag.type === 'object') || (ts.isFunctionTypeNode(apiParamInfos[index].type) && tag.type === 'function'))) {
+          return paramResult;
+        } else {
+          paramResult.checkResult = false;
+          errorInfo += `第[${index + 1}]个param标签类型错误, 请检查是否与第[${index + 1}]个参数类型保持一致.`;
+        }
       }
       if (apiName !== tagNameValue) {
         paramResult.checkResult = false;
@@ -187,9 +195,9 @@ function isArkUIApiFile(fileName) {
  * xxx.xxx#event:xxx
  */
 function checkModule(moduleValue) {
-  return /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*$/.test(moduleValue) ||
-    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#[A-Za-z_]+\b$/.test(moduleValue) ||
-    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#event:[A-Za-z_]+\b$/.test(moduleValue);
+  return /^[A-Za-z_0-9]+\b(\.[A-Za-z_0-9]+\b)*$/.test(moduleValue) ||
+    /^[A-Za-z_0-9]+\b(\.[A-Za-z_0-9]+\b)*\#[A-Za-z_0-9]+\b$/.test(moduleValue) ||
+    /^[A-Za-z_0-9]+\b(\.[A-Za-z_0-9]+\b)*\#event:[A-Za-z_0-9]+\b$/.test(moduleValue);
 }
 
 function splitUseinsteadValue(useinsteadValue) {
@@ -259,15 +267,34 @@ function checkTypeValue(tag, node, sourcefile, fileName, index) {
     checkResult: true,
     errorInfo: '',
   };
+  let errorInfo = '';
   const tagTypeValue = tag.type;
   if (commentNodeWhiteList.includes(node.kind)) {
-    const apiTypeValue = node.type?.getText();
-    if (apiTypeValue !== tagTypeValue) {
-      typeResult.checkResult = false;
-      typeResult.errorInfo = 'type标签类型错误, 请检查类型是否与属性类型一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, typeResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+    const apiTypeValue = node.type ? node.type.getText() : '';
+    if (apiTypeValue.replace(/[\? ]/g, '') !== tagTypeValue.replace(/[\? \(\)]/g, '')) {
+      if (!(node.type && ts.isTypeLiteralNode(node.type) && tagTypeValue === 'object') && !(node.type && ts.isFunctionTypeNode(node.type) && tagTypeValue === 'function')) {
+        typeResult.checkResult = false;
+        errorInfo += 'type标签类型错误, 请检查类型是否与属性类型一致.';
+      }
     }
+    if (/\?/.test(tagTypeValue) && !node.questionToken) {
+      if (errorInfo !== '') {
+        errorInfo += '\n';
+      }
+      typeResult.checkResult = false;
+      errorInfo += '当前参数不是可选项, 请检查type标签类型是否应该删除[?]符号.';
+    } else if (!/\?/.test(tagTypeValue) && node.questionToken && node.questionToken.kind === ts.SyntaxKind.QuestionToken) {
+      if (errorInfo !== '') {
+        errorInfo += '\n';
+      }
+      typeResult.checkResult = false;
+      errorInfo += '当前参数为可选项, 请检查type标签类型是否缺少[?]符号.';
+    }
+  }
+  if (!typeResult.checkResult) {
+    typeResult.errorInfo = errorInfo;
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
+      ErrorLevel.LOW);
   }
   return typeResult;
 }
@@ -297,7 +324,7 @@ function checkPermissionTag(tag, node, sourcefile, fileName, index) {
     errorInfo: '',
   };
   const tagValue = tag.name + tag.description;
-  const permissionArr = tagValue.replace(/ /g, '').replace(/(or|and|\(|\))/g, '$').split('$');
+  const permissionArr = tagValue.replace(/\s+/g, '').replace(/(or|and|\(|\))/g, '$').split('$');
   permissionArr.forEach(permissionStr => {
     if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr) && permissionStr !== 'N/A') || permissionStr === '') {
       hasPermissionError = true;
