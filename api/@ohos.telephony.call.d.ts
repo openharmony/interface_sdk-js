@@ -1041,6 +1041,8 @@ declare namespace call {
   /**
    * Close Unfinished ussd.
    *
+   * The system use this api to close the pending ussd.
+   * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {AsyncCallback <void>} callback - void
@@ -1058,6 +1060,8 @@ declare namespace call {
 
   /**
    * Close Unfinished ussd.
+   * 
+   * The system use this api to close the pending ussd.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1075,12 +1079,14 @@ declare namespace call {
   function closeUnFinishedUssd(slotId: number): Promise<void>;
 
   /**
-   * set voNR switch state
+   * Set VoNr switch state.
    *
+   * The system use this api to set VoNr switch state.
+   * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param state Indicates the voNR state.
-   * @param {AsyncCallback <boolean>} callback - if set was successful or not
+   * @param state Indicates the voNr state.
+   * @param callback {@code true} if the device set VoNr succesfully; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1091,15 +1097,17 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: number, callback: AsyncCallback<boolean>): void;
+  function setVoNrState(slotId: number, state: VoNrState, callback: AsyncCallback<boolean>): void;
 
   /**
-   * set voNR switch state
+   * Set VoNr switch state.
+   * 
+   * The system use this api to set VoNr switch state.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param state Indicates the voNR state.
-   * @returns {Promise <boolean>} - if set was successful or not
+   * @param state Indicates the voNr state.
+   * @returns {@code true} if the device set VoNr succesfully; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1110,15 +1118,17 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: number): Promise<boolean>;
+  function setVoNrState(slotId: number, state: VoNrState): Promise<boolean>;
 
   /**
-   * get voNR switch state
+   * Get VoNr switch state.
+   * 
+   * The system use this api to get VoNr switch state.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param state Indicates the voNR state.
-   * @param {AsyncCallback <VoNRState>} callback - VoNR state
+   * @param state Indicates the voNr state.
+   * @param {AsyncCallback <VoNrState>} callback - VoNr state
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1129,14 +1139,16 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getVoNRState(slotId: number, callback: AsyncCallback<VoNRState>): void;
+  function getVoNrState(slotId: number, callback: AsyncCallback<VoNrState>): void;
 
   /**
-   * get voNR switch state
+   * Get VoNr switch state.
+   * 
+   * The system use this api to get VoNr switch state.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns {Promise <VoNRState>} the voNR state.
+   * @returns {Promise <VoNrState>} the voNr state.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1147,15 +1159,17 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getVoNRState(slotId: number): Promise<VoNRState>;
+  function getVoNrState(slotId: number): Promise<VoNrState>;
 
   /**
-   * if user can set CallTransfer with Time
+   * If user can set CallTransfer with Time.
    *
+   * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
+   * 
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {AsyncCallback <boolean>} callback - if user can set
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param callback Returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -1168,11 +1182,13 @@ declare namespace call {
   function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * if user can set CallTransfer with Time
+   * If user can set CallTransfer with Time.
    *
+   * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
+   * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns {Promise <boolean>} - if user can set
+   * @returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1186,10 +1202,12 @@ declare namespace call {
   function canSetCallTransferTime(slotId: number): Promise<boolean>;
 
   /**
-   * Enters the secret code on the keypad
+   * Enters the secret code on the keypad.
    *
+   * User can use keypad to enter the secret code.
+   * 
    * @param inputCode indicates the secret code to enter.
-   * @param {AsyncCallback <void>} callback
+   * @param callback
    * @permission ohos.permission.PLACE_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1203,10 +1221,12 @@ declare namespace call {
   function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Enters the secret code on the keypad
+   * Enters the secret code on the keypad.
+   * 
+   * User can use keypad to enter the secret code.
    *
    * @param inputCode indicates the secret code to enter.
-   * @returns {Promise <void>} 
+   * @returns {Promise <void>} - void
    * @permission ohos.permission.PLACE_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1235,7 +1255,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export enum VoNRState {
+  export enum VoNrState {
     VONR_STATE_ON = 0,
     VORN_STATE_OFF,
   }
