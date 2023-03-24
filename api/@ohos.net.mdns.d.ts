@@ -15,7 +15,7 @@
 
 import {AsyncCallback, Callback} from "./basic";
 import connection from "./@ohos.net.connection";
-import Context from "./application/BaseContext";
+import Context from "./application/Context";
 
 /**
  * Provides interfaces to discover DNS based services on a local network over Multicast DNS.
