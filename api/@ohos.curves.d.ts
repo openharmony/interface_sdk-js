@@ -176,7 +176,7 @@ declare namespace curves {
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
   /**
-   * Constructs a interpolating spring curve when called, the animation duration can not be specified mannually,
+   * Constructs an interpolating spring curve when called, the animation duration can not be specified manually,
    * and is determined by parameters of the curve. It produces values change from 0 to 1, and then uses interpolator
    * to calculate the actual animation values.
    * @param { number } velocity the initial velocity of the spring, and is a normalized speed corresponding to the value changes from 0 to 1
