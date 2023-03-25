@@ -1510,6 +1510,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
   /**
    * Contains shared bundle info.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 10
    */
   export type SharedBundleInfo = _SharedBundleInfo;

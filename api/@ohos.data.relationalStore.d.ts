@@ -301,6 +301,17 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Inserts a row of data into the target table.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {ValuesBucket} values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @param {AsyncCallback<number>} callback - the row ID if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
 
         /**
@@ -310,6 +321,7 @@ declare namespace relationalStore
          * @param {ValuesBucket} values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
          * @param {ConflictResolution} conflict - indicates the {@link ConflictResolution} to insert data into the table.
          * @param {AsyncCallback<number>} callback - the row ID if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
@@ -326,6 +338,17 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Inserts a row of data into the target table.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {ValuesBucket} values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @returns {Promise<void>} the row ID if the operation is successful. return -1 otherwise.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         insert(table: string, values: ValuesBucket): Promise<number>;
 
         /**
@@ -335,6 +358,7 @@ declare namespace relationalStore
          * @param {ValuesBucket} values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
          * @param {ConflictResolution} conflict - indicates the {@link ConflictResolution} to insert data into the table.
          * @returns {Promise<void>} the row ID if the operation is successful. return -1 otherwise.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
@@ -351,6 +375,17 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Inserts a batch of data into the target table.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {Array<ValuesBucket>} values - indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+         * @param {AsyncCallback<number>} callback - the number of values that were inserted if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
         /**
@@ -362,6 +397,17 @@ declare namespace relationalStore
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         */
+        /**
+         * Inserts a batch of data into the target table.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {Array<ValuesBucket>} values - indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+         * @returns {Promise<void>} the number of values that were inserted if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
          */
         batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -375,6 +421,17 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Updates data in the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {ValuesBucket} values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicates} predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
         /**
@@ -384,6 +441,7 @@ declare namespace relationalStore
          * @param {RdbPredicates} predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
          * @param {ConflictResolution} conflict - indicates the {@link ConflictResolution} to insert data into the table.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
@@ -400,6 +458,17 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Updates data in the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {ValuesBucket} values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicates} predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+         * @returns {Promise<number>} the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
 
         /**
@@ -409,6 +478,7 @@ declare namespace relationalStore
          * @param {RdbPredicates} predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
          * @param {ConflictResolution} conflict - indicates the {@link ConflictResolution} to insert data into the table.
          * @returns {Promise<number>} the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
@@ -429,6 +499,21 @@ declare namespace relationalStore
          * @StageModelOnly
          * @since 9
          */
+        /**
+         * Updates data in the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {ValuesBucket} values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {DataSharePredicates} predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
         /**
@@ -445,6 +530,21 @@ declare namespace relationalStore
          * @StageModelOnly
          * @since 9
          */
+        /**
+         * Updates data in the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {ValuesBucket} values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {DataSharePredicates} predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @returns {Promise<number>} the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
         /**
@@ -456,6 +556,16 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {RdbPredicates} predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
         /**
@@ -466,6 +576,16 @@ declare namespace relationalStore
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         */
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {RdbPredicates} predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
+         * @returns {Promise<number>} return the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
          */
         delete(predicates: RdbPredicates): Promise<number>;
 
@@ -482,6 +602,20 @@ declare namespace relationalStore
          * @StageModelOnly
          * @since 9
          */
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
         /**
@@ -496,6 +630,20 @@ declare namespace relationalStore
          * @systemapi
          * @StageModelOnly
          * @since 9
+         */
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         *
+         * @param {string} table - indicates the target table.
+         * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @returns {Promise<number>} the number of affected rows.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
@@ -589,6 +737,17 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Executes a SQL statement that contains specified parameters but returns no value.
+         *
+         * @param {string} sql - indicates the SQL statement to execute.
+         * @param {Array<ValueType>} bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+         * @param {AsyncCallback<void>} callback - the callback of executeSql.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
         /**
@@ -601,6 +760,17 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
+        /**
+         * Executes a SQL statement that contains specified parameters but returns no value.
+         *
+         * @param {string} sql - indicates the SQL statement to execute.
+         * @param {Array<ValueType>} bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
         executeSql(sql: string, bindArgs ?: Array<ValueType>): Promise<void>;
 
         /**
@@ -609,6 +779,14 @@ declare namespace relationalStore
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         */
+        /**
+         * BeginTransaction before execute your sql.
+         *
+         * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
          */
         beginTransaction(): void;
 
