@@ -472,81 +472,81 @@ declare namespace inputMethodEngine {
      * Subscribe 'inputStop'.
      *
      * @param { 'inputStop' } type - the type of subscribe event.
-     * @param { AsyncCallback<void> } callback - the callback of on('inputStop').
+     * @param { () => void } callback - the callback of on('inputStop').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'inputStop', callback: AsyncCallback<void>): void;
+    on(type: 'inputStop', callback: () => void): void;
 
     /**
      * Unsubscribe 'inputStop'.
      *
      * @param { 'inputStop' } type - the type of unsubscribe event.
-     * @param { AsyncCallback<void> } callback - the callback of off('inputStop').
+     * @param { () => void } callback - the callback of off('inputStop').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'inputStop', callback: AsyncCallback<void>): void;
+    off(type: 'inputStop', callback: () => void): void;
 
     /**
      * Subscribe 'setCallingWindow'.
      *
      * @param { 'setCallingWindow' } type - the type of subscribe event.
-     * @param { AsyncCallback<number> } callback - the callback of on('setCallingWindow').
+     * @param { (wid:number) => void } callback - the callback of on('setCallingWindow').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'setCallingWindow', callback: AsyncCallback<number>): void;
+    on(type: 'setCallingWindow', callback: (wid:number) => void): void;
 
     /**
      * Unsubscribe 'setCallingWindow'.
      *
      * @param { 'setCallingWindow' } type - the type of unsubscribe event.
-     * @param { AsyncCallback<number> } callback - the callback of off('setCallingWindow').
+     * @param { (wid:number) => void } callback - the callback of off('setCallingWindow').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'setCallingWindow', callback: AsyncCallback<number>): void;
+    off(type: 'setCallingWindow', callback: (wid:number) => void): void;
 
     /**
      * Subscribe 'keyboardShow'|'keyboardHide'.
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - the type of subscribe event.
-     * @param { AsyncCallback<void> } callback - the callback of on('keyboardShow'|'keyboardHide').
+     * @param { () => void } callback - the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'keyboardShow' | 'keyboardHide', callback: AsyncCallback<void>): void;
+    on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
     /**
      * Unsubscribe 'keyboardShow'|'keyboardHide'.
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - the type of unsubscribe event.
-     * @param { AsyncCallback<void> } [callback] - the callback of off('keyboardShow'|'keyboardHide').
+     * @param { () => void } [callback] - the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'keyboardShow' | 'keyboardHide', callback?: AsyncCallback<void>): void;
+    off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
 
     /**
      * Subscribe 'setSubtype'.
      *
      * @param { 'setSubtype' } type - the type of subscribe event.
-     * @param { AsyncCallback<InputMethodSubtype> } callback - the callback of on('setSubtype').
+     * @param { (inputMethodSubtype: InputMethodSubtype) => void } callback - the callback of on('setSubtype').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'setSubtype', callback: AsyncCallback<InputMethodSubtype>): void;
+    on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) => void): void;
 
     /**
      * Unsubscribe 'setSubtype'.
      *
      * @param { 'setSubtype' } type - the type of subscribe event.
-     * @param { AsyncCallback<InputMethodSubtype> } [callback] - the callback of off('setSubtype').
+     * @param { (inputMethodSubtype: InputMethodSubtype) => void } [callback] - the callback of off('setSubtype').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'setSubtype', callback?: AsyncCallback<InputMethodSubtype>): void;
+    off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
   }
 
   /**
@@ -1053,21 +1053,21 @@ declare namespace inputMethodEngine {
      * Subscribe text change
      *
      * @param { 'textChange' } type - indicates the type of subscribe event.
-     * @param { AsyncCallback<string> } callback - indicates the callback function of on('textChange').
+     * @param { (text: string) => void } callback - indicates the callback function of on('textChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
-    on(type: 'textChange', callback: AsyncCallback<string>): void;
+    on(type: 'textChange', callback: (text: string) => void): void;
 
     /**
      * Unsubscribe text change
      *
      * @param { 'textChange' } type - indicates the type of unsubscribe event.
-     * @param { AsyncCallback<string> } [callback] - optional, indicates the callback function of off('textChange').
+     * @param { (text: string) => void } [callback] - optional, indicates the callback function of off('textChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
-    off(type: 'textChange', callback?: AsyncCallback<string>): void;
+    off(type: 'textChange', callback?: (text: string) => void): void;
   }
 
   /**
