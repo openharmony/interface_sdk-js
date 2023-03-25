@@ -44,8 +44,8 @@ declare namespace abilityAccessCtrl {
     /**
      * Checks whether a specified application has been granted the given permission.
      *
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { string } permissionName The permission name to be verified.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { string } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
      * @since 8
@@ -57,8 +57,8 @@ declare namespace abilityAccessCtrl {
     /**
      * Checks whether a specified application has been granted the given permission.
      *
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be verified. Permissions type only support the valid permission name.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
@@ -68,8 +68,8 @@ declare namespace abilityAccessCtrl {
     /**
      * Checks whether a specified application has been granted the given permission synchronously.
      *
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be verified.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
@@ -81,8 +81,8 @@ declare namespace abilityAccessCtrl {
     /**
      * Checks whether a specified application has been granted the given permission.
      *
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be verified.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
@@ -94,8 +94,8 @@ declare namespace abilityAccessCtrl {
     /**
      * Requests certain permissions from the user.
      *
-     * @param { Context } context The context that initiates the permission request.
-     * @param { Array<Permissions> } permissionList Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @param { Context } context - The context that initiates the permission request.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @param { AsyncCallback<PermissionRequestResult> } requestCallback Callback for the result from requesting permissions.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
@@ -112,8 +112,8 @@ declare namespace abilityAccessCtrl {
     /**
      * Requests certain permissions from the user.
      *
-     * @param { Context } context The context that initiates the permission request.
-     * @param { Array<Permissions> } permissionList Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @param { Context } context - The context that initiates the permission request.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
@@ -127,9 +127,9 @@ declare namespace abilityAccessCtrl {
      * Grants a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be granted.
-     * @param { number } permissionFlags Flags of permission state.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be granted.
+     * @param { number } permissionFlags - Flags of permission state.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
@@ -150,10 +150,10 @@ declare namespace abilityAccessCtrl {
      * Grants a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be granted.
-     * @param { number } permissionFlags Flags of permission state.
-     * @param { AsyncCallback<void> } callback Asynchronous callback interface.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be granted.
+     * @param { number } permissionFlags - Flags of permission state.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -178,9 +178,9 @@ declare namespace abilityAccessCtrl {
      * Revoke a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be revoked.
-     * @param { number } permissionFlags Flags of permission state.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be revoked.
+     * @param { number } permissionFlags - Flags of permission state.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
@@ -201,10 +201,10 @@ declare namespace abilityAccessCtrl {
      * Revoke a specified user_grant permission to the given application.
      *
      * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be revoked.
-     * @param { number } permissionFlags Flags of permission state.
-     * @param { AsyncCallback<void> } callback Asynchronous callback interface.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be revoked.
+     * @param { number } permissionFlags - Flags of permission state.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -229,8 +229,8 @@ declare namespace abilityAccessCtrl {
      * Queries specified permission flags of the given application.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS
-     * @param { number } tokenID The tokenId of specified application.
-     * @param { Permissions } permissionName The permission name to be granted.
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be get.
      * @returns { Promise<number> } Return permission flags.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
@@ -261,22 +261,22 @@ declare namespace abilityAccessCtrl {
      * Registers a permission state callback so that the application can be notified upon specified permission state of specified applications changes.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
-     * @param { 'permissionStateChange' } type Event type.
-     * @param { Array<number> } tokenIDList A list of tokenIds that specifies the applications to be listened on. The value in the list can be:
+     * @param { 'permissionStateChange' } type - Event type.
+     * @param { Array<number> } tokenIDList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
      *        <ul>
      *        <li>{@code empty} - Indicates that the application can be notified if the specified permission state of any applications changes.
      *        </li>
      *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications change.
      *        </li>
      *        </ul>
-     * @param { Array<Permissions> } permissionList A list of permissions that specifies the permissions to be listened on. The value in the list can be:
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
      *        <ul>
      *        <li>{@code empty} - Indicates that the application can be notified if any permission state of the specified applications changes.
      *        </li>
      *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications changes.
      *        </li>
      *        </ul>
-     * @param { Callback<PermissionStateChangeInfo> } callback Callback for the result from registering permissions.
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering permissions.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -300,16 +300,16 @@ declare namespace abilityAccessCtrl {
      * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
-     * @param { 'permissionStateChange' } type Event type.
-     * @param { Array<number> } tokenIDList A list of tokenIds that specifies the applications being listened on.
+     * @param { 'permissionStateChange' } type - Event type.
+     * @param { Array<number> } tokenIDList - A list of permissions that specify the permissions to be listened on.
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
-     * @param { Array<Permissions> } permissionList A list of permissions that specifies the permissions being listened on.
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on.
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
-     * @param { Callback<PermissionStateChangeInfo> } callback Callback for the result from unregistering permissions.
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from unregistering permissions.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID in list is all invalid, or the permissionName in list is all invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenIDs or permissionNames in the list are all invalid.
      * @throws { BusinessError } 12100004 - The interface is not used together with "on".
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
@@ -389,6 +389,7 @@ declare namespace abilityAccessCtrl {
     /**
      * Indicates the permission state change type.
      *
+     * @type { PermissionStateChangeType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
@@ -398,6 +399,7 @@ declare namespace abilityAccessCtrl {
     /**
      * Indicates the application whose permission state has been changed.
      *
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
@@ -407,6 +409,7 @@ declare namespace abilityAccessCtrl {
     /**
      * Indicates the permission whose state has been changed.
      *
+     * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
