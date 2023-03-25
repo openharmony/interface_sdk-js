@@ -585,6 +585,8 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * The previous margin which can be used to expose a small portion of the previous item.
+   * @param { Length } value - The length of previous margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -592,6 +594,8 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * The next margin which can be used to expose a small portion of the latter item.
+   * @param { Length } value - The length of next margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
