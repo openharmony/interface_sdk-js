@@ -81,6 +81,13 @@ declare namespace cryptoFramework {
    * @since 9
    */
   interface DataBlob {
+    /**
+     * Indicates the content of data blob.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 9
+     */
     data: Uint8Array;
   }
 
@@ -165,7 +172,7 @@ declare namespace cryptoFramework {
    */
   interface CcmParamsSpec extends ParamsSpec {
     /**
-     * Indicates the GCM algorithm parameters such as IV.
+     * Indicates the GCM algorithm parameters such as iv.
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
@@ -290,7 +297,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * The public key class of asymmetrical key.
+   * The public key class of asymmetric key.
    *
    * @typedef PubKey
    * @syscap SystemCapability.Security.CryptoFramework
@@ -299,7 +306,7 @@ declare namespace cryptoFramework {
   interface PubKey extends Key {}
 
   /**
-   * The keyPair class of  asymmetrical key. Include privateKey and publickey.
+   * The keyPair class of asymmetric key. Include privateKey and publickey.
    *
    * @typedef KeyPair
    * @syscap SystemCapability.Security.CryptoFramework
@@ -413,7 +420,7 @@ declare namespace cryptoFramework {
     generateKeyPair(): Promise<KeyPair>;
 
     /**
-     * Used to convert asymmetric key pair .
+     * Used to convert asymmetric key data to key pair object.
      *
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
@@ -426,7 +433,7 @@ declare namespace cryptoFramework {
     convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
 
     /**
-     * Used to convert asymmetric key pair.
+     * Used to convert asymmetric key data to key pair object.
      *
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
@@ -513,7 +520,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides the asymmetrical key generator instance func.
+   * Provides the asymmetric key generator instance func.
    *
    * @param { string } algName - indicates the algorithm name.
    * @returns { AsyKeyGenerator } the generator obj create by algName.
