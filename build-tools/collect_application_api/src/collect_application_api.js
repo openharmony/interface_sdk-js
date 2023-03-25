@@ -30,8 +30,21 @@ function collectApis(url) {
     console.error('ERROR:application directory is empty!');
   } else {
     parseFileContent(applicationFiles, visitEachNode);
-    excel(allCallApisInApp);
+   const noRepeatApis = deleteRepeatApis(allCallApisInApp);
+    excel(noRepeatApis);
   }
+}
+
+function deleteRepeatApis(allApis){
+  let allApisSet = new Set();
+  let noRepeatApis = []
+  allApis.forEach(api=>{
+    allApisSet.add(JSON.stringify(api));
+  })
+  allApisSet.forEach(item => {
+		noRepeatApis.push(JSON.parse(item))
+	})
+  return noRepeatApis;
 }
 
 function parseFileContent(applicationFiles, callback) {
