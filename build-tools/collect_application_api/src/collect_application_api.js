@@ -271,14 +271,15 @@ function collectComponentApi(node, apiList, type, url, sourcefile) {
   let etsComponentBlockPos = new Set([]);
   const componentName = node.expression.escapedText ? node.expression.escapedText.toString() :
     node.expression.expression.escapedText.toString();
-  
+
   if (ts.isEtsComponentExpression(node) && ts.isBlock(node.parent.parent) &&
     !etsComponentBlockPos.has(node.parent.parent.pos)) {
     etsComponentBlockPos.add(node.parent.parent);
     const blockNode = node.parent.parent;
     const statements = blockNode.statements;
     statements.forEach((stat, index) => {
-      if (stat.expression && ts.isEtsComponentExpression(stat.expression)) {
+      if (stat.expression && ts.isEtsComponentExpression(stat.expression) &&
+        (componentName === stat.expression.escapedText || componentName === stat.expression.expression.escapedText)) {
         getCommonCallComponentApi(statements, url, sourcefile, componentName, type, notes, apiList, index, stat);
       }
     });
@@ -325,7 +326,7 @@ function collectCommonCallApis(node, sourcefile, url, apiList) {
   let type = 'API';
   let moduleName = '';
   let apiName = '';
-  
+
   if (ts.isCallExpression(node.expression) && ts.isPropertyAccessExpression(node.expression.expression) &&
     node.expression.expression.expression.escapedText) {
     moduleName = node.expression.expression.expression.escapedText;

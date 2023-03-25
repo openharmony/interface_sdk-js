@@ -52,10 +52,10 @@ function compareApis(baseApis, applicationApis, sdkFiles) {
       }
     })
   })
-  
+
   for (let i = 0; i < applicationApis.length; i++) {
     for (let j = 0; j < baseApis.length; j++) {
-      if (applicationApis[i].type === 'ArkUI') {
+      if (applicationApis[i].type === 'ArkUI' && baseApis[j].packageName === 'ArkUI') {
         compareComponentApi(applicationApis[i], baseApis[j], callApisInApp);
       } else if (!applicationApis[i].value && applicationApis[i].type === 'API') {
         compareApisWithoutValue(applicationApis[i], baseApis[j], callApisInApp);
@@ -80,7 +80,7 @@ function deleteUndefinedApi(applicationApis) {
 
 function compareApisWithoutValue(applicationApi, baseApi, callApisInApp) {
   if (typeof (applicationApi.moduleName) === 'string' &&
-    applicationApi.moduleName.match(new RegExp(baseApi.className, 'i')) &&
+    baseApi.className.toLowerCase() === applicationApi.moduleName.toLowerCase() &&
     applicationApi.apiName === baseApi.methodName &&
     applicationApi.packageName.replace('@', '') === baseApi.packageName) {
     let applyApi = JSON.parse(JSON.stringify(baseApi));
@@ -130,8 +130,8 @@ function isExportClass() {
 function compareComponentApi(applicationApi, baseApi, callApisInApp) {
   let applyApi = JSON.parse(JSON.stringify(baseApi));
   applyApi.pos = applicationApi.callLocation;
-  if (applicationApi.moduleName === baseApi.className.replace(/Attribute/, '')
-    .replace(/Interface/, '') && applicationApi.apiName === baseApi.methodName) {
+  if (applicationApi.moduleName.match(new RegExp(baseApi.className.replace(/Attribute|Interface/, ''), 'i'))
+    && applicationApi.apiName === baseApi.methodName) {
     applyApi.className = applicationApi.moduleName;
     callApisInApp.push(applyApi);
   } else if (applicationApi.apiName === baseApi.methodName && baseApi.className === 'CommonMethod' &&
