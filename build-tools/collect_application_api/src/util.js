@@ -107,7 +107,8 @@ const etsComponentSet = new Set([
   "XComponent",
   "GridRow",
   "GridCol",
-  "CustomDialogController"
+  "CustomDialogController",
+  "PanGesture"
 ]);
 exports.etsComponentSet = etsComponentSet;
 function readFile(dir, utFiles) {
