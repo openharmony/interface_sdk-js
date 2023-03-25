@@ -720,10 +720,10 @@ declare namespace call {
   /**
    * Subscribe to the audioDeviceChange event.
    * 
-   * The system subscribes the audioDeviceChange event.
+   * The system subscribes the audio device change event.
    *
    * @param type Indicates the observer type.
-   * @param callback Return the result of Current AudioDevice.
+   * @param callback Return the result of current audio device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -739,10 +739,10 @@ declare namespace call {
   /**
    * Unsubscribe from the audioDeviceChange event.
    * 
-   * The system subscribes the audioDeviceChange event.
+   * The system unsubscribes the audio device change event.
    *
    * @param type Indicates the observer type.
-   * @param callback Return the result of Current AudioDevice.
+   * @param callback Return the result of current audio device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1085,9 +1085,9 @@ declare namespace call {
   function closeUnFinishedUssd(slotId: number): Promise<void>;
 
   /**
-   * Set VoNr switch state.
+   * Set switch state for voice over NR.
    *
-   * The system use this api to set VoNr switch state.
+   * The system set switch state for voice over NR.
    * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1106,9 +1106,9 @@ declare namespace call {
   function setVoNrState(slotId: number, state: VoNrState, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Set VoNr switch state.
+   * Set switch state for voice over NR.
    * 
-   * The system use this api to set VoNr switch state.
+   * The system set switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1127,9 +1127,9 @@ declare namespace call {
   function setVoNrState(slotId: number, state: VoNrState): Promise<boolean>;
 
   /**
-   * Get VoNr switch state.
+   * Get switch state for voice over NR.
    * 
-   * The system use this api to get VoNr switch state.
+   * The system get switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1148,9 +1148,9 @@ declare namespace call {
   function getVoNrState(slotId: number, callback: AsyncCallback<VoNrState>): void;
 
   /**
-   * Get VoNr switch state.
+   * Get switch state for voice over NR.
    * 
-   * The system use this api to get VoNr switch state.
+   * The system get switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1168,7 +1168,7 @@ declare namespace call {
   function getVoNrState(slotId: number): Promise<VoNrState>;
 
   /**
-   * If user can set CallTransfer with Time.
+   * Checks whether can set call transfer time.
    *
    * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
    * 
@@ -1188,7 +1188,7 @@ declare namespace call {
   function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * If user can set CallTransfer with Time.
+   * Checks whether can set call transfer time.
    *
    * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
    * 
