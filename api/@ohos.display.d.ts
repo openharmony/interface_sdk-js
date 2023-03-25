@@ -101,6 +101,30 @@ declare namespace display {
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
   /**
+   * Register the callback for private mode changes.
+   * 
+   * @param { 'privateMode' } type the event of private mode changes
+   * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @throws {BusinessError} 401 - If param is invalid
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'privateMode', callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for private mode changes.
+   * 
+   * @param { 'privateMode' } type the event of private mode changes
+   * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @throws { BusinessError } 401 - If param is invalid
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'privateMode', callback?: Callback<boolean>): void;
+
+  /**
    * Enumerates the display states.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
