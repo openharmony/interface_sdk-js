@@ -97,7 +97,7 @@ export interface CipherRsaOptions {
    * Called when data is encrypted or decrypted successfully.
    *
    * @permission N/A
-   * @type { (data: CipherResponse) => void }
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -107,7 +107,7 @@ export interface CipherRsaOptions {
    * Called when data fails to be encrypted or decrypted.
    *
    * @permission N/A
-   * @type { (data: string, code: number) => void }
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -117,7 +117,7 @@ export interface CipherRsaOptions {
    * Called when the execution is completed.
    *
    * @permission N/A
-   * @type { () => void }
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -218,7 +218,7 @@ export interface CipherAesOptions {
    * Called when data is encrypted or decrypted successfully.
    *
    * @permission N/A
-   * @type { (data: CipherResponse) => void }
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -228,7 +228,7 @@ export interface CipherAesOptions {
    * Called when data fails to be encrypted or decrypted.
    *
    * @permission N/A
-   * @type { (data: string, code: number) => void }
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -238,7 +238,7 @@ export interface CipherAesOptions {
    * Called when the execution is completed.
    *
    * @permission N/A
-   * @type { () => void }
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
