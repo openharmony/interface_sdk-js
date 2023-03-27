@@ -91,7 +91,7 @@ declare class Indicator<T> {
 
   /**
    * Set the indicator to the top.
-   * @param { Length } value - the indicator to the left.
+   * @param { Length } value - the indicator to the top.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -162,7 +162,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
 
   /**
    * Set the indicator item height.
-   * @default 24vp
+   * @default 6vp
    * @param { Length } value - the indicator item height.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -171,9 +171,9 @@ declare class DotIndicator extends Indicator<DotIndicator> {
   itemHeight(value: Length): DotIndicator;
 
   /**
-   * Set the indicator item width.
-   * @default 6vp
-   * @param { Length } value - the indicator item width.
+   * Set the indicator item width when selected.
+   * @default 12vp
+   * @param { Length } value - the indicator item width when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -182,7 +182,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
 
   /**
    * Set the indicator item height when selected.
-   * @default 24vp
+   * @default 6vp
    * @param { Length } value - the indicator item height when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -237,9 +237,9 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
   constructor();
 
   /**
-   * Set the digital indicator font size when selected.
-   * @default 14sp
-   * @param { ResourceColor } fontColor - the indicator font size.
+   * Set font color of the digital indicator.
+   * @default #182431
+   * @param { ResourceColor } fontColor - the indicator font color.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -247,9 +247,9 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
   fontColor(value: ResourceColor): DigitIndicator;
 
   /**
-   * Set the digital indicator font size when selected.
-   * @default 14sp
-   * @param { ResourceColor } selectedFontColor - the indicator font size when selected.
+   * Set font color of the digital indicator when selected.
+   * @default #182431
+   * @param { ResourceColor } selectedFontColor - the indicator font color when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -257,8 +257,8 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
   selectedFontColor(value: ResourceColor): DigitIndicator;
 
   /**
-   * Set the digital indicator font (just support fontSize and fontWeight).
-   * @param { digitFont } value - the indicator font color.
+   * Set the digital indicator font (just support font size and weight).
+   * @param { Font } value - the indicator font size and weight.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -266,8 +266,8 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
   digitFont(value: Font): DigitIndicator;
 
   /**
-   * Set the digital indicator font (just support fontSize and fontWeight).
-   * @param { selectedDigitFont } value - the indicator font color when selected.
+   * Set the digital indicator font (just support font size and weight).
+   * @param { Font } value - the indicator font size and weight when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
