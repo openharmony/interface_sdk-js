@@ -316,6 +316,8 @@ interchanged
 interleaved
 internalformat
 internationalized
+interpolating
+interpolatingSpring
 interpolator
 interworking
 invalidates
