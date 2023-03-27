@@ -64,6 +64,7 @@ declare namespace overlay {
    * @param { AsyncCallback<OverlayModuleInfo> } callback - The callback of getting OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10
