@@ -177,7 +177,7 @@ interface CaretStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  caretWidth(value: Length): TextInputAttribute;
+  width?: Length;
 }
 
 /**
