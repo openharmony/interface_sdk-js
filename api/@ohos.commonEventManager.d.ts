@@ -194,6 +194,7 @@ declare namespace commonEventManager {
 
     /**
      * This commonEvent means when the user is present after the device is awakened.
+     * @deprecated since 10
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
@@ -1168,7 +1169,19 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      * @since 10
      */
-    COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE"
+    COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE",
+
+    /**
+     * This commonEvent means when the screen is unlocked.
+     * @since 10
+     */
+    COMMON_EVENT_SCREEN_UNLOCKED = "usual.event.SCREEN_UNLOCKED",
+
+    /**
+     * This commonEvent means when the screen is locked.
+     * @since 10
+     */
+    COMMON_EVENT_SCREEN_LOCKED = "usual.event.SCREEN_LOCKED"
   }
 }
 
