@@ -14,7 +14,7 @@
  */
 
 /**
- * class of wallpaper extension.
+ * class of wallpaper extension ability.
  *
  * @syscap SystemCapability.MiscServices.Wallpaper
  * @systemapi Hide this for inner system use.
