@@ -169,6 +169,7 @@ export class System {
      * @throws {BusinessError} 201 - the application does not have permission to call this function
      * @throws {BusinessError} 401 - check param failed
      * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
      * @systemapi Hide this for inner system use.
      */
     static setSystemLanguage(language: string): void;
