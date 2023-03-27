@@ -199,4 +199,13 @@ export interface ApplicationInfo {
    * @since 9
    */
   readonly bundleType: bundleManager.BundleType;
+
+  /**
+   * Indicates whether the application is in debug mode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly debug: boolean;
 }
