@@ -23,7 +23,7 @@
  */
 declare class WallpaperExtensionAbility {
   /**
-   * Called once to initialize the extension.
+   * Called once to initialize the extension ability.
    *
    * @param { object } want - Indicates connection information about the wallpaper extension ability.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -45,7 +45,7 @@ declare class WallpaperExtensionAbility {
   onWallpaperChanged(wallpaperType: number): void;
 
   /**
-   * Called once to destroy the extension.
+   * Called once to destroy the extension ability.
    *
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
