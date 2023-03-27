@@ -51,14 +51,14 @@ declare class AppStorage {
    * Same as see LocalStorage.setAndProp()
    *
    * @param { string } propName name of source property in AppStorage
-   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage.
+   * @param { S } defaultValue value to be used for initializing if new creating new property in AppStorage.
    *        default value must be of type T, must not be undefined or null.
-   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           return undefined if named property does not already exist in AppStorage.
    *
    * @since 7
    */
-  static SetAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
    * Checks if AppStorage has a property with given name
@@ -743,27 +743,27 @@ declare class LocalStorage {
   /**
    * Create and return a one-way sync ('prop') to named property
    * @param { string } propName name of source property in LocalStorage
-   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           return undefined if named property does not already exist in LocalStorage
-   *           Apps can use SDK functions of base class SubscribedAbstractProperty<T>
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
    * @form
    * @since 9
    */
-  prop<T>(propName: string): SubscribedAbstractProperty<T>;
+  prop<S>(propName: string): SubscribedAbstractProperty<S>;
 
   /**
    * Like see prop(), will create and initialize a new source property in LocalStorage if missing
    * @param { string } propName name of source property in LocalStorage
-   * @param { T } defaultValue value to be used for initializing if new creating new property in LocalStorage. 
+   * @param { S } defaultValue value to be used for initializing if new creating new property in LocalStorage. 
    *         Default value must be of type T, must not be undefined or null.
-   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
-   *           Apps can use SDK functions of base class SubscribedAbstractProperty<T>
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
    * @form
    * @since 9
    */
-  setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
    * Delete property from StorageBase
