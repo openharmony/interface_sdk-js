@@ -15,6 +15,7 @@
 
 /**
  * Dispatch info related to free install
+ *
  * @typedef DispatchInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
@@ -23,14 +24,18 @@
 export interface DispatchInfo {
   /**
    * Indicates the dispatchInfo version
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @systemapi
    * @since 9
    */
   readonly version: string;
 
   /**
    * Indicates the free install interface version
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @systemapi
    * @since 9
    */
   readonly dispatchAPIVersion: string;
