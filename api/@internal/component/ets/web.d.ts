@@ -2049,7 +2049,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the first content rendering of web page.
    * @param navigationStartTick Absolute navigation start time, as TimeTicks.
+   * it is represented in microseconds.
    * @param firstContentfulPaintMs Time to first contentful paint from navigation start.
+   * it is represented in milliseconds.
    * @since 10
    */
   onFirstContentfulPaint(callback: (event?: { navigationStartTick: number,
