@@ -499,7 +499,7 @@ declare namespace connection {
   export interface HttpProxy {
     host: string;
     port: number;
-    parsedExclusionList: Array<string>;
+    exclusionList: Array<string>;
   }
 }
 
