@@ -737,6 +737,74 @@ declare interface WindowFilter {
 }
 
 /**
+ * Enumerates the direction for the UI operation .
+ * @enum {number}
+ * @syscap SystemCapability.Test.UiTest
+ * @since 10
+ */
+declare enum UiDirection {
+  /**
+   * Left.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  LEFT = 0,
+  /**
+   * Right.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  RIGHT = 1,
+  /**
+   * Up.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  UP = 2,
+  /**
+   * Down.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  DOWN = 3,
+}
+
+/**
+ * Enumerates the id of the button on the mouse.
+ * @enum {number}
+ * @syscap SystemCapability.Test.UiTest
+ * @since 10
+ */
+declare enum MouseButton {
+  /**
+   * Left button of the mouse.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  MOUSE_BUTTON_LEFT = 0,
+  /**
+   * Right button of the mouse..
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  MOUSE_BUTTON_RIGHT = 1,
+  /**
+   * MIDDLE button of the mouse.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  MOUSE_BUTTON_MIDDLE = 2,
+}
+
+
+/**
  * Describes the attribute requirements for the target Components.
  *
  * @since 9
@@ -888,6 +956,29 @@ declare class On {
    * @test
    */
   isAfter(on: On): On;
+  
+  /**
+   * Requires that the target Component which is inside of another Component that specified by the given {@link On}
+   * object,used to locate Component relatively.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {On} on Describes the attribute requirements of Component which the target one is inside of.
+   * @returns {On} this {@link On} object.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @since 10
+   * @test
+   */
+  within(on: On): On;
+  
+  /**
+   * Specifies the bundleName of the application which the window that the target Component is located belongs.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {string} bundleName The bundleName of the specified window.
+   * @returns {On} this {@link On} object.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @since 10
+   * @test
+   */
+  inWindow(bundleName: string): On;
 }
 
 /**
@@ -1478,6 +1569,71 @@ declare class Driver {
    * @test
    */
   injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>;
+  
+  /**
+   * Inject fling on the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {UiDirection} direction The direction of this action.
+   * @param {number} speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @since 10
+   * @test
+   */
+  fling(direction: UiDirection, speed: number): Promise<void>;
+  
+  /**
+   * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {Point} p The coordinate of the specified location.
+   * @param {MouseButton} btnId The button of Mouse.
+   * @param {number} key1 the first keyCode.
+   * @param {number} key2 the second keyCode.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @since 10
+   * @test
+   */
+  mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+  
+  /**
+   * Move the mouse cursor to the specified location.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {Point} p The coordinate of the specified location.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @since 10
+   * @test
+   */
+  mouseMoveTo(p: Point): Promise<void>;
+  
+  /**
+   * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {Point} p The coordinate of the specified location.
+   * @param {boolean} down Whether the mouse wheel rolls down.
+   * @param {number} d The number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+   * @param {number} key1 the first keyCode.
+   * @param {number} key2 the second keyCode.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @since 10
+   * @test
+   */
+  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
+  
+  /**
+   * Capture the specified area of current screen and save as picture which PNG format.
+   * @syscap SystemCapability.Test.UiTest
+   * @param {string} savePath the path where to store the picture.
+   * @param {Rect} rect The specified area of current screen, default full screen.
+   * @returns {boolean} true if screen-capturing and file-storing are completed successfully,false otherwise.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @since 10
+   * @test
+   */
+  screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
 }
 
 /**
@@ -1698,4 +1854,5 @@ declare const BY: By;
  */
 declare const ON: On;
 
-export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix};
+export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix,
+  UiDirection, MouseButton};

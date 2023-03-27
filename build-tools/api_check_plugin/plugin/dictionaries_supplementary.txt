@@ -316,6 +316,8 @@ interchanged
 interleaved
 internalformat
 internationalized
+interpolating
+interpolatingSpring
 interpolator
 interworking
 invalidates
@@ -331,6 +333,7 @@ kaihong
 kbdillum
 kbdinputassist
 kbps
+keyof
 keyframe
 keyguard
 keyusage
@@ -362,6 +365,7 @@ loggable
 logoff
 longitudinally
 lowercased
+lightupEffect
 lpx
 lru
 lshort
@@ -405,6 +409,7 @@ muhenkan
 multifrequency
 multimodal
 multisample
+multisim
 multitask
 mutes
 narrowband
@@ -429,6 +434,7 @@ oaep
 ofb
 offhook
 offscreen
+omapi
 oncancel
 ondataresubmission
 ondataresubmitted
@@ -590,6 +596,7 @@ sigalgs
 silenced
 slidable
 sliderstyle
+stk
 sm3
 smil
 smsc
@@ -750,6 +757,7 @@ wakes
 waking
 wallpapers
 wapi
+wappush
 watchers
 waterflow
 wcdma

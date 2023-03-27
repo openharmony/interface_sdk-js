@@ -160,14 +160,6 @@ export interface HapModuleInfo {
     * @since 9
     */
   readonly preloads: Array<PreloadItem>;
-
-   /**
-    * Indicates the atomic module type when atomicService is split
-    * @type {bundleManager.AtomicServiceModuleType}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-   readonly atomicServiceModuleType: bundleManager.AtomicServiceModuleType;
 }
 
 /**
@@ -184,6 +176,22 @@ export interface Dependency {
    * @since 9
    */
   readonly moduleName: string;
+
+  /**
+   * Indicates the bundle name of the dependency
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly bundleName: string;
+
+  /**
+   * Indicates the version code of the dependency
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly versionCode: number;
 }
 
 /**

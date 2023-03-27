@@ -100,6 +100,15 @@ declare class TextInputController {
    * @since 8
    */
   caretPosition(value: number): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
@@ -154,6 +163,21 @@ interface TextInputInterface {
    * @since 7
    */
   (value?: TextInputOptions): TextInputAttribute;
+}
+
+/**
+ * CaretStyle object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface CaretStyle {
+  /**
+   * Define the cursor width of CaretStyle.
+   * @param { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretWidth(value: Length): TextInputAttribute;
 }
 
 /**
@@ -300,6 +324,30 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 9
    */
   style(value: TextInputStyle): TextInputAttribute;
+
+  /**
+   * Define the caret style of the text input
+   * @param { CaretStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretStyle(value: CaretStyle): TextInputAttribute;
+
+  /**
+   * Define the text selected background color of the text input.
+   * @param { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedBackgroundColor(value: ResourceColor): TextInputAttribute;
+
+  /**
+   * Define the caret position of the text input.
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretPosition(value: number): TextInputAttribute;
 }
 
 /**

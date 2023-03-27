@@ -1112,6 +1112,15 @@ declare namespace image {
      * return the array.
      * @since 10
      * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @param callback Callback used to return the PixelMap array.
+     */
+     createPixelMapList(callback: AsyncCallback<Array<PixelMap>>): void;
+
+    /**
+     * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
+     * return the array.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @param options Image decoding parameters.
      * @param callback Callback used to return the PixelMap array.
      */

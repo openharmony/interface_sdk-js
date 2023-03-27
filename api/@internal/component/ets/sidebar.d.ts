@@ -98,6 +98,51 @@ interface SideBarContainerInterface {
 }
 
 /**
+ * Provides an interface for the style of a divider including stroke width, color, start margin
+ * and end margin
+ * @interface DividerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface DividerStyle {
+  /**
+   * Define the stroke width of the divider
+   * @type { Length }
+   * @default 1vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  strokeWidth: Length;
+
+  /**
+   * Define the color of the divider
+   * @type { ResourceColor }
+   * @default #08000000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the start margin of the divider
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  startMargin?: Length;
+
+  /**
+   * Define the end margin of the divider
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  endMargin?: Length;
+}
+
+/**
  * The attribute function of sidebar
  * @since 8
  */
@@ -168,6 +213,13 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @since 9
    */
   sideBarPosition(value: SideBarPosition): SideBarContainerAttribute;
+  /**
+   * Set divider style for sideBarContainer
+   * @param { DividerStyle | null } value - indicates the style of the divider or whether to show the divider.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  divider(value: DividerStyle | null): SideBarContainerAttribute;
 }
 
 /**

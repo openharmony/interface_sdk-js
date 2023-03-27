@@ -13,19 +13,19 @@
  * limitations under the License.
  */
 
-const fs = require("fs");
-const path = require("path");
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType } = require("./utils");
-const { addAPICheckErrorLogs } = require("./compile_info");
-const rules = require("../code_style_rule.json");
-const dictionariesContent = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8');
+const fs = require('fs');
+const path = require('path');
+const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType, requireTypescriptModule } = require('./utils');
+const { addAPICheckErrorLogs } = require('./compile_info');
+const rules = require('../code_style_rule.json');
+const dictionariesContent = fs.readFileSync(path.resolve(__dirname, '../plugin/dictionaries.txt'), 'utf-8');
 const dictionariesArr = dictionariesContent.split(/[(\r\n)\r\n]+/g);
 const dictionariesSupplementaryContent = fs.readFileSync(path.resolve(__dirname,
-  "../plugin/dictionaries_supplementary.txt"), 'utf-8');
+  '../plugin/dictionaries_supplementary.txt'), 'utf-8');
 const dictionariesSupplementaryArr = dictionariesSupplementaryContent.split(/[(\r\n)\r\n]+/g);
 const dictionariesSet = new Set([...dictionariesArr, ...dictionariesSupplementaryArr, ...rules.decorators.customDoc,
   ...rules.decorators.jsDoc]);
+const ts = requireTypescriptModule();
 
 function checkSpelling(node, sourcefile, fileName) {
   if (ts.isIdentifier(node) && node.escapedText) {
@@ -92,7 +92,7 @@ function splitComplexWords(complexWord) {
   } else {
     // splite complexWord
     if (!/(?<!^)(?=[A-Z])/g.test(complexWord)) {
-      basicWords.push(complexWord)
+      basicWords.push(complexWord);
     } else {
       basicWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
     }
@@ -104,7 +104,7 @@ function splitComplexWords(complexWord) {
     } else {
       newBaseWords.push(word);
     };
-  })
+  });
   return newBaseWords;
 }
 exports.splitComplexWords = splitComplexWords;
