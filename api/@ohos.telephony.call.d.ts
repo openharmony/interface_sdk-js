@@ -907,7 +907,6 @@ declare namespace call {
   /**
    * Set the audio device.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
    * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
@@ -939,7 +938,6 @@ declare namespace call {
   /**
    * Set the audio device with options.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
    * @param options Indicates additional information, such as address of bluetooth.
    * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
