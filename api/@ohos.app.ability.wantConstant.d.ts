@@ -74,7 +74,14 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    ABILITY_BACK_TO_OTHER_MISSION_STACK = "ability.params.backToOtherMissionStack"
+    ABILITY_BACK_TO_OTHER_MISSION_STACK = "ability.params.backToOtherMissionStack",
+
+    /**
+     * Ability failure restart recovery identification
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 9
+     */
+    ABILITY_RECOVERY_RESTART = "ability.params.AbilityRecoveryRestart"
   }
 
   export enum Flags {
