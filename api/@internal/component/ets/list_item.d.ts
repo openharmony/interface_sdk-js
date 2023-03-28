@@ -160,11 +160,6 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * Called when judging whether it is selectable.
    * @since 8
    */
-  /**
-   * Called when judging whether it is selectable.
-   * @form
-   * @since 9
-   */
   selectable(value: boolean): ListItemAttribute;
 
   /**
