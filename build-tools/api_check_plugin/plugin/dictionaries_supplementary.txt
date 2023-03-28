@@ -445,6 +445,7 @@ onfinish
 onframe
 onmessageerror
 onrepeat
+oob
 oobinline
 oper
 operated
