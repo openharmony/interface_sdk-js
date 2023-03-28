@@ -15,40 +15,43 @@
 
 /**
  * This module provides the capability to manage face auth.
+ *
  * @namespace faceAuth
  * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
  * @since 9
  */
 declare namespace faceAuth {
+  /**
+   * Provides the abilities for face authentication.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  class FaceAuthManager {
     /**
-     * Provides the abilities for face authentication.
+     * Constructor to get the FaceAuthManager class instance.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    class FaceAuthManager {
-        /**
-         * Constructor to get the FaceAuthManager class instance.
-         * @returns Returns the FaceAuthManager class instance.
-         * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
-         * @systemapi Hide this for inner system use.
-         * @since 9
-         */
-        constructor();
+    constructor();
 
-        /**
-         * Set XComponent surface id for camera preview during enroll.
-         * @permission ohos.permission.MANAGE_USER_IDM
-         * @param surfaceId Indicates surface id for face enroll preview.
-         * @throws { BusinessError } 201 - Permission verification failed.
-         * @throws { BusinessError } 202 - The caller is not a system application.
-         * @throws { BusinessError } 12700001 - The operation is failed.
-         * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
-         * @systemapi Hide this for inner system use.
-         * @since 9
-         */
-        setSurfaceId(surfaceId: string): void;
-    }
+    /**
+     * Set XComponent surface id for camera preview during enroll.
+     *
+     * @permission ohos.permission.MANAGE_USER_IDM
+     * @param { string } surfaceId Indicates surface id for face enroll preview.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 12700001 - The operation is failed.
+     * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setSurfaceId(surfaceId: string): void;
+  }
 }
 
 export default faceAuth;
