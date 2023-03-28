@@ -719,8 +719,6 @@ declare namespace call {
 
   /**
    * Subscribe to the audioDeviceChange event.
-   * 
-   * The system subscribes the audio device change event.
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of current audio device.
@@ -738,8 +736,6 @@ declare namespace call {
 
   /**
    * Unsubscribe from the audioDeviceChange event.
-   * 
-   * The system unsubscribes the audio device change event.
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of current audio device.
@@ -926,11 +922,10 @@ declare namespace call {
 
   /**
    * Set the audio device.
-   * 
-   * The system set which audio device to use.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
+   * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1046,8 +1041,6 @@ declare namespace call {
 
   /**
    * Close unfinished ussd.
-   *
-   * The system use this api to close the pending ussd.
    * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1066,8 +1059,6 @@ declare namespace call {
 
   /**
    * Close unfinished ussd.
-   * 
-   * The system use this api to close the pending ussd.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1086,8 +1077,6 @@ declare namespace call {
 
   /**
    * Set switch state for voice over NR.
-   *
-   * The system set switch state for voice over NR.
    * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1107,8 +1096,6 @@ declare namespace call {
 
   /**
    * Set switch state for voice over NR.
-   * 
-   * The system set switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1128,8 +1115,6 @@ declare namespace call {
 
   /**
    * Get switch state for voice over NR.
-   * 
-   * The system get switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1149,8 +1134,6 @@ declare namespace call {
 
   /**
    * Get switch state for voice over NR.
-   * 
-   * The system get switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -1209,8 +1192,6 @@ declare namespace call {
 
   /**
    * Enters the secret code on the keypad.
-   *
-   * User can use keypad to enter the secret code.
    * 
    * @param inputCode indicates the secret code to enter.
    * @param callback - void
@@ -1228,8 +1209,6 @@ declare namespace call {
 
   /**
    * Enters the secret code on the keypad.
-   * 
-   * User can use keypad to enter the secret code.
    *
    * @param inputCode indicates the secret code to enter.
    * @returns {Promise <void>} - void
