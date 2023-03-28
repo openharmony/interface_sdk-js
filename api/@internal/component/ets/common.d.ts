@@ -716,30 +716,60 @@ declare interface RotateOptions {
  * Defines the param of transition.
  * @since 7
  */
+/**
+ * Defines the param of transition.
+ * @form
+ * @since 9
+ */
 declare interface TransitionOptions {
   /**
    * Defines the param of type.
    * @since 7
+   */
+  /**
+   * Defines the param of type.
+   * @form
+   * @since 9
    */
   type?: TransitionType;
   /**
    * Defines the param of opacity.
    * @since 7
    */
+  /**
+   * Defines the param of opacity.
+   * @form
+   * @since 9
+   */
   opacity?: number;
   /**
    * Defines the param of translate.
    * @since 7
+   */
+  /**
+   * Defines the param of translate.
+   * @form
+   * @since 9
    */
   translate?: TranslateOptions;
   /**
    * Defines the param of scale.
    * @since 7
    */
+  /**
+   * Defines the param of scale.
+   * @form
+   * @since 9
+   */
   scale?: ScaleOptions;
   /**
    * Defines the param of rotate.
    * @since 7
+   */
+  /**
+   * Defines the param of rotate.
+   * @form
+   * @since 9
    */
   rotate?: RotateOptions;
 }
