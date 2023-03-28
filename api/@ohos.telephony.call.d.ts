@@ -1045,7 +1045,7 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
   /**
-   * Close Unfinished ussd.
+   * Close unfinished ussd.
    *
    * The system use this api to close the pending ussd.
    * 
@@ -1065,7 +1065,7 @@ declare namespace call {
   function closeUnFinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Close Unfinished ussd.
+   * Close unfinished ussd.
    * 
    * The system use this api to close the pending ussd.
    *
@@ -1213,7 +1213,7 @@ declare namespace call {
    * User can use keypad to enter the secret code.
    * 
    * @param inputCode indicates the secret code to enter.
-   * @param callback
+   * @param callback - void
    * @permission ohos.permission.PLACE_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1262,7 +1262,9 @@ declare namespace call {
    * @since 10
    */
   export enum VoNrState {
+    /** Indicates the VoNr switch is on */
     VONR_STATE_ON = 0,
+    /** Indicates the VoNr switch is off */
     VORN_STATE_OFF,
   }
 
@@ -1283,9 +1285,13 @@ declare namespace call {
    * @since 10
    */
   export enum AudioDeviceType {
+    /** Indicates the audio device is earpiece */
     DEVICE_EARPIECE,
+    /** Indicates the audio device is speaker */
     DEVICE_SPEAKER,
+    /** Indicates the audio device is wired headset */
     DEVICE_WIRED_HEADSET,
+    /** Indicates the audio device is bluetooth headset */
     DEVICE_BLUETOOTH_SCO,
   }
 
@@ -1295,7 +1301,9 @@ declare namespace call {
    * @since 10
    */
   export interface AudioDevice {
+    /** Indicates the audio device type*/
     deviceType: AudioDeviceType;
+    /** Indicates the audio device address*/
     address?: string;
   }
 
