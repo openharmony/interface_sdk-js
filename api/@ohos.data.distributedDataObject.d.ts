@@ -180,7 +180,7 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string; networkId: string, status: 'online' | 'offline' }>
+      callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>
     ): void;
 
     /**
@@ -202,7 +202,7 @@ declare namespace distributedDataObject {
      */
     off(
       type: 'status',
-      callback?: Callback<{ sessionId: string; deviceId: string, status: 'online' | 'offline' }>
+      callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
     ): void;
   }
 
