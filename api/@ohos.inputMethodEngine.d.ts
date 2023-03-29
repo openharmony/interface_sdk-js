@@ -421,21 +421,21 @@ declare namespace inputMethodEngine {
      * Subscribe 'keyboardShow'|'keyboardHide'
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { AsyncCallback<void> } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
+     * @param { () => void } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
-    on(type: 'keyboardShow' | 'keyboardHide', callback: AsyncCallback<void>): void;
+    on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
     /**
      * Unsubscribe 'keyboardShow'|'keyboardHide'
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { AsyncCallback<void> } callback - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
+     * @param { AsyncCallback<void> } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
-    off(type: 'keyboardShow' | 'keyboardHide', callback?: AsyncCallback<void>): void;
+    off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
   }
 
   /**
@@ -648,8 +648,8 @@ declare namespace inputMethodEngine {
     getForward(length: number, callback: AsyncCallback<string>): void;
 
     /**
-     * @param { number } length
-     * @returns { Promise<string> }
+     * @param { number } length - the length of text which will be got.
+     * @returns { Promise<string> } the promise returned by the function
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 9
@@ -1015,7 +1015,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe cursor context change
      *
      * @param { 'cursorContextChange' } type - indicates the type of unsubscribe event.
-     * @param { (x: number, y: number, height: number) => void } callback - optional, indicates the callback function of off('cursorContextChange').
+     * @param { (x: number, y: number, height: number) => void } [callback] - optional, indicates the callback function of off('cursorContextChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1039,7 +1039,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe selection change
      *
      * @param { 'selectionChange' } type - indicates the type of unsubscribe event.
-     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } callback - optional,
+     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } [callback] - optional,
      * indicates the callback function of off('selectionChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8

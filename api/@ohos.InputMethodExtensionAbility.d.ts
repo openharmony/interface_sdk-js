@@ -36,7 +36,7 @@ export default class InputMethodExtensionAbility {
   /**
    * Called back when a input method extension is started for initialization.
    *
-   * @param { Want } want Indicates the want of created service extension.
+   * @param { Want } want - Indicates the want of created service extension.
    * @throws { BusinessError } 401 - parameter error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
