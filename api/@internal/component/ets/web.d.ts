@@ -1694,6 +1694,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered callback when the URL loading is intercepted.
    *
    * @since 8
+   * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#onLoadIntercept
    */
   onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
 
