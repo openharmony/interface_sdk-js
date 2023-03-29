@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './basic';
-import { WantAgent } from './@ohos.wantAgent';
+import { AsyncCallback } from './basic';
 
 /**
  * Provides js api for systemTimer
  *
+ * @namespace systemTimer
  * @syscap SystemCapability.MiscServices.Time
  * @systemapi Hide this for inner system use.
  * @since 7
