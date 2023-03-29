@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {ErrorCallback, AsyncCallback} from './basic';
+import {BusinessError, ErrorCallback, AsyncCallback} from './basic';
 import { Context } from './app/context';
 
 /**
