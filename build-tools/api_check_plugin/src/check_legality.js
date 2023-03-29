@@ -69,10 +69,10 @@ function checkJsDocLegality(node, sourcefile, checkInfoMap) {
   );
   // 'param'
   legalityCheck(node, sourcefile, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['param'], true, checkInfoMap,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
     (currentNode, checkResult) => {
       if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration]).has(currentNode.kind)) {
+      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
         return true;
       }
       return currentNode.parameters && currentNode.parameters.length > 0;
@@ -155,6 +155,8 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
           } else if (tag.tag === 'deprecated') {
             useinsteadResultObj.hasDeprecated = true;
           }
+        } else if ((tagName === 'interface' || tagName === 'typedef') && (tag.tag === 'interface' || tag.tag === 'typedef')) {
+          checkResult = true;
         } else if (tag.tag === tagName) {
           checkResult = true;
         }
@@ -163,7 +165,7 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         }
       });
       if (tagName === 'param' && (ts.isMethodDeclaration(node) || ts.isMethodSignature(node) ||
-        ts.isFunctionDeclaration(node) || ts.isCallSignatureDeclaration(node))) {
+        ts.isFunctionDeclaration(node) || ts.isCallSignatureDeclaration(node) || ts.isConstructorDeclaration(node))) {
         parameterNum = node.parameters.length;
         checkResult = parameterNum !== paramTagNum;
       }
@@ -251,7 +253,8 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
       const checker = JsDocValueChecker[tag.tag];
       if (checker) {
         let valueCheckResult;
-        if (tag.tag === 'param') {
+        if (tag.tag === 'param' && [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+        ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor].indexOf(node.kind) >= 0) {
           valueCheckResult = checker(tag, node, sourcefile, fileName, paramIndex++);
         } else if (tag.tag === 'throws') {
           valueCheckResult = checker(tag, node, sourcefile, fileName, throwsIndex++);

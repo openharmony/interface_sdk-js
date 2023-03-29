@@ -2428,19 +2428,26 @@ declare enum TextCase {
  */
 declare enum TextHeightAdaptivePolicy {
   /**
-   * Maximum number of lines first.
+   * Priority is given to using the maxLines attribute to adapt the text height.
+   * If the layout size using the maxLines attribute exceeds the layout constraint, try reducing the font size to 
+   * display more text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   MAX_LINES_FIRST,
   /**
-   * Minimum font size first.
+   * Priority is given to using the minFontSize attribute to adapt the text height.
+   * If the text can be layout in a single line using the minFontSize property, try increasing the font size and using
+   * the maximum possible font size.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   MIN_FONT_SIZE_FIRST,
   /**
-   * Layout restrictions first.
+   * Priority is given to using the layout constraint to adapt the text height.
+   * If the layout size exceeds the layout constraint, try reducing the font size. If the layout size still exceeds
+   * the layout constraint after reducing the font size to minFontSize, remove the lines that exceed the layout
+   * constraint.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */

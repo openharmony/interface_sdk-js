@@ -111,6 +111,7 @@ cone
 conferencing
 confpersist
 connectable
+contentful
 contex
 controlpanel
 controlparam
@@ -137,6 +138,7 @@ datasync
 dbm
 dci
 ddmp
+deactivated
 deactivation
 decodes
 decomposed
@@ -316,6 +318,8 @@ interchanged
 interleaved
 internalformat
 internationalized
+interpolating
+interpolatingSpring
 interpolator
 interworking
 invalidates

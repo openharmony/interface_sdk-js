@@ -30,8 +30,21 @@ function collectApis(url) {
     console.error('ERROR:application directory is empty!');
   } else {
     parseFileContent(applicationFiles, visitEachNode);
-    excel(allCallApisInApp);
+    const noRepeatApis = deleteRepeatApis(allCallApisInApp);
+    excel(noRepeatApis);
   }
+}
+
+function deleteRepeatApis(allApis) {
+  let allApisSet = new Set();
+  let noRepeatApis = []
+  allApis.forEach(api => {
+    allApisSet.add(JSON.stringify(api));
+  })
+  allApisSet.forEach(item => {
+    noRepeatApis.push(JSON.parse(item))
+  })
+  return noRepeatApis;
 }
 
 function parseFileContent(applicationFiles, callback) {
@@ -130,14 +143,22 @@ function judgeImportFile(node, importFiles) {
 function collectApplicationApi(node, sourcefile, url, apiList) {
   if (ts.isPropertyAccessExpression(node) && node.expression && ts.isIdentifier(node.name)) {
     collectCommonCallApis(node, sourcefile, url, apiList);
-  } else if (ts.isQualifiedName(node) && ts.isTypeReferenceNode(node.parent) && node.parent.parent.name &&
-    ts.isIdentifier(node.parent.parent.name)) {
-    const note = callMethod.secondCallMethod;
-    const type = 'API';
-    const instantiateObject = node.parent.parent.name.escapedText;
-    const moduleName = node.left.escapedText;
-    const apiName = node.right.escapedText;
-    apiList.push(collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, '', '', type, note, node));
+  } else if (ts.isQualifiedName(node) && ts.isTypeReferenceNode(node.parent)) {
+    if (node.parent.parent.name && ts.isIdentifier(node.parent.parent.name)) {
+      const note = callMethod.secondCallMethod;
+      const type = 'API';
+      const instantiateObject = node.parent.parent.name.escapedText;
+      const moduleName = node.left.escapedText;
+      const apiName = node.right.escapedText;
+      apiList.push(collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, '', '', type, note, node));
+    }else{
+      const type = 'API';
+      const instantiateObject = '';
+      const moduleName = node.left.escapedText;
+      const apiName = node.right.escapedText;
+      apiList.push(collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, '', '', type, '', node));
+    }
+
   } else if (ts.isNewExpression(node) && ts.isPropertyDeclaration(node.parent)) {
     collectNewExpressionApi(node, url, sourcefile, apiList);
   } else if (ts.isClassDeclaration(node) && node.heritageClauses && node.members) {
@@ -258,14 +279,15 @@ function collectComponentApi(node, apiList, type, url, sourcefile) {
   let etsComponentBlockPos = new Set([]);
   const componentName = node.expression.escapedText ? node.expression.escapedText.toString() :
     node.expression.expression.escapedText.toString();
-  
+
   if (ts.isEtsComponentExpression(node) && ts.isBlock(node.parent.parent) &&
     !etsComponentBlockPos.has(node.parent.parent.pos)) {
     etsComponentBlockPos.add(node.parent.parent);
     const blockNode = node.parent.parent;
     const statements = blockNode.statements;
     statements.forEach((stat, index) => {
-      if (stat.expression && ts.isEtsComponentExpression(stat.expression)) {
+      if (stat.expression && ts.isEtsComponentExpression(stat.expression) &&
+        (componentName === stat.expression.escapedText || componentName === stat.expression.expression.escapedText)) {
         getCommonCallComponentApi(statements, url, sourcefile, componentName, type, notes, apiList, index, stat);
       }
     });
@@ -312,7 +334,7 @@ function collectCommonCallApis(node, sourcefile, url, apiList) {
   let type = 'API';
   let moduleName = '';
   let apiName = '';
-  
+
   if (ts.isCallExpression(node.expression) && ts.isPropertyAccessExpression(node.expression.expression) &&
     node.expression.expression.expression.escapedText) {
     moduleName = node.expression.expression.expression.escapedText;
