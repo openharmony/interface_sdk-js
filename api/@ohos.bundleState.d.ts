@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-import { AsyncCallback , Callback} from './basic';
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides methods for managing bundle usage statistics,
  * including the methods for querying bundle usage information and state data.
- *
  * <p>You can use the methods defined in this class to query
  * the usage history and states of bundles in a specified period.
  * The system stores the query result in a {@link BundleStateInfo} or {@link BundleActiveState} instance and
  * then returns it to you.
  *
+ * @namespace bundleState
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.resourceschedule.usageStatistics
