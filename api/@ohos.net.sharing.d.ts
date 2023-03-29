@@ -15,7 +15,6 @@
 
 import {AsyncCallback, Callback} from "./basic";
 import connection from "./@ohos.net.connection";
-type NetHandle = connection.NetHandle;
 
 /**
  * Provides network sharing related interfaces.
@@ -24,6 +23,7 @@ type NetHandle = connection.NetHandle;
  * @syscap SystemCapability.Communication.NetManager.NetSharing
  */
 declare namespace sharing {
+    type NetHandle = connection.NetHandle;
   /**
    * Checks whether this device allows for network sharing.
    *
