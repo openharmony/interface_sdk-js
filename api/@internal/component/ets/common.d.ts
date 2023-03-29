@@ -1506,6 +1506,27 @@ declare interface PickerTextStyle {
 }
 
 /**
+ * Define the type of shadow
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ShadowType {
+  /**
+   * Define a color type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COLOR,
+
+  /**
+   * Define a blur type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BLUR,
+}
+
+/**
  * Define the options of shadow
  * @since 7
  */
@@ -1525,6 +1546,15 @@ declare interface ShadowOptions {
    * @since 9
    */
   radius: number | Resource;
+
+  /**
+   * Define the type of shadow
+   * @type { ShadowType }
+   * @default ShadowType.COLOR
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type?: ShadowType;
 
   /**
    * Define the color of shadow
