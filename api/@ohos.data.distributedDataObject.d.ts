@@ -144,7 +144,7 @@ declare namespace distributedDataObject {
      * @deprecated since 9
      * @useinstead ohos.distributedDataObject.DataObject.on
      */
-    on(type: 'change', callback: Callback<{ sessionId: string; fields: Array<string> }>): void;
+    on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
     /**
      * Off watch of change
@@ -160,7 +160,7 @@ declare namespace distributedDataObject {
      * @deprecated since 9
      * @useinstead ohos.distributedDataObject.DataObject.off
      */
-    off(type: 'change', callback?: Callback<{ sessionId: string; fields: Array<string> }>): void;
+    off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
     /**
      * On watch of status
@@ -180,7 +180,7 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string; networkId: string; status: 'online' | 'offline' }>
+      callback: Callback<{ sessionId: string; networkId: string, status: 'online' | 'offline' }>
     ): void;
 
     /**
@@ -202,7 +202,7 @@ declare namespace distributedDataObject {
      */
     off(
       type: 'status',
-      callback?: Callback<{ sessionId: string; deviceId: string; status: 'online' | 'offline' }>
+      callback?: Callback<{ sessionId: string; deviceId: string, status: 'online' | 'offline' }>
     ): void;
   }
 
