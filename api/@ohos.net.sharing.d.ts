@@ -15,6 +15,7 @@
 
 import {AsyncCallback, Callback} from "./basic";
 import connection from "./@ohos.net.connection";
+type NetHandle = connection.NetHandle;
 
 /**
  * Provides network sharing related interfaces.
@@ -228,7 +229,7 @@ declare namespace sharing {
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
    */
-  function on(type: 'sharingUpstreamChange', callback: Callback<connection.NetHandle>): void;
+  function on(type: 'sharingUpstreamChange', callback: Callback<NetHandle>): void;
 
   /**
    * Unregister a callback for the sharing upstream network change.
@@ -238,7 +239,7 @@ declare namespace sharing {
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
    */
-  function off(type: 'sharingUpstreamChange', callback?: Callback<connection.NetHandle>): void;
+  function off(type: 'sharingUpstreamChange', callback?: Callback<NetHandle>): void;
 
   /**
    * @systemapi Hide this for inner system use.
