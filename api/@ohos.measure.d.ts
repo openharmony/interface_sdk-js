@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-/// <reference path="../component/ets/units.d.ts"/>
+/// <reference path="../component/units.d.ts" />
 
 import { Resource } from 'GlobalResource';
 
@@ -36,35 +36,35 @@ export interface MeasureOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontSize?: number|string|Resource;
+    fontSize?: number | string | Resource;
 
     /**
      * Font style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontStyle?: number|FontStyle;
+    fontStyle?: number | FontStyle;
 
     /**
      * Font weight.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontWeight?: number|string|FontWeight;
+    fontWeight?: number | string | FontWeight;
 
     /**
      * Font list of text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    fontFamily?: string|Resource;
+    fontFamily?: string | Resource;
 
     /**
      * Distance between text fonts.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    letterSpacing?: number|string;
+    letterSpacing?: number | string;
 }
 
 /**
@@ -79,5 +79,5 @@ export default class MeasureText {
      * @param options Options.
      * @since 9
      */
-    static measureText(options: MeasureOptions): double;
+    static measureText(options: MeasureOptions): number;
 }
