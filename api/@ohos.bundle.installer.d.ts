@@ -73,6 +73,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
      * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because EDM disallow install.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
