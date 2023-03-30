@@ -211,7 +211,13 @@ class JSDocModificationManager {
       if (tagName === 'returns' && (ts.isMethodDeclaration(node.astNode) || ts.isMethodSignature(node.astNode) ||
         ts.isFunctionDeclaration(node.astNode) || ts.isCallSignatureDeclaration(node.astNode)) &&
         node.astNode.type) {
-        tagType = node.astNode.type.getText();
+        if (ts.isTypeLiteralNode(node.astNode.type)) {
+          tagType = 'object';
+        } else if (ts.isFunctionTypeNode(node.astNode.type)) {
+          tagType = 'function';
+        } else {
+          tagType = node.astNode.type.getText();
+        }
       } else if ((ts.isModuleDeclaration(node.astNode) || ts.isEnumDeclaration(node.astNode)) && node.astNode.name &&
         ts.isIdentifier(node.astNode.name)) {
         tagValue = node.astNode.name.escapedText.toString();
@@ -299,22 +305,24 @@ class JSDocModificationManager {
         if (curParameter) {
           const apiName: string = node.astNode.name ? node.astNode.name.getText() : '';
           const commentInfos: comment.CommentInfo[] = node.commentInfos ? node.commentInfos : [];
-          if (curParameter.type && (ts.isTypeLiteralNode(curParameter.type) || ts.isFunctionTypeNode(curParameter.type))) {
-            const checkLogResult: CheckLogResult = LogResult.createCheckResult(node.astNode, commentInfos,
-              JSDocModificationManager.createErrorInfo(ErrorInfo.PARAM_FORAMT_ERROR, [`${i + 1}`]), context, apiName,
-              JSDocCheckErrorType.API_FORMAT_ERROR);
-            context?.getLogReporter().addCheckResult(checkLogResult);
-            continue;
-          } else {
-            newCommentTag.type = curParameter.type ? curParameter.type.getText() : '';
-            newCommentTag.name = curParameter.name ? curParameter.name.getText() : '';
-            commentInfo.commentTags.push(newCommentTag);
-            // 提示description缺失信息
-            const checkLogResult: CheckLogResult = LogResult.createCheckResult(node.astNode, commentInfos,
-              JSDocModificationManager.createErrorInfo(ErrorInfo.PARAM_FORAMT_DESCRIPTION_ERROR, [`${curIndex + 1}`]), context, apiName,
-              JSDocCheckErrorType.PARAM_DESCRIPTION_WARNING);
-            context?.getLogReporter().addCheckResult(checkLogResult);
+          let paramType: string = '';
+          if (curParameter.type) {
+            if (ts.isTypeLiteralNode(curParameter.type)) {
+              paramType = 'object';
+            } else if (ts.isFunctionTypeNode(curParameter.type)) {
+              paramType = 'function';
+            } else {
+              paramType = curParameter.type.getText();
+            }
           }
+          newCommentTag.type = paramType;
+          newCommentTag.name = curParameter.name ? curParameter.name.getText() : '';
+          commentInfo.commentTags.push(newCommentTag);
+          // 提示description缺失信息
+          const checkLogResult: CheckLogResult = LogResult.createCheckResult(node.astNode, commentInfos,
+            JSDocModificationManager.createErrorInfo(ErrorInfo.PARAM_FORAMT_DESCRIPTION_ERROR, [`${curIndex + 1}`]), context, apiName,
+            JSDocCheckErrorType.PARAM_DESCRIPTION_WARNING);
+          context?.getLogReporter().addCheckResult(checkLogResult);
         }
       }
     }

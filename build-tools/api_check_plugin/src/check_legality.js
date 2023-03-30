@@ -157,6 +157,8 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
           }
         } else if ((tagName === 'interface' || tagName === 'typedef') && (tag.tag === 'interface' || tag.tag === 'typedef')) {
           checkResult = true;
+        } else if (tagName === 'syscap' && (ts.isModuleDeclaration(node) || ts.isClassDeclaration(node))) {
+          checkResult = true;
         } else if (tag.tag === tagName) {
           checkResult = true;
         }
@@ -174,7 +176,9 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         (tagName === 'param' && paramTagNum < parameterNum)) && extraCheckCallback(node, checkResult)) {
         // 报错
         // console.log(`${sourcefile.fileName}, ${node.getText()} has no @${tagName}`);
-        checkInfoMap[index].missingTags.push(tagName);
+        if (tagName !== 'typedef' || checkInfoMap[index].missingTags.indexOf('interface') < 0) {
+          checkInfoMap[index].missingTags.push(tagName);
+        }
       } else if (((tagName !== 'useinstead' && tagName !== 'param' && checkResult && illegalKindSet.has(node.kind)) ||
         (tagName === 'useinstead' && !useinsteadResultObj.hasDeprecated && useinsteadResultObj.hasUseinstead) ||
         (tagName === 'param' && paramTagNum > parameterNum)) && extraCheckCallback(node, checkResult)) {
