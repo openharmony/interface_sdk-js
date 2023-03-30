@@ -227,7 +227,7 @@ declare namespace pointer {
 
   /**
    * mouse button.
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @Since 10
    */
