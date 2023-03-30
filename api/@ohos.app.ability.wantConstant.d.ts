@@ -77,9 +77,9 @@ declare namespace wantConstant {
     ABILITY_BACK_TO_OTHER_MISSION_STACK = "ability.params.backToOtherMissionStack",
 
     /**
-     * Ability failure restart recovery identification
+     * Indicates the param of ability failure restart recovery identification
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
+     * @since 10
      */
     ABILITY_RECOVERY_RESTART = "ability.params.AbilityRecoveryRestart"
   }
