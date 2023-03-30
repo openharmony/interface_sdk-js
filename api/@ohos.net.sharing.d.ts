@@ -23,7 +23,7 @@ import connection from "./@ohos.net.connection";
  * @syscap SystemCapability.Communication.NetManager.NetSharing
  */
 declare namespace sharing {
-    type NetHandle = connection.NetHandle;
+  type NetHandle = connection.NetHandle;
   /**
    * Checks whether this device allows for network sharing.
    *
