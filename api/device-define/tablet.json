@@ -135,6 +135,7 @@
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
+    "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
