@@ -86,7 +86,7 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
     }
   }
 
-  if (checkResult !== "" && filterApiVersion(node, '10')) {
+  if (filterApiVersion(node, '10')) {
     addAPICheckErrorLogs(node.name, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }
@@ -114,7 +114,7 @@ function checkAPIFileName(sourcefile, fileName) {
     } else if (moduleName === "" && exportAssignment !== moduleName && !checkSmallHump(lastModuleName)) {
       checkResult = `This API file should be named by large hump.`;
     }
-    if (checkResult !== "" && filterApiVersion(node, '10')) {
+    if (filterApiVersion(soucefile, '10')) {
       addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_FILE,
         ErrorLevel.MIDDLE);
     }
