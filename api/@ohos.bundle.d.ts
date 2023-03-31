@@ -452,7 +452,7 @@ declare namespace bundle {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application.
-   * @param isEnabled Specifies whether to enable the application. The value true means to enable it, and the
+   * @param isEnable Specifies whether to enable the application. The value true means to enable it, and the
    *                  value false means to disable it.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use
@@ -468,7 +468,7 @@ declare namespace bundle {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param abilityInfo Indicates information about the ability to set.
-   * @param isEnabled Specifies whether to enable the ability. The value true means to enable it, and the
+   * @param isEnable Specifies whether to enable the ability. The value true means to enable it, and the
    *                  value false means to disable it..
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use

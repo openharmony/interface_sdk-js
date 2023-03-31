@@ -56,7 +56,7 @@ declare namespace businessAbilityRouter {
   /**
    * This filter value is used to filter business ability info
    *
-   * @name { number }
+   * @name BusinessAbilityFilter
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -122,7 +122,7 @@ declare namespace businessAbilityRouter {
    * @since 10
    */
   function queryBusinessAbilityInfo(filter: BusinessAbilityFilter): Promise<Array<BusinessAbilityInfo>>;
-  
+
   /**
    * Obtains business ability info.
    *
