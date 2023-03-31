@@ -121,8 +121,10 @@ declare namespace screenLock {
    *
    * @returns Returns {@code true} if the screen is locked successfully; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 201 - permission denied.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -133,8 +135,10 @@ declare namespace screenLock {
    * Lock the screen.
    *
    * @returns Returns {@code true} if the screen is locked successfully; returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - permission denied.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -182,8 +186,10 @@ declare namespace screenLock {
    * @param { Callback<SystemEvent> } callback - the callback function for indicating the system event related screen lock
    * @returns Returns {@code true} if register system event is success; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 201 - permission denied.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -197,8 +203,10 @@ declare namespace screenLock {
    * @param { number } parameter - operation result of the event.
    * @returns Returns {@code true} if screen lock app send event to screen lock service is success; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 201 - permission denied.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -212,8 +220,10 @@ declare namespace screenLock {
    * @param { number } parameter - operation result of the event.
    * @returns Returns {@code true} if screen lock app send event to screen lock service is success; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 201 - permission denied.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
