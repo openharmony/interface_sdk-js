@@ -556,6 +556,79 @@ declare namespace fileAccess {
     }
 
     /**
+     * Describes the key that can be queried.
+     * @since 10
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
+     * @systemapi
+     */
+    enum FileKey {
+        /**
+         * The key represents the file name, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DISPLAY_NAME = "display_name",
+
+        /**
+         * The key represents the date of the file creation, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DATE_ADDED = "date_added",
+
+        /**
+         * The key represents the modify date of the file, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DATE_MODIFIED = "date_modified",
+
+        /**
+         * The key represents the relative path, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        RELATIVE_PATH = "relative_path",
+
+        /**
+         * The key represents the file size, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        FILE_SIZE = "size",
+
+        /**
+         * The key represents width of the image file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        WIDTH = "width",
+
+        /**
+         * The key represents height of the image file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        HEIGHT = "height",
+
+        /**
+         * The key represents duration of the audio and video file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DURATION = "duration",
+    }
+
+    /**
      * FileAccessHelper Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -903,6 +976,34 @@ declare namespace fileAccess {
          */
         access(sourceFileUri: string) : Promise<boolean>;
         access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
+
+        /**
+         * Query file related information by the uri in the promise way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected file or directory.
+         * @param {string} metaJson The json string includes query property.
+         * @returns {Promise<string>} Returns the json string, includes query property and value.
+         */
+        query(uri: string, metaJson: string) : Promise<string>;
+
+        /**
+         * Query file related information by the uri in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected file or directory.
+         * @param {string} metaJson The json string includes query property.
+         * @param {AsyncCallback<string>} callback - Returns the json string, includes query property and value.
+         */
+        query(uri: string, metaJson: string, callback: AsyncCallback<string>) : void;
 
         /**
          * Get a FileInfo by the uri in the promise way.
