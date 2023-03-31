@@ -147,7 +147,6 @@ declare namespace runningLock {
    * @useinstead { @link RunningLock#isSupported }
    */
   function isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback<boolean>): void;
-  function isRunningLockTypeSupported(type: RunningLockType): Promise<boolean>;
 
   /**
    * Checks whether the specified {@link RunningLockType} is supported.
@@ -193,7 +192,6 @@ declare namespace runningLock {
    * @useinstead { @link RunningLock#create }
    */
   function createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
-  function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
 
   /**
    * Creates a {@link RunningLock} object.
