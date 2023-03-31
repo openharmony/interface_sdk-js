@@ -89,6 +89,13 @@ declare namespace http {
      * @since 10
      */
     usingProxy?: boolean | HttpProxy; // default is false.
+
+    /**
+     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system. 
+     *
+     * @since 10
+     */
+    caPath?: string;
   }
 
   export interface HttpRequest {
@@ -139,7 +146,7 @@ declare namespace http {
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      *
      * @param url URL for initiating an HTTP request.
-     * @param callback Returns the callback of request2, should use on_headersReceive and on_dataReceive
+     * @param callback Returns the callback of request2 {@link ResponseCode}, should use on_headersReceive and on_dataReceive
      *        to get http response.
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
@@ -175,14 +182,14 @@ declare namespace http {
      * @throws {BusinessError} 2300999 - Unknown Other Error.
      * @since 10
      */
-    request2(url: string, callback: AsyncCallback<void>): void;
+    request2(url: string, callback: AsyncCallback<number>): void;
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      *
      * @param url URL for initiating an HTTP request.
      * @param options Optional parameters {@link HttpRequestOptions}.
-     * @param callback Returns the callback of request2, should use on_headersReceive and on_dataReceive
+     * @param callback Returns the callback of request2 {@link ResponseCode}, should use on_headersReceive and on_dataReceive
      *        to get http response.
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
@@ -218,14 +225,14 @@ declare namespace http {
      * @throws {BusinessError} 2300999 - Unknown Other Error.
      * @since 10
      */
-    request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<void>): void;
+    request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<number>): void;
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      *
      * @param url URL for initiating an HTTP request.
      * @param options Optional parameters {@link HttpRequestOptions}.
-     * @returns The promise returned by the function, should use on_headersReceive and on_dataReceive
+     * @returns The promise returned by the function {@link ResponseCode}, should use on_headersReceive and on_dataReceive
      *        to get http response.
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
@@ -261,7 +268,7 @@ declare namespace http {
      * @throws {BusinessError} 2300999 - Unknown Other Error.
      * @since 10
      */
-    request2(url: string, options?: HttpRequestOptions): Promise<void>;
+    request2(url: string, options?: HttpRequestOptions): Promise<number>;
 
     /**
      * Destroys an HTTP request.
