@@ -81,7 +81,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
      */
-    ABILITY_RECOVERY_RESTART = "ability.params.AbilityRecoveryRestart"
+    ABILITY_RECOVERY_RESTART = "ohos.ability.params.abilityRecoveryRestart"
   }
 
   export enum Flags {
