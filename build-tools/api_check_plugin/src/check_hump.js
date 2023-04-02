@@ -56,7 +56,7 @@ function isConstantDecorator(node, name) {
 
 function filterApiVersion(node, version) {
   const apiVersion = getApiVersion(node);
-  return apiVersion === 'NA' || apiVersion === version;
+  return apiVersion === version;
 }
 
 function checkAPINameOfHump(node, sourcefile, fileName) {
@@ -86,8 +86,8 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
     }
   }
 
-  if (filterApiVersion(node, '10')) {
-    addAPICheckErrorLogs(node.name, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
+  if (checkResult !== "" && filterApiVersion(node, '10')) {
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }
 }
@@ -114,7 +114,7 @@ function checkAPIFileName(sourcefile, fileName) {
     } else if (moduleName === "" && exportAssignment !== moduleName && !checkSmallHump(lastModuleName)) {
       checkResult = `This API file should be named by large hump.`;
     }
-    if (filterApiVersion(soucefile, '10')) {
+    if (checkResult !== "" && filterApiVersion(sourcefile, '10')) {
       addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_FILE,
         ErrorLevel.MIDDLE);
     }
