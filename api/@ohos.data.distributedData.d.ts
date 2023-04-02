@@ -1599,10 +1599,9 @@ declare namespace distributedData {
          * @param deviceIds Indicates the list of devices to which to synchronize the database.
          * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
          * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
-         * @throws Throws this exception if any of the following errors
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * occurs: {@code INVALID_ARGUMENT},
+         * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 7
          * @deprecated since 9
