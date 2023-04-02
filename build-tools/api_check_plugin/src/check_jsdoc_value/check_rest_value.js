@@ -368,10 +368,7 @@ function checkSyscapTag(tag, node, sourcefile, fileName, index) {
   const syscapTags = rules.syscap.SystemCapability;
   const syscapRuleSet = new Set();
   for (const i in syscapTags) {
-    syscapTags[i].forEach(syscap => {
-      const syscapTag = 'SystemCapability.' + i + '.' + syscap;
-      syscapRuleSet.add(syscapTag);
-    });
+    syscapRuleSet.add(syscapTags[i]);
   }
   if (!syscapRuleSet.has(tagValue)) {
     syscapResult.checkResult = false;
