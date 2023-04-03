@@ -714,6 +714,8 @@ unicon
 uniform1ui
 uniforms
 uninit
+uninitialize
+uninitializes
 uninstallation
 unlinked
 unlocking
