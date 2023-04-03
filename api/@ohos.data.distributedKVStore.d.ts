@@ -1772,7 +1772,7 @@ declare namespace distributedKVStore {
     /**
      * Unsubscribe from the SingleKVStore database based on the specified subscribeType and listener.
      *
-     * @param { 'dataChange' } event - The unsubscribed event name, fixed as 'dataChange', indicates the data change event.
+     * @param { 'dataChange' } event - The unsubscribe event name, fixed as 'dataChange', indicates the data change event.
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
      * @throws { BusinessError } 401 - if parameter check failed.
@@ -1785,7 +1785,7 @@ declare namespace distributedKVStore {
     /**
      * Unregister the database synchronization callback.
      *
-     * @param { 'syncComplete' } event - The unsubscribed event name, fixed as 'syncComplete', indicates the synchronization completion event.
+     * @param { 'syncComplete' } event - The unsubscribe event name, fixed as 'syncComplete', indicates the synchronization completion event.
      * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
@@ -2435,7 +2435,7 @@ declare namespace distributedKVStore {
      * <p>The unregistered death callback must be a registered death callback of the database. If no death callback parameter
      * is passed, all database death callbacks will be unregistered.
      *
-     * @param { 'distributedDataServiceDie' } event - Unsubscribed event name, fixed as 'distributedDataServiceDie', as a service status change events.
+     * @param { 'distributedDataServiceDie' } event - Unsubscribe event name, fixed as 'distributedDataServiceDie', as a service status change events.
      * @param { Callback<void> } deathCallback - the data manager service is terminated callback which has been registered.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
