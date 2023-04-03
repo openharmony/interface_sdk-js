@@ -2969,14 +2969,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderStyle(value: BorderStyle): T;
-
   /**
    * Border style
+   * @param { BorderStyle | EdgeStyles } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderStyle(value: EdgeStyles): T;
+  borderStyle(value: BorderStyle | EdgeStyles): T;
 
   /**
    * Border width
@@ -2987,18 +2987,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderWidth(value: Length): T;
-
   /**
    * Border width
-   * @since 9
-   */
-  /**
-   * Border width
+   * @param { Length | EdgeWidths } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderWidth(value: EdgeWidths): T;
+  borderWidth(value: Length | EdgeWidths): T;
 
   /**
    * Border color
@@ -3009,14 +3005,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderColor(value: ResourceColor): T;
-
   /**
    * Border color
+   * @param { ResourceColor | EdgeColors } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderColor(value: EdgeColors): T;
+  borderColor(value: ResourceColor | EdgeColors): T;
 
   /**
    * Border radius
@@ -3027,14 +3023,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderRadius(value: Length): T;
-
   /**
    * Border radius
+   * @param { Length | BorderRadiuses } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderRadius(value: BorderRadiuses): T;
+  borderRadius(value: Length | BorderRadiuses): T;
 
   /**
    * Border image
