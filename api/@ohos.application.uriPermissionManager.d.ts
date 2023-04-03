@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
-import wantConstant from "./@ohos.ability.wantConstant";
+import wantConstant from './@ohos.ability.wantConstant';
 
 /**
  * The management class for uri of file.
@@ -24,61 +24,61 @@ import wantConstant from "./@ohos.ability.wantConstant";
  * @permission N/A
  */
 declare namespace uriPermissionManager {
-    /**
-     * Grant URI to another application
-     *
-     * @since 10
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     * @param uri File URI.
-     * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 201 - Permission denied.
-     */
-    function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
+  /**
+   * Grant URI to another application
+   *
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @param uri File URI.
+   * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   */
+  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
-   /**
-     * Grant URI to another application
-     *
-     * @since 10
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     * @param uri File URI.
-     * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-     * @param { callback } callback - Unregister a callback function for listening for notifications.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 201 - Permission denied.
-     */
-   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, callback: AsyncCallback<number>): void;
+  /**
+   * Grant URI to another application
+   *
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @param uri File URI.
+   * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @param { callback } callback - Unregister a callback function for listening for notifications.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   */
+  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, callback: AsyncCallback<number>): void;
     
-    /**
-     * Revoke URI from one application
-     *
-     * @since 10
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     * @param uri File URI need to be revoke
-     * @param { string } targetBundleName - Indicates the bundleName of the application need to remove uri.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 201 - Permission denied.
-     */
-    function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
+  /**
+   * Revoke URI from one application
+   *
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @param uri File URI need to be revoke
+   * @param { string } targetBundleName - Indicates the bundleName of the application need to remove uri.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   */
+  function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
 
-    /**
-     * Revoke URI from one application
-     *
-     * @since 10
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     * @param uri File URI need to be revoke
-     * @param { string } targetBundleName - Indicates the bundleName of the application need to remove uri.
-     * @param { callback } callback - Unregister a callback function for listening for notifications.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 201 - Permission denied.
-     */
-    function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
+  /**
+   * Revoke URI from one application
+   *
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @param uri File URI need to be revoke
+   * @param { string } targetBundleName - Indicates the bundleName of the application need to remove uri.
+   * @param { callback } callback - Unregister a callback function for listening for notifications.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   */
+  function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
 }
 
 export default uriPermissionManager;
