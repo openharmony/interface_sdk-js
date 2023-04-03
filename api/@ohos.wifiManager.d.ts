@@ -505,7 +505,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
-    function get5GHzChannelList(): Array<number>;
+    function get5GChannelList(): Array<number>;
 
     /**
      * Enable Wi-Fi hotspot function.
@@ -1562,7 +1562,7 @@ declare namespace wifiManager {
      * @since 10
      * @syscap SystemCapability.Communication.WiFi.STA
      */
-     enum WifiBandType {
+    enum WifiBandType {
         WIFI_BAND_NONE,
         WIFI_BAND_2G,
         WIFI_BAND_5G,
@@ -1576,7 +1576,7 @@ declare namespace wifiManager {
      * @since 10
      * @syscap SystemCapability.Communication.WiFi.STA
      */
-     enum WifiStandard {
+    enum WifiStandard {
         WIFI_STANDARD_UNDEFINED,
         WIFI_STANDARD_11A,
         WIFI_STANDARD_11B,
