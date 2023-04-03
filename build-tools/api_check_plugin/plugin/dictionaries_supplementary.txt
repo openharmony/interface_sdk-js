@@ -166,6 +166,7 @@ dialling
 dimbehind
 dirent
 disables
+disallowed
 discharging
 disconnecting
 disconnection
