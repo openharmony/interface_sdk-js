@@ -14,42 +14,43 @@
  */
 
 import Want from './@ohos.app.ability.Want';
-import InputMethodExtensionContext from "./@ohos.InputMethodExtensionContext";
+import type InputMethodExtensionContext from './@ohos.InputMethodExtensionContext';
 
 /**
  * The extension ability class of input method.
  *
- * @since 9
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
+ * @since 9
  */
 export default class InputMethodExtensionAbility {
-    /**
-     * Indicates input method extension ability context.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    context: InputMethodExtensionContext;
+  /**
+   * Indicates input method extension ability context.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @StageModelOnly
+   * @since 9
+   */
+  context: InputMethodExtensionContext;
 
-    /**
-     * Called back when a input method extension is started for initialization.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @param want Indicates the want of created service extension.
-     * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
-     */
-    onCreate(want: Want): void;
+  /**
+   * Called back when a input method extension is started for initialization.
+   *
+   * @param { Want } want - Indicates the want of created service extension.
+   * @throws { BusinessError } 401 - parameter error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @StageModelOnly
+   * @since 9
+   */
+  onCreate(want: Want): void;
 
-    /**
-     * Called back before a input method extension is destroyed.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
-     */
-    onDestroy(): void;
+  /**
+   * Called back before a input method extension is destroyed.
+   *
+   * @throws { BusinessError } 401 - parameter error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @StageModelOnly
+   * @since 9
+   */
+  onDestroy(): void;
 }
