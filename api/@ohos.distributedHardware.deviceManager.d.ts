@@ -457,6 +457,29 @@ declare namespace deviceManager {
     getLocalDeviceInfo(): Promise<DeviceInfo>;
 
     /**
+     * Obtains device info
+     *
+     * @since 10
+     * @param { string } networkId - device network id.
+     * @param { AsyncCallback<DeviceInfo> } callback - Indicates the callback to be invoked upon getDeviceInfo.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @returns Returns device info.
+     * @systemapi this method can be used only by system applications.
+     */
+    getDeviceInfo(networkId: string, callback: AsyncCallback<DeviceInfo>): void;
+
+    /**
+     * Obtains device info
+     *
+     * @since 10
+     * @param { string } networkId - device network id.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @returns Returns device info.
+     * @systemapi this method can be used only by system applications.
+     */
+    getDeviceInfo(networkId: string): Promise<DeviceInfo>;
+
+    /**
      * Start to discover device.
      *
      * @since 8
