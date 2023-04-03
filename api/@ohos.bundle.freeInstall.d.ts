@@ -95,6 +95,7 @@ declare namespace freeInstall {
    * @param { UpgradeFlag } upgradeFlag - Indicates upgradeFlag of the application.
    * @param { AsyncCallback<void> } callback - The callback of setting module upgrade flag result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -113,6 +114,7 @@ declare namespace freeInstall {
    * @param { UpgradeFlag } upgradeFlag - Indicates upgradeFlag of the application.
    * @returns { Promise<void> } - Return the result of setting module upgrade flag.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -130,6 +132,7 @@ declare namespace freeInstall {
    * @param { string } moduleName - Indicates the module name of the application.
    * @param { AsyncCallback<boolean> } callback - The callback of checking module removable result.The result is true if the module is removable, false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -147,6 +150,7 @@ declare namespace freeInstall {
    * @param { string } moduleName - Indicates the module name of the application.
    * @returns {Promise<void>} Returns true if the module is removable; returns false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -164,6 +168,7 @@ declare namespace freeInstall {
    * @param { BundlePackFlag } bundlePackFlag - Indicates the application bundle pack flag to be queried.
    * @param { AsyncCallback<BundlePackInfo> } callback - The callback of getting the BundlePackInfo object result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -180,6 +185,7 @@ declare namespace freeInstall {
    * @param { BundlePackFlag } bundlePackFlag - Indicates the application bundle pack flag to be queried.
    * @returns {Promise<BundlePackInfo>} Returns the BundlePackInfo object.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -194,6 +200,7 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { AsyncCallback<DispatchInfo> } callback - The callback of getting the dispatchInfo object for the current ability result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
@@ -206,6 +213,7 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<DispatchInfo> } Returns the DispatchInfo object for the current ability.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
