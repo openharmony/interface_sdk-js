@@ -15,15 +15,16 @@
 
 /**
  * The uri module provides utilities for URI resolution and parsing.
+ * @crossplatform
  * @since 8
  * @syscap SystemCapability.Utils.Lang
- * @permission N/A
  */
 declare namespace uri {
 
     /**
      * URI Represents a Uniform Resource Identifier (URI) reference.
      * @name URI
+     * @crossplatform
      * @since 8
      * @syscap SystemCapability.Utils.Lang
      */
@@ -31,6 +32,7 @@ declare namespace uri {
         /**
          * URI constructor, which is used to instantiate a URI object.
          * uri: Constructs a URI by parsing a given string.
+         * @crossplatform
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200002 - Invalid uri string.
          */
@@ -38,6 +40,7 @@ declare namespace uri {
 
         /**
          * Returns the serialized URI as a string.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @returns Returns the serialized URI as a string.
@@ -57,6 +60,7 @@ declare namespace uri {
 
         /**
          * Check whether this URI is equivalent to other URI objects.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param other URI object to be compared
@@ -67,6 +71,7 @@ declare namespace uri {
 
         /**
          * Indicates whether this URI is an absolute URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @returns boolean Indicates whether the URI is an absolute URI (whether the scheme component is defined).
@@ -75,6 +80,7 @@ declare namespace uri {
 
         /**
          * Normalize the path of this URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @returns URI Used to normalize the path of this URI and return a URI object whose path has been normalized.
@@ -83,6 +89,7 @@ declare namespace uri {
 
         /**
          * Gets the protocol part of the URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -90,6 +97,7 @@ declare namespace uri {
 
         /**
          * Obtains the user information part of the URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -97,6 +105,7 @@ declare namespace uri {
 
         /**
          * Gets the hostname portion of the URI without a port.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -104,6 +113,7 @@ declare namespace uri {
 
         /**
          * Gets the port portion of the URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -111,6 +121,7 @@ declare namespace uri {
 
         /**
          * Gets the path portion of the URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -118,6 +129,7 @@ declare namespace uri {
 
         /**
          * Gets the query portion of the URI
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -125,6 +137,7 @@ declare namespace uri {
 
         /**
          * Gets the fragment part of the URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -132,6 +145,7 @@ declare namespace uri {
 
         /**
          * Gets the decoding permission component part of this URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -139,6 +153,7 @@ declare namespace uri {
 
         /**
          * Gets the decoding scheme-specific part of the URI.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
