@@ -30,4 +30,14 @@ export default class ErrorObserver {
      * @returns -
      */
     onUnhandledException(errMsg: string): void;
+
+    /**
+     * Will be called when the native executions exception.
+     *
+     * @since 10
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param errObject the error object about the exception.
+     * @returns -
+     */
+    onException?(errObject: Error): void;
 }
