@@ -229,6 +229,7 @@ fileio
 fileshare
 fillets
 flac
+flg
 foldable
 formatable
 forwardmail
