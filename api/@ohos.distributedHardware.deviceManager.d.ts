@@ -454,7 +454,7 @@ declare namespace deviceManager {
      * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
-    getLocalDeviceInfo(): Promise<DeviceInfo>;
+    getLocalDeviceInfo(): Promise<DeviceInfo>
 
     /**
      * Obtains device info
@@ -466,7 +466,7 @@ declare namespace deviceManager {
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
-    getDeviceInfo(networkId: string, callback: AsyncCallback<DeviceInfo>): void;
+    getDeviceInfo(networkId: string, callback: AsyncCallback<DeviceInfo>): void
 
     /**
      * Obtains device info
