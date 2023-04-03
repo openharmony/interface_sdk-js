@@ -42,6 +42,7 @@ function collectBaseApi(importFiles, applicationApis) {
 
 function compareApis(baseApis, applicationApis, sdkFiles) {
   let callApisInApp = [];
+  let componentApiIndexSet = new Set();
   applicationApis = deleteUndefinedApi(applicationApis);
 
   applicationApis.forEach(applicationApi => {
@@ -56,7 +57,7 @@ function compareApis(baseApis, applicationApis, sdkFiles) {
   for (let i = 0; i < applicationApis.length; i++) {
     for (let j = 0; j < baseApis.length; j++) {
       if (applicationApis[i].type === 'ArkUI' && baseApis[j].packageName === 'ArkUI') {
-        compareComponentApi(applicationApis[i], baseApis[j], callApisInApp);
+        compareComponentApi(applicationApis[i], baseApis[j], callApisInApp, componentApiIndexSet, i);
       } else if (!applicationApis[i].value && applicationApis[i].type === 'API') {
         compareApisWithoutValue(applicationApis[i], baseApis[j], callApisInApp);
       } else if (applicationApis[i].value && applicationApis[i].type === 'API') {
@@ -127,22 +128,25 @@ function isExportClass() {
   }
 }
 
-function compareComponentApi(applicationApi, baseApi, callApisInApp) {
+function compareComponentApi(applicationApi, baseApi, callApisInApp, componentApiIndexSet, index) {
   let applyApi = JSON.parse(JSON.stringify(baseApi));
   applyApi.pos = applicationApi.callLocation;
   if (applicationApi.moduleName.match(new RegExp(baseApi.className.replace(/Attribute|Interface/, ''), 'i'))
-    && applicationApi.apiName === baseApi.methodName) {
+    && applicationApi.apiName === baseApi.methodName && !componentApiIndexSet.has(index)) {
     applyApi.className = applicationApi.moduleName;
     callApisInApp.push(applyApi);
+    componentApiIndexSet.add(index);
   } else if (applicationApi.apiName === baseApi.methodName && baseApi.className === 'CommonMethod' &&
-    applicationApi.notes !== '比较API') {
+    applicationApi.notes !== '比较API' && !componentApiIndexSet.has(index)) {
     applyApi.className = applicationApi.moduleName;
     applyApi.notes = 'CommonMethod';
     callApisInApp.push(applyApi);
+    componentApiIndexSet.add(index);
   } else if (applicationApi.notes === '比较API' && applicationApi.apiName === baseApi.methodName
     && baseApi.className.match(new RegExp(applicationApi.moduleName, 'i'))
-    && baseApi.className !== 'CommonMethod') {
+    && baseApi.className !== 'CommonMethod' && !componentApiIndexSet.has(index)) {
     callApisInApp.push(applyApi);
+    componentApiIndexSet.add(index);
   }
 }
 
