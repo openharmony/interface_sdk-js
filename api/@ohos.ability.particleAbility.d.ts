@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { NotificationRequest } from './notification/notificationRequest';

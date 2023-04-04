@@ -17,7 +17,7 @@
 
 import { AbilityInfo } from "../bundleManager/AbilityInfo";
 import { AbilityResult } from "../ability/abilityResult";
-import { AsyncCallback } from "../basic";
+import { AsyncCallback } from "../@ohos.base";
 import { ConnectOptions } from "../ability/connectOptions";
 import { HapModuleInfo } from "../bundleManager/HapModuleInfo";
 import Context from "./Context";

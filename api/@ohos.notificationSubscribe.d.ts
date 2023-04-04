@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
 import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notification/notificationSubscribeInfo';
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
