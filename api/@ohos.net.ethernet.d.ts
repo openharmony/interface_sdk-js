@@ -86,7 +86,7 @@ declare namespace ethernet {
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
   function getAllActiveIfaces(): Promise<Array<string>>;
 
-    /**
+  /**
    * Register a callback for the ethernet interface active state change.
    *
    * @param type interfaceStateChange.
