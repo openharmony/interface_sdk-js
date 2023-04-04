@@ -2416,6 +2416,12 @@ declare namespace audio {
      * @systemapi
      */
     readonly volumeGroupId: number;
+    /**
+     * Name used to display, considering distributed device situation.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly displayName: string;
   }
 
   /**
