@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback, Callback } from './basic';
+import type { AsyncCallback, Callback } from './basic';
 
 /**
  * Interface of display manager.
@@ -65,14 +65,14 @@ declare namespace display {
    * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
-   function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
+  function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
 
-   /**
-    * Obtain all displays.
-    * @throws {BusinessError} 1400001 - If display or screen is invalid
-    * @since 9
-    */
-   function getAllDisplays(): Promise<Array<Display>>;
+  /**
+   * Obtain all displays.
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @since 9
+   */
+  function getAllDisplays(): Promise<Array<Display>>;
 
   /**
    * Check whether there is a privacy window on the current display.
@@ -102,27 +102,27 @@ declare namespace display {
 
   /**
    * Register the callback for private mode changes.
-   * 
-   * @param { 'privateMode' } type the event of private mode changes
+   *
+   * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
    * @throws {BusinessError} 401 - If param is invalid
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'privateMode', callback: Callback<boolean>): void;
+  function on(type: 'privateModeChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for private mode changes.
-   * 
-   * @param { 'privateMode' } type the event of private mode changes
+   *
+   * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
    * @throws { BusinessError } 401 - If param is invalid
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'privateMode', callback?: Callback<boolean>): void;
+  function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
 
   /**
    * Enumerates the display states.

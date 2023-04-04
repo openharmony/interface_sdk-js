@@ -119,6 +119,13 @@ const ErrorType = {
 };
 exports.ErrorType = ErrorType;
 
+const LogType = {
+  LOG_API: 'Api',
+  LOG_JSDOC: 'JsDoc',
+  LOG_FILE: 'File'
+};
+exports.LogType = LogType;
+
 const ErrorLevel = {
   HIGH: 3,
   MIDDLE: 2,
@@ -164,40 +171,43 @@ function getApiInfo(node) {
   const notesStr = getAPINote(node);
   let apiInfo = {};
   if (notesStr !== '') {
-    if (/\@[S|s][Y|y][S|s][T|t][E|e][M|m][A|a][P|p][I|i]/g.test(notesStr)) {
+    if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
     }
-    if (/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
-      notesStr.replace(/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g, (versionInfo) => {
-        apiInfo.version = versionInfo.replace(/\@[S|s][I|i][N|n][C|c][E|e]/g, '').trim();
+    if (/\@constant/g.test(notesStr)) {
+      apiInfo.isConstant = true;
+    }
+    if (/\@since\s*(\d+)/g.test(notesStr)) {
+      notesStr.replace(/\@since\s*(\d+)/g, (versionInfo) => {
+        apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
     }
-    if (/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
-      notesStr.replace(/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g,
+    if (/\@deprecated.*since\s*(\d+)/g.test(notesStr)) {
+      notesStr.replace(/\@deprecated.*since\s*(\d+)/g,
         versionInfo => {
           apiInfo.deprecated = versionInfo.replace(
-            /\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*/g, '').trim();
+            /\@deprecated.*since\s*/g, '').trim();
         });
     }
-    if (/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
-      notesStr.replace(/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
+    if (/\@famodelonly/g.test(notesStr)) {
+      notesStr.replace(/\@famodelonly/g, modelInfo => {
         apiInfo.model = modelInfo;
       });
-    } else if (/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
-      notesStr.replace(/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
+    } else if (/\@stagemodelonly/g.test(notesStr)) {
+      notesStr.replace(/\@stagemodelonly/g, modelInfo => {
         apiInfo.model = modelInfo;
       });
     }
-    if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
-      notesStr.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
-        apiInfo.sysCap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
+    if (/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
+      notesStr.replace(/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
+        apiInfo.sysCap = sysCapInfo.replace(/\@syscap/g, '').trim();
       });
     }
-    if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
-      notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
+    if (/\@permission\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
+      notesStr.replace(/\@permission\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
         permissionInfo => {
           apiInfo.permission =
-            permissionInfo.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
+            permissionInfo.replace(/\@permission/g, '').trim();
         });
     }
   }

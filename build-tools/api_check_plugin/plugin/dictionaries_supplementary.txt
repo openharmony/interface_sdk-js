@@ -166,6 +166,7 @@ dialling
 dimbehind
 dirent
 disables
+disallowed
 discharging
 disconnecting
 disconnection
@@ -226,8 +227,10 @@ fdatasync
 fdn
 fdopen
 fileio
+fileshare
 fillets
 flac
+flg
 foldable
 formatable
 forwardmail
@@ -445,6 +448,7 @@ onfinish
 onframe
 onmessageerror
 onrepeat
+oob
 oobinline
 oper
 operated
@@ -598,6 +602,7 @@ sigalgs
 silenced
 slidable
 sliderstyle
+statvfs
 stk
 sm3
 smil
@@ -684,6 +689,7 @@ traversed
 truncates
 tsbundle
 ttls
+tunneled
 txpower
 uarfcn
 ubset
@@ -712,6 +718,8 @@ unicon
 uniform1ui
 uniforms
 uninit
+uninitialize
+uninitializes
 uninstallation
 unlinked
 unlocking
@@ -798,3 +806,4 @@ zoomout
 zoomreset
 zooms
 zpass
+commonevent

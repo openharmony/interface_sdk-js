@@ -16,21 +16,21 @@
 /**
  * Indicates possible value types
  *
- * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
  * @StageModelOnly
+ * @since 9
  */
 export type ValueType = number | string | boolean;
 
 /**
  * Values in buckets are stored in key-value pairs
  *
- * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
  * @StageModelOnly
+ * @since 9
  */
 export type ValuesBucket = {
-    [key: string]: ValueType | Uint8Array | null;
-}
+  [key: string]: ValueType | Uint8Array | null;
+};

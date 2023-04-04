@@ -13,87 +13,105 @@
  * limitations under the License.
  */
 
-import { Dependency }  from './HapModuleInfo';
+import { Dependency } from './HapModuleInfo';
 import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
  * Provides information about a shared bundle.
+ *
  * @typedef SharedBundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10
  */
- export interface SharedBundleInfo {
-    /**
-     * Indicates the name of the shared bundle
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly name: string;
+export interface SharedBundleInfo {
+  /**
+   * Indicates the name of the shared bundle
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly name: string;
 
-    /**
-     * Enumerates types of the compatible policy of the shared bundle
-     * @type {bundleManager.CompatiblePolicy}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly compatiblePolicy: bundleManager.CompatiblePolicy;
+  /**
+   * Enumerates types of the compatible policy of the shared bundle
+   *
+   * @type { bundleManager.CompatiblePolicy }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly compatiblePolicy: bundleManager.CompatiblePolicy;
 
-    /**
-     * Obtains configuration information about a shared module
-     * @type {Array<SharedModuleInfo>}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly sharedModuleInfo : Array<SharedModuleInfo>;
-  }
+  /**
+   * Obtains configuration information about a shared module
+   *
+   * @type { Array<SharedModuleInfo> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly sharedModuleInfo: Array<SharedModuleInfo>;
+}
 
 /**
  * Indicates the shared module info.
+ *
  * @typedef SharedModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10
  */
-  export interface SharedModuleInfo {
-    /**
-     * Indicates the moduleName of the shared bundle
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly name: string;
-  
-    /**
-     * Indicates the version code of the shared module
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly versionCode: number;
-  
-    /**
-     * Indicates the version name of the shared module
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly versionName: string;
+export interface SharedModuleInfo {
+  /**
+   * Indicates the moduleName of the shared bundle
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly name: string;
 
-    /**
-     * Describes the shared module
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly description: string;
+  /**
+   * Indicates the version code of the shared module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly versionCode: number;
 
-    /**
-     * Indicates the description of this shared module
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly descriptionId: number;
-  }
+  /**
+   * Indicates the version name of the shared module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly versionName: string;
+
+  /**
+   * Describes the shared module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly description: string;
+
+  /**
+   * Indicates the description of this shared module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  readonly descriptionId: number;
+}

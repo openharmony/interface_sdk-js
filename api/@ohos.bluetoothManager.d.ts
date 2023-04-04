@@ -203,6 +203,41 @@ declare namespace bluetoothManager {
     function setDevicePairingConfirmation(device: string, accept: boolean): void;
 
     /**
+     * Set the pin during pairing when the pin type is {@link PinType#PIN_TYPE_ENTER_PIN_CODE}.
+     *
+     * @permission ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } device - The address of the remote device.
+     * @param { string } code - The pin code entered by the user.
+     * @param { AsyncCallback<void> } callback - the callback of setDevicePinCode.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     */
+    function setDevicePinCode(device: string, code: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the pin during pairing when the pin type is {@link PinType#PIN_TYPE_ENTER_PIN_CODE}.
+     *
+     * @permission ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } device - The address of the remote device.
+     * @param { string } code - The pin code entered by the user.
+     * @returns { Promise<void> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     */
+    function setDevicePinCode(device: string, code: string): Promise<void>;
+    /**
      * Sets the Bluetooth friendly name of a device.
      *
      * @permission ohos.permission.DISCOVER_BLUETOOTH
@@ -1421,6 +1456,13 @@ declare namespace bluetoothManager {
         characteristicValue: ArrayBuffer;
         /** The list of {@link BLEDescriptor} contained in the characteristic */
         descriptors: Array<BLEDescriptor>;
+        /**
+         * The properties of a BLECharacteristic instance
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @since 10
+         */
+        properties?: GattProperties;
     }
 
     /**
@@ -1588,6 +1630,13 @@ declare namespace bluetoothManager {
         rssi: number;
         /** The raw data of broadcast packet */
         data: ArrayBuffer;
+        /**
+         * The local name of the BLE device
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @since 10
+         */
+        deviceName: string;
     }
 
     /**
@@ -1759,6 +1808,14 @@ declare namespace bluetoothManager {
     interface PinRequiredParam {
         deviceId: string;
         pinCode: string;
+        /**
+         * Indicates the pairing type to a peer device.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        pinType: PinType;
     }
 
     /**
@@ -1793,6 +1850,51 @@ declare namespace bluetoothManager {
 
         /** Profile state value */
         state: ProfileConnectionState;
+    }
+
+    /**
+     * Describes the properties of a gatt characteristic.
+     *
+     * @typedef GattProperties
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     */
+    interface GattProperties {
+        /**
+         * Support write property of the characteristic.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @since 10
+         */
+        write?: boolean;
+        /**
+         * Support write no response property of the characteristic.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @since 10
+         */
+        writeNoResponse?: boolean;
+        /**
+         * Support read property of the characteristic.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @since 10
+         */
+        read?: boolean;
+        /**
+         * Support notify property of the characteristic.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @since 10
+         */
+        notify?: boolean;
+        /**
+         * Support indicate property of the characteristic.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @since 10
+         */
+        indicate?: boolean;
     }
 
     /**
@@ -2069,6 +2171,81 @@ declare namespace bluetoothManager {
          * @since 9
          */
         PROFILE_PAN_NETWORK = 7,
+    }
+
+    /**
+     * Enum for the type of pairing to a remote device
+     * 
+     * @enum { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    enum PinType {
+        /**
+         * The user needs to enter the pin code displayed on the peer device.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_ENTER_PIN_CODE = 0,
+        /**
+         * The user needs to enter the passkey displayed on the peer device.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_ENTER_PASSKEY = 1,
+        /**
+         * The user needs to confirm the passkey displayed on the local device.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_CONFIRM_PASSKEY = 2,
+        /**
+         * The user needs to accept or deny the pairing request.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_NO_PASSKEY_CONSENT = 3,
+        /**
+         * The user needs to enter the passkey displayed on the local device on the peer device.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_NOTIFY_PASSKEY = 4,
+        /**
+         * The user needs to enter the pin code displayed on the peer device, used for bluetooth 2.0.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_DISPLAY_PIN_CODE = 5,
+        /**
+         * The user needs to accept or deny the OOB pairing request.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_OOB_CONSENT = 6,
+        /**
+         * The user needs to enter the 16-digit pin code displayed on the peer device.
+         * 
+         * @syscap SystemCapability.Communication.Bluetooth.Core
+         * @systemapi
+         * @since 10
+         */
+        PIN_TYPE_PIN_16_DIGITS = 7
     }
 }
 

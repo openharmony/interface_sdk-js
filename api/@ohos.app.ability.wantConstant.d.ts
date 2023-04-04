@@ -81,7 +81,28 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
      */
-    ABILITY_RECOVERY_RESTART = "ohos.ability.params.abilityRecoveryRestart"
+    ABILITY_RECOVERY_RESTART = "ohos.ability.params.abilityRecoveryRestart",
+
+    /**
+     * Indicates the param of extra content title
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    CONTENT_TITLE_KEY = 'ohos.extra.param.key.contentTitle',
+
+    /**
+     * Indicates the param of extra shared abstract
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SHARE_ABSTRACT_KEY = 'ohos.extra.param.key.shareAbstract',
+
+    /**
+     * Indicates the param of extra shareURL
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl',
   }
 
   export enum Flags {

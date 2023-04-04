@@ -15,48 +15,54 @@
 
 /**
  * Obtains configuration information about a overlay hap module.
+ *
  * @typedef OverlayModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 10
  */
-  export interface OverlayModuleInfo {
-    /**
-     * Indicates the name of the bundle
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly bundleName: string;
+ export interface OverlayModuleInfo {
+  /**
+   * Indicates the name of the bundle
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly bundleName: string;
 
-    /**
-     * Indicates the name of the .hap package to which the capability belongs
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly moduleName: string;
+  /**
+   * Indicates the name of the .hap package to which the capability belongs
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly moduleName: string;
 
-    /**
-     * Indicates the name of target module which is overlaid by the overlay module
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly targetModuleName: string;
+  /**
+   * Indicates the name of target module which is overlaid by the overlay module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly targetModuleName: string;
 
-    /**
-     * Indicates the priority of the overlay module
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly priority: number;
+  /**
+   * Indicates the priority of the overlay module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly priority: number;
 
-    /**
-     * Indicates the state of the overlay module
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly state: number;
-  }
+  /**
+   * Indicates the state of the overlay module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly state: number;
+}

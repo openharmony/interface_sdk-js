@@ -16,7 +16,7 @@
 import { AsyncCallback } from './basic';
 import { ApplicationInfo } from './bundle/applicationInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
-import { PermissionDef } from  './bundle/PermissionDef';
+import { PermissionDef } from './bundle/PermissionDef';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import { BundleInfo } from './bundle/bundleInfo';
@@ -24,22 +24,23 @@ import { BundleInstaller } from './bundle/bundleInstaller';
 
 /**
  * bundle.
- * @name bundle
- * @since 7
+ *
+ * @namespace bundle
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager
+ * @name bundle
  */
 declare namespace bundle {
-
-/**
- * @name BundleFlag
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.BundleFlag, ohos.bundle.bundleManager.ApplicationFlag or
- *          ohos.bundle.bundleManager.AbilityFlag
- */
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager.BundleFlag, ohos.bundle.bundleManager.ApplicationFlag or
+   *          ohos.bundle.bundleManager.AbilityFlag
+   * @name BundleFlag
+   */
   enum BundleFlag {
     GET_BUNDLE_DEFAULT = 0x00000000,
     GET_BUNDLE_WITH_ABILITIES = 0x00000001,
@@ -49,181 +50,202 @@ declare namespace bundle {
     GET_BUNDLE_WITH_REQUESTED_PERMISSION = 0x00000010,
     GET_ALL_APPLICATION_INFO = 0xFFFF0000,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 8
+     * @deprecated since 9
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 8
+     * @deprecated since 9
      */
-     GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
+    GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 8
+     * @deprecated since 9
      */
     GET_ABILITY_INFO_SYSTEMAPP_ONLY = 0x00000080,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 8
+     * @deprecated since 9
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000100,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 8
+     * @deprecated since 9
      */
-    GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
-  }
-
-/**
- * @name ColorMode
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @deprecated since 9
- */
-  export enum ColorMode {
-    AUTO_MODE = -1,
-    DARK_MODE = 0,
-    LIGHT_MODE = 1,
-  }
-
-/**
- * @name GrantStatus
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.PermissionGrantState
- */
-  export enum GrantStatus {
-    PERMISSION_DENIED = -1,
-    PERMISSION_GRANTED = 0,
+    GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200
   }
 
   /**
-   * @name AbilityType
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   * @name ColorMode
+   */
+  export enum ColorMode {
+    AUTO_MODE = -1,
+    DARK_MODE = 0,
+    LIGHT_MODE = 1
+  }
+
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager.PermissionGrantState
+   * @name GrantStatus
+   */
+  export enum GrantStatus {
+    PERMISSION_DENIED = -1,
+    PERMISSION_GRANTED = 0
+  }
+
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.AbilityType
+   * @name AbilityType
    */
   export enum AbilityType {
     /**
      * @default Indicates an unknown ability type
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     UNKNOWN,
 
     /**
      * @default Indicates that the ability has a UI
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     PAGE,
 
     /**
      * @default Indicates that the ability does not have a UI
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     SERVICE,
 
     /**
      * @default Indicates that the ability is used to provide data access services
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
-    DATA,
+    DATA
   }
 
   /**
-   * @name AbilitySubType
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
    * @deprecated since 9
+   * @name AbilitySubType
    */
   export enum AbilitySubType {
     UNSPECIFIED = 0,
-    CA = 1,
+    CA = 1
   }
 
   /**
-   * @name DisplayOrientation
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.DisplayOrientation
+   * @name DisplayOrientation
    */
   export enum DisplayOrientation {
     /**
      * @default Indicates that the system automatically determines the display orientation
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     UNSPECIFIED,
 
     /**
      * @default Indicates the landscape orientation
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     LANDSCAPE,
 
     /**
      * @default Indicates the portrait orientation
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     PORTRAIT,
 
     /**
      * @default Indicates the page ability orientation is the same as that of the nearest ability in the stack
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
-    FOLLOW_RECENT,
+    FOLLOW_RECENT
   }
 
   /**
-   * @name LaunchMode
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.LaunchType
+   * @name LaunchMode
    */
   export enum LaunchMode {
     /**
      * @default Indicates that the ability has only one instance
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     SINGLETON = 0,
 
     /**
      * @default Indicates that the ability can have multiple instances
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
-    STANDARD = 1,
+    STANDARD = 1
   }
 
   /**
-   * @name BundleOptions
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
    * @deprecated since 9
+   * @name BundleOptions
    */
   export interface BundleOptions {
     /**
      * @default Indicates the user id
-     * @since 7
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
      */
     userId?: number;
   }
 
   /**
-   * @name InstallErrorCode
-   * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
    * @deprecated since 9
+   * @name InstallErrorCode
    */
-  export enum InstallErrorCode{
+  export enum InstallErrorCode {
     SUCCESS = 0,
     STATUS_INSTALL_FAILURE = 1,
     STATUS_INSTALL_FAILURE_ABORTED = 2,
@@ -238,33 +260,47 @@ declare namespace bundle {
     STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT = 0x0B,
     STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED = 0x0C,
     /**
-      * @since 8
-      */
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 8
+     * @deprecated since 9
+     */
     STATUS_RECOVER_FAILURE_INVALID = 0x0D,
     /**
-      * @since 7
-      */
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_ABILITY_NOT_FOUND = 0x40,
     /**
-      * @since 7
-      */
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7
+     * @deprecated since 9
+     */
     STATUS_BMS_SERVICE_ERROR = 0x41,
     /**
-      * @since 8
-      */
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 8
+     * @deprecated since 9
+     */
     STATUS_FAILED_NO_SPACE_LEFT = 0x42,
     /**
-      * @since 8
-      */
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 8
+     * @deprecated since 9
+     */
     STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 8
+     * @deprecated since 9
      */
     STATUS_INSTALL_PERMISSION_DENIED = 0x44,
     /**
+     * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 8
+     * @deprecated since 9
      */
-    STATUS_UNINSTALL_PERMISSION_DENIED = 0x45,
+    STATUS_UNINSTALL_PERMISSION_DENIED = 0x45
   }
 
   /**
@@ -452,7 +488,7 @@ declare namespace bundle {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application.
-   * @param isEnabled Specifies whether to enable the application. The value true means to enable it, and the
+   * @param isEnable Specifies whether to enable the application. The value true means to enable it, and the
    *                  value false means to disable it.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use
@@ -468,7 +504,7 @@ declare namespace bundle {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param abilityInfo Indicates information about the ability to set.
-   * @param isEnabled Specifies whether to enable the ability. The value true means to enable it, and the
+   * @param isEnable Specifies whether to enable the ability. The value true means to enable it, and the
    *                  value false means to disable it..
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use

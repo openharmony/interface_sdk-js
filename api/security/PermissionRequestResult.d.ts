@@ -16,28 +16,52 @@
 /**
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
- * @since 9
  * @syscap SystemCapability.Security.AccessToken
- * @permission N/A
  * @StageModelOnly
+ * @since 9
+ */
+/**
+ * The result of requestPermissionsFromUser with asynchronous callback.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 export default class PermissionRequestResult {
-    /**
-     * The permissions passed in by the user.
-     *
-     * @since 9
-     * @syscap SystemCapability.Security.AccessToken
-     * @StageModelOnly
-     */
-    permissions: Array<string>;
+  /**
+   * The permissions passed in by the user.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @since 9
+   */
+  /**
+   * The permissions passed in by the user.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  permissions: Array<string>;
 
-    /**
-     * The results for the corresponding request permissions. The value 0 indicates that a
-     * permission is granted, and the value -1 indicates not.
-     *
-     * @since 9
-     * @syscap SystemCapability.Security.AccessToken
-     * @StageModelOnly
-     */
-    authResults: Array<number>;
+  /**
+   * The results for the corresponding request permissions. The value 0 indicates that a
+   * permission is granted, and the value -1 indicates not.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @since 9
+   */
+  /**
+   * The results for the corresponding request permissions. The value 0 indicates that a
+   * permission is granted, and the value -1 indicates not.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  authResults: Array<number>;
 }

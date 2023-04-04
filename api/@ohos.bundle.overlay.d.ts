@@ -18,6 +18,7 @@ import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
 
 /**
  * Used for application interception overlay
+ *
  * @namespace overlay
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
  * @since 10
@@ -25,6 +26,7 @@ import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
 declare namespace overlay {
   /**
    * Set enabled state of overlay module based on specified moduleName.
+   *
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
    * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
@@ -126,6 +128,7 @@ declare namespace overlay {
 
   /**
    * Obtain the OverlayModuleInfo of the specified target application based on bundleName.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.

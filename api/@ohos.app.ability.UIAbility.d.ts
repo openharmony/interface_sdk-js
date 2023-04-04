@@ -300,4 +300,14 @@ export default class UIAbility extends Ability {
      * @since 9
      */
     onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: Object}): AbilityConstant.OnSaveResult;
+
+    /**
+     * Called back when an ability shares data.
+     * @param { {[key: string]: Object} } wantParam - Indicates the want parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 10
+     */
+    onShare(wantParam:{ [key: string]: Object }): void;
+
 }
