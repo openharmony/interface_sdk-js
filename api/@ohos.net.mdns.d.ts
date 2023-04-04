@@ -216,7 +216,7 @@ declare namespace mdns {
     value: Array<number>;
   }
 
-  export enum MDNS_ERR {
+  export enum MdnsError {
     /**
      * Indicates that the operation failed due to internal error.
      * @since 10
