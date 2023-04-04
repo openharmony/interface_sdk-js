@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides the system event logging function for applications to log the fault, statistical, security,
