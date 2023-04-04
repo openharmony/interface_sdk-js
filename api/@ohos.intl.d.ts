@@ -16,115 +16,141 @@
 /**
  * Provides internationalization related APIs.
  *
+ * @namespace intl
  * @syscap SystemCapability.Global.I18n
  * @since 6
  */
 declare namespace intl {
-/**
- * Provides the options of Locale.
- *
- * @since 6
- * @syscap SystemCapability.Global.I18n
- */
-export interface LocaleOptions {
+  /**
+   * Provides the options of Locale.
+   *
+   * @interface LocaleOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export interface LocaleOptions {
     /**
      * Indicates the calendar.
-     * @type { string } calendar
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the calendar.
-     * @type { string } [ calendar ]
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     calendar?: string;
 
     /**
      * Indicates the collation.
-     * @type { string } collation
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the collation.
-     * @type { string } [ collation ]
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     collation?: string;
-    
+
     /**
      * Indicates the hourCycle.
-     * @type { string } hourCycle
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the hourCycle.
-     * @type { string } [ hourCycle ]
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     hourCycle?: string;
-    
+
     /**
      * Indicates the numberingSystem.
-     * @type { string } numberingSystem
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the numberingSystem.
-     * @type { string } [ numberingSystem ]
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     numberingSystem?: string;
-    
+
     /**
      * Indicates the numeric.
-     * @type { boolean } numeric
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the numeric.
-     * @type { boolean } [ numeric ]
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     numeric?: boolean;
-    
+
     /**
      * Indicates the caseFirst.
-     * @type { string } caseFirst
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the caseFirst.
-     * @type { string } [ caseFirst ]
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     caseFirst?: string;
-}
+  }
 
-/**
- * Provides APIs for obtaining locale information.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export class Locale {
+  /**
+   * Provides APIs for obtaining locale information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export class Locale {
     /**
      * A constructor used to create a Locale object.
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
-   constructor();
+    constructor();
 
     /**
      * A constructor used to create a Locale object.
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
+     * @param { string } locale - Indicates a character string containing the locale information, including
      *               the language and optionally the script and region.
-     * @param options Indicates Locale option object use to initialize the Locale object.
+     * @param { LocaleOptions } options - Indicates Locale option object use to initialize the Locale object.
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-   constructor(locale: string, options?: LocaleOptions);
+    constructor(locale: string, options?: LocaleOptions);
 
     /**
      * Indicates the language of the locale.
@@ -132,7 +158,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    language: string
+    language: string;
 
     /**
      * Indicates the script of the locale.
@@ -140,7 +166,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    script: string
+    script: string;
 
     /**
      * Indicates the region of the locale.
@@ -148,7 +174,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    region: string
+    region: string;
 
     /**
      * Indicates the basic locale information, which is returned as a substring of
@@ -157,7 +183,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    baseName: string
+    baseName: string;
 
     /**
      * Indicates the case first style of the locale.
@@ -165,7 +191,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    caseFirst: string
+    caseFirst: string;
 
     /**
      * Indicates the calendar.
@@ -173,7 +199,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    calendar: string
+    calendar: string;
 
     /**
      * Indicates the collation.
@@ -181,7 +207,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    collation: string
+    collation: string;
 
     /**
      * Indicates the hour cycle.
@@ -189,7 +215,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    hourCycle:  string
+    hourCycle: string;
 
     /**
      * Indicates the numbering system.
@@ -197,7 +223,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    numberingSystem: string
+    numberingSystem: string;
 
     /**
      * Indicates whether it is numeric.
@@ -205,13 +231,13 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    numeric: boolean
+    numeric: boolean;
 
     /**
      * Convert the locale information to string.
      *
+     * @returns { string } locale information in string form.
      * @syscap SystemCapability.Global.I18n
-     * @returns Returns locale information in string form.
      * @since 6
      */
     toString(): string;
@@ -219,8 +245,8 @@ export class Locale {
     /**
      * Maximize the locale's base information.
      *
+     * @returns { Locale } maximized locale.
      * @syscap SystemCapability.Global.I18n
-     * @returns Returns maximized locale.
      * @since 6
      */
     maximize(): Locale;
@@ -228,294 +254,333 @@ export class Locale {
     /**
      * Minimize the locale's base information.
      *
+     * @returns { Locale } minimized locale.
      * @syscap SystemCapability.Global.I18n
-     * @returns Returns minimized locale.
      * @since 6
      */
     minimize(): Locale;
-}
+  }
 
-/**
- * Provides the options of date time format.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export interface DateTimeOptions {
+  /**
+   * Provides the options of date time format.
+   *
+   * @interface DateTimeOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export interface DateTimeOptions {
     /**
      * Indicates the locale.
-     * @type { string } locale
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the locale.
-     * @type { string } [ locale ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    locale?: string
+    locale?: string;
 
     /**
      * Indicates the dateStyle.
-     * @type { string } dateStyle
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the dateStyle.
-     * @type { string } [ dateStyle ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    dateStyle?: string
+    dateStyle?: string;
 
     /**
      * Indicates the timeStyle.
-     * @type { string } timeStyle
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the timeStyle.
-     * @type { string } [ timeStyle ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    timeStyle?: string
+    timeStyle?: string;
 
     /**
      * Indicates the hourCycle.
-     * @type { string } hourCycle
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the hourCycle.
-     * @type { string } [ hourCycle ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    hourCycle?: string
+    hourCycle?: string;
 
     /**
      * Indicates the timeZone.
-     * @type { string } timeZone
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the timeZone.
-     * @type { string } [ timeZone ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    timeZone?: string
+    timeZone?: string;
 
     /**
      * Indicates the numberingSystem.
-     * @type { string } numberingSystem
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the numberingSystem.
-     * @type { string } [ numberingSystem ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    numberingSystem?: string
+    numberingSystem?: string;
 
     /**
      * Indicates the hour12.
-     * @type { boolean } hour12
+     *
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the hour12.
-     * @type { boolean } [ hour12 ]
+     *
+     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    hour12?: boolean
+    hour12?: boolean;
 
     /**
      * Indicates the weekday.
-     * @type { string } weekday
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the weekday.
-     * @type { string } [ weekday ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    weekday?: string
+    weekday?: string;
 
     /**
      * Indicates the era.
-     * @type { string } era
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the era.
-     * @type { string } [ era ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    era?: string
+    era?: string;
 
     /**
      * Indicates the year.
-     * @type { string } year
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the year.
-     * @type { string } [ year ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    year?: string
+    year?: string;
 
     /**
      * Indicates the month.
-     * @type { string } month
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the month.
-     * @type { string } [ month ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    month?: string
+    month?: string;
 
     /**
      * Indicates the day.
-     * @type { string } day
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the day.
-     * @type { string } [ day ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    day?: string
+    day?: string;
 
     /**
      * Indicates the hour.
-     * @type { string } hour
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the hour.
-     * @type { string } [ hour ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    hour?: string
+    hour?: string;
 
     /**
      * Indicates the minute.
-     * @type { string } minute
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the minute.
-     * @type { string } [ minute ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    minute?: string
+    minute?: string;
 
     /**
      * Indicates the second.
-     * @type { string } second
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the second.
-     * @type { string } [ second ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    second?: string
+    second?: string;
 
     /**
      * Indicates the timeZoneName.
-     * @type { string } timeZoneName
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the timeZoneName.
-     * @type { string } [ timeZoneName ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    timeZoneName?: string
+    timeZoneName?: string;
 
     /**
      * Indicates the dayPeriod.
-     * @type { string } dayPeriod
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the dayPeriod.
-     * @type { string } [ dayPeriod ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    dayPeriod?: string
+    dayPeriod?: string;
 
     /**
      * Indicates the localeMatcher.
-     * @type { string } localeMatcher
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the localeMatcher.
-     * @type { string } [ localeMatcher ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    localeMatcher?: string
+    localeMatcher?: string;
 
     /**
      * Indicates the formatMatcher.
-     * @type { string } formatMatcher
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the formatMatcher.
-     * @type { string } [ formatMatcher ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    formatMatcher?: string
-}
+    formatMatcher?: string;
+  }
 
-/**
- * Provides the API for formatting date strings.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export class DateTimeFormat {
+  /**
+   * Provides the API for formatting date strings.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
      *
@@ -527,10 +592,10 @@ export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates character string containing the locale information, including
+     * @param { string | Array<string> } locale - Indicates character string containing the locale information, including
      *               the language and optionally the script and region, for the DateTimeFormat object.
-     * @param options Indicates the options used to format the date.
+     * @param { DateTimeOptions } [options] - Indicates the options used to format the date.
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
@@ -538,9 +603,9 @@ export class DateTimeFormat {
     /**
      * Obtains the formatted date strings.
      *
+     * @param { Date } date - Indicates the Date object to be formatted.
+     * @returns { string } a date string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
-     * @param date Indicates the Date object to be formatted.
-     * @returns Returns a date string formatted based on the specified locale.
      * @since 6
      */
     format(date: Date): string;
@@ -548,10 +613,10 @@ export class DateTimeFormat {
     /**
      * Obtains the formatted date strings of a date range.
      *
+     * @param { Date } startDate - Indicates the start date of the date range.
+     * @param { Date } endDate - Indicates the end date of the date range.
+     * @returns { string } a date string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
-     * @param startDate Indicates the start date of the date range.
-     * @param endDate Indicates the end date of the date range.
-     * @returns Returns a date string formatted based on the specified locale.
      * @since 6
      */
     formatRange(startDate: Date, endDate: Date): string;
@@ -559,294 +624,333 @@ export class DateTimeFormat {
     /**
      * Obtains the options of the DateTimeFormat object.
      *
+     * @returns { DateTimeOptions } the options of the DateTimeFormat object.
      * @syscap SystemCapability.Global.I18n
-     * @returns Returns the options of the DateTimeFormat object.
      * @since 6
      */
     resolvedOptions(): DateTimeOptions;
-}
+  }
 
-/**
- * Provides the options of number format.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export interface NumberOptions {
+  /**
+   * Provides the options of number format.
+   *
+   * @interface NumberOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export interface NumberOptions {
     /**
      * Indicates the locale.
-     * @type { string } locale
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the locale.
-     * @type { string } [ locale ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    locale?: string
+    locale?: string;
 
     /**
      * Indicates the currency.
-     * @type { string } currency
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the currency.
-     * @type { string } [ currency ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    currency?: string
+    currency?: string;
 
     /**
      * Indicates the currencySign.
-     * @type { string } currencySign
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the currencySign.
-     * @type { string } [ currencySign ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    currencySign?: string
+    currencySign?: string;
 
     /**
      * Indicates the currencyDisplay.
-     * @type { string } currencyDisplay
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the currencyDisplay.
-     * @type { string } [ currencyDisplay ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    currencyDisplay?: string
+    currencyDisplay?: string;
 
     /**
      * Indicates the unit.
-     * @type { string } unit
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the unit.
-     * @type { string } [ unit ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    unit?: string
+    unit?: string;
 
     /**
      * Indicates the unitDisplay.
-     * @type { string } unitDisplay
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the unitDisplay.
-     * @type { string } [ unitDisplay ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    unitDisplay?: string
+    unitDisplay?: string;
 
     /**
      * Indicates the unitUsage.
-     * @type { string } unitUsage
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     /**
      * Indicates the unitUsage.
-     * @type { string } [ unitUsage ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    unitUsage?: string
+    unitUsage?: string;
 
     /**
      * Indicates the signDisplay.
-     * @type { string } signDisplay
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the signDisplay.
-     * @type { string } [ signDisplay ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    signDisplay?: string
+    signDisplay?: string;
 
     /**
      * Indicates the compactDisplay.
-     * @type { string } compactDisplay
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the compactDisplay.
-     * @type { string } [ compactDisplay ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    compactDisplay?: string
+    compactDisplay?: string;
 
     /**
      * Indicates the notation.
-     * @type { string } notation
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the notation.
-     * @type { string } [ notation ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    notation?: string
+    notation?: string;
 
     /**
      * Indicates the localeMatcher.
-     * @type { string } localeMatcher
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the localeMatcher.
-     * @type { string } [ localeMatcher ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    localeMatcher?: string
+    localeMatcher?: string;
 
     /**
      * Indicates the style.
-     * @type { string } style
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the style.
-     * @type { string } [ style ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    style?: string
+    style?: string;
 
     /**
      * Indicates the numberingSystem.
-     * @type { string } numberingSystem
+     *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the numberingSystem.
-     * @type { string } [ numberingSystem ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    numberingSystem?: string
+    numberingSystem?: string;
 
     /**
      * Indicates the useGrouping.
-     * @type { boolean } useGrouping
+     *
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the useGrouping.
-     * @type { boolean } [ useGrouping ]
+     *
+     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    useGrouping?: boolean
+    useGrouping?: boolean;
 
     /**
      * Indicates the minimumIntegerDigits.
-     * @type { number } minimumIntegerDigits
+     *
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the minimumIntegerDigits.
-     * @type { number } [ minimumIntegerDigits ]
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    minimumIntegerDigits?: number
+    minimumIntegerDigits?: number;
 
     /**
      * Indicates the minimumFractionDigits.
-     * @type { number } minimumFractionDigits
+     *
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the minimumFractionDigits.
-     * @type { number } [ minimumFractionDigits ]
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    minimumFractionDigits?: number
+    minimumFractionDigits?: number;
 
     /**
      * Indicates the maximumFractionDigits.
-     * @type { number } maximumFractionDigits
+     *
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the maximumFractionDigits.
-     * @type { number } [ maximumFractionDigits ]
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    maximumFractionDigits?: number
+    maximumFractionDigits?: number;
 
     /**
      * Indicates the minimumSignificantDigits.
-     * @type { number } minimumSignificantDigits
+     *
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the minimumSignificantDigits.
-     * @type { number } [ minimumSignificantDigits ]
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    minimumSignificantDigits?: number
+    minimumSignificantDigits?: number;
 
     /**
      * Indicates the maximumSignificantDigits.
-     * @type { number } maximumSignificantDigits
+     *
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     /**
      * Indicates the maximumSignificantDigits.
-     * @type { number } [ maximumSignificantDigits ]
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    maximumSignificantDigits?: number
-}
+    maximumSignificantDigits?: number;
+  }
 
-/**
- * Provides the API for formatting number strings.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export class NumberFormat {
+  /**
+   * Provides the API for formatting number strings.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export class NumberFormat {
     /**
      * A constructor used to create a NumberFormat object.
      *
@@ -858,10 +962,10 @@ export class NumberFormat {
     /**
      * A constructor used to create a NumberFormat object.
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the NumberFormat object.
-     * @param options Indicates the options used to format the number.
+     * @param { NumberOptions } [options] - Indicates the options used to format the number.
+     * @syscap SystemCapability.Global.I18n
      * @since 6
      */
     constructor(locale: string | Array<string>, options?: NumberOptions);
@@ -869,9 +973,9 @@ export class NumberFormat {
     /**
      * Obtains the formatted number string.
      *
+     * @param { number } number Indicates the number to be formatted.
+     * @returns { string } a number string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
-     * @param number Indicates the number to be formatted.
-     * @returns Returns a number string formatted based on the specified locale.
      * @since 6
      */
     format(number: number): string;
@@ -879,25 +983,26 @@ export class NumberFormat {
     /**
      * Obtains the options of the NumberFormat object.
      *
+     * @returns { NumberOptions } the options of the NumberFormat object.
      * @syscap SystemCapability.Global.I18n
-     * @returns Returns the options of the NumberFormat object.
      * @since 6
      */
     resolvedOptions(): NumberOptions;
-}
+  }
 
-/**
- * Provides the options of Collator
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface CollatorOptions {
+  /**
+   * Provides the options of Collator
+   *
+   * @interface CollatorOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface CollatorOptions {
     /**
      * The locale matching algorithm to use.
      * Possible values are "lookup" and "best fit"; the default is "best fit".
      *
-     * @type { string } localeMatcher
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -905,7 +1010,7 @@ export interface CollatorOptions {
      * The locale matching algorithm to use.
      * Possible values are "lookup" and "best fit"; the default is "best fit".
      *
-     * @type { string } [ localeMatcher ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -915,7 +1020,7 @@ export interface CollatorOptions {
      * Whether the comparison is for sorting or for searching for matching strings.
      * Possible values are "sort" and "search"; the default is "sort".
      *
-     * @type { string } usage
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -923,7 +1028,7 @@ export interface CollatorOptions {
      * Whether the comparison is for sorting or for searching for matching strings.
      * Possible values are "sort" and "search"; the default is "sort".
      *
-     * @type { string } [ usage ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -939,7 +1044,7 @@ export interface CollatorOptions {
      * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
      *  or case compare as unequal.
      *
-     * @type { string } sensitivity
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -952,7 +1057,8 @@ export interface CollatorOptions {
      * "case" are used when only strings that differ in base letters or case compare as unequal.
      * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
      *  or case compare as unequal.
-     * @type { string } [ sensitivity ]
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -961,14 +1067,14 @@ export interface CollatorOptions {
     /**
      * Whether punctuation should be ignored. default value is false.
      *
-     * @type { boolean } ignorePunctuation
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     /**
      * Whether punctuation should be ignored. Default value is false.
      *
-     * @type { boolean } [ ignorePunctuation ]
+     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -977,14 +1083,14 @@ export interface CollatorOptions {
     /**
      * Variant collations for certain locales.
      *
-     * @type { string } collation
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     /**
      * Variant collations for certain locales.
      *
-     * @type { string } [ collation ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -993,14 +1099,14 @@ export interface CollatorOptions {
     /**
      * Whether numeric collation should be used. Default value is false.
      *
-     * @type { boolean } numeric
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     /**
      * Whether numeric collation should be used. Default value is false.
      *
-     * @type { boolean } [ numeric ]
+     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1010,7 +1116,7 @@ export interface CollatorOptions {
      * Whether upper case or lower case should sort first.
      * Possible values are "upper", "lower", or "false" (use the locale's default).
      *
-     * @type { string } caseFirst
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1018,20 +1124,20 @@ export interface CollatorOptions {
      * Whether upper case or lower case should sort first.
      * Possible values are "upper", "lower", or "false" (use the locale's default).
      *
-     * @type { string } [ caseFirst ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     caseFirst?: string;
-}
+  }
 
-/**
- * Enable language-sensitive string comparison.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class Collator {
+  /**
+   * Enable language-sensitive string comparison.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class Collator {
     /**
      * A constructor used to create Collator object.
      *
@@ -1042,10 +1148,10 @@ export class Collator {
     /**
      * A constructor used to create Collator Object;
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the Collator object.
-     * @param options Indicates the options used to initialize Collator object.
+     * @param { CollatorOptions } [options] - Indicates the options used to initialize Collator object.
+     * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
@@ -1053,13 +1159,13 @@ export class Collator {
     /**
      * compares two strings according to the sort order of this Collator object
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param first The first string to compare.
-     * @param second The second string to compare.
-     * @returns Returns a number indicating how first compare to second:
+     * @param { string } first - The first string to compare.
+     * @param { string } second - The second string to compare.
+     * @returns { number } a number indicating how first compare to second:
      *         a negative value if string1 comes before string2;
      *         a positive value if string1 comes after string2;
      *         0 if they are considered equal.
+     * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     compare(first: string, second: string): number;
@@ -1068,25 +1174,26 @@ export class Collator {
      * Returns a new object with properties that reflect the locale and collation options computed
      * during initialization of the object.
      *
+     * @returns { CollatorOptions } a CollatorOptions object with properties that reflect the properties of this object.
      * @syscap SystemCapability.Global.I18n
-     * @returns Returns a CollatorOptions object with properties that reflect the properties of this object.
      * @since 8
      */
     resolvedOptions(): CollatorOptions;
-}
+  }
 
-/**
- * Provides the options of PluralRules
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface PluralRulesOptions {
+  /**
+   * Provides the options of PluralRules
+   *
+   * @interface PluralRulesOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface PluralRulesOptions {
     /**
      * The locale matching algorithm to use.
      * Possible values are "lookup" and "best fit"; the default is "best fit".
      *
-     * @type { string } localeMatcher
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1094,7 +1201,7 @@ export interface PluralRulesOptions {
      * The locale matching algorithm to use.
      * Possible values are "lookup" and "best fit"; the default is "best fit".
      *
-     * @type { string } [ localeMatcher ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1103,14 +1210,14 @@ export interface PluralRulesOptions {
     /**
      * The type to use. Possible values are: "cardinal", "ordinal"
      *
-     * @type { string } type
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     /**
      * The type to use. Possible values are: "cardinal", "ordinal"
      *
-     * @type { string } [ type ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1120,7 +1227,7 @@ export interface PluralRulesOptions {
      * The minimum number of integer digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { number } minimumIntegerDigits
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1128,7 +1235,7 @@ export interface PluralRulesOptions {
      * The minimum number of integer digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { number } [ minimumIntegerDigits ]
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1138,7 +1245,7 @@ export interface PluralRulesOptions {
      * The minimum number of fraction digits to use.
      * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
      *
-     * @type { number } minimumFractionDigits
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1146,7 +1253,7 @@ export interface PluralRulesOptions {
      * The minimum number of fraction digits to use.
      * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
      *
-     * @type { number } [ minimumFractionDigits ]
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1157,7 +1264,7 @@ export interface PluralRulesOptions {
      * Possible values are from 0 to 20;
      * the default for plain number formatting is the larger of minimumFractionDigits and 3;
      *
-     * @type { number } maximumFractionDigits
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1166,7 +1273,7 @@ export interface PluralRulesOptions {
      * Possible values are from 0 to 20;
      * the default for plain number formatting is the larger of minimumFractionDigits and 3;
      *
-     * @type { number } [ maximumFractionDigits ]
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1176,7 +1283,7 @@ export interface PluralRulesOptions {
      * The minimum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { number } minimumSignificantDigits
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1184,7 +1291,7 @@ export interface PluralRulesOptions {
      * The minimum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 1.
      *
-     * @type { number } [ minimumSignificantDigits ]
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1194,7 +1301,7 @@ export interface PluralRulesOptions {
      * The maximum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 21.
      *
-     * @type { number } maximumSignificantDigits
+     * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1202,20 +1309,20 @@ export interface PluralRulesOptions {
      * The maximum number of significant digits to use.
      * Possible values are from 1 to 21; the default is 21.
      *
-     * @type { number } [ maximumSignificantDigits ]
+     * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     maximumSignificantDigits?: number;
-}
+  }
 
-/**
- * Enables plural-sensitive formatting and plural-related language rules.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class PluralRules {
+  /**
+   * Enables plural-sensitive formatting and plural-related language rules.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class PluralRules {
     /**
      * A constructor used to create PluralRules object.
      *
@@ -1227,10 +1334,10 @@ export class PluralRules {
     /**
      * A constructor used to create PluralRules object.
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the PluralRules object.
-     * @param options Indicates the options used to initialize PluralRules object.
+     * @param { PluralRulesOptions } [options] - Indicates the options used to initialize PluralRules object.
+     * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
@@ -1238,27 +1345,28 @@ export class PluralRules {
     /**
      * Returns a string indicating which plural rule to use for locale-aware formatting.
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param n The number to get a plural rule for.
-     * @returns A string representing the pluralization category of the number,
+     * @param { number } n - The number to get a plural rule for.
+     * @returns { string } A string representing the pluralization category of the number,
      *         can be one of zero, one, two, few, many or other.
+     * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     select(n: number): string;
-}
+  }
 
-/**
- * Provides the input options of RelativeTimeFormat.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
- export interface RelativeTimeFormatInputOptions {
+  /**
+   * Provides the input options of RelativeTimeFormat.
+   *
+   * @interface RelativeTimeFormatInputOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface RelativeTimeFormatInputOptions {
     /**
      * The locale matching algorithm to use.
      * Possible values are: lookup, best fit
      *
-     * @type { string } localeMatcher
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1266,7 +1374,7 @@ export class PluralRules {
      * The locale matching algorithm to use.
      * Possible values are: lookup, best fit
      *
-     * @type { string } [ localeMatcher ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1276,7 +1384,7 @@ export class PluralRules {
      * The format of output message.
      * Possible values are: always, auto
      *
-     * @type { string } numeric
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1284,7 +1392,7 @@ export class PluralRules {
      * The format of output message.
      * Possible values are: always, auto
      *
-     * @type { string } [ numeric ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
@@ -1294,7 +1402,7 @@ export class PluralRules {
      * The length of the internationalized message.
      * Possible values are: long, short, narrow
      *
-     * @type { string } style
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
@@ -1302,20 +1410,21 @@ export class PluralRules {
      * The length of the internationalized message.
      * Possible values are: long, short, narrow
      *
-     * @type { string } [ style ]
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
     style?: string;
-}
+  }
 
-/**
- * Provides the resolved options of RelativeTimeFormat.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface RelativeTimeFormatResolvedOptions {
+  /**
+   * Provides the resolved options of RelativeTimeFormat.
+   *
+   * @interface RelativeTimeFormatResolvedOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface RelativeTimeFormatResolvedOptions {
     /**
      * The BCP 47 language tag for the locale actually used.
      *
@@ -1349,16 +1458,16 @@ export interface RelativeTimeFormatResolvedOptions {
      * @since 8
      */
     numberingSystem: string;
-}
+  }
 
-/**
- * Given a Time period length value and a unit, RelativeTimeFormat object enables
- * language-sensitive relative time formatting.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class RelativeTimeFormat {
+  /**
+   * Given a Time period length value and a unit, RelativeTimeFormat object enables
+   * language-sensitive relative time formatting.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class RelativeTimeFormat {
     /**
      * A constructor used to create RelativeTimeFormat object.
      *
@@ -1370,10 +1479,10 @@ export class RelativeTimeFormat {
     /**
      * A constructor used to create RelativeTimeFormat object.
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
+     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the RelativeTimeFormat object.
-     * @param options Indicates the options used to initialize RelativeTimeFormat object.
+     * @param { RelativeTimeFormatInputOptions } [options] - Indicates the options used to initialize RelativeTimeFormat object.
+     * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
@@ -1381,11 +1490,11 @@ export class RelativeTimeFormat {
     /**
      * formats a value and unit according to the locale and formatting options of this object.
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param value Numeric value to use in the internationalized relative time message.
-     * @param unit Unit to use in the relative time internationalized message.
+     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { string } unit - Unit to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns formatted language-sensitive relative time.
+     * @returns { string } formatted language-sensitive relative time.
+     * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     format(value: number, unit: string): string;
@@ -1394,11 +1503,11 @@ export class RelativeTimeFormat {
      * returns an Array of objects representing the relative time format in parts that can be used for
      * custom locale-aware formatting
      *
-     * @syscap SystemCapability.Global.I18n
-     * @param value Numeric value to use in the internationalized relative time message.
-     * @param unit to use in the relative time internationalized message.
+     * @param { number } value - Numeric value to use in the internationalized relative time message.
+     * @param { string } unit - to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns an Array of objects representing the relative time format in parts
+     * @returns { Array<object> } an Array of objects representing the relative time format in parts
+     * @syscap SystemCapability.Global.I18n
      * @since 8
      */
     formatToParts(value: number, unit: string): Array<object>;
@@ -1407,11 +1516,11 @@ export class RelativeTimeFormat {
      * Returns a new object with properties that reflect the locale and formatting options computed during
      * initialization of the object.
      *
+     * @returns { RelativeTimeFormatResolvedOptions } RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
      * @syscap SystemCapability.Global.I18n
-     * @returns RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
      * @since 8
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
-}
+  }
 }
 export default intl;
