@@ -166,6 +166,7 @@ dialling
 dimbehind
 dirent
 disables
+disallowed
 discharging
 disconnecting
 disconnection
@@ -229,6 +230,7 @@ fileio
 fileshare
 fillets
 flac
+flg
 foldable
 formatable
 forwardmail
@@ -687,6 +689,7 @@ traversed
 truncates
 tsbundle
 ttls
+tunneled
 txpower
 uarfcn
 ubset
