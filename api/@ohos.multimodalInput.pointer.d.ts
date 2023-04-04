@@ -229,19 +229,19 @@ declare namespace pointer {
    * mouse button.
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @Since 10
+   * @since 10
    */
   enum PrimaryButton {
     /**
      * Left mouse button
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @Since 10
+     * @since 10
      */
     LEFT = 0,
     /**
      * Right mouse button
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @Since 10
+     * @since 10
      */
     RIGHT = 1
   }
