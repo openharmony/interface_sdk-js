@@ -13,8 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+/// <reference path="../component/common_ts_ets_api.d.ts"/>
+
+import { AsyncCallback } from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import LocalStorage from 'StateManagement';
+import BaseContext from './application/BaseContext';
 import { Movement, Range } from './imf/InputMethodCommon';
 
 /**
@@ -547,6 +551,60 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
+
+    /**
+     * Creates a panel.
+     * <p>The system only allows one soft keyboard and one status bar to be created.
+     * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
+     * status bar, and vice versa.</p>
+     *
+     * @param { BaseContext } ctx - indicates the context on which the window depends.
+     * @param { PanelInfo } info - the info of panel to be created.
+     * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    createPanel(ctx: BaseContext, info: PanelInfo, callback: AsyncCallback<Panel>): void;
+
+    /**
+     * Creates a panel.
+     * <p>The system only allows one soft keyboard and one status bar to be created.
+     * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
+     * status bar, and vice versa.</p>
+     *
+     * @param { BaseContext } ctx - indicates the context on which the window depends.
+     * @param { PanelInfo } info - the info of panel to be created.
+     * @returns { Promise<Panel> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    createPanel(ctx: BaseContext, info: PanelInfo): Promise<Panel>;
+
+    /**
+     * Destroys a panel.
+     *
+     * @param { Panel } panel - to be destroyed.
+     * @param { AsyncCallback<void> } callback - the callback of destroyPanel.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    destroyPanel(panel: Panel, callback: AsyncCallback<void>): void;
+
+    /**
+     * Destroys a panel.
+     *
+     * @param { Panel } panel - to be destroyed.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    destroyPanel(panel: Panel): Promise<void>;
   }
 
   /**
@@ -1071,6 +1129,185 @@ declare namespace inputMethodEngine {
   }
 
   /**
+   * A panel is a container used to hold soft keyboard, candidate list, or status bar.
+   *
+   * @interface Panel
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  interface Panel {
+    /**
+     * Sets ui content.
+     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     *
+     * @param { string } path - the path of ui content.
+     * @param { AsyncCallback<void> } callback - the callback of setUiContent.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    setUiContent(path: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets ui content.
+     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     *
+     * @param { string } path - the path of ui content.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    setUiContent(path: string): Promise<void>;
+
+    /**
+     * Sets ui content.
+     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     *
+     * @param { string } path - the path of ui content.
+     * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
+     * @param { AsyncCallback<void> } callback - the callback of setUiContent.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    setUiContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets ui content.
+     * <p>When this method is executed successfully, the content of panel will be replaced.</p>
+     *
+     * @param { string } path - the path of ui content.
+     * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    setUiContent(path: string, storage: LocalStorage): Promise<void>;
+
+    /**
+     * Resizes a panel.
+     *
+     * @param { number } width - the new width of the panel.
+     * @param { number } height - the new height of the panel.
+     * @param { AsyncCallback<void> } callback - the callback of resize.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    resize(width: number, height: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Resizes a panel.
+     *
+     * @param { number } width - the new width of the panel.
+     * @param { number } height - the new height of the panel.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    resize(width: number, height: number): Promise<void>;
+
+    /**
+     * Moves a panel.
+     * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { number } x - the x-coordinate of the new position.
+     * @param { number } y - the y-coordinate of the new position.
+     * @param { AsyncCallback<void> } callback - the callback of moveTo.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    moveTo(x: number, y: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Moves a panel.
+     * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { number } x - the x-coordinate of the new position.
+     * @param { number } y - the y-coordinate of the new position.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    moveTo(x: number, y: number): Promise<void>;
+
+    /**
+     * Shows panel.
+     *
+     * @param { AsyncCallback<void> } callback - the callback of show.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    show(callback: AsyncCallback<void>): void;
+
+    /**
+     * Shows panel.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    show(): Promise<void>;
+
+    /**
+     * Hides panel.
+     *
+     * @param { AsyncCallback<void> } callback - the callback of hide.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    hide(callback: AsyncCallback<void>): void;
+
+    /**
+     * Hides panel.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    hide(): Promise<void>;
+
+    /**
+     * Registers panel show/hide event.
+     * <p>The "show" and "hide" events are triggered when the panel is shown or hidden.</p>
+     *
+     * @param { 'show'|'hide' } type - events type.
+     * @param { () => void } callback - the callback will be called when events are triggered.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'show' | 'hide', callback: () => void): void;
+
+    /**
+     * Unregisters panel show/hide event.
+     *
+     * @param { 'show'|'hide' } type - events type.
+     * @param { () => void } [callback] - the callback to Unregister.
+     * @throws { BusinessError } 401 -parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'show' | 'hide', callback?: () => void): void;
+
+    /**
+     * Changes panel flag.
+     * <p>When flag is changed, the panel will be hide. Developers should change the content, size, point of the panel
+     *    and show it again at appropriate opportunity.</p>
+     *
+     * @param { PanelFlag } flag - the callback of changeFlag.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    changeFlag(flag: PanelFlag): void;
+  }
+
+  /**
    * @interface EditorAttribute
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
@@ -1114,6 +1351,90 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     readonly keyAction: number;
+  }
+
+  /**
+   * Enumerates the flags of panel
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export enum PanelFlag {
+    /**
+     * Fixed style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+     * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    FLG_FIXED = 0,
+
+    /**
+     * Floating style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+     * When the flag is set, the soft keyboard is floating.</p>
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    FLG_FLOATING
+  }
+
+  /**
+   * <p>Panel types provided for input method applications.</p>
+   * <p>Input method application developers should select the appropriate panel type according to the user scenario.</p>
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export enum PanelType {
+    /**
+     * Panel for displaying a virtual software keyboard.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    SOFT_KEYBOARD = 0,
+
+    /**
+     * Panel for displaying status bar.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    STATUS_BAR
+  }
+
+  /**
+   * Panel information.
+   *
+   * @typedef PanelInfo
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export interface PanelInfo {
+    /**
+     * Panel type.
+     *
+     * @type { PanelType }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    type: PanelType;
+
+    /**
+     * <p>Flag of Panel.</p>
+     * <p>Currently only using for SOFT_KEYBOARD panel.</p>
+     *
+     * @type { ?PanelFlag }
+     * @default FLG_FIXED
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    flag?: PanelFlag;
   }
 }
 
