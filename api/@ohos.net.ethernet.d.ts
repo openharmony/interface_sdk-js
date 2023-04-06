@@ -101,7 +101,7 @@ declare namespace ethernet {
   function on(type: 'interfaceStateChange', callback: Callback<{ iface: string, active: boolean }>): void;
 
   /**
-   * Unregister a callback from the ethernet interface avtive state change.
+   * Unregister a callback from the ethernet interface active state change.
    *
    * @param type interfaceStateChange.
    * @param callback including iface Indicates the ethernet interface, and active Indicates whether the interface is active.
