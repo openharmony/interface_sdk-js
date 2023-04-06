@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback, Callback } from './basic';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides a set of encryption and decryption algorithm library framework, shields the underlying differences,
