@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './basic';
 
 /**
  * Interface of display manager.

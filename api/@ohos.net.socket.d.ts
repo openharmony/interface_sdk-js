@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback, ErrorCallback} from "./@ohos.base";
+import {AsyncCallback, Callback, ErrorCallback} from "./basic";
 import connection from "./@ohos.net.connection";
 import cert from "./@ohos.security.cert";
 

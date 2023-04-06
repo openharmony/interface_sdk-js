@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './basic';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant } from './bundleManager/ShortcutInfo';
 

@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from '../@ohos.base';
+import { AsyncCallback } from '../basic';
 import { ResultSet } from '../data/rdb/resultSet';
 import { DataAbilityOperation } from './dataAbilityOperation';
 import { DataAbilityResult } from './dataAbilityResult';

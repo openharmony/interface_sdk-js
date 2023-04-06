@@ -15,7 +15,7 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './basic';
 import { Resource } from 'GlobalResource';
 
 /**

@@ -15,7 +15,7 @@
 
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
-import { AsyncCallback, Callback } from './@ohos.base' ;
+import { AsyncCallback, Callback } from './basic' ;
 import BaseContext from './application/BaseContext';
 import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';

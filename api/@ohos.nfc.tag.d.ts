@@ -26,7 +26,7 @@ import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
 import { PacMap } from "./ability/dataAbilityHelper";
 import rpc from "./@ohos.rpc";
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './basic';
 import Want from './@ohos.app.ability.Want';
 import type { ElementName } from './bundleManager/ElementName';
 

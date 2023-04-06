@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, BusinessError } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './basic';
 
  /**
  * The interface of system parameters class.

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
-import Want from "./@ohos.app.ability.Want";
+import { AsyncCallback } from './basic';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the datetime of the enterprise devices.

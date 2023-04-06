@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import { Movement, Range } from './imf/InputMethodCommon';
 

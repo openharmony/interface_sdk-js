@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../@ohos.base";
+import { AsyncCallback } from "../basic";
 import Context from "./Context";
 import AbilityLifecycleCallback from "../@ohos.app.ability.AbilityLifecycleCallback";
 import EnvironmentCallback from "../@ohos.app.ability.EnvironmentCallback";

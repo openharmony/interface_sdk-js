@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { Callback } from './@ohos.base';
+import { Callback } from './basic';
 
  /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.

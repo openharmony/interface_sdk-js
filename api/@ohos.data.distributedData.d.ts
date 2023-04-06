@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from './@ohos.base';
+import {AsyncCallback, Callback} from './basic';
 
 /**
  * Providers interfaces to creat a {@link KVManager} instance.

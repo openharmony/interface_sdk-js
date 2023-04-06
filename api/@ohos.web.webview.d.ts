@@ -15,8 +15,8 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import {AsyncCallback} from "./@ohos.base";
-import {Callback} from "./@ohos.base";
+import {AsyncCallback} from "./basic";
+import {Callback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
 import cert from './@ohos.security.cert';

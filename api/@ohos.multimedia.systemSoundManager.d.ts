@@ -13,7 +13,7 @@
  * limitations under the License.
  */
   
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './basic';
 import type Context from './application/Context';
 import type { RingtonePlayer as _RingtonePlayer } from './multimedia/ringtonePlayer';
 import type { RingtoneOptions as _RingtoneOptions } from './multimedia/ringtonePlayer';

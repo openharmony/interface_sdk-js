@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './@ohos.base';
+import { AsyncCallback, ErrorCallback } from './basic';
 import image from './@ohos.multimedia.image';
 
 /**

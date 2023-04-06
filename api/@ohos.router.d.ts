@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import {Callback} from './@ohos.base';
-import { AsyncCallback } from './@ohos.base';
+import {Callback} from './basic';
+import { AsyncCallback } from './basic';
 
 /**
  * @namespace router
