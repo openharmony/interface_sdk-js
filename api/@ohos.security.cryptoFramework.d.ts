@@ -225,225 +225,6 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Enum for algorithm specified parameters.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  enum AsyKeySpecItem {
-    /**
-     * Indicates the DSA prime p.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    DSA_P_BN = 101,
-
-    /**
-     * Indicates the DSA sub-prime q.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    DSA_Q_BN = 102,
-
-    /**
-     * Indicates the DSA base g.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    DSA_G_BN = 103,
-
-    /**
-     * Indicates the DSA private key.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    DSA_SK_BN = 104,
-
-    /**
-     * Indicates the DSA public key.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    DSA_PK_BN = 105,
-
-    /**
-     * Indicates the prime p of an elliptic curve (EC) prime finite field.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_FP_P_BN = 201,
-
-    /**
-     * Indicates the first coefficient a of this elliptic curve.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_A_BN = 202,
-
-    /**
-     * Indicates the second coefficient b of this elliptic curve.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_B_BN = 203,
-
-    /**
-     * Indicates the affine x-coordinate of base point g.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_G_X_BN = 204,
-
-    /**
-     * Indicates the affine y-coordinate of base point g.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_G_Y_BN = 205,
-
-    /**
-     * Indicates the order of the base point g.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_N_BN = 206,
-
-    /**
-     * Indicates the cofactor of the elliptic curve.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_H_NUM = 207,
-
-    /**
-     * Indicates the private value of the ECC private key.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_SK_BN = 208,
-
-    /**
-     * Indicates the affine x-coordinate of a point, which is the public point of an ECC public key.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_PK_X_BN = 209,
-
-    /**
-     * Indicates the affine y-coordinate of a point, which is the public point of an ECC public key.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_PK_Y_BN = 210,
-
-    /**
-     * Indicates an elliptic curve finite field type.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_FIELD_TYPE_STR = 211,
-
-    /**
-     * Indicates the field size in bits. 
-     * For Fp field (an elliptic curve prime finite field wtih prime p), the field size is the size of prime p.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_FIELD_SIZE_NUM = 212,
-
-    /**
-     * Indicates the curve name according to SECG (Standards for Efficient Crypptography Group).
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    ECC_CURVE_NAME_STR = 213,
-
-    /**
-     * Indicates the modulus n of RSA algorithm.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    RSA_N_BN = 301,
-
-    /**
-     * Indicates the private exponent d of RSA algorithm.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    RSA_SK_BN = 302,
-
-    /**
-     * Indicates the public exponent e of RSA algorithm.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    RSA_PK_BN = 303
-  }
-
-  /**
-   * Enum for algorithm specified parameters type.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  enum AsyKeySpecType {
-    /**
-     * Indicates the common specified parameters.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    COMMON_PARAMS_SPEC = 0,
-
-    /**
-     * Indicates the specified parameters of private key.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    PRIVATE_KEY_SPEC = 1,
-
-    /**
-     * Indicates the specified parameters of public key.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    PUBLIC_KEY_SPEC = 2,
-
-    /**
-     * Indicates the specified parameters of keypair.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    KEY_PAIR_SPEC = 3
-  }
-
-  /**
    * Provides the Key type, which is the common parent class of keys.
    *
    * @typedef Key
@@ -582,430 +363,6 @@ declare namespace cryptoFramework {
      * @since 9
      */
     readonly pubKey: PubKey;
-  }
-
-  /**
-   * Provides a base interface for specifing asymmetric key parameters.
-   *
-   * @typedef AsyKeySpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface AsyKeySpec {
-    /**
-     * Indicates the algorithm name of the asymmetric key object.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    algName: string;
-
-    /**
-     * Indicates the type of the specified parameters.
-     *
-     * @type { AsyKeySpecType }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    specType: AsyKeySpecType;
-  }
-
-  /**
-   * Specifies the set of parameters used in the DSA algorithm.
-   *
-   * @typedef DSACommonParamsSpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface DSACommonParamsSpec extends AsyKeySpec {
-    /**
-     * Indicates the DSA prime p.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    p: bigint;
-
-    /**
-     * Indicates the DSA sub-prime q.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    q: bigint;
-
-    /**
-     * Indicates the DSA base g.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    g: bigint;
-  }
-
-  /**
-   * Specifies the DSA public key with its associated parameters.
-   *
-   * @typedef DSAPubKeySpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface DSAPubKeySpec extends AsyKeySpec {
-    /**
-     * Indicates the DSA common parameters.
-     *
-     * @type { DSACommonParamsSpec }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    params: DSACommonParamsSpec;
-
-    /**
-     * Indicates the DSA public key.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    pk: bigint;
-  }
-
-  /**
-   * Specifies the DSA keypair with its associated parameters.
-   *
-   * @typedef DSAKeyPairSpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface DSAKeyPairSpec extends AsyKeySpec {
-    /**
-     * Indicates the DSA common parameters.
-     *
-     * @type { DSACommonParamsSpec }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    params: DSACommonParamsSpec;
-
-    /**
-     * Indicates the DSA private key.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    sk: bigint;
-
-    /**
-     * Indicates the DSA public key.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    pk: bigint;
-  }
-
-  /**
-   * Specifies an elliptic curve finite field.
-   *
-   * @typedef ECField
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface ECField {
-    /**
-     * Indicates the type of an elliptic curve finite field.
-     * Currently, only Fp (elliptic curve prime finite field) is supported.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    fieldType: string;
-  }
-
-  /**
-   * Specifies an elliptic curve finite field with the prime p.
-   *
-   * @typedef ECFieldFp
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface ECFieldFp extends ECField {
-    /**
-     * Indicates the prime p.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    p: bigint;
-  }
-
-  /**
-   * Represents a point on an elliptic curve in affine coordinates.
-   *
-   * @typedef Point
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface Point {
-    /**
-     * Indicates the affine x-coordinate.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    x: bigint;
-
-    /**
-     * Indicates the affine y-coordinate.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    y: bigint;
-  }
-
-  /**
-   * Specifies the set of common parameters used in the ECC algorithm.
-   *
-   * @typedef ECCCommonParamsSpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface ECCCommonParamsSpec extends AsyKeySpec {
-    /**
-     * Indicates an elliptic curve finite field.
-     *
-     * @type { ECField }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    field: ECField;
-
-    /**
-     * Indicates the first coefficient a of the elliptic curve.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    a: bigint;
-
-    /**
-     * Indicates the second coefficient b of the elliptic curve.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    b: bigint;
-
-    /**
-     * Indicates the base point g.
-     *
-     * @type { Point }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    g: Point;
-
-    /**
-     * Indicates the order of the base point g.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    n: bigint;
-
-    /**
-     * Indicates the cofactor h.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    h: number;
-  }
-
-  /**
-   * Specifies the ECC private key with its associated parameters.
-   *
-   * @typedef ECCPriKeySpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface ECCPriKeySpec extends AsyKeySpec {
-    /**
-     * Indicates the ECC common parameters.
-     *
-     * @type { ECCCommonParamsSpec }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    params: ECCCommonParamsSpec;
-
-    /**
-     * Indicates the private value of the ECC private key.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    sk: bigint;
-  }
-
-  /**
-   * Specifies the ECC public key with its associated parameters.
-   *
-   * @typedef ECCPubKeySpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface ECCPubKeySpec extends AsyKeySpec {
-    /**
-     * Indicates the ECC common parameters.
-     *
-     * @type { ECCCommonParamsSpec }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    params: ECCCommonParamsSpec;
-
-    /**
-     * Indicates the public point of the ECC public key.
-     *
-     * @type { Point }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    pk: Point;
-  }
-
-  /**
-   * Specifies the ECC keypair with its associated parameters.
-   *
-   * @typedef ECCKeyPairSpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface ECCKeyPairSpec extends AsyKeySpec {
-    /**
-     * Indicates the ECC common parameters.
-     *
-     * @type { ECCCommonParamsSpec }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    params: ECCCommonParamsSpec;
-
-    /**
-     * Indicates the private value of the ECC private key.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    sk: bigint;
-
-    /**
-     * Indicates the public point of the ECC public key.
-     *
-     * @type { Point }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    pk: Point;
-  }
-
-  /**
-   * Specifies the set of common parameters used in the RSA algorithm.
-   *
-   * @typedef RSACommonParamsSpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface RSACommonParamsSpec extends AsyKeySpec {
-    /**
-     * Indicates the modulus n.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    n: bigint;
-  }
-
-  /**
-   * Specifies the RSA public key with its associated parameters.
-   *
-   * @typedef RSAPubKeySpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface RSAPubKeySpec extends AsyKeySpec {
-    /**
-     * Indicates the RSA common parameters.
-     *
-     * @type { RSACommonParamsSpec }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    params: RSACommonParamsSpec;
-
-    /**
-     * Indicates the public exponent e.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    pk: bigint;
-  }
-
-  /**
-   * Specifies the RSA keypair with its associated parameters.
-   *
-   * @typedef RSAKeyPairSpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface RSAKeyPairSpec extends AsyKeySpec {
-    /**
-     * Indicates the RSA common parameters.
-     *
-     * @type { RSACommonParamsSpec }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    params: RSACommonParamsSpec;
-
-    /**
-     * Indicates the private exponent d.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    sk: bigint;
-
-    /**
-     * Indicates the public exponent e.
-     *
-     * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    pk: bigint;
   }
 
   /**
@@ -1158,106 +515,6 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * The AsyKeyGeneratorBySpec provides the ability to generate key with its associated parameters.
-   *
-   * @typedef AsyKeyGeneratorBySpec
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  interface AsyKeyGeneratorBySpec {
-    /**
-     * Generate an asymmetric keypair.
-     *
-     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    generateKeyPair(callback: AsyncCallback<KeyPair>): void;
-
-    /**
-     * Generate an asymmetric keypair.
-     *
-     * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    generateKeyPair(): Promise<KeyPair>;
-
-    /**
-     * Generate a private key instance.
-     *
-     * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    generatePriKey(callback: AsyncCallback<PriKey>): void;
-
-    /**
-     * Generate a private key instance.
-     *
-     * @returns { Promise<PriKey> } the promise used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    generatePriKey(): Promise<PriKey>;
-
-    /**
-     * Generate a public key instance.
-     *
-     * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    generatePubKey(callback: AsyncCallback<PubKey>): void;
-
-    /**
-     * Generate a public key instance.
-     *
-     * @returns { Promise<PubKey> } the promise used to return PubKey.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    generatePubKey(): Promise<PubKey>;
-
-    /**
-     * Indicates the algorithm name of the generator.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    readonly algName: string;
-  }
-
-  /**
-   * Create an asymmetric key generator with the specified parameters.
-   *
-   * @param { AsyKeySpec } asyKeySpec - indicates the associated parameters of algorithm.
-   * @returns { AsyKeyGeneratorBySpec } the generator obj create by asyKeySpec.
-   * @throws { BusinessError } 401 - invalid parameters.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
-   * @throws { BusinessError } 17620002 - runtime error.
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
-   */
-  function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
-
-  /**
    * Provides the SymKeyGenerator type, which is used for generating symmetric key.
    *
    * @typedef SymKeyGenerator
@@ -1333,7 +590,7 @@ declare namespace cryptoFramework {
    * @since 9
    */
   function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
-  
+
   /**
    * Create a symmetric key generator according to the given algorithm name.
    *
@@ -2067,6 +1324,7 @@ declare namespace cryptoFramework {
    * @since 9
    */
   function createSign(algName: string): Sign;
+
   /**
    * Create a verify object for verifing signatures.
    *
@@ -2137,6 +1395,749 @@ declare namespace cryptoFramework {
    * @since 9
    */
   function createKeyAgreement(algName: string): KeyAgreement;
+
+  /**
+   * Enum for algorithm specified parameters.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  enum AsyKeySpecItem {
+    /**
+     * Indicates the DSA prime p.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_P_BN = 101,
+
+    /**
+     * Indicates the DSA sub-prime q.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_Q_BN = 102,
+
+    /**
+     * Indicates the DSA base g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_G_BN = 103,
+
+    /**
+     * Indicates the DSA private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_SK_BN = 104,
+
+    /**
+     * Indicates the DSA public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_PK_BN = 105,
+
+    /**
+     * Indicates the prime p of an elliptic curve (EC) prime finite field.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_FP_P_BN = 201,
+
+    /**
+     * Indicates the first coefficient a of this elliptic curve.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_A_BN = 202,
+
+    /**
+     * Indicates the second coefficient b of this elliptic curve.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_B_BN = 203,
+
+    /**
+     * Indicates the affine x-coordinate of base point g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_G_X_BN = 204,
+
+    /**
+     * Indicates the affine y-coordinate of base point g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_G_Y_BN = 205,
+
+    /**
+     * Indicates the order of the base point g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_N_BN = 206,
+
+    /**
+     * Indicates the cofactor of the elliptic curve.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_H_NUM = 207,
+
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_SK_BN = 208,
+
+    /**
+     * Indicates the affine x-coordinate of a point, which is the public point of an ECC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_PK_X_BN = 209,
+
+    /**
+     * Indicates the affine y-coordinate of a point, which is the public point of an ECC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_PK_Y_BN = 210,
+
+    /**
+     * Indicates an elliptic curve finite field type.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_FIELD_TYPE_STR = 211,
+
+    /**
+     * Indicates the field size in bits. 
+     * For Fp field (an elliptic curve prime finite field wtih prime p), the field size is the size of prime p.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_FIELD_SIZE_NUM = 212,
+
+    /**
+     * Indicates the curve name according to SECG (Standards for Efficient Crypptography Group).
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_CURVE_NAME_STR = 213,
+
+    /**
+     * Indicates the modulus n of RSA algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    RSA_N_BN = 301,
+
+    /**
+     * Indicates the private exponent d of RSA algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    RSA_SK_BN = 302,
+
+    /**
+     * Indicates the public exponent e of RSA algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    RSA_PK_BN = 303
+  }
+
+  /**
+   * Enum for algorithm specified parameters type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  enum AsyKeySpecType {
+    /**
+     * Indicates the common specified parameters.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    COMMON_PARAMS_SPEC = 0,
+
+    /**
+     * Indicates the specified parameters of private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PRIVATE_KEY_SPEC = 1,
+
+    /**
+     * Indicates the specified parameters of public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PUBLIC_KEY_SPEC = 2,
+
+    /**
+     * Indicates the specified parameters of keypair.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    KEY_PAIR_SPEC = 3
+  }
+
+  /**
+   * Provides a base interface for specifing asymmetric key parameters.
+   *
+   * @typedef AsyKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface AsyKeySpec {
+    /**
+     * Indicates the algorithm name of the asymmetric key object.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    algName: string;
+
+    /**
+     * Indicates the type of the specified parameters.
+     *
+     * @type { AsyKeySpecType }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    specType: AsyKeySpecType;
+  }
+
+  /**
+   * Specifies the set of parameters used in the DSA algorithm.
+   *
+   * @typedef DSACommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface DSACommonParamsSpec extends AsyKeySpec {
+    /**
+     * Indicates the DSA prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    p: bigint;
+
+    /**
+     * Indicates the DSA sub-prime q.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    q: bigint;
+
+    /**
+     * Indicates the DSA base g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    g: bigint;
+  }
+
+  /**
+   * Specifies the DSA public key with its associated parameters.
+   *
+   * @typedef DSAPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface DSAPubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the DSA common parameters.
+     *
+     * @type { DSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: DSACommonParamsSpec;
+
+    /**
+     * Indicates the DSA public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the DSA keypair with its associated parameters.
+   *
+   * @typedef DSAKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface DSAKeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the DSA common parameters.
+     *
+     * @type { DSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: DSACommonParamsSpec;
+
+    /**
+     * Indicates the DSA private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the DSA public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies an elliptic curve finite field.
+   *
+   * @typedef ECField
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECField {
+    /**
+     * Indicates the type of an elliptic curve finite field.
+     * Currently, only Fp (elliptic curve prime finite field) is supported.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    fieldType: string;
+  }
+
+  /**
+   * Specifies an elliptic curve finite field with the prime p.
+   *
+   * @typedef ECFieldFp
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECFieldFp extends ECField {
+    /**
+     * Indicates the prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    p: bigint;
+  }
+
+  /**
+   * Represents a point on an elliptic curve in affine coordinates.
+   *
+   * @typedef Point
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface Point {
+    /**
+     * Indicates the affine x-coordinate.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    x: bigint;
+
+    /**
+     * Indicates the affine y-coordinate.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    y: bigint;
+  }
+
+  /**
+   * Specifies the set of common parameters used in the ECC algorithm.
+   *
+   * @typedef ECCCommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCCommonParamsSpec extends AsyKeySpec {
+    /**
+     * Indicates an elliptic curve finite field.
+     *
+     * @type { ECField }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    field: ECField;
+
+    /**
+     * Indicates the first coefficient a of the elliptic curve.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    a: bigint;
+
+    /**
+     * Indicates the second coefficient b of the elliptic curve.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    b: bigint;
+
+    /**
+     * Indicates the base point g.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    g: Point;
+
+    /**
+     * Indicates the order of the base point g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    n: bigint;
+
+    /**
+     * Indicates the cofactor h.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    h: number;
+  }
+
+  /**
+   * Specifies the ECC private key with its associated parameters.
+   *
+   * @typedef ECCPriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCPriKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: ECCCommonParamsSpec;
+
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+  }
+
+  /**
+   * Specifies the ECC public key with its associated parameters.
+   *
+   * @typedef ECCPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCPubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: ECCCommonParamsSpec;
+
+    /**
+     * Indicates the public point of the ECC public key.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: Point;
+  }
+
+  /**
+   * Specifies the ECC keypair with its associated parameters.
+   *
+   * @typedef ECCKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCKeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: ECCCommonParamsSpec;
+
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the public point of the ECC public key.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: Point;
+  }
+
+  /**
+   * Specifies the set of common parameters used in the RSA algorithm.
+   *
+   * @typedef RSACommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface RSACommonParamsSpec extends AsyKeySpec {
+    /**
+     * Indicates the modulus n.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    n: bigint;
+  }
+
+  /**
+   * Specifies the RSA public key with its associated parameters.
+   *
+   * @typedef RSAPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface RSAPubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the RSA common parameters.
+     *
+     * @type { RSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: RSACommonParamsSpec;
+
+    /**
+     * Indicates the public exponent e.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the RSA keypair with its associated parameters.
+   *
+   * @typedef RSAKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface RSAKeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the RSA common parameters.
+     *
+     * @type { RSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: RSACommonParamsSpec;
+
+    /**
+     * Indicates the private exponent d.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the public exponent e.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * The AsyKeyGeneratorBySpec provides the ability to generate key with its associated parameters.
+   *
+   * @typedef AsyKeyGeneratorBySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface AsyKeyGeneratorBySpec {
+    /**
+     * Generate an asymmetric keypair.
+     *
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generateKeyPair(callback: AsyncCallback<KeyPair>): void;
+
+    /**
+     * Generate an asymmetric keypair.
+     *
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generateKeyPair(): Promise<KeyPair>;
+
+    /**
+     * Generate a private key instance.
+     *
+     * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePriKey(callback: AsyncCallback<PriKey>): void;
+
+    /**
+     * Generate a private key instance.
+     *
+     * @returns { Promise<PriKey> } the promise used to return PriKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePriKey(): Promise<PriKey>;
+
+    /**
+     * Generate a public key instance.
+     *
+     * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePubKey(callback: AsyncCallback<PubKey>): void;
+
+    /**
+     * Generate a public key instance.
+     *
+     * @returns { Promise<PubKey> } the promise used to return PubKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePubKey(): Promise<PubKey>;
+
+    /**
+     * Indicates the algorithm name of the generator.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    readonly algName: string;
+  }
+
+  /**
+   * Create an asymmetric key generator with the specified parameters.
+   *
+   * @param { AsyKeySpec } asyKeySpec - indicates the associated parameters of algorithm.
+   * @returns { AsyKeyGeneratorBySpec } the generator obj create by asyKeySpec.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620002 - runtime error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
 }
 
 export default cryptoFramework;
