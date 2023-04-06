@@ -1009,6 +1009,84 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Provides the random interface.
+   *
+   * @typedef Random
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 9
+   */
+  interface Random {
+    /**
+     * Generate random DataBlob by given length.
+     *
+     * @param { number } len - indicates the length of random DataBlob.
+     * @param { AsyncCallback<DataBlob> } callback - the callback used to return random DataBlob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 9
+     */
+    generateRandom(len: number, callback: AsyncCallback<DataBlob>): void;
+
+    /**
+     * Generate random DataBlob by given length.
+     *
+     * @param { number } len - indicates the length of random DataBlob.
+     * @returns { Promise<DataBlob> } the promise used to return the generated random blob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 9
+     */
+    generateRandom(len: number): Promise<DataBlob>;
+
+    /**
+     * Generate random DataBlob by given length synchronously.
+     *
+     * @param { number } len - indicates the length of random DataBlob.
+     * @returns { DataBlob } return the generated random blob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generateRandomSync(len: number): DataBlob;
+
+    /**
+     * Set seed by given DataBlob.
+     *
+     * @param { DataBlob } seed - indicates the seed DataBlob.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 9
+     */
+    setSeed(seed: DataBlob): void;
+
+    /**
+     * Indicates the random generation algorithm name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    readonly algName: string;
+  }
+
+  /**
+   * Create a random generator instance.
+   *
+   * @returns { Random } returns the created rand instance.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 9
+   */
+  function createRandom(): Random;
+
+  /**
    * The AsyKeyGenerator provides the ability to generate or convert keyPair.
    *
    * @typedef AsyKeyGenerator
@@ -1078,20 +1156,6 @@ declare namespace cryptoFramework {
      */
     readonly algName: string;
   }
-
-  /**
-   * Create an asymmetric key generator according to the given algorithm name.
-   *
-   * @param { string } algName - indicates the algorithm name.
-   * @returns { AsyKeyGenerator } the asymmetric key generator instance.
-   * @throws { BusinessError } 401 - invalid parameters.
-   * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 17620001 - memory error.
-   * @throws { BusinessError } 17620002 - runtime error.
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 9
-   */
-  function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
 
   /**
    * The AsyKeyGeneratorBySpec provides the ability to generate key with its associated parameters.
@@ -1257,6 +1321,20 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Create an asymmetric key generator according to the given algorithm name.
+   *
+   * @param { string } algName - indicates the algorithm name.
+   * @returns { AsyKeyGenerator } the asymmetric key generator instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620002 - runtime error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 9
+   */
+  function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
+  
+  /**
    * Create a symmetric key generator according to the given algorithm name.
    *
    * @param { string } algName - indicates the algorithm name.
@@ -1267,84 +1345,6 @@ declare namespace cryptoFramework {
    * @since 9
    */
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
-
-  /**
-   * Provides the random interface.
-   *
-   * @typedef Random
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 9
-   */
-  interface Random {
-    /**
-     * Generate random DataBlob by given length.
-     *
-     * @param { number } len - indicates the length of random DataBlob.
-     * @param { AsyncCallback<DataBlob> } callback - the callback used to return random DataBlob.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 9
-     */
-    generateRandom(len: number, callback: AsyncCallback<DataBlob>): void;
-
-    /**
-     * Generate random DataBlob by given length.
-     *
-     * @param { number } len - indicates the length of random DataBlob.
-     * @returns { Promise<DataBlob> } the promise used to return the generated random blob.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 9
-     */
-    generateRandom(len: number): Promise<DataBlob>;
-
-    /**
-     * Generate random DataBlob by given length synchronously.
-     *
-     * @param { number } len - indicates the length of random DataBlob.
-     * @returns { DataBlob } return the generated random blob.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    generateRandomSync(len: number): DataBlob;
-
-    /**
-     * Set seed by given DataBlob.
-     *
-     * @param { DataBlob } seed - indicates the seed DataBlob.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 9
-     */
-    setSeed(seed: DataBlob): void;
-
-    /**
-     * Indicates the random generation algorithm name.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
-     */
-    readonly algName: string;
-  }
-
-  /**
-   * Create a random generator instance.
-   *
-   * @returns { Random } returns the created rand instance.
-   * @throws { BusinessError } 17620001 - memory error.
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 9
-   */
-  function createRandom(): Random;
 
   /**
    * Provides the Mac type, which is used for Mac generation.
@@ -1923,17 +1923,6 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Create a sign object for generating signatures.
-   *
-   * @param { string } algName - indicates the algorithm name and params.
-   * @returns { Sign } the sign class.
-   * @throws { BusinessError } 401 - invalid parameters.
-   * @syscap SystemCapability.Security.CryptoFramework
-   * @since 9
-   */
-  function createSign(algName: string): Sign;
-
-  /**
    * Provides the Verify type, which is used for verifing signatures.
    *
    * @typedef Verify
@@ -2068,6 +2057,16 @@ declare namespace cryptoFramework {
     readonly algName: string;
   }
 
+  /**
+   * Create a sign object for generating signatures.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Sign } the sign class.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 9
+   */
+  function createSign(algName: string): Sign;
   /**
    * Create a verify object for verifing signatures.
    *
