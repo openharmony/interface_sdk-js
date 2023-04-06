@@ -14,6 +14,7 @@
  */
 /**
  * The Buffer class is a global type for dealing with binary data directly. It can be constructed in a variety of ways.
+ * @crossplatform
  * @since 
  * @syscap SystemCapability.Utils.Lang
  * @permission N/A
@@ -25,6 +26,7 @@ declare namespace buffer {
     interface TypedArray extends Int8Array {}
     /**
      * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param size The desired length of the new Buffer
@@ -37,6 +39,7 @@ declare namespace buffer {
 
     /**
      * Allocates a new Buffer for a fixed size bytes. The Buffer will not be initially filled.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param size The desired length of the new Buffer
@@ -47,6 +50,7 @@ declare namespace buffer {
  
     /**
      * Allocates a new un-pooled Buffer for a fixed size bytes. The Buffer will not be initially filled.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param size The desired length of the new Buffer
@@ -59,6 +63,7 @@ declare namespace buffer {
      * Returns the byte length of a string when encoded using `encoding`.
      * This is not the same as [`String.prototype.length`], which does not account
      * for the encoding that is used to convert the string into bytes.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param string A value to calculate the length of
@@ -70,6 +75,7 @@ declare namespace buffer {
  
     /**
      * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param list List of `Buffer` or Uint8Array instances to concatenate
@@ -82,6 +88,7 @@ declare namespace buffer {
 
     /**
      * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param array an array of bytes in the range 0 – 255
@@ -92,6 +99,7 @@ declare namespace buffer {
 
     /**
      * This creates a view of the ArrayBuffer without copying the underlying memory. 
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param arrayBuffer An ArrayBuffer, SharedArrayBuffer, for example the .buffer property of a TypedArray.
@@ -105,6 +113,7 @@ declare namespace buffer {
 
     /**
      * Copies the passed buffer data onto a new Buffer instance.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param buffer An existing Buffer or Uint8Array from which to copy data
@@ -116,6 +125,7 @@ declare namespace buffer {
     /**
      * For the object whose value returned by valueof() function is strictly equal to object
      * or supports symbol To primitive object, a new buffer instance is created.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param object An object supporting Symbol.toPrimitive or valueOf()
@@ -129,6 +139,7 @@ declare namespace buffer {
     /**
      * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
      * to be used when converting string into bytes.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param string  A string to encode
@@ -140,6 +151,7 @@ declare namespace buffer {
 
     /**
      * Returns true if obj is a Buffer, false otherwise
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param obj Objects to be judged
@@ -149,6 +161,7 @@ declare namespace buffer {
 
     /**
      * Returns true if encoding is the name of a supported character encoding, or false otherwise.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param encoding A character encoding name to check
@@ -158,6 +171,7 @@ declare namespace buffer {
 
     /**
      * Compares buf1 to buf2
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param buf1 A Buffer or Uint8Array instance.
@@ -171,6 +185,7 @@ declare namespace buffer {
 
     /**
      * Re-encodes the given Buffer or Uint8Array instance from one character encoding to another.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang 
      * @param source A Buffer or Uint8Array instance.
@@ -187,6 +202,7 @@ declare namespace buffer {
 
         /**
          * Returns the number of bytes in buf
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
 	 * @throws {BusinessError} 10200013 - Cannot set property length of Buffer which has only a getter
@@ -195,6 +211,7 @@ declare namespace buffer {
 
         /**
          * The underlying ArrayBuffer object based on which this Buffer object is created.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
 	 * @throws {BusinessError} 10200013 - Cannot set property buffer of Buffer which has only a getter
@@ -203,6 +220,7 @@ declare namespace buffer {
 
         /**
          * The byteOffset of the Buffers underlying ArrayBuffer object
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
 	 * @throws {BusinessError} 10200013 - Cannot set property byteOffset of Buffer which has only a getter
@@ -211,6 +229,7 @@ declare namespace buffer {
 
         /**
          * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value The value with which to fill buf
@@ -226,6 +245,7 @@ declare namespace buffer {
         /**
          * Compares buf with target and returns a number indicating whether buf comes before, after,
          * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param target A Buffer or Uint8Array with which to compare buf
@@ -245,6 +265,7 @@ declare namespace buffer {
         /**
          * Copies data from a region of buf to a region in target, even if the target memory region overlaps with buf.
          * If sourceEnd is greater than the length of the target, the length of the target shall prevail, and the extra part will not be overwritten.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param target A Buffer or Uint8Array to copy into
@@ -260,6 +281,7 @@ declare namespace buffer {
 
         /**
          * Returns true if both buf and otherBuffer have exactly the same bytes, false otherwise
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param otherBuffer A Buffer or Uint8Array with which to compare buf
@@ -270,6 +292,7 @@ declare namespace buffer {
 
         /**
          * Returns true if value was found in buf, false otherwise
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param value What to search for
@@ -282,6 +305,7 @@ declare namespace buffer {
 
         /**
          * The index of the first occurrence of value in buf
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param value What to search for
@@ -294,6 +318,7 @@ declare namespace buffer {
 
         /**
          * Creates and returns an iterator of buf keys (indices).
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          */
@@ -301,6 +326,7 @@ declare namespace buffer {
         
         /**
          * Creates and returns an iterator for buf values (bytes).
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          */
@@ -308,6 +334,7 @@ declare namespace buffer {
 
         /**
          * Creates and returns an iterator of [index, byte] pairs from the contents of buf.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          */
@@ -315,6 +342,7 @@ declare namespace buffer {
 
         /**
          * The index of the last occurrence of value in buf
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param value What to search for
@@ -327,6 +355,7 @@ declare namespace buffer {
 
         /**
          * Reads a signed, big-endian 64-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
@@ -338,6 +367,7 @@ declare namespace buffer {
 
         /**
          * Reads a signed, little-endian 64-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
@@ -349,6 +379,7 @@ declare namespace buffer {
 
         /**
          * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
@@ -360,6 +391,7 @@ declare namespace buffer {
 
         /**
          * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
@@ -371,6 +403,7 @@ declare namespace buffer {
 
         /**
          * Reads a 64-bit, big-endian double from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
@@ -382,6 +415,7 @@ declare namespace buffer {
 
         /**
          * Reads a 64-bit, little-endian double from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
@@ -393,6 +427,7 @@ declare namespace buffer {
 
         /**
          * Reads a 32-bit, big-endian float from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
@@ -404,6 +439,7 @@ declare namespace buffer {
 
         /**
          * Reads a 32-bit, little-endian float from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
@@ -415,6 +451,7 @@ declare namespace buffer {
 
         /**
          * Reads a signed 8-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
@@ -426,6 +463,7 @@ declare namespace buffer {
 
         /**
          * Reads a signed, big-endian 16-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
@@ -437,6 +475,7 @@ declare namespace buffer {
 
         /**
          * Reads a signed, little-endian 16-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
@@ -448,6 +487,7 @@ declare namespace buffer {
 
         /**
          * Reads a signed, big-endian 32-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
@@ -459,6 +499,7 @@ declare namespace buffer {
 
         /**
          * Reads a signed, little-endian 32-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
@@ -471,6 +512,7 @@ declare namespace buffer {
         /**
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a big-endian,
          * two's complement signed value supporting up to 48 bits of accuracy
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
@@ -484,6 +526,7 @@ declare namespace buffer {
         /**
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a little-endian,
          * two's complement signed value supporting up to 48 bits of accuracy.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
@@ -496,6 +539,7 @@ declare namespace buffer {
 
         /**
          * Reads an unsigned 8-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
@@ -507,6 +551,7 @@ declare namespace buffer {
 
         /**
          * Reads an unsigned, big-endian 16-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
@@ -518,6 +563,7 @@ declare namespace buffer {
 
         /**
          * Reads an unsigned, little-endian 16-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
@@ -529,6 +575,7 @@ declare namespace buffer {
 
         /**
          * Reads an unsigned, big-endian 32-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
@@ -540,6 +587,7 @@ declare namespace buffer {
 
         /**
          * Reads an unsigned, little-endian 32-bit integer from buf at the specified offset
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
@@ -552,6 +600,7 @@ declare namespace buffer {
         /**
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as
          * an unsigned big-endian integer supporting up to 48 bits of accuracy.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
@@ -565,6 +614,7 @@ declare namespace buffer {
         /**
          * Reads byteLength number of bytes from buf at the specified offset and interprets the result as an unsigned,
          * little-endian integer supporting up to 48 bits of accuracy.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
@@ -577,6 +627,7 @@ declare namespace buffer {
 
         /**
          * Returns a new Buffer that references the same memory as the original, but offset and cropped by the start and end indices.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [start = 0] Where the new Buffer will start
@@ -587,6 +638,7 @@ declare namespace buffer {
 
         /**
          * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @returns A reference to buf
@@ -596,6 +648,7 @@ declare namespace buffer {
 
         /**
          * Interprets buf as an array of unsigned 32-bit integers and swaps the byte order in-place.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @returns A reference to buf
@@ -605,6 +658,7 @@ declare namespace buffer {
 
         /**
          * Interprets buf as an array of unsigned 64-bit integers and swaps the byte order in-place.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @returns A reference to buf
@@ -614,6 +668,7 @@ declare namespace buffer {
 
         /**
          * Returns a JSON representation of buf
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @returns Returns a JSON
@@ -622,6 +677,7 @@ declare namespace buffer {
 
         /**
          * Decodes buf to a string according to the specified character encoding in encoding
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param [encoding='utf8'] The character encoding to use
@@ -633,6 +689,7 @@ declare namespace buffer {
 
         /**
          * Writes string to buf at offset according to the character encoding in encoding
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param str Writes string to buf at offset according to the character encoding in encoding
@@ -647,6 +704,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as big-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -659,6 +717,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -671,6 +730,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as big-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -683,6 +743,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -695,6 +756,7 @@ declare namespace buffer {
 
          /**
          * Writes value to buf at the specified offset as big-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -707,6 +769,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -719,6 +782,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as big-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -731,6 +795,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -743,6 +808,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -755,6 +821,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -767,6 +834,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -779,6 +847,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -791,6 +860,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -803,6 +873,7 @@ declare namespace buffer {
 
         /**
          * Writes byteLength bytes of value to buf at the specified offset as big-endian
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -816,6 +887,7 @@ declare namespace buffer {
 
         /**
          * Writes byteLength bytes of value to buf at the specified offset as little-endian
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -829,6 +901,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -841,6 +914,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -853,6 +927,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -865,6 +940,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -877,6 +953,7 @@ declare namespace buffer {
 
         /**
          * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -889,6 +966,7 @@ declare namespace buffer {
 
         /**
          * Writes byteLength bytes of value to buf at the specified offset as big-endian
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -902,6 +980,7 @@ declare namespace buffer {
 
         /**
          * Writes byteLength bytes of value to buf at the specified offset as little-endian
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
@@ -919,6 +998,7 @@ declare namespace buffer {
 
         /**
          * Creates a new Blob object containing a concatenation of the given sources.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param sources An array of string, <ArrayBuffer>, <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
@@ -931,6 +1011,7 @@ declare namespace buffer {
 
         /**
          * The total size of the Blob in bytes
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          */
@@ -938,6 +1019,7 @@ declare namespace buffer {
 
         /**
          * The content-type of the Blob
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          */
@@ -945,6 +1027,7 @@ declare namespace buffer {
 
          /**
          * Returns a promise that fulfills with an <ArrayBuffer> containing a copy of the Blob data.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          */
@@ -952,6 +1035,7 @@ declare namespace buffer {
 
         /**
          * Creates and returns a new Blob containing a subset of this Blob objects data. The original Blob is not altered
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param start The starting index
@@ -962,6 +1046,7 @@ declare namespace buffer {
 
          /**
          * Returns a promise that fulfills with the contents of the Blob decoded as a UTF-8 string.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          */
