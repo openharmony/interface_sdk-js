@@ -165,6 +165,7 @@ dfx
 dialling
 dimbehind
 dirent
+dirxml
 disables
 discharging
 disconnecting
