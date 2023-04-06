@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import tag from '../@ohos.nfc.tag';
-import { AsyncCallback } from '../@ohos.base';
+import { AsyncCallback } from '../basic';
 
 /**
  * Controls tag read and write.

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './basic';
 
 /**
  * Provides securityLabel APIs

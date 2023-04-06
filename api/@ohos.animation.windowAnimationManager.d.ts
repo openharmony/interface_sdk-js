@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./@ohos.base";
+import {AsyncCallback} from "./basic";
 
 /**
  * Window animation manager.

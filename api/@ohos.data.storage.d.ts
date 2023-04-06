@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback, Callback } from './@ohos.base';
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides interfaces to obtain and modify storage data.

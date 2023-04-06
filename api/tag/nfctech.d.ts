@@ -14,7 +14,7 @@
  */
 import tag from '../@ohos.nfc.tag';
 import { TagSession } from './tagSession';
-import { AsyncCallback, Callback } from '../@ohos.base';
+import { AsyncCallback, Callback } from '../basic';
 
 /**
  * Provides interfaces to control the read and write of tags that support the NFC-A technology.

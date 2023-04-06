@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './basic';
 
 /**
  * Contains variety of system contact, provides functions for adding, updating and deleting these system contact

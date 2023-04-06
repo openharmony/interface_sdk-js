@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import { AsyncCallback } from "./basic";
 import formBindingData from "./@ohos.app.form.formBindingData";
 import formInfo from "./@ohos.app.form.formInfo";
 import Want from "./@ohos.app.ability.Want";
