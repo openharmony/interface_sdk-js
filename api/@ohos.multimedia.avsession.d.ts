@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';

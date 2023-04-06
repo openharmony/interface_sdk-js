@@ -15,7 +15,7 @@
 
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
-import { AsyncCallback as _AsyncCallback } from './basic';
+import { AsyncCallback as _AsyncCallback } from './@ohos.base';
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 
 /**

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { BundleInfo } from './bundleManager/BundleInfo';
 import { ElementName } from './bundleManager/ElementName';
 
