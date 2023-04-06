@@ -293,7 +293,7 @@ function collectComponentApi(node, apiList, type, url, sourcefile) {
     });
   } else if (ts.isCallExpression(node)) {
     let temp = node.parent;
-    while (!ts.isExpressionStatement(temp)) {
+    while (!ts.isExpressionStatement(temp) && !(ts.isCallExpression(temp) && ts.isCallExpression(temp.parent))) {
       collectExpressionStatementApis(temp, url, sourcefile, componentName, type, notes, node, apiList)
       temp = temp.parent
     }

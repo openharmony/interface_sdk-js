@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./basic";
-import {NetHandle} from "./@ohos.net.connection";
+import {AsyncCallback, Callback} from "./@ohos.base";
+import connection from "./@ohos.net.connection";
 
 /**
  * Provides network sharing related interfaces.
@@ -23,6 +23,7 @@ import {NetHandle} from "./@ohos.net.connection";
  * @syscap SystemCapability.Communication.NetManager.NetSharing
  */
 declare namespace sharing {
+  type NetHandle = connection.NetHandle;
   /**
    * Checks whether this device allows for network sharing.
    *

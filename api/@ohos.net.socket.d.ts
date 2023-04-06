@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback, ErrorCallback} from "./basic";
+import {AsyncCallback, Callback, ErrorCallback} from "./@ohos.base";
 import connection from "./@ohos.net.connection";
-import cryptoFramework from "./@ohos.security.cryptoFramework";
+import cert from "./@ohos.security.cert";
 
 /**
  * Provides TCP and UDP Socket APIs.
@@ -30,7 +30,7 @@ declare namespace socket {
    *
    * @since 9
    */
-  export type X509CertRawData = cryptoFramework.EncodingBlob;
+  export type X509CertRawData = cert.EncodingBlob;
 
   /**
    * Creates a UDPSocket object.

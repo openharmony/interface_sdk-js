@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
@@ -132,6 +132,28 @@ declare namespace abilityManager {
      * @since 9
      */
     function getTopAbility(callback: AsyncCallback<ElementName>): void;
+
+    /**
+     * Acquire the shared data from target ability.
+     * @param { number } missionId - The missionId of target ability.
+     * @param { AsyncCallback<{[key: string]: Object}> } callback - The callback is used to return the params of sharing data and result code.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 10
+     */
+    function acquireShareData(missionId: number, callback: AsyncCallback<{[key: string]: Object}>): void;
+
+    /**
+     * Acquire the shared data from target ability.
+     * @param { number } - The missionId of target ability.
+     * @returns { Promise<{[key: string]: Object}> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 10
+     */
+    function acquireShareData(missionId: number): Promise<{[key: string]: Object}>;
 
     /**
      * The class of an ability running information.

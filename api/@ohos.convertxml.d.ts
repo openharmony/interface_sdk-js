@@ -15,122 +15,141 @@
 
 /**
  * The convertxml module provides utilities for converting XML text to Javascript object.
+ * @crossplatform
  * @since 8
  * @syscap SystemCapability.Utils.Lang
- * @permission N/A
  */
 declare namespace xml {
     interface ConvertOptions {
         /**
          * Whether to trim whitespace characters that may exist before and after the text, default false.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         trim: boolean;
         /**
          * Whether to ignore writing declaration directives of xml.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreDeclaration?: boolean;
         /**
          * Whether to ignore writing processing instruction of xml.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreInstruction?: boolean;
         /**
          * Whether to print attributes across multiple lines and indent them.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreAttributes?: boolean;
         /**
          * Whether to ignore writing comments of the elements.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreComment?: boolean;
         /**
          * Whether to ignore writing CDATA of the elements.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreCDATA?: boolean;
         /**
          * Whether to ignore writing Doctype of the elements.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreDoctype?: boolean;
         /**
          * Whether to ignore writing texts of the elements.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreText?: boolean;
         /**
          * Name of the property key which will be used for the declaration.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         declarationKey: string;
         /**
          * Name of the property key which will be used for the processing instruction.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         instructionKey: string;
         /**
          * Name of the property key which will be used for the attributes.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         attributesKey: string;
         /**
          * Name of the property key which will be used for the text.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         textKey: string;
         /**
          * Name of the property key which will be used for the cdata.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         cdataKey: string;
         /**
          * Name of the property key which will be used for the doctype.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         doctypeKey: string;
         /**
          * Name of the property key which will be used for the comment.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         commentKey: string;
         /**
          * Name of the property key which will be used for the parent.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         parentKey: string;
         /**
          * Name of the property key which will be used for the type.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         typeKey: string;
         /**
          * Name of the property key which will be used for the name.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         nameKey: string;
         /**
          * Name of the property key which will be used for the elements.
+         * @crossplatform
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
@@ -140,6 +159,7 @@ declare namespace xml {
     /**
      * ConvertXML representation refers to extensible markup language.
      * @name ConvertXML
+     * @crossplatform
      * @since 8
      * @syscap SystemCapability.Utils.Lang
      */
@@ -158,6 +178,7 @@ declare namespace xml {
 
         /**
          * To convert XML text to JavaScript object.
+         * @crossplatform
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param xml The xml text to be converted.
