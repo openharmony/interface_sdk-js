@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BusinessError } from './basic';
+import { BusinessError } from './@ohos.base';
 
 /**
  * Provides interfaces to control the power of display.

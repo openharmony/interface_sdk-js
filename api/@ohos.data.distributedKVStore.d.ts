@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import BaseContext from './application/BaseContext';
