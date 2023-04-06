@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BusinessError } from './@ohos.base';
+import { BusinessError } from './basic';
 
 /**
  * Interface of formBindingData.

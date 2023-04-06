@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../@ohos.base";
+import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import ExtensionContext from "./ExtensionContext";

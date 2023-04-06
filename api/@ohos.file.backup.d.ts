@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './basic';
 
 /**
  * Module providing backup and restore capabilities.

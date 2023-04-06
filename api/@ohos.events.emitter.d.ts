@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './@ohos.base';
+import { Callback } from './basic';
 
 /**
  * Provides methods for sending and processing in-process events.

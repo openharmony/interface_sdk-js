@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './basic';
 
 /**
  * Support install, upgrade, remove and recover bundles on the devices.

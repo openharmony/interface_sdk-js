@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BusinessError } from '../@ohos.base';
+import { BusinessError } from '../basic';
 
 /**
  * The event center of a context, support the subscription and publication of events.

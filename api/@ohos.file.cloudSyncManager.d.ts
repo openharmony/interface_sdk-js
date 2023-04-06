@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './basic';
 
 /**
  * This module provides the capabilities to manage the state and data of cloud file synchronization.
