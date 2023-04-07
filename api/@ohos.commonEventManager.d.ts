@@ -116,6 +116,8 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -127,6 +129,8 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -137,6 +141,7 @@ declare namespace commonEventManager {
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of removeStickyCommonEvent.
+   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500004 - not system service
@@ -152,6 +157,7 @@ declare namespace commonEventManager {
    * Remove sticky common event.
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @param { string } event - name of the common event.
+   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500004 - not system service
