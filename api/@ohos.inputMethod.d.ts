@@ -131,7 +131,7 @@ declare namespace inputMethod {
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Switch current input method subtype
+   * Switch current input method subtype, if this interface is invoked by the current IME, this permission is ignored.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
