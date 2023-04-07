@@ -724,6 +724,7 @@ declare namespace call {
    * @param callback Return the result of current audio device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -741,6 +742,7 @@ declare namespace call {
    * @param callback Return the result of current audio device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -925,6 +927,7 @@ declare namespace call {
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param device Indicates the device of audio.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1045,6 +1048,7 @@ declare namespace call {
    * @param {AsyncCallback <void>} callback - void
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1063,6 +1067,7 @@ declare namespace call {
    * @returns {Promise <void>} 
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1082,6 +1087,7 @@ declare namespace call {
    * @param callback {@code true} if the device set VoNr succesfully; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1101,6 +1107,7 @@ declare namespace call {
    * @returns {@code true} if the device set VoNr succesfully; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1120,6 +1127,7 @@ declare namespace call {
    * @param {AsyncCallback <VoNrState>} callback - VoNr state
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1138,6 +1146,7 @@ declare namespace call {
    * @returns {Promise <VoNrState>} the voNr state.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1158,6 +1167,7 @@ declare namespace call {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1178,6 +1188,7 @@ declare namespace call {
    * @returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1195,6 +1206,7 @@ declare namespace call {
    * @param callback - void
    * @permission ohos.permission.PLACE_CALL
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -1212,6 +1224,7 @@ declare namespace call {
    * @returns {Promise <void>} - void
    * @permission ohos.permission.PLACE_CALL
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
