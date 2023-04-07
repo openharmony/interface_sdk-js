@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
-import Context from './application/Context';
+import type { AsyncCallback, Callback } from './basic';
+import type Context from './application/Context';
 import image from './@ohos.multimedia.image';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 
@@ -64,6 +64,41 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     AUDIO
+  }
+
+  /**
+   * File position
+   *
+   * @enum File position, which indicates the file is in local device or cloud
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  enum PositionType {
+    /**
+     * File exists only in local device
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    LOCAL = 1,
+    /**
+     * File exists only in cloud
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    CLOUD,
+    /**
+     * File exists in both local and cloud
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    BOTH
   }
 
   /**
@@ -390,7 +425,15 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    FAVORITE
+    FAVORITE,
+    /**
+     * File position
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    POSITION
   }
 
   /**
@@ -590,12 +633,114 @@ declare namespace userFileManager {
   }
 
   /**
+   * Album type.
+   *
+   * @enum Album type
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  enum AlbumType {
+    /**
+     * Album created by user.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    USER = 0,
+    /**
+     * Album created by system, which metadata cannot be modified by user.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    SYSTEM = 1024
+  }
+
+  /**
+   * Album subtype
+   *
+   * @enum Album subtype
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  enum AlbumSubType {
+    /**
+     * Generic user-created albums.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    USER_GENERIC = 1,
+    /**
+     * Favorite album, which assets are marked as favorite.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    FAVORITE = 1025,
+    /**
+     * Video album, which contains all video assets.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    VIDEO,
+    /**
+     * Hidden album, which assets are marked as hidden.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    HIDDEN,
+    /**
+     * Trash album, which assets are deleted.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    TRASH,
+    /**
+     * Any album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    ANY = 2147483647
+  }
+
+  /**
    * Defines the AbsAlbum.
    * @since 9
    * @systemapi
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    */
   interface AbsAlbum {
+    /**
+     * Album type
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    readonly albumType: AlbumType;
+    /**
+     * Album subtype
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    readonly albumSubType: AlbumSubType;
     /**
      * Album name.
      * @since 9
@@ -630,7 +775,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    readonly coverUri: string;
+    coverUri: string;
     /**
      * Obtains files in an album. This method uses an asynchronous callback to return the files.
      * @since 9
@@ -772,6 +917,96 @@ declare namespace userFileManager {
      * @returns A Promise instance used to return an album array.
      */
     getPhotoAlbums(options: AlbumFetchOptions): Promise<FetchResult<Album>>;
+    /**
+     * Create a generic user album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } name - Album name to be created.
+     * @param { AsyncCallback<Album> } callback - Returns the instance of newly created Album
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    createAlbum(name: string, callback: AsyncCallback<Album>): void;
+    /**
+     * Create a generic user album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } name - Album name to be created.
+     * @returns { Promise<Album> } Returns the instance of newly created Album
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    createAlbum(name: string): Promise<Album>;
+    /**
+     * Delete generic user-created albums.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<Album> } albums - Specify which album to delete
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    deleteAlbums(albums: Array<Album>, callback: AsyncCallback<void>): void;
+    /**
+     * Delete generic user-created albums.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<Album> } albums - Specify which album to delete
+     * @returns { Promise<void> } Returns the promise
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    deleteAlbums(albums: Array<Album>): Promise<void>;
+    /**
+     * Obtains albums based on the retrieval options and album types.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AlbumType } type - Album type.
+     * @param { AlbumSubType } subType - Album subtype.
+     * @param { FetchOptions } options - options to fetch albums
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result of the albums
+     * @throws { BusinessError } 13900020 - if type options is not FetchOption
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getAlbums(
+      type: AlbumType,
+      subType: AlbumSubType,
+      options: FetchOptions,
+      callback: AsyncCallback<FetchResult<Album>>
+    ): void;
+    /**
+     * Obtains albums based on the album types.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AlbumType } type - Album type.
+     * @param { AlbumSubType } subType - Album subtype.
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result of the albums
+     * @throws { BusinessError } 13900020 - if type options is not FetchOption
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getAlbums(type: AlbumType, subType: AlbumSubType, callback: AsyncCallback<FetchResult<Album>>): void;
+    /**
+     * Obtains albums based on the retrieval options and album types.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AlbumType } type - Album type.
+     * @param { AlbumSubType } subType - Album subtype.
+     * @param { FetchOptions } [options] -options to fetch albums
+     * @returns { Promise<FetchResult<Album>> } - Returns the fetch result of the albums
+     * @throws { BusinessError } 13900020 - if type options is not FetchOption
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getAlbums(type: AlbumType, subType: AlbumSubType, options?: FetchOptions): Promise<FetchResult<Album>>;
     /**
      * Obtains system private albums based on the private album type. This method uses an asynchronous callback to return.
      * @since 9
