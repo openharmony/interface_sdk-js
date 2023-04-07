@@ -566,8 +566,9 @@ declare namespace inputMethod {
 
     /**
      * The label id of input method
-     * @since 10
+     *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     readonly labelId?: number;
 
