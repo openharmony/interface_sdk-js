@@ -30,6 +30,13 @@ export default interface InputMethodSubtype {
   readonly label?: string;
 
   /**
+   * The label id of input method subtype.
+   * @since 10
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly labelId?: number;
+
+  /**
    * The name of input method.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -91,5 +98,5 @@ export default interface InputMethodSubtype {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
-  extra: object;
+  extra?: object;
 }
