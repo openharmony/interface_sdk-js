@@ -14,8 +14,6 @@
  */
 
 import { Image, ImageData, ImageBitmap } from "./global";
-import { WebGLContextAttributes, WebGLRenderingContext } from "../../webgl/webgl";
-import { WebGL2RenderingContext } from "../../webgl/webgl2";
 import image from "../../@ohos.multimedia.image";
 import { CanvasPattern } from './canvaspattern';
 

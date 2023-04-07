@@ -12,22 +12,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback, Callback } from './basic';
 import { WantAgent } from './@ohos.wantAgent';
 
 /**
  * Provides interfaces for acquiring location information, managing location switches,
- * geocoding, reverse geocoding, country code, geofencing and other functions.
+ * geocoding, reverse geocoding, country code, fencing and other functions.
+ *
  * @namespace geoLocationManager
  * @since 9
  */
 declare namespace geoLocationManager {
     /**
      * Subscribe location changed.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
      * @param { LocationRequest } request - Indicates the location request parameters.
      * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -41,9 +44,10 @@ declare namespace geoLocationManager {
 
     /**
      * Unsubscribe location changed.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -57,8 +61,9 @@ declare namespace geoLocationManager {
 
     /**
      * Subscribe location switch changed.
+     *
+     * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<boolean> } callback - Indicates the callback for reporting the location switch status.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -69,8 +74,9 @@ declare namespace geoLocationManager {
 
     /**
      * Unsubscribe location switch changed.
+     *
+     * @param { 'locationEnabledChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<boolean> } [callback] - Indicates the callback for reporting the location switch status.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -81,10 +87,11 @@ declare namespace geoLocationManager {
 
     /**
      * Subscribe to cache GNSS locations update messages.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
      * @param { CachedGnssLocationsRequest } request - Indicates the cached GNSS locations request parameters.
      * @param { Callback<Array<Location>> } callback - Indicates the callback for reporting the cached GNSS locations.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -98,9 +105,10 @@ declare namespace geoLocationManager {
 
     /**
      * Unsubscribe to cache GNSS locations update messages.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'cachedGnssLocationsChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<Array<Location>> } [callback] - Indicates the callback for reporting the cached gnss locations.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -114,9 +122,10 @@ declare namespace geoLocationManager {
 
     /**
      * Subscribe satellite status changed.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<SatelliteStatusInfo> } callback - Indicates the callback for reporting the satellite status.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -129,9 +138,10 @@ declare namespace geoLocationManager {
 
     /**
      * Unsubscribe satellite status changed.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'satelliteStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<SatelliteStatusInfo> } [callback] - Indicates the callback for reporting the satellite status.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -144,9 +154,10 @@ declare namespace geoLocationManager {
 
     /**
      * Subscribe nmea message changed.
+     *
      * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<string> } callback - Indicates the callback for reporting the nmea message.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -159,9 +170,10 @@ declare namespace geoLocationManager {
 
     /**
      * Unsubscribe nmea message changed.
+     *
      * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'nmeaMessage' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<string> } [callback] - Indicates the callback for reporting the nmea message.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -174,10 +186,11 @@ declare namespace geoLocationManager {
 
     /**
      * Add a geofence and subscribe geo fence status changed.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
      * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -191,10 +204,11 @@ declare namespace geoLocationManager {
 
     /**
      * Remove a geofence and unsubscribe geo fence status changed.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { 'gnssFenceStatusChange' } type - Indicates the location service event to be subscribed to.
      * @param { GeofenceRequest } request - Indicates the Geo-fence configuration parameters.
      * @param { WantAgent } want - Indicates which ability to start when the geofence event is triggered.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -208,8 +222,9 @@ declare namespace geoLocationManager {
 
     /**
      * Registering the callback function for listening to country code changes.
+     *
+     * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<CountryCode> } callback - Indicates the callback for reporting country code changes.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -221,8 +236,9 @@ declare namespace geoLocationManager {
 
     /**
      * Unregistering the callback function for listening to country code changes.
+     *
+     * @param { 'countryCodeChange' } type - Indicates the location service event to be subscribed to.
      * @param { Callback<CountryCode> } [callback] - Indicates the callback for reporting country code changes.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -234,10 +250,10 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain current location.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param { CurrentLocationRequest } request - Indicates the location request parameters.
      * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -251,9 +267,9 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain current location.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -267,6 +283,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain current location.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
      * @returns { Promise<Location> } The promise returned by the function.
@@ -283,6 +300,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain last known location.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @returns { Location } The last known location information.
      * @throws { BusinessError } 201 - Permission denied.
@@ -297,6 +315,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain current location switch status.
+     *
      * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -307,9 +326,9 @@ declare namespace geoLocationManager {
 
     /**
      * Enable location switch.
+     *
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 401 - Parameter error.
@@ -323,6 +342,7 @@ declare namespace geoLocationManager {
 
     /**
      * Enable location switch.
+     *
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -337,8 +357,8 @@ declare namespace geoLocationManager {
 
     /**
      * Disable location switch.
+     *
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -351,9 +371,9 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain address info from location.
+     *
      * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
      * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the address info.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -365,6 +385,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain address info from location.
+     *
      * @param { ReverseGeoCodeRequest } request - Indicates the reverse geocode query parameters.
      * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
@@ -378,9 +399,9 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain latitude and longitude info from location address.
+     *
      * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
      * @param { AsyncCallback<Array<GeoAddress>> } callback - Indicates the callback for reporting the latitude and longitude result.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -392,6 +413,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain latitude and longitude info from location address.
+     *
      * @param { GeoCodeRequest } request - Indicates the geocode query parameters.
      * @returns { Promise<Array<GeoAddress>> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
@@ -405,6 +427,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain geocoding service status.
+     *
      * @returns { boolean } Returns {@code true} if geocoding service is available, returns {@code false} otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -415,9 +438,9 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain the number of cached GNSS locations reported at a time.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param { AsyncCallback<number> } callback - Indicates the callback for reporting the cached GNSS locations size.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -430,6 +453,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain the number of cached GNSS locations.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @returns { Promise<number> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -444,11 +468,11 @@ declare namespace geoLocationManager {
     /**
      * All prepared GNSS locations are returned to the application through the callback function,
      * and the bottom-layer buffer is cleared.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
      * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback,
      * If the function executes successfully, execute the callback function only, no data will be returned.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -463,6 +487,7 @@ declare namespace geoLocationManager {
     /**
      * All prepared GNSS locations are returned to the application,
      * and the bottom-layer buffer is cleared.
+     *
      * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -477,11 +502,11 @@ declare namespace geoLocationManager {
 
     /**
      * Send extended commands to location subsystem.
+     *
      * @param { LocationCommand } command - Indicates the extended command message body.
      * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.
      * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback,
      * If the function executes successfully, execute the callback function only, no data will be returned.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -492,6 +517,7 @@ declare namespace geoLocationManager {
 
     /**
      * Send extended commands to location subsystem.
+     *
      * @param { LocationCommand } command - Indicates the extended command message body.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
@@ -504,8 +530,8 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain the current country code.
+     *
      * @param { AsyncCallback<CountryCode> } callback - Indicates the callback for reporting the country code.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -517,6 +543,7 @@ declare namespace geoLocationManager {
 
     /**
      * Obtain the current country code.
+     *
      * @returns { Promise<CountryCode> } The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -528,7 +555,7 @@ declare namespace geoLocationManager {
 
     /**
      * Enable the geographical location simulation function.
-     * @returns { void }.
+     *
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -541,7 +568,7 @@ declare namespace geoLocationManager {
 
     /**
      * Disable the geographical location simulation function.
-     * @returns { void }.
+     *
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -554,9 +581,9 @@ declare namespace geoLocationManager {
 
     /**
      * Set the configuration parameters for location simulation.
+     *
      * @param { LocationMockConfig } config - Indicates the configuration parameters for location simulation.
      * Contains the array of locations and reporting intervals that need to be simulated.
-     * @returns { void }.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -569,7 +596,7 @@ declare namespace geoLocationManager {
 
     /**
      * Enable the reverse geocoding simulation function.
-     * @returns { void }.
+     *
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -581,7 +608,7 @@ declare namespace geoLocationManager {
 
     /**
      * Disable the reverse geocoding simulation function.
-     * @returns { void }.
+     *
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -593,8 +620,8 @@ declare namespace geoLocationManager {
 
     /**
      * Set the configuration parameters for simulating reverse geocoding.
+     *
      * @param { Array<ReverseGeocodingMockInfo> } mockInfos - Indicates the set of locations and place names to be simulated.
-     * @returns { void }.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -607,6 +634,7 @@ declare namespace geoLocationManager {
 
     /**
      * Querying location privacy protocol confirmation status.
+     *
      * @param { LocationPrivacyType } type - Indicates location privacy protocol type.
      * @returns { boolean } Returns {@code true} if the location privacy protocol has been confirmed, returns {@code false} otherwise.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
@@ -621,10 +649,10 @@ declare namespace geoLocationManager {
 
     /**
      * Set location privacy protocol confirmation status.
+     *
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param { LocationPrivacyType } type - Indicates location privacy protocol type.
      * @param { boolean } isConfirmed - Indicates whether the location privacy protocol has been confirmed.
-     * @returns { void }.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 401 - Parameter error.
@@ -638,6 +666,7 @@ declare namespace geoLocationManager {
 
     /**
      * Configuration parameters for simulating reverse geocoding.
+     *
      * @typedef ReverseGeocodingMockInfo
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
@@ -646,7 +675,9 @@ declare namespace geoLocationManager {
     export interface ReverseGeocodingMockInfo {
         /**
          * Location for which reverse geocoding query is required.
+         *
          * @type { ReverseGeoCodeRequest }
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -654,7 +685,9 @@ declare namespace geoLocationManager {
 
         /**
          * Actual address information corresponding to the location.
+         *
          * @type { GeoAddress }
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -663,6 +696,7 @@ declare namespace geoLocationManager {
 
     /**
      * Parameters for configuring the location simulation function.
+     *
      * @typedef LocationMockConfig
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
@@ -671,7 +705,9 @@ declare namespace geoLocationManager {
     export interface LocationMockConfig {
         /**
          * Interval for reporting simulated locations.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -679,7 +715,9 @@ declare namespace geoLocationManager {
 
         /**
          * Mock location array.
+         *
          * @type { Array<Location> }
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -688,6 +726,7 @@ declare namespace geoLocationManager {
 
     /**
      * Satellite status information.
+     *
      * @typedef SatelliteStatusInfo
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 9
@@ -695,42 +734,54 @@ declare namespace geoLocationManager {
     export interface SatelliteStatusInfo {
         /**
          * Number of satellites.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         satellitesNumber: number;
 
         /**
          * Satellite ID array.
+         *
          * @type { Array<number> }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         satelliteIds: Array<number>;
 
         /**
          * Carrier to noise density array.
+         *
          * @type { Array<number> }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         carrierToNoiseDensitys: Array<number>;
 
         /**
          * Satellite altitude array.
+         *
          * @type { Array<number> }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         altitudes: Array<number>;
 
         /**
          * Satellite azimuth array.
+         *
          * @type { Array<number> }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         azimuths: Array<number>;
 
         /**
          * Satellite carrier frequency array.
+         *
          * @type { Array<number> }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         carrierFrequencies: Array<number>;
@@ -738,6 +789,7 @@ declare namespace geoLocationManager {
 
     /**
      * Parameters for requesting to report cache location information.
+     *
      * @typedef CachedGnssLocationsRequest
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 9
@@ -745,14 +797,18 @@ declare namespace geoLocationManager {
     export interface CachedGnssLocationsRequest {
         /**
          * GNSS cache location report period.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         reportingPeriodSec: number;
 
         /**
          * Indicates whether to wake up the listener when the GNSS cache location queue is full.
+         *
          * @type { boolean }
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         wakeUpCacheQueueFull: boolean;
@@ -760,6 +816,7 @@ declare namespace geoLocationManager {
 
     /**
      * Configuring parameters in geo fence requests.
+     *
      * @typedef GeofenceRequest
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9
@@ -767,14 +824,18 @@ declare namespace geoLocationManager {
     export interface GeofenceRequest {
         /**
          * Indicate the user scenario.
+         *
          * @type { LocationRequestScenario }
+         * @syscap SystemCapability.Location.Location.Geofence
          * @since 9
          */
         scenario: LocationRequestScenario;
 
         /**
          * Circular fence information.
+         *
          * @type { Geofence }
+         * @syscap SystemCapability.Location.Location.Geofence
          * @since 9
          */
         geofence: Geofence;
@@ -782,6 +843,7 @@ declare namespace geoLocationManager {
 
     /**
      * Circular fence information.
+     *
      * @typedef Geofence
      * @syscap SystemCapability.Location.Location.Geofence
      * @since 9
@@ -789,28 +851,36 @@ declare namespace geoLocationManager {
     export interface Geofence {
         /**
          * Latitude of the center point of the circular fence.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Geofence
          * @since 9
          */
         latitude: number;
 
         /**
          * Longitude of the center point of the circular fence.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Geofence
          * @since 9
          */
         longitude: number;
 
         /**
          * Radius of the circular fence.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Geofence
          * @since 9
          */
         radius: number;
 
         /**
          * Expiration of the circular fence.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Geofence
          * @since 9
          */
         expiration: number;
@@ -818,6 +888,7 @@ declare namespace geoLocationManager {
 
     /**
      * Configuring parameters in reverse geocode requests.
+     *
      * @typedef ReverseGeoCodeRequest
      * @syscap SystemCapability.Location.Location.Geocoder
      * @since 9
@@ -825,28 +896,36 @@ declare namespace geoLocationManager {
     export interface ReverseGeoCodeRequest {
         /**
          * Indicates the language area information.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         locale?: string;
 
         /**
          * Latitude for reverse geocoding query.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         latitude: number;
 
         /**
          * Longitude for reverse geocoding query.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         longitude: number;
 
         /**
          * Indicates the maximum number of addresses returned by reverse geocoding query.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         maxItems?: number;
@@ -854,6 +933,7 @@ declare namespace geoLocationManager {
 
     /**
      * Configuring parameters in geocode requests.
+     *
      * @typedef GeoCodeRequest
      * @syscap SystemCapability.Location.Location.Geocoder
      * @since 9
@@ -861,49 +941,63 @@ declare namespace geoLocationManager {
     export interface GeoCodeRequest {
         /**
          * Indicates the language area information.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         locale?: string;
 
         /**
-         * Address information that needs to be geocoded.
+         * Address information.
+         *
          * @type { string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         description: string;
 
         /**
          * Indicates the maximum number of geocode query results.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         maxItems?: number;
 
         /**
          * Indicates the minimum latitude for geocoding query results.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         minLatitude?: number;
 
         /**
          * Indicates the minimum longitude for geocoding query results.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         minLongitude?: number;
 
         /**
          * Indicates the maximum latitude for geocoding query results.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         maxLatitude?: number;
 
         /**
          * Indicates the maximum longitude for geocoding query results.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         maxLongitude?: number;
@@ -911,6 +1005,7 @@ declare namespace geoLocationManager {
 
     /**
      * Data struct describes geographic locations.
+     *
      * @typedef GeoAddress
      * @syscap SystemCapability.Location.Location.Geocoder
      * @since 9
@@ -920,7 +1015,9 @@ declare namespace geoLocationManager {
          * Indicates latitude information.
          * A positive value indicates north latitude,
          * and a negative value indicates south latitude.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         latitude?: number;
@@ -929,7 +1026,9 @@ declare namespace geoLocationManager {
          * Indicates longitude information.
          * A positive value indicates east longitude ,
          * and a negative value indicates west longitude.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         longitude?: number;
@@ -937,119 +1036,153 @@ declare namespace geoLocationManager {
         /**
          * Indicates language used for the location description.
          * zh indicates Chinese, and en indicates English.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         locale?: string;
 
         /**
          * Indicates landmark of the location.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         placeName?: string;
 
         /**
          * Indicates country code.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         countryCode?: string;
 
         /**
          * Indicates country name.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         countryName?: string;
 
         /**
          * Indicates administrative region name.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         administrativeArea?: string;
 
         /**
          * Indicates sub-administrative region name.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         subAdministrativeArea?: string;
 
         /**
          * Indicates locality information.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         locality?: string;
 
         /**
          * Indicates sub-locality information.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         subLocality?: string;
 
         /**
          * Indicates road name.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         roadName?: string;
 
         /**
          * Indicates auxiliary road information.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         subRoadName?: string;
 
         /**
          * Indicates house information.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         premises?: string;
 
         /**
          * Indicates postal code.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         postalCode?: string;
 
         /**
          * Indicates phone number.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         phoneNumber?: string;
 
         /**
          * Indicates website URL.
+         *
          * @type { ?string }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         addressUrl?: string;
 
         /**
          * Indicates additional information.
+         *
          * @type { ?Array<string> }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         descriptions?: Array<string>;
 
         /**
          * Indicates the amount of additional descriptive information.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         descriptionsSize?: number;
 
         /**
          * Indicates whether it is an mock GeoAddress
+         *
          * @type { ?Boolean }
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @systemapi
          * @since 9
          */
@@ -1058,6 +1191,7 @@ declare namespace geoLocationManager {
 
     /**
      * Configuring parameters in location requests.
+     *
      * @typedef LocationRequest
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1065,35 +1199,45 @@ declare namespace geoLocationManager {
     export interface LocationRequest {
         /**
          * Priority of the location request.
+         *
          * @type { ?LocationRequestPriority }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         priority?: LocationRequestPriority;
 
         /**
          * User scenario of the location request.
+         *
          * @type { ?LocationRequestScenario }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         scenario?: LocationRequestScenario;
 
         /**
          * Location report interval.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeInterval?: number;
 
         /**
          * Location report distance interval.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         distanceInterval?: number;
 
         /**
          * Accuracy requirements for reporting locations.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         maxAccuracy?: number;
@@ -1101,6 +1245,7 @@ declare namespace geoLocationManager {
 
     /**
      * Configuring parameters in current location requests.
+     *
      * @typedef CurrentLocationRequest
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1108,28 +1253,36 @@ declare namespace geoLocationManager {
     export interface CurrentLocationRequest {
         /**
          * Priority of the location request.
+         *
          * @type { ?LocationRequestPriority }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         priority?: LocationRequestPriority;
 
         /**
          * User scenario of the location request.
+         *
          * @type { ?LocationRequestScenario }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         scenario?: LocationRequestScenario;
 
         /**
          * Accuracy requirements for reporting locations.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         maxAccuracy?: number;
 
         /**
          * Timeout interval of a single location request.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeoutMs?: number;
@@ -1137,6 +1290,7 @@ declare namespace geoLocationManager {
 
     /**
      * Provides information about geographic locations.
+     *
      * @typedef Location
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1146,7 +1300,9 @@ declare namespace geoLocationManager {
          * Indicates latitude information.
          * A positive value indicates north latitude,
          * and a negative value indicates south latitude.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         latitude: number;
@@ -1155,70 +1311,90 @@ declare namespace geoLocationManager {
          * Indicates Longitude information.
          * A positive value indicates east longitude ,
          * and a negative value indicates west longitude.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         longitude: number;
 
         /**
          * Indicates location altitude, in meters.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         altitude: number;
 
         /**
          * Indicates location accuracy, in meters.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         accuracy: number;
 
         /**
          * Indicates speed, in m/s.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         speed: number;
 
         /**
          * Indicates location timestamp in the UTC format.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeStamp: number;
 
         /**
          * Indicates direction information.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         direction: number;
 
         /**
          * Indicates location timestamp since boot.
+         *
          * @type { number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeSinceBoot: number;
 
         /**
          * Indicates additional information.
+         *
          * @type { ?Array<string> }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         additions?: Array<string>;
 
         /**
          * Indicates the amount of additional descriptive information.
+         *
          * @type { ?number }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         additionSize?: number;
 
         /**
          * Indicates whether it is an mock location.
+         *
          * @type { ?Boolean }
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -1227,6 +1403,7 @@ declare namespace geoLocationManager {
 
     /**
      * Enum for location priority.
+     *
      * @enum { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1234,6 +1411,7 @@ declare namespace geoLocationManager {
     export enum LocationRequestPriority {
         /**
          * Default priority.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1241,6 +1419,7 @@ declare namespace geoLocationManager {
 
         /**
          * Preferentially ensure the locating accuracy.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1248,6 +1427,7 @@ declare namespace geoLocationManager {
 
         /**
          * Preferentially ensure low power consumption for locating.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1255,14 +1435,16 @@ declare namespace geoLocationManager {
 
         /**
          * Preferentially ensure that the first location is time-consuming.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
-        FIRST_FIX,
+        FIRST_FIX
     }
 
     /**
      * Enum for location scenario.
+     *
      * @enum { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1270,6 +1452,7 @@ declare namespace geoLocationManager {
     export enum LocationRequestScenario {
         /**
          * Default scenario.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1277,6 +1460,7 @@ declare namespace geoLocationManager {
 
         /**
          * Navigation scenario. High positioning precision and real-time performance are required.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1284,6 +1468,7 @@ declare namespace geoLocationManager {
 
         /**
          * Trajectory tracking scenario. High positioning precision is required.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1291,6 +1476,7 @@ declare namespace geoLocationManager {
 
         /**
          * Car hailing scenario. High positioning precision and real-time performance are required.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1298,6 +1484,7 @@ declare namespace geoLocationManager {
 
         /**
          * Daily life scenarios. Low requirements on positioning precision and real-time performance.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1305,14 +1492,16 @@ declare namespace geoLocationManager {
 
         /**
          * Power saving scenarios.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
-        NO_POWER,
+    	NO_POWER
     }
 
     /**
      * Enum for location privacy type.
+     *
      * @enum { number }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
@@ -1321,6 +1510,7 @@ declare namespace geoLocationManager {
     export enum LocationPrivacyType {
         /**
          * Other scenarios.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
@@ -1329,6 +1519,7 @@ declare namespace geoLocationManager {
 
         /**
          * Privacy agreement for the startup wizard scenario.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
@@ -1337,15 +1528,17 @@ declare namespace geoLocationManager {
 
         /**
          * Privacy agreement pop-up when network location is enabled.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
-        CORE_LOCATION,
+        CORE_LOCATION
     }
 
     /**
      * Location subsystem command structure.
+     *
      * @typedef LocationCommand
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1353,14 +1546,18 @@ declare namespace geoLocationManager {
     export interface LocationCommand {
         /**
          * Information about the scenario where the command is sent.
+         *
          * @type { LocationRequestScenario }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         scenario: LocationRequestScenario;
 
         /**
          * Sent command content.
+         *
          * @type { string }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         command: string;
@@ -1368,6 +1565,7 @@ declare namespace geoLocationManager {
 
     /**
      * Country code structure.
+     *
      * @typedef CountryCode
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1375,14 +1573,18 @@ declare namespace geoLocationManager {
     export interface CountryCode {
         /**
          * Country code character string.
+         *
          * @type { string }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         country: string;
 
         /**
          * Country code source.
+         *
          * @type { CountryCodeType }
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         type: CountryCodeType;
@@ -1390,6 +1592,7 @@ declare namespace geoLocationManager {
 
     /**
      * Enum for country code type.
+     *
      * @enum { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -1397,6 +1600,7 @@ declare namespace geoLocationManager {
     export enum CountryCodeType {
         /**
          * Country code obtained from the locale setting.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1404,13 +1608,15 @@ declare namespace geoLocationManager {
 
         /**
          * Country code obtained from the SIM information.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         COUNTRY_CODE_FROM_SIM,
 
         /**
-         * Obtains the current location for geocoded query and obtains the country code from the result.
+         * Query the country code information from the reverse geocoding result.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1418,10 +1624,11 @@ declare namespace geoLocationManager {
 
         /**
          * Obtain the country code from the cell registration information.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
-        COUNTRY_CODE_FROM_NETWORK,
+    	COUNTRY_CODE_FROM_NETWORK
     }
 }
 

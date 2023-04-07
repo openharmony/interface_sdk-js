@@ -114,6 +114,82 @@ declare enum StickyStyle {
 }
 
 /**
+ * Declare edge effect of chain animation.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare enum ChainEdgeEffect {
+  /**
+   * Default edge effect. Compress the space in the drag direction
+   * and stretch the space in the opposite drag direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DEFAULT,
+
+  /**
+   * Stretch all space.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  STRETCH,
+}
+
+/**
+ * Defines the chain animation options.
+ * @interface ChainAnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare interface ChainAnimationOptions {
+  /**
+   * Minimum space for chain animation.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  minSpace: Length;
+
+  /**
+   * Maximum space for chain animation.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxSpace: Length;
+
+  /**
+   * Conductivity of chain animation.
+   * @type { number }
+   * @default 0.7
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  conductivity?: number;
+
+  /**
+   * Intensity of chain animation.
+   * @type { number }
+   * @default 0.3
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  intensity?: number;
+
+  /**
+   * Edge effect of chain animation.
+   * @type { ChainEdgeEffect }
+   * @default ChainEdgeEffect.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  edgeEffect?: ChainEdgeEffect;
+}
+
+/**
  * The list interface is extended.
  * @since 7
  */
@@ -249,6 +325,16 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   chainAnimation(value: boolean): ListAttribute;
 
   /**
+   * Called to setting chain linkage dynamic effect options.
+   * @param { ChainAnimationOptions } value - options of the chain animation.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  chainAnimationOptions(value: ChainAnimationOptions): ListAttribute;
+
+  /**
    * Called when header or footer of item group will be pinned.
    * @form
    * @since 9
@@ -301,6 +387,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when the slider start.
+   * @form
    * @since 9
    */
   onScrollStart(event: () => void): ListAttribute;

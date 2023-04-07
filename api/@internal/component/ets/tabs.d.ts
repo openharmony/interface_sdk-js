@@ -79,6 +79,50 @@ interface TabsInterface {
 }
 
 /**
+ * Provides an interface for the style of an divider including stroke width, color, start margin
+ * and end margin
+ * @interface DividerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface DividerStyle {
+  /**
+   * Define the stroke width of the divider
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  strokeWidth: Length;
+
+  /**
+   * Define the color of the divider
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the start margin of the divider
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  startMargin?: Length;
+
+  /**
+   * Define the end margin of the divider
+   * @type { Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  endMargin?: Length;
+}
+
+/**
  * Defines the tabs attribute functions.
  * @since 7
  */
@@ -132,6 +176,24 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 7
    */
   onChange(event: (index: number) => void): TabsAttribute;
+
+  /**
+   * Set whether the edges of tab bar are fading.
+   * @param { boolean } value - indicates whether the edges of tab bar are fading.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  fadingEdge(value: boolean): TabsAttribute;
+
+  /**
+   * Set the divider between tab bar and tab content.
+   * @param { DividerStyle | null } value - indicates the style of the indicator.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  divider(value: DividerStyle | null): TabsAttribute;
 }
 
 /**

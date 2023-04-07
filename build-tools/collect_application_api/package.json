@@ -1,17 +1,20 @@
 {
-    "name": "test",
-    "version": "1.0.0",
-    "description": "",
-    "scripts": {
-        "test": "",
-        "check": "node ./format.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "exceljs": "^4.3.0",
-        "fs": "^0.0.1-security",
-        "path": "^0.12.7",
-        "typescript": "^4.7.4"
-    }
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "",
+    "pre": "mkdir application sdk && echo 'Please add application and sdk package to ./application and ./sdk'",
+    "collect": "cd src && node collect_application_api.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "exceljs": "^4.3.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "typescript": "file:./deps/ohos-typescript-4.2.3-r2.tgz",
+    "@ohos/hvigor":"1.4.0",
+    "@ohos/hvigor-ohos-plugin":"1.4.0"
+  }
 }

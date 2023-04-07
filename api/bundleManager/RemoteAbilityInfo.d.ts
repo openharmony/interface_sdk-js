@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { ElementName }  from './ElementName';
+import { ElementName } from './ElementName';
 
 /**
  * Contains basic remote ability information.
+ *
  * @typedef RemoteAbilityInfo
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
@@ -25,24 +26,30 @@ import { ElementName }  from './ElementName';
 export interface RemoteAbilityInfo {
   /**
    * Indicates the ability information
-   * @type {ElementName}
+   *
+   * @type { ElementName }
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
    * @since 9
    */
   readonly elementName: ElementName;
 
   /**
    * Indicates the label of the ability
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
    * @since 9
    */
   readonly label: string;
 
   /**
    * Indicates the icon of the ability
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
    * @since 9
    */
   readonly icon: string;

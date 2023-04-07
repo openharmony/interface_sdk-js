@@ -76,3 +76,10 @@ export declare const LITE: string;
  * @since 8
  */
 export declare function canIUse(syscap: string): boolean;
+
+/**
+ * Obtain the objects exposed in app.js
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 10
+ */
+export declare function getApp(): object;

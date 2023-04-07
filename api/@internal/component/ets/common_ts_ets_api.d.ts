@@ -14,7 +14,8 @@
  */
 
 /**
- * Defines the AppStorage interface.
+ * AppStorage singleton is sub-class of see LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
  * @since 7
  */
 declare class AppStorage {
@@ -25,7 +26,15 @@ declare class AppStorage {
   static Link(propName: string): any;
 
   /**
-   * Called when a hyperlink is set.
+   * Like see Link(), but will create and initialize a new source property in AppStorage if missing
+   *
+   * Same as see LocalStorage.setAndLink()
+   *
+   * @param { string } propName name of source property in AppStorage
+   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage
+   *        default value must be of type T, must not be 'undefined' or 'null'.
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *
    * @since 7
    */
   static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
@@ -37,43 +46,107 @@ declare class AppStorage {
   static Prop(propName: string): any;
 
   /**
-   * Called when dynamic properties are set.
+   * Like see prop(), will create and initialize a new source property in AppStorage if missing
+   *
+   * Same as see LocalStorage.setAndProp()
+   *
+   * @param { string } propName name of source property in AppStorage
+   * @param { S } defaultValue value to be used for initializing if new creating new property in AppStorage.
+   *        default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           return undefined if named property does not already exist in AppStorage.
+   *
    * @since 7
    */
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
-   * Called when owning or not.
+   * Checks if AppStorage has a property with given name
+   * returns true if property with given name exists
+   * same as ES6 Map.prototype.has()
+   *
+   * Same as see LocalStorage.has()
+   *
+   * @param { string } propName searched property
+   * @returns { boolean } true if property with such name exists in AppStorage
+   *
    * @since 7
    */
   static Has(propName: string): boolean;
 
   /**
-   * Called when data is obtained.
+   * Same as see LocalStorage.get()
+   *
+   * Obtain the value of property with given name, returns undefined if the property does not exist in AppStorage.
+   *
+   * @param { string } propName
+   * @returns { T | undefined } property value of type T if found or undefined
+   *
    * @since 7
    */
   static Get<T>(propName: string): T | undefined;
 
   /**
-   * Called when setting.
+   * Set value of given property in AppStorage
+   * Method sets nothing and returns false if property with this name does not exist
+   * or if newValue is `undefined` or `null`.
+   *
+   * Same as see LocalStorage.set
+   *
+   * @param { string } propName
+   * @param { T } newValue must be of type T and must not be undefined or null
+   * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
+   *
    * @since 7
    */
   static Set<T>(propName: string, newValue: T): boolean;
 
   /**
-   * Called when setting or creating.
+   * Set value of given property, if it exists, see set() .
+   * Add property if no property with given name in AppStorage,. yet, and initialize with given value.
+   * Do nothing and return false if newValue is undefined or null
+   *
+   * see LocalStorage.setOrCreate()
+   *
+   * @param { string } propName
+   * @param { T } newValue must be of type T and must not be undefined or null
+   *
    * @since 7
    */
   static SetOrCreate<T>(propName: string, newValue: T): void;
 
   /**
-   * Called when a deletion is made.
+   * Delete property with given name from AppStorage
+   * Use with caution:
+   * Before deleting a prop from AppStorage all its subscribers need to
+   * unsubscribe from the property.
+   * This method fails and returns false if given property still has subscribers
+   * Another reason for failing is unknown property name.
+   *
+   * Developer advise:
+   * Subscribers to a property in AppStorage are created with see link(), see prop()
+   * and also via @StorageLink and @StorageProp state variable decorators.
+   * That means as long as their is a @Component instance that uses such decorated variable
+   * or a sync relationship with a SubscribedAbstractProperty variable the property can not
+   * (and also should not!) be deleted from AppStorage.
+   *
+   * Same as see LocalStorage.delete()
+   *
+   * @param { string } propName
+   * @returns { boolean } false if method failed
+   *
    * @since 7
-   */
+  */
   static Delete(propName: string): boolean;
 
   /**
-   * Called when a dictionary is sorted.
+   * Provide names of all properties in AppStorage
+   * same as ES6 Map.prototype.keys()
+   *
+   * Same as see LocalStorage.keys()
+   *
+   * @returns { IterableIterator<string> } return a Map Iterator
+   *
    * @since 7
    */
   static Keys(): IterableIterator<string>;
@@ -89,8 +162,8 @@ declare class AppStorage {
   /**
    * Delete all properties from the AppStorage.
    *
-   * Precondition is that there are no subscribers.
-   * @returns false and deletes no properties if there is any property
+   * Precondition is that there are no subscribers, see Delete().
+   * @returns { boolean } false and deletes no properties if there is any property
    * that still has subscribers.
    *
    * @since 9
@@ -104,7 +177,9 @@ declare class AppStorage {
   static IsMutable(propName: string): boolean;
 
   /**
-   * Called when you check how much data is stored.
+   * Method returns the number of properties currently in AppStorage
+   *
+   * @returns { number } Returns the number of properties currently in AppStorage
    * @since 7
    */
   static Size(): number;
@@ -116,7 +191,17 @@ declare class AppStorage {
  * @systemapi
  */
 /**
- * Defines the subscribed abstract property.
+ *   SubscribedAbstractProperty<T> is the return value of
+ *   - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
+ *   - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
+ *   'T' can be boolean, string, number or custom class.
+ *
+ * Main functions
+ *   see get() reads the linked AppStorage/LocalStorage property value,
+ *   see set(newValue) write a new value to the synched AppStorage/LocalStorage property
+ *   see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
+ *        The app must call this function before the SubscribedAbstractProperty<T> object
+ *        goes out of scope.
  * @since 9
  */
 declare abstract class SubscribedAbstractProperty<T> {
@@ -168,30 +253,32 @@ declare abstract class SubscribedAbstractProperty<T> {
   id(): number;
 
   /**
-   * Called when a subscriber information description is entered.
-   * @since 7
-   * @systemapi
+   * Returns the property name,
+   * e.g. let link = AppStorage.Link("foo") then link.info() == "foo"
+   *
+   * @returns { string } the property name if set or undefined
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
   info(): string;
 
   /**
-   * Called when data is obtained.
-   * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when data is obtained.
+   * Reads value of the sync'ed AppStorage/LocalStorage property.
+   * `let link : SubscribedAbstractProperty<string> =AppStorage.Link<string>("foo")`
+   * then `link.get()` returns the value of "foo" property in AppStorage.
+   * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
+   *
    * @since 9
    */
   abstract get(): T;
 
   /**
-   * Called when data is created.
-   * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when data is created.
+   * Updates the value of value of the sync'ed AppStorage/LocalStorage property.
+   * Sets new value, must be of type T, and must not be 'undefined' or 'null'.
+   * `let link : SubscribedAbstractProperty<string> =AppStorage.Link<string>("foo")`
+   * then `link.set("Hello")` will set the value of "foo" property in AppStorage.
+   *
+   * @param { T } newValue
    * @since 9
    */
   abstract set(newValue: T): void;
@@ -237,6 +324,16 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @systemapi
    */
   numberOfSubscrbers(): number;
+
+  /**
+   * An app needs to call this function before the instance of SubscribedAbstractProperty
+   * goes out of scope / is subject to garbage collection. Its purpose is to unregister the
+   * variable from the two-way/one-way sync relationship that AppStorage/LocalStorage.link()/prop()
+   * and related functions create.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  abstract aboutToBeDeleted(): void;
 }
 
 /**
@@ -525,6 +622,7 @@ declare const appStorage: AppStorage;
  * AppStorage singleton is sub-class of LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
  *
+ * @form
  * @since 9
  */
 declare class LocalStorage {
@@ -534,6 +632,7 @@ declare class LocalStorage {
    * Property values must not be undefined.
    * @param initializingProperties Object containing keys and values. see set() for valid values
    *
+   * @form
    * @since 9
    */
   constructor(initializingProperties?: Object);
@@ -541,6 +640,7 @@ declare class LocalStorage {
   /**
    * Get current LocalStorage shared from stage.
    * @StageModelOnly
+   * @form
    * @since 9
    */
   static GetShared(): LocalStorage;
@@ -552,6 +652,7 @@ declare class LocalStorage {
    * @param propName searched property
    * @returns true if property with such name exists in LocalStorage
    *
+   * @form
    * @since 9
    */
   has(propName: string): boolean;
@@ -561,6 +662,7 @@ declare class LocalStorage {
    * same as ES6 Map.prototype.keys()
    * @returns return a Map Iterator
    *
+   * @form
    * @since 9
    */
   keys(): IterableIterator<string>;
@@ -570,6 +672,7 @@ declare class LocalStorage {
    * same as Map.prototype.size()
    * @returns return number of properties
    *
+   * @form
    * @since 9
    */
   size(): number;
@@ -580,6 +683,7 @@ declare class LocalStorage {
    * @param propName
    * @returns property value if found or undefined
    *
+   * @form
    * @since 9
    */
   get<T>(propName: string): T | undefined;
@@ -592,6 +696,7 @@ declare class LocalStorage {
    * @param newValue must be of type T and must not be undefined or null
    * @returns true on success, i.e. when above conditions are satisfied, otherwise false
    *
+   * @form
    * @since 9
    */
   set<T>(propName: string, newValue: T): boolean;
@@ -605,6 +710,7 @@ declare class LocalStorage {
    * @param newValue must be of type T and must not be undefined or null
    * @returns true on success, i.e. when above conditions are satisfied, otherwise false
    *
+   * @form
    * @since 9
    */
   setOrCreate<T>(propName: string, newValue: T): boolean;
@@ -612,10 +718,11 @@ declare class LocalStorage {
   /**
    * Create and return a two-way sync "(link") to named property
    * @param propName name of source property in LocalStorage
-   * @returns  instance of  SubscribedAbstractProperty<S>
+   * @returns  instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in LocalStorage
-   *           Apps can use SDK functions of base class SubscribedPropertyAbstract<S>
+   *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
    *
+   * @form
    * @since 9
    */
   link<T>(propName: string): SubscribedAbstractProperty<T>;
@@ -624,33 +731,36 @@ declare class LocalStorage {
    * Like see link(), but will create and initialize a new source property in LocalStorage if missing
    * @param propName name of source property in LocalStorage
    * @param defaultValue value to be used for initializing if new creating new property in LocalStorage
-   *        default value must be of type S, must not be undefined or null.
-   * @returns  instance of  SubscribedAbstractProperty<S>
-   *          Apps can use SDK functions of base class SubscribedAbstractProperty<S>
+   *        default value must be of type T, must not be undefined or null.
+   * @returns  instance of  SubscribedAbstractProperty<T>
+   *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    *
+   * @form
    * @since 9
    */
   setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
    * Create and return a one-way sync ('prop') to named property
-   * @param propName name of source property in LocalStorage
-     * @returns  instance of  SubscribedAbstractProperty<S>
+   * @param { string } propName name of source property in LocalStorage
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
+   * @form
    * @since 9
    */
   prop<S>(propName: string): SubscribedAbstractProperty<S>;
 
   /**
    * Like see prop(), will create and initialize a new source property in LocalStorage if missing
-   * @param propName name of source property in LocalStorage
-   * @param defaultValue value to be used for initializing if new creating new property in LocalStorage.
-   *        default value must be of type S, must not be undefined or null.
-   * @returns  instance of  SubscribedAbstractProperty<S>
+   * @param { string } propName name of source property in LocalStorage
+   * @param { S } defaultValue value to be used for initializing if new creating new property in LocalStorage. 
+   *         Default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
+   * @form
    * @since 9
    */
   setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
@@ -673,6 +783,7 @@ declare class LocalStorage {
    * @param propName
    * @returns false if method failed
    *
+   * @form
    * @since 9
   */
   delete(propName: string): boolean;
@@ -683,6 +794,7 @@ declare class LocalStorage {
    * method returns false and deletes no properties if there is any property
    * that still has subscribers
    *
+   * @form
    * @since 9
    */
   clear(): boolean;

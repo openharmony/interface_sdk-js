@@ -13,33 +13,35 @@
  * limitations under the License.
  */
 
- /**
- * @name Indicates the custom metadata
- * @since 7
+/**
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.Metadata
- *
+ * @name Indicates the custom metadata
  */
-  export interface CustomizeData {
-    /**
-      * @default Indicates the custom metadata name
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    name: string;
+export interface CustomizeData {
+  /**
+   * @default Indicates the custom metadata name
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  name: string;
 
-    /**
-      * @default Indicates the custom metadata value
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    value: string;
+  /**
+   * @default Indicates the custom metadata value
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  value: string;
 
-    /**
-    * @default Indicates the custom metadata resource
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-    extra: string;
-  }
+  /**
+   * @default Indicates the custom metadata resource
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
+  extra: string;
+}

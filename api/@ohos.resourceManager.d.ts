@@ -16,6 +16,7 @@
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
 import { AsyncCallback as _AsyncCallback } from './basic';
+import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 
 /**
  * Provides resource related APIs.
@@ -611,7 +612,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-     getStringByName(resName: string): Promise<string>;
+    getStringByName(resName: string): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource name in callback mode.
@@ -731,7 +732,20 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringSync(resId: number): string;
+    /**
+     * Obtains string resources associated with a specified resource ID.
+     *
+     * @param resId Indicates the resource ID.
+     * @param args Indicates the formatting string resource parameters.
+     * @returns Returns the character string corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @since 10
+     */
+    getStringSync(resId: number, ...args): string;
 
     /**
      * Obtains string resources associated with a specified resource object.
@@ -744,7 +758,20 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringSync(resource: Resource): string;
+    /**
+     * Obtains string resources associated with a specified resource object.
+     *
+     * @param resource Indicates the resource object.
+     * @param args Indicates the formatting string resource parameters.
+     * @returns Returns the character string corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @since 10
+     */
+    getStringSync(resource: Resource, ...args): string;
 
     /**
      * Obtains string resources associated with a specified resource name.
@@ -757,7 +784,20 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringByNameSync(resName: string): string;
+    /**
+     * Obtains string resources associated with a specified resource name.
+     *
+     * @param resName Indicates the resource name.
+     * @param args Indicates the formatting string resource parameters.
+     * @returns Returns the character string corresponding to the resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001008 - If the resource obtained by resName formatting error.
+     * @since 10
+     */
+    getStringByNameSync(resName: string, ...args): string;
 
     /**
      * Obtains the boolean result with a specified resource ID.
@@ -1041,6 +1081,48 @@ export interface ResourceManager {
      * @since 9
      */
     closeRawFd(path: string): Promise<void>;
+
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
+     *
+     * @param resId Indicates the resource ID.
+     * @param density The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                to use the density of current system dpi.
+     * @returns Returns the DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @since 10
+     */
+    getDrawableDescriptor(resId: number, density?: number): DrawableDescriptor;
+
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
+     *
+     * @param resName Indicates the resource name.
+     * @param density The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @returns Returns the DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @since 10
+     */
+    getDrawableDescriptorByName(resName: string, density?: number): DrawableDescriptor;
+
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
+     *
+     * @param resource Indicates the resource object.
+     * @param density The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @returns Returns the DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @since 10
+     */
+    getDrawableDescriptor(resource: Resource, density?: number): DrawableDescriptor;
 }
 
     /**

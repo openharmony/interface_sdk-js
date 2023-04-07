@@ -14,13 +14,16 @@
  */
 
 /**
+ * @interface UploadResponse
  * @syscap SystemCapability.MiscServices.Upload
- * @deprecated since 9,
+ * @since 3
+ * @deprecated since 9
  * @useinstead ohos.request
  */
 export interface UploadResponse {
   /**
    * Status code returned by the server.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -30,6 +33,7 @@ export interface UploadResponse {
   /**
    * Content returned by the server.
    * The value type is determined by the returned content.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -38,6 +42,7 @@ export interface UploadResponse {
 
   /**
    * Headers returned by the server.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -46,12 +51,15 @@ export interface UploadResponse {
 }
 
 /**
+ * @interface DownloadResponse
  * @syscap SystemCapability.MiscServices.Download
+ * @since 3
  * @deprecated since 9
  */
 export interface DownloadResponse {
   /**
    * Download token, which is used to obtain the download status.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -60,12 +68,15 @@ export interface DownloadResponse {
 }
 
 /**
+ * @interface OnDownloadCompleteResponse
  * @syscap SystemCapability.MiscServices.Download
+ * @since 3
  * @deprecated since 9
  */
 export interface OnDownloadCompleteResponse {
   /**
    * URI of the download file.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -74,12 +85,15 @@ export interface OnDownloadCompleteResponse {
 }
 
 /**
+ * @interface RequestFile
  * @syscap SystemCapability.MiscServices.Upload
+ * @since 3
  * @deprecated since 9
  */
 export interface RequestFile {
   /**
    * File name in the header when multipart is used.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -88,6 +102,7 @@ export interface RequestFile {
 
   /**
    * Name of a form item when multipart is used. The default value is file.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -96,6 +111,7 @@ export interface RequestFile {
 
   /**
    * Local storage directory of a file.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -105,6 +121,7 @@ export interface RequestFile {
   /**
    * Type of the file content.
    * By default, the type is obtained based on the suffix of the file name or URI.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -113,12 +130,15 @@ export interface RequestFile {
 }
 
 /**
+ * @interface RequestData
  * @syscap SystemCapability.MiscServices.Upload
+ * @since 3
  * @deprecated since 9
  */
 export interface RequestData {
   /**
    * Name of the form element.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -127,6 +147,7 @@ export interface RequestData {
 
   /**
    * Value of the form element.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -135,12 +156,15 @@ export interface RequestData {
 }
 
 /**
+ * @interface UploadRequestOptions
  * @syscap SystemCapability.MiscServices.Upload
+ * @since 3
  * @deprecated since 9
  */
 export interface UploadRequestOptions {
   /**
    * Resource URL.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -149,6 +173,7 @@ export interface UploadRequestOptions {
 
   /**
    * Form data in the request body.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -157,6 +182,7 @@ export interface UploadRequestOptions {
 
   /**
    * List of files to upload, which is submitted through multipart/form-data.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -165,6 +191,7 @@ export interface UploadRequestOptions {
 
   /**
    * Request header.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -173,6 +200,7 @@ export interface UploadRequestOptions {
 
   /**
    * Request methods available: POST and PUT. The default value is POST.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -181,6 +209,7 @@ export interface UploadRequestOptions {
 
   /**
    * Called when the files are uploaded successfully.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -189,6 +218,7 @@ export interface UploadRequestOptions {
 
   /**
    * Called when uploading fails.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -197,6 +227,7 @@ export interface UploadRequestOptions {
 
   /**
    * Called when the execution is completed.
+   *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -205,12 +236,15 @@ export interface UploadRequestOptions {
 }
 
 /**
+ * @interface DownloadRequestOptions
  * @syscap SystemCapability.MiscServices.Download
+ * @since 3
  * @deprecated since 9
  */
 export interface DownloadRequestOptions {
   /**
    * Resource URL.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -220,6 +254,7 @@ export interface DownloadRequestOptions {
   /**
    * Name of the file to downloaded.
    * The value is obtained from the current request or resource URL by default.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -228,6 +263,7 @@ export interface DownloadRequestOptions {
 
   /**
    * Request header.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -237,6 +273,7 @@ export interface DownloadRequestOptions {
   /**
    * Download description.
    * The default value is the file name.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -245,6 +282,7 @@ export interface DownloadRequestOptions {
 
   /**
    * Called when the files are successfully downloaded.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -253,6 +291,7 @@ export interface DownloadRequestOptions {
 
   /**
    * Called when downloading fails.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -261,6 +300,7 @@ export interface DownloadRequestOptions {
 
   /**
    * Called when the execution is completed.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -269,12 +309,15 @@ export interface DownloadRequestOptions {
 }
 
 /**
+ * @interface OnDownloadCompleteOptions
  * @syscap SystemCapability.MiscServices.Download
+ * @since 3
  * @deprecated since 9
  */
 export interface OnDownloadCompleteOptions {
   /**
    * Token of the result returned by the download function.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -283,6 +326,7 @@ export interface OnDownloadCompleteOptions {
 
   /**
    * Called when the downloads are successfully obtained
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -291,6 +335,7 @@ export interface OnDownloadCompleteOptions {
 
   /**
    * Called when the downloads fail to be obtained.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -299,6 +344,7 @@ export interface OnDownloadCompleteOptions {
 
   /**
    * Called when the execution is completed.
+   *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -307,12 +353,14 @@ export interface OnDownloadCompleteOptions {
 }
 
 /**
+ * @since 3
  * @deprecated since 9
  */
 export default class Request {
   /**
    * Upload files.
-   * @param options Options.
+   *
+   * @param { UploadRequestOptions } options Options.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
@@ -321,7 +369,8 @@ export default class Request {
 
   /**
    * This API is used to download files.
-   * @param options Options.
+   *
+   * @param { DownloadRequestOptions } options Options.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
@@ -330,7 +379,8 @@ export default class Request {
 
   /**
    * Listens to download task status.
-   * @param options Options.
+   *
+   * @param { OnDownloadCompleteOptions } options Options.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9

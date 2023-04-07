@@ -59,6 +59,11 @@ declare namespace AbilityConstant {
         CALL = 2,
         CONTINUATION = 3,
         APP_RECOVERY = 4,
+
+        /**
+         * @since 10
+         */
+        SHARE = 5,
     }
 
     /**

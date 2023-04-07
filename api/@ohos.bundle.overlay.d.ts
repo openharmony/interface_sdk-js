@@ -14,10 +14,11 @@
  */
 
 import { AsyncCallback } from './basic';
-import * as _OverlayModuleInfo from './bundleManager/overlayModuleInfo';
+import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
 
 /**
  * Used for application interception overlay
+ *
  * @namespace overlay
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
  * @since 10
@@ -25,136 +26,257 @@ import * as _OverlayModuleInfo from './bundleManager/overlayModuleInfo';
 declare namespace overlay {
   /**
    * Set enabled state of overlay module based on specified moduleName.
+   *
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
+   * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700033 - The specified moduleName is not overlay module.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10
    */
-   function setOverlayEnabled(moduleName:string, isEnabled: boolean, callback: AsyncCallback<void>): void;
-   function setOverlayEnabled(moduleName:string, isEnabled: boolean): Promise<void>;
+  function setOverlayEnabled(moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set enabled state of overlay module based on specified moduleName.
+   *
+   * @param { string } moduleName - Indicates the module name of the overlay module to be set.
+   * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @since 10
+   */
+  function setOverlayEnabled(moduleName: string, isEnabled: boolean): Promise<void>;
 
   /**
    * Set enabled state of overlay module based on specified bundleName and moduleName.
+   *
    * @permission ohos.permission.CHANGE_OVERLAY_ENABLED_STATE
    * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be set.
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
+   * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700032 - The specified bundleName does not contain any overlay module.
-   * @throws { BusinessError } 17700033 - The specified moduleName is not overlay module.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10
    */
-   function setOverlayEnabledByBundleName(bundleName:string, moduleName:string, isEnabled: boolean, callback: AsyncCallback<void>): void;
-   function setOverlayEnabledByBundleName(bundleName:string, moduleName:string, isEnabled: boolean): Promise<void>;
+   function setOverlayEnabledByBundleName(bundleName:string,
+      moduleName:string, isEnabled: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set enabled state of overlay module based on specified bundleName and moduleName.
+   *
+   * @permission ohos.permission.CHANGE_OVERLAY_ENABLED_STATE
+   * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be set.
+   * @param { string } moduleName - Indicates the module name of the overlay module to be set.
+   * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @systemapi
+   * @since 10
+   */
+  function setOverlayEnabledByBundleName(bundleName: string, moduleName: string, isEnabled: boolean): Promise<void>;
 
   /**
    * Obtain the OverlayModuleInfo of current application based on moduleName.
+   *
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @param { AsyncCallback<OverlayModuleInfo> } callback - The callback of getting OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700033 - The specified moduleName is not overlay module.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10
    */
-   function getOverlayModuleInfo(moduleName: string, callback: AsyncCallback<OverlayModuleInfo>): void;
-   function getOverlayModuleInfo(moduleName: string): Promise<OverlayModuleInfo>;
+  function getOverlayModuleInfo(moduleName: string, callback: AsyncCallback<OverlayModuleInfo>): void;
 
   /**
    * Obtain the OverlayModuleInfo of current application based on moduleName.
-   * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
+   *
+   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @returns { Promise<OverlayModuleInfo> }
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700034 - The specified moduleName is overlay module.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10
    */
-   function getTargetOverlayModuleInfos(targetModuleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
-   function getTargetOverlayModuleInfos(targetModuleName: string): Promise<Array<OverlayModuleInfo>>;
+  function getOverlayModuleInfo(moduleName: string): Promise<OverlayModuleInfo>;
+
+  /**
+   * Obtain the OverlayModuleInfo of current application based on moduleName.
+   *
+   * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700034 - The specified module is an overlay module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @since 10
+   */
+   function getTargetOverlayModuleInfos(targetModuleName: string,
+      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+
+  /**
+   * Obtain the OverlayModuleInfo of current application based on moduleName.
+   *
+   * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
+   * @returns { Promise<Array<OverlayModuleInfo>> }
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700034 - The specified module is an overlay module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @since 10
+   */
+  function getTargetOverlayModuleInfos(targetModuleName: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
    * Obtain the OverlayModuleInfo of the specified application based on bundleName.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700032 - The specified bundleName does not contain any overlay module.
-   * @throws { BusinessError } 17700033 - The specified moduleName is not overlay module.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10
    */
-   function getOverlayModuleInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
-   function getOverlayModuleInfoByBundleName(bundleName: string, moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+   function getOverlayModuleInfoByBundleName(bundleName: string,
+      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+
+  /**
+   * Obtain the OverlayModuleInfo of the specified application based on bundleName.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
+   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @systemapi
+   * @since 10
+   */
+   function getOverlayModuleInfoByBundleName(bundleName: string,
+      moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
    * Obtain the OverlayModuleInfo of the specified application based on bundleName and moduleName.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700032 - The specified bundleName does not contain any overlay module.
-   * @throws { BusinessError } 17700033 - The specified moduleName is not overlay module.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10
    */
-   function getOverlayModuleInfoByBundleName(bundleName: string, moduleName?: string): Promise<Array<OverlayModuleInfo>>;
+  function getOverlayModuleInfoByBundleName(bundleName: string,
+      moduleName?: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
    * Obtain the OverlayModuleInfo of the specified target application based on bundleName.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700034 - The specified moduleName is overlay module.
-   * @throws { BusinessError } 17700035 - The specified bundleName is overlay bundle.
+   * @throws { BusinessError } 17700035 - The specified bundle is an overlay bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10
    */
-   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
-   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string, moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
+      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+
+  /**
+   * Obtain the OverlayModuleInfo of the specified target application based on bundleName.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
+   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700034 - The specified module is an overlay module.
+   * @throws { BusinessError } 17700035 - The specified bundle is an overlay bundle.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @systemapi
+   * @since 10
+   */
+   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
+      moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
    * Obtain the OverlayModuleInfo of the specified target application based on bundleName and moduleName.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
+   * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700034 - The specified moduleName is overlay module.
-   * @throws { BusinessError } 17700035 - The specified bundleName is overlay bundle.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700034 - The specified module is an overlay module.
+   * @throws { BusinessError } 17700035 - The specified bundle is an overlay bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10
    */
-   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string, moduleName?: string): Promise<Array<OverlayModuleInfo>>;
+   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
+      moduleName?: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
    * Obtains configuration information about a overlay hap module.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10
    */
-   export type OverlayModuleInfo = _OverlayModuleInfo.OverlayModuleInfo;
+  export type OverlayModuleInfo = _OverlayModuleInfo.OverlayModuleInfo;
 }
 
 export default overlay;

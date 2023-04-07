@@ -15,7 +15,7 @@
 
 import {AsyncCallback, Callback} from "./basic";
 import connection from "./@ohos.net.connection";
-import Context from "./application/BaseContext";
+import Context from "./application/Context";
 
 /**
  * Provides interfaces to discover DNS based services on a local network over Multicast DNS.
@@ -141,14 +141,14 @@ declare namespace mdns {
      * @since 10
      */
     on(type: 'discoveryStart',
-       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MDNS_ERR}>): void;
+       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MdnsError}>): void;
 
     /**
      * Enables listening for discoveryStop events of mDNS services.
      * @since 10
      */
     on(type: 'discoveryStop',
-       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MDNS_ERR}>): void;
+       callback: Callback<{serviceInfo: LocalServiceInfo, errorCode?: MdnsError}>): void;
 
     /**
      * Enables listening for serviceFound events of mDNS services.
@@ -216,7 +216,7 @@ declare namespace mdns {
     value: Array<number>;
   }
 
-  export enum MDNS_ERR {
+  export enum MdnsError {
     /**
      * Indicates that the operation failed due to internal error.
      * @since 10

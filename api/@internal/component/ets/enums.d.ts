@@ -153,6 +153,20 @@ declare enum Color {
 }
 
 /**
+ * Common enum of color strategy
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ColoringStrategy {
+  /**
+   * Use the inverse color strategy
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  INVERT = "invert",
+}
+
+/**
  * Image display mode
  * @since 7
  */
@@ -2248,6 +2262,13 @@ declare enum TextAlign {
    * @since 9
    */
   End,
+
+  /**
+   * Justify the text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  Justify,
 }
 
 /**
@@ -2261,37 +2282,44 @@ declare enum TextAlign {
  */
 declare enum TextOverflow {
   /**
-   * When the text is too long, it will be cropped and displayed.
+   * When the text overflows its dimensions, the text will not be cropped.
    * @since 7
    */
   /**
-   * When the text is too long, it will be cropped and displayed.
+   * When the text overflows its dimensions, the text will not be cropped.
+   * @form
+   * @since 9
+   */
+  None,
+
+  /**
+   * When the text overflows its dimensions, the text will be cropped and displayed.
+   * @since 7
+   */
+  /**
+   * When the text overflows its dimensions, the text will be cropped and displayed.
    * @form
    * @since 9
    */
   Clip,
 
   /**
-   * If the text is too long, the text that cannot be displayed shall be replaced by ellipsis.
+   * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
    * @since 7
    */
   /**
-   * If the text is too long, the text that cannot be displayed shall be replaced by ellipsis.
+   * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
    * @form
    * @since 9
    */
   Ellipsis,
 
   /**
-   * Text is not cropped when it is too long.
-   * @since 7
+   * When the text overflows its dimensions, the text will scroll for displaying.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  /**
-   * Text is not cropped when it is too long.
-   * @form
-   * @since 9
-   */
-  None,
+  Marquee,
 }
 
 /**
@@ -2391,6 +2419,39 @@ declare enum TextCase {
    * @since 9
    */
   UpperCase,
+}
+
+/**
+ * Enum of text height adaptation
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TextHeightAdaptivePolicy {
+  /**
+   * Priority is given to using the maxLines attribute to adapt the text height.
+   * If the layout size using the maxLines attribute exceeds the layout constraint, try reducing the font size to 
+   * display more text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MAX_LINES_FIRST,
+  /**
+   * Priority is given to using the minFontSize attribute to adapt the text height.
+   * If the text can be layout in a single line using the minFontSize property, try increasing the font size and using
+   * the maximum possible font size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MIN_FONT_SIZE_FIRST,
+  /**
+   * Priority is given to using the layout constraint to adapt the text height.
+   * If the layout size exceeds the layout constraint, try reducing the font size. If the layout size still exceeds
+   * the layout constraint after reducing the font size to minFontSize, remove the lines that exceed the layout
+   * constraint.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  LAYOUT_CONSTRAINT_FIRST,
 }
 
 /**
@@ -2695,4 +2756,28 @@ declare enum TitleHeight {
    * @since 9
    */
   MainWithSub,
+}
+
+/**
+ * Command key for hot key.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum CtrlKey {
+  /**
+   * ctrl.
+   * @since 10
+   */
+  CTRL = 0,
+
+  /**
+   * shift.
+   * @since 10
+   */
+  SHIFT = 1,
+  /**
+   * alt.
+   * @since 10
+   */
+  ALT = 2,
 }

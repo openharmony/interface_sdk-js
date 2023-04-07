@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const path = require("path")
-const result = require("../check_result.json");
-const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require("../src/utils");
+const path = require('path');
+const result = require('../check_result.json');
+const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require('../src/utils');
 
 /**
  * 
@@ -35,7 +35,8 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     result.apiFiles.push(fileName);
   }
   const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-  const errorMessage = `API check error of [${errorType}] in ${fileName}(line:${posOfNode.line + 1}, col:` +
+  const baseFileName = fileName.substring(fileName.indexOf('api'), fileName.length);
+  const errorMessage = `API check error of [${errorType}] in ${baseFileName}(line:${posOfNode.line + 1}, col:` +
     `${posOfNode.character + 1}): ${errorInfo}`;
   const scanResultSet = new Set(result.scanResult);
   scanResultSet.add(errorMessage);
@@ -43,12 +44,14 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
 
   apiCheckArr.push({
     errorType: errorType,
-    fileName: `${fileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
+    fileName: `${baseFileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
     type: type,
     errorInfo: errorInfo,
     version: getApiInfo(node).version,
-    basename: path.basename(fileName).replace(/\.d\.ts/g, ""),
-    level: level
-  })
+    basename: path.basename(fileName).replace(/\.d\.ts/g, ''),
+    level: level,
+    apiName: node.symbol ? node.symbol.escapedName : '',
+    apiFullText: node.getFullText()
+  });
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;

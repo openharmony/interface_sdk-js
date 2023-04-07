@@ -16,7 +16,8 @@
 import { AsyncCallback, Callback } from "./basic";
 import Want from './@ohos.app.ability.Want';
 import Context from './application/Context';
-import { Filter } from './@ohos.fileio';
+import { Filter } from './@ohos.file.fs';
+import image from './@ohos.multimedia.image';
 
 /**
  * This module provides the capability to access user public files.
@@ -555,6 +556,79 @@ declare namespace fileAccess {
     }
 
     /**
+     * Describes the key that can be queried.
+     * @since 10
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
+     * @systemapi
+     */
+    enum FileKey {
+        /**
+         * The key represents the file name, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DISPLAY_NAME = "display_name",
+
+        /**
+         * The key represents the date of the file creation, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DATE_ADDED = "date_added",
+
+        /**
+         * The key represents the modify date of the file, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DATE_MODIFIED = "date_modified",
+
+        /**
+         * The key represents the relative path, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        RELATIVE_PATH = "relative_path",
+
+        /**
+         * The key represents the file size, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        FILE_SIZE = "size",
+
+        /**
+         * The key represents width of the image file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        WIDTH = "width",
+
+        /**
+         * The key represents height of the image file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        HEIGHT = "height",
+
+        /**
+         * The key represents duration of the audio and video file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DURATION = "duration",
+    }
+
+    /**
      * FileAccessHelper Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -904,6 +978,34 @@ declare namespace fileAccess {
         access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
 
         /**
+         * Query file related information by the uri in the promise way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected file or directory.
+         * @param {string} metaJson The json string includes query property.
+         * @returns {Promise<string>} Returns the json string, includes query property and value.
+         */
+        query(uri: string, metaJson: string) : Promise<string>;
+
+        /**
+         * Query file related information by the uri in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected file or directory.
+         * @param {string} metaJson The json string includes query property.
+         * @param {AsyncCallback<string>} callback - Returns the json string, includes query property and value.
+         */
+        query(uri: string, metaJson: string, callback: AsyncCallback<string>) : void;
+
+        /**
          * Get a FileInfo by the uri in the promise way.
          *
          * @since 10
@@ -954,6 +1056,34 @@ declare namespace fileAccess {
          * @param {AsyncCallback<FileInfo>} callback - The callback is used to return a fileinfo object.
          */
         getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>) : void;
+
+        /**
+         * Get a PixelMap object by the uri in the promise way.
+         *
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected media file.
+         * @param {image.Size} size - Indicates Thumbnail's size.
+         * @returns {Promise<image.PixelMap>} Returns the PixelMap object.
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        getThumbnail(uri: string, size: image.Size) : Promise<image.PixelMap>;
+
+        /**
+         * Get a PixelMap object by the uri in the asyncCallback way.
+         *
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected media file.
+         * @param {image.Size} size - Indicates Thumbnail's size.
+         * @returns {AsyncCallback<image.PixelMap>} callback - Returns the PixelMap object.
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        getThumbnail(uri: string, size: image.Size, callback: AsyncCallback<image.PixelMap>) : void;
 
         /**
          * Get a RootIterator.

@@ -1,17 +1,17 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import {ErrorCallback, AsyncCallback, Callback} from './basic';
 
@@ -2416,6 +2416,12 @@ declare namespace audio {
      * @systemapi
      */
     readonly volumeGroupId: number;
+    /**
+     * Name used to display, considering distributed device situation.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly displayName: string;
   }
 
   /**
@@ -3149,6 +3155,17 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+
+    /**
+     * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+     * triggered when audio recording is interrupted.
+     * @param callback Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     */
+    on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
   }
 
   /**

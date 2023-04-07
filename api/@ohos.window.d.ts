@@ -857,6 +857,30 @@ declare namespace window {
   function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
+   * Sets whether to enable gesture navigation.
+   * @param { enable } enable gesture navigation if true, or disable if false.
+   * @param { AsyncCallback<void> } callback - The callback of setGestureNavigationEnabled.
+   * @throws { BusinessError } 401 - If param is invalid.
+   * @throws { BusinessError } 1300002 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300003 - This window state is abnormal.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets whether to enable gesture navigation.
+   * @param { enable } enable gesture navigation if true, or disable if false.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 401 - If param is invalid.
+   * @throws { BusinessError } 1300002 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300003 - This window state is abnormal.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setGestureNavigationEnabled(enable: boolean): Promise<void>;
+
+  /**
    * Register the callback of systemBarTintChange
    * @param type: 'systemBarTintChange'
    * @systemapi Hide this for inner system use.
@@ -874,6 +898,33 @@ declare namespace window {
    */
   function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
 
+  /**
+   * Register the callback for gesture navigation enabled changes.
+   * 
+   * @param { 'gestureNavigationEnabledChange' } type the event of gesture navigation enabled changes.
+   * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
+   * @throws { BusinessError } 401 - If param is invalid.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for gesture navigation enabled changes.
+   * 
+   * @param { 'gestureNavigationEnabledChange' } type the event of gesture navigation enabled changes.
+   * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
+   * @throws { BusinessError } 401 - If param is invalid.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
   /**
    * Display orientation
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2383,6 +2434,30 @@ declare namespace window {
      * @since 10
      */
     resetAspectRatio(): Promise<void>;
+
+    /**
+     * Set the watermark flag on the window.
+     * @param { enable } add water mark flag to window if true, or remove flag if false.
+     * @param { AsyncCallback<void> } callback - The callback of setWaterMarkFlag.
+     * @throws { BusinessError } 1300002 - If window state is abnormally.
+     * @throws { BusinessError } 1300003 - If system state is abnormally.
+     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setWaterMarkFlag(enable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the watermark flag on the window.
+     * @param { enable } add water mark flag to window if true, or remove flag if false.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 1300002 - If window state is abnormally.
+     * @throws { BusinessError } 1300003 - If system state is abnormally.
+     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setWaterMarkFlag(enable: boolean): Promise<void>;
   }
   /**
    * Window stage callback event type

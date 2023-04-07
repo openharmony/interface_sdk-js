@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-/// <reference path="../component/ets/units.d.ts"/>
+/// <reference path="../component/units.d.ts" />
 
 import { Resource } from 'GlobalResource';
 
@@ -27,9 +27,16 @@ export interface MeasureOptions {
     /**
      * Text to display.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @type { ( string ) }
      * @since 9
      */
-    textContent: string;
+    /**
+     * Text to display.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @type { ( string | Resource ) }
+     * @since 10
+     */
+    textContent: string | Resource;
 
     /**
      * Text display area of width.
@@ -128,7 +135,7 @@ export default class MeasureText {
      * @param options Options.
      * @since 9
      */
-    static measureText(options: MeasureOptions): double;
+    static measureText(options: MeasureOptions): number;
 
     /**
      * Displays the text width and height.

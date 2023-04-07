@@ -13,27 +13,20 @@
  * limitations under the License.
  */
 
-const rules = require("../code_style_rule.json");
+const rules = require('../code_style_rule.json');
 const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkSyscap(node, sourcefile, fileName) {
-  const syscapTags = rules.syscap.SystemCapability;
-  const syscapRuleSet = new Set();
-  for (const i in syscapTags) {
-    syscapTags[i].forEach(syscap => {
-      const syscapTag = 'SystemCapability.' + i + '.' + syscap;
-      syscapRuleSet.add(syscapTag);
-    });
-  }
+  const syscapRuleSet = new Set(rules.syscap.SystemCapability);
   const apiNote = getAPINote(node);
   const apiNoteArr = apiNote.split('*');
-  let errorInfo = "";
+  let errorInfo = '';
   apiNoteArr.forEach(note => {
     if (note.match(new RegExp('@syscap'))) {
       const syscapNote = note.replace('@syscap', '').trim();
       if (!syscapRuleSet.has(syscapNote)) {
-        if (errorInfo !== "") {
+        if (errorInfo !== '') {
           errorInfo += `,${syscapNote}`;
         } else {
           errorInfo += syscapNote;

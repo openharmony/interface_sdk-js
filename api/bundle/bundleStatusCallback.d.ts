@@ -17,42 +17,42 @@
  * Contains basic Ability information, which uniquely identifies an launcher StatusCallback.
  * You can use this class to obtain values of the fields set in an callback function,
  * such as the add, update, remove.
- * @name Contains basic launcher status callback information, which uniquely identifies an LauncherStatusCallback
- * @since 8
- * @syscap SystemCapability.BundleManager.BundleFramework
  *
  * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
+ * @since 8
  * @deprecated since 9
+ * @name Contains basic launcher status callback information, which uniquely identifies an LauncherStatusCallback
  */
 export interface BundleStatusCallback {
   /**
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    * @name Obtains add callback about an launcherStatusCallback.
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   *
-   * @systemapi Hide this for inner system use
    */
-  add: (bundleName : string, userId: number) => void;
+  add: (bundleName: string, userId: number) => void;
 
   /**
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    * @name Obtains update callback about an launcherStatusCallback.
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   *
-   * @systemapi Hide this for inner system use
    */
-  update: (bundleName : string, userId: number) => void;
+  update: (bundleName: string, userId: number) => void;
 
   /**
-   * @name Obtains remove callback about an launcherStatusCallback.
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
+   * @name Obtains remove callback about an launcherStatusCallback.
    */
-  remove: (bundleName : string, userId: number) => void;
+  remove: (bundleName: string, userId: number) => void;
 }

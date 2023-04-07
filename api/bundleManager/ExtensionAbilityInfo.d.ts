@@ -19,6 +19,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Extension information about a bundle
+ *
  * @typedef ExtensionAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
@@ -26,7 +27,8 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 export interface ExtensionAbilityInfo {
   /**
    * Indicates the name of the bundle
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -34,7 +36,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the name of the module
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -42,7 +45,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the name of the extension ability info
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -50,7 +54,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the label id of the extension ability info
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -58,7 +63,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the description id of the extension ability info
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -66,7 +72,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the icon id of the extension ability info
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -74,7 +81,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates whether this ability can be called by other abilities
-   * @type {boolean}
+   *
+   * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -82,7 +90,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Enumerates types of the extension ability info
-   * @type {bundleManager.ExtensionAbilityType}
+   *
+   * @type { bundleManager.ExtensionAbilityType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -90,7 +99,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * The permissions that others need to use this extension ability info
-   * @type {Array<string>}
+   *
+   * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -98,7 +108,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Obtains configuration information about an application
-   * @type {ApplicationInfo}
+   *
+   * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -106,7 +117,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the metadata of bundle
-   * @type {Array<Metadata>}
+   *
+   * @type { Array<Metadata> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -114,7 +126,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the src language to express extension ability info
-   * @type {boolean}
+   *
+   * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -122,7 +135,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the read permission extension ability info
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -130,7 +144,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Indicates the write permission of extension ability info
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
