@@ -96,7 +96,10 @@ declare namespace commonEventManager {
    * Subscribe an ordered, sticky, or standard common event.
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -106,7 +109,10 @@ declare namespace commonEventManager {
    * Unsubscribe from an ordered, sticky, or standard common event.
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
