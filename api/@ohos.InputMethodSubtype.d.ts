@@ -98,5 +98,5 @@ export default interface InputMethodSubtype {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
-  extra?: object;
+  extra: object;
 }

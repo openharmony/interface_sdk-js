@@ -593,7 +593,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    extra?: object;
+    extra: object;
   }
 }
 
