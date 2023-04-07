@@ -226,6 +226,27 @@ declare namespace pointer {
   }
 
   /**
+   * Mouse button.
+   * @enum { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  enum PrimaryButton {
+    /**
+     * Left mouse button
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    LEFT = 0,
+    /**
+     * Right mouse button
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    RIGHT = 1
+  }
+
+  /**
    * Sets the pointer moving speed.
    * 
    * @since 9
@@ -357,6 +378,94 @@ declare namespace pointer {
    * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
    */
   function isPointerVisible(): Promise<boolean>;
+
+  /**
+   * Sets mouse primary button.
+   * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary button is
+   * left button, and the value RIGHT indicates that mouse primary button is right button.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setMousePrimaryButton(primary: PrimaryButton, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets mouse primary button.
+   * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary button is
+   * left button, and the value RIGHT indicates that mouse primary button is right button.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setMousePrimaryButton(primary: PrimaryButton): Promise<void>;
+
+  /**
+   * Gets mouse primary button.
+   * @param { AsyncCallback<PrimaryButton> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getMousePrimaryButton(callback: AsyncCallback<PrimaryButton>): void;
+
+  /**
+   * Gets mouse primary button.
+   * @returns { Promise<PrimaryButton> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getMousePrimaryButton(): Promise<PrimaryButton>;
+
+  /**
+   * Sets whether the mouse hover scroll is enabled in inactive window.
+   * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
+   * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setHoverScrollState(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets whether mouse hover scroll is enabled in inactive window.
+   * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
+   * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setHoverScrollState(state: boolean): Promise<void>;
+
+  /**
+   * Gets a status whether the mouse hover scroll is enabled in inactive window.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getHoverScrollState(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Gets a status whether mouse hover scroll is enabled in inactive window.
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getHoverScrollState(): Promise<boolean>;
 }
 
 export default pointer;
