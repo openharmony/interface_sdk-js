@@ -32,6 +32,17 @@ export interface OnReleaseCallback {
 }
 
 /**
+ * The prototype of the listener function interface registered by the Caller.
+ * @typedef OnRemoteStateChangeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @since 10
+ */
+export interface OnRemoteStateChangeCallback {
+    (msg: string): void;
+}
+
+/**
  * The prototype of the message listener function interface registered by the Callee.
  * @typedef CalleeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -91,6 +102,16 @@ export interface Caller {
      * @since 9
      */
     onRelease(callback: OnReleaseCallback): void;
+
+    /**
+     * Register state changed listener notification callback of remote ability.
+     * @param { OnRemoteStateChangeCallback } callback - Register a callback function for listening for notifications.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 10
+     */
+    onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
     /**
      * Register death listener notification callback.
