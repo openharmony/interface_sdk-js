@@ -47,6 +47,7 @@ declare namespace fileIo {
   export { mkdirSync };
   export { mkdtemp };
   export { mkdtempSync };
+  export { moveDir };
   export { moveFile };
   export { moveFileSync };
   export { open };
@@ -972,6 +973,98 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @since 9
  */
 declare function mkdtempSync(prefix: string): string;
+
+/**
+ * Move directory.
+ *
+ * @param {string} src - source file path.
+ * @param {string} dest - destination file path.
+ * @param {number} [mode = 0] - move mode when duplicate file name exists.
+ * @returns {Promise<void>} return Promise
+ * @throws { BusinessError } 13900001  - Operation not permitted
+ * @throws { BusinessError } 13900002  - No such file or directory
+ * @throws { BusinessError } 13900008  - Bad file descriptor
+ * @throws { BusinessError } 13900011  - Out of memory
+ * @throws { BusinessError } 13900012  - Permission denied
+ * @throws { BusinessError } 13900013  - Bad address
+ * @throws { BusinessError } 13900014  - Device or resource busy
+ * @throws { BusinessError } 13900015  - File exists
+ * @throws { BusinessError } 13900016  - Cross-device link
+ * @throws { BusinessError } 13900018  - Not a directory
+ * @throws { BusinessError } 13900019  - Is a directory
+ * @throws { BusinessError } 13900020  - Invalid argument
+ * @throws { BusinessError } 13900025  - No space left on device
+ * @throws { BusinessError } 13900027  - Read-only file system
+ * @throws { BusinessError } 13900028  - Too many links
+ * @throws { BusinessError } 13900032  - Directory not empty
+ * @throws { BusinessError } 13900033  - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041  - Quota exceeded
+ * @throws { BusinessError } 13900042  - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, mode?: number): Promise<void>;
+
+/**
+ * Move directory.
+ *
+ * @param {string} src - source file path.
+ * @param {string} dest - destination file path.
+ * @param {AsyncCallback<void>} callback - callback.
+ * @throws { BusinessError } 13900001  - Operation not permitted
+ * @throws { BusinessError } 13900002  - No such file or directory
+ * @throws { BusinessError } 13900008  - Bad file descriptor
+ * @throws { BusinessError } 13900011  - Out of memory
+ * @throws { BusinessError } 13900012  - Permission denied
+ * @throws { BusinessError } 13900013  - Bad address
+ * @throws { BusinessError } 13900014  - Device or resource busy
+ * @throws { BusinessError } 13900015  - File exists
+ * @throws { BusinessError } 13900015  - Cross-device link
+ * @throws { BusinessError } 13900018  - Not a directory
+ * @throws { BusinessError } 13900019  - Is a directory
+ * @throws { BusinessError } 13900020  - Invalid argument
+ * @throws { BusinessError } 13900025  - No space left on device
+ * @throws { BusinessError } 13900027  - Read-only file system
+ * @throws { BusinessError } 13900028  - Too many links
+ * @throws { BusinessError } 13900032  - Directory not empty
+ * @throws { BusinessError } 13900033  - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041  - Quota exceeded
+ * @throws { BusinessError } 13900042  - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Move directory.
+ *
+ * @param {string} src - source file path.
+ * @param {string} dest - destination file path.
+ * @param {number} mode - move mode when duplicate file name exists.
+ * @param {AsyncCallback<void>} callback - callback.
+ * @throws { BusinessError } 13900001  - Operation not permitted
+ * @throws { BusinessError } 13900002  - No such file or directory
+ * @throws { BusinessError } 13900008  - Bad file descriptor
+ * @throws { BusinessError } 13900011  - Out of memory
+ * @throws { BusinessError } 13900012  - Permission denied
+ * @throws { BusinessError } 13900013  - Bad address
+ * @throws { BusinessError } 13900014  - Device or resource busy
+ * @throws { BusinessError } 13900015  - File exists
+ * @throws { BusinessError } 13900015  - Cross-device link
+ * @throws { BusinessError } 13900018  - Not a directory
+ * @throws { BusinessError } 13900019  - Is a directory
+ * @throws { BusinessError } 13900020  - Invalid argument
+ * @throws { BusinessError } 13900025  - No space left on device
+ * @throws { BusinessError } 13900027  - Read-only file system
+ * @throws { BusinessError } 13900028  - Too many links
+ * @throws { BusinessError } 13900032  - Directory not empty
+ * @throws { BusinessError } 13900033  - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041  - Quota exceeded
+ * @throws { BusinessError } 13900042  - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
  * Move file.
