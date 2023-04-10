@@ -15,7 +15,7 @@
 
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
-import { AsyncCallback, Callback } from './@ohos.base' ;
+import { AsyncCallback, Callback } from './@ohos.base';
 import BaseContext from './application/BaseContext';
 import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
@@ -861,8 +861,8 @@ declare namespace window {
    * @param { enable } enable gesture navigation if true, or disable if false.
    * @param { AsyncCallback<void> } callback - The callback of setGestureNavigationEnabled.
    * @throws { BusinessError } 401 - If param is invalid.
-   * @throws { BusinessError } 1300002 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300003 - This window state is abnormal.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -873,8 +873,8 @@ declare namespace window {
    * @param { enable } enable gesture navigation if true, or disable if false.
    * @returns { Promise<void> } - The promise returned by the function.
    * @throws { BusinessError } 401 - If param is invalid.
-   * @throws { BusinessError } 1300002 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300003 - This window state is abnormal.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -2400,8 +2400,8 @@ declare namespace window {
      * @param { number } ratio - The aspect ratio of window except decoration
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
      * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1300002 - If window state is abnormally
-     * @throws { BusinessError } 1300004 - If this window can not set aspect ratio
+     * @throws { BusinessError } 1300002 - This window state is abnormal
+     * @throws { BusinessError } 1300004 - Unauthorized operation
      * @since 10
      */
     setAspectRatio(ratio: number, callback: AsyncCallback<void>): void;
@@ -2411,8 +2411,8 @@ declare namespace window {
      * @param { number } ratio - The aspect ratio of window except decoration
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1300002 - If window state is abnormally
-     * @throws { BusinessError } 1300004 - If this window can not set aspect ratio
+     * @throws { BusinessError } 1300002 - This window state is abnormal
+     * @throws { BusinessError } 1300004 - Unauthorized operation
      * @since 10
      */
     setAspectRatio(ratio: number): Promise<void>;
@@ -2420,8 +2420,8 @@ declare namespace window {
     /**
      * Resets the aspect ratio of window
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
-     * @throws { BusinessError } 1300002 - If window state is abnormally
-     * @throws { BusinessError } 1300004 - If this window can not reset aspect ratio
+     * @throws { BusinessError } 1300002 - This window state is abnormal
+     * @throws { BusinessError } 1300004 - Unauthorized operation
      * @since 10
      */
     resetAspectRatio(callback: AsyncCallback<void>): void;
@@ -2429,8 +2429,8 @@ declare namespace window {
     /**
      * Resets the aspect ratio of window
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300002 - If window state is abnormally
-     * @throws { BusinessError } 1300004 - If this window can not reset aspect ratio
+     * @throws { BusinessError } 1300002 - This window state is abnormal
+     * @throws { BusinessError } 1300004 - Unauthorized operation
      * @since 10
      */
     resetAspectRatio(): Promise<void>;
@@ -2439,8 +2439,8 @@ declare namespace window {
      * Set the watermark flag on the window.
      * @param { enable } add water mark flag to window if true, or remove flag if false.
      * @param { AsyncCallback<void> } callback - The callback of setWaterMarkFlag.
-     * @throws { BusinessError } 1300002 - If window state is abnormally.
-     * @throws { BusinessError } 1300003 - If system state is abnormally.
+     * @throws { BusinessError } 1300002 - This window state is abnormal
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally
      * @throws { BusinessError } 1300008 - The operation is on invalid display.
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2448,12 +2448,12 @@ declare namespace window {
     setWaterMarkFlag(enable: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the watermark flag on the window.
-     * @param { enable } add water mark flag to window if true, or remove flag if false.
-     * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300002 - If window state is abnormally.
-     * @throws { BusinessError } 1300003 - If system state is abnormally.
-     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * Set the watermark flag on the window
+     * @param { enable } add water mark flag to window if true, or remove flag if false
+     * @returns { Promise<void> } - The promise returned by the function
+     * @throws { BusinessError } 1300002 - This window state is abnormal
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally
+     * @throws { BusinessError } 1300008 - The operation is on invalid display
      * @systemapi Hide this for inner system use.
      * @since 10
      */
