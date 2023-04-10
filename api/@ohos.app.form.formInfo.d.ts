@@ -389,7 +389,35 @@ declare namespace formInfo {
          * @systemapi
          * @since 9
          */
-        DEVICE_ID_KEY = "ohos.extra.param.key.device_id"
+        DEVICE_ID_KEY = "ohos.extra.param.key.device_id",
+
+        /**
+         * Indicates the key specifying the launch reason of the form to be obtained, which is represented as
+         * want: {
+         *   "parameters": {
+         *       LAUNCH_REASON_KEY: LaunchReason.FORM_DEFAULT
+         *    }
+         * }
+         *
+         * @syscap SystemCapability.Ability.Form
+         * @since 10
+         */
+        LAUNCH_REASON_KEY = "ohos.extra.param.key.form_launch_reason",
+
+        /**
+         * Indicates the key specifying the custom data of the form to be obtained, which is represented as
+         * want: {
+         *   "parameters": {
+         *       PARAM_FORM_CUSTOMIZE_KEY: {
+         *          "key": "userData"
+         *       }
+         *    }
+         * }
+         *
+         * @syscap SystemCapability.Ability.Form
+         * @since 10
+         */
+        PARAM_FORM_CUSTOMIZE_KEY = "ohos.extra.param.key.form_customize"
     }
 
     /**
@@ -474,6 +502,27 @@ declare namespace formInfo {
          * @since 9
          */
         FORM_INVISIBLE,
+    }
+
+    /**
+     * Indicates the launch reason of a form.
+     * @enum { number }
+     * @syscap SystemCapability.Ability.Form
+     * @since 10
+     */
+    enum LaunchReason {
+        /**
+         * Indicates the launch reason of a form is default.
+         * @syscap SystemCapability.Ability.Form
+         * @since 10
+         */
+        FORM_DEFAULT = 1,
+        /**
+         * Indicates the launch reason of a form is share.
+         * @syscap SystemCapability.Ability.Form
+         * @since 10
+         */
+        FORM_SHARE,
     }
 }
 export default formInfo;
