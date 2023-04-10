@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback, Callback } from './basic';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 import image from './@ohos.multimedia.image';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';

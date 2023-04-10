@@ -15,7 +15,7 @@
 
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import LocalStorage from 'StateManagement';
 import BaseContext from './application/BaseContext';

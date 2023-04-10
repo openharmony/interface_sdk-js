@@ -12,8 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { BusinessError } from './basic';
+import {BusinessError} from "./@ohos.base";
 
 /**
  * Provides international settings related APIs.
