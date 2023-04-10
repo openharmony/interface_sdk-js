@@ -1699,6 +1699,31 @@ declare enum ShadowStyle {
 }
 
 /**
+ * Defines sheet size type.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum SheetSize {
+  /**
+   * Defines the sheet size medium height type. The height is half the screen height
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  MEDIUM,
+
+  /**
+   * Defines the sheet size large height type. The height is almost screen height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  LARGE,
+}
+
+/**
  * Defines the base event.
  * @since 8
  */
@@ -2085,6 +2110,34 @@ declare interface KeyEvent {
    * @since 7
    */
   stopPropagation?: () => void;
+}
+
+/**
+ * Component Sheet Styles
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SheetStyle {
+  /**
+   * Defines sheet height
+   * @type { SheetSize | Length }
+   * @default Sheet.LARGE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  height?: SheetSize | Length;
+
+  /**
+   * Defines whether the control bar is displayed.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  dragBar?: boolean;
 }
 
 /**
@@ -3596,6 +3649,19 @@ declare class CommonMethod<T> {
    * @since 10
    */
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
+
+
+  /**
+   * Bind sheet
+   * @param { boolean } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { style } style - sheet style type.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
 
   /**
    * Sets styles for component state.
