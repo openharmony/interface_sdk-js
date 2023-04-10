@@ -129,6 +129,17 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 9
    */
   textCase(value: TextCase): SpanAttribute;
+
+  /**
+   * Called when the vertical center mode of the font is set.
+   * @since 10
+   */
+  /**
+   * Called when the vertical center mode of the font is set.
+   * @form
+   * @since 10
+   */
+  lineHeight(value: number|string|Resource): SpanAttribute;
 }
 
 /**
