@@ -161,7 +161,6 @@ declare namespace inputMethod {
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
-   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodSubtype.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error.
