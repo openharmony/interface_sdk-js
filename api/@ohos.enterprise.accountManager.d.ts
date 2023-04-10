@@ -14,11 +14,11 @@
  */
 
 import { AsyncCallback } from "./@ohos.base";
-import Want from "./@ohos.app.ability.Want";
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the accounts of the enterprise devices.
- * @namespace accountManager.
+ * @namespace accountManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 10

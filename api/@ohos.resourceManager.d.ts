@@ -21,19 +21,23 @@ import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 /**
  * Provides resource related APIs.
  *
- * @since 6
+ * @namespace resourceManager
  * @syscap SystemCapability.Global.ResourceManager
+ * @since 6
  */
 declare namespace resourceManager {
-/**
- * Enumerates screen directions.
- *
- * @since 6
- */
-export enum Direction {
+  /**
+   * Enumerates screen directions.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 6
+   */
+  export enum Direction {
     /**
      * Indicates the vertical direction.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DIRECTION_VERTICAL = 0,
@@ -41,20 +45,24 @@ export enum Direction {
     /**
      * Indicates the horizontal direction.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DIRECTION_HORIZONTAL = 1
-}
+  }
 
-/**
- * Enumerates device types.
- *
- * @since 6
- */
-export enum DeviceType {
+  /**
+   * Enumerates device types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 6
+   */
+  export enum DeviceType {
     /**
      * Indicates a phone.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DEVICE_TYPE_PHONE = 0x00,
@@ -62,6 +70,7 @@ export enum DeviceType {
     /**
      * Indicates a tablet.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DEVICE_TYPE_TABLET = 0x01,
@@ -69,6 +78,7 @@ export enum DeviceType {
     /**
      * Indicates a car.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DEVICE_TYPE_CAR = 0x02,
@@ -76,6 +86,7 @@ export enum DeviceType {
     /**
      * Indicates a PC.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DEVICE_TYPE_PC = 0x03,
@@ -83,6 +94,7 @@ export enum DeviceType {
     /**
      * Indicates a smart TV.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DEVICE_TYPE_TV = 0x04,
@@ -90,20 +102,24 @@ export enum DeviceType {
     /**
      * Indicates a wearable device.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     DEVICE_TYPE_WEARABLE = 0x06
-}
+  }
 
-/**
- * Enumerates screen density types.
- *
- * @since 6
- */
-export enum ScreenDensity {
+  /**
+   * Enumerates screen density types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 6
+   */
+  export enum ScreenDensity {
     /**
      * Indicates small screen density.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     SCREEN_SDPI = 120,
@@ -111,6 +127,7 @@ export enum ScreenDensity {
     /**
      * Indicates medium screen density.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     SCREEN_MDPI = 160,
@@ -118,6 +135,7 @@ export enum ScreenDensity {
     /**
      * Indicates large screen density.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     SCREEN_LDPI = 240,
@@ -125,6 +143,7 @@ export enum ScreenDensity {
     /**
      * Indicates extra-large screen density.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     SCREEN_XLDPI = 320,
@@ -132,6 +151,7 @@ export enum ScreenDensity {
     /**
      * Indicates extra-extra-large screen density.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     SCREEN_XXLDPI = 480,
@@ -139,111 +159,126 @@ export enum ScreenDensity {
     /**
      * Indicates extra-extra-extra-large screen density.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     SCREEN_XXXLDPI = 640
-}
+  }
 
-/**
- * Provides the device configuration.
- *
- * @since 6
- */
-export class Configuration {
+  /**
+   * Provides the device configuration.
+   *
+   * @since 6
+   */
+  export class Configuration {
     /**
      * Indicates the screen direction of the current device.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
-    direction: Direction
+    direction: Direction;
 
     /**
      * Indicates the current system language, for example, zh-Hans-CN.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
-    locale: string
-}
+    locale: string;
+  }
 
-/**
- * Provides the device capability.
- *
- * @since 6
- */
-export class DeviceCapability {
+  /**
+   * Provides the device capability.
+   *
+   * @since 6
+   */
+  export class DeviceCapability {
     /**
      * Indicates the screen density of the current device.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
-    screenDensity: ScreenDensity
+    screenDensity: ScreenDensity;
 
     /**
      * Indicates the type of the current device.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
-    deviceType: DeviceType
-}
+    deviceType: DeviceType;
+  }
 
-/**
- * The ResourceManager callback.
- * @since 6
- * @deprecated since 9
- */
- export interface AsyncCallback<T> {
+  /**
+   * The ResourceManager callback.
+   *
+   * @interface AsyncCallback
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 6
+   * @deprecated since 9
+   */
+  export interface AsyncCallback<T> {
     (err: Error, data: T): void;
-}
+  }
 
-/**
- * Obtains the ResourceManager object of the current application.
- *
- * @param callback Indicates the callback containing the ResourceManager object.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
+  /**
+   * Obtains the ResourceManager object of the current application.
+   *
+   * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @FAModelOnly
+   * @since 6
+   */
+  export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
 
-/**
- * Obtains the ResourceManager object of the specified application.
- *
- * @param bundleName Indicates the bundle name of the specified application.
- * @param callback Indicates the callback containing the ResourceManager object.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
+  /**
+   * Obtains the ResourceManager object of the specified application.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the specified application.
+   * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @FAModelOnly
+   * @since 6
+   */
+  export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
 
-/**
- * Obtains the ResourceManager object of the current application.
- *
- * @returns Returns that the ResourceManager object is returned in Promise mode.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(): Promise<ResourceManager>;
+  /**
+   * Obtains the ResourceManager object of the current application.
+   *
+   * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @FAModelOnly
+   * @since 6
+   */
+  export function getResourceManager(): Promise<ResourceManager>;
 
-/**
- * Obtains the ResourceManager object of the specified application.
- *
- * @param bundleName Indicates the bundle name of the specified application.
- * @returns Returns that the ResourceManager object is returned in Promise mode.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(bundleName: string): Promise<ResourceManager>;
+  /**
+   * Obtains the ResourceManager object of the specified application.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the specified application.
+   * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @FAModelOnly
+   * @since 6
+   */
+  export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
-/**
- * Provides the capability of accessing application resources.
- *
- * @since 6
- */
-export interface ResourceManager {
+  /**
+   * Provides the capability of accessing application resources.
+   *
+   * @interface ResourceManager
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 6
+   */
+  export interface ResourceManager {
     /**
      * Obtains the character string corresponding to a specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @param { number } resId - Indicates the resource ID.
+     * @param { AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
@@ -253,8 +288,9 @@ export interface ResourceManager {
     /**
      * Obtains string resources associated with a specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the character string corresponding to the resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<string> } The character string corresponding to the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
@@ -264,12 +300,13 @@ export interface ResourceManager {
     /**
      * Obtains the character string corresponding to a specified resource object in callback mode.
      *
-     * @param resource Indicates the resource object.
-     * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
@@ -277,12 +314,13 @@ export interface ResourceManager {
     /**
      * Obtains string resources associated with a specified resource object in Promise mode.
      *
-     * @param resource Indicates the resource object.
-     * @returns Returns the character string corresponding to the resource object.
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { Promise<string> } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringValue(resource: Resource): Promise<string>;
@@ -290,8 +328,9 @@ export interface ResourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @param { number } resId - Indicates the resource ID.
+     * @param { AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringArrayValue
@@ -301,8 +340,9 @@ export interface ResourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the array of character strings corresponding to the specified resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringArrayValue
@@ -312,12 +352,13 @@ export interface ResourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource object in callback mode.
      *
-     * @param resource Indicates the resource object.
-     * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array<string>>): void;
@@ -325,12 +366,13 @@ export interface ResourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource object in Promise mode.
      *
-     * @param resource Indicates the resource object.
-     * @returns Returns the array of character strings corresponding to the specified resource object.
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringArrayValue(resource: Resource): Promise<Array<string>>;
@@ -338,8 +380,9 @@ export interface ResourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @param { number } resId - Indicates the resource ID.
+     * @param { AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContent
@@ -349,8 +392,9 @@ export interface ResourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the content of the media file corresponding to the specified resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContent
@@ -360,11 +404,12 @@ export interface ResourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource object in callback mode.
      *
-     * @param resource Indicates the resource object.
-     * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void;
@@ -372,11 +417,12 @@ export interface ResourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource object in Promise mode.
      *
-     * @param resource Indicates the resource object.
-     * @returns Returns the content of the media file corresponding to the specified resource object.
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContent(resource: Resource): Promise<Uint8Array>;
@@ -384,9 +430,10 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
+     * @param { number } resId - Indicates the resource ID.
+     * @param { AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContentBase64
@@ -396,8 +443,9 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the Base64 code of the image resource corresponding to the specified resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContentBase64
@@ -407,12 +455,13 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource object in callback mode.
      *
-     * @param resource Indicates the resource object.
-     * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void;
@@ -420,11 +469,12 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource object in Promise mode.
      *
-     * @param resource Indicates the resource object.
-     * @returns Returns the Base64 code of the image resource corresponding to the specified resource object.
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContentBase64(resource: Resource): Promise<string>;
@@ -432,7 +482,8 @@ export interface ResourceManager {
     /**
      * Obtains the device capability in callback mode.
      *
-     * @param callback Indicates the asynchronous callback used to return the obtained device capability.
+     * @param { _AsyncCallback<DeviceCapability> } callback - Indicates the asynchronous callback used to return the obtained device capability.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     getDeviceCapability(callback: _AsyncCallback<DeviceCapability>): void;
@@ -440,7 +491,8 @@ export interface ResourceManager {
     /**
      * Obtains the device capability in Promise mode.
      *
-     * @returns Returns the device capability.
+     * @returns { Promise<DeviceCapability> } the device capability.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     getDeviceCapability(): Promise<DeviceCapability>;
@@ -448,8 +500,9 @@ export interface ResourceManager {
     /**
      * Obtains the device configuration in callback mode.
      *
-     * @param callback Indicates the asynchronous callback used to return the obtained device
+     * @param { _AsyncCallback<Configuration> } callback - Indicates the asynchronous callback used to return the obtained device
      *                 configuration.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     getConfiguration(callback: _AsyncCallback<Configuration>): void;
@@ -457,7 +510,8 @@ export interface ResourceManager {
     /**
      * Obtains the device configuration in Promise mode.
      *
-     * @returns Returns the device configuration.
+     * @returns { Promise<Configuration> } the device configuration.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      */
     getConfiguration(): Promise<Configuration>;
@@ -466,10 +520,11 @@ export interface ResourceManager {
      * Obtains the singular-plural character string represented by the ID string corresponding to the
      * specified number in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param num Indicates the number.
-     * @param callback Indicates the asynchronous callback used to return the singular-plural character
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - Indicates the number.
+     * @param { AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the ID string corresponding to the specified number.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getPluralStringValue
@@ -480,10 +535,11 @@ export interface ResourceManager {
      * Obtains the singular-plural character string represented by the ID string corresponding to
      * the specified number in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param num Indicates the number.
-     * @returns Returns the singular-plural character string represented by the ID string
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - Indicates the number.
+     * @returns { Promise<string> } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getPluralStringValue
@@ -494,14 +550,15 @@ export interface ResourceManager {
      * Obtains the singular-plural character string represented by the resource object string corresponding to the
      * specified number in callback mode.
      *
-     * @param resource Indicates the resource object.
-     * @param num Indicates the number.
-     * @param callback Indicates the asynchronous callback used to return the singular-plural character
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } num - Indicates the number.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the resource object string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void;
@@ -510,14 +567,15 @@ export interface ResourceManager {
      * Obtains the singular-plural character string represented by the resource object string corresponding to
      * the specified number in Promise mode.
      *
-     * @param resource Indicates the resource object.
-     * @param num Indicates the number.
-     * @returns Returns the singular-plural character string represented by the resource object string
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } num - Indicates the number.
+     * @returns { Promise<string> } The singular-plural character string represented by the resource object string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getPluralStringValue(resource: Resource, num: number): Promise<string>;
@@ -525,8 +583,9 @@ export interface ResourceManager {
     /**
      * Obtains the raw file resource corresponding to the specified resource path in callback mode.
      *
-     * @param path Indicates the resource relative path.
-     * @param callback Indicates the asynchronous callback used to return the raw file resource.
+     * @param { string } path - Indicates the resource relative path.
+     * @param { AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the raw file resource.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFileContent
@@ -536,8 +595,9 @@ export interface ResourceManager {
     /**
      * Obtains the raw file resource corresponding to the specified resource path in Promise mode.
      *
-     * @param path Indicates the resource relative path.
-     * @returns Returns the raw file resource corresponding to the specified resource path.
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<Uint8Array> } The raw file resource corresponding to the specified resource path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFileContent
@@ -547,30 +607,33 @@ export interface ResourceManager {
     /**
      * Obtains the raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
-     * @param path Indicates the resource relative path.
-     * @param callback Indicates the asynchronous callback used to return the raw file resource descriptor.
+     * @param { string } path - Indicates the resource relative path.
+     * @param { AsyncCallback<RawFileDescriptor> } callback - Indicates the asynchronous callback used to return the raw file resource descriptor.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFd
      */
     getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>): void;
 
-     /**
-      * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
-      *
-      * @param path Indicates the resource relative path.
-      * @returns Returns the raw file resource descriptor corresponding to the specified resource path.
-      * @since 8
-      * @deprecated since 9
-      * @useinstead ohos.resourceManager.getRawFd
-      */
+    /**
+     * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<RawFileDescriptor> } The raw file resource descriptor corresponding to the specified resource path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getRawFd
+     */
     getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
 
     /**
      * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
-     * @param path Indicates the resource relative path.
-     * @param callback Indicates the asynchronous callback used to return result close raw file resource descriptor.
+     * @param { string } path - Indicates the resource relative path.
+     * @param { AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.closeRawFd
@@ -580,8 +643,9 @@ export interface ResourceManager {
     /**
      * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
      *
-     * @param path Indicates the resource relative path.
-     * @returns Returns result close raw file resource descriptor corresponding to the specified resource path.
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.resourceManager.closeRawFd
@@ -591,12 +655,13 @@ export interface ResourceManager {
     /**
      * Obtains the character string corresponding to a specified resource name in callback mode.
      *
-     * @param resName Indicates the resource name.
-     * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @param { string } resName - Indicates the resource name.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringByName(resName: string, callback: _AsyncCallback<string>): void;
@@ -604,25 +669,27 @@ export interface ResourceManager {
     /**
      * Obtains string resources associated with a specified resource name in Promise mode.
      *
-     * @param resName Indicates the resource name.
-     * @returns Returns the character string corresponding to the resource name.
+     * @param { string } resName - Indicates the resource name.
+     * @returns { Promise<string> } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
-     getStringByName(resName: string): Promise<string>;
+    getStringByName(resName: string): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource name in callback mode.
      *
-     * @param resName Indicates the resource name.
-     * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @param { string } resName - Indicates the resource name.
+     * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringArrayByName(resName: string, callback: _AsyncCallback<Array<string>>): void;
@@ -630,12 +697,13 @@ export interface ResourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource name in Promise mode.
      *
-     * @param resName Indicates the resource name.
-     * @returns Returns the array of character strings corresponding to the specified resource name.
+     * @param { string } resName - Indicates the resource name.
+     * @returns { Promise<Array<string>> } the array of character strings corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringArrayByName(resName: string): Promise<Array<string>>;
@@ -643,11 +711,12 @@ export interface ResourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource name in callback mode.
      *
-     * @param resName Indicates the resource name.
-     * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @param { string } resName - Indicates the resource name.
+     * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaByName(resName: string, callback: _AsyncCallback<Uint8Array>): void;
@@ -655,11 +724,12 @@ export interface ResourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource name in Promise mode.
      *
-     * @param resName Indicates the resource name.
-     * @returns Returns the content of the media file corresponding to the specified resource name.
+     * @param { string } resName - Indicates the resource name.
+     * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaByName(resName: string): Promise<Uint8Array>;
@@ -667,12 +737,13 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in callback mode.
      *
-     * @param resName Indicates the resource name.
-     * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
+     * @param { string } resName - Indicates the resource name.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaBase64ByName(resName: string, callback: _AsyncCallback<string>): void;
@@ -680,11 +751,12 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in Promise mode.
      *
-     * @param resName Indicates the resource name.
-     * @returns Returns the Base64 code of the image resource corresponding to the specified resource name.
+     * @param { string } resName - Indicates the resource name.
+     * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaBase64ByName(resName: string): Promise<string>;
@@ -693,14 +765,15 @@ export interface ResourceManager {
      * Obtains the singular-plural character string represented by the name string corresponding to the
      * specified number in callback mode.
      *
-     * @param resName Indicates the resource name.
-     * @param num Indicates the number.
-     * @param callback Indicates the asynchronous callback used to return the singular-plural character
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } num - Indicates the number.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the name string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getPluralStringByName(resName: string, num: number, callback: _AsyncCallback<string>): void;
@@ -709,14 +782,15 @@ export interface ResourceManager {
      * Obtains the singular-plural character string represented by the name string corresponding to
      * the specified number in Promise mode.
      *
-     * @param resName Indicates the resource name.
-     * @param num Indicates the number.
-     * @returns Returns the singular-plural character string represented by the name string
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } num - Indicates the number.
+     * @returns { Promise<string> } the singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getPluralStringByName(resName: string, num: number): Promise<string>;
@@ -724,51 +798,103 @@ export interface ResourceManager {
     /**
      * Obtains string resources associated with a specified resource ID.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the character string corresponding to the resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringSync(resId: number): string;
 
     /**
+     * Obtains string resources associated with a specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The character string corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getStringSync(resId: number, ...args: Array<string | number>): string;
+
+    /**
      * Obtains string resources associated with a specified resource object.
      *
-     * @param resource Indicates the resource object.
-     * @returns Returns the character string corresponding to the resource object.
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { string } The character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringSync(resource: Resource): string;
 
     /**
+     * Obtains string resources associated with a specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The character string corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getStringSync(resource: Resource, ...args: Array<string | number>): string;
+
+    /**
      * Obtains string resources associated with a specified resource name.
      *
-     * @param resName Indicates the resource name.
-     * @returns Returns the character string corresponding to the resource name.
+     * @param { string } resName - Indicates the resource name.
+     * @returns { string } The character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringByNameSync(resName: string): string;
 
     /**
+     * Obtains string resources associated with a specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
+     * @returns { string } The character string corresponding to the resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001008 - If the resource obtained by resName formatting error.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getStringByNameSync(resName: string, ...args: Array<string | number>): string;
+
+    /**
      * Obtains the boolean result with a specified resource ID.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the boolean resource corresponding to the resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { boolean } The boolean resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getBoolean(resId: number): boolean;
@@ -776,12 +902,13 @@ export interface ResourceManager {
     /**
      * Obtains the boolean result with a specified resource object.
      *
-     * @param resource Indicates the resource object.
-     * @returns Returns the boolean resource corresponding to the resource object.
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { boolean } The boolean resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getBoolean(resource: Resource): boolean;
@@ -789,12 +916,13 @@ export interface ResourceManager {
     /**
      * Obtains the boolean result with a specified resource name.
      *
-     * @param resName Indicates the resource name.
-     * @returns Returns the boolean resource corresponding to the resource name.
+     * @param { string } resName - Indicates the resource name.
+     * @returns { boolean } The boolean resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getBooleanByName(resName: string): boolean;
@@ -802,12 +930,13 @@ export interface ResourceManager {
     /**
      * Obtains the number result with a specified resource ID.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the number resource corresponding to the resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { number } The number resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getNumber(resId: number): number;
@@ -815,12 +944,13 @@ export interface ResourceManager {
     /**
      * Obtains the number result with a specified resource object.
      *
-     * @param resource Indicates the resource object.
-     * @returns Returns the number resource corresponding to the resource object.
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { number } The number resource corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getNumber(resource: Resource): number;
@@ -828,12 +958,13 @@ export interface ResourceManager {
     /**
      * Obtains the number result with a specified resource name.
      *
-     * @param resName Indicates the resource name.
-     * @returns Returns the number resource corresponding to the resource name.
+     * @param { string } resName - Indicates the resource name.
+     * @returns { number } The number resource corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getNumberByName(resName: string): number;
@@ -841,6 +972,7 @@ export interface ResourceManager {
     /**
      * Obtains release resourceManager.
      *
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 7
      */
     release();
@@ -848,25 +980,27 @@ export interface ResourceManager {
     /**
      * Obtains the character string corresponding to a specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @param { number } resId - Indicates the resource ID.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringValue(resId: number, callback: _AsyncCallback<string>): void;
 
-     /**
+    /**
      * Obtains string resources associated with a specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the character string corresponding to the resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<string> } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringValue(resId: number): Promise<string>;
@@ -874,12 +1008,13 @@ export interface ResourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @param { number } resId - Indicates the resource ID.
+     * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringArrayValue(resId: number, callback: _AsyncCallback<Array<string>>): void;
@@ -887,12 +1022,13 @@ export interface ResourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the array of character strings corresponding to the specified resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getStringArrayValue(resId: number): Promise<Array<string>>;
@@ -901,42 +1037,45 @@ export interface ResourceManager {
      * Obtains the singular-plural character string represented by the ID string corresponding to the
      * specified number in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param num Indicates the number.
-     * @param callback Indicates the asynchronous callback used to return the singular-plural character
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - Indicates the number.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the ID string corresponding to the specified number.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getPluralStringValue(resId: number, num: number, callback: _AsyncCallback<string>): void;
 
     /**
-      * Obtains the singular-plural character string represented by the ID string corresponding to
-      * the specified number in Promise mode.
-      *
-      * @param resId Indicates the resource ID.
-      * @param num Indicates the number.
-      * @returns Returns the singular-plural character string represented by the ID string
-      *         corresponding to the specified number.
-      * @throws { BusinessError } 401 - If the input parameter invalid.
-      * @throws { BusinessError } 9001001 - If the resId invalid.
-      * @throws { BusinessError } 9001002 - If the resource not found by resId.
-      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-      * @since 9
-      */
+     * Obtains the singular-plural character string represented by the ID string corresponding to
+     * the specified number in Promise mode.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - Indicates the number.
+     * @returns { Promise<string> } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 9
+     */
     getPluralStringValue(resId: number, num: number): Promise<string>;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @param { number } resId - Indicates the resource ID.
+     * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContent(resId: number, callback: _AsyncCallback<Uint8Array>): void;
@@ -944,11 +1083,12 @@ export interface ResourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the content of the media file corresponding to the specified resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContent(resId: number): Promise<Uint8Array>;
@@ -956,12 +1096,13 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
      *
-     * @param resId Indicates the resource ID.
-     * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
+     * @param { number } resId - Indicates the resource ID.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContentBase64(resId: number, callback: _AsyncCallback<string>): void;
@@ -969,11 +1110,12 @@ export interface ResourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
      *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the Base64 code of the image resource corresponding to the specified resource ID.
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<string> } the Base64 code of the image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getMediaContentBase64(resId: number): Promise<string>;
@@ -981,10 +1123,11 @@ export interface ResourceManager {
     /**
      * Obtains the raw file resource corresponding to the specified resource path in callback mode.
      *
-     * @param path Indicates the resource relative path.
-     * @param callback Indicates the asynchronous callback used to return the raw file resource.
+     * @param { string } path - Indicates the resource relative path.
+     * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the raw file resource.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
@@ -992,10 +1135,11 @@ export interface ResourceManager {
     /**
      * Obtains the raw file resource corresponding to the specified resource path in Promise mode.
      *
-     * @param path Indicates the resource relative path.
-     * @returns Returns the raw file resource corresponding to the specified resource path.
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<Uint8Array> } the raw file resource corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getRawFileContent(path: string): Promise<Uint8Array>;
@@ -1003,10 +1147,11 @@ export interface ResourceManager {
     /**
      * Obtains the raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
-     * @param path Indicates the resource relative path.
-     * @param callback Indicates the asynchronous callback used to return the raw file resource descriptor.
+     * @param { string } path - Indicates the resource relative path.
+     * @param { _AsyncCallback<RawFileDescriptor> } callback - Indicates the asynchronous callback used to return the raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getRawFd(path: string, callback: _AsyncCallback<RawFileDescriptor>): void;
@@ -1014,10 +1159,11 @@ export interface ResourceManager {
     /**
      * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
      *
-     * @param path Indicates the resource relative path.
-     * @returns Returns the raw file resource descriptor corresponding to the specified resource path.
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<RawFileDescriptor> } The raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     getRawFd(path: string): Promise<RawFileDescriptor>;
@@ -1025,10 +1171,11 @@ export interface ResourceManager {
     /**
      * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
-     * @param path Indicates the resource relative path.
-     * @param callback Indicates the asynchronous callback used to return result close raw file resource descriptor.
+     * @param { string } path - Indicates the resource relative path.
+     * @param { _AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     closeRawFd(path: string, callback: _AsyncCallback<void>): void;
@@ -1036,9 +1183,11 @@ export interface ResourceManager {
     /**
      * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
      *
-     * @param path Indicates the resource relative path.
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
     closeRawFd(path: string): Promise<void>;
@@ -1046,13 +1195,14 @@ export interface ResourceManager {
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
      *
-     * @param resId Indicates the resource ID.
-     * @param density The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
-     * @returns Returns the DrawableDescriptor class to get drawable image.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
     getDrawableDescriptor(resId: number, density?: number): DrawableDescriptor;
@@ -1060,13 +1210,14 @@ export interface ResourceManager {
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
      *
-     * @param resName Indicates the resource name.
-     * @param density The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
-     * @returns Returns the DrawableDescriptor class to get drawable image.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
     getDrawableDescriptorByName(resName: string, density?: number): DrawableDescriptor;
@@ -1074,34 +1225,35 @@ export interface ResourceManager {
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
      *
-     * @param resource Indicates the resource object.
-     * @param density The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
-     * @returns Returns the DrawableDescriptor class to get drawable image.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
     getDrawableDescriptor(resource: Resource, density?: number): DrawableDescriptor;
-}
+  }
 
-    /**
-     * Contains rawFile descriptor information.
-     * @name Contains rawFile descriptor information
-     * @since 9
-     * @syscap SystemCapability.Global.ResourceManager
-     *
-     */
-    export type RawFileDescriptor = _RawFileDescriptor;
+  /**
+   * Contains rawFile descriptor information.
+   *
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 9
+   * @name Contains rawFile descriptor information
+   */
+  export type RawFileDescriptor = _RawFileDescriptor;
 
-    /**
-     * Contains resource descriptor information.
-     * @name Contains resource descriptor information
-     * @since 9
-     * @syscap SystemCapability.Global.ResourceManager
-     *
-     */
-    export type Resource = _Resource;
+  /**
+   * Contains resource descriptor information.
+   *
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 9
+   * @name Contains resource descriptor information
+   */
+  export type Resource = _Resource;
 }
 export default resourceManager;

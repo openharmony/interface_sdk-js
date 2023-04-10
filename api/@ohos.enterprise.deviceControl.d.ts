@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./@ohos.base";
-import Want from "./@ohos.app.ability.Want";
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to control the enterprise devices.

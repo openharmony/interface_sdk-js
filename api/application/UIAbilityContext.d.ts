@@ -33,6 +33,7 @@ import dialogRequest from "../@ohos.app.ability.dialogRequest";
  * The context of an ability. It allows access to ability-specific resources.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 export default class UIAbilityContext extends Context {
@@ -41,6 +42,7 @@ export default class UIAbilityContext extends Context {
      * @type { AbilityInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     abilityInfo: AbilityInfo;
@@ -50,6 +52,7 @@ export default class UIAbilityContext extends Context {
      * @type { HapModuleInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     currentHapModuleInfo: HapModuleInfo;
@@ -83,6 +86,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;
@@ -604,6 +608,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     terminateSelf(callback: AsyncCallback<void>): void;

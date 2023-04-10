@@ -181,6 +181,12 @@ export interface EventListener {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Specifies the callback function to be invoked.
+   * @param event Event class for the callback to invoke.
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   (event: Event): void | Promise<void>;
 }
 
@@ -261,6 +267,15 @@ export interface WorkerEventTarget {
    * @throws {BusinessError} 10200004 - Worker instance is not running.
    * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
    * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Adds an event listener to the worker.
+   * @param type  Type of the event to listen for.
+   * @param listener Callback to invoke when an event of the specified type occurs.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 10200004 - Worker instance is not running.
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   addEventListener(type: string, listener: WorkerEventListener): void;
@@ -436,6 +451,15 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * The onmessage attribute of parentPort specifies the event handler
+   * to be called then the worker thread receives a message sent by
+   * the host thread through worker postMessage.
+   * The event handler is executed in the worker thread.
+   * @param ev Message received.
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
    /**
@@ -447,6 +471,14 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @throws {BusinessError} 10200004 - Worker instance is not running.
    * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
    * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * The onmessage attribute of parentPort specifies the event handler
+   * to be called then the worker receives a message that cannot be deserialized.
+   * The event handler is executed in the worker thread.
+   * @param ev Error data.
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
@@ -517,6 +549,13 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * The onexit attribute of the worker specifies the event handler to be called
+     * when the worker exits. The handler is executed in the host thread.
+     * @param code Code indicating the worker exit state
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     onexit?: (code: number) => void;
     /**
      * The onerror attribute of the worker specifies the event handler to be called
@@ -526,6 +565,13 @@ declare namespace worker {
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * The onerror attribute of the worker specifies the event handler to be called
+     * when an exception occurs during worker execution.
+     * The event handler is executed in the host thread.
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     onerror?: (err: ErrorEvent) => void;
@@ -541,6 +587,15 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * The onmessage attribute of the worker specifies the event handler
+     * to be called then the host thread receives a message created by itself
+     * and sent by the worker through the parentPort.postMessage.
+     * The event handler is executed in the host thread.
+     * @param event Message received.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     onmessage?: (event: MessageEvents) => void;
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -550,6 +605,13 @@ declare namespace worker {
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * The onmessage attribute of the worker specifies the event handler
+     * when the worker receives a message that cannot be serialized.
+     * The event handler is executed in the host thread.
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     onmessageerror?: (event: MessageEvents) => void;
@@ -587,6 +649,15 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * Adds an event listener to the worker.
+     * @param type Adds an event listener to the worker.
+     * @param listener Callback to invoke when an event of the specified type occurs.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     on(type: string, listener: WorkerEventListener): void;
     /**
      * Adds an event listener to the worker
@@ -599,6 +670,16 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * Adds an event listener to the worker
+     * and removes the event listener automatically after it is invoked once.
+     * @param type Type of the event to listen for
+     * @param listener Callback to invoke when an event of the specified type occurs
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     once(type: string, listener: WorkerEventListener): void;
     /**
      * Removes an event listener to the worker.
@@ -608,6 +689,15 @@ declare namespace worker {
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * Removes an event listener to the worker.
+     * @param type Type of the event for which the event listener is removed.
+     * @param listener Callback of the event listener to remove.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     off(type: string, listener?: WorkerEventListener): void;
@@ -626,6 +716,15 @@ declare namespace worker {
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * Adds an event listener to the worker.
+     * @param type  Type of the event to listen for.
+     * @param listener Callback to invoke when an event of the specified type occurs.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     addEventListener(type: string, listener: WorkerEventListener): void;

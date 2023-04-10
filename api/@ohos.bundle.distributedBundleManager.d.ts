@@ -135,7 +135,7 @@ declare namespace distributedBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - Indicates the elementName.
    * @param { string } locale - Indicates the locale info
-   * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the ability info of the remote device.
+   * @returns { Promise<RemoteAbilityInfo> } The result of getting the ability info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -156,7 +156,7 @@ declare namespace distributedBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { string } locale - Indicates the locale info
-   * @param { AsyncCallback } callback - Returns the abilities info of the remote device.
+   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - Returns the abilities info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.

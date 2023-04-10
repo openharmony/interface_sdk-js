@@ -685,9 +685,9 @@ declare namespace geoLocationManager {
 
         /**
          * Actual address information corresponding to the location.
-     	 *
+         *
          * @type { GeoAddress }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -705,9 +705,9 @@ declare namespace geoLocationManager {
     export interface LocationMockConfig {
         /**
          * Interval for reporting simulated locations.
-    	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -715,9 +715,9 @@ declare namespace geoLocationManager {
 
         /**
          * Mock location array.
-    	 *
+         *
          * @type { Array<Location> }
-    	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -752,36 +752,36 @@ declare namespace geoLocationManager {
 
         /**
          * Carrier to noise density array.
-    	 *
+         *
          * @type { Array<number> }
-   	 * @syscap SystemCapability.Location.Location.Gnss
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         carrierToNoiseDensitys: Array<number>;
 
         /**
          * Satellite altitude array.
-     	 *
+         *
          * @type { Array<number> }
-     	 * @syscap SystemCapability.Location.Location.Gnss
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         altitudes: Array<number>;
 
         /**
          * Satellite azimuth array.
-    	 *
+         *
          * @type { Array<number> }
-     	 * @syscap SystemCapability.Location.Location.Gnss
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         azimuths: Array<number>;
 
         /**
          * Satellite carrier frequency array.
-     	 *
+         *
          * @type { Array<number> }
-     	 * @syscap SystemCapability.Location.Location.Gnss
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         carrierFrequencies: Array<number>;
@@ -806,9 +806,9 @@ declare namespace geoLocationManager {
 
         /**
          * Indicates whether to wake up the listener when the GNSS cache location queue is full.
-    	 *
+         *
          * @type { boolean }
-     	 * @syscap SystemCapability.Location.Location.Gnss
+         * @syscap SystemCapability.Location.Location.Gnss
          * @since 9
          */
         wakeUpCacheQueueFull: boolean;
@@ -824,7 +824,7 @@ declare namespace geoLocationManager {
     export interface GeofenceRequest {
         /**
          * Indicate the user scenario.
-    	 *
+         *
          * @type { LocationRequestScenario }
          * @syscap SystemCapability.Location.Location.Geofence
          * @since 9
@@ -950,45 +950,45 @@ declare namespace geoLocationManager {
 
         /**
          * Address information.
-     	 *
+         *
          * @type { string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         description: string;
 
         /**
          * Indicates the maximum number of geocode query results.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         maxItems?: number;
 
         /**
          * Indicates the minimum latitude for geocoding query results.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         minLatitude?: number;
 
         /**
          * Indicates the minimum longitude for geocoding query results.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         minLongitude?: number;
 
         /**
          * Indicates the maximum latitude for geocoding query results.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         maxLatitude?: number;
@@ -997,7 +997,7 @@ declare namespace geoLocationManager {
          * Indicates the maximum longitude for geocoding query results.
          *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         maxLongitude?: number;
@@ -1036,126 +1036,126 @@ declare namespace geoLocationManager {
         /**
          * Indicates language used for the location description.
          * zh indicates Chinese, and en indicates English.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         locale?: string;
 
         /**
          * Indicates landmark of the location.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         placeName?: string;
 
         /**
          * Indicates country code.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         countryCode?: string;
 
         /**
          * Indicates country name.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         countryName?: string;
 
         /**
          * Indicates administrative region name.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         administrativeArea?: string;
 
         /**
          * Indicates sub-administrative region name.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         subAdministrativeArea?: string;
 
         /**
          * Indicates locality information.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         locality?: string;
 
         /**
          * Indicates sub-locality information.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         subLocality?: string;
 
         /**
          * Indicates road name.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         roadName?: string;
 
         /**
          * Indicates auxiliary road information.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         subRoadName?: string;
 
         /**
          * Indicates house information.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         premises?: string;
 
         /**
          * Indicates postal code.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         postalCode?: string;
 
         /**
          * Indicates phone number.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         phoneNumber?: string;
 
         /**
          * Indicates website URL.
-     	 *
+         *
          * @type { ?string }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         addressUrl?: string;
@@ -1164,25 +1164,25 @@ declare namespace geoLocationManager {
          * Indicates additional information.
          *
          * @type { ?Array<string> }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         descriptions?: Array<string>;
 
         /**
          * Indicates the amount of additional descriptive information.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @since 9
          */
         descriptionsSize?: number;
 
         /**
          * Indicates whether it is an mock GeoAddress
-     	 *
+         *
          * @type { ?Boolean }
-     	 * @syscap SystemCapability.Location.Location.Geocoder
+         * @syscap SystemCapability.Location.Location.Geocoder
          * @systemapi
          * @since 9
          */
@@ -1208,36 +1208,36 @@ declare namespace geoLocationManager {
 
         /**
          * User scenario of the location request.
-     	 *
+         *
          * @type { ?LocationRequestScenario }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         scenario?: LocationRequestScenario;
 
         /**
          * Location report interval.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeInterval?: number;
 
         /**
          * Location report distance interval.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         distanceInterval?: number;
 
         /**
          * Accuracy requirements for reporting locations.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         maxAccuracy?: number;
@@ -1253,36 +1253,36 @@ declare namespace geoLocationManager {
     export interface CurrentLocationRequest {
         /**
          * Priority of the location request.
-     	 *
+         *
          * @type { ?LocationRequestPriority }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         priority?: LocationRequestPriority;
 
         /**
          * User scenario of the location request.
-     	 *
+         *
          * @type { ?LocationRequestScenario }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         scenario?: LocationRequestScenario;
 
         /**
          * Accuracy requirements for reporting locations.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         maxAccuracy?: number;
 
         /**
          * Timeout interval of a single location request.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeoutMs?: number;
@@ -1300,9 +1300,9 @@ declare namespace geoLocationManager {
          * Indicates latitude information.
          * A positive value indicates north latitude,
          * and a negative value indicates south latitude.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         latitude: number;
@@ -1311,90 +1311,90 @@ declare namespace geoLocationManager {
          * Indicates Longitude information.
          * A positive value indicates east longitude ,
          * and a negative value indicates west longitude.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         longitude: number;
 
         /**
          * Indicates location altitude, in meters.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         altitude: number;
 
         /**
          * Indicates location accuracy, in meters.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         accuracy: number;
 
         /**
          * Indicates speed, in m/s.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         speed: number;
 
         /**
          * Indicates location timestamp in the UTC format.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeStamp: number;
 
         /**
          * Indicates direction information.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         direction: number;
 
         /**
          * Indicates location timestamp since boot.
-     	 *
+         *
          * @type { number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         timeSinceBoot: number;
 
         /**
          * Indicates additional information.
-     	 *
+         *
          * @type { ?Array<string> }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         additions?: Array<string>;
 
         /**
          * Indicates the amount of additional descriptive information.
-     	 *
+         *
          * @type { ?number }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         additionSize?: number;
 
         /**
          * Indicates whether it is an mock location.
-     	 *
+         *
          * @type { ?Boolean }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
@@ -1411,7 +1411,7 @@ declare namespace geoLocationManager {
     export enum LocationRequestPriority {
         /**
          * Default priority.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1419,7 +1419,7 @@ declare namespace geoLocationManager {
 
         /**
          * Preferentially ensure the locating accuracy.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1427,7 +1427,7 @@ declare namespace geoLocationManager {
 
         /**
          * Preferentially ensure low power consumption for locating.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1435,11 +1435,11 @@ declare namespace geoLocationManager {
 
         /**
          * Preferentially ensure that the first location is time-consuming.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
-    	FIRST_FIX
+        FIRST_FIX
     }
 
     /**
@@ -1452,7 +1452,7 @@ declare namespace geoLocationManager {
     export enum LocationRequestScenario {
         /**
          * Default scenario.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1468,7 +1468,7 @@ declare namespace geoLocationManager {
 
         /**
          * Trajectory tracking scenario. High positioning precision is required.
-    	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1476,7 +1476,7 @@ declare namespace geoLocationManager {
 
         /**
          * Car hailing scenario. High positioning precision and real-time performance are required.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1484,7 +1484,7 @@ declare namespace geoLocationManager {
 
         /**
          * Daily life scenarios. Low requirements on positioning precision and real-time performance.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1492,7 +1492,7 @@ declare namespace geoLocationManager {
 
         /**
          * Power saving scenarios.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1510,7 +1510,7 @@ declare namespace geoLocationManager {
     export enum LocationPrivacyType {
         /**
          * Other scenarios.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
@@ -1519,7 +1519,7 @@ declare namespace geoLocationManager {
 
         /**
          * Privacy agreement for the startup wizard scenario.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
@@ -1528,12 +1528,12 @@ declare namespace geoLocationManager {
 
         /**
          * Privacy agreement pop-up when network location is enabled.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @systemapi
          * @since 9
          */
-    	CORE_LOCATION
+        CORE_LOCATION
     }
 
     /**
@@ -1546,18 +1546,18 @@ declare namespace geoLocationManager {
     export interface LocationCommand {
         /**
          * Information about the scenario where the command is sent.
-     	 *
+         *
          * @type { LocationRequestScenario }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         scenario: LocationRequestScenario;
 
         /**
          * Sent command content.
-     	 *
+         *
          * @type { string }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         command: string;
@@ -1573,18 +1573,18 @@ declare namespace geoLocationManager {
     export interface CountryCode {
         /**
          * Country code character string.
-     	 *
+         *
          * @type { string }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         country: string;
 
         /**
          * Country code source.
-     	 *
+         *
          * @type { CountryCodeType }
-     	 * @syscap SystemCapability.Location.Location.Core
+         * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         type: CountryCodeType;
@@ -1600,7 +1600,7 @@ declare namespace geoLocationManager {
     export enum CountryCodeType {
         /**
          * Country code obtained from the locale setting.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1608,15 +1608,15 @@ declare namespace geoLocationManager {
 
         /**
          * Country code obtained from the SIM information.
-    	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
         COUNTRY_CODE_FROM_SIM,
 
         /**
-     	 * Query the country code information from the reverse geocoding result.
-    	 *
+         * Query the country code information from the reverse geocoding result.
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */
@@ -1624,7 +1624,7 @@ declare namespace geoLocationManager {
 
         /**
          * Obtain the country code from the cell registration information.
-     	 *
+         *
          * @syscap SystemCapability.Location.Location.Core
          * @since 9
          */

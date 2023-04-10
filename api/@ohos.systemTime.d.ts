@@ -29,7 +29,7 @@ declare namespace systemTime {
      * Sets the system time.
      *
      * @permission ohos.permission.SET_TIME
-     * @param time Target time stamp (ms)
+     * @param { number } time - Target time stamp (ms)
      * @param { AsyncCallback<void> } callback
      * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @syscap SystemCapability.MiscServices.Time
@@ -42,7 +42,7 @@ declare namespace systemTime {
      * Sets the system time.
      *
      * @permission ohos.permission.SET_TIME
-     * @param time Target time stamp (ms)
+     * @param { number } time - Target time stamp (ms)
      * @returns { Promise<void> }
      * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @syscap SystemCapability.MiscServices.Time
@@ -144,7 +144,6 @@ declare namespace systemTime {
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
      *
      * @param { AsyncCallback<number> } callback
-     * @returns { Promise<number> }
      * @throws { BusinessError } -1 - the parameter check failed or system error.
      * @syscap SystemCapability.MiscServices.Time
      * @since 8
@@ -157,7 +156,6 @@ declare namespace systemTime {
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
      *
      * @param { boolean } isNano
-     * @param { AsyncCallback<number> } cal
      * @returns { Promise<number> }
      * @throws { BusinessError } -1 - the parameter check failed or system error.
      * @syscap SystemCapability.MiscServices.Time
@@ -171,7 +169,7 @@ declare namespace systemTime {
      * Sets the system time.
      *
      * @permission ohos.permission.SET_TIME
-     * @param date The target date
+     * @param { Date } date - The target date
      * @param { AsyncCallback<void> } callback
      * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @syscap SystemCapability.MiscServices.Time
@@ -184,7 +182,7 @@ declare namespace systemTime {
      * Sets the system time.
      *
      * @permission ohos.permission.SET_TIME
-     * @param date The target date
+     * @param { Date } date - The target date
      * @returns { Promise<void> }
      * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @syscap SystemCapability.MiscServices.Time
@@ -221,7 +219,7 @@ declare namespace systemTime {
      * Sets the system timezone.
      *
      * @permission ohos.permission.SET_TIME_ZONE
-     * @param timezone The system timezone
+     * @param { string } timezone - The system timezone
      * @param { AsyncCallback<void> } callback
      * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @syscap SystemCapability.MiscServices.Time
@@ -234,7 +232,7 @@ declare namespace systemTime {
      * Sets the system timezone.
      *
      * @permission ohos.permission.SET_TIME_ZONE
-     * @param timezone The system timezone
+     * @param { string } timezone - The system timezone
      * @returns { Promise<void> }
      * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @syscap SystemCapability.MiscServices.Time

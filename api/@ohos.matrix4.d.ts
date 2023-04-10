@@ -15,31 +15,35 @@
 
 /**
  * Used to do matrix operations
- * @import import Matrix4 from '@ohos.matrix4'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 7
  */
 declare namespace matrix4 {
   /**
    * Set translation parameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    */
   interface TranslateOption {
     /**
      * Indicates the translation distance of the x-axis, in px.
+     * @crossplatform
      * @since 7
      */
     x?: number;
 
     /**
      * Indicates the translation distance of the y-axis, in px.
+     * @crossplatform
      * @since 7
      */
     y?: number;
 
     /**
      * Indicates the translation distance of the z-axis, in px.
+     * @crossplatform
      * @since 7
      */
     z?: number;
@@ -48,35 +52,41 @@ declare namespace matrix4 {
   /**
    * Set scaling parameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    */
   interface ScaleOption {
     /**
      * Zoom factor of the x-axis.
+     * @crossplatform
      * @since 7
      */
     x?: number;
 
     /**
      * Zoom factor of the y-axis.
+     * @crossplatform
      * @since 7
      */
     y?: number;
 
     /**
      * Zoom factor of the z-axis.
+     * @crossplatform
      * @since 7
      */
     z?: number;
 
     /**
      * Transform the x-axis coordinate of the center point.
+     * @crossplatform
      * @since 7
      */
     centerX?: number;
 
     /**
      * Transform the y-axis coordinate of the center point.
+     * @crossplatform
      * @since 7
      */
     centerY?: number;
@@ -85,41 +95,48 @@ declare namespace matrix4 {
   /**
    * Set Rotation Parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    */
   interface RotateOption {
     /**
      * Axis of rotation vector x coordinate.
+     * @crossplatform
      * @since 7
      */
     x?: number;
 
     /**
      * Axis of rotation vector y coordinate.
+     * @crossplatform
      * @since 7
      */
     y?: number;
 
     /**
      * Axis of rotation vector z coordinate.
+     * @crossplatform
      * @since 7
      */
     z?: number;
 
     /**
      * Transform the x-axis coordinate of the center point.
+     * @crossplatform
      * @since 7
      */
     centerX?: number;
 
     /**
      * Transform the y-axis coordinate of the center point.
+     * @crossplatform
      * @since 7
      */
     centerY?: number;
 
     /**
      * Rotation angle.
+     * @crossplatform
      * @since 7
      */
     angle?: number;
@@ -128,12 +145,14 @@ declare namespace matrix4 {
   /**
    * Matrix4Transit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    */
   interface Matrix4Transit {
     /**
      * Copy function of Matrix, which can copy a copy of the current matrix object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 7
      * @returns Return to Matrix4Transit
      */
@@ -142,6 +161,7 @@ declare namespace matrix4 {
     /**
      * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 7
      * @returns Return to Matrix4Transit
      */
@@ -150,6 +170,7 @@ declare namespace matrix4 {
     /**
      * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 7
      * @returns Return to Matrix4Transit
      */
@@ -158,6 +179,7 @@ declare namespace matrix4 {
     /**
      * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 7
      * @returns Return to Matrix4Transit
      */
@@ -166,6 +188,7 @@ declare namespace matrix4 {
     /**
      * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 7
      * @returns Return to Matrix4Transit
      */
@@ -174,6 +197,7 @@ declare namespace matrix4 {
     /**
      * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 7
      * @returns Return to Matrix4Transit
      */
@@ -182,6 +206,7 @@ declare namespace matrix4 {
     /**
      * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 7
      * @returns Return to Matrix4Transit
      */
@@ -191,6 +216,7 @@ declare namespace matrix4 {
   /**
    * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -218,6 +244,7 @@ declare namespace matrix4 {
   /**
    * Matrix initialization function, which can return an identity matrix object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -226,6 +253,7 @@ declare namespace matrix4 {
   /**
    * Copy function of Matrix, which can copy a copy of the current matrix object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -234,6 +262,7 @@ declare namespace matrix4 {
   /**
    * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -242,6 +271,7 @@ declare namespace matrix4 {
   /**
    * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -250,6 +280,7 @@ declare namespace matrix4 {
   /**
    * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -258,6 +289,7 @@ declare namespace matrix4 {
   /**
    * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -266,6 +298,7 @@ declare namespace matrix4 {
   /**
    * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */
@@ -274,6 +307,7 @@ declare namespace matrix4 {
   /**
    * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
    */

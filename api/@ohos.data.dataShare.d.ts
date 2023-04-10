@@ -62,6 +62,7 @@ declare namespace dataShare {
   /**
    * DataShareHelper
    *
+   * @interface DataShareHelper
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -71,7 +72,7 @@ declare namespace dataShare {
     /**
      * Registers an observer to observe data specified by the given uri.
      *
-     * @param { string } type - type must be 'dataChange'.
+     * @param { 'dataChange' } type - type must be 'dataChange'.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - the callback of on.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -84,7 +85,7 @@ declare namespace dataShare {
     /**
      * Deregisters an observer used for monitoring data specified by the given uri.
      *
-     * @param { string } type - type must be 'dataChange'.
+     * @param { 'dataChange' } type - type must be 'dataChange'.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - the callback of off.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -98,7 +99,7 @@ declare namespace dataShare {
      * Inserts a single data record into the database.
      *
      * @param { string } uri - Indicates the path of the data to operate.
-     * @param { ValueBucket } value - Indicates the data record to insert. If this parameter is null,
+     * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
      * @param { AsyncCallback<number> } callback - {number}: the index of the inserted data record.
      * @throws { BusinessError } 401 - the parameter check failed.
@@ -113,7 +114,7 @@ declare namespace dataShare {
      * Inserts a single data record into the database.
      *
      * @param { string } uri - Indicates the path of the data to operate.
-     * @param { ValueBucket } value - Indicates the data record to insert. If this parameter is null,
+     * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
      * @returns { Promise<number> } {number}: the index of the inserted data record.
      * @throws { BusinessError } 401 - the parameter check failed.
@@ -203,7 +204,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of data to update.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @param { ValueBucket } value - Indicates the data to update. This parameter can be null.
+     * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records updated.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -224,7 +225,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of data to update.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @param { ValueBucket } value - Indicates the data to update. This parameter can be null.
+     * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
      * @returns { Promise<number> } {number}: the number of data records updated.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer

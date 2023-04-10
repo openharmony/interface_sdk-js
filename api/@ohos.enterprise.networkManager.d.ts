@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from "./@ohos.base";
-import Want from "./@ohos.app.ability.Want";
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module offers set network policies on the devices.

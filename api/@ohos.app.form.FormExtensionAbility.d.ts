@@ -135,4 +135,15 @@ export default class FormExtensionAbility {
      * @since 9
      */
     onShareForm?(formId: string): { [key: string]: Object };
+
+    /**
+     * Called when the system acquire the form data.
+     * @param { string } formId - Indicates the ID of the form.
+     * @returns { { [key: string]: Object } } Returns the wantParams object.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    onAcquireFormData?(formId: string): { [key: string]: Object };
 }

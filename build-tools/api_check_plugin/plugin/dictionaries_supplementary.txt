@@ -165,7 +165,9 @@ dfx
 dialling
 dimbehind
 dirent
+dirxml
 disables
+disallowed
 discharging
 disconnecting
 disconnection
@@ -229,6 +231,7 @@ fileio
 fileshare
 fillets
 flac
+flg
 foldable
 formatable
 forwardmail
@@ -384,7 +387,7 @@ mah
 mcc
 md5
 mdns
-mdns_err
+mdnserror
 mediaquery
 meid
 messageerror
@@ -687,6 +690,7 @@ traversed
 truncates
 tsbundle
 ttls
+tunneled
 txpower
 uarfcn
 ubset

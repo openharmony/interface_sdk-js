@@ -129,6 +129,7 @@ declare namespace preferences {
    * the file that stores preferences data, and use movePreferencesFromCache
    * to remove the {@link Preferences} instance from the memory.
    *
+   * @interface Preferences
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -197,7 +198,7 @@ declare namespace preferences {
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
-     * @returns { Promise<void> } {@code true} if the {@link Preferences} object contains
+     * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -304,8 +305,8 @@ declare namespace preferences {
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
-     * @param { Callback } callback - indicates the callback when preferences changes.
-     * @param { Callback<{key: string}> } callback - Indicates the callback function.
+     * @param { 'change' } type - indicates the callback when preferences changes.
+     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
@@ -315,8 +316,8 @@ declare namespace preferences {
     /**
      * Unregisters an existing observer.
      *
-     * @param { Callback } callback - indicates the callback when preferences changes.
-     * @param { Callback<{key: string}> } callback - Indicates the callback function.
+     * @param { 'change' } type - indicates the callback when preferences changes.
+     * @param { Callback<{ key: string }> } callback? - Indicates the callback function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
@@ -334,6 +335,7 @@ declare namespace preferences {
    *
    * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @since 9
    */
   const MAX_KEY_LENGTH: 80;
 
@@ -342,6 +344,7 @@ declare namespace preferences {
    *
    * @constant
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @since 9
    */
   const MAX_VALUE_LENGTH: 8192;
 }

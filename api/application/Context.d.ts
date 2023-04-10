@@ -25,6 +25,7 @@ import contextConstant from "../@ohos.app.ability.contextConstant"
  * application-specific resources.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 export default class Context extends BaseContext {
@@ -42,6 +43,7 @@ export default class Context extends BaseContext {
      * @type { ApplicationInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     applicationInfo: ApplicationInfo;
@@ -51,6 +53,7 @@ export default class Context extends BaseContext {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     cacheDir: string;
@@ -60,6 +63,7 @@ export default class Context extends BaseContext {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     tempDir: string;
@@ -69,6 +73,7 @@ export default class Context extends BaseContext {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     filesDir: string;
@@ -78,6 +83,7 @@ export default class Context extends BaseContext {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     databaseDir: string;
@@ -87,6 +93,7 @@ export default class Context extends BaseContext {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     preferencesDir: string;
@@ -96,6 +103,7 @@ export default class Context extends BaseContext {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     bundleCodeDir: string;

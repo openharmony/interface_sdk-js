@@ -22,6 +22,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  *
  * @typedef AbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
  * @since 9
  */
 export interface AbilityInfo {
@@ -30,6 +31,7 @@ export interface AbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly bundleName: string;
@@ -39,6 +41,7 @@ export interface AbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly moduleName: string;
@@ -48,6 +51,7 @@ export interface AbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly name: string;
@@ -57,6 +61,7 @@ export interface AbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly label: string;
@@ -66,6 +71,7 @@ export interface AbilityInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly labelId: number;
@@ -75,6 +81,7 @@ export interface AbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly description: string;
@@ -84,6 +91,7 @@ export interface AbilityInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly descriptionId: number;
@@ -93,6 +101,7 @@ export interface AbilityInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly icon: string;
@@ -102,6 +111,7 @@ export interface AbilityInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly iconId: number;
@@ -148,6 +158,7 @@ export interface AbilityInfo {
    *
    * @type { bundleManager.LaunchType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly launchType: bundleManager.LaunchType;
@@ -205,6 +216,7 @@ export interface AbilityInfo {
    *
    * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly applicationInfo: ApplicationInfo;
