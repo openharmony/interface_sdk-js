@@ -16,6 +16,7 @@
 /**
 * The process is mainly used to obtain the relevant ID of the process, obtain and modify
 * the working directory of the process, exit and close the process.
+* @crossplatform
 * @since 7
 * @syscap SystemCapability.Utils.Lang
 */
@@ -23,6 +24,7 @@
 declare namespace process {
     /**
     * The childprocess object can be used to create a new process.
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -31,6 +33,7 @@ declare namespace process {
     export interface ChildProcess {
         /**
         * Return pid is the pid of the current process
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -41,6 +44,7 @@ declare namespace process {
         
         /**
         * Return ppid is the pid of the current child process
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -51,6 +55,7 @@ declare namespace process {
 
         /**
         * Return exitCode is the exit code of the current child process
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -61,6 +66,7 @@ declare namespace process {
 
         /**
         * Return boolean is whether the current process signal is sent successfully
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -71,6 +77,7 @@ declare namespace process {
 
         /**
         * Return 'number' is the target process exit code
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -81,6 +88,7 @@ declare namespace process {
 
         /**
         * Return it as 'Uint8Array' of the stdout until EOF
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -91,6 +99,7 @@ declare namespace process {
 
         /**
         * Return it as 'Uint8Array of the stderr until EOF
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -101,6 +110,7 @@ declare namespace process {
 
         /**
         * Close the target process
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -110,6 +120,7 @@ declare namespace process {
 
         /**
         * Send a signal to process
+        * @crossplatform
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -123,12 +134,14 @@ declare namespace process {
      * Process is mainly used to obtain the relevant ID of the process, obtain and modify the
      * working directory of the process, exit and close the process.
      * @name ProcessManager
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
     export class ProcessManager {
         /**
         * Returns a boolean whether the specified uid belongs to a particular application.
+        * @crossplatform
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param v An id.
@@ -139,6 +152,7 @@ declare namespace process {
 
         /**
         * Returns the uid based on the specified user name.
+        * @crossplatform
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param v Process name.
@@ -149,6 +163,7 @@ declare namespace process {
 
         /**
         * Returns the thread priority based on the specified tid.
+        * @crossplatform
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param v The tid of the process.
@@ -159,6 +174,7 @@ declare namespace process {
 
         /**
         * Returns the system configuration at runtime.
+        * @crossplatform
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param name Parameters defined by the system configuration.
@@ -169,6 +185,7 @@ declare namespace process {
 
         /**
         * Returns the system value for environment variables.
+        * @crossplatform
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param name Parameters defined by the system environment variables.
@@ -179,6 +196,7 @@ declare namespace process {
 
         /**
         * Process exit
+        * @crossplatform
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param code Process exit code.
@@ -188,6 +206,7 @@ declare namespace process {
 
         /**
         * Return whether the signal was sent successfully
+        * @crossplatform
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param signal Signal sent.
@@ -200,6 +219,7 @@ declare namespace process {
 
     /**
     * Returns the numeric valid group ID of the process
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -210,6 +230,7 @@ declare namespace process {
 
     /**
     * Return the numeric valid user identity of the process
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -220,6 +241,7 @@ declare namespace process {
 
     /**
     * Returns the numeric group id of the process
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -230,6 +252,7 @@ declare namespace process {
 
     /**
     * Returns the digital user id of the process
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @returns Return the digital user id of the process.
@@ -238,6 +261,7 @@ declare namespace process {
 
     /**
     * Return an array with supplementary group id
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -248,6 +272,7 @@ declare namespace process {
 
     /**
     * Return pid is The pid of the current process
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @returns Return The pid of the current process.
@@ -256,6 +281,7 @@ declare namespace process {
 
     /**
     * Return ppid is The pid of the current child process
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -266,6 +292,7 @@ declare namespace process {
 
     /**
     * Returns the tid of the current thread.
+    * @crossplatform
     * @since 8
     * @syscap SystemCapability.Utils.Lang
     * @returns Return the tid of the current thread.
@@ -293,6 +320,7 @@ declare namespace process {
 
     /**
     * Returns a boolean whether the process is running in a 64-bit environment.
+    * @crossplatform
     * @since 8
     * @syscap SystemCapability.Utils.Lang
     * @returns Return a boolean whether the process is running in a 64-bit environment.
@@ -323,6 +351,7 @@ declare namespace process {
 
     /**
     * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
+    * @crossplatform
     * @since 8
     * @syscap SystemCapability.Utils.Lang
     * @returns Return the start of the system to the start of the process.
@@ -331,6 +360,7 @@ declare namespace process {
 
     /**
     * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
+    * @crossplatform
     * @since 8
     * @syscap SystemCapability.Utils.Lang
     * @returns Return the cpu time (in milliseconds) from the time when the process starts to the current time.
@@ -362,6 +392,7 @@ declare namespace process {
     type EventListener = (evt: Object) => void;
     /**
     * Return a child process object and spawns a new ChildProcess to run the command.
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @param command String of the shell commands executed by the child process.
@@ -377,6 +408,7 @@ declare namespace process {
 
     /**
     * Abort current process
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     */
@@ -384,6 +416,7 @@ declare namespace process {
 
     /**
     * Register for an event
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @param type Indicates the type of event registered.
@@ -395,6 +428,7 @@ declare namespace process {
 
     /**
     * Remove registered event
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @param type Remove the type of registered event.
@@ -406,6 +440,7 @@ declare namespace process {
 
     /**
     * Process exit
+    * @crossplatform
     * @since 7
     * @deprecated since 9
     * @useinstead ohos.process.ProcessManager.exit
@@ -416,6 +451,7 @@ declare namespace process {
 
     /**
     * Return the current work directory;
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -426,6 +462,7 @@ declare namespace process {
 
     /**
     * Change current directory
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -436,6 +473,7 @@ declare namespace process {
 
     /**
     * Returns the running time of the system
+    * @crossplatform
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @returns Return the running time of the system.
