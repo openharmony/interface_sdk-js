@@ -14,11 +14,13 @@
  */
 
 /**
+ * Stores module information about an application.
+ *
+ * @typedef ModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.HapModuleInfo
- * @name Stores module information about an application.
  */
 export interface ModuleInfo {
   /**

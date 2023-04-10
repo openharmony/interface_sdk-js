@@ -17,11 +17,13 @@ import { ModuleInfo } from './moduleInfo';
 import { CustomizeData } from './customizeData';
 
 /**
+ * Obtains configuration information about an application
+ *
+ * @typedef ApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ApplicationInfo
- * @name Obtains configuration information about an application
  */
 export interface ApplicationInfo {
   /**

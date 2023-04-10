@@ -82,7 +82,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>) : void;
+    install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
     /**
      * Install haps for an application.
@@ -108,7 +108,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    install(hapFilePaths: Array<string>, callback: AsyncCallback<void>) : void;
+    install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Install haps for an application.
@@ -136,7 +136,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    install(hapFilePaths: Array<string>, installParam?: InstallParam) : Promise<void>;
+    install(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
     /**
      * Uninstall an application.
@@ -155,7 +155,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    uninstall(bundleName: string, installParam: InstallParam, callback : AsyncCallback<void>) : void;
+    uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
     /**
      * Uninstall an application.
@@ -172,7 +172,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    uninstall(bundleName: string, callback : AsyncCallback<void>) : void;
+    uninstall(bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
      * Uninstall an application.
@@ -240,7 +240,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    recover(bundleName: string, installParam?: InstallParam) : Promise<void>;
+    recover(bundleName: string, installParam?: InstallParam): Promise<void>;
 
     /**
      * Uninstall a shared bundle.
@@ -290,6 +290,7 @@ declare namespace installer {
      * Indicates the moduleName
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     moduleName: string;
@@ -298,6 +299,7 @@ declare namespace installer {
      * Indicates the hash value
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     hashValue: string;
@@ -316,6 +318,7 @@ declare namespace installer {
      * Indicates the user id
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     userId?: number;
@@ -324,6 +327,7 @@ declare namespace installer {
      * Indicates the install flag, which 0x00 for normal, 0x10 for freeInstall
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     installFlag?: number;
@@ -332,6 +336,7 @@ declare namespace installer {
      * Indicates whether the param has data
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     isKeepData?: boolean;
@@ -340,6 +345,7 @@ declare namespace installer {
      * Indicates the hash params
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     hashParams?: Array<HashParam>;
@@ -348,6 +354,7 @@ declare namespace installer {
      * Indicates the deadline of the crowdtesting bundle
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     crowdtestDeadline?: number;
@@ -356,6 +363,7 @@ declare namespace installer {
      * Indicates the shared bundle dir paths.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
@@ -374,6 +382,7 @@ declare namespace installer {
      * Indicates the shared bundle name
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 10
      */
     bundleName: string;
@@ -382,6 +391,7 @@ declare namespace installer {
      * Indicates the shared version code. If default, indicates that all version sharing bundles are uninstalled
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 10
      */
     versionCode?: number;
