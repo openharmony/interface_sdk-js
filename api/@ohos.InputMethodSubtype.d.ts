@@ -96,8 +96,16 @@ export default interface InputMethodSubtype {
   /**
    * The extra info of input method subtype.
    *
+   * @type { object }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
+   */
+  /**
+   * The extra info of input method subtype.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
    */
   extra?: object;
 }

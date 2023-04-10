@@ -116,7 +116,7 @@ declare namespace inputMethod {
   function getCurrentInputMethod(): InputMethodProperty;
 
   /**
-   * Switch current input method subtype, if this interface is invoked by the current IME, this permission is ignored.
+   * Switch current input method subtype.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
@@ -128,10 +128,23 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
+  /**
+   * Switch current input method subtype, if this interface is invoked by the current IME, this permission is ignored.
+   *
+   * @permission ohos.permission.CONNECT_IME_ABILITY
+   * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodSubtype.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Switch current input method subtype, if this interface is invoked by the current IME, this permission is ignored.
+   * Switch current input method subtype.
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
@@ -142,6 +155,20 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
+   */
+  /**
+   * Switch current input method subtype, if this interface is invoked by the current IME, this permission is ignored.
+   *
+   * @permission ohos.permission.CONNECT_IME_ABILITY
+   * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodSubtype.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
    */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
@@ -591,8 +618,16 @@ declare namespace inputMethod {
     /**
      * The extra info of input method
      *
+     * @type { object }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
+     */
+    /**
+     * The extra info of input method
+     *
+     * @type { ?object }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     extra?: object;
   }
