@@ -180,6 +180,7 @@ export interface Callee {
  * The class of a UI ability.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 export default class UIAbility extends Ability {
@@ -225,6 +226,7 @@ export default class UIAbility extends Ability {
      * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
@@ -234,6 +236,7 @@ export default class UIAbility extends Ability {
      * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onWindowStageCreate(windowStage: window.WindowStage): void;
@@ -242,6 +245,7 @@ export default class UIAbility extends Ability {
      * Called back when an ability window stage is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onWindowStageDestroy(): void;
@@ -259,6 +263,7 @@ export default class UIAbility extends Ability {
      * Called back before an ability is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onDestroy(): void | Promise<void>;
@@ -267,6 +272,7 @@ export default class UIAbility extends Ability {
      * Called back when the state of an ability changes to foreground.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onForeground(): void;
@@ -275,6 +281,7 @@ export default class UIAbility extends Ability {
      * Called back when the state of an ability changes to background.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onBackground(): void;

@@ -465,6 +465,7 @@ declare namespace bundleManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   export enum LaunchType {
@@ -480,6 +481,7 @@ declare namespace bundleManager {
      * Indicates that the ability can have multiple instances
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
      * @since 9
      */
     MULTITON = 1,

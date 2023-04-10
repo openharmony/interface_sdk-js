@@ -27,6 +27,7 @@ export default abstract class BaseContext {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @crossplatform
      */
     stageMode: boolean;
 }
