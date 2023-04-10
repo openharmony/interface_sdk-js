@@ -807,20 +807,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
-    /**
-     * Obtains string resources associated with a specified resource ID.
-     *
-     * @param resId Indicates the resource ID.
-     * @param args Indicates the formatting string resource parameters.
-     * @returns Returns the character string corresponding to the resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
-     * @since 10
-     */
-    getStringSync(resId: number, ...args): string;
+    getStringSync(resId: number): string;
 
     /**
      * Obtains string resources associated with a specified resource ID.
@@ -850,20 +837,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
-    /**
-     * Obtains string resources associated with a specified resource object.
-     *
-     * @param resource Indicates the resource object.
-     * @param args Indicates the formatting string resource parameters.
-     * @returns Returns the character string corresponding to the resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001001 - If the module resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
-     * @since 10
-     */
-    getStringSync(resource: Resource, ...args): string;
+    getStringSync(resource: Resource): string;
 
     /**
      * Obtains string resources associated with a specified resource object.
@@ -893,20 +867,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 9
      */
-    /**
-     * Obtains string resources associated with a specified resource name.
-     *
-     * @param resName Indicates the resource name.
-     * @param args Indicates the formatting string resource parameters.
-     * @returns Returns the character string corresponding to the resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001003 - If the resName invalid.
-     * @throws { BusinessError } 9001004 - If the resource not found by resName.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @throws { BusinessError } 9001008 - If the resource obtained by resName formatting error.
-     * @since 10
-     */
-    getStringByNameSync(resName: string, ...args): string;
+    getStringByNameSync(resName: string): string;
 
     /**
      * Obtains string resources associated with a specified resource name.
