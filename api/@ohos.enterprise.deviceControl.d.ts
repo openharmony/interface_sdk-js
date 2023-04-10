@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
-import Want from "./@ohos.app.ability.Want";
+import { AsyncCallback, Callback } from './basic';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to control the enterprise devices.
