@@ -435,7 +435,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'keyboardShow'|'keyboardHide'
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { AsyncCallback<void> } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
+     * @param { () => void } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -500,7 +500,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'setCallingWindow', callback: (wid:number) => void): void;
+    on(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
      * Unsubscribe 'setCallingWindow'.
@@ -510,7 +510,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'setCallingWindow', callback: (wid:number) => void): void;
+    off(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
      * Subscribe 'keyboardShow'|'keyboardHide'.
