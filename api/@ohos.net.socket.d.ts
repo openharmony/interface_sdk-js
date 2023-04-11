@@ -413,6 +413,7 @@ declare namespace socket {
   }
 
   /**
+   * @crossplatform
    * @since 9
    */
   export interface TLSSocket {
@@ -628,6 +629,7 @@ declare namespace socket {
   }
 
   /**
+   * @crossplatform
    * @since 9
    */
   export interface TLSSecureOptions {
@@ -683,6 +685,7 @@ declare namespace socket {
   }
 
   /**
+   * @crossplatform
    * @since 9
    */
   export interface TLSConnectOptions {
@@ -697,8 +700,8 @@ declare namespace socket {
   }
 
   /**
-   * @since 9
    * @crossplatform
+   * @since 9
    */
   export enum Protocol {
     TLSv12 = "TLSv1.2",

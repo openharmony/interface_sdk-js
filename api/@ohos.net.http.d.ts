@@ -369,7 +369,9 @@ declare namespace http {
      */
      off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
-
+  /**
+   * @crossplatform
+   */
   export enum RequestMethod {
     OPTIONS = "OPTIONS",
     GET = "GET",
@@ -380,7 +382,9 @@ declare namespace http {
     TRACE = "TRACE",
     CONNECT = "CONNECT"
   }
-
+  /**
+   * @crossplatform
+   */
   export enum ResponseCode {
     OK = 200,
     CREATED,
@@ -433,6 +437,7 @@ declare namespace http {
   /**
    * Indicates the type of the returned data.
    *
+   * @crossplatform
    * @since 9
    */
   export enum HttpDataType {
@@ -500,6 +505,7 @@ declare namespace http {
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;
 
   /**
+   * @crossplatform
    * @since 9
    */
   export interface HttpResponseCache {
