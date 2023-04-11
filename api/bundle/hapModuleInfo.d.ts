@@ -16,11 +16,13 @@
 import { AbilityInfo } from './abilityInfo';
 
 /**
+ * Obtains configuration information about a module.
+ *
+ * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.HapModuleInfo
- * @name Obtains configuration information about a module.
  */
 export interface HapModuleInfo {
   /**
