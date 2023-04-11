@@ -1293,7 +1293,16 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  putImageData(imagedata: ImageData, dx: number, dy: number): void;
+  /**
+   * Draws the specified ImageData object onto the canvas
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { Length } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { Length } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  putImageData(imagedata: ImageData, dx: Length, dy: Length): void;
 
   /**
    * Draws the specified ImageData object onto the canvas
@@ -1325,6 +1334,23 @@ declare class CanvasRenderer extends CanvasPath {
    *    The default is the height of the image data.
    * @form
    * @since 9
+   */
+  /**
+   * Draws the specified ImageData object onto the canvas
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { Length } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { Length } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { Length } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (x coordinate) of the entire image data.
+   * @param { Length } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (y coordinate) of the entire image data.
+   * @param { Length } dirtyWidth - Width of the rectangular area in the source image data.
+   *    The default is the width of the image data.
+   * @param { Length } dirtyHeight - Height of the rectangular area in the source image data.
+   *    The default is the height of the image data.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
   putImageData(
     imagedata: ImageData,
