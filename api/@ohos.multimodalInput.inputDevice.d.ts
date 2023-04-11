@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { Callback, AsyncCallback } from './basic';
-import { KeyCode } from './@ohos.multimodalInput.keyCode';
+import type { Callback, AsyncCallback } from './basic';
+import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
  * The input device management module is configured to obtain an ID and device information of an input device.
