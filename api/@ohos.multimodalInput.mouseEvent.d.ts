@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { InputEvent } from './@ohos.multimodalInput.inputEvent';
-import { KeyCode } from './@ohos.multimodalInput.keyCode';
+import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
+import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
  * Action
