@@ -147,6 +147,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onChange(callback: (value: string) => void): TextAreaAttribute;
 
   /**
+   * Called when judging whether the text editing change finished.
+   * @param {boolean} isEditing - Triggered when the text area status changes. If the value of isEditing is true, text area is in progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onEditChange(callback: (isEditing: boolean) => void): TextAreaAttribute;
+
+  /**
    * Called when using the Clipboard menu
    * @since 7
    */
