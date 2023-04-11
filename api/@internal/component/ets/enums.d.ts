@@ -2781,3 +2781,38 @@ declare enum CtrlKey {
    */
   ALT = 2,
 }
+
+/**
+ * The alignment of ImageSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ImageSpanAlignment {
+  /**
+   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BASELINE,
+
+  /**
+   * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BOTTOM,
+
+  /**
+   * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CENTER,
+
+  /**
+   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TOP,
+}
