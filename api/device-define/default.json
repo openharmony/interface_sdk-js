@@ -170,6 +170,7 @@
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CryptoFramework",
+    "SystemCapability.Security.Cert",
     "SystemCapability.BundleManager.BundleFramework.Core",
     "SystemCapability.BundleManager.BundleFramework.FreeInstall",
     "SystemCapability.BundleManager.BundleFramework.Resource",
