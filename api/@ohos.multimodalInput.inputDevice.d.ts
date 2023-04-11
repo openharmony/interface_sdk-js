@@ -41,7 +41,7 @@ declare namespace inputDevice {
    * Axis Type of the input event
    */
   type AxisType =
-    | 'touchmajor'
+    'touchmajor'
     | 'touchminor'
     | 'orientation'
     | 'x'
