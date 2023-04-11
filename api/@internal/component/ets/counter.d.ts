@@ -66,6 +66,24 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @since 9
    */
   onDec(event: () => void): CounterAttribute;
+
+  /**
+   * Indicates whether the decrease button of counter component is available or not.
+   * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
+   * @returns { CounterAttribute } The attribute of the counter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableDec(value: boolean): CounterAttribute;
+
+  /**
+   * Indicates whether the increase button of counter component is available or not.
+   * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
+   * @returns { CounterAttribute } The attribute of the counter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableInc(value: boolean): CounterAttribute;
 }
 
 /**
