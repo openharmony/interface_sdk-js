@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import notification from './@ohos.notification';
+import notification from './@ohos.notificationManager';
 import { NotificationSlot } from './notification/notificationSlot';
 
 /**
@@ -174,7 +174,15 @@ declare namespace reminderAgentManager {
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
-    ACTION_BUTTON_TYPE_SNOOZE = 1
+    ACTION_BUTTON_TYPE_SNOOZE = 1,
+
+    /**
+     * The custom button.
+     * @since 10
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     */
+     ACTION_BUTTON_TYPE_CUSTOM = 2
   }
 
   /**
@@ -226,6 +234,13 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     type: ActionButtonType;
+
+    /**
+     * Information about the ability that is redirected to when the button is clicked.
+     * @since 10
+     * @syscap SystemCapability.Notification.ReminderAgent
+     */
+     wantAgent?: WantAgent;
   }
 
   /**
@@ -293,7 +308,13 @@ declare namespace reminderAgentManager {
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
-    actionButton?: [ActionButton?, ActionButton?];
+    /**
+     * Action button displayed on the reminder notification.
+     * (The parameter is optional. Up to three buttons are supported).
+     * @since 10
+     * @syscap SystemCapability.Notification.ReminderAgent
+     */
+    actionButton?: [ActionButton?, ActionButton?, ActionButton?];
 
     /**
      * Information about the ability that is redirected to when the notification is clicked.
@@ -372,6 +393,20 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     slotType?: notification.SlotType;
+
+    /**
+     * Whether the notification is automatically cleared.
+     * @since 10
+     * @syscap SystemCapability.Notification.ReminderAgent
+     */
+    tapDismissed?: boolean;
+
+    /**
+     * Time when the notification is automatically cleared.
+     * @since 10
+     * @syscap SystemCapability.Notification.ReminderAgent
+     */
+    autoDeletedTime?: number;
   }
 
   interface ReminderRequestCalendar extends ReminderRequest {
