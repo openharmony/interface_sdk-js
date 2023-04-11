@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { InputEvent } from './@ohos.multimodalInput.inputEvent';
+import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 
 /**
  * Action
