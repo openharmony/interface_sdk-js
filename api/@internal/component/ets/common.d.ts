@@ -2146,28 +2146,60 @@ declare interface CustomPopupOptions {
 }
 
 /**
- * Defines the menu options.
+ * Defines the context menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface MenuOptions {
+declare interface ContextMenuOptions {
   /**
-   * Sets the title of the menu window.
-   * @type { ResourceStr }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  title?: ResourceStr;
-
-  /**
-   * Sets the position offset of the menu window.
-   * @type { Position }
+   * Sets the position offset of the context menu window.
+   * @type { ?Position }
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   offset?: Position;
+
+  /**
+   * Sets the placement of the context menu window.
+   * @type { ?Placement }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  placement?: Placement;
+
+  /**s
+   * Callback function when the context menu appears.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onAppear?: () => void;
+
+  /**
+   * Callback function when the context menu disappear.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onDisappear?: () => void;
+}
+
+/**
+ * Defines the menu options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface MenuOptions extends ContextMenuOptions {
+  /**
+   * Sets the title of the menu window.
+   * @type { ?ResourceStr }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  title?: ResourceStr;
 }
 
 /**
@@ -3328,7 +3360,15 @@ declare class CommonMethod<T> {
    * ContextMenu control
    * @since 8
    */
-  bindContextMenu(content: CustomBuilder, responseType: ResponseType): T;
+  /**
+   * ContextMenu control
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { responseType } responseType - Indicates response type of context menu.
+   * @param { ContextMenuOptions } options - Indicates the options of context menu.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
    * Bind content cover
