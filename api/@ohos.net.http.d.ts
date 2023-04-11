@@ -96,7 +96,6 @@ declare namespace http {
      * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
      * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
      *
-     * @crossplatform
      * @since 10
      */
     usingProxy?: boolean | HttpProxy; // default is false.
@@ -104,7 +103,6 @@ declare namespace http {
     /**
      * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system. 
      *
-     * @crossplatform
      * @since 10
      */
     caPath?: string;
