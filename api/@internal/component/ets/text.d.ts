@@ -239,6 +239,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
+
+  /**
+   * Specify the indentation of the first line in a text-block.
+   * @param { Length } value - The length of text indent.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textIndent(value: Length): TextAttribute;
 }
 
 /**
