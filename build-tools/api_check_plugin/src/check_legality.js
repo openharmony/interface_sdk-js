@@ -214,11 +214,13 @@ function checkTagsQuantity(comment, index, errorLogs) {
   }
 }
 
+let paramIndex = 0;
+let throwsIndex = 0;
+
 function checkTagValue(tag, index, node, fileName, errorLogs) {
   const { JsDocValueChecker } = require('./check_jsdoc_value/check_rest_value');
   const checker = JsDocValueChecker[tag.tag];
-  let paramIndex = 0;
-  let throwsIndex = 0;
+
   if (checker) {
     let valueCheckResult;
     if (tag.tag === 'param' && [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
@@ -261,6 +263,8 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
       }
       checkTagValue(tag, index, node, fileName, errorLogs)
     });
+    paramIndex = 0;
+    throwsIndex = 0;
     // 标签数量校验
     checkTagsQuantity(comment, index, errorLogs);
     checkInfoMap[index.toString()].illegalTags = checkInfoMap[index.toString()].illegalTags.concat(errorLogs);
