@@ -1354,12 +1354,12 @@ declare class CanvasRenderer extends CanvasPath {
    */
   putImageData(
     imagedata: ImageData,
-    dx: number,
-    dy: number,
-    dirtyX: number,
-    dirtyY: number,
-    dirtyWidth: number,
-    dirtyHeight: number,
+    dx: Length,
+    dy: Length,
+    dirtyX: Length,
+    dirtyY: Length,
+    dirtyWidth: Length,
+    dirtyHeight: Length,
   ): void;
 
   /**
