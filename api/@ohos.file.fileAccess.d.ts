@@ -936,258 +936,382 @@ declare namespace fileAccess {
      */
     copy(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<CopyResult>>): void;
 
-        /**
-         * Rename the selected file or directory.
-         *
-         * @since 9
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param uri Indicates the selected file or directory.
-         * @param displayName Indicates the new directory or file name.
-         * @returns {(void | Promise<string>)} Returns a URI representing the new file or directory.
-         * @throws { BusinessError } 13900001 - Operation not permitted
-         * @throws { BusinessError } 13900002 - No such file or directory
-         * @throws { BusinessError } 13900004 - Interrupted system call
-         * @throws { BusinessError } 13900006 - No such device or address
-         * @throws { BusinessError } 13900008 - Bad file descriptor
-         * @throws { BusinessError } 13900011 - Out of memory
-         * @throws { BusinessError } 13900012 - Permission denied
-         * @throws { BusinessError } 13900013 - Bad address
-         * @throws { BusinessError } 13900014 - Device or resource busy
-         * @throws { BusinessError } 13900015 - File exists
-         * @throws { BusinessError } 13900017 - No such device
-         * @throws { BusinessError } 13900018 - Not a directory
-         * @throws { BusinessError } 13900019 - Is a directory
-         * @throws { BusinessError } 13900020 - Invalid argument
-         * @throws { BusinessError } 13900022 - Too many open files
-         * @throws { BusinessError } 13900023 - Text file busy
-         * @throws { BusinessError } 13900024 - File too large
-         * @throws { BusinessError } 13900025 - No space left on device
-         * @throws { BusinessError } 13900027 - Read-only file system
-         * @throws { BusinessError } 13900029 - Resource deadlock would occur
-         * @throws { BusinessError } 13900030 - File name too long
-         * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-         * @throws { BusinessError } 13900034 - Operation would block
-         * @throws { BusinessError } 13900038 - Value too large for defined data type
-         * @throws { BusinessError } 13900041 - Quota exceeded
-         * @throws { BusinessError } 13900042 - Unknown error
-         * @throws { BusinessError } 14000001 - Invalid display name
-         * @throws { BusinessError } 14000002 - Invalid uri
-         * @throws { BusinessError } 14000003 - Invalid file extension
-         * @throws { BusinessError } 14000004 - File has been put into trash bin
-         * @throws { BusinessError } 14300001 - IPC error
-         * @throws { BusinessError } 14300002 - Invalid uri
-         * @throws { BusinessError } 14300003 - Fail to get fileextension info
-         * @throws { BusinessError } 14300004 - Get wrong result
-         */
-        rename(uri: string, displayName: string) : Promise<string>;
-        rename(uri: string, displayName: string, callback: AsyncCallback<string>) : void;
+    /**
+     * Rename the selected file or directory.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri Indicates the selected file or directory.
+     * @param { string } displayName Indicates the new directory or file name.
+     * @returns { Promise<string> } Returns a URI representing the new file or directory.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900013 - Bad address
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900017 - No such device
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900029 - Resource deadlock would occur
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+     * @throws { BusinessError } 13900034 - Operation would block
+     * @throws { BusinessError } 13900038 - Value too large for defined data type
+     * @throws { BusinessError } 13900041 - Quota exceeded
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000003 - Invalid file extension
+     * @throws { BusinessError } 14000004 - File has been put into trash bin
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    rename(uri: string, displayName: string): Promise<string>;
 
-        /**
-         * Obtain the status of a file or directory.
-         *
-         * @since 9
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param uri Indicates the selected file or directory.
-         * @returns {(void | Promise<boolean>)} Returns whether it exists.
-         * @throws { BusinessError } 13900001 - Operation not permitted
-         * @throws { BusinessError } 13900002 - No such file or directory
-         * @throws { BusinessError } 13900004 - Interrupted system call
-         * @throws { BusinessError } 13900006 - No such device or address
-         * @throws { BusinessError } 13900008 - Bad file descriptor
-         * @throws { BusinessError } 13900011 - Out of memory
-         * @throws { BusinessError } 13900012 - Permission denied
-         * @throws { BusinessError } 13900013 - Bad address
-         * @throws { BusinessError } 13900014 - Device or resource busy
-         * @throws { BusinessError } 13900015 - File exists
-         * @throws { BusinessError } 13900017 - No such device
-         * @throws { BusinessError } 13900018 - Not a directory
-         * @throws { BusinessError } 13900019 - Is a directory
-         * @throws { BusinessError } 13900020 - Invalid argument
-         * @throws { BusinessError } 13900022 - Too many open files
-         * @throws { BusinessError } 13900023 - Text file busy
-         * @throws { BusinessError } 13900024 - File too large
-         * @throws { BusinessError } 13900025 - No space left on device
-         * @throws { BusinessError } 13900027 - Read-only file system
-         * @throws { BusinessError } 13900029 - Resource deadlock would occur
-         * @throws { BusinessError } 13900030 - File name too long
-         * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-         * @throws { BusinessError } 13900034 - Operation would block
-         * @throws { BusinessError } 13900038 - Value too large for defined data type
-         * @throws { BusinessError } 13900041 - Quota exceeded
-         * @throws { BusinessError } 13900042 - Unknown error
-         * @throws { BusinessError } 14000001 - Invalid display name
-         * @throws { BusinessError } 14000002 - Invalid uri
-         * @throws { BusinessError } 14000003 - Invalid file extension
-         * @throws { BusinessError } 14000004 - File has been put into trash bin
-         * @throws { BusinessError } 14300001 - IPC error
-         * @throws { BusinessError } 14300002 - Invalid uri
-         * @throws { BusinessError } 14300003 - Fail to get fileextension info
-         * @throws { BusinessError } 14300004 - Get wrong result
-         */
-        access(sourceFileUri: string) : Promise<boolean>;
-        access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
+    /**
+     * Rename the selected file or directory.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri Indicates the selected file or directory.
+     * @param { string } displayName Indicates the new directory or file name.
+     * @param { AsyncCallback<string> } callback - The callback is used to return a URI representing the new file or directory.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900013 - Bad address
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900017 - No such device
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900029 - Resource deadlock would occur
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+     * @throws { BusinessError } 13900034 - Operation would block
+     * @throws { BusinessError } 13900038 - Value too large for defined data type
+     * @throws { BusinessError } 13900041 - Quota exceeded
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000003 - Invalid file extension
+     * @throws { BusinessError } 14000004 - File has been put into trash bin
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    rename(uri: string, displayName: string, callback: AsyncCallback<string>): void;
 
-        /**
-         * Query file related information by the uri in the promise way.
-         *
-         * @since 10
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} uri - Indicates the selected file or directory.
-         * @param {string} metaJson The json string includes query property.
-         * @returns {Promise<string>} Returns the json string, includes query property and value.
-         */
-        query(uri: string, metaJson: string) : Promise<string>;
+    /**
+     * Obtain the status of a file or directory.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceFileUri Indicates the selected file or directory.
+     * @returns { Promise<boolean> } Returns whether it exists.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900013 - Bad address
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900017 - No such device
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900029 - Resource deadlock would occur
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+     * @throws { BusinessError } 13900034 - Operation would block
+     * @throws { BusinessError } 13900038 - Value too large for defined data type
+     * @throws { BusinessError } 13900041 - Quota exceeded
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000003 - Invalid file extension
+     * @throws { BusinessError } 14000004 - File has been put into trash bin
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    access(sourceFileUri: string): Promise<boolean>;
 
-        /**
-         * Query file related information by the uri in the asyncCallback way.
-         *
-         * @since 10
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} uri - Indicates the selected file or directory.
-         * @param {string} metaJson The json string includes query property.
-         * @param {AsyncCallback<string>} callback - Returns the json string, includes query property and value.
-         */
-        query(uri: string, metaJson: string, callback: AsyncCallback<string>) : void;
+    /**
+     * Obtain the status of a file or directory.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceFileUri Indicates the selected file or directory.
+     * @param { AsyncCallback<boolean> } callback - The callback is used to return whether it exists.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900013 - Bad address
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900017 - No such device
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900029 - Resource deadlock would occur
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+     * @throws { BusinessError } 13900034 - Operation would block
+     * @throws { BusinessError } 13900038 - Value too large for defined data type
+     * @throws { BusinessError } 13900041 - Quota exceeded
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000003 - Invalid file extension
+     * @throws { BusinessError } 14000004 - File has been put into trash bin
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    access(sourceFileUri: string, callback: AsyncCallback<boolean>): void;
 
-        /**
-         * Get a FileInfo by the uri in the promise way.
-         *
-         * @since 10
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} uri - Indicates the selected file or directory.
-         * @returns {Promise<FileInfo>} Returns a FileInfo.
-         */
-        getFileInfoFromUri(uri: string) : Promise<FileInfo>;
+    /**
+     * Query file related information by the uri in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the selected file or directory.
+     * @param { string } metaJson The json string includes query property.
+     * @returns { Promise<string> } Returns the json string, includes query property and value.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    query(uri: string, metaJson: string): Promise<string>;
 
-        /**
-         * Get a FileInfo by the uri in the asyncCallback way.
-         *
-         * @since 10
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} uri - Indicates the selected file or directory.
-         * @param {AsyncCallback<FileInfo>} callback - The callback is used to return a fileinfo object.
-         */
-        getFileInfoFromUri(uri: string, callback: AsyncCallback<FileInfo>) : void;
+    /**
+     * Query file related information by the uri in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the selected file or directory.
+     * @param { string } metaJson The json string includes query property.
+     * @param { AsyncCallback<string> } callback - Returns the json string, includes query property and value.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    query(uri: string, metaJson: string, callback: AsyncCallback<string>): void;
 
-        /**
-         * Get a FileInfo by the relative path in the promise way.
-         *
-         * @since 10
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} relativePath - Indicates the selected file or directory.
-         * @returns {Promise<FileInfo>} Returns a FileInfo.
-         */
-        getFileInfoFromRelativePath(relativePath: string) : Promise<FileInfo>;
+    /**
+     * Get a FileInfo by the uri in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the selected file or directory.
+     * @returns { Promise<FileInfo> } Returns a FileInfo.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getFileInfoFromUri(uri: string): Promise<FileInfo>;
 
-        /**
-         * Get a FileInfo by the relative path in the asyncCallback way.
-         *
-         * @since 10
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} relativePath - Indicates the selected file or directory.
-         * @param {AsyncCallback<FileInfo>} callback - The callback is used to return a fileinfo object.
-         */
-        getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>) : void;
+    /**
+     * Get a FileInfo by the uri in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the selected file or directory.
+     * @param { AsyncCallback<FileInfo> } callback - The callback is used to return a fileinfo object.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getFileInfoFromUri(uri: string, callback: AsyncCallback<FileInfo>): void;
 
-        /**
-         * Get a PixelMap object by the uri in the promise way.
-         *
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} uri - Indicates the selected media file.
-         * @param {image.Size} size - Indicates Thumbnail's size.
-         * @returns {Promise<image.PixelMap>} Returns the PixelMap object.
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        getThumbnail(uri: string, size: image.Size) : Promise<image.PixelMap>;
+    /**
+     * Get a FileInfo by the relative path in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } relativePath - Indicates the selected file or directory.
+     * @returns { Promise<FileInfo> } Returns a FileInfo.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getFileInfoFromRelativePath(relativePath: string): Promise<FileInfo>;
 
-        /**
-         * Get a PixelMap object by the uri in the asyncCallback way.
-         *
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param {string} uri - Indicates the selected media file.
-         * @param {image.Size} size - Indicates Thumbnail's size.
-         * @returns {AsyncCallback<image.PixelMap>} callback - Returns the PixelMap object.
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        getThumbnail(uri: string, size: image.Size, callback: AsyncCallback<image.PixelMap>) : void;
+    /**
+     * Get a FileInfo by the relative path in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } relativePath - Indicates the selected file or directory.
+     * @param { AsyncCallback<FileInfo> } callback - The callback is used to return a fileinfo object.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>): void;
 
-        /**
-         * Get a RootIterator.
-         *
-         * @since 9
-         * @syscap SystemCapability.FileManagement.UserFileService
-         * @StageModelOnly
-         * @systemapi
-         * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @returns {(void | Promise<RootIterator>)} Returns a RootIterator.
-         * @throws { BusinessError } 13900001 - Operation not permitted
-         * @throws { BusinessError } 13900002 - No such file or directory
-         * @throws { BusinessError } 13900004 - Interrupted system call
-         * @throws { BusinessError } 13900006 - No such device or address
-         * @throws { BusinessError } 13900008 - Bad file descriptor
-         * @throws { BusinessError } 13900011 - Out of memory
-         * @throws { BusinessError } 13900012 - Permission denied
-         * @throws { BusinessError } 13900013 - Bad address
-         * @throws { BusinessError } 13900014 - Device or resource busy
-         * @throws { BusinessError } 13900015 - File exists
-         * @throws { BusinessError } 13900017 - No such device
-         * @throws { BusinessError } 13900018 - Not a directory
-         * @throws { BusinessError } 13900019 - Is a directory
-         * @throws { BusinessError } 13900020 - Invalid argument
-         * @throws { BusinessError } 13900022 - Too many open files
-         * @throws { BusinessError } 13900023 - Text file busy
-         * @throws { BusinessError } 13900024 - File too large
-         * @throws { BusinessError } 13900025 - No space left on device
-         * @throws { BusinessError } 13900027 - Read-only file system
-         * @throws { BusinessError } 13900029 - Resource deadlock would occur
-         * @throws { BusinessError } 13900030 - File name too long
-         * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-         * @throws { BusinessError } 13900034 - Operation would block
-         * @throws { BusinessError } 13900038 - Value too large for defined data type
-         * @throws { BusinessError } 13900041 - Quota exceeded
-         * @throws { BusinessError } 13900042 - Unknown error
-         * @throws { BusinessError } 14000001 - Invalid display name
-         * @throws { BusinessError } 14000002 - Invalid uri
-         * @throws { BusinessError } 14000003 - Invalid file extension
-         * @throws { BusinessError } 14000004 - File has been put into trash bin
-         * @throws { BusinessError } 14300001 - IPC error
-         * @throws { BusinessError } 14300002 - Invalid uri
-         * @throws { BusinessError } 14300003 - Fail to get fileextension info
-         * @throws { BusinessError } 14300004 - Get wrong result
-         */
-        getRoots(): Promise<RootIterator>;
-        getRoots(callback:AsyncCallback<RootIterator>) : void;
-    }
+    /**
+     * Get a PixelMap object by the uri in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the selected media file.
+     * @param { image.Size } size - Indicates Thumbnail's size.
+     * @returns { Promise<image.PixelMap> } Returns the PixelMap object.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getThumbnail(uri: string, size: image.Size): Promise<image.PixelMap>;
+
+    /**
+     * Get a PixelMap object by the uri in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the selected media file.
+     * @param { image.Size } size - Indicates Thumbnail's size.
+     * @param { AsyncCallback<image.PixelMap> } callback - The callback is used to Returns the PixelMap object.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getThumbnail(uri: string, size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
+
+    /**
+     * Get a RootIterator.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @returns { Promise<RootIterator> } Returns a RootIterator.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900013 - Bad address
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900017 - No such device
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900029 - Resource deadlock would occur
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+     * @throws { BusinessError } 13900034 - Operation would block
+     * @throws { BusinessError } 13900038 - Value too large for defined data type
+     * @throws { BusinessError } 13900041 - Quota exceeded
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000003 - Invalid file extension
+     * @throws { BusinessError } 14000004 - File has been put into trash bin
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    getRoots(): Promise<RootIterator>;
+
+    /**
+     * Get a RootIterator.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { AsyncCallback<RootIterator> } callback - The callback is used to return a RootIterator.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900013 - Bad address
+     * @throws { BusinessError } 13900014 - Device or resource busy
+     * @throws { BusinessError } 13900015 - File exists
+     * @throws { BusinessError } 13900017 - No such device
+     * @throws { BusinessError } 13900018 - Not a directory
+     * @throws { BusinessError } 13900019 - Is a directory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900022 - Too many open files
+     * @throws { BusinessError } 13900023 - Text file busy
+     * @throws { BusinessError } 13900024 - File too large
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900027 - Read-only file system
+     * @throws { BusinessError } 13900029 - Resource deadlock would occur
+     * @throws { BusinessError } 13900030 - File name too long
+     * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+     * @throws { BusinessError } 13900034 - Operation would block
+     * @throws { BusinessError } 13900038 - Value too large for defined data type
+     * @throws { BusinessError } 13900041 - Quota exceeded
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14000001 - Invalid display name
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000003 - Invalid file extension
+     * @throws { BusinessError } 14000004 - File has been put into trash bin
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    getRoots(callback: AsyncCallback<RootIterator>): void;
+  }
 }
 
 export default fileAccess;
