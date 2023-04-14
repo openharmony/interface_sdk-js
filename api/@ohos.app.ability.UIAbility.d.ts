@@ -303,6 +303,7 @@ export default class UIAbility extends Ability {
      * @param { AbilityConstant.LaunchParam } launchParams - Indicates the launch parameters.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onNewWant(want: Want, launchParams: AbilityConstant.LaunchParam): void;

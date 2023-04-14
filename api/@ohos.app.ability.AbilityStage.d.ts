@@ -61,6 +61,7 @@ export default class AbilityStage {
      * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onConfigurationUpdate(newConfig: Configuration): void;
