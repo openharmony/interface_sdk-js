@@ -906,7 +906,7 @@ declare namespace bundle {
   /**
    * Checks whether a specified application is enabled.
    *
-   * @param { string }bundleName - Indicates the bundle name of the application.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
@@ -918,7 +918,7 @@ declare namespace bundle {
   /**
    * Checks whether a specified application is enabled.
    *
-   * @param { string }bundleName - Indicates the bundle name of the application.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8

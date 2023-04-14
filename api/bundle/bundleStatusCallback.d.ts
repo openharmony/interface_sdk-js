@@ -26,7 +26,7 @@
  * @since 8
  * @deprecated since 9
  */
- export interface BundleStatusCallback {
+export interface BundleStatusCallback {
   /**
    * Obtains add callback about an launcherStatusCallback.
    *
