@@ -1083,8 +1083,8 @@ declare namespace call {
    * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param state Indicates the voNr state.
-   * @param callback {@code true} if the device set VoNr succesfully; returns {@code false} otherwise.
+   * @param state Indicates the VoNR state.
+   * @param callback {@code true} if the device set VoNR succesfully; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Non-system applications use system APIs.
@@ -1096,15 +1096,15 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNrState(slotId: number, state: VoNrState, callback: AsyncCallback<boolean>): void;
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
 
   /**
    * Set switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param state Indicates the voNr state.
-   * @returns {@code true} if the device set VoNr succesfully; returns {@code false} otherwise.
+   * @param state Indicates the VoNR state.
+   * @returns {@code true} if the device set VoNR succesfully; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Non-system applications use system APIs.
@@ -1116,15 +1116,15 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNrState(slotId: number, state: VoNrState): Promise<boolean>;
+  function setVoNRState(slotId: number, state: VoNRState): Promise<boolean>;
 
   /**
    * Get switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param state Indicates the voNr state.
-   * @param {AsyncCallback <VoNrState>} callback - VoNr state
+   * @param state Indicates the VoNR state.
+   * @param {AsyncCallback <VoNRState>} callback - VoNR state
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Non-system applications use system APIs.
@@ -1136,14 +1136,14 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getVoNrState(slotId: number, callback: AsyncCallback<VoNrState>): void;
+  function getVoNRState(slotId: number, callback: AsyncCallback<VoNRState>): void;
 
   /**
    * Get switch state for voice over NR.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns {Promise <VoNrState>} the voNr state.
+   * @returns {Promise <VoNRState>} the VoNR state.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Non-system applications use system APIs.
@@ -1155,7 +1155,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getVoNrState(slotId: number): Promise<VoNrState>;
+  function getVoNRState(slotId: number): Promise<VoNRState>;
 
   /**
    * Checks whether can set call transfer time.
@@ -1251,10 +1251,10 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export enum VoNrState {
-    /** Indicates the VoNr switch is on */
+  export enum VoNRState {
+    /** Indicates the VoNR switch is on */
     VONR_STATE_ON = 0,
-    /** Indicates the VoNr switch is off */
+    /** Indicates the VoNR switch is off */
     VORN_STATE_OFF,
   }
 
@@ -1302,7 +1302,7 @@ declare namespace call {
    * @since 10
    */
   export interface AudioDeviceInfo {
-    /** Indicates the list of support audiodevice. */
+    /** Indicates the list of supported audio devices. */
     audioDeviceList: Array<AudioDevice>;
     /** Indicates the type of current audiodevice. */
     currentAudioDevice: AudioDevice;
