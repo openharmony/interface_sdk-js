@@ -369,6 +369,7 @@ declare namespace http {
      */
      off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
+
   /**
    * @crossplatform
    */
@@ -382,6 +383,7 @@ declare namespace http {
     TRACE = "TRACE",
     CONNECT = "CONNECT"
   }
+  
   /**
    * @crossplatform
    */
