@@ -110,21 +110,21 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
      * @form
      * @since 9
      */
-    span(value: number | GridColColumnOption): GridRowAttribute;
+    span(value: number | GridColColumnOption): GridColAttribute;
 
     /**
-     * Sets the offset of  current gird-container item.
+     * Sets the offset of current gird-container item.
      * @form
      * @since 9
      */
-    offset(value: number | GridColColumnOption): GridRowAttribute;
+    gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
     /**
      * Sets the order of current gird-container item.
      * @form
      * @since 9
      */
-    order(value: number | GridColColumnOption): GridRowAttribute;
+    order(value: number | GridColColumnOption): GridColAttribute;
 }
 
 /**

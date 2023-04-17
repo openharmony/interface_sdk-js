@@ -25,7 +25,7 @@
   /**
    * This contains package information in pack.info
    *
-   * @type { PackageConfig }
+   * @type { Array<PackageConfig> }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -215,7 +215,7 @@ export interface ModuleConfigInfo {
   /**
    * Indicates the devices type
    *
-   * @type { string }
+   * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9

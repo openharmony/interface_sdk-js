@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import type { AsyncCallback, Callback } from './basic';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides APIs for mobile applications to access different SEs in mobile devices, such as SIMs or embedded SEs.

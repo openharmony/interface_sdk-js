@@ -184,6 +184,23 @@ declare enum WebDarkMode {
 }
 
 /**
+ * Defines the Media Options.
+ * @since 10
+ */
+declare interface WebMediaOptions {
+  /**
+   * The time interval for audio playback to resume.
+   * @since 10
+   */
+  resumeInterval?: number;
+  /**
+   * Whether the audio of each web is exclusive.
+   * @since 10
+   */
+  audioExclusive?: boolean;
+}
+
+/**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
@@ -1492,6 +1509,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   forceDarkAccess(access: boolean): WebAttribute;
+
+  /**
+   * Sets the media options.
+   * @param options The media options, which can be {@link WebMediaOptions}.
+   *
+   * @since 10
+   */
+  mediaOptions(options: WebMediaOptions): WebAttribute;
 
   /**
    * Sets whether the Web should save the table data.

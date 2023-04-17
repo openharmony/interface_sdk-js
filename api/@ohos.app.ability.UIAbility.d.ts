@@ -32,6 +32,17 @@ export interface OnReleaseCallback {
 }
 
 /**
+ * The prototype of the listener function interface registered by the Caller.
+ * @typedef OnRemoteStateChangeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @since 10
+ */
+export interface OnRemoteStateChangeCallback {
+    (msg: string): void;
+}
+
+/**
  * The prototype of the message listener function interface registered by the Callee.
  * @typedef CalleeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -91,6 +102,16 @@ export interface Caller {
      * @since 9
      */
     onRelease(callback: OnReleaseCallback): void;
+
+    /**
+     * Register state changed listener notification callback of remote ability.
+     * @param { OnRemoteStateChangeCallback } callback - Register a callback function for listening for notifications.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 10
+     */
+    onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
     /**
      * Register death listener notification callback.
@@ -159,6 +180,7 @@ export interface Callee {
  * The class of a UI ability.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 export default class UIAbility extends Ability {
@@ -204,6 +226,7 @@ export default class UIAbility extends Ability {
      * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
@@ -213,6 +236,7 @@ export default class UIAbility extends Ability {
      * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onWindowStageCreate(windowStage: window.WindowStage): void;
@@ -221,6 +245,7 @@ export default class UIAbility extends Ability {
      * Called back when an ability window stage is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onWindowStageDestroy(): void;
@@ -238,6 +263,7 @@ export default class UIAbility extends Ability {
      * Called back before an ability is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onDestroy(): void | Promise<void>;
@@ -246,6 +272,7 @@ export default class UIAbility extends Ability {
      * Called back when the state of an ability changes to foreground.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onForeground(): void;
@@ -254,6 +281,7 @@ export default class UIAbility extends Ability {
      * Called back when the state of an ability changes to background.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onBackground(): void;

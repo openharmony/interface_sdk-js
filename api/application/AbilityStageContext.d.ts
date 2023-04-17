@@ -24,6 +24,7 @@ import Context from "./Context";
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
+ * @crossplatform
  */
 export default class AbilityStageContext extends Context {
 
@@ -33,6 +34,7 @@ export default class AbilityStageContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      */
     currentHapModuleInfo: HapModuleInfo;
 

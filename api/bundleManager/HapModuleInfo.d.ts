@@ -23,6 +23,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  *
  * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
  * @since 9
  */
 export interface HapModuleInfo {
@@ -31,6 +32,7 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly name: string;
@@ -40,6 +42,7 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly icon: string;
@@ -49,6 +52,7 @@ export interface HapModuleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly iconId: number;
@@ -58,6 +62,7 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly label: string;
@@ -67,6 +72,7 @@ export interface HapModuleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly labelId: number;
@@ -76,6 +82,7 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly description: string;
@@ -85,6 +92,7 @@ export interface HapModuleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly descriptionId: number;
@@ -94,6 +102,7 @@ export interface HapModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly mainElementName: string;
@@ -103,6 +112,7 @@ export interface HapModuleInfo {
    *
    * @type { Array<AbilityInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly abilitiesInfo: Array<AbilityInfo>;

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from '../basic';
+import { AsyncCallback } from '../@ohos.base';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityMonitor } from './AbilityMonitor';

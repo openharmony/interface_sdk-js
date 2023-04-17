@@ -16,12 +16,14 @@
 import { ElementName } from './elementName';
 
 /**
+ * Contains basic remote ability information.
+ *
+ * @typedef RemoteAbilityInfo
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
  * @since 8
  * @deprecated since 9
  * @useinstead ohos.bundle.distributedBundleManager.RemoteAbilityInfo
- * @name Contains basic remote ability information.
  */
 export interface RemoteAbilityInfo {
   /**

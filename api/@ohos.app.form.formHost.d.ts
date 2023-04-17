@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./basic";
-import { Callback } from "./basic";
+import { AsyncCallback } from "./@ohos.base";
+import { Callback } from "./@ohos.base";
 import Want from './@ohos.app.ability.Want';
 import formInfo from './@ohos.app.form.formInfo';
 
@@ -535,5 +535,31 @@ declare namespace formHost {
      * @since 9
      */
     function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
+
+    /**
+     * Acquire form data by formId.
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { string } formId - Indicates the form ID.
+     * @param { AsyncCallback<{[key: string]: Object}> } callback - The callback of acquireFormData.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function acquireFormData(formId: string, callback: AsyncCallback<{[key: string]: Object}>): void;
+
+    /**
+     * Acquire form data by formId.
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { string } formId - Indicates the form ID.
+     * @returns { Promise<{[key: string]: Object}> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function acquireFormData(formId: string): Promise<{[key: string]: Object}>;
 }
 export default formHost;
