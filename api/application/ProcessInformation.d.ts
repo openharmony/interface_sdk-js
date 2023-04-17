@@ -17,12 +17,14 @@
  * The class of an process information.
  *
  * @since 9
+ * @crossplatform
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
  export interface ProcessInformation {
     /**
      * @default process id
      * @since 9
+     * @crossplatform
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
      pid: number;
@@ -37,6 +39,7 @@
      /**
       * @default the name of the process
       * @since 9
+      * @crossplatform
       * @syscap SystemCapability.Ability.AbilityRuntime.Core
       */
      processName: string;
@@ -44,6 +47,7 @@
      /**
       * @default an array of the bundleNames running in the process
       * @since 9
+      * @crossplatform
       * @syscap SystemCapability.Ability.AbilityRuntime.Core
       */
      bundleNames: Array<string>;

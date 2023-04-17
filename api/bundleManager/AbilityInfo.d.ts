@@ -226,6 +226,7 @@ export interface AbilityInfo {
    *
    * @type { Array<Metadata> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly metadata: Array<Metadata>;

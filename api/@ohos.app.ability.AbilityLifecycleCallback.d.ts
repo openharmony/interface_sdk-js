@@ -21,6 +21,7 @@ import window from './@ohos.window';
  * The ability lifecycle callback.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 export default class AbilityLifecycleCallback {
@@ -29,6 +30,7 @@ export default class AbilityLifecycleCallback {
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onAbilityCreate(ability: UIAbility): void;
@@ -39,6 +41,7 @@ export default class AbilityLifecycleCallback {
      * @param { window.WindowStage } windowStage - window stage to create
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
@@ -69,6 +72,7 @@ export default class AbilityLifecycleCallback {
      * @param { window.WindowStage } windowStage - window stage to destroy
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
@@ -78,6 +82,7 @@ export default class AbilityLifecycleCallback {
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onAbilityDestroy(ability: UIAbility): void;
@@ -87,6 +92,7 @@ export default class AbilityLifecycleCallback {
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onAbilityForeground(ability: UIAbility): void;
@@ -96,6 +102,7 @@ export default class AbilityLifecycleCallback {
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     onAbilityBackground(ability: UIAbility): void;

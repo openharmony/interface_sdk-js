@@ -625,6 +625,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     terminateSelf(): Promise<void>;

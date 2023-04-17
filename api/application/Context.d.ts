@@ -34,6 +34,7 @@ export default class Context extends BaseContext {
      * @type { resmgr.ResourceManager }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     resourceManager: resmgr.ResourceManager;
@@ -177,6 +178,7 @@ export default class Context extends BaseContext {
      * @returns { ApplicationContext } Returns the application context.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     getApplicationContext(): ApplicationContext;

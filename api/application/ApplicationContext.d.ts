@@ -23,6 +23,7 @@ import { ProcessInformation } from "./ProcessInformation";
  * The context of an application. It allows access to application-specific resources.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 export default class ApplicationContext extends Context {
@@ -34,6 +35,7 @@ export default class ApplicationContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     on(type: "abilityLifecycle", callback: AbilityLifecycleCallback): number;
@@ -46,6 +48,7 @@ export default class ApplicationContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     off(type: "abilityLifecycle", callbackId: number, callback: AsyncCallback<void>): void;
@@ -104,6 +107,7 @@ export default class ApplicationContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
@@ -114,6 +118,7 @@ export default class ApplicationContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;

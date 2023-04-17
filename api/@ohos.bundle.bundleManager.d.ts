@@ -473,6 +473,7 @@ declare namespace bundleManager {
      * Indicates that the ability has only one instance
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
      * @since 9
      */
     SINGLETON = 0,

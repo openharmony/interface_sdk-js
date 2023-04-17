@@ -19,6 +19,7 @@ import ConfigurationConstant from "./@ohos.app.ability.ConfigurationConstant";
  * configuration item.
  * @typedef Configuration
  * @syscap SystemCapability.Ability.AbilityBase
+ * @crossplatform
  * @since 9
  */
 export interface Configuration {
@@ -34,6 +35,7 @@ export interface Configuration {
      * Indicates the current colorMode of the application.
      * @type { ConfigurationConstant.ColorMode }
      * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
      * @since 9
      */
     colorMode?: ConfigurationConstant.ColorMode;
@@ -42,6 +44,7 @@ export interface Configuration {
      * Indicates the screen direction of the current device.
      * @type { ConfigurationConstant.Direction }
      * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
      * @since 9
      */
     direction?: ConfigurationConstant.Direction;
