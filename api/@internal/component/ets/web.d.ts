@@ -1026,11 +1026,17 @@ declare class WebResourceRequest {
 
   /**
    * Sets the response data.
-   * @param data the response data.
+   * @param { string | number} data - the response data.
    *
    * @since 9
    */
-  setResponseData(data: string | number);
+  /**
+    * Sets the response data.
+    *
+    * @param { string | number | Resource } data - the response data.
+    * @since 10
+    */  
+  setResponseData(data: string | number | Resource);
 
   /**
    * Sets the response encoding.
