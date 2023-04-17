@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback , Callback} from './@ohos.base';
+import { AsyncCallback, Callback} from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
@@ -31,6 +31,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { AsyncCallback<string> } callback - The callback is used to return the bundle name.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -41,6 +43,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { Promise<string> } Returns the bundle name.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -50,12 +54,24 @@ declare namespace wantAgent {
    * Obtains the UID of a WantAgent.
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { AsyncCallback<number> } callback - The callback is used to return the UID.
-   * @returns { Promise<number> } Returns the UID.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the UID of a WantAgent.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @returns { Promise<number> } Returns the UID.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
   function getUid(agent: WantAgent): Promise<number>;
 
   /**
@@ -63,6 +79,9 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { AsyncCallback<Want> } callback - The callback is used to return the Want.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000015 - Service timeout.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -74,6 +93,9 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { Promise<Want> } Returns the Want.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000015 - Service timeout.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -85,6 +107,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -95,6 +119,8 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -138,6 +164,8 @@ declare namespace wantAgent {
    * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
    * @param { AsyncCallback<WantAgent> } callback - The callback is used to return the created WantAgent.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -148,6 +176,8 @@ declare namespace wantAgent {
    * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
    * @returns { Promise<WantAgent> } Returns the created WantAgent.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -158,6 +188,9 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { AsyncCallback<number> } callback - The callback is used to return the OperationType of the WantAgent.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000015 - Service timeout.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -168,6 +201,9 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { Promise<number> } Returns the OperationType of the WantAgent.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000015 - Service timeout.
+   * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */

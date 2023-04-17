@@ -28,6 +28,7 @@
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri Indicates the uri object from which the ID is to be obtained.
      * @returns Returns the ID attached to the end of the path component;
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      */
     function getId(uri: string): number
   
@@ -39,6 +40,7 @@
      * @param uri Indicates the uri string from which the ID is to be obtained.
      * @param id Indicates the ID to attach.
      * @returns Returns the uri object with the given ID attached.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      */
     function attachId(uri: string, id: number): string
   
@@ -49,6 +51,7 @@
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri Indicates the uri object from which the ID is to be deleted.
      * @returns Returns the uri object with the ID deleted.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      */
     function deleteId(uri: string): string
   
@@ -60,6 +63,7 @@
      * @param uri Indicates the uri object to be updated.
      * @param id Indicates the new ID.
      * @returns Returns the updated uri object.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      */
     function updateId(uri: string, id: number): string
   

@@ -767,6 +767,7 @@ vsync
 wakes
 waking
 wallpapers
+wantagent
 wapi
 wappush
 watchers
