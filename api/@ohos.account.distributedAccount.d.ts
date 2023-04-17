@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -92,6 +92,40 @@ declare namespace distributedAccount {
     getOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
     /**
+     * Gets the distributed information of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getOsAccountDistributedInfoByLocalId(localId: number, callback: AsyncCallback<DistributedInfo>): void;
+
+    /**
+     * Gets the distributed information of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @returns { Promise<DistributedInfo> } The distributed information of the specified OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getOsAccountDistributedInfoByLocalId(localId: number): Promise<DistributedInfo>;
+
+    /**
      * Updates the distributed information of the OS account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -148,6 +182,75 @@ declare namespace distributedAccount {
      * @since 9
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
+
+    /**
+     * Sets the distributed information of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { DistributedInfo } distributedInfo - Indicates the distributed information.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid distributedInfo.
+     * @throws { BusinessError } 12300003 - Account identified by localId or by distributedInfo not found.
+     * @throws { BusinessError } 12300008 - Restricted OS account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setOsAccountDistributedInfoByLocalId(
+      localId: number,
+      distributedInfo: DistributedInfo,
+      callback: AsyncCallback<void>
+    ): void;
+
+    /**
+     * Sets the distributed information of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { DistributedInfo } distributedInfo - Indicates the distributed information.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid distributedInfo.
+     * @throws { BusinessError } 12300003 - Account identified by localId or by distributedInfo not found.
+     * @throws { BusinessError } 12300008 - Restricted OS account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setOsAccountDistributedInfoByLocalId(localId: number, distributedInfo: DistributedInfo): Promise<void>;
+  }
+
+  /**
+   * Enum for distributed account status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Account.OsAccount
+   * @since 10
+   */
+  enum DistributedAccountStatus {
+    /**
+     * Indicates that the account is not logged in.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
+    NOT_LOGGED_IN = 0,
+
+    /**
+     * Indicates that the account is logged in.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
+    LOGGED_IN = 1
   }
 
   /**
@@ -202,6 +305,16 @@ declare namespace distributedAccount {
      * @since 9
      */
     avatar?: string;
+
+    /**
+     * The status in the distributed information of the OS account.
+     *
+     * @type { ?DistributedAccountStatus }
+     * @readonly
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
+    readonly status?: DistributedAccountStatus;
 
     /**
      * The scalable data in the distributed information of the OS account.
