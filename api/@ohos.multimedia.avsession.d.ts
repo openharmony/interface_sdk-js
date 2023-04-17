@@ -362,6 +362,28 @@ declare namespace avSession {
     setAVQueueTitle(title: string): Promise<void>;
 
     /**
+     * Set the custom media packets for this session.
+     * @param extras The custom media packets
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    setExtras(extras: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the custom media packets for this session.
+     * @param extras The custom media packets
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    setExtras(extras: {[key: string]: Object}): Promise<void>;
+
+    /**
      * Get the current session's own controller
      * @returns The instance of {@link AVSessionController}
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -893,6 +915,18 @@ declare namespace avSession {
      * @since 9
      */
     isFavorite?: boolean;
+    /**
+     * Current active item id
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    activeItemId?: number;
+    /**
+     * Current custom media packets
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    extras?: {[key: string]: Object};
   }
 
   /**
@@ -1305,6 +1339,32 @@ declare namespace avSession {
     sendCommonCommand(command: string, args: {[key: string]: Object}): Promise<void>;
 
     /**
+     * Get custom media packets provided by the corresponding session
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600102 - session does not exist
+     * @throws {BusinessError} 6600103 - controller does not exist
+     * @throws {BusinessError} 6600105 - command not supported
+     * @throws {BusinessError} 6600107 - command or event overload
+     * @systemapi
+     * @since 10
+     */
+    getExtras(callback: AsyncCallback<{[key: string]: Object}>): void;
+
+    /**
+     * Get custom media packets provided by the corresponding session
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600102 - session does not exist
+     * @throws {BusinessError} 6600103 - controller does not exist
+     * @throws {BusinessError} 6600105 - command not supported
+     * @throws {BusinessError} 6600107 - command or event overload
+     * @systemapi
+     * @since 10
+     */
+    getExtras(): Promise<{[key: string]: Object}>;
+
+    /**
      * Register metadata changed callback
      * @param type 'metadataChange'
      * @param filter The properties of {@link AVMetadata} that you cared about
@@ -1543,6 +1603,34 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'queueTitleChange', callback?: (title: string) => void): void;
+
+    /**
+     * Register the custom media packets change callback
+     * @param type Registration Type
+     * @param callback Used to handle custom media packets changed.
+     * The callback provide the new media packets.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 10
+     */
+    on(type: 'extrasChange', callback: (extras: {[key: string]: Object}) => void): void;
+
+    /**
+     * Unregister the custom media packets change callback
+     * @param type Registration Type
+     * @param callback Used to handle custom media packets changed.
+     * The callback provide the new media packets.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'extrasChange', callback?: (extras: {[key: string]: Object}) => void): void;
   }
 
   /**
