@@ -151,6 +151,7 @@ declare namespace wallpaper {
 
   /**
    * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
+   * When usage is complete, the caller needs to close the file descriptor in time.
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
@@ -163,6 +164,7 @@ declare namespace wallpaper {
 
   /**
    * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
+   * When usage is complete, the caller needs to close the file descriptor in time.
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
