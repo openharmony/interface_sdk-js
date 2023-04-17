@@ -24,12 +24,14 @@ import {AsyncCallback, ErrorCallback} from "./@ohos.base";
 declare namespace webSocket {
   /**
    * Creates a web socket connection.
+   * @crossplatform
    */
   function createWebSocket(): WebSocket;
 
   export interface WebSocketRequestOptions {
     /**
      * HTTP request header.
+     * @crossplatform
      */
     header?: Object;
   }
@@ -37,10 +39,12 @@ declare namespace webSocket {
   export interface WebSocketCloseOptions {
     /**
      * Error code.
+     * @crossplatform
      */
     code?: number;
     /**
      * Error cause.
+     * @crossplatform
      */
     reason?: string;
   }
@@ -55,6 +59,7 @@ declare namespace webSocket {
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
@@ -68,6 +73,7 @@ declare namespace webSocket {
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<boolean>): void;
     send(data: string | ArrayBuffer): Promise<boolean>;
@@ -80,6 +86,7 @@ declare namespace webSocket {
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
      */
     close(callback: AsyncCallback<boolean>): void;
     close(options: WebSocketCloseOptions, callback: AsyncCallback<boolean>): void;
@@ -87,43 +94,51 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the open events of a WebSocket connection.
+     * @crossplatform
      */
     on(type: 'open', callback: AsyncCallback<Object>): void;
 
     /**
      * Cancels listening for the open events of a WebSocket connection.
+     * @crossplatform
      */
     off(type: 'open', callback?: AsyncCallback<Object>): void;
 
     /**
      * Enables listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
+     * @crossplatform
      */
     on(type: 'message', callback: AsyncCallback<string | ArrayBuffer>): void;
 
     /**
      * Cancels listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
+     * @crossplatform
      */
     off(type: 'message', callback?: AsyncCallback<string | ArrayBuffer>): void;
 
     /**
      * Enables listening for the close events of a WebSocket connection.
+     * @crossplatform
      */
     on(type: 'close', callback: AsyncCallback<{ code: number, reason: string }>): void;
 
     /**
      * Cancels listening for the close events of a WebSocket connection.
+     * @crossplatform
      */
     off(type: 'close', callback?: AsyncCallback<{ code: number, reason: string }>): void;
 
     /**
      * Enables listening for the error events of a WebSocket connection.
+     * @crossplatform
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
      * Cancels listening for the error events of a WebSocket connection.
+     * @crossplatform
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
