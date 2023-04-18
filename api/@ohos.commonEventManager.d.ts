@@ -1235,6 +1235,14 @@ declare namespace commonEventManager {
     COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE",
 
     /**
+     * Indicate the action of a common event that domain account status has been changed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.GET_LOCAL_ACCOUNTS
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = "usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED",
+
+    /**
      * This commonEvent means when the screen is unlocked.
      * @since 10
      */
