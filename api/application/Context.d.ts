@@ -156,6 +156,7 @@ export default class Context extends BaseContext {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     createModuleContext(moduleName: string): Context;
