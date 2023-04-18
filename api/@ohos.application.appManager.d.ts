@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AbilityStateData from './application/AbilityStateData';
 import AppStateData from './application/AppStateData';

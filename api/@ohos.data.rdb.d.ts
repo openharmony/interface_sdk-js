@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 import { ResultSet as _ResultSet } from './data/rdb/resultSet';
 import Context from './application/BaseContext';
 
@@ -87,6 +87,7 @@ declare namespace rdb {
   /**
    * Indicates the database synchronization mode.
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 8
    * @deprecated since 9
@@ -118,6 +119,7 @@ declare namespace rdb {
    * Describes the subscription type.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 8
    * @deprecated since 9
@@ -127,6 +129,7 @@ declare namespace rdb {
     /**
      * Subscription to remote data changes
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
@@ -139,6 +142,7 @@ declare namespace rdb {
    * Provides methods for managing the relational database (RDB).
    * This class provides methods for creating, querying, updating, and deleting RDBs.
    *
+   * @interface RdbStore
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7
    * @deprecated since 9
@@ -163,7 +167,7 @@ declare namespace rdb {
      *
      * @param { string } table - Indicates the row of data to be inserted into the table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<void> } return the row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<number> } return the row ID if the operation is successful. return -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -189,7 +193,7 @@ declare namespace rdb {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<void> } return the number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @returns { Promise<number> } return the number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -279,7 +283,6 @@ declare namespace rdb {
      * @param { string } sql - Indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<ResultSet> } callback
-     * @returns { Promise<ResultSet> } return the {@link ResultSet} object if the operation is successful.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
@@ -388,7 +391,7 @@ declare namespace rdb {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } device - Indicates the remote device.
-     * @param { AsyncCallback<string> } callback - {string}: the distributed table name.
+     * @param { string } table - {string}: the distributed table name.
      * @param { AsyncCallback<string> } callback
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
@@ -416,8 +419,8 @@ declare namespace rdb {
      * Sync data between devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } device - Indicates the remote device.
-     * @param { AsyncCallback<Array<[string, number]>> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @param { SyncMode } mode - Indicates the remote device.
+     * @param { RdbPredicates } predicates - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @param { AsyncCallback<Array<[string, number]>> } callback
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
@@ -430,7 +433,7 @@ declare namespace rdb {
      * Sync data between devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } device - Indicates the remote device.
+     * @param { SyncMode } mode - Indicates the remote device.
      * @param { RdbPredicates } predicates
      * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -444,9 +447,9 @@ declare namespace rdb {
      * Registers an observer for the database. When data in the distributed database changes,
      * the callback will be invoked.
      *
-     * @param { string } event - Indicates the event must be string 'dataChange'.
+     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { AsyncCallback<Array<string>> } observer - {Array<string>}: the observer of data change events in the distributed database.
+     * @param { Callback<Array<string>> } observer - {Array<string>}: the observer of data change events in the distributed database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
@@ -457,9 +460,9 @@ declare namespace rdb {
     /**
      * Remove specified observer of specified type from the database.
      *
-     * @param { string } event - Indicates the event must be string 'dataChange'.
+     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { AsyncCallback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
+     * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
@@ -491,6 +494,7 @@ declare namespace rdb {
   /**
    * Manages relational database configurations.
    *
+   * @interface StoreConfig
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7
    * @deprecated since 9
@@ -604,7 +608,7 @@ declare namespace rdb {
      * Adds an or condition to the RdbPredicates.
      * This method is similar to or of the SQL statement.
      *
-     * @returns Returns the {@link RdbPredicates} with the or condition.
+     * @returns { RdbPredicates } Returns the {@link RdbPredicates} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -616,7 +620,7 @@ declare namespace rdb {
      * Adds an and condition to the RdbPredicates.
      * This method is similar to or of the SQL statement.
      *
-     * @returns Returns the {@link RdbPredicates} with the or condition.
+     * @returns { RdbPredicates } Returns the {@link RdbPredicates} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -630,7 +634,7 @@ declare namespace rdb {
      * This method is similar to contains of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
@@ -645,7 +649,7 @@ declare namespace rdb {
      * This method is similar to value% of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
@@ -660,7 +664,7 @@ declare namespace rdb {
      * This method is similar to %value of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
@@ -702,7 +706,7 @@ declare namespace rdb {
      * This method is similar to like of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
@@ -717,7 +721,7 @@ declare namespace rdb {
      * Different from like, the input parameters of this method are case-sensitive.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7

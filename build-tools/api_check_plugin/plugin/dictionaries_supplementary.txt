@@ -387,7 +387,7 @@ mah
 mcc
 md5
 mdns
-mdns_err
+mdnserror
 mediaquery
 meid
 messageerror

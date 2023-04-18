@@ -18,6 +18,7 @@
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @crossplatform
  * @since 9
  */
 declare namespace AbilityConstant {
@@ -26,6 +27,7 @@ declare namespace AbilityConstant {
      * @typedef LaunchParam
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     export interface LaunchParam {
@@ -33,6 +35,7 @@ declare namespace AbilityConstant {
          * Indicates launch reason.
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @StageModelOnly
+         * @crossplatform
          * @since 9
          */
         launchReason: LaunchReason;
@@ -41,6 +44,7 @@ declare namespace AbilityConstant {
          * Indicates last exit reason.
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @StageModelOnly
+         * @crossplatform
          * @since 9
          */
         lastExitReason: LastExitReason;
@@ -51,13 +55,44 @@ declare namespace AbilityConstant {
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     export enum LaunchReason {
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @crossplatform
+         * @since 9
+         */
         UNKNOWN = 0,
+
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @since 9
+         */
         START_ABILITY = 1,
+
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @since 9
+         */
         CALL = 2,
+
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @since 9
+         */
         CONTINUATION = 3,
+
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @since 9
+         */
         APP_RECOVERY = 4,
 
         /**
@@ -71,11 +106,30 @@ declare namespace AbilityConstant {
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     export enum LastExitReason {
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @crossplatform
+         * @since 9
+         */
         UNKNOWN = 0,
+
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @since 9
+         */
         ABILITY_NOT_RESPONDING = 1,
+
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @StageModelOnly
+         * @since 9
+         */
         NORMAL = 2,
     }
 

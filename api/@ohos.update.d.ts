@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, BusinessError } from "./basic";
+import { AsyncCallback, BusinessError } from "./@ohos.base";
 
 /**
  * A static class to do update for device.

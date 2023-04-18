@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 
 /**
@@ -31,7 +31,7 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { Want } disposedWant - Indicates the disposed want.
-   * @param { AsyncCallback } callback - The callback of setting the disposed status result.
+   * @param { AsyncCallback<void> } callback - The callback of setting the disposed status result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.

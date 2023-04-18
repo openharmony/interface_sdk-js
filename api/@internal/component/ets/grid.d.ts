@@ -186,6 +186,16 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   onItemDrop(
     event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void,
   ): GridAttribute;
+
+  /**
+   * Called when the sliding effect is set.
+   * @param { EdgeEffect } value - Scroll effect. For details, see EdgeEffect.
+   * @default EdgeEffect.None
+   * @returns { GridAttribute } The attribute of the grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  edgeEffect(value: EdgeEffect): GridAttribute;
 }
 
 /**

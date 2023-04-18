@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./basic";
+import { AsyncCallback } from "./@ohos.base";
 import Want from "./@ohos.app.ability.Want";
 
 /**
  * This module provides the capability to manage the device info of the enterprise devices.
- * @namespace deviceInfo.
+ * @namespace deviceInfo
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 10

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, BusinessError, Callback } from './basic';
+import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
  * Provides thermal level-related callback and query APIs to obtain the information required for

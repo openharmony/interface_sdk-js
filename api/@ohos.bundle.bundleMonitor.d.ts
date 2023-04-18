@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 
 /**
  * Bundle monitor
