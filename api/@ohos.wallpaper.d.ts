@@ -12,7 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {AsyncCallback} from './@ohos.base';
+
+import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -88,6 +89,49 @@ declare namespace wallpaper {
      * @since 7
      */
     WALLPAPER_LOCKSCREEN
+  }
+
+  /**
+   * Indicates the resource type of the wallpaper.
+   *
+   * @enum { number } WallpaperResourceType
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  enum WallpaperResourceType {
+    /**
+     * Indicates the default wallpaper resource.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    DEFAULT,
+    /**
+     * Indicates the picture wallpaper resource.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    PICTURE,
+    /**
+     * Indicates the video wallpaper resource.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    VIDEO,
+    /**
+     * Indicates the package wallpaper resource.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    PACKAGE
   }
 
   /**
@@ -454,6 +498,38 @@ declare namespace wallpaper {
   function getImage(wallpaperType: WallpaperType): Promise<image.PixelMap>;
 
   /**
+   * Sets live wallpaper of the specified type based on the uri path of the MP4 file.
+   *
+   * @permission ohos.permission.SET_WALLPAPER
+   * @param { string } source - indicates the uri path of the MP4 file.
+   * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+   * @param { AsyncCallback<void> } callback - the callback of setVideo.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setVideo(source: string, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets live wallpaper of the specified type based on the uri path of the MP4 file.
+   *
+   * @permission ohos.permission.SET_WALLPAPER
+   * @param { string } source - Indicates the uri path of the MP4 file.
+   * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setVideo(source: string, wallpaperType: WallpaperType): Promise<void>;
+
+  /**
    * Registers a listener for wallpaper color changes to receive notifications about the changes.
    *
    * @param { 'colorChange' } type - the incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes.
@@ -465,6 +541,23 @@ declare namespace wallpaper {
   function on(type: 'colorChange', callback: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
 
   /**
+   * Registers a listener for wallpaper changes to receive notifications about the changes.
+   *
+   * @param { 'wallpaperChange' } type - the incoming wallpaperChange table open receiver when the user modifies the wallpaper settings.
+   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void } callback - wallpaperType indicates the wallpaper type.
+   * resourceType indicates the resource type of the wallpaper.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(
+    type: 'wallpaperChange',
+    callback: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void
+  ): void;
+
+  /**
    * Unregisters a listener for wallpaper color changes.
    *
    * @param { 'colorChange' } type - incoming colorChange table delete receiver to pick up a color change wallpaper wallpaper color changes
@@ -474,6 +567,22 @@ declare namespace wallpaper {
    * @deprecated since 9
    */
   function off(type: 'colorChange', callback?: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
+
+  /**
+   * Unregisters a listener for wallpaper changes.
+   *
+   * @param { 'wallpaperChange' } type - the incoming wallpaperChange table delete receiver when the user modifies the wallpaper settings.
+   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void } callback - wallpaperType indicates the wallpaper type.
+   * resourceType indicates the resource type of the wallpaper.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(
+    type: 'wallpaperChange',
+    callback?: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void
+  ): void;
 }
 
 export default wallpaper;
