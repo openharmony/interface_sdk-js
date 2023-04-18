@@ -1057,7 +1057,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function closeUnFinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
+  function closeUnfinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Close unfinished ussd.
@@ -1076,7 +1076,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function closeUnFinishedUssd(slotId: number): Promise<void>;
+  function closeUnfinishedUssd(slotId: number): Promise<void>;
 
   /**
    * Set switch state for voice over NR.
