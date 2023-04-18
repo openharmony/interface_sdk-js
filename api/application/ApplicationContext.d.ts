@@ -102,6 +102,8 @@ export default class ApplicationContext extends Context {
      * Get information about running processes
      * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -112,6 +114,8 @@ export default class ApplicationContext extends Context {
      * Get information about running processes
      * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -122,6 +126,7 @@ export default class ApplicationContext extends Context {
      * Kill all processes of the application
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -132,6 +137,7 @@ export default class ApplicationContext extends Context {
      * Kill all processes of the application
      * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
