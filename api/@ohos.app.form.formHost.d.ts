@@ -15,6 +15,7 @@
 
 import { AsyncCallback } from "./@ohos.base";
 import { Callback } from "./@ohos.base";
+import { RunningFormInfo } from './@ohos.app.form.runningFormInfo';
 import Want from './@ohos.app.ability.Want';
 import formInfo from './@ohos.app.form.formInfo';
 
@@ -352,6 +353,38 @@ declare namespace formHost {
     function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
     /**
+     * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { AsyncCallback<Array<RunningFormInfo>> } callback - The callback is used to return the RunningFormInfo.
+     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function getRunningFormInfos(callback: AsyncCallback<Array<RunningFormInfo>>, bundleName?: string): void;
+
+    /**
+     * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @returns { Promise<Array<RunningFormInfo>> } Returns the RunningFormInfo.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function getRunningFormInfos(bundleName?: string): Promise<Array<RunningFormInfo>>;
+
+    /**
      * Deletes invalid forms of the application in the Form Manager Service based on the list of.
      * <p>You can use this method to delete invalid forms of the application.</p>
      * @permission ohos.permission.REQUIRE_FORM
@@ -427,6 +460,70 @@ declare namespace formHost {
      * @since 9
      */
     function off(type: "formUninstall", callback?: Callback<string>): void;
+
+    /**
+     * Listens to the event of add form.
+     * <p>You can use this method to listen to the event of add form.</p>
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { string } type - Indicates event type.
+     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function on(type: "formAdd", observerCallback: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
+
+    /**
+     * Cancels listening to the event of add form.
+     * <p>You can use this method to cancel listening to the event of add form.</p>
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { string } type - Indicates event type.
+     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function off(type: "formAdd", observerCallback?: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
+
+    /**
+     * Listens to the event of remove form.
+     * <p>You can use this method to listen to the event of remove form.</p>
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { string } type - Indicates event type.
+     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function on(type: "formRemove", observerCallback: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
+
+    /**
+     * Cancels listening to the event of remove form.
+     * <p>You can use this method to cancel listening to the event of remove form.</p>
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { string } type - Indicates event type.
+     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    function off(type: "formRemove", observerCallback?: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
 
     /**
      * Notify form is Visible
