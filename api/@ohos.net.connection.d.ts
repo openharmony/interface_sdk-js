@@ -34,6 +34,7 @@ declare namespace connection {
    * @param netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
    * @param timeout The time in milliseconds to attempt looking for a suitable network before
    *   {@link NetConnection#netUnavailable} is called.
+   * @crossplatform
    */
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: number): NetConnection;
 
@@ -327,16 +328,34 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   export interface NetConnection {
+    /**
+     * @crossplatform
+     */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
     /**
@@ -348,6 +367,7 @@ declare namespace connection {
      * @throws {BusinessError} 2100003 - System internal error.
      * @throws {BusinessError} 2101008 - The callback is not found.
      * @throws {BusinessError} 2101022 - The number of requests exceeded the maximum.
+     * @crossplatform
      */
     register(callback: AsyncCallback<void>): void;
 
@@ -356,6 +376,7 @@ declare namespace connection {
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
      * @throws {BusinessError} 2101007 - The same callback exists.
+     * @crossplatform
      */
     unregister(callback: AsyncCallback<void>): void;
   }
