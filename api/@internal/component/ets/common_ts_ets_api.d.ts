@@ -202,6 +202,7 @@ declare class AppStorage {
  *   see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
  *        The app must call this function before the SubscribedAbstractProperty<T> object
  *        goes out of scope.
+ * @form
  * @since 9
  */
 declare abstract class SubscribedAbstractProperty<T> {
@@ -265,6 +266,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    * then `link.get()` returns the value of "foo" property in AppStorage.
    * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
    *
+   * @form
    * @since 9
    */
   abstract get(): T;
@@ -276,6 +278,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    * then `link.set("Hello")` will set the value of "foo" property in AppStorage.
    *
    * @param { T } newValue
+   * @form
    * @since 9
    */
   abstract set(newValue: T): void;
