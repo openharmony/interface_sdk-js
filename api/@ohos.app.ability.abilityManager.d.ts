@@ -48,7 +48,10 @@ declare namespace abilityManager {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { Configuration } config - Indicates the new configuration.
      * @param { AsyncCallback<void> } callback - The callback of updateConfiguration.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -60,7 +63,10 @@ declare namespace abilityManager {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { Configuration } config - Indicates the new configuration.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -68,10 +74,11 @@ declare namespace abilityManager {
     function updateConfiguration(config: Configuration): Promise<void>;
 
     /**
-     * Get information about running UI abilities.
+     * If you apply for permission, you can obtain information about all abilities. If you do not apply, you can only obtain information about the current ability.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -79,10 +86,12 @@ declare namespace abilityManager {
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
     /**
-     * Get information about running UI abilities.
+     * If you apply for permission, you can obtain information about all abilities. If you do not apply, you can only obtain information about the current ability.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The callback is used to return the array of AbilityRunningInfo.
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -90,11 +99,13 @@ declare namespace abilityManager {
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 
     /**
-     * Get information about running extensions.
+     * If you apply for permission, you can obtain information about all extensions. If you do not apply, you can only obtain information about the current extension.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { number } upperLimit - Get the maximum limit of the number of messages.
      * @returns { Promise<Array<ExtensionRunningInfo>> } Returns the array of ExtensionRunningInfo.
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -102,11 +113,13 @@ declare namespace abilityManager {
     function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
 
     /**
-     * Get information about running extensions.
+     * If you apply for permission, you can obtain information about all extensions. If you do not apply, you can only obtain information about the current extension.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { number } upperLimit - Get the maximum limit of the number of messages.
      * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - The callback is used to return the array of ExtensionRunningInfo.
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -116,7 +129,8 @@ declare namespace abilityManager {
     /**
      * Get the top ability information of the display.
      * @returns { Promise<ElementName> } Returns the elementName info of the top ability.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -126,7 +140,9 @@ declare namespace abilityManager {
     /**
      * Get the top ability information of the display.
      * @param { AsyncCallback<ElementName> } callback - The callback is used to return the elementName info of the top ability.
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9

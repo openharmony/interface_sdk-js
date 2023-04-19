@@ -132,6 +132,8 @@ export default class Context extends BaseContext {
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { string } bundleName - Indicates the bundle name.
      * @returns { Context } Returns the application context.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -167,6 +169,7 @@ export default class Context extends BaseContext {
     /**
      * Get application context
      * @returns { ApplicationContext } Returns the application context.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
