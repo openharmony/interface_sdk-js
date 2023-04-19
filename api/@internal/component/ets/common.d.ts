@@ -228,6 +228,7 @@ declare function getContext(component?: Object): Context;
 
 /**
  * Defining Recycle ClassDecorator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 declare const Recycle: ClassDecorator;
@@ -4021,6 +4022,8 @@ declare class CustomComponent extends CommonAttribute {
 
   /**
    * onRecycle Method
+   * @param {Object} params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   onRecycle?(params: Object): void;
