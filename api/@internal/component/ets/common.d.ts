@@ -227,6 +227,12 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
+ * Defining Recycle ClassDecorator.
+ * @since 10
+ */
+declare const Recycle: ClassDecorator;
+
+/**
  * Get context.
  * @StageModelOnly
  * @since 9
@@ -4012,6 +4018,12 @@ declare class CustomComponent extends CommonAttribute {
    * @since 9
    */
   aboutToAppear?(): void;
+
+  /**
+   * onRecycle Method
+   * @since 10
+   */
+  onRecycle?(params: Object): void;
 
   /**
    * aboutToDisappear Method
