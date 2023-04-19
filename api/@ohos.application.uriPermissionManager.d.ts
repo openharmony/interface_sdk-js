@@ -34,6 +34,8 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 10
@@ -51,6 +53,8 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 10
@@ -67,7 +71,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000058 - Uri permission not found.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 10
@@ -84,7 +88,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000058 - Uri permission not found.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 10
