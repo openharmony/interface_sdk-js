@@ -137,7 +137,8 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 2100003 - System internal error. 
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @crossplatform
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
   function hasDefaultNet(): Promise<boolean>;
@@ -333,9 +334,6 @@ declare namespace connection {
      */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
-    /**
-     * @crossplatform
-     */
     on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
 
     /**
@@ -343,9 +341,6 @@ declare namespace connection {
      */
     on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
 
-    /**
-     * @crossplatform
-     */
     on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
 
     /**
