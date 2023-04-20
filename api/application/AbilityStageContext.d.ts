@@ -44,6 +44,7 @@ export default class AbilityStageContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @crossplatform
      */
     config: Configuration;
 }
