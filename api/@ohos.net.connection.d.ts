@@ -22,6 +22,7 @@ import socket from "./@ohos.net.socket";
  *
  * @since 8
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @crossplatform
  */
 declare namespace connection {
   type HttpRequest = http.HttpRequest;
@@ -381,7 +382,13 @@ declare namespace connection {
     bearerPrivateIdentifier?: string;
   }
 
+  /**
+   * @crossplatform
+   */
   export interface NetHandle {
+    /**
+     * @crossplatform
+     */
     netId: number;
 
     /**
@@ -430,10 +437,17 @@ declare namespace connection {
     getAddressByName(host: string): Promise<NetAddress>;
   }
 
+  /**
+   * @crossplatform
+   */
   export interface NetCapabilities {
     linkUpBandwidthKbps?: number;
     linkDownBandwidthKbps?: number;
     networkCap?: Array<NetCap>;
+
+    /**
+     * @crossplatform
+     */
     bearerTypes: Array<NetBearType>;
   }
 
@@ -464,14 +478,19 @@ declare namespace connection {
     NET_CAPABILITY_VALIDATED = 16,
   }
 
+  /**
+   * @crossplatform
+   */
   export enum NetBearType {
     /**
      * Indicates that the network is based on a cellular network.
+     * @crossplatform
      */
     BEARER_CELLULAR = 0,
 
     /**
      * Indicates that the network is based on a Wi-Fi network.
+     * @crossplatform
      */
     BEARER_WIFI = 1,
 
