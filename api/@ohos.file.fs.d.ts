@@ -28,8 +28,6 @@ declare namespace fileIo {
   export { accessSync };
   export { close };
   export { closeSync };
-  export { copyDir };
-  export { copyDirSync };
   export { copyFile };
   export { copyFileSync };
   export { createStream };
@@ -118,7 +116,6 @@ declare namespace fileIo {
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function access(path: string): Promise<boolean>;
@@ -141,7 +138,6 @@ declare function access(path: string): Promise<boolean>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function access(path: string, callback: AsyncCallback<boolean>): void;
@@ -164,7 +160,6 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function accessSync(path: string): boolean;
@@ -220,92 +215,6 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
 declare function closeSync(file: number | File): void;
 
 /**
- * Copy directory.
- *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } return Promise
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 10
- */
-declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
-
-/**
- * Copy directory.
- *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { AsyncCallback<void> } [callback] - callback.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 10
- */
-declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
-
-/**
- * Copy directory.
- *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { number } mode - mode.
- * @param { AsyncCallback<void> } [callback] - callback.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 10
- */
-declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
-
-/**
  * Copy file.
  *
  * @param { string | number } src - src.
@@ -330,7 +239,6 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
@@ -359,7 +267,6 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
@@ -389,7 +296,6 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function copyFile(
@@ -423,7 +329,6 @@ declare function copyFile(
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
@@ -797,7 +702,6 @@ declare function fsyncSync(fd: number): void;
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function listFile(
@@ -820,7 +724,6 @@ declare function listFile(
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function listFile(path: string, callback: AsyncCallback<string[]>): void;
@@ -837,7 +740,6 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function listFile(
@@ -862,7 +764,6 @@ declare function listFile(
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function listFileSync(
@@ -1208,7 +1109,6 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function moveFile(src: string, dest: string, mode?: number): Promise<void>;
@@ -1239,7 +1139,6 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
@@ -1271,7 +1170,6 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
@@ -1302,7 +1200,6 @@ declare function moveFile(src: string, dest: string, mode: number, callback: Asy
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function moveFileSync(src: string, dest: string, mode?: number): void;
@@ -1587,7 +1484,6 @@ declare function readSync(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function readText(
@@ -1618,7 +1514,6 @@ declare function readText(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function readText(filePath: string, callback: AsyncCallback<string>): void;
@@ -1643,7 +1538,6 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function readText(
@@ -1676,7 +1570,6 @@ declare function readText(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 declare function readTextSync(
@@ -3011,7 +2904,6 @@ export interface Watcher {
  * File filter type
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 9
  */
 export type Filter = {
@@ -3019,7 +2911,6 @@ export type Filter = {
    * @type { Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
-   * @crossplatform
    * @since 9
    */
   suffix?: Array<string>;
@@ -3027,7 +2918,6 @@ export type Filter = {
    * @type { Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
-   * @crossplatform
    * @since 9
    */
   displayName?: Array<string>;
@@ -3035,7 +2925,6 @@ export type Filter = {
    * @type { Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
-   * @crossplatform
    * @since 9
    */
   mimeType?: Array<string>;
@@ -3043,7 +2932,6 @@ export type Filter = {
    * @type { number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
-   * @crossplatform
    * @since 9
    */
   fileSizeOver?: number;
@@ -3051,7 +2939,6 @@ export type Filter = {
    * @type { number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
-   * @crossplatform
    * @since 9
    */
   lastModifiedAfter?: number;
@@ -3059,7 +2946,6 @@ export type Filter = {
    * @type { boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
-   * @crossplatform
    * @since 9
    */
   excludeMedia?: boolean;
