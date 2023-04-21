@@ -236,12 +236,18 @@ declare namespace cryptoFramework {
      * Encode the key object to binary data.
      *
      * @returns { DataBlob } the binary data of the key object.
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Encode the key object to binary data.
+     *
+     * @returns { DataBlob } the binary data of the key object.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
      */
     getEncoded(): DataBlob;
 
@@ -284,7 +290,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides the private key interface for asymmetric keys.
+   * Provides the private key type.
    *
    * @typedef PriKey
    * @syscap SystemCapability.Security.CryptoFramework
@@ -292,7 +298,7 @@ declare namespace cryptoFramework {
    */
   interface PriKey extends Key {
     /**
-     * Clear the memory of the private key.
+     * Clear memory of private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -307,7 +313,6 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
-     * 
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
@@ -457,9 +462,18 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Used to generate asymmetric keypair.
+     *
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
@@ -469,9 +483,18 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Used to generate asymmetric keypair.
+     *
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
      */
     generateKeyPair(): Promise<KeyPair>;
 
@@ -483,9 +506,20 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob } pubKey - the public key data blob.
+     * @param { DataBlob } priKey - the private key data blob.
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
 
@@ -497,9 +531,20 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob } pubKey - the public key data blob.
+     * @param { DataBlob } priKey - the private key data blob.
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
 
@@ -578,16 +623,24 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Create an asymmetric key generator according to the given algorithm name.
+   * Provides the asymmetric key generator instance func.
+   *
+   * @param { string } algName - indicates the algorithm name.
+   * @returns { AsyKeyGenerator } the generator obj create by algName.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 9
+   */
+  /**
+   * Create the asymmetric key generator instance according to the given algorithm name.
    *
    * @param { string } algName - indicates the algorithm name.
    * @returns { AsyKeyGenerator } the asymmetric key generator instance.
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
-   * @throws { BusinessError } 17620002 - runtime error.
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 9
+   * @since 10
    */
   function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
 
@@ -802,7 +855,7 @@ declare namespace cryptoFramework {
   function createMd(algName: string): Md;
 
   /**
-   * Enum for RSA encryption specified parameters.
+   * Enum for encryption specified parameters.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
@@ -810,7 +863,7 @@ declare namespace cryptoFramework {
    */
   enum CipherSpecItem {
     /**
-     * Indicates the algorithm name of the message digest function.
+     * Indicates the algorithm name of the message digest function. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -818,7 +871,7 @@ declare namespace cryptoFramework {
     OAEP_MD_NAME_STR = 100,
 
     /**
-     * Indicates the algorithm name for the mask generation function.
+     * Indicates the algorithm name for the mask generation function. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -826,7 +879,7 @@ declare namespace cryptoFramework {
     OAEP_MGF_NAME_STR = 101,
 
     /**
-     * Indicates the message digest parameter for the MGF1 mask generation function.
+     * Indicates the message digest parameter for the MGF1 mask generation function. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -834,7 +887,7 @@ declare namespace cryptoFramework {
     OAEP_MGF1_MD_STR = 102,
 
     /**
-     * Indicates the source of the encoding input P.
+     * Indicates the source of the encoding input P. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -843,7 +896,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Enum for RSA signature specified parameters, also used for verification.
+   * Enum for signature specified parameters, also used for verification.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
@@ -851,7 +904,7 @@ declare namespace cryptoFramework {
    */
   enum SignSpecItem {
     /**
-     * Indicates the algorithm name of the message digest function.
+     * Indicates the algorithm name of the message digest function. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -859,7 +912,7 @@ declare namespace cryptoFramework {
     PSS_MD_NAME_STR = 100,
 
     /**
-     * Indicates the algorithm name of the mask generation function.
+     * Indicates the algorithm name of the mask generation function. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -868,6 +921,7 @@ declare namespace cryptoFramework {
 
     /**
      * Indicates the message digest parameter for the MGF1 mask generation function.
+     * It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -875,7 +929,7 @@ declare namespace cryptoFramework {
     PSS_MGF1_MD_STR = 102,
 
     /**
-     * Indicates the salt length in bits.
+     * Indicates the salt length in bits. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -883,7 +937,7 @@ declare namespace cryptoFramework {
     PSS_SALT_LEN_NUM = 103,
 
     /**
-     * Indicates the value for the trailer field.
+     * Indicates the value for the trailer field. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -998,8 +1052,8 @@ declare namespace cryptoFramework {
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @param { Uint8Array } itemValue - the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1013,8 +1067,8 @@ declare namespace cryptoFramework {
      * @param { CipherSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | Uint8Array } the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1043,6 +1097,19 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
+   */
+  /**
+   * Create a cipher object for encryption and decryption operations according to the given specifications.
+   * Two different Cipher objects should be created when using RSA encryption and decryption,
+   * even with the same specifications.
+   *
+   * @param { string } transformation - indicates the description to be transformed to cipher specifications.
+   * @returns { Cipher } the cipher object returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
    */
   function createCipher(transformation: string): Cipher;
 
@@ -1145,8 +1212,8 @@ declare namespace cryptoFramework {
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { number } itemValue - the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1160,8 +1227,8 @@ declare namespace cryptoFramework {
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | number } the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1180,7 +1247,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides the Verify type, which is used for verifing signatures.
+   * Provides the Verify interface, which is used for verifing signatures.
    *
    * @typedef Verify
    * @syscap SystemCapability.Security.CryptoFramework
@@ -1280,8 +1347,8 @@ declare namespace cryptoFramework {
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { number } itemValue - the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1295,8 +1362,8 @@ declare namespace cryptoFramework {
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @returns { string | number } the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1315,7 +1382,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Create a sign object for generating signatures.
+   * Create sign class.
    *
    * @param { string } algName - indicates the algorithm name and params.
    * @returns { Sign } the sign class.
@@ -1323,16 +1390,38 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
+  /**
+   * Create a sign object for generating signatures.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Sign } the sign class.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
   function createSign(algName: string): Sign;
 
   /**
-   * Create a verify object for verifing signatures.
+   * Create verify class.
    *
    * @param { string } algName - indicates the algorithm name and params.
    * @returns { Verify } the verify class.
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
+   */
+  /**
+   * Create a verify object for verifing signatures.
+   *
+   * @param { string } algName - indicates the algorithm name and the parameters.
+   * @returns { Verify } the verify class.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
    */
   function createVerify(algName: string): Verify;
 
@@ -1393,6 +1482,17 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
+   */
+  /**
+   * Create a key agreement object.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { KeyAgreement } the key agreement object.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
    */
   function createKeyAgreement(algName: string): KeyAgreement;
 
@@ -2065,6 +2165,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
@@ -2076,6 +2177,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
@@ -2087,6 +2189,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PriKey> } the promise used to return PriKey.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
@@ -2098,6 +2201,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
@@ -2109,6 +2213,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<PubKey> } the promise used to return PubKey.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
@@ -2133,7 +2238,6 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
-   * @throws { BusinessError } 17620002 - runtime error.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 10
    */
