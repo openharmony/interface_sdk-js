@@ -1502,6 +1502,7 @@ declare namespace window {
      * @param systemBarProperties the properties of system bar
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @throws {BusinessError} 401 - If param is invalid
+     * @throws {BusinessError} 801 - If not supported by device
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
      * @since 9
@@ -1513,6 +1514,7 @@ declare namespace window {
      * @param systemBarProperties the properties of system bar
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @throws {BusinessError} 401 - If param is invalid
+     * @throws {BusinessError} 801 - If not supported by device
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
      * @since 9
