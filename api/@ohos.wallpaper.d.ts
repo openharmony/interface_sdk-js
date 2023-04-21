@@ -517,7 +517,7 @@ declare namespace wallpaper {
    * Sets live wallpaper of the specified type based on the uri path of the MP4 file.
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { string } source - Indicates the uri path of the MP4 file.
+   * @param { string } source - indicates the uri path of the MP4 file.
    * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - parameter error.
