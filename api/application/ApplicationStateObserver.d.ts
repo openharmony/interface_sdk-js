@@ -26,60 +26,60 @@ import * as _ProcessData from './ProcessData';
  * @permission N/A
  */
 export default class ApplicationStateObserver {
-    /**
-     * Will be called when foreground or background application changed.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param appStateData State changed Application info.
-     * @systemapi hide for inner use.
-     * @returns -
-     */
-    onForegroundApplicationChanged(appStateData: AppStateData): void;
+  /**
+   * Will be called when foreground or background application changed.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param appStateData State changed Application info.
+   * @systemapi hide for inner use.
+   * @returns -
+   */
+  onForegroundApplicationChanged(appStateData: AppStateData): void;
 
-    /**
-     * Will be called when ability state changed.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param abilityStateData State changed ability info.
-     * @systemapi hide for inner use.
-     * @returns -
-     */
-    onAbilityStateChanged(abilityStateData: AbilityStateData): void;
+  /**
+   * Will be called when ability state changed.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param abilityStateData State changed ability info.
+   * @systemapi hide for inner use.
+   * @returns -
+   */
+  onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
-    /**
-     * Will be called when process created.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param processData Process info.
-     * @systemapi hide for inner use.
-     * @returns -
-     */
-    onProcessCreated(processData: ProcessData): void;
+  /**
+   * Will be called when process created.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param processData Process info.
+   * @systemapi hide for inner use.
+   * @returns -
+   */
+  onProcessCreated(processData: ProcessData): void;
 
-    /**
-     * Will be called when process died.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param processData Process info.
-     * @systemapi hide for inner use.
-     * @returns -
-     */
-    onProcessDied(processData: ProcessData): void;
+  /**
+   * Will be called when process died.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param processData Process info.
+   * @systemapi hide for inner use.
+   * @returns -
+   */
+  onProcessDied(processData: ProcessData): void;
 
-    /**
-     * Called when process state changes.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param processData Process info.
-     * @systemapi hide for inner use.
-     * @returns -
-     */
-    onProcessStateChanged(processData: ProcessData): void;
+  /**
+   * Called when process state changes.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param processData Process info.
+   * @systemapi hide for inner use.
+   * @returns -
+   */
+  onProcessStateChanged(processData: ProcessData): void;
 }
 
 /**

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./@ohos.base";
+import { AsyncCallback, Callback } from "./@ohos.base";
 import connection from "./@ohos.net.connection";
 
 /**
@@ -339,35 +339,35 @@ declare namespace http {
      *
      * @since 10
      */
-     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
+    off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
     /**
      * Registers an observer for receiving HTTP Response data ends events.
      *
      * @since 10
      */
-     on(type: "dataEnd", callback: Callback<void>): void;
+    on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
      *
      * @since 10
      */
-     off(type: "dataEnd", callback?: Callback<void>): void;
+    off(type: "dataEnd", callback?: Callback<void>): void;
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
      *
      * @since 10
      */
-     on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+    on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
      *
      * @since 10
      */
-     off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+    off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
   /**
@@ -383,7 +383,7 @@ declare namespace http {
     TRACE = "TRACE",
     CONNECT = "CONNECT"
   }
-  
+
   /**
    * @crossplatform
    */

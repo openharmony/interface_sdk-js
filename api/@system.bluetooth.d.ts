@@ -59,8 +59,8 @@ export interface BLEFoundResponse {
  * @since 6
  */
 export interface SubscribeBLEFoundOptions {
-    success: (data: BLEFoundResponse) => void;
-    fail: (data: string, code: number) => void;
+  success: (data: BLEFoundResponse) => void;
+  fail: (data: string, code: number) => void;
 }
 
 /**

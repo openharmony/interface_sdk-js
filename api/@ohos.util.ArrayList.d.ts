@@ -143,7 +143,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter, 
    * it will default to ASCII sorting

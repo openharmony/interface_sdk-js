@@ -20,7 +20,7 @@
  * @syscap SystemCapability.Global.ResourceManager
  *
  */
- export interface Resource {
+export interface Resource {
   /**
    * bundle name in hap
    *

@@ -2212,11 +2212,11 @@ declare enum FontWeight {
    * Defines a value that is heavier than [Inherited Value].
    * @since 7
    */
-   /**
-   * Defines a value that is heavier than [Inherited Value].
-   * @form
-   * @since 9
-   */
+  /**
+    * Defines a value that is heavier than [Inherited Value].
+    * @form
+    * @since 9
+    */
   Bolder,
 }
 
@@ -2277,7 +2277,7 @@ declare enum TextAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  JUSTIFY,  
+  JUSTIFY,
 }
 
 /**
@@ -2337,7 +2337,7 @@ declare enum TextOverflow {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  MARQUEE,  
+  MARQUEE,
 }
 
 /**

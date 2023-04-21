@@ -90,4 +90,3 @@ declare const NavDestination: NavDestinationInterface;
  * @since 9
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
-     

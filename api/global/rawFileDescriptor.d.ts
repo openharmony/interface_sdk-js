@@ -20,7 +20,7 @@
  * @syscap SystemCapability.Global.ResourceManager
  *
  */
- export interface RawFileDescriptor {
+export interface RawFileDescriptor {
   /**
    * rawfile descriptor
    *

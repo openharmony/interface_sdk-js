@@ -49,5 +49,5 @@ export interface WantAgentInfo {
    * Extra information about how the Want starts an ability.
    * If there is no extra information to set, this constant can be left empty.
    */
-  extraInfo?: {[key: string]: any};
+  extraInfo?: { [key: string]: any };
 }

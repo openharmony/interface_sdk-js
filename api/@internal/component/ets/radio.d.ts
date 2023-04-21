@@ -69,7 +69,7 @@ declare interface RadioStyle {
    * @since 10
    */
   uncheckedBorderColor?: ResourceColor;
- 
+
   /**
    * Set the indicator color when the radio box is checked.
    * @type { ResourceColor } indicatorColor - the indicator color when the radio box is checked.

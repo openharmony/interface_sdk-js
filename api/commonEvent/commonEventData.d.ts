@@ -57,5 +57,5 @@ export interface CommonEventData {
    * @default -
    * @since 7
    */
-  parameters?: {[key: string]: any};
+  parameters?: { [key: string]: any };
 }

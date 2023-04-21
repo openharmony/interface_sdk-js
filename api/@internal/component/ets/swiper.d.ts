@@ -332,7 +332,7 @@ declare enum SwiperDisplayMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  AUTO_LINEAR,  
+  AUTO_LINEAR,
 }
 
 /**

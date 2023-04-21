@@ -144,7 +144,7 @@ export declare class console {
    * @since 10
    */
   static dirxml(...arguments: Object[]): void;
-  
+
   /**
    * Creates a new inline group, causing any subsequent console messages to be indented by an additional level.
    * @param { Object[] } arguments messages to print first.
@@ -170,7 +170,7 @@ export declare class console {
    * @since 10
    */
   static groupEnd(): void;
-  
+
   /**
    * Prints tabular data as a table.
    * @param { Object } tableData tabular data.
@@ -218,7 +218,7 @@ export declare class console {
    * @syscap SystemCapability.Utils.Lang
    * @since 10
    */
-  static trace(...arguments: Object[]): void; 
+  static trace(...arguments: Object[]): void;
 }
 
 /**
@@ -274,43 +274,43 @@ export declare function canIUse(syscap: string): boolean;
  */
 export declare function getInspectorByKey(id: string): string;
 
- /**
-  * Get components tree.
-  * @since 9
-  * @test
-  */
+/**
+ * Get components tree.
+ * @since 9
+ * @test
+ */
 export declare function getInspectorTree(): Object;
- 
- /**
-  * Sends an event to the component with the specified ID.
-  * @param id ID of the component for which the event is to be sent.
-  * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
-  * @param params Event parameters. If there is no parameter, pass an empty string "".
-  * @since 9
-  * @test
-  */
+
+/**
+ * Sends an event to the component with the specified ID.
+ * @param id ID of the component for which the event is to be sent.
+ * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param params Event parameters. If there is no parameter, pass an empty string "".
+ * @since 9
+ * @test
+ */
 export declare function sendEventByKey(id: string, action: number, params: string): boolean;
- 
- /**
-  * Send touch event.
-  * @param event TouchObject to be sent.
-  * @since 9
-  * @test
-  */
+
+/**
+ * Send touch event.
+ * @param event TouchObject to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendTouchEvent(event: TouchObject): boolean;
- 
- /**
-  * Send key event.
-  * @param event KeyEvent to be sent.
-  * @since 9
-  * @test
-  */
+
+/**
+ * Send key event.
+ * @param event KeyEvent to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
- 
- /**
-  * Send mouse event.
-  * @param event MouseEvent to be sent.
-  * @since 9
-  * @test
-  */
+
+/**
+ * Send mouse event.
+ * @param event MouseEvent to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendMouseEvent(event: MouseEvent): boolean;

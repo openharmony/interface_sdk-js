@@ -20,28 +20,28 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  */
- declare namespace contextConstant {
+declare namespace contextConstant {
+
+  /**
+   * File area mode
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   */
+  export enum AreaMode {
+    /**
+     * System level device encryption area
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    EL1 = 0,
 
     /**
-     * File area mode
-     *
-     * @since 9
+     * User credential encryption area
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
      */
-    export enum AreaMode {
-        /**
-         * System level device encryption area
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL1 = 0,
-
-        /**
-         * User credential encryption area
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL2 = 1
-    }
+    EL2 = 1
+  }
 }
 
 export default contextConstant;

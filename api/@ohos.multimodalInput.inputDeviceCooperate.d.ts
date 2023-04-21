@@ -15,12 +15,12 @@
 
 import { AsyncCallback } from "./@ohos.base";
 
- /**
-  * Events for input devices
-  * 
-  * @since 9
-  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-  */
+/**
+ * Events for input devices
+ * 
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+ */
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.
