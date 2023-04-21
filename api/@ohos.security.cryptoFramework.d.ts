@@ -1076,7 +1076,7 @@ declare namespace cryptoFramework {
     getCipherSpec(itemType: CipherSpecItem): string | Uint8Array;
 
     /**
-     * Indicates the algorithm name of the Cipher object.
+     * Indicates the algorithm name of the cipher object.
      *
      * @type { string }
      * @readonly
