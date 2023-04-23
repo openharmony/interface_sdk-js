@@ -30,9 +30,9 @@ export interface AccelerometerResponse {
    * @since 3
    * @deprecated since 8
    */
-   x: number;
+  x: number;
 
-   /**
+  /**
     * Y-coordinate
     *
     * @permission ohos.permission.ACCELEROMETER
@@ -40,9 +40,9 @@ export interface AccelerometerResponse {
     * @since 3
     * @deprecated since 8
     */
-   y: number;
+  y: number;
  
-   /**
+  /**
     * Z-coordinate
     *
     * @permission ohos.permission.ACCELEROMETER
@@ -50,7 +50,7 @@ export interface AccelerometerResponse {
     * @since 3
     * @deprecated since 8
     */
-   z: number;
+  z: number;
 }
 
 /**

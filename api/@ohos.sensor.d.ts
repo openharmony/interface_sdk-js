@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
+import type { AsyncCallback, Callback } from './basic';
 
 /**
  * This module provides the capability to subscribe to sensor data.
@@ -37,7 +37,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        ACCELEROMETER = 1,
+    ACCELEROMETER = 1,
         
         /**
          * Gyroscope sensor.
@@ -45,7 +45,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        GYROSCOPE = 2,
+    GYROSCOPE = 2,
 
         /**
          * Ambient light sensor.
@@ -53,7 +53,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        AMBIENT_LIGHT = 5,
+    AMBIENT_LIGHT = 5,
 
         /**
          * Magnetic field sensor.
@@ -61,7 +61,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        MAGNETIC_FIELD = 6,
+    MAGNETIC_FIELD = 6,
 
         /**
          * Barometric pressure sensor.
@@ -69,7 +69,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        BAROMETER = 8,
+    BAROMETER = 8,
 
         /**
          * Hall effect sensor.
@@ -77,7 +77,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        HALL = 10,
+    HALL = 10,
 
         /**
          * Proximity sensor.
@@ -85,7 +85,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        PROXIMITY = 12,
+    PROXIMITY = 12,
 
         /**
          * Humidity sensor.
@@ -93,7 +93,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        HUMIDITY = 13,
+    HUMIDITY = 13,
 
         /**
          * Orientation sensor.
@@ -101,7 +101,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        ORIENTATION = 256,
+    ORIENTATION = 256,
 
         /**
          * Gravity sensor.
@@ -109,7 +109,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        GRAVITY = 257,
+    GRAVITY = 257,
 
         /**
          * Linear acceleration sensor.
@@ -117,7 +117,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        LINEAR_ACCELEROMETER = 258,
+    LINEAR_ACCELEROMETER = 258,
 
         /**
          * Rotation vector sensor.
@@ -125,7 +125,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        ROTATION_VECTOR = 259,
+    ROTATION_VECTOR = 259,
 
         /**
          * Ambient temperature sensor.
@@ -133,7 +133,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        AMBIENT_TEMPERATURE = 260,
+    AMBIENT_TEMPERATURE = 260,
 
         /**
          * Uncalibrated magnetic field sensor.
@@ -141,7 +141,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        MAGNETIC_FIELD_UNCALIBRATED = 261,
+    MAGNETIC_FIELD_UNCALIBRATED = 261,
 
         /**
          * Uncalibrated gyroscope sensor.
@@ -149,7 +149,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        GYROSCOPE_UNCALIBRATED = 263,
+    GYROSCOPE_UNCALIBRATED = 263,
 
         /**
          * Significant motion sensor.
@@ -157,7 +157,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        SIGNIFICANT_MOTION = 264,
+    SIGNIFICANT_MOTION = 264,
 
         /**
          * Pedometer detection sensor.
@@ -165,7 +165,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        PEDOMETER_DETECTION = 265,
+    PEDOMETER_DETECTION = 265,
 
         /**
          * Pedometer sensor.
@@ -173,7 +173,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        PEDOMETER = 266,
+    PEDOMETER = 266,
 
         /**
          * Heart rate sensor.
@@ -181,7 +181,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        HEART_RATE = 278,
+    HEART_RATE = 278,
 
         /**
          * Wear detection sensor.
@@ -189,7 +189,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        WEAR_DETECTION = 280,
+    WEAR_DETECTION = 280,
 
         /**
          * Uncalibrated acceleration sensor.
@@ -197,7 +197,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        ACCELEROMETER_UNCALIBRATED = 281
+    ACCELEROMETER_UNCALIBRATED = 281
     }
 
     /**
@@ -1925,7 +1925,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        sensorName:string;
+    sensorName:string;
 
         /**
          * Sensor vendor.
@@ -1934,7 +1934,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        vendorName:string;
+    vendorName:string;
 
         /**
          * Sensor firmware version.
@@ -1943,7 +1943,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        firmwareVersion:string;
+    firmwareVersion:string;
 
         /**
          * Sensor hardware version.
@@ -1952,7 +1952,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        hardwareVersion:string;
+    hardwareVersion:string;
 
         /**
          * Sensor type ID, {@code SensorType}.
@@ -1961,7 +1961,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        sensorId:number;
+    sensorId:number;
         
         /**
          * Maximum measurement range of the sensor.
@@ -1970,7 +1970,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        maxRange:number;
+    maxRange:number;
 
         /**
          * Minimum sample period allowed, in ns.
@@ -1979,7 +1979,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        minSamplePeriod:number;
+    minSamplePeriod:number;
 
         /**
          * Maximum sample period allowed, in ns.
@@ -1988,7 +1988,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        maxSamplePeriod:number;
+    maxSamplePeriod:number;
         
         /**
          * Sensor accuracy.
@@ -1997,7 +1997,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        precision:number;
+    precision:number;
 
         /**
          * Sensor power.
@@ -2006,7 +2006,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        power:number;
+    power:number;
     }
 
     /**
@@ -2429,14 +2429,14 @@ declare namespace sensor {
      * @since 8
      */
     interface CoordinatesOptions {
-        /** Indicates the axis of the new coordinate system that coincides with the X axis of the original coordinate system. 
+    /** Indicates the axis of the new coordinate system that coincides with the X axis of the original coordinate system. 
          * 
          * @type { number }
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
         x: number;
-        /** Indicates the axis of the new coordinate system that coincides with the Z axis of the original coordinate system. 
+    /** Indicates the axis of the new coordinate system that coincides with the Z axis of the original coordinate system. 
          * 
          * @type { number }
          * @syscap SystemCapability.Sensors.Sensor
@@ -2690,7 +2690,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        interval?: number;
+    interval?: number;
     }
 
     /**
@@ -2710,7 +2710,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_ACCELEROMETER = 1,
+    SENSOR_TYPE_ID_ACCELEROMETER = 1,
 
         /**
          * Gyroscope sensor
@@ -2719,7 +2719,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_GYROSCOPE = 2,
+    SENSOR_TYPE_ID_GYROSCOPE = 2,
 
         /**
          * Ambient light sensor.
@@ -2728,7 +2728,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_AMBIENT_LIGHT = 5,
+    SENSOR_TYPE_ID_AMBIENT_LIGHT = 5,
 
         /**
          * Magnetic field sensor.
@@ -2737,7 +2737,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_MAGNETIC_FIELD = 6,
+    SENSOR_TYPE_ID_MAGNETIC_FIELD = 6,
 
         /**
          * Barometric pressure sensor.
@@ -2746,7 +2746,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_BAROMETER = 8,
+    SENSOR_TYPE_ID_BAROMETER = 8,
 
         /**
          * Hall effect sensor.
@@ -2755,7 +2755,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_HALL = 10,
+    SENSOR_TYPE_ID_HALL = 10,
 
         /**
          * Proximity sensor.
@@ -2764,7 +2764,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_PROXIMITY = 12,
+    SENSOR_TYPE_ID_PROXIMITY = 12,
 
         /**
          * Humidity sensor.
@@ -2773,7 +2773,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_HUMIDITY = 13,
+    SENSOR_TYPE_ID_HUMIDITY = 13,
 
         /**
          * Orientation sensor.
@@ -2782,7 +2782,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_ORIENTATION = 256,
+    SENSOR_TYPE_ID_ORIENTATION = 256,
 
         /**
          *  Gravity sensor.
@@ -2791,7 +2791,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_GRAVITY = 257,
+    SENSOR_TYPE_ID_GRAVITY = 257,
 
         /**
          * Linear acceleration sensor.
@@ -2800,7 +2800,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,
+    SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,
 
         /**
          * Rotation vector sensor.
@@ -2809,7 +2809,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_ROTATION_VECTOR = 259,
+    SENSOR_TYPE_ID_ROTATION_VECTOR = 259,
 
         /**
          * Ambient temperature sensor.
@@ -2818,7 +2818,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_AMBIENT_TEMPERATURE = 260,
+    SENSOR_TYPE_ID_AMBIENT_TEMPERATURE = 260,
 
         /**
          * Uncalibrated magnetic field sensor.
@@ -2827,7 +2827,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED = 261,
+    SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED = 261,
 
         /**
          * Uncalibrated gyroscope sensor.
@@ -2836,7 +2836,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED = 263,
+    SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED = 263,
 
         /**
          * Significant motion sensor.
@@ -2845,7 +2845,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_SIGNIFICANT_MOTION = 264,
+    SENSOR_TYPE_ID_SIGNIFICANT_MOTION = 264,
 
         /**
          * Pedometer detection sensor.
@@ -2854,7 +2854,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_PEDOMETER_DETECTION = 265,
+    SENSOR_TYPE_ID_PEDOMETER_DETECTION = 265,
 
         /**
          * Pedometer sensor.
@@ -2863,7 +2863,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_PEDOMETER = 266,
+    SENSOR_TYPE_ID_PEDOMETER = 266,
 
         /**
          * Heart rate sensor.
@@ -2872,7 +2872,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_HEART_RATE = 278,
+    SENSOR_TYPE_ID_HEART_RATE = 278,
 
         /**
          * Wear detection sensor.
@@ -2881,7 +2881,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_WEAR_DETECTION = 280,
+    SENSOR_TYPE_ID_WEAR_DETECTION = 280,
 
         /**
          * Uncalibrated acceleration sensor.
@@ -2890,7 +2890,7 @@ declare namespace sensor {
          * @since 8
          * @deprecated since 9
          */
-        SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281
+    SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281
     }
 
     /**
@@ -2908,7 +2908,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        timestamp: number;
+    timestamp: number;
     }
 
     /**
@@ -3025,7 +3025,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasX: number;
+    biasX: number;
 
         /**
          * Acceleration uncalibrated y-axis offset
@@ -3034,7 +3034,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasY: number;
+    biasY: number;
 
         /**
          * Acceleration uncalibrated z-axis offset
@@ -3043,7 +3043,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasZ: number;
+    biasZ: number;
     }
 
     /**
@@ -3097,7 +3097,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        alpha: number;
+    alpha: number;
 
         /**
          * The device rotates at an angle around the X axis.
@@ -3106,7 +3106,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        beta: number;
+    beta: number;
 
         /**
          * The device rotates at an angle around the Y axis.
@@ -3115,7 +3115,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        gamma: number;
+    gamma: number;
     }
 
     /**
@@ -3160,7 +3160,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        w: number;
+    w: number;
     }
 
     /**
@@ -3241,7 +3241,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasX: number;
+    biasX: number;
 
         /**
          * Gyroscope uncalibrated y-axis offset.
@@ -3250,7 +3250,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasY: number;
+    biasY: number;
 
         /**
          * Gyroscope uncalibrated z-axis offset.
@@ -3259,7 +3259,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasZ: number;
+    biasZ: number;
     }
 
     /**
@@ -3277,7 +3277,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        scalar: number;
+    scalar: number;
     }
 
     /**
@@ -3295,7 +3295,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        distance: number;
+    distance: number;
     }
 
     /**
@@ -3313,7 +3313,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        intensity: number;
+    intensity: number;
     }
 
     /**
@@ -3331,7 +3331,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        status: number;
+    status: number;
     }
 
     /**
@@ -3412,7 +3412,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasX: number;
+    biasX: number;
 
         /**
          * Magnetic field uncalibrated y-axis offset.
@@ -3421,7 +3421,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasY: number;
+    biasY: number;
 
         /**
          * Magnetic field uncalibrated z-axis offset.
@@ -3430,7 +3430,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        biasZ: number;
+    biasZ: number;
     }
 
     /**
@@ -3448,7 +3448,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        steps: number;
+    steps: number;
     }
 
     /**
@@ -3466,7 +3466,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        humidity: number;
+    humidity: number;
     }
 
     /**
@@ -3484,7 +3484,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        scalar: number;
+    scalar: number;
     }
 
     /**
@@ -3502,7 +3502,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        temperature: number;
+    temperature: number;
     }
 
     /**
@@ -3520,7 +3520,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        pressure: number;
+    pressure: number;
     }
 
     /**
@@ -3538,7 +3538,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        heartRate: number;
+    heartRate: number;
     }
 
     /**
@@ -3556,7 +3556,7 @@ declare namespace sensor {
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
-        value: number;
+    value: number;
     }
  }
 
