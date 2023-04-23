@@ -1642,7 +1642,7 @@ declare namespace cryptoFramework {
     ECC_FIELD_SIZE_NUM = 212,
 
     /**
-     * Indicates the curve name according to SECG (Standards for Efficient Crypptography Group).
+     * Indicates the curve name according to SECG (Standards for Efficient Cryptography Group).
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
