@@ -265,6 +265,14 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     abilityName: string;
+
+    /**
+     * The Uniform Resource Identifier (URI) that will be redirected to.
+     * @since 10
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     */
+    uri?: string;
   }
 
   /**
