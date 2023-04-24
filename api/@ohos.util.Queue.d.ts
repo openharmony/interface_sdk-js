@@ -68,7 +68,7 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.

@@ -153,7 +153,7 @@ declare interface LabelStyle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */ 
+   */
   maxLines?: number;
 
   /**
@@ -161,7 +161,7 @@ declare interface LabelStyle {
    * @type { number | ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */  
+   */
   minFontSize?: number | ResourceStr;
 
   /**

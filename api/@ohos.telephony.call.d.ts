@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./@ohos.base";
+import { AsyncCallback, Callback } from "./@ohos.base";
 
 /**
  * Provides methods related to call management.
@@ -53,7 +53,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
    * Makes a call.
@@ -71,7 +71,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Makes a call.
@@ -89,7 +89,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
+  function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
   /**
    * Go to the dial screen and the called number is displayed.
@@ -322,38 +322,38 @@ declare namespace call {
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
 
-    /**
-   * Reject the incoming call.
-   *
-   * @param callId Indicates the identifier of the call to reject.
-   * @param options Indicates the text message to reject.
-   * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
+  /**
+ * Reject the incoming call.
+ *
+ * @param callId Indicates the identifier of the call to reject.
+ * @param options Indicates the text message to reject.
+ * @permission ohos.permission.ANSWER_CALL
+ * @throws {BusinessError} 201 - Permission denied.
+ * @throws {BusinessError} 401 - Parameter error.
+ * @throws {BusinessError} 8300001 - Invalid parameter value.
+ * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+ * @throws {BusinessError} 8300003 - System internal error.
+ * @throws {BusinessError} 8300999 - Unknown error code.
+ * @systemapi Hide this for inner system use.
+ * @since 9
+ */
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
-    /**
-   * Reject the incoming call.
-   *
-   * @param callId Indicates the identifier of the call to reject.
-   * @param options Indicates the text message to reject.
-   * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
+  /**
+ * Reject the incoming call.
+ *
+ * @param callId Indicates the identifier of the call to reject.
+ * @param options Indicates the text message to reject.
+ * @permission ohos.permission.ANSWER_CALL
+ * @throws {BusinessError} 201 - Permission denied.
+ * @throws {BusinessError} 401 - Parameter error.
+ * @throws {BusinessError} 8300001 - Invalid parameter value.
+ * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+ * @throws {BusinessError} 8300003 - System internal error.
+ * @throws {BusinessError} 8300999 - Unknown error code.
+ * @systemapi Hide this for inner system use.
+ * @since 9
+ */
   function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
@@ -1261,7 +1261,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   export interface DialCallOptions {
+  export interface DialCallOptions {
     /**
      * @systemapi Hide this for inner system use.
      */
@@ -1732,7 +1732,7 @@ declare namespace call {
      *
      * @since 9
      */
-     ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
+    ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
 
     /**
      * Requested facility not implemented.

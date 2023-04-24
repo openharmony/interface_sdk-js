@@ -22,33 +22,33 @@
  * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
  */
- export interface MissionCallback {
-    /**
-     * Called by system when mission changed.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the deviceId mission changed.
-     */
-    notifyMissionsChanged(deviceId: string): void;
+export interface MissionCallback {
+  /**
+   * Called by system when mission changed.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @param deviceId Indicates the deviceId mission changed.
+   */
+  notifyMissionsChanged(deviceId: string): void;
 
-    /**
-     * Called by system when snapshot changed.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the deviceId mission changed.
-     * @param mission Indicates the id of destroyed mission.
-     */
-    notifySnapshot(deviceId: string, mission: number): void;
+  /**
+   * Called by system when snapshot changed.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @param deviceId Indicates the deviceId mission changed.
+   * @param mission Indicates the id of destroyed mission.
+   */
+  notifySnapshot(deviceId: string, mission: number): void;
 
-    /**
-     * Called by system when network disconnect.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the deviceId mission changed.
-     * @param state Indicates the state of network
-     */
-    notifyNetDisconnect(deviceId: string, state: number): void;
+  /**
+   * Called by system when network disconnect.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @param deviceId Indicates the deviceId mission changed.
+   * @param state Indicates the state of network
+   */
+  notifyNetDisconnect(deviceId: string, state: number): void;
 }

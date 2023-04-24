@@ -193,7 +193,7 @@ declare namespace defaultAppManager {
    * @since 9
    */
   function setDefaultApplication(type: string,
-      elementName: ElementName, userId: number, callback: AsyncCallback<void>) : void;
+    elementName: ElementName, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Set default application based on type.

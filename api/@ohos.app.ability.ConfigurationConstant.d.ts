@@ -19,49 +19,49 @@
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
  */
- declare namespace ConfigurationConstant {
-    /**
-     * ColorMode
-     * @enum { number }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 9
-     */
-    export enum ColorMode {
-        COLOR_MODE_NOT_SET = -1,
-        COLOR_MODE_DARK = 0,
-        COLOR_MODE_LIGHT = 1,
-    }
+declare namespace ConfigurationConstant {
+  /**
+   * ColorMode
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  export enum ColorMode {
+    COLOR_MODE_NOT_SET = -1,
+    COLOR_MODE_DARK = 0,
+    COLOR_MODE_LIGHT = 1,
+  }
 
-    /**
-     * Direction
-     * @enum { number }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 9
-     */
-    export enum Direction {
-        DIRECTION_NOT_SET = -1,
-        DIRECTION_VERTICAL = 0,
-        DIRECTION_HORIZONTAL = 1,
-    }
+  /**
+   * Direction
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  export enum Direction {
+    DIRECTION_NOT_SET = -1,
+    DIRECTION_VERTICAL = 0,
+    DIRECTION_HORIZONTAL = 1,
+  }
 
-    /**
-     * ScreenDensity
-     * @name ScreenDensity
-     * @enum { number }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    export enum ScreenDensity {
-        SCREEN_DENSITY_NOT_SET = 0,
-        SCREEN_DENSITY_SDPI = 120,
-        SCREEN_DENSITY_MDPI = 160,
-        SCREEN_DENSITY_LDPI = 240,
-        SCREEN_DENSITY_XLDPI = 320,
-        SCREEN_DENSITY_XXLDPI = 480,
-        SCREEN_DENSITY_XXXLDPI = 640,
-    }
+  /**
+   * ScreenDensity
+   * @name ScreenDensity
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  export enum ScreenDensity {
+    SCREEN_DENSITY_NOT_SET = 0,
+    SCREEN_DENSITY_SDPI = 120,
+    SCREEN_DENSITY_MDPI = 160,
+    SCREEN_DENSITY_LDPI = 240,
+    SCREEN_DENSITY_XLDPI = 320,
+    SCREEN_DENSITY_XXLDPI = 480,
+    SCREEN_DENSITY_XXXLDPI = 640,
+  }
 }
 
 export default ConfigurationConstant

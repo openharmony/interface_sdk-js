@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import {AsyncCallback, Callback} from "./@ohos.base";
+import { AsyncCallback, Callback } from "./@ohos.base";
 
 /**
  * Provides filesystem statistics APIs
@@ -101,7 +101,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13900032 - Unknown error.
    * @systemapi
    */
-  function getBundleStats(packageName: string,  callback: AsyncCallback<BundleStats>): void;
+  function getBundleStats(packageName: string, callback: AsyncCallback<BundleStats>): void;
   function getBundleStats(packageName: string): Promise<BundleStats>;
 
   /**
@@ -220,8 +220,8 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13900032 - Unknown error.
    * @systemapi
    */
-   function getUserStorageStats(userId: number): Promise<StorageStats>;
-   function getUserStorageStats(userId: number, callback: AsyncCallback<StorageStats>): void;
+  function getUserStorageStats(userId: number): Promise<StorageStats>;
+  function getUserStorageStats(userId: number, callback: AsyncCallback<StorageStats>): void;
 
   /**
    * Get the totalsize

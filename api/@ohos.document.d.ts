@@ -23,8 +23,8 @@ export default document;
  * @permission N/A
  */
 declare namespace document {
-    export { choose };
-    export { show };
+  export { choose };
+  export { show };
 }
 
 /**

@@ -16,22 +16,22 @@
 import { AsyncCallback } from './@ohos.base';
 
 declare namespace zlib {
-/**
- * @name ErrorCode
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- * @deprecated since 9
- */
+  /**
+   * @name ErrorCode
+   * @since 7
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @deprecated since 9
+   */
   export enum ErrorCode {
     ERROR_CODE_OK = 0,
     ERROR_CODE_ERRNO = -1
   }
 
-/**
- * @name CompressLevel
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- */
+  /**
+   * @name CompressLevel
+   * @since 7
+   * @syscap SystemCapability.BundleManager.Zlib
+   */
   export enum CompressLevel {
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
     COMPRESS_LEVEL_BEST_SPEED = 1,
@@ -39,11 +39,11 @@ declare namespace zlib {
     COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
   }
 
-/**
- * @name CompressStrategy
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- */
+  /**
+   * @name CompressStrategy
+   * @since 7
+   * @syscap SystemCapability.BundleManager.Zlib
+   */
   export enum CompressStrategy {
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
     COMPRESS_STRATEGY_FILTERED = 1,
@@ -52,22 +52,22 @@ declare namespace zlib {
     COMPRESS_STRATEGY_FIXED = 4
   }
 
-/**
- * @name MemLevel
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- */
+  /**
+   * @name MemLevel
+   * @since 7
+   * @syscap SystemCapability.BundleManager.Zlib
+   */
   export enum MemLevel {
     MEM_LEVEL_MIN = 1,
     MEM_LEVEL_MAX = 9,
     MEM_LEVEL_DEFAULT = 8
   }
 
-/**
- * @name Options
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- */
+  /**
+   * @name Options
+   * @since 7
+   * @syscap SystemCapability.BundleManager.Zlib
+   */
   interface Options {
     level?: CompressLevel;
     memLevel?: MemLevel;
@@ -85,7 +85,7 @@ declare namespace zlib {
    * @deprecated since 9
    * @useinstead ohos.zlib#compressFile
    */
-  function zipFile(inFile:string, outFile:string, options: Options): Promise<void>;
+  function zipFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
   /**
    * Decompress the specified file.
@@ -98,7 +98,7 @@ declare namespace zlib {
    * @deprecated since 9
    * @useinstead ohos.zlib#decompressFile
    */
-  function unzipFile(inFile:string, outFile:string, options: Options): Promise<void>;
+  function unzipFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
   /**
    * Compress the specified file.
@@ -112,21 +112,21 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 9
    */
-   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
+  function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
-    /**
-   * Compress the specified file.
-   * @param {string} inFile Indicates the path of the file to be compressed.
-   * @param {string} outFile Indicates the path of the output compressed file.
-   * @param {Options} options Indicates the options of compressing file.
-   * @returns {Promise<void>} Returns the result of compressFile file.
-   * @throws {BusinessError} 401 - The parameter check failed.
-   * @throws {BusinessError} 900001 - The input source file is invalid.
-   * @throws {BusinessError} 900002 - The input destination file is invalid.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @since 9
-   */
-  function compressFile(inFile:string, outFile:string, options: Options): Promise<void>;
+  /**
+ * Compress the specified file.
+ * @param {string} inFile Indicates the path of the file to be compressed.
+ * @param {string} outFile Indicates the path of the output compressed file.
+ * @param {Options} options Indicates the options of compressing file.
+ * @returns {Promise<void>} Returns the result of compressFile file.
+ * @throws {BusinessError} 401 - The parameter check failed.
+ * @throws {BusinessError} 900001 - The input source file is invalid.
+ * @throws {BusinessError} 900002 - The input destination file is invalid.
+ * @syscap SystemCapability.BundleManager.Zlib
+ * @since 9
+ */
+  function compressFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
   /**
    * Decompress the specified file.
@@ -140,7 +140,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 9
    */
-   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
+  function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
   /**
    * Decompress the specified file.
