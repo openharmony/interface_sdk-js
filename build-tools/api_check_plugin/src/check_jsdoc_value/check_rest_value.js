@@ -179,7 +179,7 @@ function splitUseinsteadValue(useinsteadValue, JSDocIndex) {
   const splitArray = useinsteadValue.split(/\//g);
   if (splitArray.length === 1) {
     // 同一文件
-    splitResult.checkResult = !checkModule(splitArray[0]);
+    splitResult.checkResult = checkModule(splitArray[0]);
 
   } else if (splitArray.length === 2) {
     // 不同文件
@@ -218,9 +218,14 @@ function checkUseinsteadValue(tag, node, fileName, JSDocIndex) {
     checkResult: true,
     errorInfo: '',
   };
-  const result = splitUseinsteadValue(tagNameValue, JSDocIndex, fileName);
-  if (result && !result.checkResult) {
-    useinsteadResult = result;
+  if (tagNameValue === '') {
+    useinsteadResult.checkResult = false;
+    useinsteadResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_USEINSTEAD, [JSDocIndex + 1]);
+  } else {
+    const result = splitUseinsteadValue(tagNameValue, JSDocIndex, fileName);
+    if (result && !result.checkResult) {
+      useinsteadResult = result;
+    }
   }
   return useinsteadResult;
 }

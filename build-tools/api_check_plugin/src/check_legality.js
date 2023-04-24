@@ -133,9 +133,12 @@ function dealSpecialTag(comment, tagName) {
 
 function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInfoMap, extraCheckCallback) {
   const illegalKinds = getIllegalKinds(legalKinds);
-  const illegalKindSet = new Set(illegalKinds);
+  let illegalKindSet = new Set(illegalKinds);
   const legalKindSet = new Set(legalKinds);
   tagsName.forEach(tagName => {
+    if (tagName === 'extends') {
+      illegalKindSet = new Set(commentNodeWhiteList);
+    }
     comments.forEach((comment, index) => {
       if (!checkInfoMap[index]) {
         checkInfoMap[index] = {
