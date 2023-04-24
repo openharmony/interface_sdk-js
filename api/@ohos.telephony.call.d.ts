@@ -1303,7 +1303,7 @@ declare namespace call {
   export interface AudioDeviceInfo {
     /** Indicates the list of supported audio devices. */
     audioDeviceList: Array<AudioDevice>;
-    /** Indicates the type of current audiodevice. */
+    /** Indicates the type of current audio device. */
     currentAudioDevice: AudioDevice;
     /** Indicates the status of mute. */
     isMuted: boolean;
