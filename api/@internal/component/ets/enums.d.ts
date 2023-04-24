@@ -2777,27 +2777,116 @@ declare enum TitleHeight {
 }
 
 /**
- * Command key for hot key.
+ * Modifier key for hot key.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare enum CtrlKey {
+declare enum ModifierKey {
   /**
    * ctrl.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  CTRL = 0,
+  CTRL,
 
   /**
    * shift.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  SHIFT = 1,
+  SHIFT,
   /**
    * alt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  ALT = 2,
+  ALT,
+}
+
+/**
+ * Function key for hot key.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum FunctionKey {
+  /**
+   * Escape key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ESC,
+  /**
+   * F1 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F1,
+  /**
+   * F2 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F2,
+  /**
+   * F3 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F3,
+  /**
+   * F4 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F4,
+  /**
+   * F5 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F5,
+  /**
+   * F6 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F6,
+  /**
+   * F7 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F7,
+  /**
+   * F8 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F8,
+  /**
+   * F9 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F9,
+  /**
+   * F10 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F10,
+  /**
+   * F11 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F11,
+  /**
+   * F12 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F12,
 }
 
 /**
