@@ -3597,12 +3597,13 @@ declare class CommonMethod<T> {
 
   /**
    * Sets hot keys
-   * @param { string } value , single character of the Combination key
-   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
+   * @param { string | FunctionKey } value - Character of the combination key.
+   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
+   * @param { () => void } action - Callback function, triggered when the shortcut keyboard is pressed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
+  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 }
 
 /**
