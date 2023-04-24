@@ -37,7 +37,7 @@ export interface NotificationActionButton {
   /**
    * Extra information of the button.
    */
-  extras?: {[key: string]: any};
+  extras?: { [key: string]: any };
 
   /**
    * User input

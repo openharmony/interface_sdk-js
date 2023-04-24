@@ -139,13 +139,13 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-     TYPE_FLOAT_CAMERA,
-     /**
-     * Dialog.
-     * @systemapi Hide this for inner system use.
-     * @since 9
-     * @StageModelOnly
-     */
+    TYPE_FLOAT_CAMERA,
+    /**
+    * Dialog.
+    * @systemapi Hide this for inner system use.
+    * @since 9
+    * @StageModelOnly
+    */
     TYPE_DIALOG,
     /**
      * Screenshot.
@@ -182,7 +182,7 @@ declare namespace window {
      * Area for keyboard
      * @since 9
      */
-     TYPE_KEYBOARD
+    TYPE_KEYBOARD
   }
   /**
    * Describes the window mode of an application
@@ -197,12 +197,12 @@ declare namespace window {
     FLOATING
   }
 
-   /**
-   * Describes the mode of window layout
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
+  /**
+  * Describes the mode of window layout
+  * @syscap SystemCapability.WindowManager.WindowManager.Core
+  * @systemapi Hide this for inner system use.
+  * @since 9
+  */
   enum WindowLayoutMode {
     /**
      * CASCADE
@@ -460,7 +460,7 @@ declare namespace window {
      * Window id.
      * @since 9
      */
-     id: number
+    id: number
   }
 
   /**
@@ -483,7 +483,7 @@ declare namespace window {
    * @since 9
    * @systemapi
    */
-   interface ScaleOptions {
+  interface ScaleOptions {
     /**
      * The scale param of x direction. Default is 1.f
      * @since 9
@@ -533,7 +533,7 @@ declare namespace window {
      * @since 9
      */
     z?: number;
-    
+
     /**
      * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      * @since 9
@@ -579,7 +579,7 @@ declare namespace window {
    * @systemapi
    * @since 9
    */
-   interface TransitionContext {
+  interface TransitionContext {
     /**
      * The target window with animation
      * @since 9
@@ -738,13 +738,13 @@ declare namespace window {
    */
   function find(id: string): Promise<Window>;
 
-   /**
-    * Find the window by name.
-    * @param name Indicates window name.
-    * @throws {BusinessError} 401 - If param is invalid
-    * @since 9
-    */
-   function findWindow(name: string): Window;
+  /**
+   * Find the window by name.
+   * @param name Indicates window name.
+   * @throws {BusinessError} 401 - If param is invalid
+   * @since 9
+   */
+  function findWindow(name: string): Window;
 
   /**
    * Get the final show window.
@@ -791,16 +791,16 @@ declare namespace window {
    * @throws {BusinessError} 1300006 - If window context is abnormally
    * @since 9
    */
-   function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
-   /**
-    * Get the final show window.
-    * @throws {BusinessError} 401 - If param is invalid
-    * @throws {BusinessError} 1300002 - If window state is abnormally
-    * @throws {BusinessError} 1300006 - If window context is abnormally
-    * @since 9
-    */
-   function getLastWindow(ctx: BaseContext): Promise<Window>;
+  /**
+   * Get the final show window.
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1300002 - If window state is abnormally
+   * @throws {BusinessError} 1300006 - If window context is abnormally
+   * @since 9
+   */
+  function getLastWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Minimize all app windows.
@@ -936,37 +936,37 @@ declare namespace window {
      * @since 9
      */
     UNSPECIFIED = 0,
-    
+
     /**
      * Display in portrait orientation.
      * @since 9
      */
     PORTRAIT = 1,
-    
+
     /**
      * Display in landscape orientation.
      * @since 9
      */
     LANDSCAPE = 2,
-    
+
     /**
      * Display in inverted portrait orientation.
      * @since 9
      */
     PORTRAIT_INVERTED = 3,
-    
+
     /**
      * Display in inverted landscape orientation.
      * @since 9
      */
     LANDSCAPE_INVERTED = 4,
-    
+
     /**
      * Follow the rotation of the sensor, ignore auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION = 5,
-    
+
     /**
      * Follow the rotation of the sensor, only work in the vertical direction, ignore auto rotation lock.
      * @since 9
@@ -978,25 +978,25 @@ declare namespace window {
      * @since 9
      */
     AUTO_ROTATION_LANDSCAPE = 7,
-    
+
     /**
      * Follow the rotation of the sensor, controlled by auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION_RESTRICTED = 8,
-    
+
     /**
      * Follow the rotation of the sensor, only work in the vertical direction, controlled by auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
-    
+
     /**
      * Follow the rotation of the sensor, only work in the horizontal direction, controlled by auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
-    
+
     /**
      * Locked mode, keep the same direction as previous one.
      * @since 9
@@ -1021,10 +1021,10 @@ declare namespace window {
      * @since 9
      */
     THIN,
-     /**
-     * Blur style regular.
-     * @since 9
-     */
+    /**
+    * Blur style regular.
+    * @since 9
+    */
     REGULAR,
     /**
      * Blur style thick.
@@ -1072,7 +1072,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    hide (callback: AsyncCallback<void>): void;
+    hide(callback: AsyncCallback<void>): void;
 
     /**
       * Hide window.
@@ -1274,7 +1274,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-     resize(width: number, height: number, callback: AsyncCallback<void>): void;
+    resize(width: number, height: number, callback: AsyncCallback<void>): void;
 
     /**
      * Set the type of a window.
@@ -1329,13 +1329,13 @@ declare namespace window {
      */
     getProperties(callback: AsyncCallback<WindowProperties>): void;
 
-     /**
-      * Get the properties of current window
-      * @syscap SystemCapability.WindowManager.WindowManager.Core
-      * @since 6
-      * @deprecated since 9
-      * @useinstead ohos.window.Window#getWindowProperties
-      */
+    /**
+     * Get the properties of current window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.window.Window#getWindowProperties
+     */
     getProperties(): Promise<WindowProperties>;
 
     /**
@@ -1443,7 +1443,7 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setWindowSystemBarEnable
      */
-    setSystemBarEnable(names: Array<'status'|'navigation'>, callback: AsyncCallback<void>): void;
+    setSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback<void>): void;
 
     /**
      * Set the system bar to have visible.
@@ -1453,7 +1453,7 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setWindowSystemBarEnable
      */
-    setSystemBarEnable(names: Array<'status'|'navigation'>): Promise<void>;
+    setSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
     /**
      * Set the system bar to have visible.
@@ -1464,7 +1464,7 @@ declare namespace window {
      * @throws {BusinessError} 1300003 - If system state is abnormally
      * @since 9
      */
-    setWindowSystemBarEnable(names: Array<'status'|'navigation'>, callback: AsyncCallback<void>): void;
+    setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback<void>): void;
 
     /**
      * Set the system bar to have visible.
@@ -1475,7 +1475,7 @@ declare namespace window {
      * @throws {BusinessError} 1300003 - If system state is abnormally
      * @since 9
      */
-    setWindowSystemBarEnable(names: Array<'status'|'navigation'>): Promise<void>;
+    setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
     /**
      * Set the properties of system bar
@@ -1732,13 +1732,13 @@ declare namespace window {
      */
     on(type: 'screenshot', callback: Callback<void>): void;
 
-     /**
-      * Unregister the callback of screenshot
-      * @param type: 'screenshot'
-      * @throws {BusinessError} 401 - If param is invalid
-      * @syscap SystemCapability.WindowManager.WindowManager.Core
-      * @since 9
-      */
+    /**
+     * Unregister the callback of screenshot
+     * @param type: 'screenshot'
+     * @throws {BusinessError} 401 - If param is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
     off(type: 'screenshot', callback?: Callback<void>): void;
 
     /**
@@ -1750,13 +1750,13 @@ declare namespace window {
      */
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
 
-     /**
-      * Unregister the callback of dialogTargetTouch
-      * @param type: 'dialogTargetTouch'
-      * @throws {BusinessError} 401 - If param is invalid
-      * @syscap SystemCapability.WindowManager.WindowManager.Core
-      * @since 10
-      */
+    /**
+     * Unregister the callback of dialogTargetTouch
+     * @param type: 'dialogTargetTouch'
+     * @throws {BusinessError} 401 - If param is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
 
     /**
@@ -1855,7 +1855,7 @@ declare namespace window {
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @since 9
      */
-     isWindowSupportWideGamut(callback: AsyncCallback<boolean>): void;
+    isWindowSupportWideGamut(callback: AsyncCallback<boolean>): void;
 
     /**
      * Sets the specified color space.
@@ -1864,7 +1864,7 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setWindowColorSpace
      */
-    setColorSpace(colorSpace:ColorSpace): Promise<void>;
+    setColorSpace(colorSpace: ColorSpace): Promise<void>;
 
     /**
      * Sets the specified color space.
@@ -1873,7 +1873,7 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setWindowColorSpace
      */
-    setColorSpace(colorSpace:ColorSpace, callback: AsyncCallback<void>): void;
+    setColorSpace(colorSpace: ColorSpace, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the specified color space.
@@ -1882,7 +1882,7 @@ declare namespace window {
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @since 9
      */
-    setWindowColorSpace(colorSpace:ColorSpace): Promise<void>;
+    setWindowColorSpace(colorSpace: ColorSpace): Promise<void>;
 
     /**
      * Sets the specified color space.
@@ -1891,7 +1891,7 @@ declare namespace window {
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @since 9
      */
-    setWindowColorSpace(colorSpace:ColorSpace, callback: AsyncCallback<void>): void;
+    setWindowColorSpace(colorSpace: ColorSpace, callback: AsyncCallback<void>): void;
 
     /**
      * Obtains the set color space.
@@ -2162,7 +2162,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
+    setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Ignore this window during screenshot.
@@ -2249,12 +2249,12 @@ declare namespace window {
      */
     snapshot(callback: AsyncCallback<image.PixelMap>): void;
 
-     /**
-      * Obtains snapshot of window
-      * @throws {BusinessError} 1300002 - If window state is abnormally
-      * @syscap SystemCapability.WindowManager.WindowManager.Core
-      * @since 9
-      */
+    /**
+     * Obtains snapshot of window
+     * @throws {BusinessError} 1300002 - If window state is abnormally
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
     snapshot(): Promise<image.PixelMap>;
 
     /** Sets opacity  of window
@@ -2516,7 +2516,7 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-     getMainWindowSync(): Window;
+    getMainWindowSync(): Window;
     /**
      * Create sub window of the stage.
      * @param name window name of sub window
@@ -2613,7 +2613,7 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-     disableWindowDecor(): void;
+    disableWindowDecor(): void;
 
     /**
      * Sets whether can show on lock screen or not
@@ -2626,7 +2626,7 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-     setShowOnLockScreen(showOnLockScreen: boolean): void;
+    setShowOnLockScreen(showOnLockScreen: boolean): void;
   }
 }
 

@@ -71,8 +71,8 @@ declare namespace overlay {
    * @systemapi
    * @since 10
    */
-   function setOverlayEnabledByBundleName(bundleName:string,
-      moduleName:string, isEnabled: boolean, callback: AsyncCallback<void>): void;
+  function setOverlayEnabledByBundleName(bundleName: string,
+    moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set enabled state of overlay module based on specified bundleName and moduleName.
@@ -134,8 +134,8 @@ declare namespace overlay {
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10
    */
-   function getTargetOverlayModuleInfos(targetModuleName: string,
-      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+  function getTargetOverlayModuleInfos(targetModuleName: string,
+    callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
    * Obtain the OverlayModuleInfo of current application based on moduleName.
@@ -165,8 +165,8 @@ declare namespace overlay {
    * @systemapi
    * @since 10
    */
-   function getOverlayModuleInfoByBundleName(bundleName: string,
-      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+  function getOverlayModuleInfoByBundleName(bundleName: string,
+    callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
    * Obtain the OverlayModuleInfo of the specified application based on bundleName.
@@ -186,8 +186,8 @@ declare namespace overlay {
    * @systemapi
    * @since 10
    */
-   function getOverlayModuleInfoByBundleName(bundleName: string,
-      moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+  function getOverlayModuleInfoByBundleName(bundleName: string,
+    moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
    * Obtain the OverlayModuleInfo of the specified application based on bundleName and moduleName.
@@ -208,7 +208,7 @@ declare namespace overlay {
    * @since 10
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
-      moduleName?: string): Promise<Array<OverlayModuleInfo>>;
+    moduleName?: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
    * Obtain the OverlayModuleInfo of the specified target application based on bundleName.
@@ -225,8 +225,8 @@ declare namespace overlay {
    * @systemapi
    * @since 10
    */
-   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
-      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+  function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
+    callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
    * Obtain the OverlayModuleInfo of the specified target application based on bundleName.
@@ -246,8 +246,8 @@ declare namespace overlay {
    * @systemapi
    * @since 10
    */
-   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
-      moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+  function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
+    moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
    * Obtain the OverlayModuleInfo of the specified target application based on bundleName and moduleName.
@@ -267,8 +267,8 @@ declare namespace overlay {
    * @systemapi
    * @since 10
    */
-   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
-      moduleName?: string): Promise<Array<OverlayModuleInfo>>;
+  function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
+    moduleName?: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
    * Obtains configuration information about a overlay hap module.

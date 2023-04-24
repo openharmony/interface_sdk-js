@@ -74,7 +74,14 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    ABILITY_BACK_TO_OTHER_MISSION_STACK = 'ability.params.backToOtherMissionStack',
+    ABILITY_BACK_TO_OTHER_MISSION_STACK = "ability.params.backToOtherMissionStack",
+
+    /**
+     * Indicates the param of ability failure restart recovery identification
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    ABILITY_RECOVERY_RESTART = "ohos.ability.params.abilityRecoveryRestart",
 
     /**
      * Indicates the param of extra content title

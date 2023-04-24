@@ -202,17 +202,17 @@ declare namespace hiSysEvent {
     /**
      * Rule of filter system event
      */
-     rules: WatchRule[];
+    rules: WatchRule[];
 
-     /**
-     * Receive system event.
-     *
-     * @syscap SystemCapability.HiviewDFX.HiSysEvent
-     * @systemapi hide for inner use
-     * @param {SysEventInfo} info system event information of receive.
-     * @returns {void} return void.
-     * @since 9
-     */
+    /**
+    * Receive system event.
+    *
+    * @syscap SystemCapability.HiviewDFX.HiSysEvent
+    * @systemapi hide for inner use
+    * @param {SysEventInfo} info system event information of receive.
+    * @returns {void} return void.
+    * @since 9
+    */
     onEvent: (info: SysEventInfo) => void;
 
     /**

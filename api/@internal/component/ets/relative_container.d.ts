@@ -19,7 +19,7 @@
  * @since 9
  */
 interface RelativeContainerInterface {
-    (): RelativeContainerAttribute;
+  (): RelativeContainerAttribute;
 }
 
 /**
@@ -33,7 +33,7 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
  * @form
  * @since 9
  */
-declare const RelativeContainer : RelativeContainerInterface;
+declare const RelativeContainer: RelativeContainerInterface;
 
 /**
  * @form

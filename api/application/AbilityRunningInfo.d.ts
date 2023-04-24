@@ -25,51 +25,51 @@ import abilityManager from '../@ohos.app.ability.abilityManager';
  * @permission N/A
  */
 export interface AbilityRunningInfo {
-    /**
-    * @default ability element name
-    * @since 8
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    ability: ElementName;
+  /**
+  * @default ability element name
+  * @since 8
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  ability: ElementName;
 
-    /**
-    * @default process id
-    * @since 8
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    pid: number;
+  /**
+  * @default process id
+  * @since 8
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  pid: number;
 
-    /**
-    * @default user id
-    * @since 8
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    uid: number;
+  /**
+  * @default user id
+  * @since 8
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  uid: number;
 
-    /**
-    * @default the name of the process
-    * @since 8
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    processName: string;
+  /**
+  * @default the name of the process
+  * @since 8
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  processName: string;
 
-    /**
-    * @default ability start time
-    * @since 8
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    startTime: number;
+  /**
+  * @default ability start time
+  * @since 8
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  startTime: number;
 
-    /**
-    * @default Enumerates state of the ability state info
-    * @since 8
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    abilityState: abilityManager.AbilityState;
+  /**
+  * @default Enumerates state of the ability state info
+  * @since 8
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  abilityState: abilityManager.AbilityState;
 }

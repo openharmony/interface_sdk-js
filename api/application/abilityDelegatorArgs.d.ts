@@ -22,37 +22,37 @@
  * @permission N/A
  */
 export interface AbilityDelegatorArgs {
-    /**
-     * the bundle name of the application being tested.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    bundleName: string;
+  /**
+   * the bundle name of the application being tested.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  bundleName: string;
 
-    /**
-     * the parameters used for unit testing.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    parameters: {[key: string]: string};
+  /**
+   * the parameters used for unit testing.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  parameters: { [key: string]: string };
 
-    /**
-     * the class names of all test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    testCaseNames: string;
+  /**
+   * the class names of all test cases.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  testCaseNames: string;
 
-    /**
-     * the class name of the test runner used to execute test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    testRunnerClassName: string;
+  /**
+   * the class name of the test runner used to execute test cases.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  testRunnerClassName: string;
 }
 
 export default AbilityDelegatorArgs;
