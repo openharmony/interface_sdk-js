@@ -64,11 +64,11 @@ declare enum NavigationMode {
    * @since 9
    */
   Split,
-   /**
-   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
-   * Otherwise it's displayed in stack mode.
-   * @since 9
-   */
+  /**
+  * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+  * Otherwise it's displayed in stack mode.
+  * @since 9
+  */
   Auto,
 }
 
@@ -159,19 +159,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 9
    */
   navBarPosition(value: NavBarPosition): NavigationAttribute;
-   
+
   /**
    * Sets the mode of navigation.
    * @since 9
    */
   mode(value: NavigationMode): NavigationAttribute;
-   
+
   /**
    * Sets the back button icon.
    * @since 9
    */
   backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
-   
+
   /**
    * Hide the navigation bar.
    * @since 9

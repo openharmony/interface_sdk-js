@@ -74,5 +74,5 @@ export interface CommonEventPublishData {
    * @default -
    * @since 7
    */
-  parameters?: {[key: string]: any};
+  parameters?: { [key: string]: any };
 }

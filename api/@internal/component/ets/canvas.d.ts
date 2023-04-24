@@ -737,7 +737,7 @@ declare class ImageData {
    * Height of the image.
    * @since 8
    */
-   /**
+  /**
    * Height of the image.
    * @form
    * @since 9

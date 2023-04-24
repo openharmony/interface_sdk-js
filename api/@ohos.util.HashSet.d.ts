@@ -64,7 +64,7 @@ declare class HashSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-   remove(value: T): boolean;
+  remove(value: T): boolean;
   /**
    * Clears all element groups in a set
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
@@ -80,7 +80,7 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the values contained in this set
    * @throws { BusinessError } 10200011 - The values method cannot be bound.

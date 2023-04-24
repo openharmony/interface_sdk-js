@@ -28,23 +28,23 @@ import Context from "./Context";
  */
 export default class AbilityStageContext extends Context {
 
-    /**
-     * Indicates configuration information about an module.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @crossplatform
-     */
-    currentHapModuleInfo: HapModuleInfo;
+  /**
+   * Indicates configuration information about an module.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   */
+  currentHapModuleInfo: HapModuleInfo;
 
-    /**
-     * Indicates configuration information.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @crossplatform
-     */
-    config: Configuration;
+  /**
+   * Indicates configuration information.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   */
+  config: Configuration;
 }

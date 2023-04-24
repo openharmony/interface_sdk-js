@@ -23,67 +23,67 @@ import Want from "../@ohos.app.ability.Want";
  * @systemapi hide for inner use.
  */
 export interface MissionInfo {
-    /**
-     * Indicates mission id.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    missionId: number;
+  /**
+   * Indicates mission id.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  missionId: number;
 
-    /**
-     * Indicates running state.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    runningState: number;
+  /**
+   * Indicates running state.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  runningState: number;
 
-    /**
-     * Indicates locked state.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    lockedState: boolean;
+  /**
+   * Indicates locked state.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  lockedState: boolean;
 
-    /**
-     * Indicates the recent created or updated time of the mission.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    timestamp: string;
+  /**
+   * Indicates the recent created or updated time of the mission.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  timestamp: string;
 
-    /**
-     * Indicates want of the mission.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    want: Want;
+  /**
+   * Indicates want of the mission.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  want: Want;
 
-    /**
-     * Indicates label of the mission.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    label: string;
+  /**
+   * Indicates label of the mission.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  label: string;
 
-    /**
-     * Indicates icon path of the mission.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    iconPath: string;
+  /**
+   * Indicates icon path of the mission.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  iconPath: string;
 
-    /**
-     * Indicates whether the mission is continuable.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-     continuable: boolean;
+  /**
+   * Indicates whether the mission is continuable.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  continuable: boolean;
 }

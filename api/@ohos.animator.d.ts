@@ -227,5 +227,5 @@ export default class Animator {
    * @crossplatform
    * @since 9
    */
-   static create(options: AnimatorOptions): AnimatorResult;
+  static create(options: AnimatorOptions): AnimatorResult;
 }

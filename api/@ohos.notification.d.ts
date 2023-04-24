@@ -78,8 +78,8 @@ declare namespace notification {
    * @useinstead ohos.notificationManager.publish
    *
    */
-   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
-   function publish(request: NotificationRequest, userId: number): Promise<void>;
+  function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
+  function publish(request: NotificationRequest, userId: number): Promise<void>;
 
   /**
    * Cancel a notification with the specified ID.
@@ -612,8 +612,8 @@ declare namespace notification {
    * @deprecated since 9
    * @useinstead ohos.notificationSubscribe.removeAll
    */
-   function removeAll(userId: number, callback: AsyncCallback<void>): void;
-   function removeAll(userId: number): Promise<void>;
+  function removeAll(userId: number, callback: AsyncCallback<void>): void;
+  function removeAll(userId: number): Promise<void>;
 
   /**
    * removeAll
@@ -708,8 +708,8 @@ declare namespace notification {
    * @deprecated since 9
    * @useinstead ohos.notificationManager.setDoNotDisturbDate
    */
-   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
-   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
+  function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
+  function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
 
   /**
    * Obtains the Do Not Disturb date.
@@ -732,8 +732,8 @@ declare namespace notification {
    * @deprecated since 9
    * @useinstead ohos.notificationManager.getDoNotDisturbDate
    */
-   function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
-   function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
+  function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
+  function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
 
   /**
    * Obtains whether to support the Do Not Disturb mode.
@@ -766,8 +766,8 @@ declare namespace notification {
    * @deprecated since 9
    * @useinstead ohos.notificationManager.requestEnableNotification
    */
-   function requestEnableNotification(callback: AsyncCallback<void>): void;
-   function requestEnableNotification(): Promise<void>;
+  function requestEnableNotification(callback: AsyncCallback<void>): void;
+  function requestEnableNotification(): Promise<void>;
 
   /**
    * Sets whether the device supports distributed notification.
@@ -964,13 +964,13 @@ declare namespace notification {
     TYPE_TIMER = 2,
   }
 
-   /**
-   * Reason for remove a notification
-   *
-   * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.RemoveReason
-   */
+  /**
+  * Reason for remove a notification
+  *
+  * @systemapi Hide this for inner system use.
+  * @deprecated since 9
+  * @useinstead ohos.notificationManager.RemoveReason
+  */
   export enum RemoveReason {
     /**
      * Notification clicked notification on the status bar

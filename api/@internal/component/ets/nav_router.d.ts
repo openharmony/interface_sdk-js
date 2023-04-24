@@ -48,4 +48,3 @@ declare const NavRouter: NavRouterInterface;
  * @since 9
  */
 declare const NavRouterInstance: NavRouterAttribute;
-  

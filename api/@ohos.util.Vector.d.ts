@@ -173,7 +173,7 @@ declare class Vector<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector<T>) => T,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Executes a provided function once for each value in the vector object.
    * @param callbackFn (required) A function that accepts up to four arguments.The function to be 
@@ -187,7 +187,7 @@ declare class Vector<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, vector?: Vector<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Sorts this vector according to the order induced by the specified comparator,without comparator 
    * this parameter, it will default to ASCII sorting

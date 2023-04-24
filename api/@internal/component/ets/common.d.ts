@@ -1294,7 +1294,7 @@ declare enum BlurStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  BACKGROUND_REGULAR,   
+  BACKGROUND_REGULAR,
 
   /**
    * Defines the thin thick material.
@@ -1308,7 +1308,7 @@ declare enum BlurStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  BACKGROUND_ULTRA_THICK,  
+  BACKGROUND_ULTRA_THICK,
 }
 
 /**
@@ -1346,20 +1346,20 @@ declare enum ThemeColorMode {
    * @since 10
    */
   SYSTEM,
-  
+
   /**
    * Defines the light mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   LIGHT,
-  
+
   /**
    * Defines the dark mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DARK,  
+  DARK,
 }
 
 /**
@@ -1389,13 +1389,13 @@ declare enum AdaptiveColor {
    * @since 10
    */
   DEFAULT,
-  
+
   /**
    * Defines the background average color adaptive mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  AVERAGE,  
+  AVERAGE,
 }
 
 /**
@@ -1430,27 +1430,27 @@ declare enum ModalTransition {
    * @useinstead ModalTransition#ALPHA
    */
   Alpha,
-  
+
   /**
    * Use default animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DEFAULT,  
+  DEFAULT,
 
   /**
    * Use none animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  NONE,  
+  NONE,
 
   /**
    * Use alpha animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  ALPHA,  
+  ALPHA,
 }
 
 /**
@@ -1644,7 +1644,7 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  OUTER_FLOATING_MD,  
+  OUTER_FLOATING_MD,
 }
 
 /**
@@ -3474,7 +3474,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 10
-   */  
+   */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
@@ -3544,7 +3544,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Sets styles for component state.
@@ -3614,7 +3614,7 @@ declare class CommonMethod<T> {
  * @form
  * @since 9
  */
-declare class CommonAttribute extends CommonMethod<CommonAttribute> { }
+declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
 /**
  * CommonInterface for ide.

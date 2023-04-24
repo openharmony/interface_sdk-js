@@ -29,37 +29,37 @@ import { ShellCmdResult } from './application/shellCmdResult';
  * @useinstead ohos.app.ability.abilityDelegatorRegistry
  */
 declare namespace abilityDelegatorRegistry {
-    /**
-     * Get the AbilityDelegator object of the application.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @returns the AbilityDelegator object initialized when the application is started.
-     */
-    function getAbilityDelegator(): AbilityDelegator;
+  /**
+   * Get the AbilityDelegator object of the application.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @returns the AbilityDelegator object initialized when the application is started.
+   */
+  function getAbilityDelegator(): AbilityDelegator;
 
-    /**
-     * Get unit test parameters stored in the AbilityDelegatorArgs object.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @returns the previously registered AbilityDelegatorArgs object.
-     */
-    function getArguments(): AbilityDelegatorArgs;
+  /**
+   * Get unit test parameters stored in the AbilityDelegatorArgs object.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @returns the previously registered AbilityDelegatorArgs object.
+   */
+  function getArguments(): AbilityDelegatorArgs;
 
-    /**
-     * Describes all lifecycle states of an ability.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    export enum AbilityLifecycleState {
-        UNINITIALIZED,
-        CREATE,
-        FOREGROUND,
-        BACKGROUND,
-        DESTROY,
-    }
+  /**
+   * Describes all lifecycle states of an ability.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  export enum AbilityLifecycleState {
+    UNINITIALIZED,
+    CREATE,
+    FOREGROUND,
+    BACKGROUND,
+    DESTROY,
+  }
 }
 
 export default abilityDelegatorRegistry;

@@ -130,7 +130,7 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.

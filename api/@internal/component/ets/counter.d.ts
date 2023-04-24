@@ -27,7 +27,7 @@ interface CounterInterface {
    * Return Counter.
    * @since 7
    */
-    /**
+  /**
    * Return Counter.
    * @form
    * @since 9

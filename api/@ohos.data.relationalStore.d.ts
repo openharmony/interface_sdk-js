@@ -175,7 +175,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
-  type ValuesBucket = { [key:string]: ValueType | Uint8Array | null;}
+  type ValuesBucket = { [key: string]: ValueType | Uint8Array | null; }
 
   /**
    * Indicates the database synchronization mode.
