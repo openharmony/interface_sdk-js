@@ -37,6 +37,10 @@ interface ShapeInterface {
 
   /**
    * Called when a component is drawn.
+   * @since 7
+   */
+  /**
+   * Called when a component is drawn.
    * @form
    * @since 9
    */
