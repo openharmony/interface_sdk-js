@@ -17,12 +17,14 @@ declare class List<T> {
   /**
    * A constructor used to create a List object.
    * @throws { BusinessError } 10200012 - The List's constructor cannot be directly invoked.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the List. This is a number one higher than the highest index in the list.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -32,6 +34,7 @@ declare class List<T> {
    * @param element to be appended to this list
    * @returns the boolean type, returns true if the addition is successful, and returns false if it fails.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -43,6 +46,7 @@ declare class List<T> {
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -54,6 +58,7 @@ declare class List<T> {
    * @returns the T type
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -63,6 +68,7 @@ declare class List<T> {
    * @param element element to be contained
    * @returns the boolean type,if list contains the specified element,return true,else return false
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,6 +79,7 @@ declare class List<T> {
    * @param element element to be contained
    * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -85,6 +92,7 @@ declare class List<T> {
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -96,6 +104,7 @@ declare class List<T> {
    * @param element element to remove
    * @returns the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -106,6 +115,7 @@ declare class List<T> {
    * @param element element to find
    * @returns the number type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -115,6 +125,7 @@ declare class List<T> {
    * or returns undefined if list is empty
    * @returns the T type ,returns undefined if list is empty
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -124,6 +135,7 @@ declare class List<T> {
    * or returns undefined if list is empty
    * @returns the T type ,returns undefined if list is empty
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -136,6 +148,7 @@ declare class List<T> {
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -146,6 +159,7 @@ declare class List<T> {
    * @param obj Compare objects
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -161,6 +175,7 @@ declare class List<T> {
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -176,6 +191,7 @@ declare class List<T> {
    * @param secondValue (Optional) next elements
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -184,6 +200,7 @@ declare class List<T> {
    * Removes all of the elements from this list.The list will
    * be empty after this call returns.length becomes 0
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -195,6 +212,7 @@ declare class List<T> {
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -210,6 +228,7 @@ declare class List<T> {
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -219,6 +238,7 @@ declare class List<T> {
    * convert list to array
    * @returns the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -227,6 +247,7 @@ declare class List<T> {
    * Determine whether list is empty and whether there is an element
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -234,6 +255,7 @@ declare class List<T> {
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

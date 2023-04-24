@@ -17,12 +17,14 @@ declare class LightWeightMap<K, V> {
   /**
    * A constructor used to create a LightWeightMap object.
    * @throws { BusinessError } 10200012 - The LightWeightMap's constructor cannot be directly invoked.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the LightWeightMap.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -33,6 +35,7 @@ declare class LightWeightMap<K, V> {
    * @returns the boolean type
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -42,6 +45,7 @@ declare class LightWeightMap<K, V> {
    * @param key need to determine whether to include the key
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -51,6 +55,7 @@ declare class LightWeightMap<K, V> {
    * @param value need to determine whether to include the value
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -61,6 +66,7 @@ declare class LightWeightMap<K, V> {
    * @param minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -68,6 +74,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -77,6 +84,7 @@ declare class LightWeightMap<K, V> {
    * @param key the index in LightWeightMap
    * @returns value or undefined
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -86,6 +94,7 @@ declare class LightWeightMap<K, V> {
    * @param key Looking for goals
    * @returns Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -95,6 +104,7 @@ declare class LightWeightMap<K, V> {
    * @param value Looking for goals
    * @returns Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -103,6 +113,7 @@ declare class LightWeightMap<K, V> {
    * Returns whether the Map object contains elements
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -114,6 +125,7 @@ declare class LightWeightMap<K, V> {
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -121,6 +133,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains a ES6 iterator that contains all the keys of an LightWeightMap container
    * @throws { BusinessError } 10200011 - The keys method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -130,6 +143,7 @@ declare class LightWeightMap<K, V> {
    * @param map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -140,6 +154,7 @@ declare class LightWeightMap<K, V> {
    * @param value Added or updated value
    * @returns the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -149,6 +164,7 @@ declare class LightWeightMap<K, V> {
    * @param key  Target to be deleted
    * @returns Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -159,6 +175,7 @@ declare class LightWeightMap<K, V> {
    * @returns the boolean type(Is there a delete value)
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -167,6 +184,7 @@ declare class LightWeightMap<K, V> {
    * Removes all of the mapping from this map
    * The map will be empty after this call returns
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -179,6 +197,7 @@ declare class LightWeightMap<K, V> {
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -188,6 +207,7 @@ declare class LightWeightMap<K, V> {
    * It does not perform functions on deleted keys
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -196,6 +216,7 @@ declare class LightWeightMap<K, V> {
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -203,6 +224,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains a string that contains all the keys and values in an LightWeightMap container
    * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -214,6 +236,7 @@ declare class LightWeightMap<K, V> {
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -221,6 +244,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns an iterator of the values contained in this map
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

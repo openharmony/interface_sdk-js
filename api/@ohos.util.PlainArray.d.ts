@@ -17,12 +17,14 @@ declare class PlainArray<T> {
   /**
    * A constructor used to create a PlainArray object.
    * @throws { BusinessError } 10200012 - The PlainArray's constructor cannot be directly invoked.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the PlainArray.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -33,6 +35,7 @@ declare class PlainArray<T> {
    * @param value Added the value of key-value
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -40,6 +43,7 @@ declare class PlainArray<T> {
   /**
    * Clears the current PlainArray object
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -47,6 +51,7 @@ declare class PlainArray<T> {
   /**
    * Obtains a clone of the current PlainArray object
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -57,6 +62,7 @@ declare class PlainArray<T> {
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -67,6 +73,7 @@ declare class PlainArray<T> {
    * @returns the value of key-value pairs
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -77,6 +84,7 @@ declare class PlainArray<T> {
    * @returns Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -86,6 +94,7 @@ declare class PlainArray<T> {
     * @param value Looking for goals
     * @returns Subscript corresponding to target
     * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
+    * @crossplatform
     * @since 8
     * @syscap SystemCapability.Utils.Lang
     */
@@ -94,6 +103,7 @@ declare class PlainArray<T> {
    * Checks whether the current PlainArray object is empty
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -104,6 +114,7 @@ declare class PlainArray<T> {
    * @returns the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -114,6 +125,7 @@ declare class PlainArray<T> {
    * @returns Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -124,6 +136,7 @@ declare class PlainArray<T> {
    * @returns the T type
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -136,6 +149,7 @@ declare class PlainArray<T> {
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -147,6 +161,7 @@ declare class PlainArray<T> {
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -154,6 +169,7 @@ declare class PlainArray<T> {
   /**
    * Obtains the string representation of the PlainArray object
    * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -165,6 +181,7 @@ declare class PlainArray<T> {
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -173,6 +190,7 @@ declare class PlainArray<T> {
    * Executes a provided function once for each value in the PlainArray object.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -181,6 +199,7 @@ declare class PlainArray<T> {
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

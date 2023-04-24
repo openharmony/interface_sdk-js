@@ -22,12 +22,14 @@ declare class TreeMap<K, V> {
    * @param secondValue (Optional) next element
    * @throws { BusinessError } 10200012 - The TreeMap's constructor cannot be directly invoked.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor(comparator?: (firstValue: K, secondValue: K) => boolean);
   /**
    * Gets the element number of the hashmap.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -36,6 +38,7 @@ declare class TreeMap<K, V> {
    * Returns whether the Map object contains elements
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -45,6 +48,7 @@ declare class TreeMap<K, V> {
    * @param key need to determine whether to include the key
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -54,6 +58,7 @@ declare class TreeMap<K, V> {
    * @param value need to determine whether to include the value
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -63,6 +68,7 @@ declare class TreeMap<K, V> {
    * @param key the index in TreeMap
    * @returns value or null
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -72,6 +78,7 @@ declare class TreeMap<K, V> {
    * Or returns undefined if tree map is empty
    * @returns value or undefined
    * @throws { BusinessError } 10200011 - The getFirstKey method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -81,6 +88,7 @@ declare class TreeMap<K, V> {
    * Or returns undefined if tree map is empty
    * @returns value or undefined
    * @throws { BusinessError } 10200011 - The getLastKey method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -90,6 +98,7 @@ declare class TreeMap<K, V> {
    * @param map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -101,6 +110,7 @@ declare class TreeMap<K, V> {
    * @returns the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -110,6 +120,7 @@ declare class TreeMap<K, V> {
    * @param key  Target to be deleted
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @returns Target mapped value
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -117,6 +128,7 @@ declare class TreeMap<K, V> {
   /**
    * Clear all element groups in the map
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -127,6 +139,7 @@ declare class TreeMap<K, V> {
    * @param key Objective of comparison
    * @throws { BusinessError } 10200011 - The getLowerKey method cannot be bound.
    * @returns key or undefined
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -137,6 +150,7 @@ declare class TreeMap<K, V> {
    * @param key Objective of comparison
    * @returns key or undefined
    * @throws { BusinessError } 10200011 - The getHigherKey method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -144,6 +158,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns a new Iterator object that contains the keys contained in this map
    * @throws { BusinessError } 10200011 - The keys method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -151,6 +166,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns a new Iterator object that contains the values contained in this map
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -161,6 +177,7 @@ declare class TreeMap<K, V> {
    * @param value Updated the target mapped value
    * @returns the boolean type(Is there a target pointed to by the key)
    * @throws { BusinessError } 10200011 - The replace method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -170,6 +187,7 @@ declare class TreeMap<K, V> {
    * It does not perform functions on deleted keys
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -178,6 +196,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -185,6 +204,7 @@ declare class TreeMap<K, V> {
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

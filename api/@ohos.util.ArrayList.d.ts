@@ -17,12 +17,14 @@ declare class ArrayList<T> {
   /**
    * A constructor used to create a ArrayList object.
    * @throws { BusinessError } 10200012 - The ArrayList's constructor cannot be directly invoked.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the ArrayList.This is a number one higher than the highest index in the arraylist.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -32,6 +34,7 @@ declare class ArrayList<T> {
    * @param element to be appended to this arraylist
    * @returns the boolean type, returns true if the addition is successful, and returns false if it fails.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -45,6 +48,7 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -54,6 +58,7 @@ declare class ArrayList<T> {
    * @param element element to be contained
    * @returns the boolean type,if arraylist contains the specified element,return true,else return false
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -64,6 +69,7 @@ declare class ArrayList<T> {
    * @param element element to be contained
    * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -76,6 +82,7 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -87,6 +94,7 @@ declare class ArrayList<T> {
    * @param element element to remove
    * @returns the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -97,6 +105,7 @@ declare class ArrayList<T> {
    * @param element element to find
    * @returns the number type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -108,6 +117,7 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -123,6 +133,7 @@ declare class ArrayList<T> {
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -139,6 +150,7 @@ declare class ArrayList<T> {
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -155,6 +167,7 @@ declare class ArrayList<T> {
    * If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -166,7 +179,7 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The subArrayList method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -175,6 +188,7 @@ declare class ArrayList<T> {
    * Removes all of the elements from this arraylist.The arraylist will
    * be empty after this call returns.length becomes 0
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -183,6 +197,7 @@ declare class ArrayList<T> {
    * Returns a shallow copy of this instance. (The elements themselves are not copied.)
    * @returns this arraylist instance
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -191,6 +206,7 @@ declare class ArrayList<T> {
    * returns the capacity of this arraylist
    * @returns the number type
    * @throws { BusinessError } 10200011 - The getCapacity method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -199,6 +215,7 @@ declare class ArrayList<T> {
    * convert arraylist to array
    * @returns the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -207,6 +224,7 @@ declare class ArrayList<T> {
    * Determine whether arraylist is empty and whether there is an element
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -216,6 +234,7 @@ declare class ArrayList<T> {
    * change the capacity of the arraylist to newCapacity, otherwise the capacity will not be changed
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -223,6 +242,7 @@ declare class ArrayList<T> {
   /**
    * Limit the capacity to the current length
    * @throws { BusinessError } 10200011 - The trimToCurrentLength method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -230,6 +250,7 @@ declare class ArrayList<T> {
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
