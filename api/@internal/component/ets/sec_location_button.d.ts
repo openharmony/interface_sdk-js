@@ -227,7 +227,6 @@ declare interface SecLocationButtonOptions {
    * Style of the icon to be drawn.
    *
    * @type { ?LocationIconStyle }
-   * @default LocationIconStyle.FULL_FILLED
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -237,7 +236,6 @@ declare interface SecLocationButtonOptions {
    * Text to be displayed on the icon.
    *
    * @type { ?LocationDescription }
-   * @default LocationDescription.CURRENT_LOCATION
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -247,7 +245,6 @@ declare interface SecLocationButtonOptions {
    * Button background type.
    *
    * @type { ?BackgroundButtonType }
-   * @default BackgroundButtonType.NORMAL_BACKGROUND
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
