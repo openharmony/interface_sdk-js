@@ -22,51 +22,51 @@ import continuationManager from "../@ohos.continuation.continuationManager";
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  */
 export interface ContinuationExtraParams {
-    /**
-     * Indicates the type of devices to be matched.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    deviceType?: Array<string>;
+  /**
+   * Indicates the type of devices to be matched.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  deviceType?: Array<string>;
 
-    /**
-     * Indicates the bundle name of the target application where the ability will be hopped.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    targetBundle?: string;
+  /**
+   * Indicates the bundle name of the target application where the ability will be hopped.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  targetBundle?: string;
 
-    /**
-     * Indicates the description used for device filtering.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    description?: string;
+  /**
+   * Indicates the description used for device filtering.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  description?: string;
 
-    /**
-     * Parameters used for filtering devices, type must be { [key: string]: any }.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    filter?: any;
+  /**
+   * Parameters used for filtering devices, type must be { [key: string]: any }.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  filter?: any;
 
-    /**
-     * Mode of continuation.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    continuationMode?: continuationManager.ContinuationMode;
+  /**
+   * Mode of continuation.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  continuationMode?: continuationManager.ContinuationMode;
 
-    /**
-     * Authentication extra infos.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    authInfo?: { [key: string]: any }
+  /**
+   * Authentication extra infos.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  authInfo?: { [key: string]: any }
 }

@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
- /**
-  * Round rect.
-  *
-  * @systemapi
-  * @since 9
-  */
+/**
+ * Round rect.
+ *
+ * @systemapi
+ * @since 9
+ */
 interface RRect {
   left: number;
 

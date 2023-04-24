@@ -25,59 +25,59 @@ import bundle from '../@ohos.bundle.bundleManager';
  * @permission N/A
  */
 export interface ExtensionRunningInfo {
-    /**
-    * @default Indicates the extension of the extension info
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    extension: ElementName;
+  /**
+  * @default Indicates the extension of the extension info
+  * @since 9
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  extension: ElementName;
 
-    /**
-    * @default process id
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    pid: number;
+  /**
+  * @default process id
+  * @since 9
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  pid: number;
 
-    /**
-    * @default user id
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    uid: number;
+  /**
+  * @default user id
+  * @since 9
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  uid: number;
 
-    /**
-    * @default the name of the process
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    processName: string;
+  /**
+  * @default the name of the process
+  * @since 9
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  processName: string;
 
-    /**
-    * @default ability start time
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    startTime: number;
+  /**
+  * @default ability start time
+  * @since 9
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  startTime: number;
 
-    /**
-    * @default All package names under the current process
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    clientPackage: Array<String>;
+  /**
+  * @default All package names under the current process
+  * @since 9
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  clientPackage: Array<String>;
 
-    /**
-    * @default Enumerates types of the extension info
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi hide this for inner system use
-    */
-    type: bundle.ExtensionAbilityType;
+  /**
+  * @default Enumerates types of the extension info
+  * @since 9
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @systemapi hide this for inner system use
+  */
+  type: bundle.ExtensionAbilityType;
 }

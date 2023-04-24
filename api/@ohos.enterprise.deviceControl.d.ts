@@ -63,4 +63,4 @@ declare namespace deviceControl {
   function resetFactory(admin: Want): Promise<void>;
 }
 
- export default deviceControl;
+export default deviceControl;

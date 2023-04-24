@@ -24,77 +24,77 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * @permission N/A
  */
 export interface AbilityMonitor {
-    /**
-     * The name of the ability to monitor.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    abilityName: string;
+  /**
+   * The name of the ability to monitor.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  abilityName: string;
 
-    /**
-     * The name of the module to monitor.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    moduleName?: string;
+  /**
+   * The name of the module to monitor.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  moduleName?: string;
 
-    /**
-     * Called back when the ability is created for initialization.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onAbilityCreate?:(ability: UIAbility) => void;
+  /**
+   * Called back when the ability is created for initialization.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onAbilityCreate?: (ability: UIAbility) => void;
 
-    /**
-     * Called back when the state of the ability changes to foreground.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onAbilityForeground?:(ability: UIAbility) => void;
+  /**
+   * Called back when the state of the ability changes to foreground.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onAbilityForeground?: (ability: UIAbility) => void;
 
-    /**
-     * Called back when the state of the ability changes to background.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onAbilityBackground?:(ability: UIAbility) => void;
+  /**
+   * Called back when the state of the ability changes to background.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onAbilityBackground?: (ability: UIAbility) => void;
 
-    /**
-     * Called back before the ability is destroyed.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onAbilityDestroy?:(ability: UIAbility) => void;
+  /**
+   * Called back before the ability is destroyed.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onAbilityDestroy?: (ability: UIAbility) => void;
 
-    /**
-     * Called back when an ability window stage is created.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onWindowStageCreate?:(ability: UIAbility) => void;
+  /**
+   * Called back when an ability window stage is created.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onWindowStageCreate?: (ability: UIAbility) => void;
 
-    /**
-     * Called back when an ability window stage is restored.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onWindowStageRestore?:(ability: UIAbility) => void;
+  /**
+   * Called back when an ability window stage is restored.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onWindowStageRestore?: (ability: UIAbility) => void;
 
-    /**
-     * Called back when an ability window stage is destroyed.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onWindowStageDestroy?:(ability: UIAbility) => void;
+  /**
+   * Called back when an ability window stage is destroyed.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onWindowStageDestroy?: (ability: UIAbility) => void;
 }
 
 export default AbilityMonitor;

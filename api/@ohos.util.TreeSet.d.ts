@@ -136,7 +136,7 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value?: T, key?: T, set?: TreeSet<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the values contained in this set
    * @throws { BusinessError } 10200011 - The values method cannot be bound.

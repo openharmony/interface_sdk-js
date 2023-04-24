@@ -60,7 +60,7 @@ declare namespace uriPermissionManager {
    * @since 10
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
-  
+
   /**
    * Revoke URI from one application
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
