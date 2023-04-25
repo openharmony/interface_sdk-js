@@ -1356,16 +1356,16 @@ declare class TSRectAttribute extends CommonShapeMethod<RectAttribute> {
   create(
     value?:
       | {
-          width?: number | string;
-          height?: number | string;
-          radius?: number | string | Array<any>;
-        }
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
       | {
-          width?: number | string;
-          height?: number | string;
-          radiusWidth?: number | string;
-          radiusHeight?: number | string;
-        },
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
   ): RectAttribute;
   /**
    * Used for TS compiler.
@@ -2243,10 +2243,10 @@ declare class TSPanGestureInterface {
   create(
     value?:
       | {
-          fingers?: number;
-          direction?: PanDirection;
-          distance?: number;
-        }
+        fingers?: number;
+        direction?: PanDirection;
+        distance?: number;
+      }
       | PanGestureOptions,
   ): PanGestureInterface;
   /**

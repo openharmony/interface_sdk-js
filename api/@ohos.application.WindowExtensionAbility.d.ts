@@ -27,46 +27,46 @@ import window from './@ohos.window';
  * @StageModelOnly
  */
 export default class WindowExtensionAbility {
-    /**
-     * Indicates window extension ability context.
-     *
-     * @since 9
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi hide for inner use.
-     * @StageModelOnly
-     */
-    context: WindowExtensionContext;
+  /**
+   * Indicates window extension ability context.
+   *
+   * @since 9
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   */
+  context: WindowExtensionContext;
 
-    /**
-     * Called back when a window extension is first connected to an ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @param want Indicates connection information about the Window ability.
-     * @systemapi hide for inner use.
-     * @StageModelOnly
-     */
-    onConnect(want: Want): void;
+  /**
+   * Called back when a window extension is first connected to an ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @param want Indicates connection information about the Window ability.
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   */
+  onConnect(want: Want): void;
 
-    /**
-     * Called back when all abilities connected to a window extension are disconnected.
-     *
-     * @since 9
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @param want Indicates disconnection information about the window extension.
-     * @systemapi hide for inner use.
-     * @StageModelOnly
-     */
-    onDisconnect(want: Want): void;
+  /**
+   * Called back when all abilities connected to a window extension are disconnected.
+   *
+   * @since 9
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @param want Indicates disconnection information about the window extension.
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   */
+  onDisconnect(want: Want): void;
 
-    /**
-     * Called back when window is created.
-     *
-     * @since 9
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi hide for inner use.
-     * @StageModelOnly
-     */
-    onWindowReady(window: window.Window): void;
+  /**
+   * Called back when window is created.
+   *
+   * @since 9
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   */
+  onWindowReady(window: window.Window): void;
 }
 

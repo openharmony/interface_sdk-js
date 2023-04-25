@@ -210,7 +210,7 @@ declare namespace display {
      * @since 9
      */
     width: number;
-    
+
     /**
      * Height of the rectangle, in pixels.
      * @since 9

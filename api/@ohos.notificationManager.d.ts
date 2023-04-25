@@ -21,7 +21,7 @@ import { NotificationContent as _NotificationContent } from './notification/noti
 import { NotificationLongTextContent as _NotificationLongTextContent } from './notification/notificationContent';
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
-import { NotificationFlags as  _NotificationFlags} from './notification/notificationFlags';
+import { NotificationFlags as _NotificationFlags } from './notification/notificationFlags';
 import { NotificationFlagStatus as _NotificationFlagStatus } from './notification/notificationFlags';
 import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';

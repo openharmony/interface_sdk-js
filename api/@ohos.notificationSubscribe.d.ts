@@ -169,7 +169,7 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9
    */
-   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
+  function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
    /**
     * Remove notification.

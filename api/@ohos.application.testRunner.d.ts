@@ -22,21 +22,21 @@
  * @permission N/A
  */
 export interface TestRunner {
-    /**
-     * Prepare the unit testing environment for running test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onPrepare(): void;
+  /**
+   * Prepare the unit testing environment for running test cases.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onPrepare(): void;
 
-    /**
-     * Run all test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onRun(): void;
+  /**
+   * Run all test cases.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  onRun(): void;
 }
 
 export default TestRunner;

@@ -359,8 +359,8 @@ declare namespace bundleState {
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.usageStatistics.queryBundleStatsInfoByInterval
    */
-   function queryBundleStateInfoByInterval(byInterval: IntervalType,
-        begin: number, end: number, callback: AsyncCallback<Array<BundleStateInfo>>): void;
+  function queryBundleStateInfoByInterval(byInterval: IntervalType,
+    begin: number, end: number, callback: AsyncCallback<Array<BundleStateInfo>>): void;
 
   /**
    * Queries usage information about each bundle within a specified period at a specified interval.
@@ -378,7 +378,7 @@ declare namespace bundleState {
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.usageStatistics.queryBundleStatsInfoByInterval
    */
-   function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStateInfo>>;
+  function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStateInfo>>;
 
   /**
    * Queries state data of all bundles within a specified period identified by the start and end time.
@@ -421,8 +421,8 @@ declare namespace bundleState {
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.usageStatistics.queryCurrentBundleEvents
    */
-   function queryCurrentBundleActiveStates(begin: number,
-        end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
+  function queryCurrentBundleActiveStates(begin: number,
+    end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
 
   /**
    * Queries state data of the current bundle within a specified period.

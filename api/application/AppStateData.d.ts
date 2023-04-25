@@ -22,30 +22,30 @@
  * @permission N/A
  */
 export default class AppStateData {
-    /**
-     * The bundle name.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    bundleName: string;
+  /**
+   * The bundle name.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  bundleName: string;
 
-    /**
-     * The uid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    uid: number;
+  /**
+   * The uid.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  uid: number;
 
-    /**
-     * The application state.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    state: number;
+  /**
+   * The application state.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  state: number;
 }

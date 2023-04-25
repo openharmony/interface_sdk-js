@@ -335,20 +335,10 @@ declare enum LineJoinStyle {
  * Function Called by Touch
  * @since 7
  */
-/**
- * Function Called by Touch
- * @form
- * @since 9
- */
 declare enum TouchType {
   /**
    * Triggered when the finger is pressed.
    * @since 7
-   */
-  /**
-   * Triggered when the finger is pressed.
-   * @form
-   * @since 9
    */
   Down,
 
@@ -356,32 +346,17 @@ declare enum TouchType {
    * Triggered when the finger is raised.
    * @since 7
    */
-  /**
-   * Triggered when the finger is raised.
-   * @form
-   * @since 9
-   */
   Up,
 
   /**
    * Triggered when the finger presses on the screen.
    * @since 7
    */
-  /**
-   * Triggered when the finger presses on the screen.
-   * @form
-   * @since 9
-   */
   Move,
 
   /**
    * Triggers when the touch event cancels.
    * @since 7
-   */
-  /**
-   * Triggers when the touch event cancels.
-   * @form
-   * @since 9
    */
   Cancel,
 }
@@ -390,20 +365,10 @@ declare enum TouchType {
  * Function Called by Mouse
  * @since 8
  */
-/**
- * Function Called by Mouse
- * @form
- * @since 9
- */
 declare enum MouseButton {
   /**
    * Mouse Left Button.
    * @since 8
-   */
-  /**
-   * Mouse Left Button.
-   * @form
-   * @since 9
    */
   Left,
 
@@ -411,21 +376,11 @@ declare enum MouseButton {
    * Mouse Right Button.
    * @since 8
    */
-  /**
-   * Mouse Right Button.
-   * @form
-   * @since 9
-   */
   Right,
 
   /**
    * Mouse Middle Button.
    * @since 8
-   */
-  /**
-   * Mouse Middle Button.
-   * @form
-   * @since 9
    */
   Middle,
 
@@ -433,32 +388,17 @@ declare enum MouseButton {
    * Mouse Back Button.
    * @since 8
    */
-  /**
-   * Mouse Back Button.
-   * @form
-   * @since 9
-   */
   Back,
 
   /**
    * Mouse Forward Button.
    * @since 8
    */
-  /**
-   * Mouse Forward Button.
-   * @form
-   * @since 9
-   */
   Forward,
 
   /**
    * Mouse None Button.
    * @since 8
-   */
-  /**
-   * Mouse None Button.
-   * @form
-   * @since 9
    */
   None,
 }
@@ -467,20 +407,10 @@ declare enum MouseButton {
  * Function Called by Mouse
  * @since 8
  */
-/**
- * Function Called by Mouse
- * @form
- * @since 9
- */
 declare enum MouseAction {
   /**
    * Triggered when the mouse is pressed.
    * @since 8
-   */
-  /**
-   * Triggered when the mouse is pressed.
-   * @form
-   * @since 9
    */
   Press,
 
@@ -488,32 +418,17 @@ declare enum MouseAction {
    * Triggered when the mouse is released.
    * @since 8
    */
-  /**
-   * Triggered when the mouse is released.
-   * @form
-   * @since 9
-   */
   Release,
 
   /**
    * Triggered when the mouse is Moved.
    * @since 8
    */
-  /**
-   * Triggered when the mouse is Moved.
-   * @form
-   * @since 9
-   */
   Move,
 
   /**
    * Triggered when the mouse is Hovered.
    * @since 8
-   */
-  /**
-   * Triggered when the mouse is Hovered.
-   * @form
-   * @since 9
    */
   Hover
 }
@@ -525,7 +440,7 @@ declare enum MouseAction {
 /**
  * Animation status.
  * @form
- * @since 9
+ * @since 10
  */
 declare enum AnimationStatus {
   /**
@@ -535,7 +450,7 @@ declare enum AnimationStatus {
   /**
    * Initial state of the animation.
    * @form
-   * @since 9
+   * @since 10
    */
   Initial,
 
@@ -546,7 +461,7 @@ declare enum AnimationStatus {
   /**
    * The animation is playing.
    * @form
-   * @since 9
+   * @since 10
    */
   Running,
 
@@ -557,7 +472,7 @@ declare enum AnimationStatus {
   /**
    * The animation is paused.
    * @form
-   * @since 9
+   * @since 10
    */
   Paused,
 
@@ -568,7 +483,7 @@ declare enum AnimationStatus {
   /**
    * The animation is stopped.
    * @form
-   * @since 9
+   * @since 10
    */
   Stopped,
 }
@@ -734,7 +649,7 @@ declare enum Curve {
 /**
  * Sets the state before and after the animation starts.
  * @form
- * @since 9
+ * @since 10
  */
 declare enum FillMode {
   /**
@@ -744,7 +659,7 @@ declare enum FillMode {
   /**
    * Restores to the initial state after the playback is complete.
    * @form
-   * @since 9
+   * @since 10
    */
   None,
 
@@ -755,7 +670,7 @@ declare enum FillMode {
   /**
    * Retains the state at the end of the animation when the playback is complete.
    * @form
-   * @since 9
+   * @since 10
    */
   Forwards,
 
@@ -766,7 +681,7 @@ declare enum FillMode {
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    * @form
-   * @since 9
+   * @since 10
    */
   Backwards,
 
@@ -777,7 +692,7 @@ declare enum FillMode {
   /**
    * Both forward and backward fill modes are applied.
    * @form
-   * @since 9
+   * @since 10
    */
   Both,
 }
@@ -841,31 +756,16 @@ declare enum PlayMode {
  * Type of a key.
  * @since 7
  */
-/**
- * Type of a key.
- * @form
- * @since 9
- */
 declare enum KeyType {
   /**
    * Press the key.
    * @since 7
-   */
-  /**
-   * Press the key.
-   * @form
-   * @since 9
    */
   Down,
 
   /**
    * The key is released.
    * @since 7
-   */
-  /**
-   * The key is released.
-   * @form
-   * @since 9
    */
   Up,
 }
@@ -874,31 +774,16 @@ declare enum KeyType {
  * Type of the input device that triggers the current key.
  * @since 7
  */
-/**
- * Type of the input device that triggers the current key.
- * @form
- * @since 9
- */
 declare enum KeySource {
   /**
    * The input device type is unknown.
    * @since 7
-   */
-  /**
-   * The input device type is unknown.
-   * @form
-   * @since 9
    */
   Unknown,
 
   /**
    * Set Device Type to Keyboard.
    * @since 7
-   */
-  /**
-   * Set Device Type to Keyboard.
-   * @form
-   * @since 9
    */
   Keyboard,
 }
@@ -907,20 +792,10 @@ declare enum KeySource {
  * Edge.
  * @since 7
  */
-/**
- * Edge.
- * @form
- * @since 9
- */
 declare enum Edge {
   /**
    * The top is centered horizontally.
    * @since 7
-   */
-  /**
-   * The top is centered horizontally.
-   * @form
-   * @since 9
    */
   Top,
 
@@ -935,11 +810,6 @@ declare enum Edge {
    * The bottom is centered horizontally.
    * @since 7
    */
-  /**
-   * The bottom is centered horizontally.
-   * @form
-   * @since 9
-   */
   Bottom,
 
   /**
@@ -952,11 +822,6 @@ declare enum Edge {
   /**
    * Align the head of the cross axis direction.
    * @since 7
-   */
-  /**
-   * Align the head of the cross axis direction.
-   * @form
-   * @since 9
    */
   Start,
 
@@ -971,11 +836,6 @@ declare enum Edge {
    * Align the head of the cross axis direction.
    * @since 7
    */
-  /**
-   * Align the head of the cross axis direction.
-   * @form
-   * @since 9
-   */
   End,
 }
 
@@ -983,20 +843,10 @@ declare enum Edge {
  * Set Weekend
  * @since 7
  */
-/**
- * Set Weekend
- * @form
- * @since 9
- */
 declare enum Week {
   /**
    * Monday.
    * @since 7
-   */
-  /**
-   * Monday.
-   * @form
-   * @since 9
    */
   Mon,
 
@@ -1004,21 +854,11 @@ declare enum Week {
    * Tuesday.
    * @since 7
    */
-  /**
-   * Tuesday.
-   * @form
-   * @since 9
-   */
   Tue,
 
   /**
    * Wednesday.
    * @since 7
-   */
-  /**
-   * Wednesday.
-   * @form
-   * @since 9
    */
   Wed,
 
@@ -1026,21 +866,11 @@ declare enum Week {
    * Thursday.
    * @since 7
    */
-  /**
-   * Thursday.
-   * @form
-   * @since 9
-   */
   Thur,
 
   /**
    * Friday.
    * @since 7
-   */
-  /**
-   * Friday.
-   * @form
-   * @since 9
    */
   Fri,
 
@@ -1048,21 +878,11 @@ declare enum Week {
    * Saturday.
    * @since 7
    */
-  /**
-   * Saturday.
-   * @form
-   * @since 9
-   */
   Sat,
 
   /**
    * Sunday.
    * @since 7
-   */
-  /**
-   * Sunday.
-   * @form
-   * @since 9
    */
   Sun,
 }
@@ -1357,31 +1177,16 @@ declare enum TransitionType {
  * RelateType enumeration description
  * @since 7
  */
-/**
- * RelateType enumeration description
- * @form
- * @since 9
- */
 declare enum RelateType {
   /**
    * Scales the current component to fill the parent component.
    * @since 7
-   */
-  /**
-   * Scales the current component to fill the parent component.
-   * @form
-   * @since 9
    */
   FILL,
 
   /**
    * Scales the current component to fit the parent component.
    * @since 7
-   */
-  /**
-   * Scales the current component to fit the parent component.
-   * @form
-   * @since 9
    */
   FIT,
 }
@@ -2079,33 +1884,17 @@ declare enum GradientDirection {
  * SharedTransitionEffectType enumeration description
  * @since 7
  */
-/**
- * SharedTransitionEffectType enumeration description
- * @form
- * @since 9
- */
 declare enum SharedTransitionEffectType {
   /**
    * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
    * only the static effect configured for redirecting to the target page takes effect.
    * @since 7
    */
-  /**
-   * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
-   * only the static effect configured for redirecting to the target page takes effect.
-   * @form
-   * @since 9
-   */
   Static,
 
   /**
    * Move the source page element to the destination page element location and scale it appropriately.
    * @since 7
-   */
-  /**
-   * Move the source page element to the destination page element location and scale it appropriately.
-   * @form
-   * @since 9
    */
   Exchange,
 }
@@ -2212,11 +2001,11 @@ declare enum FontWeight {
    * Defines a value that is heavier than [Inherited Value].
    * @since 7
    */
-   /**
-   * Defines a value that is heavier than [Inherited Value].
-   * @form
-   * @since 9
-   */
+  /**
+    * Defines a value that is heavier than [Inherited Value].
+    * @form
+    * @since 9
+    */
   Bolder,
 }
 
@@ -2267,8 +2056,17 @@ declare enum TextAlign {
    * Justify the text
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @deprecated since 10
+   * @useinstead TextAlign#JUSTIFY
    */
   Justify,
+
+  /**
+   * Justify the text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  JUSTIFY,
 }
 
 /**
@@ -2318,8 +2116,17 @@ declare enum TextOverflow {
    * When the text overflows its dimensions, the text will scroll for displaying.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @deprecated since 10
+   * @useinstead TextOverflow#MARQUEE
    */
   Marquee,
+
+  /**
+   * When the text overflows its dimensions, the text will scroll for displaying.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MARQUEE,
 }
 
 /**
@@ -2458,31 +2265,16 @@ declare enum TextHeightAdaptivePolicy {
  * ResponseType for contextMenu
  * @since 8
  */
-/**
- * ResponseType for contextMenu
- * @form
- * @since 9
- */
 declare enum ResponseType {
   /**
    * Right click.
    * @since 8
-   */
-  /**
-   * Right click.
-   * @form
-   * @since 9
    */
   RightClick,
 
   /**
    * Long press.
    * @since 8
-   */
-  /**
-   * Long press.
-   * @form
-   * @since 9
    */
   LongPress,
 }
@@ -2491,20 +2283,10 @@ declare enum ResponseType {
  * HoverEffect enumeration description
  * @since 8
  */
-/**
- * HoverEffect enumeration description
- * @form
- * @since 9
- */
 declare enum HoverEffect {
   /**
    * Default effect
    * @since 8
-   */
-  /**
-   * Default effect
-   * @form
-   * @since 9
    */
   Auto,
 
@@ -2512,32 +2294,17 @@ declare enum HoverEffect {
    * Zoom in and out effect
    * @since 8
    */
-  /**
-   * Zoom in and out effect
-   * @form
-   * @since 9
-   */
   Scale,
 
   /**
    * Highlight effect
    * @since 8
    */
-  /**
-   * Highlight effect
-   * @form
-   * @since 9
-   */
   Highlight,
 
   /**
    * None effect
    * @since 8
-   */
-  /**
-   * None effect
-   * @form
-   * @since 9
    */
   None,
 }
@@ -2546,20 +2313,10 @@ declare enum HoverEffect {
  * Placement enumeration description
  * @since 8
  */
-/**
- * Placement enumeration description
- * @form
- * @since 9
- */
 declare enum Placement {
   /**
    * Left placement
    * @since 8
-   */
-  /**
-   * Left placement
-   * @form
-   * @since 9
    */
   Left,
 
@@ -2567,21 +2324,11 @@ declare enum Placement {
    * Right placement
    * @since 8
    */
-  /**
-   * Right placement
-   * @form
-   * @since 9
-   */
   Right,
 
   /**
    * Top placement
    * @since 8
-   */
-  /**
-   * Top placement
-   * @form
-   * @since 9
    */
   Top,
 
@@ -2589,21 +2336,11 @@ declare enum Placement {
    * Bottom placement
    * @since 8
    */
-  /**
-   * Bottom placement
-   * @form
-   * @since 9
-   */
   Bottom,
 
   /**
    * TopLeft placement
    * @since 8
-   */
-  /**
-   * TopLeft placement
-   * @form
-   * @since 9
    */
   TopLeft,
 
@@ -2611,21 +2348,11 @@ declare enum Placement {
    * TopRight placement
    * @since 8
    */
-  /**
-   * TopRight placement
-   * @form
-   * @since 9
-   */
   TopRight,
 
   /**
    * BottomLeft placement
    * @since 8
-   */
-  /**
-   * BottomLeft placement
-   * @form
-   * @since 9
    */
   BottomLeft,
 
@@ -2633,37 +2360,28 @@ declare enum Placement {
    * BottomRight placement
    * @since 8
    */
-  /**
-   * BottomRight placement
-   * @form
-   * @since 9
-   */
   BottomRight,
 
   /**
    * LeftTop placement
-   * @form
    * @since 9
    */
   LeftTop,
 
   /**
    * LeftBottom placement
-   * @form
    * @since 9
    */
   LeftBottom,
 
   /**
    * RightTop placement
-   * @form
    * @since 9
    */
   RightTop,
 
   /**
    * RightBottom placement
-   * @form
    * @since 9
    */
   RightBottom,
@@ -2700,14 +2418,12 @@ declare enum CopyOptions {
 
 /**
  * Defines the hit test mode.
- * @form
  * @since 9
  */
 declare enum HitTestMode {
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   Default,
@@ -2715,7 +2431,6 @@ declare enum HitTestMode {
   /**
    * Self respond to the hit test for touch events,
    * but block hit test of children and other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   Block,
@@ -2723,7 +2438,6 @@ declare enum HitTestMode {
   /**
    * Self and children respond to the hit test for touch events,
    * and allow hit test of other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   Transparent,
@@ -2731,7 +2445,6 @@ declare enum HitTestMode {
   /**
    * Self not respond to the hit test for touch events,
    * but children respond to the hit test for touch events.
-   * @form
    * @since 9
    */
   None,
@@ -2739,47 +2452,133 @@ declare enum HitTestMode {
 
 /**
  * Title height.
- * @form
  * @since 9
  */
 declare enum TitleHeight {
   /**
    * Title height when only main title is available.
-   * @form
    * @since 9
    */
   MainOnly,
 
   /**
    * Title height when main title and subtitle are both available.
-   * @form
    * @since 9
    */
   MainWithSub,
 }
 
 /**
- * Command key for hot key.
+ * Modifier key for hot key.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare enum CtrlKey {
+declare enum ModifierKey {
   /**
    * ctrl.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  CTRL = 0,
+  CTRL,
 
   /**
    * shift.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  SHIFT = 1,
+  SHIFT,
   /**
    * alt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  ALT = 2,
+  ALT,
+}
+
+/**
+ * Function key for hot key.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum FunctionKey {
+  /**
+   * Escape key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ESC,
+  /**
+   * F1 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F1,
+  /**
+   * F2 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F2,
+  /**
+   * F3 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F3,
+  /**
+   * F4 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F4,
+  /**
+   * F5 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F5,
+  /**
+   * F6 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F6,
+  /**
+   * F7 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F7,
+  /**
+   * F8 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F8,
+  /**
+   * F9 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F9,
+  /**
+   * F10 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F10,
+  /**
+   * F11 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F11,
+  /**
+   * F12 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F12,
 }
 
 /**

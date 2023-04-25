@@ -21,13 +21,13 @@
  * @systemapi hide for inner use.
  * @since 9
  */
- export interface ContinueCallback {
-    /**
-     * Called by system when continue mission done.
-     *
-     * @param result The result code of continue mission.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 9
-     */
-    onContinueDone(result: number): void;
+export interface ContinueCallback {
+  /**
+   * Called by system when continue mission done.
+   *
+   * @param result The result code of continue mission.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 9
+   */
+  onContinueDone(result: number): void;
 }
