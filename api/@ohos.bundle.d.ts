@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { ApplicationInfo } from './bundle/applicationInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { PermissionDef } from './bundle/PermissionDef';
@@ -30,17 +30,16 @@ import { BundleInstaller } from './bundle/bundleInstaller';
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager
- * @name bundle
  */
 declare namespace bundle {
   /**
+   * BundleFlag
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.BundleFlag, ohos.bundle.bundleManager.ApplicationFlag or
-   *          ohos.bundle.bundleManager.AbilityFlag
-   * @name BundleFlag
+   * @useinstead ohos.bundle.bundleManager.BundleFlag
    */
   enum BundleFlag {
     GET_BUNDLE_DEFAULT = 0x00000000,
@@ -83,11 +82,12 @@ declare namespace bundle {
   }
 
   /**
+   * ColorMode
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @name ColorMode
    */
   export enum ColorMode {
     AUTO_MODE = -1,
@@ -96,12 +96,13 @@ declare namespace bundle {
   }
 
   /**
+   * GrantStatus
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.PermissionGrantState
-   * @name GrantStatus
    */
   export enum GrantStatus {
     PERMISSION_DENIED = -1,
@@ -109,16 +110,18 @@ declare namespace bundle {
   }
 
   /**
+   * AbilityType
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.AbilityType
-   * @name AbilityType
    */
   export enum AbilityType {
     /**
-     * @default Indicates an unknown ability type
+     * Indicates an unknown ability type
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -126,7 +129,8 @@ declare namespace bundle {
     UNKNOWN,
 
     /**
-     * @default Indicates that the ability has a UI
+     * Indicates that the ability has a UI
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -134,7 +138,8 @@ declare namespace bundle {
     PAGE,
 
     /**
-     * @default Indicates that the ability does not have a UI
+     * Indicates that the ability does not have a UI
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -142,7 +147,8 @@ declare namespace bundle {
     SERVICE,
 
     /**
-     * @default Indicates that the ability is used to provide data access services
+     * Indicates that the ability is used to provide data access services
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -151,11 +157,12 @@ declare namespace bundle {
   }
 
   /**
+   * AbilitySubType
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @name AbilitySubType
    */
   export enum AbilitySubType {
     UNSPECIFIED = 0,
@@ -163,16 +170,18 @@ declare namespace bundle {
   }
 
   /**
+   * DisplayOrientation
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.DisplayOrientation
-   * @name DisplayOrientation
    */
   export enum DisplayOrientation {
     /**
-     * @default Indicates that the system automatically determines the display orientation
+     * Indicates that the system automatically determines the display orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -180,7 +189,8 @@ declare namespace bundle {
     UNSPECIFIED,
 
     /**
-     * @default Indicates the landscape orientation
+     * Indicates the landscape orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -188,7 +198,8 @@ declare namespace bundle {
     LANDSCAPE,
 
     /**
-     * @default Indicates the portrait orientation
+     * Indicates the portrait orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -196,7 +207,8 @@ declare namespace bundle {
     PORTRAIT,
 
     /**
-     * @default Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     * Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -205,16 +217,18 @@ declare namespace bundle {
   }
 
   /**
+   * LaunchMode
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.LaunchType
-   * @name LaunchMode
    */
   export enum LaunchMode {
     /**
-     * @default Indicates that the ability has only one instance
+     * Indicates that the ability has only one instance
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -222,7 +236,8 @@ declare namespace bundle {
     SINGLETON = 0,
 
     /**
-     * @default Indicates that the ability can have multiple instances
+     * Indicates that the ability can have multiple instances
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -231,14 +246,17 @@ declare namespace bundle {
   }
 
   /**
+   * BundleOptions
+   *
+   * @typedef BundleOptions
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @name BundleOptions
    */
   export interface BundleOptions {
     /**
-     * @default Indicates the user id
+     * Indicates the user id
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 7
      * @deprecated since 9
@@ -247,11 +265,12 @@ declare namespace bundle {
   }
 
   /**
+   * InstallErrorCode
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @name InstallErrorCode
    */
   export enum InstallErrorCode {
     SUCCESS = 0,
@@ -324,8 +343,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getBundleInfo
    */
-   function getBundleInfo(bundleName: string,
-      bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleInfo(bundleName: string,
+    bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
@@ -424,8 +443,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getApplicationInfo
    */
-   function getApplicationInfo(bundleName: string,
-      bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
+  function getApplicationInfo(bundleName: string,
+    bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains based on a given bundle name.
@@ -473,8 +492,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
    */
-   function queryAbilityByWant(want: Want,
-      bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityByWant(want: Want,
+    bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want.
@@ -566,8 +585,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
-   function getAllApplicationInfo(bundleFlags: number,
-      userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
+  function getAllApplicationInfo(bundleFlags: number,
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
@@ -887,7 +906,7 @@ declare namespace bundle {
   /**
    * Checks whether a specified application is enabled.
    *
-   * @param { string }bundleName - Indicates the bundle name of the application.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
@@ -899,7 +918,7 @@ declare namespace bundle {
   /**
    * Checks whether a specified application is enabled.
    *
-   * @param { string }bundleName - Indicates the bundle name of the application.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8

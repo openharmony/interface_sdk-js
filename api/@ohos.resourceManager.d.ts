@@ -15,7 +15,7 @@
 
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
-import { AsyncCallback as _AsyncCallback } from './basic';
+import { AsyncCallback as _AsyncCallback } from './@ohos.base';
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 
 /**
@@ -1243,7 +1243,6 @@ declare namespace resourceManager {
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
-   * @name Contains rawFile descriptor information
    */
   export type RawFileDescriptor = _RawFileDescriptor;
 
@@ -1252,7 +1251,6 @@ declare namespace resourceManager {
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
-   * @name Contains resource descriptor information
    */
   export type Resource = _Resource;
 }

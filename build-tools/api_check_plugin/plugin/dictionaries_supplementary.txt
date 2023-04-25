@@ -540,6 +540,7 @@ recursions
 redirections
 refill
 rejects
+relocation
 remidner
 remotedevice
 removable
@@ -767,6 +768,7 @@ vsync
 wakes
 waking
 wallpapers
+wantagent
 wapi
 wappush
 watchers

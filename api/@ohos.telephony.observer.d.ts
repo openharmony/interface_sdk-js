@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {Callback} from "./basic";
+import { Callback } from "./@ohos.base";
 import radio from "./@ohos.telephony.radio";
 import data from "./@ohos.telephony.data";
 import call from "./@ohos.telephony.call";

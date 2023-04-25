@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic';
-import { ElementName }  from './bundleManager/ElementName';
+import { AsyncCallback } from './@ohos.base';
+import { ElementName } from './bundleManager/ElementName';
 
 /**
  * Provides methods to operate or manage NFC card emulation.
@@ -125,7 +125,7 @@ declare namespace cardEmulation {
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @since 9
      */
-     start(elementName: ElementName, aidList: string[]): void
+    start(elementName: ElementName, aidList: string[]): void
 
     /**
      * stop HCE

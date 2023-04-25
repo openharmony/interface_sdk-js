@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from "./@ohos.base";
 import type Want from './@ohos.app.ability.Want';
 
 /**
@@ -63,4 +63,4 @@ declare namespace deviceControl {
   function resetFactory(admin: Want): Promise<void>;
 }
 
- export default deviceControl;
+export default deviceControl;

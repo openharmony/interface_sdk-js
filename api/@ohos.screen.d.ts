@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Interface of screen manager
@@ -52,8 +52,8 @@ declare namespace screen {
    * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
-  function makeExpand(options:Array<ExpandOption>, callback: AsyncCallback<number>): void;
-  function makeExpand(options:Array<ExpandOption>): Promise<number>;
+  function makeExpand(options: Array<ExpandOption>, callback: AsyncCallback<number>): void;
+  function makeExpand(options: Array<ExpandOption>): Promise<number>;
 
   /**
    * Make screens as mirror-screen
@@ -61,8 +61,8 @@ declare namespace screen {
    * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
-  function makeMirror(mainScreen:number, mirrorScreen:Array<number>, callback: AsyncCallback<number>): void;
-  function makeMirror(mainScreen:number, mirrorScreen:Array<number>): Promise<number>;
+  function makeMirror(mainScreen: number, mirrorScreen: Array<number>, callback: AsyncCallback<number>): void;
+  function makeMirror(mainScreen: number, mirrorScreen: Array<number>): Promise<number>;
 
   /**
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
@@ -73,8 +73,8 @@ declare namespace screen {
    * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
-  function createVirtualScreen(options:VirtualScreenOption, callback: AsyncCallback<Screen>): void;
-  function createVirtualScreen(options:VirtualScreenOption): Promise<Screen>;
+  function createVirtualScreen(options: VirtualScreenOption, callback: AsyncCallback<Screen>): void;
+  function createVirtualScreen(options: VirtualScreenOption): Promise<Screen>;
 
   /**
    * Destroy virtual screen.
@@ -83,8 +83,8 @@ declare namespace screen {
    * @throws {BusinessError} 1400002 - If operation other screen
    * @since 9
    */
-  function destroyVirtualScreen(screenId:number, callback: AsyncCallback<void>): void;
-  function destroyVirtualScreen(screenId:number): Promise<void>;
+  function destroyVirtualScreen(screenId: number, callback: AsyncCallback<void>): void;
+  function destroyVirtualScreen(screenId: number): Promise<void>;
 
   /**
    * Set surface for the virtual screen.
@@ -96,8 +96,8 @@ declare namespace screen {
    * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
-  function setVirtualScreenSurface(screenId:number, surfaceId: string, callback: AsyncCallback<void>): void;
-  function setVirtualScreenSurface(screenId:number, surfaceId: string): Promise<void>;
+  function setVirtualScreenSurface(screenId: number, surfaceId: string, callback: AsyncCallback<void>): void;
+  function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>;
 
   /**
    * Get screen rotation lock status.
@@ -105,15 +105,15 @@ declare namespace screen {
    */
   function isScreenRotationLocked(callback: AsyncCallback<boolean>): void;
   function isScreenRotationLocked(): Promise<boolean>;
-  
+
   /**
    * Set screen rotation lock status.
    * @param isLocked Indicates whether the screen rotation switch is locked.
    * @throws {BusinessError} 401 - If param is invalid
    * @since 9
    */
-  function setScreenRotationLocked(isLocked:boolean, callback: AsyncCallback<void>): void;
-  function setScreenRotationLocked(isLocked:boolean): Promise<void>;
+  function setScreenRotationLocked(isLocked: boolean, callback: AsyncCallback<void>): void;
+  function setScreenRotationLocked(isLocked: boolean): Promise<void>;
 
   /**
    * The parameter of making expand screen

@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 
 /**
@@ -70,12 +70,12 @@ declare namespace settings {
     const AUTO_GAIN_TIME_ZONE: string
   }
 
-    /**
-     * Provides methods for setting the display effect, including the font size, screen brightness, screen rotation,
-     * animation factor, and display color.
-     *
-     * @since 7
-     */
+  /**
+   * Provides methods for setting the display effect, including the font size, screen brightness, screen rotation,
+   * animation factor, and display color.
+   *
+   * @since 7
+   */
   namespace display {
     /**
      * Indicates the scaling factor of fonts, which is a float number.
@@ -652,15 +652,15 @@ declare namespace settings {
    * @since 7
    */
   namespace wireless {
-  /**
-     * Specifies whether the device can be discovered or connected by other devices through Bluetooth.
-     *
-     * If the value is {@code 0}, the device cannot be connected or discovered. If the value is {@code 1}, the
-     * device can be connected but cannot be discovered. If the value is {@code 2}, the device can be connected
-     * and discovered.
-     *
-     * @since 7
-     */
+    /**
+       * Specifies whether the device can be discovered or connected by other devices through Bluetooth.
+       *
+       * If the value is {@code 0}, the device cannot be connected or discovered. If the value is {@code 1}, the
+       * device can be connected but cannot be discovered. If the value is {@code 2}, the device can be connected
+       * and discovered.
+       *
+       * @since 7
+       */
     const BLUETOOTH_DISCOVER_ABILITY_STATUS: string
 
     /**
@@ -841,32 +841,32 @@ declare namespace settings {
    * @param name Indicates the name of the setting to set.
    * @returns Returns settingsdata uri.
    */
-   function getUriSync(name: string): string;
+  function getUriSync(name: string): string;
 
-   /**
-    * get value from settingsdata(synchronization method)
-    * @since 8
-    * @param dataAbilityHelper Indicates dataAbilityHelper instance
-    * @param name Indicates the name of the character string.
-    * @param defValue Indicates the default value of the character string.
-    * @returns settingsdata value
-    * @deprecated since 9
-    * @FAModelOnly
-    */
-   function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
- 
-   /**
-    * set settingsdata value(synchronization method)
-    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-    * @since 8
-    * @param dataAbilityHelper Indicates dataAbilityHelper instance
-    * @param name Indicates the name of the character string.
-    * @param value Indicates the value of the character string.
-    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-    * @deprecated since 9
-    * @FAModelOnly
-    */
-   function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
+  /**
+   * get value from settingsdata(synchronization method)
+   * @since 8
+   * @param dataAbilityHelper Indicates dataAbilityHelper instance
+   * @param name Indicates the name of the character string.
+   * @param defValue Indicates the default value of the character string.
+   * @returns settingsdata value
+   * @deprecated since 9
+   * @FAModelOnly
+   */
+  function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
+
+  /**
+   * set settingsdata value(synchronization method)
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @since 8
+   * @param dataAbilityHelper Indicates dataAbilityHelper instance
+   * @param name Indicates the name of the character string.
+   * @param value Indicates the value of the character string.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @deprecated since 9
+   * @FAModelOnly
+   */
+  function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
 }
 
 export default settings;

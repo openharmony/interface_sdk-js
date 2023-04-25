@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
@@ -302,7 +302,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+    dispatchSessionEvent(event: string, args: { [key: string]: Object }, callback: AsyncCallback<void>): void;
 
     /**
      * Dispatch the session event of this session.
@@ -315,7 +315,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    dispatchSessionEvent(event: string, args: {[key: string]: Object}): Promise<void>;
+    dispatchSessionEvent(event: string, args: { [key: string]: Object }): Promise<void>;
 
     /**
      * Set the playlist of queueItem. Identifies the content of the playlist presented by this session.
@@ -589,7 +589,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    on(type: 'commonCommand', callback: (command: string, args: {[key: string]: Object}) => void): void;
+    on(type: 'commonCommand', callback: (command: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Unregister session custom command change callback
@@ -603,7 +603,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    off(type: 'commonCommand', callback?: (command: string, args: {[key: string]: Object}) => void): void;
+    off(type: 'commonCommand', callback?: (command: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Register the item to play from the playlist change callback
@@ -818,7 +818,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    extras?: {[key: string]: object};
+    extras?: { [key: string]: object };
     /**
      * The uri of the media, used to locate the media in some special cases
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1286,7 +1286,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    sendCommonCommand(command: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+    sendCommonCommand(command: string, args: { [key: string]: Object }, callback: AsyncCallback<void>): void;
 
     /**
      * Send common commands to this session
@@ -1302,7 +1302,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    sendCommonCommand(command: string, args: {[key: string]: Object}): Promise<void>;
+    sendCommonCommand(command: string, args: { [key: string]: Object }): Promise<void>;
 
     /**
      * Register metadata changed callback
@@ -1477,7 +1477,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    on(type: 'sessionEvent', callback: (sessionEvent: string, args: {[key:string]: Object}) => void): void;
+    on(type: 'sessionEvent', callback: (sessionEvent: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Unregister session event callback
@@ -1490,7 +1490,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: {[key:string]: Object}) => void): void;
+    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Register session playlist change callback
@@ -1552,7 +1552,7 @@ declare namespace avSession {
    * @since 9
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-                              'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+    'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
 
   /**
    * The definition of command to be sent to the session

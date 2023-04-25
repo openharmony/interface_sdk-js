@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { BundleStatusCallback } from './bundle/bundleStatusCallback';
 import { LauncherAbilityInfo } from './bundle/launcherAbilityInfo';
 import { ShortcutInfo } from './bundle/shortcutInfo';
@@ -42,8 +42,8 @@ declare namespace innerBundleManager {
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
    */
-   function getLauncherAbilityInfos(bundleName: string,
-      userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
+  function getLauncherAbilityInfos(bundleName: string,
+    userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
   /**
    * Obtains based on a given bundleName and userId.
@@ -73,8 +73,8 @@ declare namespace innerBundleManager {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#on
    */
-   function on(type:'BundleStatusChange',
-    bundleStatusCallback : BundleStatusCallback, callback: AsyncCallback<string>) : void;
+  function on(type: 'BundleStatusChange',
+    bundleStatusCallback: BundleStatusCallback, callback: AsyncCallback<string>): void;
 
   /**
    * Register Callback.

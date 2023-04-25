@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant } from './bundleManager/ShortcutInfo';
 
@@ -43,8 +43,8 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-   function getLauncherAbilityInfo(bundleName: string,
-      userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
+  function getLauncherAbilityInfo(bundleName: string,
+    userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
   /**
    * Obtains launcher abilities info based on a given bundleName and userId.

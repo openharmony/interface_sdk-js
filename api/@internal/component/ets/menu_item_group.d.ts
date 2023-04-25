@@ -17,47 +17,46 @@
  * Defines the option of MenuItemGroup.
  * @since 9
  */
- declare interface MenuItemGroupOptions {
-    /**
-     * Defines the header display info.
-     * @since 9
-     */
-    header?: ResourceStr | CustomBuilder;
-  
-    /**
-     * Defines the footer display info.
-     * @since 9
-     */
-    footer?: ResourceStr | CustomBuilder;
-  }
-  
+declare interface MenuItemGroupOptions {
   /**
-   * Defines the MenuItemGroup Component.
+   * Defines the header display info.
    * @since 9
    */
-  interface MenuItemGroupInterface {
-    /**
-     * Creates the MenuItemGroup component.
-     * @since 9
-     */
-    (value?: MenuItemGroupOptions): MenuItemGroupAttribute;
-  }
-  
-  /**
-   * Defines the MenuItemGroup component attribute functions.
-   * @since 9
-   */
-  declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
-  
-  /**
- * Defines MenuItemGroup Component.
- * @since 9
- */
-  declare const MenuItemGroup: MenuItemGroupInterface;
+  header?: ResourceStr | CustomBuilder;
 
   /**
- * Defines MenuItemGroup Component instance.
+   * Defines the footer display info.
+   * @since 9
+   */
+  footer?: ResourceStr | CustomBuilder;
+}
+
+/**
+ * Defines the MenuItemGroup Component.
  * @since 9
  */
-  declare const MenuItemGroupInstance: MenuItemGroupAttribute;
-  
+interface MenuItemGroupInterface {
+  /**
+   * Creates the MenuItemGroup component.
+   * @since 9
+   */
+  (value?: MenuItemGroupOptions): MenuItemGroupAttribute;
+}
+
+/**
+ * Defines the MenuItemGroup component attribute functions.
+ * @since 9
+ */
+declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
+
+/**
+* Defines MenuItemGroup Component.
+* @since 9
+*/
+declare const MenuItemGroup: MenuItemGroupInterface;
+
+/**
+* Defines MenuItemGroup Component instance.
+* @since 9
+*/
+declare const MenuItemGroupInstance: MenuItemGroupAttribute;

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BusinessError } from '../basic';
+import { BusinessError } from '../@ohos.base';
 
 /**
  * The event center of a context, support the subscription and publication of events.
@@ -22,36 +22,36 @@ import { BusinessError } from '../basic';
  * @since 9
  */
 export default class EventHub {
-   /**
-    * Subscribe to an event.
-    * @param { string } event - Indicates the event.
-    * @param { Function } callback - Indicates the callback.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @since 9
-    */
-   on(event: string, callback: Function): void
+  /**
+   * Subscribe to an event.
+   * @param { string } event - Indicates the event.
+   * @param { Function } callback - Indicates the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  on(event: string, callback: Function): void
 
-   /**
-    * Unsubscribe from an event.
-    * @param { string } event - Indicates the event.
-    * @param { Function } callback - Indicates the callback.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @since 9
-    */
-   off(event: string, callback?: Function): void
+  /**
+   * Unsubscribe from an event.
+   * @param { string } event - Indicates the event.
+   * @param { Function } callback - Indicates the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  off(event: string, callback?: Function): void
 
-   /**
-    * Trigger the event callbacks.
-    * @param { string } event - Indicates the event.
-    * @param { Object[] } args - Indicates the callback arguments.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @since 9
-    */
-   emit(event: string, ...args: Object[]): void
+  /**
+   * Trigger the event callbacks.
+   * @param { string } event - Indicates the event.
+   * @param { Object[] } args - Indicates the callback arguments.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  emit(event: string, ...args: Object[]): void
 }

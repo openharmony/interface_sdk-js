@@ -78,7 +78,7 @@ export interface NotificationRequest {
   /**
    * Extended parameter.
    */
-  extraInfo?: {[key: string]: any};
+  extraInfo?: { [key: string]: any };
 
   /**
    * Background color of the notification.
@@ -224,7 +224,7 @@ export interface NotificationRequest {
    *
    * @since 8
    */
-   readonly notificationFlags?: NotificationFlags;
+  readonly notificationFlags?: NotificationFlags;
 
   /**
    * WantAgent instance to which the notification will be redirected when removing notification.

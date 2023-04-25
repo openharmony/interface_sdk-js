@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import {Callback} from './basic';
-import { AsyncCallback } from './basic';
+import { Callback } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * @namespace router
@@ -140,7 +140,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#pushUrl
    */
-  function push(options: RouterOptions):void;
+  function push(options: RouterOptions): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -154,7 +154,7 @@ declare namespace router {
    * @crossplatform
    * @since 9
    */
-  function pushUrl(options: RouterOptions, callback: AsyncCallback<void>):void;
+  function pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -170,20 +170,20 @@ declare namespace router {
    */
   function pushUrl(options: RouterOptions): Promise<void>;
 
-   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.
-   * @throws { BusinessError } 100002 - if the uri is not exist.
-   * @throws { BusinessError } 100003 - if the pages are pushed too much.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 9
-   */
-  function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>):void;
+  /**
+  * Navigates to a specified page in the application based on the page URL and parameters.
+  * @param { RouterOptions } options - Options.
+  * @param { RouterMode } mode - RouterMode.
+  * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+  * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+  * @throws { BusinessError } 100001 - if UI execution context not found.
+  * @throws { BusinessError } 100002 - if the uri is not exist.
+  * @throws { BusinessError } 100003 - if the pages are pushed too much.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 9
+  */
+  function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -208,7 +208,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#replaceUrl
    */
-  function replace(options: RouterOptions):void;
+  function replace(options: RouterOptions): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -220,7 +220,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
    */
-  function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>):void;
+  function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -245,7 +245,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
    */
-  function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>):void;
+  function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -267,7 +267,7 @@ declare namespace router {
    * @crossplatform
    * @since 8
    */
-  function back(options?: RouterOptions):void;
+  function back(options?: RouterOptions): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
@@ -275,7 +275,7 @@ declare namespace router {
    * @crossplatform
    * @since 8
    */
-  function clear():void;
+  function clear(): void;
 
   /**
    * Obtains the number of pages in the current stack.
@@ -284,7 +284,7 @@ declare namespace router {
    * @crossplatform
    * @since 8
    */
-  function getLength():string;
+  function getLength(): string;
 
   /**
    * Obtains information about the current page state.
@@ -293,7 +293,7 @@ declare namespace router {
    * @crossplatform
    * @since 8
    */
-  function getState():RouterState;
+  function getState(): RouterState;
 
   /**
    * Pop up dialog to ask whether to back
@@ -303,7 +303,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#showAlertBeforeBackPage
    */
-  function enableAlertBeforeBackPage(options: EnableAlertOptions):void;
+  function enableAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
    * Pop up alert dialog to ask whether to back
@@ -314,7 +314,7 @@ declare namespace router {
    * @crossplatform
    * @since 9
    */
-  function showAlertBeforeBackPage(options: EnableAlertOptions):void;
+  function showAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
    * Cancel enableAlertBeforeBackPage
@@ -323,7 +323,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#hideAlertBeforeBackPage
    */
-  function disableAlertBeforeBackPage():void;
+  function disableAlertBeforeBackPage(): void;
 
   /**
    * Hide alert before back page
@@ -331,7 +331,7 @@ declare namespace router {
    * @crossplatform
    * @since 9
    */
-   function hideAlertBeforeBackPage():void;
+  function hideAlertBeforeBackPage(): void;
 
   /**
    * Obtains information about the current page params.

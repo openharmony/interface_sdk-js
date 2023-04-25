@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteAbilityInfo';
 
@@ -84,8 +84,8 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
-      callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>,
+    callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
    * Obtains information about the abilities info of the remote device.
@@ -126,8 +126,8 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-   function getRemoteAbilityInfo(elementName: ElementName,
-      locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
+  function getRemoteAbilityInfo(elementName: ElementName,
+    locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
 
   /**
    * Obtains information about the ability info of the remote device.
@@ -169,8 +169,8 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
-      locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>,
+    locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
    * Obtains information about the abilities info of the remote device.

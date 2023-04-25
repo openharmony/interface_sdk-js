@@ -18,11 +18,13 @@ import { ApplicationInfo } from './applicationInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
+ * The scene which is used
+ *
+ * @typedef UsedScene
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.UsedScene
- * @name The scene which is used
  */
 export interface UsedScene {
   /**
@@ -43,11 +45,13 @@ export interface UsedScene {
 }
 
 /**
+ * Indicates the required permissions details defined in file config.json
+ *
+ * @typedef ReqPermissionDetail
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ReqPermissionDetail
- * @name Indicates the required permissions details defined in file config.json
  */
 export interface ReqPermissionDetail {
   /**
@@ -76,11 +80,13 @@ export interface ReqPermissionDetail {
 }
 
 /**
+ * Obtains configuration information about a bundle
+ *
+ * @typedef BundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.BundleInfo
- * @name Obtains configuration information about a bundle
  */
 export interface BundleInfo {
   /**

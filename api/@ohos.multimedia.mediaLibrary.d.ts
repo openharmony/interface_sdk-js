@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
 import image from './@ohos.multimedia.image';
 
@@ -338,7 +338,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    isDirectory():Promise<boolean>;
+    isDirectory(): Promise<boolean>;
     /**
      * Modify meta data where the file is located.
      * @since 8
@@ -470,7 +470,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    isFavorite():Promise<boolean>;
+    isFavorite(): Promise<boolean>;
     /**
      * Set trash for the file when the file is located.
      * @since 8
@@ -510,7 +510,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    isTrash():Promise<boolean>;
+    isTrash(): Promise<boolean>;
   }
 
   /**
@@ -851,17 +851,17 @@ declare namespace mediaLibrary {
      * @useinstead ohos.file.picker
      */
     getPositionObject(index: number): Promise<FileAsset>;
-     /**
-     * Obtains all FileAssets in the file retrieval result.
-     * This method uses a callback to return the result. After this method is called,
-     * close() is automatically called to release the FetchFileResult instance and invalidate it.
-     * In this case, other methods cannot be called.
-     * @since 7
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param callback Callback used to return a FileAsset array.
-      * @deprecated since 9
-      * @useinstead ohos.file.picker
-     */
+    /**
+    * Obtains all FileAssets in the file retrieval result.
+    * This method uses a callback to return the result. After this method is called,
+    * close() is automatically called to release the FetchFileResult instance and invalidate it.
+    * In this case, other methods cannot be called.
+    * @since 7
+    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+    * @param callback Callback used to return a FileAsset array.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
+    */
     getAllObject(callback: AsyncCallback<Array<FileAsset>>): void;
     /**
      * Obtains all FileAssets in the file retrieval result.
@@ -1116,7 +1116,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    on(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback: Callback<void>): void;
+    on(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'fileChange' | 'remoteFileChange', callback: Callback<void>): void;
     /**
      * Turn off monitor the data changes by media type
      * @since 8
@@ -1126,7 +1126,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-     off(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback?: Callback<void>): void;
+    off(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'fileChange' | 'remoteFileChange', callback?: Callback<void>): void;
     /**
      * Create File Asset
      * @since 8

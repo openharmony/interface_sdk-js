@@ -13,16 +13,18 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './../basic';
+import { AsyncCallback } from './../@ohos.base';
 import bundle from './../@ohos.bundle';
 
 /**
+ * Provides parameters required for installing or uninstalling an application.
+ *
+ * @typedef InstallParam
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#InstallParam
- * @name Provides parameters required for installing or uninstalling an application.
  */
 export interface InstallParam {
   /**
@@ -57,11 +59,13 @@ export interface InstallParam {
 }
 
 /**
+ * Indicates the install or uninstall status
+ *
+ * @typedef InstallStatus
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7
  * @deprecated since 9
- * @name Indicates the install or uninstall status
  */
 export interface InstallStatus {
   /**
@@ -84,23 +88,24 @@ export interface InstallStatus {
 }
 
 /**
+ * Offers install, upgrade, and remove bundles on the devices.
+ *
+ * @interface BundleInstaller
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#BundleInstaller
- * @name Offers install, upgrade, and remove bundles on the devices.
  */
 export interface BundleInstaller {
   /**
    * Install an application in a HAP.
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param bundleFilePaths Indicates the path where the bundle of the application is stored. The path should be the
-   *                        relative path to the data directory of the current application.
-   * @param param Indicates other parameters required for the installation.
+   * @param { Array<string> } bundleFilePaths Indicates the path where the bundle of the application is stored. The path should be the
+   *                                   relative path to the data directory of the current application.
+   * @param { InstallParam } param Indicates other parameters required for the installation.
    * @param { AsyncCallback<InstallStatus> } callback
-   * @returns InstallStatus
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7
@@ -113,10 +118,9 @@ export interface BundleInstaller {
    * Uninstall an application.
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param bundleName Indicates the bundle name of the application to be uninstalled.
-   * @param param Indicates other parameters required for the uninstall.
+   * @param { string } bundleName Indicates the bundle name of the application to be uninstalled.
+   * @param { InstallParam } param Indicates other parameters required for the uninstall.
    * @param { AsyncCallback<InstallStatus> } callback
-   * @returns InstallStatus
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7
@@ -129,10 +133,9 @@ export interface BundleInstaller {
    * recover an application.
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param bundleName Indicates the bundle name of the application to be recovered.
-   * @param param Indicates other parameters required for the recover.
+   * @param { string } bundleName Indicates the bundle name of the application to be recovered.
+   * @param { InstallParam } param Indicates other parameters required for the recover.
    * @param { AsyncCallback<InstallStatus> } callback
-   * @returns InstallStatus
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8

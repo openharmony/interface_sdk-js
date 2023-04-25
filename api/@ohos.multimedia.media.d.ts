@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { ErrorCallback, AsyncCallback, Callback } from './basic';
+import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
 
 /**
@@ -28,7 +28,7 @@ declare namespace media {
    * @param callback Callback used to return AVPlayer instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    */
-   function createAVPlayer(callback: AsyncCallback<AVPlayer>): void;
+  function createAVPlayer(callback: AsyncCallback<AVPlayer>): void;
 
   /**
    * Creates an AVPlayer instance.
@@ -37,7 +37,7 @@ declare namespace media {
    * @returns A Promise instance used to return AVPlayer instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    */
-   function createAVPlayer() : Promise<AVPlayer>;
+  function createAVPlayer(): Promise<AVPlayer>;
 
   /**
    * Creates an AVRecorder instance.
@@ -48,14 +48,14 @@ declare namespace media {
    */
   function createAVRecorder(callback: AsyncCallback<AVRecorder>): void;
 
-   /**
-    * Creates an AVRecorder instance.
-    * @since 9
-    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-    * @returns A Promise instance used to return AVRecorder instance if the operation is successful; returns null otherwise.
-    * @throws { BusinessError } 5400101 - No memory. Return by promise.
-    */
-  function createAVRecorder() : Promise<AVRecorder>;
+  /**
+   * Creates an AVRecorder instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @returns A Promise instance used to return AVRecorder instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   */
+  function createAVRecorder(): Promise<AVRecorder>;
 
   /**
    * Creates an AudioPlayer instance.
@@ -95,7 +95,7 @@ declare namespace media {
    * @deprecated since 9
    * @useinstead ohos.multimedia.media/media#createAVPlayer
    */
-  function createVideoPlayer() : Promise<VideoPlayer>;
+  function createVideoPlayer(): Promise<VideoPlayer>;
 
   /**
    * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder
@@ -124,7 +124,7 @@ declare namespace media {
    * @since 9
    * @syscap SystemCapability.Multimedia.Media.Core
    */
-   enum StateChangeReason {
+  enum StateChangeReason {
     /**
      * State changed by user operation.
      * @since 9
@@ -140,96 +140,96 @@ declare namespace media {
     BACKGROUND = 2,
   }
 
- /**
-   * Enumerates ErrorCode types, return in BusinessError::code.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
- enum AVErrorCode {
   /**
-   * Operation success.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_OK = 0,
+    * Enumerates ErrorCode types, return in BusinessError::code.
+    * @since 9
+    * @syscap SystemCapability.Multimedia.Media.Core
+    */
+  enum AVErrorCode {
+    /**
+     * Operation success.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_OK = 0,
 
-  /**
-   * Permission denied.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_NO_PERMISSION = 201,
+    /**
+     * Permission denied.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_NO_PERMISSION = 201,
 
-  /**
-   * Invalid parameter.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_INVALID_PARAMETER = 401,
+    /**
+     * Invalid parameter.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_INVALID_PARAMETER = 401,
 
-  /**
-   * The api is not supported in the current version.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_UNSUPPORT_CAPABILITY = 801,
+    /**
+     * The api is not supported in the current version.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_UNSUPPORT_CAPABILITY = 801,
 
-  /**
-   * The system memory is insufficient or the number of services reaches the upper limit.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_NO_MEMORY = 5400101,
+    /**
+     * The system memory is insufficient or the number of services reaches the upper limit.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_NO_MEMORY = 5400101,
 
-  /**
-   * Current status does not allow or do not have permission to perform this operation.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_OPERATE_NOT_PERMIT = 5400102,
+    /**
+     * Current status does not allow or do not have permission to perform this operation.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_OPERATE_NOT_PERMIT = 5400102,
 
-  /**
-   * Data flow exception information.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_IO = 5400103,
+    /**
+     * Data flow exception information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_IO = 5400103,
 
-  /**
-   * System or network response timeout.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_TIMEOUT = 5400104,
+    /**
+     * System or network response timeout.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_TIMEOUT = 5400104,
 
-  /**
-   * Service process died.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_SERVICE_DIED = 5400105,
+    /**
+     * Service process died.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_SERVICE_DIED = 5400105,
 
-  /**
-   * Unsupported media format.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  AVERR_UNSUPPORT_FORMAT = 5400106,
- }
+    /**
+     * Unsupported media format.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AVERR_UNSUPPORT_FORMAT = 5400106,
+  }
 
   /**
    * Describes AVPlayer states.
    * @since 9
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    */
-   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
+  type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
-   /**
-    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
-    * to create an AVPlayer instance.
-    * @since 9
-    * @syscap SystemCapability.Multimedia.Media.AVPlayer
-    */
+  /**
+   * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
+   * to create an AVPlayer instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   */
   interface AVPlayer {
     /**
      * Prepare audio/video playback, it will request resource for playing.
@@ -296,13 +296,13 @@ declare namespace media {
      */
     stop(callback: AsyncCallback<void>): void;
 
-     /**
-      * Stop audio/video playback.
-      * @since 9
-      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-      * @returns A Promise instance used to return when stop completed.
-      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-      */
+    /**
+     * Stop audio/video playback.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @returns A Promise instance used to return when stop completed.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     */
     stop(): Promise<void>;
 
     /**
@@ -348,7 +348,7 @@ declare namespace media {
      * @param timeMs Playback position to jump, should be in [0, duration].
      * @param mode See @SeekMode .
      */
-    seek(timeMs: number, mode?:SeekMode): void;
+    seek(timeMs: number, mode?: SeekMode): void;
 
     /**
      * Sets the volume.
@@ -374,7 +374,7 @@ declare namespace media {
      * @returns A Promise instance used to return the track info in MediaDescription.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      */
-    getTrackDescription() : Promise<Array<MediaDescription>>;
+    getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -382,14 +382,14 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    url ?: string;
+    url?: string;
 
     /**
      * Media file descriptor. Mainstream media formats are supported.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    fdSrc ?: AVFileDescriptor;
+    fdSrc?: AVFileDescriptor;
 
     /**
      * DataSource descriptor. Supports mainstream media formats.
@@ -412,7 +412,7 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    audioInterruptMode ?: audio.InterruptMode;
+    audioInterruptMode?: audio.InterruptMode;
 
     /**
      * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. Set it before
@@ -421,7 +421,7 @@ declare namespace media {
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    audioRendererInfo ?: audio.AudioRendererInfo;
+    audioRendererInfo?: audio.AudioRendererInfo;
 
     /**
      * Current playback position.
@@ -449,7 +449,7 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    surfaceId ?: string;
+    surfaceId?: string;
 
     /**
      * Video width, valid after prepared.
@@ -471,7 +471,7 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    videoScaleType ?: VideoScaleType;
+    videoScaleType?: VideoScaleType;
 
     /**
      * Set payback speed.
@@ -903,7 +903,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#getTrackDescription
      */
-    getTrackDescription() : Promise<Array<MediaDescription>>;
+    getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
      * Listens for audio playback buffering events.
@@ -954,7 +954,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#audioInterruptMode
      */
-    audioInterruptMode ?: audio.InterruptMode;
+    audioInterruptMode?: audio.InterruptMode;
 
     /**
      * Current playback position.
@@ -1091,7 +1091,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      */
     getInputSurface(): Promise<string>;
-    
+
     /**
      * Start AVRecorder, it will to started state.
      * @since 9
@@ -1752,17 +1752,17 @@ declare namespace media {
      * @systemapi
      */
     reset(callback: AsyncCallback<void>): void;
-     /**
-      * Resets video recording.
-      * Before resetting video recording, you must call stop() to stop recording. After video recording is reset,
-      * you must call prepare() to set the recording configurations for another recording.
-      * @since 9
-      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-      * @returns A Promise instance used to return when reset completed.
-      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
-      * @throws { BusinessError } 5400105 - Service died. Return by promise.
-      * @systemapi
-      */
+    /**
+     * Resets video recording.
+     * Before resetting video recording, you must call stop() to stop recording. After video recording is reset,
+     * you must call prepare() to set the recording configurations for another recording.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+     * @returns A Promise instance used to return when reset completed.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @systemapi
+     */
     reset(): Promise<void>;
     /**
      * Listens for video recording error events.
@@ -1782,7 +1782,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      */
-     readonly state: VideoRecordState;
+    readonly state: VideoRecordState;
   }
 
   /**
@@ -1974,7 +1974,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#seek
      */
-    seek(timeMs: number, mode:SeekMode, callback: AsyncCallback<number>): void;
+    seek(timeMs: number, mode: SeekMode, callback: AsyncCallback<number>): void;
     /**
      * Jumps to the specified playback position.
      * @since 8
@@ -1986,7 +1986,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#seek
      */
-    seek(timeMs: number, mode?:SeekMode): Promise<number>;
+    seek(timeMs: number, mode?: SeekMode): Promise<number>;
     /**
      * Sets the volume.
      * @since 8
@@ -2043,7 +2043,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#getTrackDescription
      */
-    getTrackDescription() : Promise<Array<MediaDescription>>;
+    getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
      * media url. Mainstream video formats are supported.
@@ -2127,7 +2127,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#audioInterruptMode
      */
-    audioInterruptMode ?: audio.InterruptMode;
+    audioInterruptMode?: audio.InterruptMode;
 
     /**
      * video scale type. By default, the {@link #VIDEO_SCALE_TYPE_FIT_CROP} will be used, for more
@@ -2137,7 +2137,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#videoScaleType
      */
-    videoScaleType ?: VideoScaleType;
+    videoScaleType?: VideoScaleType;
 
     /**
      * set payback speed.
@@ -2148,7 +2148,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#setSpeed
      */
-    setSpeed(speed:number, callback: AsyncCallback<number>): void;
+    setSpeed(speed: number, callback: AsyncCallback<number>): void;
     /**
      * set output surface.
      * @since 8
@@ -2158,7 +2158,7 @@ declare namespace media {
      * @deprecated since 9
      * @useinstead ohos.multimedia.media/media.AVPlayer#setSpeed
      */
-    setSpeed(speed:number): Promise<number>;
+    setSpeed(speed: number): Promise<number>;
 
     /**
      * Listens for video playback completed events.
@@ -2557,7 +2557,7 @@ declare namespace media {
    * @since 9
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    */
-   interface AVRecorderProfile {
+  interface AVRecorderProfile {
     /**
      * Indicates the audio bitrate.
      * @since 9
@@ -2686,7 +2686,7 @@ declare namespace media {
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.Core
      */
-    [key : string]: Object;
+    [key: string]: Object;
   }
 
   /**
@@ -2714,7 +2714,7 @@ declare namespace media {
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.Core
    */
-   enum CodecMimeType {
+  enum CodecMimeType {
     /**
      * H.263 codec MIME type.
      * @since 8

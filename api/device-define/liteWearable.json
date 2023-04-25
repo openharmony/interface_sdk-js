@@ -1,6 +1,7 @@
 {
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Lite",
+    "SystemCapability.Base",
     "SystemCapability.Location.Location.Lite",
     "SystemCapability.PowerManager.BatteryManager.Core",
     "SystemCapability.FileManagement.File.FileIO",

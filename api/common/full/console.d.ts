@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
- /**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
+/**
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @since 3
+*/
 export declare class console {
   /**
    * Prints "debug" logs.

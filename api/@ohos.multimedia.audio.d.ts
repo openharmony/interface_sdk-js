@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {ErrorCallback, AsyncCallback, Callback} from './basic';
+import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * @namespace audio
@@ -37,7 +37,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    ERROR_NO_MEMORY     = 6800102,
+    ERROR_NO_MEMORY = 6800102,
     /**
      * Operation not permit at current state.
      * @since 9
@@ -49,25 +49,25 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    ERROR_UNSUPPORTED   = 6800104,
+    ERROR_UNSUPPORTED = 6800104,
     /**
      * Time out.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    ERROR_TIMEOUT       = 6800105,
+    ERROR_TIMEOUT = 6800105,
     /**
      * Audio specific errors.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    ERROR_STREAM_LIMIT  = 6800201,
+    ERROR_STREAM_LIMIT = 6800201,
     /**
      * Default error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    ERROR_SYSTEM        = 6800301
+    ERROR_SYSTEM = 6800301
   }
 
   /**
@@ -1474,7 +1474,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      */
-    setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
+    setAudioScene(scene: AudioScene, callback: AsyncCallback<void>): void;
     /**
      * Sets the audio scene mode to change audio strategies. This method uses a promise to return the result.
      * @param scene Audio scene mode.
@@ -2554,7 +2554,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Device
    */
-   interface MicStateChangeEvent {
+  interface MicStateChangeEvent {
     /**
      * Mic mute state.
      * @since 9

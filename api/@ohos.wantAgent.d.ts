@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback , Callback} from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo } from './wantAgent/triggerInfo';
@@ -218,7 +218,7 @@ declare namespace wantAgent {
     /**
      * Extra data collected by the common event.
      */
-    extraInfo?: {[key: string]: any};
+    extraInfo?: { [key: string]: any };
   }
 }
 

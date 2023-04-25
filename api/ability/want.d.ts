@@ -85,7 +85,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
-  parameters?: {[key: string]: any};
+  parameters?: { [key: string]: any };
 
   /**
    * The description of a entities in a Want.

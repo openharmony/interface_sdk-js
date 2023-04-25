@@ -13,86 +13,88 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 
 /**
  * Global input event listener
  * System API, available only to system processes
- * @since 7
- * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+ *
+ * @namespace inputMonitor
  * @permission ohos.permission.INPUT_MONITORING
+ * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
+ * @since 7
  */
 declare namespace inputMonitor {
-    /**
-     * Callback used to receive touch input events. If **true** is returned, the touch input is consumed, and the system performs the closing operation.
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     */
-    interface TouchEventReceiver {
-        (touchEvent:TouchEvent): Boolean;
-    }
+  /**
+   * Callback used to receive touch input events. If **true** is returned, the touch input is consumed,
+   * and the system performs the closing operation.
+   *
+   * @interface TouchEventReceiver
+   * @permission ohos.permission.INPUT_MONITORING
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 7
+   */
+  interface TouchEventReceiver {
+    (touchEvent: TouchEvent): Boolean;
+  }
 
-    /**
-     * Listens for touch input events.
-     * 
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type, which is **touch**.
-     * @param receiver Callback used to receive the reported data.
-     * @returns Callback for the input device event.
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
-     */
-    function on(type:"touch", receiver:TouchEventReceiver):void;
+  /**
+   * Listens for touch input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'touch' } type - Event type, which is **touch**.
+   * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 7
+   */
+  function on(type: 'touch', receiver: TouchEventReceiver): void;
 
-    /**
-     * Listens for mouse input events.
-     * 
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type, which is **mouse**.
-     * @param receiver Callback used to receive the reported data.
-     * @returns Callback for the input device event.
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
-     */
-    function on(type:"mouse", receiver:Callback<MouseEvent>):void;
+  /**
+   * Listens for mouse input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'mouse' } type - Event type, which is **mouse**.
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 9
+   */
+  function on(type: 'mouse', receiver: Callback<MouseEvent>): void;
 
-    /**
-     * Cancel listening for touch input events.
-     * 
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type, which is **touch**.
-     * @param receiver Callback used to receive the reported data.
-     * @returns Callback for the input device event.
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
-     */
-    function off(type:"touch", receiver?:TouchEventReceiver):void;
+  /**
+   * Cancel listening for touch input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'touch' } type - Event type, which is **touch**.
+   * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 7
+   */
+  function off(type: 'touch', receiver?: TouchEventReceiver): void;
 
-    /**
-     * Cancel listening for mouse input events.
-     * 
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type, which is **mouse**.
-     * @param receiver Callback used to receive the reported data.
-     * @returns Callback for the input device event.
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
-     */
-    function off(type:"mouse", receiver?:Callback<MouseEvent>):void;
+  /**
+   * Cancel listening for mouse input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'mouse' } type - Event type, which is **mouse**.
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 9
+   */
+  function off(type: 'mouse', receiver?: Callback<MouseEvent>): void;
 }
 export default inputMonitor;

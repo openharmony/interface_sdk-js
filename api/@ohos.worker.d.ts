@@ -123,7 +123,7 @@ export interface MessageEvent<T> extends Event {
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
- export interface MessageEvents extends Event {
+export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
    * @since 9
@@ -171,7 +171,7 @@ export interface EventListener {
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
- export interface WorkerEventListener {
+export interface WorkerEventListener {
   /**
    * Specifies the callback function to be invoked.
    * @param event Event class for the callback to invoke.
@@ -343,7 +343,7 @@ declare interface WorkerGlobalScope extends EventTarget {
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
- declare interface GlobalScope extends WorkerEventTarget {
+declare interface GlobalScope extends WorkerEventTarget {
   /**
    * Name of Worker specified when there is a new worker.
    * @since 9
@@ -430,7 +430,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
-   postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
+  postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
 }
 
 /**
@@ -462,17 +462,17 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    */
   onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
-   /**
-   * The onmessage attribute of parentPort specifies the event handler
-   * to be called then the worker receives a message that cannot be deserialized.
-   * The event handler is executed in the worker thread.
-   * @param ev Error data.
-   * @throws {BusinessError} 401 - if the input parameters are invalid.
-   * @throws {BusinessError} 10200004 - Worker instance is not running.
-   * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
-   * @since 9
-   * @syscap SystemCapability.Utils.Lang
-   */
+  /**
+  * The onmessage attribute of parentPort specifies the event handler
+  * to be called then the worker receives a message that cannot be deserialized.
+  * The event handler is executed in the worker thread.
+  * @param ev Error data.
+  * @throws {BusinessError} 401 - if the input parameters are invalid.
+  * @throws {BusinessError} 10200004 - Worker instance is not running.
+  * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
+  * @since 9
+  * @syscap SystemCapability.Utils.Lang
+  */
   /**
    * The onmessage attribute of parentPort specifies the event handler
    * to be called then the worker receives a message that cannot be deserialized.

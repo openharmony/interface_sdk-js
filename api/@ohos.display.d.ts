@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import type { AsyncCallback, Callback } from './basic';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Interface of display manager.
@@ -210,7 +210,7 @@ declare namespace display {
      * @since 9
      */
     width: number;
-    
+
     /**
      * Height of the rectangle, in pixels.
      * @since 9

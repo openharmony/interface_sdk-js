@@ -19,54 +19,57 @@ import ConfigurationConstant from "./@ohos.app.ability.ConfigurationConstant";
  * configuration item.
  * @typedef Configuration
  * @syscap SystemCapability.Ability.AbilityBase
+ * @crossplatform
  * @since 9
  */
 export interface Configuration {
-    /**
-     * Indicates the current language of the application.
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    language?: string;
+  /**
+   * Indicates the current language of the application.
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  language?: string;
 
-    /**
-     * Indicates the current colorMode of the application.
-     * @type { ConfigurationConstant.ColorMode }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    colorMode?: ConfigurationConstant.ColorMode;
+  /**
+   * Indicates the current colorMode of the application.
+   * @type { ConfigurationConstant.ColorMode }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  colorMode?: ConfigurationConstant.ColorMode;
 
-    /**
-     * Indicates the screen direction of the current device.
-     * @type { ConfigurationConstant.Direction }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    direction?: ConfigurationConstant.Direction;
+  /**
+   * Indicates the screen direction of the current device.
+   * @type { ConfigurationConstant.Direction }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  direction?: ConfigurationConstant.Direction;
 
-    /**
-     * Indicates the screen density of the current device.
-     * @type { ConfigurationConstant.ScreenDensity }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    screenDensity?: ConfigurationConstant.ScreenDensity;
+  /**
+   * Indicates the screen density of the current device.
+   * @type { ConfigurationConstant.ScreenDensity }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  screenDensity?: ConfigurationConstant.ScreenDensity;
 
-    /**
-     * Indicates the displayId of the current device.
-     * @type { number }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    displayId?: number;
+  /**
+   * Indicates the displayId of the current device.
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  displayId?: number;
 
-    /**
-     * Indicates whether a pointer type device has connected.
-     * @type { boolean }
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    hasPointerDevice?: boolean;
+  /**
+   * Indicates whether a pointer type device has connected.
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  hasPointerDevice?: boolean;
 }

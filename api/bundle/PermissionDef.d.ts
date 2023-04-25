@@ -14,12 +14,14 @@
  */
 
 /**
+ * Indicates the defined permission details in file config.json
+ *
+ * @typedef PermissionDef
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi
  * @since 8
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.PermissionDef
- * @name Indicates the defined permission details in file config.json
  */
 export interface PermissionDef {
   /**

@@ -15,7 +15,7 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 
 /**
@@ -188,7 +188,7 @@ declare namespace promptAction {
    * @crossplatform
    * @since 9
    */
-  function showToast(options: ShowToastOptions):void;
+  function showToast(options: ShowToastOptions): void;
 
   /**
    * Displays the dialog box.
@@ -200,7 +200,7 @@ declare namespace promptAction {
    * @crossplatform
    * @since 9
    */
-  function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>):void;
+  function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
 
   /**
    * Displays the dialog box.
@@ -224,7 +224,7 @@ declare namespace promptAction {
    * @crossplatform
    * @since 9
    */
-  function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>):void;
+  function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
 
   /**
    * Displays the dialog box.

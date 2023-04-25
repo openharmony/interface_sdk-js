@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 
 /**
  * Provides methods to operate or manage NFC.
@@ -106,7 +106,7 @@ declare namespace nfcController {
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @since 9
    */
-   function disableNfc(): void
+  function disableNfc(): void
 
   /**
    * Checks whether NFC is enabled.

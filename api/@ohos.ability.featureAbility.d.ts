@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-import { Callback } from './basic';
+import { AsyncCallback } from './@ohos.base';
+import { Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
@@ -115,7 +115,7 @@ declare namespace featureAbility {
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
-   /**
+  /**
    * Checks whether the main window of this ability has window focus.
    *
    * @since 7
@@ -136,7 +136,7 @@ declare namespace featureAbility {
    * @returns Returns the number code of the ability connected
    * @FAModelOnly
    */
-  function connectAbility(request: Want, options:ConnectOptions ): number;
+  function connectAbility(request: Want, options: ConnectOptions): number;
 
   /**
   * The callback interface was connect successfully.
@@ -146,7 +146,7 @@ declare namespace featureAbility {
   * @param connection The number code of the ability connected
   * @FAModelOnly
   */
-  function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
+  function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
   function disconnectAbility(connection: number): Promise<void>;
 
   /**
