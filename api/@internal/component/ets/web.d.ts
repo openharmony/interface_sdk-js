@@ -184,6 +184,23 @@ declare enum WebDarkMode {
 }
 
 /**
+ * Defines the Media Options.
+ * @since 10
+ */
+declare interface WebMediaOptions {
+  /**
+   * The time interval for audio playback to resume.
+   * @since 10
+   */
+  resumeInterval?: number;
+  /**
+   * Whether the audio of each web is exclusive.
+   * @since 10
+   */
+  audioExclusive?: boolean;
+}
+
+/**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
@@ -241,30 +258,30 @@ declare enum RenderExitReason {
  * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
  * @since 9
  */
- declare enum SslError {
+declare enum SslError {
   /**
    * General error.
    * @since 9
    */
-   Invalid,
+  Invalid,
 
   /**
    * Hostname mismatch.
    * @since 9
    */
-   HostMismatch,
+  HostMismatch,
 
   /**
    * The certificate date is invalid.
    * @since 9
    */
-   DateInvalid,
+  DateInvalid,
 
   /**
    * The certificate authority is not trusted.
    * @since 9
    */
-   Untrusted,
+  Untrusted,
 }
 
 /**
@@ -381,10 +398,10 @@ declare class FileSelectorResult {
    */
   constructor();
 
-   /**
-    * select a list of files.
-    * @since 9
-    */
+  /**
+   * select a list of files.
+   * @since 9
+   */
   handleFileList(fileList: Array<string>): void;
 }
 
@@ -422,7 +439,7 @@ declare class HttpAuthHandler {
  * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
  * @since 9
  */
- declare class SslErrorHandler {
+declare class SslErrorHandler {
   /**
    * Constructor.
    * @since 9
@@ -446,7 +463,7 @@ declare class HttpAuthHandler {
  * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
  * @since 9
  */
- declare class ClientAuthenticationHandler {
+declare class ClientAuthenticationHandler {
   /**
    * Constructor.
    * @since 9
@@ -460,7 +477,7 @@ declare class HttpAuthHandler {
    *
    * @since 9
    */
-  confirm(priKeyFile : string, certChainFile : string): void;
+  confirm(priKeyFile: string, certChainFile: string): void;
 
   /**
    * Confirm to use the authUri.The authUri can be obtained from certificate management.
@@ -468,7 +485,7 @@ declare class HttpAuthHandler {
    *
    * @since 10
    */
-  confirm(authUri : string): void;
+  confirm(authUri: string): void;
 
   /**
    * Cancel this certificate request.
@@ -564,7 +581,7 @@ declare class ControllerHandler {
    * Constructor.
    * @since 9
    */
-   constructor();
+  constructor();
 
   /**
    * Set WebController object.
@@ -952,7 +969,7 @@ declare class WebResourceRequest {
  * Defines the Web resource response.
  * @since 8
  */
- declare class WebResourceResponse {
+declare class WebResourceResponse {
   /**
    * Constructor.
    * @since 8
@@ -997,7 +1014,7 @@ declare class WebResourceRequest {
    *
    * @since 8
    */
-  getResponseHeader() : Array<Header>;
+  getResponseHeader(): Array<Header>;
 
   /**
    * Gets the response code.
@@ -1023,7 +1040,7 @@ declare class WebResourceRequest {
    */
   setResponseEncoding(encoding: string);
 
- /**
+  /**
    * Sets the response MIME type.
    * @param mimeType the response MIME type.
    *
@@ -1166,7 +1183,7 @@ declare class WebCookie {
  * @deprecated since 9
  * @useinstead ohos.web.webview.webview.WebviewController
  */
- declare class WebController {
+declare class WebController {
   /**
    * Constructor.
    * @since 8
@@ -1336,7 +1353,7 @@ declare class WebCookie {
    * Gets network cookie manager
    * @since 9
    */
-  getCookieManager() : WebCookie
+  getCookieManager(): WebCookie
 }
 
 /**
@@ -1354,11 +1371,11 @@ declare interface WebOptions {
    * @type { (WebController) }
    * @since 8
    */
-    /**
+  /**
    * Sets the controller of the Web.
    * @type { (WebController | WebviewController) }
    * @since 9
-    */
+  */
   controller: WebController | WebviewController;
 }
 
@@ -1451,13 +1468,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @type {controller : WebController}
    * @since 8
    */
-    /**
-   * Injects the JavaScript object into window and invoke the function in window.
-   * @param javaScriptProxy The JavaScript object to be injected.
-   *
-   * @type {controller : WebController | WebviewController}
-   * @since 9
-   */
+  /**
+ * Injects the JavaScript object into window and invoke the function in window.
+ * @param javaScriptProxy The JavaScript object to be injected.
+ *
+ * @type {controller : WebController | WebviewController}
+ * @since 9
+ */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
     controller: WebController | WebviewController }): WebAttribute;
 
@@ -1492,6 +1509,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   forceDarkAccess(access: boolean): WebAttribute;
+
+  /**
+   * Sets the media options.
+   * @param options The media options, which can be {@link WebMediaOptions}.
+   *
+   * @since 10
+   */
+  mediaOptions(options: WebMediaOptions): WebAttribute;
 
   /**
    * Sets whether the Web should save the table data.
@@ -1533,7 +1558,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-   textZoomRatio(textZoomRatio: number): WebAttribute;
+  textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
    * Sets whether the Web access the database.
@@ -1645,7 +1670,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-  onPrompt(callback: (event?: {url: string, message: string, value: string, result: JsResult }) => boolean): WebAttribute;
+  onPrompt(callback: (event?: { url: string, message: string, value: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a JavaScript console message.
@@ -1752,7 +1777,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-  onResourceLoad(callback: (event: {url: string}) => void): WebAttribute;
+  onResourceLoad(callback: (event: { url: string }) => void): WebAttribute;
 
   /**
    * Triggered when the web component exit the full screen mode.
@@ -1768,7 +1793,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-  onFullScreenEnter(callback: (event: { handler: FullScreenExitHandler}) => void): WebAttribute;
+  onFullScreenEnter(callback: (event: { handler: FullScreenExitHandler }) => void): WebAttribute;
 
   /**
    * Triggered when the scale of WebView changed.
@@ -1776,7 +1801,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-  onScaleChange(callback: (event: {oldScale: number, newScale: number}) => void): WebAttribute;
+  onScaleChange(callback: (event: { oldScale: number, newScale: number }) => void): WebAttribute;
 
   /**
    * Triggered when the browser needs credentials from the user.
@@ -1784,7 +1809,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-   onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
+  onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
 
   /**
    * Triggered when the resources loading is intercepted.
@@ -1793,7 +1818,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
    * @since 9
    */
-  onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
+  onInterceptRequest(callback: (event?: { request: WebResourceRequest }) => WebResourceResponse): WebAttribute;
 
   /**
    * Triggered when the host application that web content from the specified origin is attempting to access the resources.
@@ -1828,7 +1853,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-   onSearchResultReceive(callback: (event?: {activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean}) => void): WebAttribute
+  onSearchResultReceive(callback: (event?: { activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean }) => void): WebAttribute
 
   /**
    * Triggered when the scroll bar slides to the specified position.
@@ -1836,7 +1861,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-   onScroll(callback: (event: {xOffset: number, yOffset: number}) => void): WebAttribute;
+  onScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
 
   /**
    * Triggered when the Web page receives an ssl Error.
@@ -1844,7 +1869,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-   onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
+  onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
 
   /**
    * Triggered when the Web page needs ssl client certificate from the user.
@@ -1853,7 +1878,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
-      keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
+    keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
 
   /**
    * Triggered when web page requires the user to create a window.
@@ -1862,7 +1887,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onWindowNew(callback: (event: {isAlert: boolean, isUserTrigger: boolean, targetUrl: string,
-      handler: ControllerHandler}) => void): WebAttribute;
+    handler: ControllerHandler}) => void): WebAttribute;
 
   /**
    * Triggered when web page requires the user to close a window.
@@ -2000,7 +2025,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onTouchIconUrlReceived(callback: (event: {url: string,
-       precomposed: boolean}) => void): WebAttribute;
+    precomposed: boolean}) => void): WebAttribute;
 
   /**
    * Triggered when the application receive a new favicon for the current web page.
@@ -2008,7 +2033,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * current web page.
    * @since 9
    */
-  onFaviconReceived(callback: (event: {favicon: PixelMap}) => void): WebAttribute;
+  onFaviconReceived(callback: (event: { favicon: PixelMap }) => void): WebAttribute;
 
   /**
    * Triggered when previous page will no longer be drawn and next page begin to draw.
@@ -2016,14 +2041,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * page begin to draw.
    * @since 9
    */
-  onPageVisible(callback: (event: {url: string}) => void): WebAttribute;
+  onPageVisible(callback: (event: { url: string }) => void): WebAttribute;
 
   /**
    * Triggered when the form could be resubmitted.
    * @param callback The triggered callback to decision whether resend form data or not.
    * @since 9
    */
-  onDataResubmitted(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
+  onDataResubmitted(callback: (event: { handler: DataResubmissionHandler }) => void): WebAttribute;
 
   /**
    * Set whether enable pinch smooth mode.
@@ -2039,7 +2064,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Otherwise, the window cannot be opened.
    * @since 10
    */
-  allowWindowOpenMethod(flag : boolean): WebAttribute;
+  allowWindowOpenMethod(flag: boolean): WebAttribute;
 
   /**
    * Triggered when the playing state of audio on web page changed.

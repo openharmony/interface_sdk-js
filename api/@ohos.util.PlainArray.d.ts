@@ -195,7 +195,7 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.

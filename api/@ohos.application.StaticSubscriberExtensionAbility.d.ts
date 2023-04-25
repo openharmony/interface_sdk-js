@@ -24,14 +24,14 @@ import { CommonEventData } from "./commonEvent/commonEventData";
  * @StageModelOnly
  */
 export default class StaticSubscriberExtensionAbility {
-    /**
-     * Called back when a specific common event is published.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @returns -
-     * @StageModelOnly
-     */
-    onReceiveEvent(event: CommonEventData): void;
+  /**
+   * Called back when a specific common event is published.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   * @returns -
+   * @StageModelOnly
+   */
+  onReceiveEvent(event: CommonEventData): void;
 }

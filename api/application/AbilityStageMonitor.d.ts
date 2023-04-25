@@ -22,21 +22,21 @@
  * @permission N/A
  */
 export interface AbilityStageMonitor {
-    /**
-     * The module name of the abilityStage to monitor.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    moduleName: string;
+  /**
+   * The module name of the abilityStage to monitor.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  moduleName: string;
 
-    /**
-     * The source path of the abilityStage to monitor.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-     srcEntrance: string;
+  /**
+   * The source path of the abilityStage to monitor.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  srcEntrance: string;
 }
 
 export default AbilityStageMonitor;

@@ -17,11 +17,11 @@ import featureAbility from '../@ohos.ability.featureAbility';
 import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
 
- /**
- * @since 7
- * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
- */
+/**
+* @since 7
+* @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+* @permission N/A
+*/
 export interface DataAbilityOperation {
   /**
    * Indicates the path of data to operate.

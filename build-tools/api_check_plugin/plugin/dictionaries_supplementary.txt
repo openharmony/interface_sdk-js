@@ -165,6 +165,7 @@ dfx
 dialling
 dimbehind
 dirent
+dirxml
 disables
 disallowed
 discharging
@@ -386,7 +387,7 @@ mah
 mcc
 md5
 mdns
-mdns_err
+mdnserror
 mediaquery
 meid
 messageerror
@@ -539,6 +540,7 @@ recursions
 redirections
 refill
 rejects
+relocation
 remidner
 remotedevice
 removable
@@ -766,6 +768,7 @@ vsync
 wakes
 waking
 wallpapers
+wantagent
 wapi
 wappush
 watchers

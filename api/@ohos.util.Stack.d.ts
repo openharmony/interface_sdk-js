@@ -94,7 +94,7 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.

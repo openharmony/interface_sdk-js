@@ -21,23 +21,23 @@
  * @permission N/A
  */
 export default class ErrorObserver {
-    /**
-     * Will be called when the js runtime throws an exception which doesn't caught by user.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param errMsg the message and error stacktrace about the exception.
-     * @returns -
-     */
-    onUnhandledException(errMsg: string): void;
+  /**
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param errMsg the message and error stacktrace about the exception.
+   * @returns -
+   */
+  onUnhandledException(errMsg: string): void;
 
-    /**
-     * Will be called when the native executions exception.
-     *
-     * @since 10
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param errObject the error object about the exception.
-     * @returns -
-     */
-    onException?(errObject: Error): void;
+  /**
+   * Will be called when the native executions exception.
+   *
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param errObject the error object about the exception.
+   * @returns -
+   */
+  onException?(errObject: Error): void;
 }

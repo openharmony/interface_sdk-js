@@ -145,7 +145,7 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.

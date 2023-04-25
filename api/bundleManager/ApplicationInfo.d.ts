@@ -22,6 +22,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  *
  * @typedef ApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
  * @since 9
  */
 export interface ApplicationInfo {
@@ -30,6 +31,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly name: string;
@@ -39,6 +41,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly description: string;
@@ -48,6 +51,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly descriptionId: number;
@@ -66,6 +70,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly label: string;
@@ -75,6 +80,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly labelId: number;
@@ -84,6 +90,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly icon: string;
@@ -93,6 +100,7 @@ export interface ApplicationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly iconId: number;
@@ -120,6 +128,7 @@ export interface ApplicationInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   readonly codePath: string;

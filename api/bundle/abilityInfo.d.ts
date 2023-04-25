@@ -18,11 +18,13 @@ import { CustomizeData } from './customizeData';
 import bundle from './../@ohos.bundle';
 
 /**
+ * Obtains configuration information about an ability
+ *
+ * @typedef AbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.AbilityInfo
- * @name Obtains configuration information about an ability
  */
 export interface AbilityInfo {
   /**

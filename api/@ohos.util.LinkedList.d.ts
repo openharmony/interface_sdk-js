@@ -226,7 +226,7 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Removes all of the elements from this linkedlist.The linkedlist will
    * be empty after this call returns.length becomes 0

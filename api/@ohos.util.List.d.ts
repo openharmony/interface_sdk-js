@@ -180,7 +180,7 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, List?: List<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Sorts this list according to the order induced by the specified comparator
    * @param comparator (required) A function that accepts up to two arguments.

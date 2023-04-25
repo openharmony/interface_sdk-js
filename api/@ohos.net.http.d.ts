@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./@ohos.base";
+import { AsyncCallback, Callback } from "./@ohos.base";
 import connection from "./@ohos.net.connection";
 
 /**
@@ -30,54 +30,64 @@ declare namespace http {
 
   /**
    * Creates an HTTP request task.
+   * @crossplatform
    */
   function createHttp(): HttpRequest;
 
   export interface HttpRequestOptions {
     /**
      * Request method.
+     * @crossplatform
      */
     method?: RequestMethod; // default is GET
 
     /**
      * Additional data of the request.
      * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * @crossplatform
      */
     extraData?: string | Object | ArrayBuffer;
 
     /**
      * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
      *
+     * @crossplatform
      * @since 9
      */
     expectDataType?: HttpDataType;
 
     /**
+     * @crossplatform
      * @since 9
      */
     usingCache?: boolean; // default is true
 
     /**
+     * @crossplatform
      * @since 9
      */
     priority?: number; // [1, 1000], default is 1.
 
     /**
      * HTTP request header.
+     * @crossplatform
      */
     header?: Object; // default is 'content-type': 'application/json'
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
+     * @crossplatform
      */
     readTimeout?: number; // default is 60s
 
     /**
      * Connection timeout interval. The default value is 60,000, in ms.
+     * @crossplatform
      */
     connectTimeout?: number; // default is 60s.
 
     /**
+     * @crossplatform
      * @since 9
      */
     usingProtocol?: HttpProtocol; // default is automatically specified by the system.
@@ -137,6 +147,7 @@ declare namespace http {
      * @throws {BusinessError} 2300078 - Remote file not found.
      * @throws {BusinessError} 2300094 - An authentication function returned an error.
      * @throws {BusinessError} 2300999 - Unknown Other Error.
+     * @crossplatform
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
@@ -272,6 +283,7 @@ declare namespace http {
 
     /**
      * Destroys an HTTP request.
+     * @crossplatform
      */
     destroy(): void;
 
@@ -294,6 +306,7 @@ declare namespace http {
     /**
      * Registers an observer for HTTP Response Header events.
      *
+     * @crossplatform
      * @since 8
      */
     on(type: "headersReceive", callback: Callback<Object>): void;
@@ -301,6 +314,7 @@ declare namespace http {
     /**
      * Unregisters the observer for HTTP Response Header events.
      *
+     * @crossplatform
      * @since 8
      */
     off(type: "headersReceive", callback?: Callback<Object>): void;
@@ -308,6 +322,7 @@ declare namespace http {
     /**
      * Registers a one-time observer for HTTP Response Header events.
      *
+     * @crossplatform
      * @since 8
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
@@ -324,37 +339,40 @@ declare namespace http {
      *
      * @since 10
      */
-     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
+    off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
     /**
      * Registers an observer for receiving HTTP Response data ends events.
      *
      * @since 10
      */
-     on(type: "dataEnd", callback: Callback<void>): void;
+    on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
      *
      * @since 10
      */
-     off(type: "dataEnd", callback?: Callback<void>): void;
+    off(type: "dataEnd", callback?: Callback<void>): void;
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
      *
      * @since 10
      */
-     on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+    on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
      *
      * @since 10
      */
-     off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+    off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
+  /**
+   * @crossplatform
+   */
   export enum RequestMethod {
     OPTIONS = "OPTIONS",
     GET = "GET",
@@ -366,6 +384,9 @@ declare namespace http {
     CONNECT = "CONNECT"
   }
 
+  /**
+   * @crossplatform
+   */
   export enum ResponseCode {
     OK = 200,
     CREATED,
@@ -407,6 +428,7 @@ declare namespace http {
   /**
    * Supported protocols.
    *
+   * @crossplatform
    * @since 9
    */
   export enum HttpProtocol {
@@ -417,19 +439,23 @@ declare namespace http {
   /**
    * Indicates the type of the returned data.
    *
+   * @crossplatform
    * @since 9
    */
   export enum HttpDataType {
     /**
      * The returned type is string.
+     * @crossplatform
      */
     STRING,
     /**
      * The returned type is Object.
+     * @crossplatform
      */
     OBJECT = 1,
     /**
      * The returned type is ArrayBuffer.
+     * @crossplatform
      */
     ARRAY_BUFFER = 2,
   }
@@ -438,6 +464,7 @@ declare namespace http {
     /**
      * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
      * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
+     * @crossplatform
      */
     result: string | Object | ArrayBuffer;
 
@@ -446,21 +473,25 @@ declare namespace http {
      * If the resultType is Object, you can get result such as this: result['key'].
      * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
      *
+     * @crossplatform
      * @since 9
      */
     resultType: HttpDataType;
 
     /**
      * Server status code.
+     * @crossplatform
      */
     responseCode: ResponseCode | number;
 
     /**
      * All headers in the response from the server.
+     * @crossplatform
      */
     header: Object;
 
     /**
+     * @crossplatform
      * @since 8
      */
     cookies: string;
@@ -470,22 +501,26 @@ declare namespace http {
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
    *
    * @param cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @crossplatform
    * @since 9
    */
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;
 
   /**
+   * @crossplatform
    * @since 9
    */
   export interface HttpResponseCache {
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
+     * @crossplatform
      */
     flush(callback: AsyncCallback<void>): void;
     flush(): Promise<void>;
 
     /**
      * Disables a cache and deletes the data in it.
+     * @crossplatform
      */
     delete(callback: AsyncCallback<void>): void;
     delete(): Promise<void>;

@@ -93,6 +93,132 @@ export declare class console {
    * @since 9
    */
   static error(message: string, ...arguments: any[]): void;
+
+  /**
+   * Prints a message if value is false or omitted.
+   * @param { Object } value The value tested for being truthy.
+   * @param { Object[] } arguments Used as error message to print.
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static assert(value?: Object, ...arguments: Object[]): void;
+
+  /**
+   * Maintains an internal counter specific to label and print the number of times
+   * console.count() has been called with the given label.
+   * @param { string } label Counter name. Default: "default".
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static count(label?: string): void;
+
+  /**
+   * Reset the internal counter specific to label.
+   * @param { string } label Counter name. Default: "default".
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static countReset(label?: string): void;
+
+  /**
+   * Prints properties of the specified JavaScript object.
+   * @param { Object } dir A JavaScript object whose properties should be output.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static dir(dir?: Object): void;
+
+  /**
+   * This method calls console.log() passing it the arguments received. 
+   * This method does not produce any XML formatting.
+   * @param { Object[] } arguments Text to print.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static dirxml(...arguments: Object[]): void;
+
+  /**
+   * Creates a new inline group, causing any subsequent console messages to be indented by an additional level.
+   * @param { Object[] } arguments messages to print first.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static group(...arguments: Object[]): void;
+
+  /**
+   * Same as console.group()
+   * @param { Object[] } arguments messages to print first.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+  */
+  static groupCollapsed(...arguments: Object[]): void;
+
+  /**
+   * Exit current inline group.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static groupEnd(): void;
+
+  /**
+   * Prints tabular data as a table.
+   * @param { Object } tableData tabular data.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static table(tableData?: Object): void;
+
+  /**
+  * Start a timer.
+  * @param { string } label Timer name. Default: "default".
+  * @static
+  * @throws { BusinessError } 401 - The parameter check failed.
+  * @syscap SystemCapability.Utils.Lang
+  * @since 10
+  */
+  static time(label?: string): void;
+
+  /**
+   * End a timer and print time duration.
+   * @param { string } label Timer name. Default: "default".
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static timeEnd(label?: string): void;
+
+  /**
+   * Print the elapsed time and other data arguments.
+   * @param { string }  label Timer name. Default: "default".
+   * @param { Object[] } arguments Text to print.
+   * @static
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static timeLog(label?: string, ...arguments: Object[]): void;
+
+  /**
+   * Prints stack information for the current code location.
+   * @param { Object[] } arguments message to print.
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 10
+   */
+  static trace(...arguments: Object[]): void;
 }
 
 /**
@@ -148,43 +274,43 @@ export declare function canIUse(syscap: string): boolean;
  */
 export declare function getInspectorByKey(id: string): string;
 
- /**
-  * Get components tree.
-  * @since 9
-  * @test
-  */
+/**
+ * Get components tree.
+ * @since 9
+ * @test
+ */
 export declare function getInspectorTree(): Object;
- 
- /**
-  * Sends an event to the component with the specified ID.
-  * @param id ID of the component for which the event is to be sent.
-  * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
-  * @param params Event parameters. If there is no parameter, pass an empty string "".
-  * @since 9
-  * @test
-  */
+
+/**
+ * Sends an event to the component with the specified ID.
+ * @param id ID of the component for which the event is to be sent.
+ * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param params Event parameters. If there is no parameter, pass an empty string "".
+ * @since 9
+ * @test
+ */
 export declare function sendEventByKey(id: string, action: number, params: string): boolean;
- 
- /**
-  * Send touch event.
-  * @param event TouchObject to be sent.
-  * @since 9
-  * @test
-  */
+
+/**
+ * Send touch event.
+ * @param event TouchObject to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendTouchEvent(event: TouchObject): boolean;
- 
- /**
-  * Send key event.
-  * @param event KeyEvent to be sent.
-  * @since 9
-  * @test
-  */
+
+/**
+ * Send key event.
+ * @param event KeyEvent to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
- 
- /**
-  * Send mouse event.
-  * @param event MouseEvent to be sent.
-  * @since 9
-  * @test
-  */
+
+/**
+ * Send mouse event.
+ * @param event MouseEvent to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendMouseEvent(event: MouseEvent): boolean;

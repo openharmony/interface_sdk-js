@@ -24,75 +24,75 @@
  * @useinstead ohos.app.ability.Want
  */
 export default class Want {
-    /**
-     * device id
-     * @default -
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    deviceId?: string;
+  /**
+   * device id
+   * @default -
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   */
+  deviceId?: string;
 
-    /**
-     * bundle name
-     * @default -
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    bundleName?: string;
+  /**
+   * bundle name
+   * @default -
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   */
+  bundleName?: string;
 
-    /**
-     * ability name
-     * @default -
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    abilityName?: string;
+  /**
+   * ability name
+   * @default -
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   */
+  abilityName?: string;
 
-    /**
-     * The description of a URI in a Want.
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    uri?: string;
+  /**
+   * The description of a URI in a Want.
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
+   */
+  uri?: string;
 
-    /**
-     * The description of the type in this Want.
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    type?: string;
+  /**
+   * The description of the type in this Want.
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
+   */
+  type?: string;
 
-    /**
-     * The options of the flags in this Want.
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    flags?: number;
+  /**
+   * The options of the flags in this Want.
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
+   */
+  flags?: number;
 
-    /**
-     * The description of an action in an want.
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    action?: string;
+  /**
+   * The description of an action in an want.
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
+   */
+  action?: string;
 
-    /**
-     * The description of the WantParams object in an Want
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    parameters?: {[key: string]: any};
+  /**
+   * The description of the WantParams object in an Want
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
+   */
+  parameters?: { [key: string]: any };
 
-    /**
-     * The description of a entities in a Want.
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    entities?: Array<string>;
+  /**
+   * The description of a entities in a Want.
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
+   */
+  entities?: Array<string>;
 }

@@ -20,27 +20,27 @@
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  */
 export interface ContinuationResult {
-    /**
-     * the information about the selected device id.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    id: string;
+  /**
+   * the information about the selected device id.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  id: string;
 
-    /**
-     * the information about the selected device type.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    type: string;
+  /**
+   * the information about the selected device type.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  type: string;
 
-    /**
-     * Indicates the name of the selected device.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    name: string;
+  /**
+   * Indicates the name of the selected device.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   */
+  name: string;
 }

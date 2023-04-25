@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
- /**
- * @name DataAbilityResult
- * @since 7
- * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
- */
+/**
+* @name DataAbilityResult
+* @since 7
+* @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+* @permission N/A
+*/
 export interface DataAbilityResult {
   /**
    * Indicates the path of data to operate.
@@ -27,14 +27,14 @@ export interface DataAbilityResult {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
-   uri?: string;
+  uri?: string;
 
-   /**
-   * Indicates the number of rows affected by the operation.
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   */
-   count?:number;
+  /**
+  * Indicates the number of rows affected by the operation.
+  * @default -
+  * @since 7
+  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @FAModelOnly
+  */
+  count?: number;
 }

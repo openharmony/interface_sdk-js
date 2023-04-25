@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from "./@ohos.base";
-import Want from "./@ohos.app.ability.Want";
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module offers set wifi policies on the devices.
@@ -447,7 +447,7 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi bssid(MAC): the length is 6
-     * @type { string }
+     * @type { ?string }
      * @since 10
     */
     bssid?: string;
@@ -461,7 +461,7 @@ declare namespace wifiManager {
 
     /**
      * Hide SSID or not, false(default): not hide
-     * @type { boolean }
+     * @type { ?boolean }
      * @since 10
     */
     isHiddenSsid?: boolean;
@@ -475,56 +475,56 @@ declare namespace wifiManager {
 
     /**
      * The UID of the Wi-Fi profile creator
-     * @type { number }
+     * @type { ?number }
      * @since 10
      */
     creatorUid?: number;
 
     /**
      * Disable reason
-     * @type { number }
+     * @type { ?number }
      * @since 10
     */
     disableReason?: number;
 
     /**
      * Allocated networkId
-     * @type { number }
+     * @type { ?number }
      * @since 10
     */
     netId?: number;
 
     /**
      * Random mac type
-     * @type { number }
+     * @type { ?number }
      * @since 10
     */
     randomMacType?: number;
 
     /**
      * Random mac address, the length is 6
-     * @type { string }
+     * @type { ?string }
      * @since 10
     */
     randomMacAddr?: string;
 
     /**
      * IP Type
-     * @type { IpType }
+     * @type { ?IpType }
      * @since 10
     */
     ipType?: IpType;
 
     /**
      * IP profile of static
-     * @type { IpProfile }
+     * @type { ?IpProfile }
      * @since 10
     */
     staticIp?: IpProfile;
 
     /**
      * EAP profile info.
-     * @type { WifiEapProfile }
+     * @type { ?WifiEapProfile }
      * @since 10
      */
     eapProfile?: WifiEapProfile;

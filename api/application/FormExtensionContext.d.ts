@@ -26,16 +26,16 @@ import Want from '../@ohos.app.ability.Want';
  * @since 9
  */
 export default class FormExtensionContext extends ExtensionContext {
-    /**
-     * Start an ability within the same bundle.
-     * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
-     * @param { AsyncCallback<void> } callback - The callback of startAbility.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @syscap SystemCapability.Ability.Form
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    startAbility(want: Want, callback: AsyncCallback<void>): void;
-    startAbility(want: Want): Promise<void>;
+  /**
+   * Start an ability within the same bundle.
+   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  startAbility(want: Want, callback: AsyncCallback<void>): void;
+  startAbility(want: Want): Promise<void>;
 }

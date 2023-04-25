@@ -22,21 +22,21 @@
  * @permission N/A
  */
 export interface ShellCmdResult {
-    /**
-     * the cmd standard result.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    stdResult: string;
+  /**
+   * the cmd standard result.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  stdResult: string;
 
-    /**
-     * shell cmd exec result.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    exitCode: number;
+  /**
+   * shell cmd exec result.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  exitCode: number;
 }
 
 export default ShellCmdResult;

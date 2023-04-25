@@ -86,7 +86,7 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
     }
   }
 
-  if (checkResult !== "" && filterApiVersion(node, '10')) {
+  if (checkResult !== "" && filterApiVersion(node, '10') && (!apiInfo.deprecated || apiInfo.deprecated === '')) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }

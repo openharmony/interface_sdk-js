@@ -14,11 +14,11 @@
  */
 
 import { AsyncCallback } from "./@ohos.base";
-import Want from "./@ohos.app.ability.Want";
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the datetime of the enterprise devices.
- * @namespace dateTimeManager.
+ * @namespace dateTimeManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 9

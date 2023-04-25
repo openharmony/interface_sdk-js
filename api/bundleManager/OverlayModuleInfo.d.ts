@@ -20,7 +20,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 10
  */
- export interface OverlayModuleInfo {
+export interface OverlayModuleInfo {
   /**
    * Indicates the name of the bundle
    *

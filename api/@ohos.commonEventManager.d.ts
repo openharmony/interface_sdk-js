@@ -342,7 +342,7 @@ declare namespace commonEventManager {
      * Sent by system package verifier when a package need to be verified.
      */
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION =
-        "usual.event.PACKAGE_NEEDS_VERIFICATION",
+    "usual.event.PACKAGE_NEEDS_VERIFICATION",
 
     /**
      * Sent by system package verifier when a package is verified.
@@ -354,13 +354,13 @@ declare namespace commonEventManager {
      * available since the media on which they exist is available.
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE =
-        "usual.event.EXTERNAL_APPLICATIONS_AVAILABLE",
+    "usual.event.EXTERNAL_APPLICATIONS_AVAILABLE",
 
     /**
      * Resources for a set of packages are currently unavailable since the media on which they exist is unavailable.
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE =
-        "usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE",
+    "usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE",
 
     /**
      * The device configuration such as orientation,locale have been changed.
@@ -506,193 +506,193 @@ declare namespace commonEventManager {
      * Indicates that the Wi-Fi P2P peers state change.
      */
     COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED =
-        "usual.event.wifi.p2p.DEVICES_CHANGE",
+    "usual.event.wifi.p2p.DEVICES_CHANGE",
 
     /**
      * Indicates that the Wi-Fi P2P discovery state change.
      */
     COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED =
-        "usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE",
+    "usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE",
 
     /**
      * Indicates that the Wi-Fi P2P current device state change.
      */
     COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED =
-        "usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE",
+    "usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE",
 
     /**
      * Indicates that the Wi-Fi P2P group info is changed.
      */
     COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED =
-        "usual.event.wifi.p2p.GROUP_STATE_CHANGED",
+    "usual.event.wifi.p2p.GROUP_STATE_CHANGED",
 
     /**
      * Bluetooth.handsfree.ag.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfree.ag.current.device.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE",
+    "usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE",
 
     /**
      * Bluetooth.handsfree.ag.audio.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE",
+    "usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.current.device.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.playing.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.avrcp.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.codec.value.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.discovered.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED =
-        "usual.event.bluetooth.remotedevice.DISCOVERED",
+    "usual.event.bluetooth.remotedevice.DISCOVERED",
 
     /**
      * Bluetooth.remotedevice.class.value.update.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE =
-        "usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE",
+    "usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.acl.connected.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED =
-        "usual.event.bluetooth.remotedevice.ACL_CONNECTED",
+    "usual.event.bluetooth.remotedevice.ACL_CONNECTED",
 
     /**
      * Bluetooth.remotedevice.acl.disconnected.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED =
-        "usual.event.bluetooth.remotedevice.ACL_DISCONNECTED",
+    "usual.event.bluetooth.remotedevice.ACL_DISCONNECTED",
 
     /**
      * Bluetooth.remotedevice.name.update.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE =
-        "usual.event.bluetooth.remotedevice.NAME_UPDATE",
+    "usual.event.bluetooth.remotedevice.NAME_UPDATE",
 
     /**
      * Bluetooth.remotedevice.pair.state.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE =
-        "usual.event.bluetooth.remotedevice.PAIR_STATE",
+    "usual.event.bluetooth.remotedevice.PAIR_STATE",
 
     /**
      * Bluetooth.remotedevice.battery.value.update.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE =
-        "usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE",
+    "usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.sdp.result.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT =
-        "usual.event.bluetooth.remotedevice.SDP_RESULT",
+    "usual.event.bluetooth.remotedevice.SDP_RESULT",
 
     /**
      * Bluetooth.remotedevice.uuid.value.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE =
-        "usual.event.bluetooth.remotedevice.UUID_VALUE",
+    "usual.event.bluetooth.remotedevice.UUID_VALUE",
 
     /**
      * Bluetooth.remotedevice.pairing.req.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ =
-        "usual.event.bluetooth.remotedevice.PAIRING_REQ",
+    "usual.event.bluetooth.remotedevice.PAIRING_REQ",
 
     /**
      * Bluetooth.remotedevice.pairing.cancel.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL =
-        "usual.event.bluetooth.remotedevice.PAIRING_CANCEL",
+    "usual.event.bluetooth.remotedevice.PAIRING_CANCEL",
 
     /**
      * Bluetooth.remotedevice.connect.req.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ =
-        "usual.event.bluetooth.remotedevice.CONNECT_REQ",
+    "usual.event.bluetooth.remotedevice.CONNECT_REQ",
 
     /**
      * Bluetooth.remotedevice.connect.reply.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY =
-        "usual.event.bluetooth.remotedevice.CONNECT_REPLY",
+    "usual.event.bluetooth.remotedevice.CONNECT_REPLY",
 
     /**
      * Bluetooth.remotedevice.connect.cancel.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL =
-        "usual.event.bluetooth.remotedevice.CONNECT_CANCEL",
+    "usual.event.bluetooth.remotedevice.CONNECT_CANCEL",
 
     /**
      * Bluetooth.handsfreeunit.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfreeunit.audio.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE",
+    "usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfreeunit.ag.common.event.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT =
-        "usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT",
+    "usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT",
 
     /**
      * Bluetooth.handsfreeunit.ag.call.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE",
+    "usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE",
 
     /**
      * Bluetooth.host.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE =
-        "usual.event.bluetooth.host.STATE_UPDATE",
+    "usual.event.bluetooth.host.STATE_UPDATE",
 
     /**
      * Bluetooth.host.req.discoverable.
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE =
-        "usual.event.bluetooth.host.REQ_DISCOVERABLE",
+    "usual.event.bluetooth.host.REQ_DISCOVERABLE",
 
     /**
      * Bluetooth.host.req.enable.
@@ -703,67 +703,67 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.disable.
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE =
-        "usual.event.bluetooth.host.REQ_DISABLE",
+    "usual.event.bluetooth.host.REQ_DISABLE",
 
     /**
      * Bluetooth.host.scan.mode.update.
      */
     COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE =
-        "usual.event.bluetooth.host.SCAN_MODE_UPDATE",
+    "usual.event.bluetooth.host.SCAN_MODE_UPDATE",
 
     /**
      * Bluetooth.host.discovery.stated.
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED =
-        "usual.event.bluetooth.host.DISCOVERY_STARTED",
+    "usual.event.bluetooth.host.DISCOVERY_STARTED",
 
     /**
      * Bluetooth.host.discovery.finished.
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED =
-        "usual.event.bluetooth.host.DISCOVERY_FINISHED",
+    "usual.event.bluetooth.host.DISCOVERY_FINISHED",
 
     /**
      * Bluetooth.host.name.update.
      */
     COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE =
-        "usual.event.bluetooth.host.NAME_UPDATE",
+    "usual.event.bluetooth.host.NAME_UPDATE",
 
     /**
      * Bluetooth.a2dp.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dp.playing.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dp.audio.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE",
 
     /**
      * Nfc state change.
      */
     COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED =
-        "usual.event.nfc.action.ADAPTER_STATE_CHANGED",
+    "usual.event.nfc.action.ADAPTER_STATE_CHANGED",
 
     /**
      * Nfc field on detected.
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED =
-        "usual.event.nfc.action.RF_FIELD_ON_DETECTED",
+    "usual.event.nfc.action.RF_FIELD_ON_DETECTED",
 
     /**
      * Nfc field off detected.
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED =
-        "usual.event.nfc.action.RF_FIELD_OFF_DETECTED",
+    "usual.event.nfc.action.RF_FIELD_OFF_DETECTED",
 
     /**
      * Sent when stop charging battery.
@@ -822,7 +822,7 @@ declare namespace commonEventManager {
      * Gps mode state changed.
      */
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED =
-        "usual.event.location.MODE_STATE_CHANGED",
+    "usual.event.location.MODE_STATE_CHANGED",
 
     /**
      * The ivi is about to go into sleep state when the ivi is turned off power.
@@ -909,28 +909,28 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_DEVICE_ATTACHED =
-        "usual.event.hardware.usb.action.USB_DEVICE_ATTACHED",
+    "usual.event.hardware.usb.action.USB_DEVICE_ATTACHED",
 
     /**
      * The usb device detached.
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_DEVICE_DETACHED =
-        "usual.event.hardware.usb.action.USB_DEVICE_DETACHED",
+    "usual.event.hardware.usb.action.USB_DEVICE_DETACHED",
 
     /**
      * The usb accessory attached.
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_ACCESSORY_ATTACHED =
-        "usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED",
+    "usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED",
 
     /**
      * The usb accessory detached.
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_ACCESSORY_DETACHED =
-        "usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED",
+    "usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED",
 
     /**
      * The external storage was removed.
@@ -1003,7 +1003,7 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED =
-        "usual.event.data.VISIBLE_ACCOUNTS_UPDATED",
+    "usual.event.data.VISIBLE_ACCOUNTS_UPDATED",
 
     /**
      * Account was deleted.

@@ -20,7 +20,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
- export interface Metadata {
+export interface Metadata {
   /**
    * Indicates the metadata name
    *
