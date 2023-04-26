@@ -79,4 +79,3 @@ declare const ListItemGroupInstance: ListItemGroupAttribute;
  * @since 9
  */
 declare const ListItemGroup: ListItemGroupInterface;
-  

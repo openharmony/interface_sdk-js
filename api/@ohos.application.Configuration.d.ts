@@ -26,19 +26,19 @@ import ConfigurationConstant from "./@ohos.application.ConfigurationConstant";
  * @useinstead ohos.app.ability.Configuration
  */
 export interface Configuration {
-    /**
-     * Indicates the current language of the application.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    language?: string;
+  /**
+   * Indicates the current language of the application.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   */
+  language?: string;
 
-    /**
-     * Indicates the current colorMode of the application.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    colorMode?: ConfigurationConstant.ColorMode;
+  /**
+   * Indicates the current colorMode of the application.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   */
+  colorMode?: ConfigurationConstant.ColorMode;
 }

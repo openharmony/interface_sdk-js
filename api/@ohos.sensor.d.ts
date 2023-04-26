@@ -17,7 +17,6 @@ import type { AsyncCallback, Callback } from './basic';
 
 /**
  * This module provides the capability to subscribe to sensor data.
- * 
  * @namespace sensor
  * @syscap SystemCapability.Sensors.Sensor
  * @since 8
@@ -25,7 +24,6 @@ import type { AsyncCallback, Callback } from './basic';
 declare namespace sensor {
   /**
    * Enum for obtain the type of sensor.
-   * 
    * @enum { number }
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -33,7 +31,6 @@ declare namespace sensor {
   enum SensorId {
     /**
      * Acceleration sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -41,7 +38,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -49,7 +45,6 @@ declare namespace sensor {
 
     /**
      * Ambient light sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -57,7 +52,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -65,7 +59,6 @@ declare namespace sensor {
 
     /**
      * Barometric pressure sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -73,7 +66,6 @@ declare namespace sensor {
 
     /**
      * Hall effect sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -81,7 +73,6 @@ declare namespace sensor {
 
     /**
      * Proximity sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -89,7 +80,6 @@ declare namespace sensor {
 
     /**
      * Humidity sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -97,7 +87,6 @@ declare namespace sensor {
 
     /**
      * Orientation sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -105,7 +94,6 @@ declare namespace sensor {
 
     /**
      * Gravity sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -113,7 +101,6 @@ declare namespace sensor {
 
     /**
      * Linear acceleration sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -121,7 +108,6 @@ declare namespace sensor {
 
     /**
      * Rotation vector sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -129,7 +115,6 @@ declare namespace sensor {
 
     /**
      * Ambient temperature sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -137,7 +122,6 @@ declare namespace sensor {
 
     /**
      * Uncalibrated magnetic field sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -145,7 +129,6 @@ declare namespace sensor {
 
     /**
      * Uncalibrated gyroscope sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -153,7 +136,6 @@ declare namespace sensor {
 
     /**
      * Significant motion sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -161,7 +143,6 @@ declare namespace sensor {
 
     /**
      * Pedometer detection sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -169,7 +150,6 @@ declare namespace sensor {
 
     /**
      * Pedometer sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -177,7 +157,6 @@ declare namespace sensor {
 
     /**
      * Heart rate sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -185,7 +164,6 @@ declare namespace sensor {
 
     /**
      * Wear detection sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -193,7 +171,6 @@ declare namespace sensor {
 
     /**
      * Uncalibrated acceleration sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -202,7 +179,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to accelerometer sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
@@ -218,7 +194,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated accelerometer sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,{@code SensorId.ACCELEROMETER_UNCALIBRATED}.
    * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
@@ -234,7 +209,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient light sensor data.
-   * 
    * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback ambient data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -247,7 +221,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient temperature sensor data.
-   * 
    * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -261,7 +234,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to barometer sensor data.
-   * 
    * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -274,7 +246,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to gravity sensor data.
-   * 
    * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -288,7 +259,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to gyroscope sensor data.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
@@ -304,7 +274,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated gyroscope sensor data.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
@@ -320,7 +289,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to hall sensor data.
-   * 
    * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -333,7 +301,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to heart rate sensor data.
-   * 
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
    * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
@@ -349,7 +316,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to humidity sensor data.
-   * 
    * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -363,7 +329,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to linear acceleration sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
    * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
@@ -379,7 +344,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to magnetic field sensor data.
-   * 
    * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -393,7 +357,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated magnetic field sensor data.
-   * 
    * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
    *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
@@ -408,7 +371,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to orientation sensor data.
-   * 
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -422,7 +384,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer sensor data.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
@@ -437,7 +398,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer detection sensor data.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
    * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
@@ -453,7 +413,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to proximity sensor data.
-   * 
    * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -466,7 +425,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to rotation vector sensor data.
-   * 
    * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -480,7 +438,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to significant motion sensor data.
-   * 
    * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -494,7 +451,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to wear detection sensor data.
-   * 
    * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
@@ -508,7 +464,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to accelerometer sensor data once.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
@@ -522,7 +477,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated accelerometer sensor data once.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,{@code SensorId.ACCELEROMETER_UNCALIBRATED}.
    * @param { Callback<AccelerometerUncalibratedResponse> } callback - callback uncalibrated accelerometer data.
@@ -536,7 +490,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient light sensor data once.
-   * 
    * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback ambient data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -548,7 +501,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to ambient temperature sensor data once.
-   * 
    * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -560,7 +512,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to barometer sensor data once.
-   * 
    * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -572,7 +523,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to gravity sensor data once.
-   * 
    * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -584,7 +534,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to gyroscope sensor data once.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
@@ -598,7 +547,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated gyroscope sensor data once.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for,{@code SensorId.GYROSCOPE_UNCALIBRATED}.
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
@@ -612,7 +560,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to hall sensor data once.
-   * 
    * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -624,7 +571,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to heart rate sensor data once.
-   * 
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
    * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
@@ -638,7 +584,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to humidity sensor data once.
-   * 
    * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -650,7 +595,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to linear acceleration sensor data once.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
    * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
@@ -664,7 +608,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to magnetic field sensor data once.
-   * 
    * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -676,7 +619,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to uncalibrated magnetic field sensor data once.
-   * 
    * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
    *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
@@ -689,7 +631,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to orientation sensor data once.
-   * 
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -701,7 +642,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer sensor data once.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
@@ -715,7 +655,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to pedometer detection sensor data once.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
    * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
@@ -729,7 +668,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to proximity sensor data once.
-   * 
    * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -741,7 +679,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to rotation vector sensor data once.
-   * 
    * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -753,7 +690,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to significant motion sensor data once.
-   * 
    * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -765,7 +701,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to wear detection sensor data once.
-   * 
    * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -777,7 +712,6 @@ declare namespace sensor {
   function once(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
   /**
    * Unsubscribe to accelerometer sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
    * @param { Callback<AccelerometerResponse> } callback - callback accelerometer data.
@@ -790,7 +724,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to uncalibrated accelerometer sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,
    *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
@@ -804,7 +737,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to ambient light sensor data.
-   * 
    * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback ambient data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -815,7 +747,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to ambient temperature sensor data.
-   * 
    * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback temperature data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -826,7 +757,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to barometer sensor data.
-   * 
    * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -837,7 +767,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to gravity sensor data.
-   * 
    * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -848,7 +777,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to gyroscope sensor data.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
    * @param { Callback<GyroscopeResponse> } callback - callback gyroscope data.
@@ -861,7 +789,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to uncalibrated gyroscope sensor data.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
    * @param { Callback<GyroscopeUncalibratedResponse> } callback - callback uncalibrated gyroscope data.
@@ -874,7 +801,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to hall sensor data.
-   * 
    * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -885,7 +811,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to heart rate sensor data.
-   * 
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
    * @param { Callback<HeartRateResponse> } callback - callback heart rate data.
@@ -898,7 +823,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to humidity sensor data.
-   * 
    * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -909,7 +833,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to linear acceleration sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
    * @param { Callback<LinearAccelerometerResponse> } callback - callback linear acceleration data.
@@ -922,7 +845,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to magnetic field sensor data.
-   * 
    * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -933,7 +855,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to uncalibrated magnetic field sensor data.
-   * 
    * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
    *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback uncalibrated magnetic field data.
@@ -945,7 +866,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to orientation sensor data.
-   * 
    * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -956,7 +876,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to pedometer sensor data.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
@@ -969,7 +888,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to pedometer detection sensor data.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
    * @param { Callback<PedometerDetectionResponse> } callback - callback pedometer detection data.
@@ -982,7 +900,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to proximity sensor data.
-   * 
    * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -993,7 +910,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to rotation vector sensor data.
-   * 
    * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1002,10 +918,8 @@ declare namespace sensor {
    */
   function off(type: SensorId.ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
 
-
   /**
    * Unsubscribe to significant motion sensor data.
-   * 
    * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1016,7 +930,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to wear detection sensor data.
-   * 
    * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1027,7 +940,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
@@ -1043,7 +955,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
@@ -1059,7 +970,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback light data.
@@ -1074,7 +984,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
@@ -1089,7 +998,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
@@ -1104,7 +1012,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
@@ -1119,7 +1026,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
@@ -1135,7 +1041,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
@@ -1151,7 +1056,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_HALL } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_HALL}.
    * @param { Callback<HallResponse> } callback - callback hall data.
@@ -1166,7 +1070,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.HEALTH_DATA
    * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
@@ -1182,7 +1085,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
@@ -1197,7 +1099,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
@@ -1213,7 +1114,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
@@ -1228,7 +1128,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback magnetic field uncalibrated data.
@@ -1243,7 +1142,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
@@ -1258,7 +1156,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
@@ -1274,7 +1171,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
@@ -1290,7 +1186,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
@@ -1305,7 +1200,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
@@ -1320,7 +1214,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
@@ -1335,7 +1228,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
@@ -1350,7 +1242,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
@@ -1364,7 +1255,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
@@ -1378,7 +1268,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback light data.
@@ -1391,7 +1280,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
@@ -1404,7 +1292,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
@@ -1417,7 +1304,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
@@ -1430,7 +1316,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
@@ -1444,7 +1329,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
@@ -1458,7 +1342,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_HALL } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_HALL}.
    * @param { Callback<HallResponse> } callback - callback hall data.
@@ -1471,7 +1354,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.HEART_RATE
    * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
@@ -1485,7 +1367,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
@@ -1498,7 +1379,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.ACCELERATION
    * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
@@ -1512,7 +1392,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
@@ -1525,7 +1404,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback magnetic field uncalibrated data.
@@ -1538,7 +1416,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
@@ -1551,7 +1428,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
@@ -1565,7 +1441,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
@@ -1579,7 +1454,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
@@ -1592,7 +1466,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
@@ -1605,7 +1478,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
@@ -1618,7 +1490,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to sensor data once.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - type Indicate the sensor type to listen for, 
    *        {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
@@ -1631,7 +1502,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
@@ -1645,7 +1515,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
@@ -1660,7 +1529,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback light data.
@@ -1673,7 +1541,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
    * @param { Callback<AmbientTemperatureResponse> } callback - callback ambient temperature data.
@@ -1686,7 +1553,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_BAROMETER } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer response data.
@@ -1699,7 +1565,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_GRAVITY } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
@@ -1712,7 +1577,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
@@ -1726,7 +1590,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
@@ -1740,7 +1603,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_HALL } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_HALL}.
    * @param { Callback<HallResponse> } callback - callback hall data.
@@ -1753,7 +1615,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.HEALTH_DATA
    * @param { SensorType.SENSOR_TYPE_ID_HEART_RATE } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
@@ -1767,7 +1628,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_HUMIDITY } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
@@ -1780,7 +1640,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
@@ -1794,7 +1653,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
@@ -1807,7 +1665,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
    * @param { Callback<MagneticFieldUncalibratedResponse> } callback - callback magnetic field uncalibrated data.
@@ -1820,7 +1677,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_ORIENTATION } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
@@ -1833,7 +1689,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER } type - type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
    * @param { Callback<PedometerResponse> } callback - callback pedometer data.
@@ -1846,7 +1701,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
@@ -1860,7 +1714,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_PROXIMITY } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
@@ -1873,7 +1726,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
    * @param { Callback<RotationVectorResponse> } callback - callback rotation vector data.
@@ -1886,7 +1738,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
@@ -1899,7 +1750,6 @@ declare namespace sensor {
 
   /**
    * Unsubscribe to sensor data.
-   * 
    * @param { SensorType.SENSOR_TYPE_ID_WEAR_DETECTION } type - type Indicate the sensor type to unsubscribe, 
    *        {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
@@ -1912,7 +1762,6 @@ declare namespace sensor {
 
   /**
    * Indicates sensor information.
-   * 
    * @typedef Sensor
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9
@@ -1920,7 +1769,6 @@ declare namespace sensor {
   interface Sensor {
     /**
      * Sensor name.
-     * 
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1929,7 +1777,6 @@ declare namespace sensor {
 
     /**
      * Sensor vendor.
-     * 
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1938,7 +1785,6 @@ declare namespace sensor {
 
     /**
      * Sensor firmware version.
-     * 
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1947,7 +1793,6 @@ declare namespace sensor {
 
     /**
      * Sensor hardware version.
-     * 
      * @type { string }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1956,7 +1801,6 @@ declare namespace sensor {
 
     /**
      * Sensor type ID, {@code SensorType}.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1965,7 +1809,6 @@ declare namespace sensor {
 
     /**
      * Maximum measurement range of the sensor.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1974,7 +1817,6 @@ declare namespace sensor {
 
     /**
      * Minimum sample period allowed, in ns.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1983,7 +1825,6 @@ declare namespace sensor {
 
     /**
      * Maximum sample period allowed, in ns.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1992,7 +1833,6 @@ declare namespace sensor {
 
     /**
      * Sensor accuracy.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -2001,7 +1841,6 @@ declare namespace sensor {
 
     /**
      * Sensor power.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -2011,7 +1850,6 @@ declare namespace sensor {
 
   /**
    * Obtains the sensor information of a specified type.
-   * 
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
    * @param { AsyncCallback<Sensor> } callback - callback sensor info.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2023,7 +1861,6 @@ declare namespace sensor {
 
   /**
    * Obtains the sensor information of a specified type.
-   * 
    * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
    * @returns { Promise<Sensor> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2035,7 +1872,6 @@ declare namespace sensor {
 
   /**
    * Obtains all sensor information on the device.
-   * 
    * @param { AsyncCallback<Array<Sensor>> } callback - callback sensor list.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14500101 - Service exception.
@@ -2046,7 +1882,6 @@ declare namespace sensor {
 
   /**
    * Obtains all sensor information on the device.
-   * 
    * @returns { Promise<Array<Sensor>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14500101 - Service exception.
@@ -2057,7 +1892,6 @@ declare namespace sensor {
 
   /**
    * Indicates geomagnetic field data.
-   * 
    * @typedef GeomagneticResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -2065,7 +1899,6 @@ declare namespace sensor {
   interface GeomagneticResponse {
     /**
      * Geomagnetic x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2074,7 +1907,6 @@ declare namespace sensor {
 
     /**
      * Geomagnetic y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2083,7 +1915,6 @@ declare namespace sensor {
 
     /**
      * Geomagnetic z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2092,7 +1923,6 @@ declare namespace sensor {
 
     /**
      * The Angle between the earth's magnetic field lines and the horizontal plane.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2101,7 +1931,6 @@ declare namespace sensor {
 
     /**
      * The Angle of magnetic north and true north on a horizontal plane.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2110,7 +1939,6 @@ declare namespace sensor {
 
     /**
      * The horizontal strength of the geomagnetic field.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2119,7 +1947,6 @@ declare namespace sensor {
 
     /**
      * The total strength of the geomagnetic field.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2129,7 +1956,6 @@ declare namespace sensor {
 
   /**
    * Indicates geographic location.
-   * 
    * @typedef LocationOptions
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -2137,7 +1963,6 @@ declare namespace sensor {
   interface LocationOptions {
     /**
      * Specifies the latitude of the point.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2146,7 +1971,6 @@ declare namespace sensor {
 
     /**
      * Specifies the longitude of the point.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2155,7 +1979,6 @@ declare namespace sensor {
 
     /**
      * Specifies the altitude of the point.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2165,7 +1988,6 @@ declare namespace sensor {
 
   /**
    * Implements the calculation of the geomagnetic field at a specific location on Earth.
-   * 
    * @param { LocationOptions } locationOptions - Indicates geographic location, {@code LocationOptions}.
    * @param { number } timeMillis - Indicates the time at which the magnetic declination is to be obtained, 
    * in milliseconds since the Unix epoch.
@@ -2179,7 +2001,6 @@ declare namespace sensor {
 
   /**
    * Implements the calculation of the geomagnetic field at a specific location on Earth.
-   * 
    * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
    * @param { number } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
    * in milliseconds since the Unix epoch.
@@ -2193,7 +2014,6 @@ declare namespace sensor {
 
   /**
    * Obtains the geomagnetic field at a specific location on the Earth.
-   * 
    * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
    * @param { number } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
    * in milliseconds since the Unix epoch.
@@ -2207,7 +2027,6 @@ declare namespace sensor {
 
   /**
    * Obtains the geomagnetic field at a specific location on the Earth.
-   * 
    * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
    * @param { number } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
    * in milliseconds since the Unix epoch.
@@ -2221,7 +2040,6 @@ declare namespace sensor {
 
   /**
    * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * 
    * @param { number } seaPressure - Indicates the sea level pressure, in hPa.
    * @param { number } currentPressure - Indicates the atmospheric pressure measured by the barometer, in hPa.
    * @param { AsyncCallback<number> } callback - callback device altitude.
@@ -2234,7 +2052,6 @@ declare namespace sensor {
 
   /**
    * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   *
    * @param { number } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
    * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
    * @returns { Promise<number> } Returns the altitude in meters at which the device is located.
@@ -2247,7 +2064,6 @@ declare namespace sensor {
 
   /**
    * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * 
    * @param { number } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
    * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
    * @param { AsyncCallback<number> } callback - callback device altitude.
@@ -2260,7 +2076,6 @@ declare namespace sensor {
 
   /**
    * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * 
    * @param { number } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
    * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
    * @returns { Promise<number> } Promise used to return the result.
@@ -2273,7 +2088,6 @@ declare namespace sensor {
 
   /**
    * Computes the geomagnetic inclination angle in radians from the inclination matrix.
-   * 
    * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
    * @param { AsyncCallback<number> } callback - callback geomagnetic inclination data.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2285,7 +2099,6 @@ declare namespace sensor {
 
   /**
    * Computes the geomagnetic inclination angle in radians from the inclination matrix.
-   * 
    * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
    * @returns { Promise<number> } Returns the geomagnetic inclination angle in radians.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2297,7 +2110,6 @@ declare namespace sensor {
 
   /**
    * Computes the geomagnetic inclination in radians from the inclination matrix.
-   * 
    * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
    * @param { AsyncCallback<number> } callback - callback inclination in radians.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2309,7 +2121,6 @@ declare namespace sensor {
 
   /**
    * Computes the geomagnetic inclination in radians from the inclination matrix.
-   * 
    * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
    * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2321,7 +2132,6 @@ declare namespace sensor {
 
   /**
    * Get the angle change between two rotation matrices
-   * 
    * @param { Array<number> } currentRotationMatrix - Indicates the current rotation matrix.
    * @param { Array<number> } preRotationMatrix - Indicates the current rotation matrix.
    * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
@@ -2335,7 +2145,6 @@ declare namespace sensor {
 
   /**
    * Get the angle change between two rotation matrices
-   *
    * @param { Array<number> } currentRotationMatrix - currentRotationMatrix Indicates the current rotation matrix.
    * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
    * @returns { Promise<Array<number>> } Returns the array of number(z, x and y) in which the angle variety.
@@ -2348,7 +2157,6 @@ declare namespace sensor {
 
   /**
    * Get the angle variation between two rotation matrices.
-   * 
    * @param { Array<number> } currentRotationMatrix - currentRotationMatrix Indicates the current rotation matrix.
    * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
    * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
@@ -2362,7 +2170,6 @@ declare namespace sensor {
 
   /**
    * Get the angle variation between two rotation matrices.
-   * 
    * @param { Array<number> } currentRotationMatrix -  Indicates the current rotation matrix.
    * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
    * @returns { Promise<Array<number>> } Promise used to return the result.
@@ -2375,7 +2182,6 @@ declare namespace sensor {
 
   /**
    * Convert rotation vector to rotation matrix.
-   *
    * @param { Array<number> } rotationVector - Indicates the rotation vector.
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2387,7 +2193,6 @@ declare namespace sensor {
 
   /**
    * Convert rotation vector to rotation matrix.
-   *
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @returns { Promise<Array<number>> } Returns the rotation matrix.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2399,7 +2204,6 @@ declare namespace sensor {
 
   /**
    * Convert rotation vector to rotation matrix.
-   * 
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2411,7 +2215,6 @@ declare namespace sensor {
 
   /**
    * Convert rotation vector to rotation matrix.
-   * 
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2423,21 +2226,19 @@ declare namespace sensor {
 
   /**
    * Indicates the axis of the new coordinate system that coincides with the XY axis of the original coordinate system.
-   * 
    * @typedef CoordinatesOptions
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
   interface CoordinatesOptions {
     /** Indicates the axis of the new coordinate system that coincides with the X axis of the original coordinate system. 
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     x: number;
+
     /** Indicates the axis of the new coordinate system that coincides with the Z axis of the original coordinate system. 
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2447,7 +2248,6 @@ declare namespace sensor {
 
   /**
    * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System
-   * 
    * @param { Array<number> } inRotationVector - Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
@@ -2461,7 +2261,6 @@ declare namespace sensor {
 
   /**
    * Rotate the provided rotation matrix so that it can be represented in a different way Coordinate System
-   * 
    * @param { Array<number> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @returns { Promise<Array<number>> } Returns the transformed rotation matrix.
@@ -2474,7 +2273,6 @@ declare namespace sensor {
 
   /**
    * Rotate the provided rotation matrix so that it can be represented in a different way coordinate System.
-   * 
    * @param { Array<number> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
@@ -2488,7 +2286,6 @@ declare namespace sensor {
 
   /**
    * Rotate the provided rotation matrix so that it can be represented in a different way coordinate System.
-   * 
    * @param { Array<number> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
    * @returns { Promise<Array<number>> } Promise used to return the result.
@@ -2501,7 +2298,6 @@ declare namespace sensor {
 
   /**
    * convert a rotation vector to a normalized quaternion.
-   * 
    * @param { Array<number> } rotationVector - Indicates the rotation vector.
    * @param { AsyncCallback<Array<number>> } callback - callback a normalized quaternion.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2513,7 +2309,6 @@ declare namespace sensor {
 
   /**
    * convert a rotation vector to a normalized quaternion.
-   * 
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @returns { Promise<Array<number>> } Returns the normalized quaternion.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2525,7 +2320,6 @@ declare namespace sensor {
 
   /**
    * convert a rotation vector to a normalized quaternion.
-   * 
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @param { AsyncCallback<Array<number>> } callback - callback a normalized quaternion.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2537,7 +2331,6 @@ declare namespace sensor {
 
   /**
    * convert a rotation vector to a normalized quaternion.
-   * 
    * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2549,7 +2342,6 @@ declare namespace sensor {
 
   /**
    * Computes the device's orientation based on the rotation matrix.
-   * 
    * @param { Array<number> } rotationMatrix - Indicates the rotation matrix.
    * @param { AsyncCallback<Array<number>> } callback - callback the angle of rotation around the z, x, y axis.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2561,7 +2353,6 @@ declare namespace sensor {
 
   /**
    * Computes the device's orientation based on the rotation matrix.
-   * 
    * @param { Array<number> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
    * @returns { Promise<Array<number>> } Returns the array is the angle of rotation around the z, x, y axis.
    * @syscap SystemCapability.Sensors.Sensor
@@ -2573,7 +2364,6 @@ declare namespace sensor {
 
   /**
    * Computes the device's orientation based on the rotation matrix.
-   * 
    * @param { Array<number> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
    * @param { AsyncCallback<Array<number>> } callback - callback the angle of rotation around the z, x, y axis.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2585,7 +2375,6 @@ declare namespace sensor {
 
   /**
    * Computes the device's orientation based on the rotation matrix.
-   * 
    * @param { Array<number> } rotationMatrix - rotationMatrix Indicates the rotation matrix.
    * @returns { Promise<Array<number>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2597,24 +2386,21 @@ declare namespace sensor {
 
   /**
    * Indicates the response of rotation matrix.
-   * 
    * @typedef RotationMatrixResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
   interface RotationMatrixResponse {
-    /** 
+    /**
      * rotation matrix. 
-     * 
      * @type { Array<number> }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     rotation: Array<number>;
 
-    /** 
+    /**
      * inclination matrix. 
-     * 
      * @type { Array<number> }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2624,7 +2410,6 @@ declare namespace sensor {
 
   /**
    * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   *
    * @param { Array<number> } gravity - Indicates the gravity vector.
    * @param { Array<number> } geomagnetic - Indicates the geomagnetic vector.
    * @param { AsyncCallback<RotationMatrixResponse> } callback - callback rotation matrix and inclination matrix.
@@ -2637,7 +2422,6 @@ declare namespace sensor {
 
   /**
    * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   *
    * @param { Array<number> } gravity - gravity Indicates the gravity vector.
    * @param { Array<number> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
    * @returns { Promise<RotationMatrixResponse> } Returns the rotation matrix, {@code RotationMatrixResponse}.
@@ -2650,7 +2434,6 @@ declare namespace sensor {
 
   /**
    * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   * 
    * @param { Array<number> } gravity - gravity Indicates the gravity vector.
    * @param { Array<number> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
    * @param { AsyncCallback<RotationMatrixResponse> } callback - callback rotation matrix and inclination matrix.
@@ -2663,7 +2446,6 @@ declare namespace sensor {
 
   /**
    * Calculate rotation matrix based on gravity vector and geomagnetic vector.
-   * 
    * @param { Array<number> } gravity - gravity Indicates the gravity vector.
    * @param { Array<number> } geomagnetic - geomagnetic Indicates the geomagnetic vector.
    * @returns { Promise<RotationMatrixResponse> } Promise used to return the result.
@@ -2676,16 +2458,13 @@ declare namespace sensor {
 
   /**
    * Subscribe to the sensor's optional parameters.
-   * 
    * @typedef Options
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
   interface Options {
-
     /**
      * Sensor event reporting event interval
-     * 
      * @type { ?number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2695,7 +2474,6 @@ declare namespace sensor {
 
   /**
    * The type of number.
-   * 
    * @enum { number }
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -2705,7 +2483,6 @@ declare namespace sensor {
   enum SensorType {
     /**
      * Acceleration sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2714,7 +2491,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope sensor
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2723,7 +2499,6 @@ declare namespace sensor {
 
     /**
      * Ambient light sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2732,7 +2507,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2741,7 +2515,6 @@ declare namespace sensor {
 
     /**
      * Barometric pressure sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2750,7 +2523,6 @@ declare namespace sensor {
 
     /**
      * Hall effect sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2759,7 +2531,6 @@ declare namespace sensor {
 
     /**
      * Proximity sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2768,7 +2539,6 @@ declare namespace sensor {
 
     /**
      * Humidity sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2777,7 +2547,6 @@ declare namespace sensor {
 
     /**
      * Orientation sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2786,7 +2555,6 @@ declare namespace sensor {
 
     /**
      *  Gravity sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2795,7 +2563,6 @@ declare namespace sensor {
 
     /**
      * Linear acceleration sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2804,7 +2571,6 @@ declare namespace sensor {
 
     /**
      * Rotation vector sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2813,7 +2579,6 @@ declare namespace sensor {
 
     /**
      * Ambient temperature sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2822,7 +2587,6 @@ declare namespace sensor {
 
     /**
      * Uncalibrated magnetic field sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2831,7 +2595,6 @@ declare namespace sensor {
 
     /**
      * Uncalibrated gyroscope sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2840,7 +2603,6 @@ declare namespace sensor {
 
     /**
      * Significant motion sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2849,7 +2611,6 @@ declare namespace sensor {
 
     /**
      * Pedometer detection sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2858,7 +2619,6 @@ declare namespace sensor {
 
     /**
      * Pedometer sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2867,7 +2627,6 @@ declare namespace sensor {
 
     /**
      * Heart rate sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2876,7 +2635,6 @@ declare namespace sensor {
 
     /**
      * Wear detection sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2885,7 +2643,6 @@ declare namespace sensor {
 
     /**
      * Uncalibrated acceleration sensor.
-     * 
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -2895,7 +2652,6 @@ declare namespace sensor {
 
   /**
    * The basic data structure of the sensor event.
-   * 
    * @typedef Response
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -2903,7 +2659,6 @@ declare namespace sensor {
   interface Response {
     /**
      * The timestamp of the reported sensor data
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2913,7 +2668,6 @@ declare namespace sensor {
 
   /**
    * Acceleration sensor event data.
-   * 
    * @typedef AccelerometerResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -2921,7 +2675,6 @@ declare namespace sensor {
   interface AccelerometerResponse extends Response {
     /**
      * Acceleration x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2930,7 +2683,6 @@ declare namespace sensor {
 
     /**
      * Acceleration y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2939,7 +2691,6 @@ declare namespace sensor {
 
     /**
      * Acceleration z-axis component
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2949,7 +2700,6 @@ declare namespace sensor {
 
   /**
    * Linear acceleration sensor event data.
-   * 
    * @typedef LinearAccelerometerResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -2957,7 +2707,6 @@ declare namespace sensor {
   interface LinearAccelerometerResponse extends Response{
     /**
      * Linear acceleration x-axis component
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2966,7 +2715,6 @@ declare namespace sensor {
 
     /**
      * Linear acceleration y-axis component
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2975,7 +2723,6 @@ declare namespace sensor {
 
     /**
      * Linear acceleration z-axis component
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -2985,7 +2732,6 @@ declare namespace sensor {
 
   /**
    * Acceleration uncalibrated sensor event data.
-   * 
    * @typedef AccelerometerUncalibratedResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -2993,7 +2739,6 @@ declare namespace sensor {
   interface AccelerometerUncalibratedResponse extends Response {
     /**
      * Acceleration uncalibrated x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3002,7 +2747,6 @@ declare namespace sensor {
 
     /**
      * Acceleration uncalibrated y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3011,7 +2755,6 @@ declare namespace sensor {
 
     /**
      * Acceleration uncalibrated z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3048,7 +2791,6 @@ declare namespace sensor {
 
   /**
    * Gravity sensor event data.
-   * 
    * @typedef GravityResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3056,7 +2798,6 @@ declare namespace sensor {
   interface GravityResponse extends Response {
     /**
      * Gravity x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3065,7 +2806,6 @@ declare namespace sensor {
 
     /**
      * Gravity y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3074,7 +2814,6 @@ declare namespace sensor {
 
     /**
      * Gravity z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3084,7 +2823,6 @@ declare namespace sensor {
 
   /**
    * Orientation sensor event data.
-   * 
    * @typedef OrientationResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3092,7 +2830,6 @@ declare namespace sensor {
   interface OrientationResponse extends Response {
     /**
      * The device rotates at an angle around the Z axis.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3101,7 +2838,6 @@ declare namespace sensor {
 
     /**
      * The device rotates at an angle around the X axis.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3110,7 +2846,6 @@ declare namespace sensor {
 
     /**
      * The device rotates at an angle around the Y axis.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3120,7 +2855,6 @@ declare namespace sensor {
 
   /**
    * Rotation vector sensor event data.
-   * 
    * @typedef RotationVectorResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3128,7 +2862,6 @@ declare namespace sensor {
   interface RotationVectorResponse extends Response {
     /**
      * Rotation vector x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3137,7 +2870,6 @@ declare namespace sensor {
 
     /**
      * Rotation vector y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3146,7 +2878,6 @@ declare namespace sensor {
 
     /**
      * Rotation vector z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3155,7 +2886,6 @@ declare namespace sensor {
 
     /**
      * Scalar quantity.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3165,7 +2895,6 @@ declare namespace sensor {
 
   /**
    * Gyroscope sensor event data.
-   * 
    * @typedef GyroscopeResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3173,7 +2902,6 @@ declare namespace sensor {
   interface GyroscopeResponse extends Response {
     /**
      * Gyroscope x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3182,7 +2910,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3191,7 +2918,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3201,7 +2927,6 @@ declare namespace sensor {
 
   /**
    * Gyroscope uncalibrated sensor event data.
-   * 
    * @typedef GyroscopeUncalibratedResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3209,7 +2934,6 @@ declare namespace sensor {
   interface GyroscopeUncalibratedResponse extends Response {
     /**
      * Gyroscope uncalibrated x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3218,7 +2942,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope uncalibrated y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3227,7 +2950,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope uncalibrated z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3236,7 +2958,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope uncalibrated x-axis offset.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3245,7 +2966,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope uncalibrated y-axis offset.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3254,7 +2974,6 @@ declare namespace sensor {
 
     /**
      * Gyroscope uncalibrated z-axis offset.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3264,7 +2983,6 @@ declare namespace sensor {
 
   /**
    * Significant motion sensor event data.
-   * 
    * @typedef SignificantMotionResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3272,7 +2990,6 @@ declare namespace sensor {
   interface SignificantMotionResponse extends Response {
     /**
      * The degree of significant motion.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3282,7 +2999,6 @@ declare namespace sensor {
 
   /**
    * Proximity sensor event data.
-   * 
    * @typedef ProximityResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3290,7 +3006,6 @@ declare namespace sensor {
   interface ProximityResponse extends Response {
     /**
      * Indicates the degree of proximity, event 0 indicates proximity, and greater than 0 indicates distance.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3300,15 +3015,13 @@ declare namespace sensor {
 
   /**
    * Light sensor event data.
-   * 
    * @typedef LightResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
-  interface LightResponse extends Response {
+    interface LightResponse extends Response {
     /**
      * Indicates light intensity, in lux.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3318,7 +3031,6 @@ declare namespace sensor {
 
   /**
    * Hall sensor event data.
-   * 
    * @typedef HallResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3326,7 +3038,6 @@ declare namespace sensor {
   interface HallResponse extends Response {
     /**
      * Indicates hall status, 0 indicates open, and greater than 0 indicates suction.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3336,7 +3047,6 @@ declare namespace sensor {
 
   /**
    * Magnetic field sensor event data.
-   * 
    * @typedef MagneticFieldResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3344,7 +3054,6 @@ declare namespace sensor {
   interface MagneticFieldResponse extends Response {
     /**
      * Magnetic field x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3353,7 +3062,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3362,7 +3070,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3372,7 +3079,6 @@ declare namespace sensor {
 
   /**
    * Magnetic field uncalibrated sensor event data.
-   * 
    * @typedef MagneticFieldUncalibratedResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3380,7 +3086,6 @@ declare namespace sensor {
   interface MagneticFieldUncalibratedResponse extends Response {
     /**
      * Magnetic field uncalibrated x-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3389,7 +3094,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field uncalibrated y-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3398,7 +3102,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field uncalibrated z-axis component.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3407,7 +3110,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field uncalibrated x-axis offset.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3416,7 +3118,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field uncalibrated y-axis offset.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3425,7 +3126,6 @@ declare namespace sensor {
 
     /**
      * Magnetic field uncalibrated z-axis offset.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3435,7 +3135,6 @@ declare namespace sensor {
 
   /**
    * Pedometer sensor event data.
-   * 
    * @typedef PedometerResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3443,7 +3142,6 @@ declare namespace sensor {
   interface PedometerResponse extends Response {
     /**
      * Indicates the number of steps.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3453,7 +3151,6 @@ declare namespace sensor {
 
   /**
    * Humidity sensor event data.
-   * 
    * @typedef HumidityResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3461,7 +3158,6 @@ declare namespace sensor {
   interface HumidityResponse extends Response {
     /**
      * Indicates the number of humidity.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3471,7 +3167,6 @@ declare namespace sensor {
 
   /**
    * Pedometer detection sensor event data.
-   * 
    * @typedef PedometerDetectionResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3479,7 +3174,6 @@ declare namespace sensor {
   interface PedometerDetectionResponse extends Response {
     /**
      * Indicates the pedometer detection status, 1 indicates that a walking action has occurred, and 0 indicates that no movement has occurred.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3489,7 +3183,6 @@ declare namespace sensor {
 
   /**
    * Ambient temperature sensor event data.
-   * 
    * @typedef  AmbientTemperatureResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3497,7 +3190,6 @@ declare namespace sensor {
   interface AmbientTemperatureResponse extends Response {
     /**
      * Indicates ambient temperature, in celsius.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3507,7 +3199,6 @@ declare namespace sensor {
 
   /**
    * Barometer sensor event data.
-   * 
    * @typedef BarometerResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3515,7 +3206,6 @@ declare namespace sensor {
   interface BarometerResponse extends Response {
     /**
      * Indicates the number of barometer, in pascal.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3525,7 +3215,6 @@ declare namespace sensor {
 
   /**
    * Heart rate sensor event data.
-   * 
    * @typedef HeartRateResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3533,7 +3222,6 @@ declare namespace sensor {
   interface HeartRateResponse extends Response {
     /**
      * Indicates the number of heart rate.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3543,7 +3231,6 @@ declare namespace sensor {
 
   /**
    * Wear detection sensor event data.
-   * 
    * @typedef WearDetectionResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
@@ -3551,7 +3238,6 @@ declare namespace sensor {
   interface WearDetectionResponse extends Response {
     /**
      * Indicates the status of wear detection, 1 for wearing, 0 for wearing not.
-     * 
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
@@ -3560,4 +3246,4 @@ declare namespace sensor {
   }
 }
 
- export default sensor;
+export default sensor;

@@ -49,5 +49,5 @@ export interface TriggerInfo {
   /**
    * Custom extra data you want to add for triggering a WantAgent.
    */
-  extraInfo?: {[key: string]: any};
+  extraInfo?: { [key: string]: any };
 }

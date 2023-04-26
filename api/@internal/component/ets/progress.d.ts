@@ -22,7 +22,7 @@
  * @form
  * @since 9
  */
- declare interface ProgressOptions {
+declare interface ProgressOptions {
   /**
    * Sets the value of Progress.
    * @since 7
@@ -57,11 +57,11 @@
    * Sets the type of Progress.
    * @since 8
    */
-   /**
-   * Sets the type of Progress.
-   * @form
-   * @since 9
-   */
+  /**
+  * Sets the type of Progress.
+  * @form
+  * @since 9
+  */
   type?: ProgressType
 }
 

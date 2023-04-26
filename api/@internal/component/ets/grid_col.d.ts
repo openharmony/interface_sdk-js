@@ -19,47 +19,47 @@
  * @since 9
  */
 declare interface GridColColumnOption {
-    /**
-     * Grid Col Column Option xs
-     * @form
-     * @since 9
-     */
-    xs?: number,
+  /**
+   * Grid Col Column Option xs
+   * @form
+   * @since 9
+   */
+  xs?: number,
 
-    /**
-     * Grid Col Column Option sm
-     * @form
-     * @since 9
-     */
-    sm?: number,
+  /**
+   * Grid Col Column Option sm
+   * @form
+   * @since 9
+   */
+  sm?: number,
 
-    /**
-     * Grid Col Column Option md
-     * @form
-     * @since 9
-     */
-    md?: number,
+  /**
+   * Grid Col Column Option md
+   * @form
+   * @since 9
+   */
+  md?: number,
 
-    /**
-     * Grid Col Column Option lg
-     * @form
-     * @since 9
-     */
-    lg?: number,
+  /**
+   * Grid Col Column Option lg
+   * @form
+   * @since 9
+   */
+  lg?: number,
 
-    /**
-     * Grid Col Column Option xl
-     * @form
-     * @since 9
-     */
-    xl?: number,
+  /**
+   * Grid Col Column Option xl
+   * @form
+   * @since 9
+   */
+  xl?: number,
 
-    /**
-     * Grid Col Column Option xxl
-     * @form
-     * @since 9
-     */
-    xxl?: number,
+  /**
+   * Grid Col Column Option xxl
+   * @form
+   * @since 9
+   */
+  xxl?: number,
 }
 
 /**
@@ -68,26 +68,26 @@ declare interface GridColColumnOption {
  * @since 9
  */
 declare interface GridColOptions {
-    /**
-     * Sets the span of current gird-container item.
-     * @form
-     * @since 9
-     */
-    span?: number | GridColColumnOption;
+  /**
+   * Sets the span of current gird-container item.
+   * @form
+   * @since 9
+   */
+  span?: number | GridColColumnOption;
 
-    /**
-     * Sets the offset of current gird-container item.
-     * @form
-     * @since 9
-     */
-    offset?: number | GridColColumnOption;
+  /**
+   * Sets the offset of current gird-container item.
+   * @form
+   * @since 9
+   */
+  offset?: number | GridColColumnOption;
 
-    /**
-     * Sets the order of current gird-container item.
-     * @form
-     * @since 9
-     */
-    order?: number | GridColColumnOption;
+  /**
+   * Sets the order of current gird-container item.
+   * @form
+   * @since 9
+   */
+  order?: number | GridColColumnOption;
 }
 
 /**
@@ -96,35 +96,35 @@ declare interface GridColOptions {
  * @since 9
  */
 interface GridColInterface {
-    /**
-     * Defines the constructor of GridContainer.
-     * @form
-     * @since 9
-     */
-    (option?: GridColOptions): GridColAttribute;
+  /**
+   * Defines the constructor of GridContainer.
+   * @form
+   * @since 9
+   */
+  (option?: GridColOptions): GridColAttribute;
 }
 
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
-    /**
-     * Sets the span of current gird-container item.
-     * @form
-     * @since 9
-     */
-    span(value: number | GridColColumnOption): GridColAttribute;
+  /**
+   * Sets the span of current gird-container item.
+   * @form
+   * @since 9
+   */
+  span(value: number | GridColColumnOption): GridColAttribute;
 
-    /**
-     * Sets the offset of current gird-container item.
-     * @form
-     * @since 9
-     */
-    gridColOffset(value: number | GridColColumnOption): GridColAttribute;
+  /**
+   * Sets the offset of current gird-container item.
+   * @form
+   * @since 9
+   */
+  gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
-    /**
-     * Sets the order of current gird-container item.
-     * @form
-     * @since 9
-     */
-    order(value: number | GridColColumnOption): GridColAttribute;
+  /**
+   * Sets the order of current gird-container item.
+   * @form
+   * @since 9
+   */
+  order(value: number | GridColColumnOption): GridColAttribute;
 }
 
 /**

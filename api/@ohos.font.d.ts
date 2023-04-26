@@ -19,9 +19,9 @@
  * @import font from '@ohos.font';
  */
 declare namespace font {
-    /**
-   * @since 9
-   */
+  /**
+ * @since 9
+ */
   interface FontOptions {
 
     /**
@@ -41,7 +41,7 @@ declare namespace font {
    * @param options FontOptions
    * @since 9
    */
-  function registerFont(options: FontOptions):void;
+  function registerFont(options: FontOptions): void;
 
 }
 

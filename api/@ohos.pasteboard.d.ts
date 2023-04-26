@@ -274,7 +274,7 @@ declare namespace pasteboard {
      * @since 9
      */
     data: {
-        [mimeType: string]: ArrayBuffer
+      [mimeType: string]: ArrayBuffer
     }
 
     /**

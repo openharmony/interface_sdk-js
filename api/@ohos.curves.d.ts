@@ -59,8 +59,8 @@ declare namespace curves {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 9
-    */ 
-     interpolate(fraction : number) : number;
+    */
+    interpolate(fraction: number): number;
   }
 
   /**
@@ -83,7 +83,7 @@ declare namespace curves {
    * @useinstead initCurve
    */
   function init(curve?: Curve): string;
- 
+
   /**
    * Constructs a step curve when called.
    * @param { number } count
@@ -93,8 +93,8 @@ declare namespace curves {
    * @crossplatform
    * @since 9
    */
-   function stepsCurve(count: number, end: boolean): ICurve;
- 
+  function stepsCurve(count: number, end: boolean): ICurve;
+
   /**
    * Constructs a step curve when called.
    * @param { number } count
@@ -106,7 +106,7 @@ declare namespace curves {
    * @useinstead stepsCurve
    */
   function steps(count: number, end: boolean): string;
- 
+
   /**
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
@@ -119,7 +119,7 @@ declare namespace curves {
    * @since 9
    */
   function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
- 
+
   /**
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
@@ -133,7 +133,7 @@ declare namespace curves {
    * @useinstead cubicBezierCurve
    */
   function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
- 
+
   /**
    * Constructs a spring curve when called.
    * @param { number } velocity
@@ -146,7 +146,7 @@ declare namespace curves {
    * @since 9
    */
   function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
- 
+
   /**
    * Constructs a spring curve when called.
    * @param { number } velocity

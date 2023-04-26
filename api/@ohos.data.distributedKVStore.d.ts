@@ -57,7 +57,7 @@ declare namespace distributedKVStore {
      * if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
      * @since 10
      */
-     context: BaseContext;
+    context: BaseContext;
   }
 
   /**

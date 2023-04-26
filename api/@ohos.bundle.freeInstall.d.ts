@@ -122,8 +122,8 @@ declare namespace freeInstall {
    * @systemapi
    * @since 9
    */
-   function setHapModuleUpgradeFlag(bundleName: string,
-      moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>) : void;
+  function setHapModuleUpgradeFlag(bundleName: string,
+    moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to upgrade the module.
@@ -199,8 +199,8 @@ declare namespace freeInstall {
    * @systemapi
    * @since 9
    */
-   function getBundlePackInfo(bundleName: string,
-      bundlePackFlag : BundlePackFlag, callback: AsyncCallback<BundlePackInfo>): void;
+  function getBundlePackInfo(bundleName: string,
+    bundlePackFlag: BundlePackFlag, callback: AsyncCallback<BundlePackInfo>): void;
 
   /**
    * Obtains bundlePackInfo based on bundleName and bundlePackFlags.

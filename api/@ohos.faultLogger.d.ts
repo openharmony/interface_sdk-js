@@ -64,7 +64,7 @@ declare namespace FaultLogger {
    * @deprecated since 9
    * @useinstead ohos.faultlogger/FaultLogger#query
    */
-  function querySelfFaultLog(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>) : void;
+  function querySelfFaultLog(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>): void;
 
   /**
    * Query the result of the current application FaultLog in return promise mode.
@@ -75,7 +75,7 @@ declare namespace FaultLogger {
    * @deprecated since 9
    * @useinstead ohos.faultlogger/FaultLogger#query
    */
-  function querySelfFaultLog(faultType: FaultType) : Promise<Array<FaultLogInfo>>;
+  function querySelfFaultLog(faultType: FaultType): Promise<Array<FaultLogInfo>>;
 
   /**
    * Query the result of the current application FaultLog in callback Mode.
@@ -87,7 +87,7 @@ declare namespace FaultLogger {
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
    */
-  function query(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>) : void;
+  function query(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>): void;
 
   /**
    * Query the result of the current application FaultLog in return promise mode.
@@ -99,7 +99,7 @@ declare namespace FaultLogger {
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
    */
-  function query(faultType: FaultType) : Promise<Array<FaultLogInfo>>;
+  function query(faultType: FaultType): Promise<Array<FaultLogInfo>>;
 
   /**
    * FaultLog information data structure.
