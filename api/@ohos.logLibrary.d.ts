@@ -17,126 +17,150 @@ import { AsyncCallback } from './basic';
 import { Callback } from './basic';
 
 /**
- * @since 10
- * @systemapi hide for inner use
+ * @namespace logLibrary
  * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
- * @import import loglibrary from '@ohos.logLibrary'
+ * @systemapi
+ * @since 10
  */
 declare namespace logLibrary {
     /**
      * log file entry
+     *
+     * @typedef LogEntry
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
+     * @since 10
      */
     interface LogEntry {
         /**
          * log file name
+         *
+         * @type { string }
+         * @since 10
          */
         name: string;
+
         /**
          * modify time, second from 1970-01-01
+         *
+         * @type { number }
+         * @since 10
          */
         mtime: number;
+
         /**
          * log file size, byte
+         *
+         * @type { number }
+         * @since 10
          */
         size: number;
     }
 
     /**
      * List all log names of log type
-     * 
-     * @since 10
-     * @systemapi hide for inner use
+     *
      * @permission ohos.permission.READ_HIVIEW_SYSTEM
-     * @param logType log type
-     * @throws {BusinessError} 201 - Permission denied
-     * @throws {BusinessError} 401 - Invalid argument
-     * @return {string[]} return string[]
+     * @param  { string } logType - log type
+     * @returns { LogEntry[] } return LogEntry[]
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid argument
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
+     * @since 10
      */
     function listSync(logType: string): LogEntry[];
 
     /**
      * Copy log to dest path
-     * 
-     * @since 10
-     * @systemapi hide for inner use
+     *
      * @permission ohos.permission.READ_HIVIEW_SYSTEM
-     * @param logType log type
-     * @param logName log name
-     * @param dest    log path under hiview sandbox of HAP
-     * @throws {BusinessError} 201 - Permission denied
-     * @throws {BusinessError} 401 - Invalid argument
-     * @throws {BusinessError} 21300001 - source file does not exists
-     * @throws {BusinessError} 21300002 - no permission to write dest file
-     * @return {string[]} return string[]
+     * @param { string } logType - log type
+     * @param { string } logName - log name
+     * @param { string } dest - log path under hiview sandbox of HAP
+     * @returns { void } return void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid argument
+     * @throws { BusinessError } 21300001 - source file does not exists
+     * @throws { BusinessError } 21300002 - no permission to write dest file
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
+     * @since 10
      */
     function copy(logType: string, logName: string, dest: string): Promise<void>;
 
     /**
      * Copy log to dest path
-     * 
-     * @since 10
-     * @systemapi hide for inner use
+     *
      * @permission ohos.permission.READ_HIVIEW_SYSTEM
-     * @param logType log type
-     * @param logName log name
-     * @param dest    log path under hiview sandbox of HAP
+     * @param { string } logType - log type
+     * @param { string } logName - log name
+     * @param { string } dest - log path under hiview sandbox of HAP
      * @param callback after finish copy log will callback
-     * @throws {BusinessError} 201 - Permission denied
-     * @throws {BusinessError} 401 - Invalid argument
-     * @throws {BusinessError} 21300001 - source file does not exists
-     * @throws {BusinessError} 21300002 - no permission to write dest file
-     * @return {string[]} return string[]
+     * @returns { void } return void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid argument
+     * @throws { BusinessError } 21300001 - source file does not exists
+     * @throws { BusinessError } 21300002 - no permission to write dest file
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
+     * @since 10
      */
     function copy(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
     /**
      * Move log to dest path
-     * 
-     * @since 10
-     * @systemapi hide for inner use
+     *
      * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-     * @param logType log type
-     * @param logName log name
-     * @param dest    log path under hiview sandbox of HAP
-     * @throws {BusinessError} 201 - Permission denied
-     * @throws {BusinessError} 401 - Invalid argument
-     * @throws {BusinessError} 21300001 - source file does not exists
-     * @throws {BusinessError} 21300002 - no permission to write dest file
-     * @return {string[]} return string[]
+     * @param { string } logType - log type
+     * @param { string } logName - log name
+     * @param { string } dest - log path under hiview sandbox of HAP
+     * @returns { void } return void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid argument
+     * @throws { BusinessError } 21300001 - source file does not exists
+     * @throws { BusinessError } 21300002 - no permission to write dest file
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
+     * @since 10
      */
     function move(logType: string, logName: string, dest: string): Promise<void>;
 
     /**
      * Move log to dest path
-     * 
-     * @since 10
-     * @systemapi hide for inner use
+     *
      * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-     * @param logType log type
-     * @param logName log name
-     * @param dest    log path under hiview sandbox of HAP
+     * @param { string } logType - log type
+     * @param { string } logName - log name
+     * @param { string } dest - log path under hiview sandbox of HAP
      * @param callback after finish move log will callback
-     * @throws {BusinessError} 201 - Permission denied
-     * @throws {BusinessError} 401 - Invalid argument
-     * @throws {BusinessError} 21300001 - source file does not exists
-     * @throws {BusinessError} 21300002 - no permission to write dest file
-     * @return {string[]} return string[]
+     * @returns { void } return void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid argument
+     * @throws { BusinessError } 21300001 - source file does not exists
+     * @throws { BusinessError } 21300002 - no permission to write dest file
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
+     * @since 10
      */
     function move(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
     /**
      * Remove the log
-     * 
-     * @since 10
-     * @systemapi hide for inner use
+     *
      * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-     * @param logType log type
-     * @param logName log name
-     * @throws {BusinessError} 201 - Permission denied
-     * @throws {BusinessError} 401 - Invalid argument
-     * @throws {BusinessError} 21300001 - source file does not exists
-     * @throws {BusinessError} 21300002 - no permission to write dest file
-    * @return {void} return void
+     * @param { string } logType - log type
+     * @param { string } logName - log name
+     * @returns { void } return void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid argument
+     * @throws { BusinessError } 21300001 - source file does not exists
+     * @throws { BusinessError } 21300002 - no permission to write dest file
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
+     * @since 10
      */
     function removeSync(logType: string, logName: string): void;
 }
+
+export default logLibrary;
