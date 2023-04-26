@@ -2704,7 +2704,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
-  interface LinearAccelerometerResponse extends Response{
+  interface LinearAccelerometerResponse extends Response {
     /**
      * Linear acceleration x-axis component
      * @type { number }
@@ -3019,7 +3019,7 @@ declare namespace sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8
    */
-    interface LightResponse extends Response {
+  interface LightResponse extends Response {
     /**
      * Indicates light intensity, in lux.
      * @type { number }
