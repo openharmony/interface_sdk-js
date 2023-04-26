@@ -14,6 +14,29 @@
  */
 
 /**
+ * Indicates the information of the route page.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface RouteInfo {
+  /**
+   * The name of the route page.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  name: string;
+
+  /**
+   * The detailed parameter of the route page.
+   * @type { unknown }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */ 
+  param?: unknown;
+}
+
+/**
  * The construct function of NavRouter.
  * @since 9
  */
@@ -23,6 +46,43 @@ declare interface NavRouterInterface {
    * @since 9
    */
   (): NavRouterAttribute;
+
+  /**
+   * NavDestination Constructor.
+   * @param { RouteInfo } value Indicates the information of route page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  (value: RouteInfo): NavRouterAttribute;
+}
+
+/**
+ * Define the route mode.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum NavRouteMode {
+  /**
+   * Create a new page to replace the current. The old page is destroyed but kept in the stack for recreating. 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PUSH_WITH_RECREATE,
+
+  /**
+   * Create a new page to cover the current. The old page is remained and kept in the stack. 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PUSH,
+
+  /**
+   * Create a new page to replace the current. The old page is destroyed and removed out of the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  REPLACE
 }
 
 /**
@@ -35,6 +95,16 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
    * @since 9
    */
   onStateChange(callback: (isActivated: boolean) => void): NavRouterAttribute;
+
+  /**
+   * Define the route mode.
+   * @param { mode } The route mode of the NavRouter.
+   * @default NavRouterMode.PUSH_WITH_RECREATE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavRouterAttribute } Returns the instance of the NavRouterAttribute.
+   * @since 10
+   */
+  mode(mode: NavRouteMode): NavRouterAttribute;
 }
 
 /**
