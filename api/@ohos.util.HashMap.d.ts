@@ -17,12 +17,14 @@ declare class HashMap<K, V> {
   /**
    * A constructor used to create a HashMap object.
    * @throws { BusinessError } 10200012 - The HashMap's constructor cannot be directly invoked.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the hashmap.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,6 +33,7 @@ declare class HashMap<K, V> {
    * Returns whether the Map object contains elements
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -40,6 +43,7 @@ declare class HashMap<K, V> {
    * @param key need to determine whether to include the key
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -49,6 +53,7 @@ declare class HashMap<K, V> {
    * @param value need to determine whether to include the value
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -58,6 +63,7 @@ declare class HashMap<K, V> {
    * @param key the index in HashMap
    * @returns value or null
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -67,6 +73,7 @@ declare class HashMap<K, V> {
    * @param map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -78,6 +85,7 @@ declare class HashMap<K, V> {
    * @returns the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -87,6 +95,7 @@ declare class HashMap<K, V> {
    * @param key  Target to be deleted
    * @returns Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -94,6 +103,7 @@ declare class HashMap<K, V> {
   /**
    * Clear all element groups in the map
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -101,6 +111,7 @@ declare class HashMap<K, V> {
   /**
    * Returns a new Iterator object that contains the keys contained in this map
    * @throws { BusinessError } 10200011 - The keys method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -108,6 +119,7 @@ declare class HashMap<K, V> {
   /**
    * Returns a new Iterator object that contains the values contained in this map
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -118,6 +130,7 @@ declare class HashMap<K, V> {
    * @param newValue Updated the target mapped value
    * @returns the boolean type(Is there a target pointed to by the key)
    * @throws { BusinessError } 10200011 - The replace method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -127,6 +140,7 @@ declare class HashMap<K, V> {
    * It does not perform functions on deleted keys
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -135,6 +149,7 @@ declare class HashMap<K, V> {
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -142,6 +157,7 @@ declare class HashMap<K, V> {
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
