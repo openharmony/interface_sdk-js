@@ -100,7 +100,7 @@ declare namespace particleAbility {
    * @returns unique identifier of the connection between the client and the service side.
    * @FAModelOnly
    */
-   function connectAbility(request: Want, options:ConnectOptions): number;
+  function connectAbility(request: Want, options: ConnectOptions): number;
 
   /**
   * Disconnects ability to a Service ability.
@@ -109,8 +109,8 @@ declare namespace particleAbility {
   * @param connection the connection id returned from connectAbility api.
   * @FAModelOnly
   */
-   function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-   function disconnectAbility(connection: number): Promise<void>;
+  function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
+  function disconnectAbility(connection: number): Promise<void>;
 
   /**
   * Obtain the errorCode.

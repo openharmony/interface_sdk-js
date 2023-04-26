@@ -26,64 +26,64 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
  * @since 9
  */
 declare namespace abilityDelegatorRegistry {
-    /**
-     * Get the AbilityDelegator object of the application.
-     * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    function getAbilityDelegator(): AbilityDelegator;
+  /**
+   * Get the AbilityDelegator object of the application.
+   * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  function getAbilityDelegator(): AbilityDelegator;
 
-    /**
-     * Get unit test arguments stored in the AbilityDelegatorArgs object.
-     * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    function getArguments(): AbilityDelegatorArgs;
+  /**
+   * Get unit test arguments stored in the AbilityDelegatorArgs object.
+   * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  function getArguments(): AbilityDelegatorArgs;
 
-    /**
-     * Describes all lifecycle states of an ability.
-     * @enum { number }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export enum AbilityLifecycleState {
-        UNINITIALIZED,
-        CREATE,
-        FOREGROUND,
-        BACKGROUND,
-        DESTROY,
-    }
+  /**
+   * Describes all lifecycle states of an ability.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export enum AbilityLifecycleState {
+    UNINITIALIZED,
+    CREATE,
+    FOREGROUND,
+    BACKGROUND,
+    DESTROY,
+  }
 
-    /**
-     * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export type AbilityDelegator = _AbilityDelegator
+  /**
+   * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export type AbilityDelegator = _AbilityDelegator
 
-    /**
-     * Store unit testing-related parameters, including test case names, and test runner name.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export type AbilityDelegatorArgs = _AbilityDelegatorArgs
+  /**
+   * Store unit testing-related parameters, including test case names, and test runner name.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export type AbilityDelegatorArgs = _AbilityDelegatorArgs
 
-    /**
-     * Provide methods for matching monitored Ability objects that meet specified conditions.
-     * The most recently matched Ability objects will be saved in the AbilityMonitor object.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export type AbilityMonitor = _AbilityMonitor
+  /**
+   * Provide methods for matching monitored Ability objects that meet specified conditions.
+   * The most recently matched Ability objects will be saved in the AbilityMonitor object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export type AbilityMonitor = _AbilityMonitor
 
-    /**
-     * A object that records the result of shell command executes.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export type ShellCmdResult = _ShellCmdResult
+  /**
+   * A object that records the result of shell command executes.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export type ShellCmdResult = _ShellCmdResult
 }
 
 export default abilityDelegatorRegistry;

@@ -17,12 +17,14 @@ declare class LinkedList<T> {
   /**
    * A constructor used to create a LinkedList object.
    * @throws { BusinessError } 10200012 - The LinkedList's constructor cannot be directly invoked.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -32,6 +34,7 @@ declare class LinkedList<T> {
    * @param element to be appended to this linkedlist
    * @returns the boolean type, returns true if the addition is successful, and returns false if it fails.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -43,6 +46,7 @@ declare class LinkedList<T> {
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -54,6 +58,7 @@ declare class LinkedList<T> {
    * @returns the T type
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -62,6 +67,7 @@ declare class LinkedList<T> {
    * Inserts the specified element at the beginning of this LinkedList.
    * @param element the element to add
    * @throws { BusinessError } 10200011 - The addFirst method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -71,6 +77,7 @@ declare class LinkedList<T> {
    * @returns the head of this list
    * @throws { BusinessError } 10200011 - The removeFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -80,6 +87,7 @@ declare class LinkedList<T> {
    * @returns the head of this list
    * @throws { BusinessError } 10200011 - The removeLast method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -89,6 +97,7 @@ declare class LinkedList<T> {
    * @param element element to be contained
    * @returns the boolean type,if linkedList contains the specified element,return true,else return false
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -99,6 +108,7 @@ declare class LinkedList<T> {
    * @param element element to be contained
    * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -111,6 +121,7 @@ declare class LinkedList<T> {
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -122,6 +133,7 @@ declare class LinkedList<T> {
    * @param element element to remove
    * @returns the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -135,6 +147,7 @@ declare class LinkedList<T> {
    * @throws { BusinessError } 10200011 - The removeFirstFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200017 - The element does not exist in this container.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -148,6 +161,7 @@ declare class LinkedList<T> {
    * @throws { BusinessError } 10200011 - The removeLastFound method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200017 - The element does not exist in this container.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -158,6 +172,7 @@ declare class LinkedList<T> {
    * @param element element to find
    * @returns the number type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -167,6 +182,7 @@ declare class LinkedList<T> {
    * or returns undefined if linkedlist is empty
    * @returns the T type ,returns undefined if linkedList is empty
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -176,6 +192,7 @@ declare class LinkedList<T> {
    * or returns undefined if linkedlist is empty
    * @returns the T type ,returns undefined if linkedList is empty
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -188,6 +205,7 @@ declare class LinkedList<T> {
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -203,15 +221,17 @@ declare class LinkedList<T> {
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void,
-  thisArg?: Object): void;
+    thisArg?: Object): void;
   /**
    * Removes all of the elements from this linkedlist.The linkedlist will
    * be empty after this call returns.length becomes 0
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -220,6 +240,7 @@ declare class LinkedList<T> {
    * Returns a shallow copy of this instance. (The elements themselves are not copied.)
    * @returns this linkedlist instance
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -228,6 +249,7 @@ declare class LinkedList<T> {
    * convert linkedlist to array
    * @returns the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -235,6 +257,7 @@ declare class LinkedList<T> {
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

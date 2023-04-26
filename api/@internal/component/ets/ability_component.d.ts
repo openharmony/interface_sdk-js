@@ -25,7 +25,7 @@ interface AbilityComponentInterface {
    * @since 9
    * @systemapi
    */
-  (value: {want: import('../api/@ohos.app.ability.Want').default}): AbilityComponentAttribute;
+  (value: { want: import('../api/@ohos.app.ability.Want').default }): AbilityComponentAttribute;
 }
 
 /**
@@ -45,7 +45,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    * @since 9
    * @systemapi
    */
-   onDisconnect(callback: () => void): AbilityComponentAttribute;
+  onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
 
 /**

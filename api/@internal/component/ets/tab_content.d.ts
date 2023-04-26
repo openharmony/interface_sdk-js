@@ -121,7 +121,7 @@ declare interface LabelStyle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */ 
+   */
   maxLines?: number;
 
   /**
@@ -129,7 +129,7 @@ declare interface LabelStyle {
    * @type { number | ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */  
+   */
   minFontSize?: number | ResourceStr;
 
   /**
@@ -237,13 +237,13 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-   /**
-   * constructor.
-   * @param { ResourceStr } content - indicates the content of the bottom tab bar 
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
+  /**
+  * constructor.
+  * @param { ResourceStr } content - indicates the content of the bottom tab bar 
+  * @param { ResourceStr } text - indicates the text of the bottom tab bar 
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 10
+  */
   constructor(icon: ResourceStr, text: ResourceStr);
 
   /**
@@ -280,13 +280,13 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @since 7
    */
   tabBar(value: string | Resource | CustomBuilder |
-    { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
+  { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
 
   /**
    * Called when tabbar is entered.
    * @since 9
    */
-   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
+  tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 }
 
 /**

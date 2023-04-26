@@ -22,7 +22,7 @@
  * @form
  * @since 9
  */
-interface PolygonInterface{
+interface PolygonInterface {
   /**
    * Uses new to create Polygon.
    * @since 7

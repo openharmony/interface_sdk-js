@@ -1243,7 +1243,6 @@ declare namespace resourceManager {
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
-   * @name Contains rawFile descriptor information
    */
   export type RawFileDescriptor = _RawFileDescriptor;
 
@@ -1252,7 +1251,6 @@ declare namespace resourceManager {
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
-   * @name Contains resource descriptor information
    */
   export type Resource = _Resource;
 }

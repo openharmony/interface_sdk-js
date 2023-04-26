@@ -25,19 +25,19 @@ import image from '../@ohos.multimedia.image';
  * @systemapi hide for inner use.
  */
 export interface MissionSnapshot {
-    /**
-     * Indicates the ability elementName of the mission.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    ability: ElementName;
+  /**
+   * Indicates the ability elementName of the mission.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  ability: ElementName;
 
-    /**
-     * Indicates mission snapshot.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    snapshot: image.PixelMap;
+  /**
+   * Indicates mission snapshot.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  snapshot: image.PixelMap;
 }

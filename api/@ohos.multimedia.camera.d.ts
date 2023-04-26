@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {ErrorCallback, AsyncCallback} from './@ohos.base';
+import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import { Context } from './app/context';
 
 /**
@@ -126,7 +126,7 @@ declare namespace camera {
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
-  interface CameraOutputCapability  {
+  interface CameraOutputCapability {
     /**
      * Preview profiles.
      * @since 9
@@ -211,7 +211,7 @@ declare namespace camera {
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
-  interface CameraManager  {
+  interface CameraManager {
     /**
      * Gets supported camera descriptions.
      * @returns An array of supported cameras.
@@ -600,7 +600,7 @@ declare namespace camera {
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
-   enum CameraFormat {
+  enum CameraFormat {
     /**
      * RGBA 8888 Format.
      * @since 9
@@ -669,11 +669,11 @@ declare namespace camera {
      * Auto exposure mode.
      * @since 9
      */
-     EXPOSURE_MODE_AUTO = 1,
-     /**
-     * Continuous automatic exposure.
-     * @since 9
-     */
+    EXPOSURE_MODE_AUTO = 1,
+    /**
+    * Continuous automatic exposure.
+    * @since 9
+    */
     EXPOSURE_MODE_CONTINUOUS_AUTO = 2
   }
 
@@ -740,7 +740,7 @@ declare namespace camera {
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
-   enum VideoStabilizationMode {
+  enum VideoStabilizationMode {
     /**
      * Turn off video stablization.
      * @since 9
@@ -949,7 +949,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      */
     isExposureModeSupported(aeMode: ExposureMode): boolean;
- 
+
     /**
      * Gets current exposure mode.
      * @returns The current exposure mode.
@@ -959,13 +959,13 @@ declare namespace camera {
      */
     getExposureMode(): ExposureMode;
 
-     /**
-      * Sets Exposure mode.
-      * @param aeMode Exposure mode
-      * @since 9
-      * @syscap SystemCapability.Multimedia.Camera.Core
-      * @throws { BusinessError } 7400103 - Session not config.
-      */
+    /**
+     * Sets Exposure mode.
+     * @param aeMode Exposure mode
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
     setExposureMode(aeMode: ExposureMode): void;
 
     /**
@@ -1376,7 +1376,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      */
-     capture(): Promise<void>;
+    capture(): Promise<void>;
 
     /**
      * Start capture output.
@@ -1611,19 +1611,19 @@ declare namespace camera {
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-     readonly type: MetadataObjectType;
+    readonly type: MetadataObjectType;
     /**
      * Metadata object timestamp in milliseconds.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-     readonly timestamp: number;
+    readonly timestamp: number;
     /**
      * The axis-aligned bounding box of detected metadata object.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-     readonly boundingBox: Rect;
+    readonly boundingBox: Rect;
   }
 
   /**

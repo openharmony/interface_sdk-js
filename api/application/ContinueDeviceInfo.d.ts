@@ -21,33 +21,33 @@
  * @systemapi hide for inner use.
  * @since 9
  */
- export interface ContinueDeviceInfo {
-    /**
-     * Indicates the original deviceId to continue mission.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 9
-     */
-    srcDeviceId: string;
-    /**
-     * Indicates the target deviceId to continue mission.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 9
-     */
-    dstDeviceId: string;
-     /**
-     * Indicates the mission to continue.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 9
-     */
-    missionId: number;
-    /**
-     * Indicates the extended param.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 9
-     */
-    wantParam: {[key: string]: any};
+export interface ContinueDeviceInfo {
+  /**
+   * Indicates the original deviceId to continue mission.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 9
+   */
+  srcDeviceId: string;
+  /**
+   * Indicates the target deviceId to continue mission.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 9
+   */
+  dstDeviceId: string;
+  /**
+  * Indicates the mission to continue.
+  *
+  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+  * @since 9
+  */
+  missionId: number;
+  /**
+   * Indicates the extended param.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 9
+   */
+  wantParam: { [key: string]: any };
 }

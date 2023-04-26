@@ -77,6 +77,30 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 9
    */
   hideTitleBar(value: boolean): NavDestinationAttribute;
+
+  /**
+   * Invoked when the navDestination page is displayed.
+   * @param { (param: unknown) => void) } callback Indicates callback when the navDestination page is displayed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onShown(callback: (param: unknown) => void): NavDestinationAttribute;
+
+  /**
+   * Invoked when the navDestination is hidden.
+   * @param { () => void } callback Indicates callback when the navDestination is hidden.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onHidden(callback: () => void): NavDestinationAttribute;
+
+  /**
+   * Invoked when the backButton is pressed.
+   * @param { () => boolean } callback Indicates callback when the backButton is pressed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onBackPressed(callback: () => boolean): NavDestinationAttribute;
 }
 
 /**
@@ -90,4 +114,3 @@ declare const NavDestination: NavDestinationInterface;
  * @since 9
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
-     

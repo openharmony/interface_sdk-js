@@ -15,11 +15,11 @@
 
 import Want from '../@ohos.app.ability.Want';
 
- /**
- * @since 6
- * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
- */
+/**
+* @since 6
+* @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+* @permission N/A
+*/
 export interface StartAbilityParameter {
   /**
    * Indicates the Want containing information about the target ability to start.
@@ -39,6 +39,6 @@ export interface StartAbilityParameter {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
-  abilityStartSetting?: {[key: string]: any};
+  abilityStartSetting?: { [key: string]: any };
 
 }

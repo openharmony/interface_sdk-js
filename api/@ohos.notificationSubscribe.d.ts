@@ -65,10 +65,12 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @param { AsyncCallback<void> } callback - The callback of subscribe.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -83,10 +85,12 @@ declare namespace notificationSubscribe {
    * @param { AsyncCallback<void> } callback - The callback of subscribe.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -100,10 +104,12 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscribeInfo } info - The notification subscribe info.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -116,6 +122,7 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -132,6 +139,7 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -150,6 +158,7 @@ declare namespace notificationSubscribe {
    * @param { RemoveReason } reason - The remove reason.
    * @param { AsyncCallback<void> } callback - The callback of remove.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -160,7 +169,7 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9
    */
-   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
+  function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
    /**
     * Remove notification.
@@ -170,6 +179,7 @@ declare namespace notificationSubscribe {
     * @param { RemoveReason } reason - The remove reason.
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -189,6 +199,7 @@ declare namespace notificationSubscribe {
     * @param { RemoveReason } reason - The remove reason.
     * @param { AsyncCallback<void> } callback - The callback of remove.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -207,6 +218,7 @@ declare namespace notificationSubscribe {
     * @param { RemoveReason } reason - The remove reason.
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -224,6 +236,7 @@ declare namespace notificationSubscribe {
     * @param { BundleOption } bundle - The bundle option.
     * @param { AsyncCallback<void> } callback - The callback of removeAll.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -240,6 +253,7 @@ declare namespace notificationSubscribe {
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
     * @param { AsyncCallback<void> } callback - The callback of removeAll.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -256,6 +270,7 @@ declare namespace notificationSubscribe {
     * @param { number } userId - The userId.
     * @param { AsyncCallback<void> } callback - The callback of removeAll.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -273,6 +288,7 @@ declare namespace notificationSubscribe {
     * @param { number } userId - The userId.
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -290,6 +306,7 @@ declare namespace notificationSubscribe {
     * @param { BundleOption } bundle - The bundle option.
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @throws { BusinessError } 1600001 - Internal error.
     * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.

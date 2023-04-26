@@ -946,7 +946,7 @@ export class LogReporterImpl implements LogReporter {
     ['moduleName', '模块名称']
   ]);
 
-  constructor() { }
+  constructor() {}
 
   setWriter(writer: LogWriter): void {
     this.writer = writer;

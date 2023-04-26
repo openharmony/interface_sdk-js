@@ -20,7 +20,7 @@
  * @systemapi Hide this for inner system use.
  * @syscap SystemCapability.Notification.Notification
  */
-  export enum NotificationFlagStatus {
+export enum NotificationFlagStatus {
   /**
    * notification flag default value
    */
@@ -29,12 +29,12 @@
   /**
    * notification flag open
    */
-   TYPE_OPEN = 1,
+  TYPE_OPEN = 1,
 
   /**
    * notification flag close
    */
-   TYPE_CLOSE = 2,
+  TYPE_CLOSE = 2,
 }
 
 /**
@@ -45,7 +45,7 @@
  * @permission N/A
  * @syscap SystemCapability.Notification.Notification
  */
- export interface NotificationFlags {
+export interface NotificationFlags {
   /**
    * Whether to enable sound reminder.
    */

@@ -68,8 +68,8 @@ declare namespace distributedBundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.distributedBundleManager#getRemoteAbilityInfo
    */
-   function getRemoteAbilityInfos(elementNames: Array<ElementName>,
-      callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfos(elementNames: Array<ElementName>,
+    callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
    * Obtains information about the ability infos of the remote device.

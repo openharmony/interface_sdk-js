@@ -22,66 +22,66 @@
  * @permission N/A
  */
 export default class AbilityStateData {
-    /**
-     * The module name.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    moduleName: string;
+  /**
+   * The module name.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  moduleName: string;
 
-    /**
-     * The bundle name.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    bundleName: string;
+  /**
+   * The bundle name.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  bundleName: string;
 
-    /**
-     * The ability name.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    abilityName: string;
+  /**
+   * The ability name.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  abilityName: string;
 
-    /**
-     * The pid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    pid: number;
+  /**
+   * The pid.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  pid: number;
 
-    /**
-     * The uid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    uid: number;
+  /**
+   * The uid.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  uid: number;
 
-    /**
-     * The application state.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    state: number;
+  /**
+   * The application state.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  state: number;
 
-    /**
-     * The ability type, page or service and so on.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    abilityType: number;
+  /**
+   * The ability type, page or service and so on.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  abilityType: number;
 }
