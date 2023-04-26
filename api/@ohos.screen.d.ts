@@ -56,6 +56,32 @@ declare namespace screen {
   function makeExpand(options: Array<ExpandOption>): Promise<number>;
 
   /**
+   * Stop expand screens
+   *
+   * @param { Array<number> } expandScreen IDs of expand screens to stop
+   * @param { AsyncCallback<number> } callback used to return the result
+   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function stopExpand(expandScreen: Array<number>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stop expand screens
+   *
+   * @param { Array<number> } expandScreen IDs of expand screens to stop
+   * @returns { Promise<void> } promise used to return the result
+   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function stopExpand(expandScreen: Array<number>): Promise<void>;
+
+  /**
    * Make screens as mirror-screen
    * @throws {BusinessError} 401 - If param is invalid
    * @throws {BusinessError} 1400001 - If display or screen is invalid
@@ -63,6 +89,32 @@ declare namespace screen {
    */
   function makeMirror(mainScreen: number, mirrorScreen: Array<number>, callback: AsyncCallback<number>): void;
   function makeMirror(mainScreen: number, mirrorScreen: Array<number>): Promise<number>;
+
+  /**
+   * Stop mirror screens
+   *
+   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop
+   * @param { AsyncCallback<void> } callback used to return the result
+   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function stopMirror(mirrorScreen: Array<number>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stop mirror screens
+   *
+   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop
+   * @returns { Promise<void> } promise used to return the result
+   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function stopMirror(mirrorScreen: Array<number>): Promise<void>;
 
   /**
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
