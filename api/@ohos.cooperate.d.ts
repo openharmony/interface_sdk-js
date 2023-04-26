@@ -19,7 +19,7 @@ import { Callback } from './@ohos.base';
 /**
  * Implements screen hopping operation management.
  *
- * @since 9
+ * @since 10
  * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
  * @systemapi Hide this for inner system use.
  */
@@ -27,7 +27,7 @@ declare namespace cooperate {
   /**
    * Enumerates screen hopping message notifications.
    * 
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    */
@@ -35,7 +35,7 @@ declare namespace cooperate {
     /**
      * Preparing for screen hopping.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_PREPARE,
@@ -43,7 +43,7 @@ declare namespace cooperate {
     /**
      * Canceling the preparation for screen hopping.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_UNPREPARE,
@@ -51,7 +51,7 @@ declare namespace cooperate {
     /**
      * Starting screen hopping.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_ACTIVATE,
@@ -59,7 +59,7 @@ declare namespace cooperate {
     /**
      * Success in starting screen hopping.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_ACTIVATE_SUCCESS,
@@ -67,7 +67,7 @@ declare namespace cooperate {
     /**
      * Failure to start screen hopping.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_ACTIVATE_FAIL,
@@ -75,7 +75,7 @@ declare namespace cooperate {
     /**
      * Success in stopping screen hopping.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_DEACTIVATE_SUCCESS,
@@ -83,7 +83,7 @@ declare namespace cooperate {
     /**
      * Failure to stop screen hopping.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_DEACTIVATE_FAIL,
@@ -92,7 +92,7 @@ declare namespace cooperate {
   /**
    * Prepares for screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param callback Asynchronous callback used to return the operation result.
@@ -103,7 +103,7 @@ declare namespace cooperate {
   /**
    * Prepares for screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 401 - Parameter error.
@@ -113,7 +113,7 @@ declare namespace cooperate {
   /**
    * Cancels the preparation for screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param callback Asynchronous callback used to return the operation result.
@@ -124,7 +124,7 @@ declare namespace cooperate {
   /**
    * Cancels the preparation for screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 401 - Parameter error.
@@ -134,7 +134,7 @@ declare namespace cooperate {
   /**
    * Starts screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param targetNetworkId Descriptor of the target device for screen hopping.
@@ -148,7 +148,7 @@ declare namespace cooperate {
   /**
    * Starts screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param targetNetworkId Descriptor of the target device for screen hopping.
@@ -161,7 +161,7 @@ declare namespace cooperate {
   /**
    * Stops screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param callback Asynchronous callback used to return the operation result.
@@ -173,7 +173,7 @@ declare namespace cooperate {
   /**
    * Stops screen hopping.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param isUnchained Whether the cross-device link is unchained.
@@ -183,7 +183,7 @@ declare namespace cooperate {
   /**
    * Obtains the screen hopping status.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param networkId Descriptor of the target device for screen hopping.
@@ -195,7 +195,7 @@ declare namespace cooperate {
   /**
    * Obtains the status of the screen hopping switch.
    *
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param networkId Descriptor of the target device for screen hopping.
@@ -206,7 +206,7 @@ declare namespace cooperate {
   /**
    * Enables listening for screen hopping status change events.
    * 
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param type Change type.
@@ -218,7 +218,7 @@ declare namespace cooperate {
   /**
    * Disables listening for screen hopping status change events.
    * 
-   * @since 9
+   * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param type Change type.
