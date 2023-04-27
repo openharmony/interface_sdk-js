@@ -30,6 +30,10 @@ export default class StaticSubscriberExtensionContext {
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
    * @param want { Want } - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 201 - no such permission.
+   * @throws { BusinessError } 202 - non-system-app use system-api.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -42,6 +46,9 @@ export default class StaticSubscriberExtensionContext {
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - no such permission.
+   * @throws { BusinessError } 202 - non-system-app use system-api.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
