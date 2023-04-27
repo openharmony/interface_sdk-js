@@ -64,11 +64,11 @@ declare enum NavigationMode {
    * @since 9
    */
   Split,
-   /**
-   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
-   * Otherwise it's displayed in stack mode.
-   * @since 9
-   */
+  /**
+  * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+  * Otherwise it's displayed in stack mode.
+  * @since 9
+  */
   Auto,
 }
 
@@ -132,6 +132,157 @@ declare interface NavigationMenuItem {
 }
 
 /**
+ * Indicates the information of route page.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class NavPathInfo {
+  /**
+   * Creates an instance of NavPathInfo.
+   * @param { string } name The name of route page.
+   * @param { unknown } param The detailed parameter of the route page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor(name: string, param: unknown);
+
+  /**
+   * The name of route page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { string }
+   * @since 10
+   */
+  name: string;
+
+  /**
+   * The detailed parameter of the route page.
+   * @type { unknown }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  param?: unknown;
+}
+
+declare class NavPathStack {
+
+  /**
+   * Creates an instance of NavPathStack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor();
+  
+  /**
+   * Pushes the route page into the stack.
+   * @param { NavPathInfo } info Indicates the route page to be pushed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  push(info: NavPathInfo): void;
+
+  /**
+   * Pushes the specified route page into the stack.
+   * @param { string } name Indicates the name of the route page to be pushed.
+   * @param { unknown } param Indicates the detailed parameter of the route page to be pushed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  pushName(name: string, param: unknown): void;
+
+  /**
+   * Pops the top route page out of the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
+   * @since 10
+   */
+  pop(): NavPathInfo | undefined;
+
+  /**
+   * Pops the specified route page out of the stack.
+   * @param { string } name Indicates the name of the route page to be popped.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @since 10
+   */
+  popTo(name: string): number;
+
+  /**
+   * Pops the specified route page out of the stack.
+   * @param { number } index Indicates the index of the route page to be popped.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  popToIndex(index: number): void;
+
+  /**
+   * Moves the specified route page to stack top.
+   * @param { string } name Indicates the name of the route page to be moved to the top.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @since 10
+   */ 
+  moveToTop(name: string): number;
+
+  /**
+   * Moves the specified route page to stack top.
+   * @param { number } index Indicates the index of the route page to be moved to the top.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */ 
+  moveIndexToTop(index: number): void;
+
+  /**
+   * Clears the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  clear(): void;
+
+  /**
+   * Obtains all the page name in the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { Array<string> } Returns all the page name in the stack;
+   * @since 10
+   */ 
+  getAllPathName(): Array<string>;
+
+  /**
+   * Obtains the param of the specified route page.
+   * @param { number } index Indicates the index of the route page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { unknown | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
+   * @since 10
+   */ 
+  getParamByIndex(index: number): unknown | undefined;
+
+  /**
+   * Obtains the param of the specified route page.
+   * @param { string } name Indicates the name of the route page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { Array<unknown> } Returns the detailed parameter of all the route pages named name.
+   * @since 10
+   */
+  getParamByName(name: string): Array<unknown>;
+
+  /**
+   * Obtains the index of the specified route page.
+   * @param { string } name Indicates the name of the route page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { Array<number> } Returns the index of all the route pages named name.
+   * @since 10
+   */
+  getIndexByName(name: string): Array<number>;
+
+  /**
+   * Obtains the size of the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { number } Returns the size of the stack.
+   * @since 10
+   */
+  size(): number;
+}
+
+/**
  * Provide navigator view interface
  * @since 8
  */
@@ -141,6 +292,15 @@ interface NavigationInterface {
    * @since 8
    */
   (): NavigationAttribute;
+
+  /**
+   * Called when the navigator view interface is used, with route table provided.
+   * @param { NavPathStack } pathInfos The stack of the route table.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @since 10
+   */
+  (pathInfos: NavPathStack): NavigationAttribute;
 }
 
 /**
@@ -159,19 +319,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 9
    */
   navBarPosition(value: NavBarPosition): NavigationAttribute;
-   
+
   /**
    * Sets the mode of navigation.
    * @since 9
    */
   mode(value: NavigationMode): NavigationAttribute;
-   
+
   /**
    * Sets the back button icon.
    * @since 9
    */
   backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
-   
+
   /**
    * Hide the navigation bar.
    * @since 9
@@ -250,6 +410,15 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 9
    */
   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
+
+  /**
+   * Set builder for user-defined NavDestination component.
+   * @param { (name: string, param: unknown) => void } builder The builder function of NavDestination component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @since 10
+   */
+  navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
 }
 
 /**

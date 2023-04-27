@@ -80,7 +80,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 10
    */
   textStyle(value: PickerTextStyle): TimePickerAttribute;
-  
+
   /**
    * Sets the text style of selected items
    * @param { PickerTextStyle } value - indicates the text style of selected items.
@@ -88,7 +88,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 10
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
- 
+
   /**
    * This event is triggered when a TimePicker time is selected.
    * @since 8

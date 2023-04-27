@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {Callback} from './@ohos.base';
+import { Callback } from './@ohos.base';
 
 /**
  * Used to do mediaquery operations.

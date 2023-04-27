@@ -50,13 +50,13 @@ declare namespace businessAbilityRouter {
      * @systemapi
      * @since 10
      */
-    UNSPECIFIED = 255,
+    UNSPECIFIED = 255
   }
 
   /**
    * This filter value is used to filter business ability info
    *
-   * @name BusinessAbilityFilter
+   * @typedef BusinessAbilityFilter
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -65,12 +65,12 @@ declare namespace businessAbilityRouter {
     /**
      * Indicates the type of business ability info
      *
-     * @type { businessAbilityRouter.BusinessType }
+     * @type { BusinessType }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
      */
-    businessType: BusinessType,
+    businessType: BusinessType;
 
     /**
      * Indicates the supported mime type of business ability info
@@ -80,7 +80,7 @@ declare namespace businessAbilityRouter {
      * @systemapi
      * @since 10
      */
-    mimeType?: string,
+    mimeType?: string;
 
     /**
      * Indicates the supported uri of business ability info
@@ -90,7 +90,7 @@ declare namespace businessAbilityRouter {
      * @systemapi
      * @since 10
      */
-    uri?: string,
+    uri?: string;
   }
 
   /**
@@ -106,7 +106,8 @@ declare namespace businessAbilityRouter {
    * @systemapi
    * @since 10
    */
-  function queryBusinessAbilityInfo(filter: BusinessAbilityFilter, callback: AsyncCallback<Array<BusinessAbilityInfo>>): void;
+  function queryBusinessAbilityInfo(filter: BusinessAbilityFilter,
+      callback: AsyncCallback<Array<BusinessAbilityInfo>>): void;
 
   /**
    * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.

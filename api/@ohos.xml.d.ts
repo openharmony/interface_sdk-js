@@ -22,354 +22,354 @@
  */
 declare namespace xml {
 
+  /**
+   * The XmlSerializer interface is used to generate an xml file.
+   * @name XmlSerializer
+   * @crossplatform
+   * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  class XmlSerializer {
     /**
-     * The XmlSerializer interface is used to generate an xml file.
-     * @name XmlSerializer
+     * A parameterized constructor used to create a new XmlSerializer instance.
+     * As the input parameter of the constructor function, init supports three types.
+     * The input parameter is an Arrarybuffer.
+     * The input parameter is a DataView.
+     * The input parameter is an encoding format of string type.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     */
+    constructor(buffer: ArrayBuffer | DataView, encoding?: string);
+
+    /**
+     * Write an attribute.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param name Key name of the attribute.
+     * @param value Values of attribute.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     */
+    setAttributes(name: string, value: string): void;
+
+    /**
+     * Add an empty element.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param name Key name of the attribute.
+     * @param value Values of element.
+     * @throws {BusinessError} 401 - The type of name must be string.
+     */
+    addEmptyElement(name: string): void;
+
+    /**
+     * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
      * @crossplatform
      * @since 8
      * @syscap SystemCapability.Utils.Lang
      */
-    class XmlSerializer {
-        /**
-         * A parameterized constructor used to create a new XmlSerializer instance.
-         * As the input parameter of the constructor function, init supports three types.
-         * The input parameter is an Arrarybuffer.
-         * The input parameter is a DataView.
-         * The input parameter is an encoding format of string type.
-         * @throws {BusinessError} 401 - if the input parameters are invalid.
-         */
-        constructor(buffer: ArrayBuffer | DataView, encoding?: string);
-
-        /**
-         * Write an attribute.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param name Key name of the attribute.
-         * @param value Values of attribute.
-         * @throws {BusinessError} 401 - if the input parameters are invalid.
-         */
-        setAttributes(name: string, value: string): void;
-
-        /**
-         * Add an empty element.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param name Key name of the attribute.
-         * @param value Values of element.
-         * @throws {BusinessError} 401 - The type of name must be string.
-         */
-        addEmptyElement(name: string): void;
-
-        /**
-         * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         */
-        setDeclaration(): void;
-
-        /**
-         * Writes a element start tag with the given name.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param name Name of the element.
-         * @throws {BusinessError} 401 - The type of name must be string.
-         */
-        startElement(name: string): void;
-
-        /**
-         * Writes end tag of the element.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         */
-        endElement(): void;
-
-        /**
-         * Writes the namespace of the current element tag.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param prefix Values name of the prefix.
-         * @param namespace Values of namespace.
-         * @throws {BusinessError} 401 - if the input parameters are invalid.
-         */
-        setNamespace(prefix: string, namespace: string): void;
-
-        /**
-         * Writes the comment.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param text Values of comment.
-         * @throws {BusinessError} 401 - The type of text must be string.
-         */
-        setComment(text: string): void;
-
-        /**
-         * Writes the CDATA.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param text Values of CDATA.
-         * @throws {BusinessError} 401 - The type of text must be string.
-         */
-        setCDATA(text: string): void;
-
-        /**
-         * Writes the text.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param text Values of text.
-         * @throws {BusinessError} 401 - The type of text must be string.
-         */
-        setText(text: string): void;
-
-        /**
-         * Writes the DOCTYPE.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param text Values of docType.
-         * @throws {BusinessError} 401 - The type of text must be string.
-         */
-        setDocType(text: string): void;
-    }
-
-    enum EventType {
-        /**
-          * Start a document.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        START_DOCUMENT,
-        /**
-          * End a document.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        END_DOCUMENT,
-        /**
-          * Start a tag.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        START_TAG,
-        /**
-          * End a tag.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        END_TAG,
-        /**
-          * Character data.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        TEXT,
-        /**
-          * A CDATA sections.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        CDSECT,
-        /**
-          * An XML comment.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        COMMENT,
-        /**
-          * An XML document type declaration.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        DOCDECL,
-        /**
-          * An XML processing instruction declaration.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        INSTRUCTION,
-        /**
-          * An entity reference.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        ENTITY_REFERENCE,
-        /**
-          * A whitespace.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        WHITESPACE
-    }
-
-    /** The current parse info.  */
-    interface ParseInfo {
-        /**
-          * The current column number, starting from 1.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getColumnNumber(): number;
-        /**
-          * The current depth of the element.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getDepth(): number;
-        /**
-          * The current line number, starting from 1.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getLineNumber(): number;
-        /**
-          * The current element's name.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getName(): string;
-        /**
-          * The current element's namespace.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getNamespace(): string;
-        /**
-          * The current element's prefix.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getPrefix(): string;
-        /**
-          * The text content of the current event as String.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getText(): string;
-        /**
-          * Returns true if the current element is empty.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        isEmptyElementTag(): boolean;
-        /**
-          * Checks whether the current TEXT event contains only whitespace characters.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        isWhitespace(): boolean;
-        /**
-          * Returns the number of attributes of the current start tag.
-          * @crossplatform
-          * @since 8
-          * @syscap SystemCapability.Utils.Lang
-          */
-        getAttributeCount(): number;
-    }
-
-    /** Parse options for XmlPullParser. */
-    interface ParseOptions {
-
-        /**
-         * Whether to parsing Doctype of the elements.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         */
-        supportDoctype?: boolean;
-
-        /**
-         * Whether to ignore parsing texts of the elements.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         */
-        ignoreNameSpace?: boolean;
-
-        /**
-         * Tag value callback function.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param name The current tag name.
-         * @param value The current tag value.
-         * @returns Returns a Boolean variable for whether parse continually.
-         */
-        tagValueCallbackFunction?: (name: string, value: string) => boolean;
-
-        /**
-         * Attribute value callback function.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param name The current attribute name.
-         * @param value The current attribute value.
-         * @returns Returns a Boolean variable for whether parse continually.
-         */
-        attributeValueCallbackFunction?: (name: string, value: string) => boolean;
-
-        /**
-         * Token value callback function.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param eventType The current token eventtype.
-         * @param value The current token parseinfo.
-         * @returns Returns a Boolean variable for whether parse continually.
-         */
-        tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
-    }
+    setDeclaration(): void;
 
     /**
-     * The XmlPullParser interface is used to parse the existing xml file.
-     * @name XmlPullParser
+     * Writes a element start tag with the given name.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param name Name of the element.
+     * @throws {BusinessError} 401 - The type of name must be string.
+     */
+    startElement(name: string): void;
+
+    /**
+     * Writes end tag of the element.
      * @crossplatform
      * @since 8
      * @syscap SystemCapability.Utils.Lang
      */
-    class XmlPullParser {
-        /**
-         * A constructor used to create a new XmlPullParser instance.
-         * @throws {BusinessError} 401 - if the input parameters are invalid.
-         */
-        constructor(buffer: ArrayBuffer | DataView, encoding?: string);
+    endElement(): void;
 
-        /**
-         * Starts parsing the XML file.
-         * @crossplatform
-         * @since 8
-         * @syscap SystemCapability.Utils.Lang
-         * @param option parse options for XmlPullParser, the interface including two Boolean variables and three callback functions.
-         * @throws {BusinessError} 401 - The type of option must be ParseOptions.
-         */
-        parse(option: ParseOptions): void;
-    }
+    /**
+     * Writes the namespace of the current element tag.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param prefix Values name of the prefix.
+     * @param namespace Values of namespace.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     */
+    setNamespace(prefix: string, namespace: string): void;
+
+    /**
+     * Writes the comment.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param text Values of comment.
+     * @throws {BusinessError} 401 - The type of text must be string.
+     */
+    setComment(text: string): void;
+
+    /**
+     * Writes the CDATA.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param text Values of CDATA.
+     * @throws {BusinessError} 401 - The type of text must be string.
+     */
+    setCDATA(text: string): void;
+
+    /**
+     * Writes the text.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param text Values of text.
+     * @throws {BusinessError} 401 - The type of text must be string.
+     */
+    setText(text: string): void;
+
+    /**
+     * Writes the DOCTYPE.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param text Values of docType.
+     * @throws {BusinessError} 401 - The type of text must be string.
+     */
+    setDocType(text: string): void;
+  }
+
+  enum EventType {
+    /**
+      * Start a document.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    START_DOCUMENT,
+    /**
+      * End a document.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    END_DOCUMENT,
+    /**
+      * Start a tag.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    START_TAG,
+    /**
+      * End a tag.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    END_TAG,
+    /**
+      * Character data.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    TEXT,
+    /**
+      * A CDATA sections.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    CDSECT,
+    /**
+      * An XML comment.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    COMMENT,
+    /**
+      * An XML document type declaration.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    DOCDECL,
+    /**
+      * An XML processing instruction declaration.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    INSTRUCTION,
+    /**
+      * An entity reference.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    ENTITY_REFERENCE,
+    /**
+      * A whitespace.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    WHITESPACE
+  }
+
+  /** The current parse info.  */
+  interface ParseInfo {
+    /**
+      * The current column number, starting from 1.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getColumnNumber(): number;
+    /**
+      * The current depth of the element.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getDepth(): number;
+    /**
+      * The current line number, starting from 1.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getLineNumber(): number;
+    /**
+      * The current element's name.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getName(): string;
+    /**
+      * The current element's namespace.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getNamespace(): string;
+    /**
+      * The current element's prefix.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getPrefix(): string;
+    /**
+      * The text content of the current event as String.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getText(): string;
+    /**
+      * Returns true if the current element is empty.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    isEmptyElementTag(): boolean;
+    /**
+      * Checks whether the current TEXT event contains only whitespace characters.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    isWhitespace(): boolean;
+    /**
+      * Returns the number of attributes of the current start tag.
+      * @crossplatform
+      * @since 8
+      * @syscap SystemCapability.Utils.Lang
+      */
+    getAttributeCount(): number;
+  }
+
+  /** Parse options for XmlPullParser. */
+  interface ParseOptions {
+
+    /**
+     * Whether to parsing Doctype of the elements.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     */
+    supportDoctype?: boolean;
+
+    /**
+     * Whether to ignore parsing texts of the elements.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     */
+    ignoreNameSpace?: boolean;
+
+    /**
+     * Tag value callback function.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param name The current tag name.
+     * @param value The current tag value.
+     * @returns Returns a Boolean variable for whether parse continually.
+     */
+    tagValueCallbackFunction?: (name: string, value: string) => boolean;
+
+    /**
+     * Attribute value callback function.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param name The current attribute name.
+     * @param value The current attribute value.
+     * @returns Returns a Boolean variable for whether parse continually.
+     */
+    attributeValueCallbackFunction?: (name: string, value: string) => boolean;
+
+    /**
+     * Token value callback function.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param eventType The current token eventtype.
+     * @param value The current token parseinfo.
+     * @returns Returns a Boolean variable for whether parse continually.
+     */
+    tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
+  }
+
+  /**
+   * The XmlPullParser interface is used to parse the existing xml file.
+   * @name XmlPullParser
+   * @crossplatform
+   * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  class XmlPullParser {
+    /**
+     * A constructor used to create a new XmlPullParser instance.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     */
+    constructor(buffer: ArrayBuffer | DataView, encoding?: string);
+
+    /**
+     * Starts parsing the XML file.
+     * @crossplatform
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     * @param option parse options for XmlPullParser, the interface including two Boolean variables and three callback functions.
+     * @throws {BusinessError} 401 - The type of option must be ParseOptions.
+     */
+    parse(option: ParseOptions): void;
+  }
 }
 export default xml;

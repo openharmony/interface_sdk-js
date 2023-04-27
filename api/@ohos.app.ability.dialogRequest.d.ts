@@ -22,76 +22,76 @@ import Want from "./@ohos.app.ability.Want";
  * @since 9
  */
 declare namespace dialogRequest {
-    /**
-     * Request info of a request.
-     * @typedef RequestInfo
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export interface RequestInfo {
-    }
+  /**
+   * Request info of a request.
+   * @typedef RequestInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export interface RequestInfo {
+  }
 
-    export enum ResultCode {
-        RESULT_OK = 0,
-        RESULT_CANCEL = 1,
-    }
+  export enum ResultCode {
+    RESULT_OK = 0,
+    RESULT_CANCEL = 1,
+  }
 
+  /**
+   * The result of requestDialogService with asynchronous callback.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @permission N/A
+   * @StageModelOnly
+   */
+  export interface RequestResult {
     /**
-     * The result of requestDialogService with asynchronous callback.
+     * The request result passed in by the user.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      * @StageModelOnly
      */
-    export interface RequestResult {
-        /**
-         * The request result passed in by the user.
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         * @StageModelOnly
-         */
-        result: ResultCode;
-    }
+    result: ResultCode;
+  }
 
+  /**
+   * Provides methods for request callback.
+   * @name AuthenticatorCallback
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export interface RequestCallback {
     /**
-     * Provides methods for request callback.
-     * @name AuthenticatorCallback
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export interface RequestCallback {
-        /**
-         * Send request result to caller.
-         * @param { RequestResult } result - result for request.
-         * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-         * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-         * @StageModelOnly
-         * @since 9
-         */
-        setRequestResult(result: RequestResult): void;
-    }
-
-    /**
-     * Get request info from caller want.
-     * @param { Want } want - want from caller.
-     * @returns { RequestInfo } Returns the request info from caller.
+     * Send request result to caller.
+     * @param { RequestResult } result - result for request.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
      * @since 9
      */
-    function getRequestInfo(want: Want): RequestInfo;
+    setRequestResult(result: RequestResult): void;
+  }
 
-    /**
-     * Get request callback from caller want.
-     * @param { Want } want - want from caller.
-     * @returns { RequestCallback } Returns the request callback.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    function getRequestCallback(want: Want): RequestCallback;
+  /**
+   * Get request info from caller want.
+   * @param { Want } want - want from caller.
+   * @returns { RequestInfo } Returns the request info from caller.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  function getRequestInfo(want: Want): RequestInfo;
+
+  /**
+   * Get request callback from caller want.
+   * @param { Want } want - want from caller.
+   * @returns { RequestCallback } Returns the request callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  function getRequestCallback(want: Want): RequestCallback;
 }
 
 export default dialogRequest;

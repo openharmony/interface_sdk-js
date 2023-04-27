@@ -157,7 +157,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * Called when height of the panel is changed
    * @since 9
    */
-   onHeightChange(callback: (value: number) => void): PanelAttribute;
+  onHeightChange(callback: (value: number) => void): PanelAttribute;
 }
 
 /**

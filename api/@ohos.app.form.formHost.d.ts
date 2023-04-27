@@ -15,7 +15,6 @@
 
 import { AsyncCallback } from "./@ohos.base";
 import { Callback } from "./@ohos.base";
-import { RunningFormInfo } from './@ohos.app.form.runningFormInfo';
 import Want from './@ohos.app.ability.Want';
 import formInfo from './@ohos.app.form.formInfo';
 
@@ -34,7 +33,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the form ID.
      * @param { AsyncCallback<void> } callback - The callback of deleteForm.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -48,7 +54,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the form ID.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -63,7 +76,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the form ID
      * @param { AsyncCallback<void> } callback - The callback of releaseForm.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -79,7 +99,14 @@ declare namespace formHost {
      * @param { string } formId - Indicates the form ID
      * @param { boolean } isReleaseCache - Indicates whether release cache or not.
      * @param { AsyncCallback<void> } callback - The callback of releaseForm.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -95,7 +122,14 @@ declare namespace formHost {
      * @param { string } formId - Indicates the form ID
      * @param { boolean } isReleaseCache - Indicates whether release cache or not.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -111,7 +145,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the ID of the form to update.
      * @param { AsyncCallback<void> } callback - The callback of requestForm.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -127,7 +168,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the ID of the form to update.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -139,7 +187,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the ID of the temporary form to convert.
      * @param { AsyncCallback<void> } callback - The callback of castToNormalForm.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501002 - The number of forms exceeds upper bound.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -151,7 +206,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the ID of the temporary form to convert.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501002 - The number of forms exceeds upper bound.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -165,7 +227,12 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
      * @param { AsyncCallback<void> } callback - The callback of notifyVisibleForms.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -179,7 +246,12 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -193,7 +265,12 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
      * @param { AsyncCallback<void> } callback - The callback of notifyInvisibleForms.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -207,7 +284,12 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -221,7 +303,13 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
      * @param { AsyncCallback<void> } callback - The callback of enableFormsUpdate.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -235,7 +323,13 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -249,7 +343,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
      * @param { AsyncCallback<void> } callback - The callback of disableFormsUpdate.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -263,7 +364,14 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -274,6 +382,7 @@ declare namespace formHost {
      * Checks whether the system is ready.
      * <p>You can use this method to obtain the system is ready.</p>
      * @param { AsyncCallback<void> } callback - The callback of isSystemReady.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -285,7 +394,7 @@ declare namespace formHost {
      * Checks whether the system is ready.
      * <p>You can use this method to obtain the system is ready.</p>
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -296,7 +405,12 @@ declare namespace formHost {
      * Obtains the FormInfo objects provided by all applications on the device.
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -307,7 +421,11 @@ declare namespace formHost {
      * Obtains the FormInfo objects provided by all applications on the device.
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -319,7 +437,13 @@ declare namespace formHost {
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { string } bundleName - Indicates the bundle name of the application.
      * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -332,7 +456,13 @@ declare namespace formHost {
      * @param { string } bundleName - Indicates the bundle name of the application.
      * @param { string } moduleName - Indicates the module name of the application.
      * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -345,7 +475,13 @@ declare namespace formHost {
      * @param { string } bundleName - Indicates the bundle name of the application.
      * @param { string } moduleName - Indicates the module name of the application.
      * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -356,7 +492,7 @@ declare namespace formHost {
      * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
      * @permission ohos.permission.REQUIRE_FORM
      * @param { AsyncCallback<Array<RunningFormInfo>> } callback - The callback is used to return the RunningFormInfo.
-     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @param { string } hostBundleName - Indicates the bundle name of the form host application.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -366,12 +502,12 @@ declare namespace formHost {
      * @systemapi
      * @since 10
      */
-    function getRunningFormInfos(callback: AsyncCallback<Array<RunningFormInfo>>, bundleName?: string): void;
+    function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
 
     /**
      * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
      * @permission ohos.permission.REQUIRE_FORM
-     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @param { string } hostBundleName - Indicates the bundle name of the form host application.
      * @returns { Promise<Array<RunningFormInfo>> } Returns the RunningFormInfo.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
@@ -382,7 +518,7 @@ declare namespace formHost {
      * @systemapi
      * @since 10
      */
-    function getRunningFormInfos(bundleName?: string): Promise<Array<RunningFormInfo>>;
+    function getRunningFormInfos(hostBundleName?: string): Promise<Array<formInfo.RunningFormInfo>>;
 
     /**
      * Deletes invalid forms of the application in the Form Manager Service based on the list of.
@@ -391,7 +527,12 @@ declare namespace formHost {
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { AsyncCallback<number> } callback - The callback is used to return the number of invalid forms deleted
      *                                             by the Form Manager Service.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -404,7 +545,12 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @returns { Promise<number> } Returns the number of invalid forms deleted by the Form Manager Service.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -417,7 +563,13 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { Want } want - Indicates want of the form.
      * @param { AsyncCallback<formInfo.FormStateInfo> } callback - The callback is used to return the form state.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -430,7 +582,13 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { Want } want - Indicates want of the form.
      * @returns { Promise<formInfo.FormStateInfo> } Returns the form state.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -442,6 +600,7 @@ declare namespace formHost {
      * <p>You can use this method to listen to the event of uninstall form.</p>
      * @param { string } type - Indicates event type.
      * @param { Callback<string> } callback - The callback of formUninstall.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -454,6 +613,7 @@ declare namespace formHost {
      * <p>You can use this method to cancel listening to the event of uninstall form.</p>
      * @param { string } type - Indicates event type.
      * @param { Callback<string> } callback - The callback of formUninstall.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -466,64 +626,60 @@ declare namespace formHost {
      * <p>You can use this method to listen to the event of add form.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } type - Indicates event type.
-     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
      * @param { string } bundleName - Indicates the bundle name of the form host application.
-     * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10
      */
-    function on(type: "formAdd", observerCallback: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
+    function on(type: "formAdd", observerCallback: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
     /**
      * Cancels listening to the event of add form.
      * <p>You can use this method to cancel listening to the event of add form.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } type - Indicates event type.
-     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
      * @param { string } bundleName - Indicates the bundle name of the form host application.
-     * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10
      */
-    function off(type: "formAdd", observerCallback?: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
+    function off(type: "formAdd", observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
     /**
      * Listens to the event of remove form.
      * <p>You can use this method to listen to the event of remove form.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } type - Indicates event type.
-     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
      * @param { string } bundleName - Indicates the bundle name of the form host application.
-     * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10
      */
-    function on(type: "formRemove", observerCallback: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
+    function on(type: "formRemove", observerCallback: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
     /**
      * Cancels listening to the event of remove form.
      * <p>You can use this method to cancel listening to the event of remove form.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } type - Indicates event type.
-     * @param { Callback<Array<RunningFormInfo>> } observerCallback - The callback is used to return the running form infos.
+     * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
      * @param { string } bundleName - Indicates the bundle name of the form host application.
-     * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10
      */
-    function off(type: "formRemove", observerCallback?: Callback<Array<RunningFormInfo>>, bundleName?: string): void;
+    function off(type: "formRemove", observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
     /**
      * Notify form is Visible
@@ -532,7 +688,13 @@ declare namespace formHost {
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isVisible - Indicates whether visible.
      * @param { AsyncCallback<void> } callback - The callback of notifyFormsVisible.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -546,7 +708,13 @@ declare namespace formHost {
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isVisible - Indicates whether visible.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -560,7 +728,13 @@ declare namespace formHost {
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isEnableUpdate - Indicates whether enable update.
      * @param { AsyncCallback<void> } callback - The callback of notifyFormsEnableUpdate.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -574,7 +748,13 @@ declare namespace formHost {
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isEnableUpdate - Indicates whether enable update.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -587,7 +767,13 @@ declare namespace formHost {
      * @param { string } formId - Indicates the form ID.
      * @param { string } deviceId - Indicates the remote device ID.
      * @param { AsyncCallback<void> } callback - The callback of shareForm.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -600,7 +786,13 @@ declare namespace formHost {
      * @param { string } formId - Indicates the form ID.
      * @param { string } deviceId - Indicates the remote device ID.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+     * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -613,7 +805,12 @@ declare namespace formHost {
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isProtected - Indicates whether to be protected.
      * @param { AsyncCallback<void> } callback - The callback of notifyFormsPrivacyProtected.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -626,7 +823,12 @@ declare namespace formHost {
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isProtected - Indicates whether to be protected.
      * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
@@ -640,8 +842,14 @@ declare namespace formHost {
      * @param { AsyncCallback<{[key: string]: Object}> } callback - The callback of acquireFormData.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * invalid input parameter during form operation
      * @syscap SystemCapability.Ability.Form
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     function acquireFormData(formId: string, callback: AsyncCallback<{[key: string]: Object}>): void;
@@ -653,10 +861,50 @@ declare namespace formHost {
      * @returns { Promise<{[key: string]: Object}> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * invalid input parameter during form operation
      * @syscap SystemCapability.Ability.Form
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     function acquireFormData(formId: string): Promise<{[key: string]: Object}>;
+
+    /**
+    * Obtains the RunningFormInfo object by formId.
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { string } formId - Indicates the form provider formId.
+    * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 10
+    */
+    function getRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
+
+    /**
+    * Obtains the RunningFormInfo object by formId.
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { string } formId - Indicates the form provider formId.
+    * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 10
+    */
+    function getRunningFormInfoById(formId: string, callback: AsyncCallback<formInfo.RunningFormInfo>): void;
 }
 export default formHost;

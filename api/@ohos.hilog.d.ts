@@ -32,7 +32,7 @@ declare namespace hilog {
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
-  function debug(domain: number, tag: string, format: string, ...args: any[]) : void;
+  function debug(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs info-level logs.
    *
@@ -44,7 +44,7 @@ declare namespace hilog {
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
-  function info(domain: number, tag: string, format: string, ...args: any[]) : void;
+  function info(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs warning-level logs.
    *
@@ -56,7 +56,7 @@ declare namespace hilog {
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
-  function warn(domain: number, tag: string, format: string, ...args: any[]) : void;
+  function warn(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs error-level logs.
    *
@@ -68,7 +68,7 @@ declare namespace hilog {
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
-  function error(domain: number, tag: string, format: string, ...args: any[]) : void;
+  function error(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Outputs fatal-level logs.
    *
@@ -80,7 +80,7 @@ declare namespace hilog {
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
-  function fatal(domain: number, tag: string, format: string, ...args: any[]) : void;
+  function fatal(domain: number, tag: string, format: string, ...args: any[]): void;
   /**
    * Checks whether logs of the specified tag, and level can be printed.
    *
@@ -91,7 +91,7 @@ declare namespace hilog {
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
-  function isLoggable(domain: number, tag: string, level: LogLevel) : boolean;
+  function isLoggable(domain: number, tag: string, level: LogLevel): boolean;
   /**
    * Log level define
    *
@@ -100,11 +100,11 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   enum LogLevel {
-      DEBUG = 3,
-      INFO = 4,
-      WARN = 5,
-      ERROR = 6,
-      FATAL = 7,
+    DEBUG = 3,
+    INFO = 4,
+    WARN = 5,
+    ERROR = 6,
+    FATAL = 7,
   }
 }
 

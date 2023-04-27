@@ -30,5 +30,5 @@ export interface NotificationTemplate {
   /**
    * Obtains the data of a notification template.
    */
-  data: {[key: string]: Object};
+  data: { [key: string]: Object };
 }

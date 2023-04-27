@@ -28,32 +28,32 @@ import Want from './@ohos.app.ability.Want';
  * @useinstead ohos.app.form.formProvider
  */
 declare namespace formProvider {
-    /**
-     * Set next update time for a specified form.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.Form
-     * @param formId Indicates the form ID.
-     * @param minute Indicates duration minute before next update.
-     * @returns -
-     */
-    function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
-    function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
+  /**
+   * Set next update time for a specified form.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.Form
+   * @param formId Indicates the form ID.
+   * @param minute Indicates duration minute before next update.
+   * @returns -
+   */
+  function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
+  function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
-    /**
-     * Update a specified form.
-     *
-     * Client to communication with FormManagerService.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.Form
-     * @param formId Indicates the form ID
-     * @param formBindingData Indicates the form data
-     * @returns -
-     */
-    function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
-        callback: AsyncCallback<void>): void;
-    function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
+  /**
+   * Update a specified form.
+   *
+   * Client to communication with FormManagerService.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.Form
+   * @param formId Indicates the form ID
+   * @param formBindingData Indicates the form data
+   * @returns -
+   */
+  function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
+    callback: AsyncCallback<void>): void;
+  function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 
 }
 export default formProvider;

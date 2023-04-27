@@ -22,18 +22,18 @@
  * @deprecated since 9
  * @useinstead ohos.app.ability.ConfigurationConstant
  */
- declare namespace ConfigurationConstant {
-    /**
-     * @name ColorMode
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
-     */
-    export enum ColorMode {
-        COLOR_MODE_NOT_SET = -1,
-        COLOR_MODE_DARK = 0,
-        COLOR_MODE_LIGHT = 1,
-    }
+declare namespace ConfigurationConstant {
+  /**
+   * @name ColorMode
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @permission N/A
+   */
+  export enum ColorMode {
+    COLOR_MODE_NOT_SET = -1,
+    COLOR_MODE_DARK = 0,
+    COLOR_MODE_LIGHT = 1,
+  }
 }
 
 export default ConfigurationConstant

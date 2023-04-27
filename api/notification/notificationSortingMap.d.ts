@@ -25,6 +25,6 @@ import { NotificationSorting } from './notificationSorting';
  * @systemapi Hide this for inner system use.
  */
 interface NotificationSortingMap {
-  readonly sortings: {[key: string]: NotificationSorting};
+  readonly sortings: { [key: string]: NotificationSorting };
   readonly sortedHashCode: Array<string>;
 }

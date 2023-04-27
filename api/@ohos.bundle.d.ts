@@ -343,8 +343,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getBundleInfo
    */
-   function getBundleInfo(bundleName: string,
-      bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleInfo(bundleName: string,
+    bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
@@ -443,8 +443,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getApplicationInfo
    */
-   function getApplicationInfo(bundleName: string,
-      bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
+  function getApplicationInfo(bundleName: string,
+    bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains based on a given bundle name.
@@ -492,8 +492,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
    */
-   function queryAbilityByWant(want: Want,
-      bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityByWant(want: Want,
+    bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want.
@@ -585,8 +585,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
-   function getAllApplicationInfo(bundleFlags: number,
-      userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
+  function getAllApplicationInfo(bundleFlags: number,
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
