@@ -14,7 +14,6 @@
  */
 
 import { AsyncCallback } from './basic';
-import { Callback } from './basic';
 
 /**
  * @namespace logLibrary
