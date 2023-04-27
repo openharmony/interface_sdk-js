@@ -33,7 +33,6 @@ export default class StaticSubscriberExtensionContext {
    * @throws { BusinessError } 201 - no such permission.
    * @throws { BusinessError } 202 - non-system-app use system-api.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
-
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
