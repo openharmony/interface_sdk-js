@@ -189,6 +189,7 @@ export default class UIAbility extends Ability {
      * @type { UIAbilityContext }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
+     * @crossplatform
      * @since 9
      */
     context: UIAbilityContext;
