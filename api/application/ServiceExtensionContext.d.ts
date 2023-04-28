@@ -498,6 +498,35 @@ export default class ServiceExtensionContext extends ExtensionContext {
   startAbilityByCall(want: Want): Promise<Caller>;
 
   /**
+   * Get the caller object that specifies the accountId startup capability
+   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
+   * @param { Want } want - Indicates the ability to start.
+   * @param { number } accountId - Indicates the account to start.
+   * @returns { Promise<Caller> } Returns the Caller interface.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
+
+  /**
    * Service extension uses this method to start a specific ability,
    * if ability is multi instance, will start a recent instance.
    * @param { Want } want - Indicates the ability to start.
