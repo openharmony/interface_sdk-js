@@ -499,7 +499,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
 
   /**
    * Get the caller object that specifies the accountId startup capability
-   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
+   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
    * @param { number } accountId - Indicates the account to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
