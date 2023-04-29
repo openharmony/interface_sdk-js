@@ -31,6 +31,7 @@ declare namespace http {
   /**
    * Creates an HTTP request task.
    * @crossplatform
+   * @since 10
    */
   function createHttp(): HttpRequest;
 
@@ -38,6 +39,7 @@ declare namespace http {
     /**
      * Request method.
      * @crossplatform
+     * @since 10
      */
     method?: RequestMethod; // default is GET
 
@@ -45,6 +47,7 @@ declare namespace http {
      * Additional data of the request.
      * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
      * @crossplatform
+     * @since 10
      */
     extraData?: string | Object | ArrayBuffer;
 
@@ -71,18 +74,21 @@ declare namespace http {
     /**
      * HTTP request header.
      * @crossplatform
+     * @since 9
      */
     header?: Object; // default is 'content-type': 'application/json'
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
      * @crossplatform
+     * @since 9
      */
     readTimeout?: number; // default is 60s
 
     /**
      * Connection timeout interval. The default value is 60,000, in ms.
      * @crossplatform
+     * @since 9
      */
     connectTimeout?: number; // default is 60s.
 
@@ -148,9 +154,94 @@ declare namespace http {
      * @throws {BusinessError} 2300094 - An authentication function returned an error.
      * @throws {BusinessError} 2300999 - Unknown Other Error.
      * @crossplatform
+     * @since 9
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
+
+    /**
+     * Initiates an HTTP request to a given URL.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @param callback Returns {@link HttpResponse}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
+     * @crossplatform
+     * @since 9
+     */
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
+
+    /**
+     * Initiates an HTTP request to a given URL.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @returns The promise returned by the function.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
+     * @crossplatform
+     * @since 9
+     */
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
     /**
@@ -374,13 +465,44 @@ declare namespace http {
    * @crossplatform
    */
   export enum RequestMethod {
+    /**
+     * HTTP request OPTIONS.
+     */
     OPTIONS = "OPTIONS",
+
+    /**
+     * HTTP request GET.
+     */
     GET = "GET",
+
+    /**
+     * HTTP request HEAD.
+     */
     HEAD = "HEAD",
+
+    /**
+     * HTTP request POST.
+     */
     POST = "POST",
+
+    /**
+     * HTTP request PUT.
+     */
     PUT = "PUT",
+
+    /**
+     * HTTP request DELETE.
+     */
     DELETE = "DELETE",
+
+    /**
+     * HTTP request TRACE.
+     */
     TRACE = "TRACE",
+
+    /**
+     * HTTP request CONNECT.
+     */
     CONNECT = "CONNECT"
   }
 
@@ -388,40 +510,179 @@ declare namespace http {
    * @crossplatform
    */
   export enum ResponseCode {
+    /**
+     * The request was successful. Typically used for GET and POST requests.
+     */
     OK = 200,
+
+     /**
+     * Created. Successfully requested and created a new resource.
+     */
+
     CREATED,
+
+     /**
+     * Accepted. The request has been accepted but has not been processed completely.
+     */
     ACCEPTED,
+
+     /**
+     * Unauthorized information. The request was successful.
+     */
     NOT_AUTHORITATIVE,
+
+    /**
+     * No content. The server successfully processed, but did not return content.
+     */
     NO_CONTENT,
+
+    /**
+     *Reset the content.
+     */
     RESET,
+
+     /**
+     *Partial content. The server successfully processed some GET requests.
+     */
     PARTIAL,
+
+    /**
+     *Multiple options.
+     */
     MULT_CHOICE = 300,
+
+     /**
+     *Permanently move. The requested resource has been permanently moved to a new URI, and the returned information will include the new URI. The browser will automatically redirect to the new URI.
+     */
     MOVED_PERM,
+
+    /**
+     *Temporary movement.
+     */
     MOVED_TEMP,
+
+    /**
+     *View other addresses.
+     */
     SEE_OTHER,
+
+    /**
+     *Not modified.
+     */
     NOT_MODIFIED,
+
+     /**
+     *Using proxies.
+     */
     USE_PROXY,
+
+    /**
+     *The server cannot understand the syntax error error requested by the client.
+     */
     BAD_REQUEST = 400,
+
+    /**
+     *Request for user authentication.
+     */
     UNAUTHORIZED,
+
+    /**
+     *Reserved for future use.
+     */
     PAYMENT_REQUIRED,
+
+     /**
+     *The server understands the request from the requesting client, but refuses to execute it.
+     */
     FORBIDDEN,
+
+    /**
+     *The server was unable to find resources (web pages) based on the client's request.
+     */
     NOT_FOUND,
+
+     /**
+     *The method in the client request is prohibited.
+     */
     BAD_METHOD,
+
+   /**
+     *The server is unable to complete the request based on the content characteristics requested by the client.
+     */
     NOT_ACCEPTABLE,
+
+     /**
+     *Request authentication of the proxy's identity.
+     */
     PROXY_AUTH,
+
+   /**
+     *The request took too long and timed out.
+     */
     CLIENT_TIMEOUT,
+    /**
+     *The server may have returned this code when completing the client's PUT request, as there was a conflict when the server was processing the request.
+     */
     CONFLICT,
+
+    /**
+     *The resource requested by the client no longer exists.
+     */
     GONE,
+
+    /**
+     *The server is unable to process request information sent by the client without Content Length.
+     */
     LENGTH_REQUIRED,
+
+    /**
+     *The prerequisite for requesting information from the client is incorrect.
+     */
     PRECON_FAILED,
+
+    /**
+     *The request was rejected because the requested entity was too large for the server to process.
+     */
     ENTITY_TOO_LARGE,
+
+    /**
+     *The requested URI is too long (usually a URL) and the server cannot process it.
+     */
     REQ_TOO_LONG,
+
+    /**
+     *The server is unable to process the requested format.
+     */
     UNSUPPORTED_TYPE,
+
+    /**
+     *Internal server error, unable to complete the request.
+     */
     INTERNAL_ERROR = 500,
+
+    /**
+     *The server does not support the requested functionality and cannot complete the request.
+     */
     NOT_IMPLEMENTED,
+
+    /**
+     *The server acting as a gateway or proxy received an invalid request from the remote server.
+     */
     BAD_GATEWAY,
+
+    /**
+     *Due to overload or system maintenance, the server is temporarily unable to process client requests.
+     */
     UNAVAILABLE,
+
+    /**
+     *The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
+     */
     GATEWAY_TIMEOUT,
+
+    /**
+     *The version of the HTTP protocol requested by the server.
+     */
     VERSION
   }
 
@@ -432,7 +693,14 @@ declare namespace http {
    * @since 9
    */
   export enum HttpProtocol {
+    /**
+     *Protocol http1.1
+     */
     HTTP1_1,
+
+    /**
+     *Protocol http2
+     */
     HTTP2,
   }
 
@@ -446,16 +714,19 @@ declare namespace http {
     /**
      * The returned type is string.
      * @crossplatform
+     * @since 9
      */
     STRING,
     /**
      * The returned type is Object.
      * @crossplatform
+     * @since 9
      */
     OBJECT = 1,
     /**
      * The returned type is ArrayBuffer.
      * @crossplatform
+     * @since 9
      */
     ARRAY_BUFFER = 2,
   }
@@ -513,16 +784,38 @@ declare namespace http {
   export interface HttpResponseCache {
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
+     * @param callback Returns the callback of flush.
+     * @systemapi Hide this for inner system use.
      * @crossplatform
+     * @since 9
      */
     flush(callback: AsyncCallback<void>): void;
+
+     /**
+     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
+     * @returns The promise returned by the flush.
+     * @systemapi Hide this for inner system use.
+     * @crossplatform
+     * @since 9
+     */
     flush(): Promise<void>;
 
     /**
      * Disables a cache and deletes the data in it.
+     * @param callback Returns the callback of delete.
+     * @systemapi Hide this for inner system use.
      * @crossplatform
+     * @since 9
      */
     delete(callback: AsyncCallback<void>): void;
+
+     /**
+     * Disables a cache and deletes the data in it.
+     * @returns The promise returned by the delete.
+     * @systemapi Hide this for inner system use.
+     * @crossplatform
+     * @since 9
+     */
     delete(): Promise<void>;
   }
 }

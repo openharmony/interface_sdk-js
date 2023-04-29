@@ -34,8 +34,24 @@ declare namespace ethernet {
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2201005 - Device information does not exist.
+   * @since 9
    */
   function getIfaceConfig(iface: string, callback: AsyncCallback<InterfaceConfiguration>): void;
+
+    /**
+   * Get the specified network interface information.
+   *
+   * @param iface Indicates the network interface name.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2201005 - Device information does not exist.
+   * @since 9
+   */
   function getIfaceConfig(iface: string): Promise<InterfaceConfiguration>;
 
   /**
@@ -54,8 +70,28 @@ declare namespace ethernet {
    * @throws {BusinessError} 2201005 - Device information does not exist.
    * @throws {BusinessError} 2201006 - Ethernet device not connected.
    * @throws {BusinessError} 2201007 - Ethernet failed to write user configuration information.
+   * @since 9
    */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the specified network interface parameters.
+   *
+   * @param iface Indicates the network interface name of the network parameter.
+   * @param ic Indicates the ic. See {@link InterfaceConfiguration}.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2201004 - Invalid Ethernet profile.
+   * @throws {BusinessError} 2201005 - Device information does not exist.
+   * @throws {BusinessError} 2201006 - Ethernet device not connected.
+   * @throws {BusinessError} 2201007 - Ethernet failed to write user configuration information.
+   * @since 9
+   */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
 
   /**
@@ -70,8 +106,24 @@ declare namespace ethernet {
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2201005 - Device information does not exist.
+   * @since 9
    */
   function isIfaceActive(iface: string, callback: AsyncCallback<number>): void;
+
+  /**
+   * Check whether the specified network is active.
+   *
+   * @param iface Indicates the network interface name.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2201005 - Device information does not exist.
+   * @since 9
+   */
   function isIfaceActive(iface: string): Promise<number>;
 
   /**
@@ -82,8 +134,20 @@ declare namespace ethernet {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
    */
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
+
+   /**
+   * Gets the names of all active network interfaces.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
+   */
   function getAllActiveIfaces(): Promise<Array<string>>;
 
   /**
@@ -116,6 +180,7 @@ declare namespace ethernet {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   export interface InterfaceConfiguration {
     /**
@@ -126,6 +191,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration IP information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
+     *  @since 9
      */
     ipAddr: string;
 
@@ -133,6 +199,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration route information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
+     *  @since 9
      */
     route: string;
 
@@ -140,6 +207,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration gateway information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
+     *  @since 9
      */
     gateway: string;
 
@@ -147,6 +215,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration netMask information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
+     *  @since 9
      */
     netMask: string;
 
@@ -154,15 +223,26 @@ declare namespace ethernet {
      * The Ethernet connection is configured with the dns service address.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured, Multiple addresses are separated by ",")
+     *  @since 9
      */
     dnsServers: string;
   }
 
   /**
    * @systemapi Hide this for inner system use.
+   *  @since 9
    */
   export enum IPSetMode {
+  /**
+   * Ethernet connection static configuration network information.
+   *  @since 9
+   */
     STATIC = 0,
+
+  /**
+   * Dynamically configure network information for Ethernet connections.
+   *  @since 9
+   */
     DHCP = 1
   }
 }

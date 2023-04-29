@@ -34,8 +34,22 @@ declare namespace sharing {
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
   */
   function isSharingSupported(callback: AsyncCallback<boolean>): void;
+
+   /**
+   * Checks whether this device allows for network sharing.
+   *
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
+  */
   function isSharingSupported(): Promise<boolean>;
 
   /**
@@ -48,8 +62,22 @@ declare namespace sharing {
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
    */
   function isSharing(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Return the global network sharing state.
+   *
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
+   */
   function isSharing(): Promise<boolean>;
 
   /**
@@ -69,8 +97,29 @@ declare namespace sharing {
    * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
    * @throws {BusinessError} 2202009 - Network share enable forwarding error.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
    */
   function startSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
+
+  /**
+   * Start network sharing for given type.
+   *
+   * @param type Enumeration of shareable interface types.
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2202004 - Try to share an unavailable iface.
+   * @throws {BusinessError} 2202005 - WiFi sharing failed.
+   * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
+   * @throws {BusinessError} 2202009 - Network share enable forwarding error.
+   * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
+   */
   function startSharing(type: SharingIfaceType): Promise<void>;
 
   /**
@@ -89,8 +138,28 @@ declare namespace sharing {
    * @throws {BusinessError} 2202005 - WiFi sharing failed.
    * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
    */
   function stopSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stop network sharing for given type.
+   *
+   * @param type Enumeration of shareable interface types.
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2202004 - Try to share an unavailable iface.
+   * @throws {BusinessError} 2202005 - WiFi sharing failed.
+   * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
+   * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
+   * @since 9
+   */
   function stopSharing(type: SharingIfaceType): Promise<void>;
 
   /**
@@ -102,8 +171,21 @@ declare namespace sharing {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
    */
   function getStatsRxBytes(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the number of downlink data bytes of the sharing network interfaces.
+   *
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
+   */
   function getStatsRxBytes(): Promise<number>;
 
   /**
@@ -115,8 +197,21 @@ declare namespace sharing {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
    */
   function getStatsTxBytes(callback: AsyncCallback<number>): void;
+
+    /**
+   * Obtains the number of uplink data bytes of the sharing network interfaces.
+   *
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
+   */
   function getStatsTxBytes(): Promise<number>;
 
   /**
@@ -128,8 +223,21 @@ declare namespace sharing {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
    */
   function getStatsTotalBytes(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the number of total data bytes of the sharing network interfaces.
+   *
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
+   */
   function getStatsTotalBytes(): Promise<number>;
 
   /**
@@ -144,8 +252,24 @@ declare namespace sharing {
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
    */
   function getSharingIfaces(state: SharingIfaceState, callback: AsyncCallback<Array<string>>): void;
+
+  /**
+   * Obtains the names of interfaces in each sharing state.
+   *
+   * @param state Is the network sharing state.
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
+   */
   function getSharingIfaces(state: SharingIfaceState): Promise<Array<string>>;
 
   /**
@@ -160,16 +284,15 @@ declare namespace sharing {
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
    */
   function getSharingState(type: SharingIfaceType, callback: AsyncCallback<SharingIfaceState>): void;
-  function getSharingState(type: SharingIfaceType): Promise<SharingIfaceState>;
 
   /**
-   * Get a list regular expression that defines any interface that can support network sharing.
+   * Obtains the network sharing state for given type.
    *
    * @param type Is the enumeration of shareable interface types.
-   * @param callback Returns an array of regular expression strings that define which interfaces
-   *        are considered to support network sharing.
+   * @returns The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
@@ -177,67 +300,117 @@ declare namespace sharing {
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
+   */
+  function getSharingState(type: SharingIfaceType): Promise<SharingIfaceState>;
+
+  /**
+   * Get a list regular expression that defines any interface that can support network sharing.
+   *
+   * @param type Is the enumeration of shareable interface types.
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
    */
   function getSharableRegexes(type: SharingIfaceType, callback: AsyncCallback<Array<string>>): void;
+
+  /**
+   * Get a list regular expression that defines any interface that can support network sharing.
+   *
+   * @param type Is the enumeration of shareable interface types.
+   * @returns The promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @since 9
+   */
   function getSharableRegexes(type: SharingIfaceType): Promise<Array<string>>;
 
   /**
    * Register a callback for the global network sharing state change.
    *
+   * @param type event that need to be listened to
+   * @param callback callback function that returns the status
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
+   * @since 9
    */
   function on(type: 'sharingStateChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister a callback for the global network sharing state change.
    *
+   * @param type events that need to be cancel listening to
+   * @param callback callback function that returns the status
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
+   * @since 9
    */
   function off(type: 'sharingStateChange', callback?: Callback<boolean>): void;
 
   /**
    * Register a callback for the interface network sharing state change.
    *
+   * @param type event that need to be listened to
+   * @param callback callback function that returns the message
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
+   * @since 9
    */
   function on(type: 'interfaceSharingStateChange', callback: Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }>): void;
 
   /**
    * Unregister a callback for the interface network sharing state change.
    *
+   * @param type events that need to be cancel listening to
+   * @param callback callback function that returns the message
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
+   * @since 9
    */
   function off(type: 'interfaceSharingStateChange', callback?: Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }>): void;
 
   /**
    * Register a callback for the sharing upstream network change.
    *
+   * @param type event that need to be listened to
+   * @param callback callback function that returns the network handle
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
+   * @since 9
    */
   function on(type: 'sharingUpstreamChange', callback: Callback<NetHandle>): void;
 
   /**
    * Unregister a callback for the sharing upstream network change.
    *
+   * @param type events that need to be cancel listening to
+   * @param callback callback function that returns the network handle
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 Permission denied.
    * @throws {BusinessError} 401 Parameter error.
+   * @since 9
    */
   function off(type: 'sharingUpstreamChange', callback?: Callback<NetHandle>): void;
 
@@ -247,36 +420,43 @@ declare namespace sharing {
   export enum SharingIfaceState {
     /**
      * Indicates the names of the NICs that are serving as network sharing.
+     * @since 9
      */
     SHARING_NIC_SERVING = 1,
 
     /**
      * Indicates the names of the NICs that can serve as network sharing.
+     * @since 9
      */
     SHARING_NIC_CAN_SERVER = 2,
 
     /**
      * Indicates the names of the NICs that serving error.
+     * @since 9
      */
     SHARING_NIC_ERROR = 3
   }
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   export enum SharingIfaceType {
     /**
      * Network sharing type for Wi-Fi.
+     * @since 9
      */
     SHARING_WIFI = 0,
 
     /**
      * Network sharing type for USB.
+     * @since 9
      */
     SHARING_USB = 1,
 
     /**
      * Network sharing type for BLUETOOTH.
+     * @since 9
      */
     SHARING_BLUETOOTH = 2
   }
