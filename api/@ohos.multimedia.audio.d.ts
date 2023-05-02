@@ -3256,6 +3256,12 @@ declare namespace audio {
      */
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
+     * Playback capture source type.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
+    /**
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
@@ -3303,6 +3309,39 @@ declare namespace audio {
      * @since 8
      */
     capturerInfo: AudioCapturerInfo;
+    /**
+     * Playback capture config option.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    playbackCaptureType?: AudioPlaybackCaptureType;
+  }
+
+  /**
+   * Enumerates types for capture audio playback stream.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   */
+  enum AudioPlaybackCaptureType {
+    /**
+     * Type for not playback capture.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    PLAYBACK_CAPTURE_TYPE_NONE = 0,
+    /**
+     * Type for trying to capture all streams, may be affected by private or protected config.
+     * @permission ohos.permission.CAPTURE_PROTECTED_AUDIO_STREAM
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    PLAYBACK_CAPTURE_TYPE_ALL = 1,
+    /**
+     * Type for trying to capture only media streams, may be affected by private or protected config.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    PLAYBACK_CAPTURE_TYPE_MEDIA = 2,
   }
 
   /**
