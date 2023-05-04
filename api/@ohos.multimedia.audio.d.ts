@@ -3293,6 +3293,7 @@ declare namespace audio {
      * Playback capture source type.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @permission ohos.permission.CAPTURE_INTERNAL_AUDIO
      */
     SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
     /**
@@ -3344,40 +3345,34 @@ declare namespace audio {
      */
     capturerInfo: AudioCapturerInfo;
     /**
-     * Playback capture config option.
+     * Playback capture config.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      */
-    playbackCaptureType?: AudioPlaybackCaptureType;
+    playbackCaptureConfig?: AudioPlaybackCaptureConfig;
   }
 
   /**
-   * Enumerates types for capture audio playback stream.
+   * Describe playback capture config object.
    * @since 10
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    */
-  enum AudioPlaybackCaptureType {
+  interface AudioPlaybackCaptureConfig {
     /**
-     * Type for not capture playback streams.
+     * Add matching audio renderer info to decide which streams to be captured.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @permission ohos.permission.CAPTURE_VOICE_AUDIO
      */
-    PLAYBACK_CAPTURE_TYPE_NONE = 0,
+    addRendererInfoForCapture(usage: StreamUsage, content: ContentType);
 
     /**
-     * Type for trying to capture media streams, may be affected by private or protected config.
+     * Enable or disable external recording at the same time.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @permission ohos.permission.MICROPHONE
      */
-    PLAYBACK_CAPTURE_TYPE_MEDIA = (1 << 0),
-
-    /**
-     * Type for trying to capture voice streams, may be affected by private or protected config.
-     * @permission ohos.permission.CAPTURE_VOICE_STREAM
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
-     */
-    PLAYBACK_CAPTURE_TYPE_VOICE = (1 << 1),
+    enableMicrophone(enable: boolean);
   }
 
   /**
