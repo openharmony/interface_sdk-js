@@ -16,7 +16,7 @@
 const path = require('path');
 const fs = require('fs');
 
-function checkEntry(url) {
+function checkEntry(prId) {
   let result = '';
   let isOpenEscapeWay = false;
   const sourceDirname = __dirname;
@@ -31,27 +31,26 @@ function checkEntry(url) {
       administrators.add(administrator.id);
     })
     const request = require(path.resolve(__dirname, './node_modules/sync-request'));
-    const pullRequestSteps = url.split(/(\/|\\\\)/g);
-    // 默认搜寻500条评论
-    for (let i = 0; i < 5; i++) {
-      const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${pullRequestSteps[pullRequestSteps.length - 1]}/comments?page=${i + 1}&per_page=100&direction=desc`;
+    if (prId && prId !== 'NA') {
+      // 默认搜寻100条评论
+      const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;
       let res = request('GET', commentRequestPath, {
         headers: {
           'Content-Type': 'application/json;charset=UFT-8'
         }
       });
       let resBody = new TextDecoder('utf-8').decode(res.body);
-      let comments = JSON.parse(`{"resultBody": ${resBody}}`);
-      let resultBody = comments.resultBody
-      for (let i = 0; i < resultBody.length; i++) {
-        const comment = resultBody[i];
-        if (administrators.has(String(comment['user']['id'])) && /^approve api check$/.test(comment.body)) {
-          isOpenEscapeWay = true;
-          break;
+      let comments = JSON.parse(`{"resultBody": "${resBody}"}`);
+      let resultBody = comments.resultBody;
+      if (resultBody && resultBody.length) {
+        for (let i = 0; i < resultBody.length; i++) {
+          const comment = resultBody[i];
+          if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
+            comment.body && /^approve api check$/.test(comment.body)) {
+            isOpenEscapeWay = true;
+            break;
+          }
         }
-      }
-      if (isOpenEscapeWay) {
-        break;
       }
     }
     const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
