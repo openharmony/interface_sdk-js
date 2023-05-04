@@ -883,6 +883,40 @@ declare namespace audio {
      * @since 8
      */
     rendererInfo: AudioRendererInfo;
+    /**
+     * Privacy configuration.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    privacyType?: AudioPrivacyType;
+  }
+
+  /**
+   * Enumerates audio stream privacy type for playback capture.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   */
+  enum AudioPrivacyType {
+    /**
+     * Privacy type that stream can be captured by third party applications.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    PRIVACY_TYPE_PUBLIC = 0,
+
+    /**
+     * Privacy type that stream can be only captured by system.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    PRIVACY_TYPE_PROTECTED = 1,
+
+    /**
+     * Privacy type that stream can not be captured.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    PRIVACY_TYPE_PRIVATE = 2,
   }
 
   /**
@@ -3324,24 +3358,26 @@ declare namespace audio {
    */
   enum AudioPlaybackCaptureType {
     /**
-     * Type for not playback capture.
+     * Type for not capture playback streams.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      */
     PLAYBACK_CAPTURE_TYPE_NONE = 0,
+
     /**
-     * Type for trying to capture all streams, may be affected by private or protected config.
-     * @permission ohos.permission.CAPTURE_PROTECTED_AUDIO_STREAM
+     * Type for trying to capture media streams, may be affected by private or protected config.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      */
-    PLAYBACK_CAPTURE_TYPE_ALL = 1,
+    PLAYBACK_CAPTURE_TYPE_MEDIA = (1 << 0),
+
     /**
-     * Type for trying to capture only media streams, may be affected by private or protected config.
+     * Type for trying to capture voice streams, may be affected by private or protected config.
+     * @permission ohos.permission.CAPTURE_VOICE_STREAM
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      */
-    PLAYBACK_CAPTURE_TYPE_MEDIA = 2,
+    PLAYBACK_CAPTURE_TYPE_VOICE = (1 << 1),
   }
 
   /**
