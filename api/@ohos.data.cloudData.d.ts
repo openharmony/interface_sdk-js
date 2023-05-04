@@ -20,6 +20,7 @@ declare namespace cloudData {
    * Describes the clear action type.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
    * @since 10
    */
   enum Action {
@@ -27,6 +28,7 @@ declare namespace cloudData {
      * Indicates clearing cloud-related data only, which includes cloud meta data and cloud-related local data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 10
      */
     CLEAR_CLOUD_INFO,
@@ -35,6 +37,7 @@ declare namespace cloudData {
      * Indicates clearing all cloud-related file data,which synchronized with the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 10
      */
     CLEAR_CLOUD_DATA_AND_INFO
