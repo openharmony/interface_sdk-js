@@ -226,6 +226,7 @@
       "SystemCapability.HiviewDFX.HiLogLite",
       "SystemCapability.HiviewDFX.HiTrace",
       "SystemCapability.HiviewDFX.Hiview.FaultLogger",
+      "SystemCapability.HiviewDFX.Hiview.LogLibrary",
       "SystemCapability.HiviewDFX.HiviewLite",
       "SystemCapability.HiviewDFX.HiChecker",
       "SystemCapability.HiviewDFX.HiCollie",
