@@ -236,7 +236,7 @@ declare type Context = import('../api/application/Context').default;
 /**
  * Post Card Action.
  * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router or message event.
+ * @param { Object } action - indicate the router, message or call event.
  * @form
  * @StageModelOnly
  * @since 9
