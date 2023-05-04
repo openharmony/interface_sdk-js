@@ -178,9 +178,9 @@ declare namespace reminderAgentManager {
 
     /**
      * The custom button.
-     * @since 10
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
+     * @since 10
      */
      ACTION_BUTTON_TYPE_CUSTOM = 2
   }
@@ -237,9 +237,9 @@ declare namespace reminderAgentManager {
 
     /**
      * Information about the ability that is redirected to when the button is clicked.
-     * @since 10
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
+     * @since 10
      */
      wantAgent?: WantAgent;
   }
@@ -268,9 +268,9 @@ declare namespace reminderAgentManager {
 
     /**
      * The Uniform Resource Identifier (URI) that will be redirected to.
-     * @since 10
      * @syscap SystemCapability.Notification.ReminderAgent
      * @systemapi Hide this for inner system use.
+     * @since 10
      */
     uri?: string;
   }
@@ -320,8 +320,8 @@ declare namespace reminderAgentManager {
     /**
      * Action button displayed on the reminder notification.
      * (The parameter is optional. Up to three buttons are supported).
-     * @since 10
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
      */
     actionButton?: [ActionButton?, ActionButton?, ActionButton?];
 
@@ -405,15 +405,15 @@ declare namespace reminderAgentManager {
 
     /**
      * Whether the notification is automatically cleared.
-     * @since 10
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
      */
     tapDismissed?: boolean;
 
     /**
      * Time when the notification is automatically cleared.
-     * @since 10
      * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
      */
     autoDeletedTime?: number;
   }
