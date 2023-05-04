@@ -138,3 +138,55 @@ ohos_copy("form_declaration") {
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
 }
+
+std::shared_ptr<OHOS::NWeb::NWebUrlResourceResponse> WebClientImpl::OnHandleInterceptRequest(
+    std::shared_ptr<OHOS::NWeb::NWebUrlResourceRequest> request)
+{
+    ContainerScope scope(instanceId_);
+    auto delegate = webDelegate_.Upgrade();
+    if (!delegate || (delegate->IsEmptyOnInterceptRequest() == true)) {
+        LOGI("OnHandleInterceptRequest is empty");
+        return nullptr;
+    }
+
+    auto webRequest = AceType::MakeRefPtr<WebRequest>(request->RequestHeaders(), request->Method(), request->Url(),
+        request->FromGesture(), request->IsAboutMainFrame(), request->IsRequestRedirect());
+    auto param = std::make_shared<OnInterceptRequestEvent>(webRequest);
+    RefPtr<WebResponse> webResponse = nullptr;
+    auto task = Container::CurrentTaskExecutor();
+    if (task == nullptr) {
+        LOGE("can't get task executor");
+        return nullptr;
+    }
+    task->PostSyncTask([&delegate, &webResponse, &param] {
+            webResponse = delegate->OnInterceptRequest(param);
+        }, OHOS::Ace::TaskExecutor::TaskType::JS);
+    if (webResponse == nullptr) {
+        LOGI("webResponse is null");
+        return nullptr;
+    }
+    std::string data = webResponse->GetData();
+    LOGI("intercept Encoding %{public}s, StatusCode %{public}d, DataType %{public}d",
+        webResponse->GetMimeType().c_str(), webResponse->GetStatusCode(), webResponse->GetDataType());
+    std::shared_ptr<OHOS::NWeb::NWebUrlResourceResponse> nwebResponse =
+        std::make_shared<OHOS::NWeb::NWebUrlResourceResponse>(webResponse->GetMimeType(), webResponse->GetEncoding(),
+        webResponse->GetStatusCode(), webResponse->GetReason(), webResponse->GetHeaders(),  data);
+    switch (webResponse->GetDataType()) {
+        case WebResponseDataType::FILE_TYPE:
+            nwebResponse->PutResponseFileHandle(webResponse->GetFileHandle());
+            break;
+        case WebResponseDataType::RESOURCE_URL_TYPE:
+            nwebResponse->PutResponseResourceUrl(webResponse->GetResourceUrl());
+            break;
+        default:
+            nwebResponse->PutResponseData(data);
+            break;
+    }
+    if (webResponse->GetResponseStatus() == false) {
+        LOGI("intercept response async Handle");
+        std::shared_ptr<NWebResponseAsyncHandle> asyncHandle = std::make_shared<NWebResponseAsyncHandle>(nwebResponse);
+        webResponse->SetAsyncHandle(asyncHandle);
+        nwebResponse->PutResponseDataStatus(false);
+    }
+    return nwebResponse;
+}
