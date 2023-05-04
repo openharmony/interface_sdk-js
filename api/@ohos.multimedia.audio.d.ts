@@ -3364,7 +3364,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @permission ohos.permission.CAPTURE_VOICE_AUDIO
      */
-    addRendererInfoForCapture(usage: StreamUsage, content: ContentType);
+    rendererInfoForCapture: Array<{usage: StreamUsage, content: ContentType}>;
 
     /**
      * Enable or disable external recording at the same time.
@@ -3372,7 +3372,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @permission ohos.permission.MICROPHONE
      */
-    enableMicrophone(enable: boolean);
+    enableMicrophone?: boolean;
   }
 
   /**
