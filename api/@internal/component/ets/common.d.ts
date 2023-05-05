@@ -3582,6 +3582,14 @@ declare interface PopupOptions {
    * @since 10
    */
   enableArrow?: boolean;
+   /**
+   * Sets the position offset of the popup.
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Position
 }
 
 /**
@@ -3714,6 +3722,15 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   targetSpace?: Length
+
+  /**
+   * Sets the position offset of the popup.
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Position
 }
 
 /**
