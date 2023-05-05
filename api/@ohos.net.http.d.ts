@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -31,7 +31,7 @@ declare namespace http {
   /**
    * Creates an HTTP request task.
    * @crossplatform
-   * @since 10
+   * @since 6
    */
   function createHttp(): HttpRequest;
 
@@ -39,7 +39,7 @@ declare namespace http {
     /**
      * Request method.
      * @crossplatform
-     * @since 10
+     * @since 6
      */
     method?: RequestMethod; // default is GET
 
@@ -47,7 +47,7 @@ declare namespace http {
      * Additional data of the request.
      * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
      * @crossplatform
-     * @since 10
+     * @since 6
      */
     extraData?: string | Object | ArrayBuffer;
 
@@ -74,21 +74,21 @@ declare namespace http {
     /**
      * HTTP request header.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     header?: Object; // default is 'content-type': 'application/json'
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     readTimeout?: number; // default is 60s
 
     /**
      * Connection timeout interval. The default value is 60,000, in ms.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     connectTimeout?: number; // default is 60s.
 
@@ -154,7 +154,7 @@ declare namespace http {
      * @throws {BusinessError} 2300094 - An authentication function returned an error.
      * @throws {BusinessError} 2300999 - Unknown Other Error.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
 
@@ -197,7 +197,7 @@ declare namespace http {
      * @throws {BusinessError} 2300094 - An authentication function returned an error.
      * @throws {BusinessError} 2300999 - Unknown Other Error.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
 
@@ -240,7 +240,7 @@ declare namespace http {
      * @throws {BusinessError} 2300094 - An authentication function returned an error.
      * @throws {BusinessError} 2300999 - Unknown Other Error.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
@@ -466,222 +466,266 @@ declare namespace http {
    */
   export enum RequestMethod {
     /**
-     * HTTP request OPTIONS.
+     * OPTIONS method.
+     * @since 6
      */
     OPTIONS = "OPTIONS",
 
     /**
-     * HTTP request GET.
+     * GET method.
+     * @since 6
      */
     GET = "GET",
 
     /**
-     * HTTP request HEAD.
+     * HEAD method.
+     * @since 6
      */
     HEAD = "HEAD",
 
     /**
-     * HTTP request POST.
+     * POST method.
+     * @since 6
      */
     POST = "POST",
 
     /**
-     * HTTP request PUT.
+     * PUT method.
+     * @since 6
      */
     PUT = "PUT",
 
     /**
-     * HTTP request DELETE.
+     * DELETE method.
+     * @since 6
      */
     DELETE = "DELETE",
 
     /**
-     * HTTP request TRACE.
+     * TRACE method.
+     * @since 6
      */
     TRACE = "TRACE",
 
     /**
-     * HTTP request CONNECT.
+     * CONNECT method.
+     * @since 6
      */
     CONNECT = "CONNECT"
   }
 
   /**
    * @crossplatform
+   * @since 6
    */
   export enum ResponseCode {
     /**
      * The request was successful. Typically used for GET and POST requests.
+     * @since 6
      */
     OK = 200,
 
      /**
      * Created. Successfully requested and created a new resource.
+     * @since 6
      */
 
     CREATED,
 
      /**
      * Accepted. The request has been accepted but has not been processed completely.
+     * @since 6
      */
     ACCEPTED,
 
      /**
      * Unauthorized information. The request was successful.
+     * @since 6
      */
     NOT_AUTHORITATIVE,
 
     /**
      * No content. The server successfully processed, but did not return content.
+     * @since 6
      */
     NO_CONTENT,
 
     /**
-     *Reset the content.
+     * Reset the content.
+     * @since 6
      */
     RESET,
 
      /**
-     *Partial content. The server successfully processed some GET requests.
+     * Partial content. The server successfully processed some GET requests.
+     * @since 6
      */
     PARTIAL,
 
     /**
-     *Multiple options.
+     * Multiple options.
+     * @since 6
      */
     MULT_CHOICE = 300,
 
      /**
-     *Permanently move. The requested resource has been permanently moved to a new URI, and the returned information will include the new URI. The browser will automatically redirect to the new URI.
+     * Permanently move. The requested resource has been permanently moved to a new URI, and the returned information will include the new URI. The browser will automatically redirect to the new URI.
+     * @since 6
      */
     MOVED_PERM,
 
     /**
-     *Temporary movement.
+     * Temporary movement.
+     * @since 6
      */
     MOVED_TEMP,
 
     /**
-     *View other addresses.
+     * View other addresses.
+     * @since 6
      */
     SEE_OTHER,
 
     /**
-     *Not modified.
+     * Not modified.
+     * @since 6
      */
     NOT_MODIFIED,
 
      /**
-     *Using proxies.
+     * Using proxies.
+     * @since 6
      */
     USE_PROXY,
 
     /**
-     *The server cannot understand the syntax error error requested by the client.
+     * The server cannot understand the syntax error error requested by the client.
+     * @since 6
      */
     BAD_REQUEST = 400,
 
     /**
-     *Request for user authentication.
+     * Request for user authentication.
+     * @since 6
      */
     UNAUTHORIZED,
 
     /**
-     *Reserved for future use.
+     * Reserved for future use.
+     * @since 6
      */
     PAYMENT_REQUIRED,
 
-     /**
-     *The server understands the request from the requesting client, but refuses to execute it.
+    /**
+     * The server understands the request from the requesting client, but refuses to execute it.
+     * @since 6
      */
     FORBIDDEN,
 
     /**
-     *The server was unable to find resources (web pages) based on the client's request.
+     * The server was unable to find resources (web pages) based on the client's request.
+     * @since 6
      */
     NOT_FOUND,
 
-     /**
-     *The method in the client request is prohibited.
+    /**
+     * The method in the client request is prohibited.
+     * @since 6
      */
     BAD_METHOD,
 
-   /**
-     *The server is unable to complete the request based on the content characteristics requested by the client.
+    /**
+     * The server is unable to complete the request based on the content characteristics requested by the client.
+     * @since 6
      */
     NOT_ACCEPTABLE,
 
-     /**
-     *Request authentication of the proxy's identity.
+    /**
+     * Request authentication of the proxy's identity.
+     * @since 6
      */
     PROXY_AUTH,
 
-   /**
-     *The request took too long and timed out.
+    /**
+     * The request took too long and timed out.
+     * @since 6
      */
     CLIENT_TIMEOUT,
     /**
-     *The server may have returned this code when completing the client's PUT request, as there was a conflict when the server was processing the request.
+     * The server may have returned this code when completing the client's PUT request, as there was a conflict when the server was processing the request.
+     * @since 6
      */
     CONFLICT,
 
     /**
-     *The resource requested by the client no longer exists.
+     * The resource requested by the client no longer exists.
+     * @since 6
      */
     GONE,
 
     /**
-     *The server is unable to process request information sent by the client without Content Length.
+     * The server is unable to process request information sent by the client without Content Length.
+     * @since 6
      */
     LENGTH_REQUIRED,
 
     /**
-     *The prerequisite for requesting information from the client is incorrect.
+     * The prerequisite for requesting information from the client is incorrect.
+     * @since 6
      */
     PRECON_FAILED,
 
     /**
-     *The request was rejected because the requested entity was too large for the server to process.
+     * The request was rejected because the requested entity was too large for the server to process.
+     * @since 6
      */
     ENTITY_TOO_LARGE,
 
     /**
-     *The requested URI is too long (usually a URL) and the server cannot process it.
+     * The requested URI is too long (usually a URL) and the server cannot process it.
+     * @since 6
      */
     REQ_TOO_LONG,
 
     /**
-     *The server is unable to process the requested format.
+     * The server is unable to process the requested format.
+     * @since 6
      */
     UNSUPPORTED_TYPE,
 
     /**
-     *Internal server error, unable to complete the request.
+     * Internal server error, unable to complete the request.
+     * @since 6
      */
     INTERNAL_ERROR = 500,
 
     /**
-     *The server does not support the requested functionality and cannot complete the request.
+     * The server does not support the requested functionality and cannot complete the request.
+     * @since 6
      */
     NOT_IMPLEMENTED,
 
     /**
-     *The server acting as a gateway or proxy received an invalid request from the remote server.
+     * The server acting as a gateway or proxy received an invalid request from the remote server.
+     * @since 6
      */
     BAD_GATEWAY,
 
     /**
-     *Due to overload or system maintenance, the server is temporarily unable to process client requests.
+     * Due to overload or system maintenance, the server is temporarily unable to process client requests.
+     * @since 6
      */
     UNAVAILABLE,
 
     /**
-     *The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
+     * The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
+     * @since 6
      */
     GATEWAY_TIMEOUT,
 
     /**
-     *The version of the HTTP protocol requested by the server.
+     * The version of the HTTP protocol requested by the server.
+     * @since 6
      */
     VERSION
   }
@@ -694,12 +738,14 @@ declare namespace http {
    */
   export enum HttpProtocol {
     /**
-     *Protocol http1.1
+     * Protocol http1.1
+     * @since 9
      */
     HTTP1_1,
 
     /**
-     *Protocol http2
+     * Protocol http2
+     * @since 9
      */
     HTTP2,
   }
@@ -708,25 +754,25 @@ declare namespace http {
    * Indicates the type of the returned data.
    *
    * @crossplatform
-   * @since 9
+   * @since 6
    */
   export enum HttpDataType {
     /**
      * The returned type is string.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     STRING,
     /**
      * The returned type is Object.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     OBJECT = 1,
     /**
      * The returned type is ArrayBuffer.
      * @crossplatform
-     * @since 9
+     * @since 6
      */
     ARRAY_BUFFER = 2,
   }
@@ -752,12 +798,14 @@ declare namespace http {
     /**
      * Server status code.
      * @crossplatform
+     * @since 6
      */
     responseCode: ResponseCode | number;
 
     /**
      * All headers in the response from the server.
      * @crossplatform
+     * @since 6
      */
     header: Object;
 

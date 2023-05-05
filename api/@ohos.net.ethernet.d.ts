@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -191,7 +191,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration IP information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
-     *  @since 9
+     * @since 9
      */
     ipAddr: string;
 
@@ -199,7 +199,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration route information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
-     *  @since 9
+     * @since 9
      */
     route: string;
 
@@ -207,7 +207,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration gateway information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
-     *  @since 9
+     * @since 9
      */
     gateway: string;
 
@@ -215,7 +215,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration netMask information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
-     *  @since 9
+     * @since 9
      */
     netMask: string;
 
@@ -223,26 +223,26 @@ declare namespace ethernet {
      * The Ethernet connection is configured with the dns service address.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured, Multiple addresses are separated by ",")
-     *  @since 9
+     * @since 9
      */
     dnsServers: string;
   }
 
-  /**
-   * @systemapi Hide this for inner system use.
-   *  @since 9
-   */
+    /**
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
   export enum IPSetMode {
-  /**
-   * Ethernet connection static configuration network information.
-   *  @since 9
-   */
+    /**
+     * Static configuration.
+     * @since 9
+     */
     STATIC = 0,
 
-  /**
-   * Dynamically configure network information for Ethernet connections.
-   *  @since 9
-   */
+    /**
+     * Dynamic configuration.
+     * @since 9
+     */
     DHCP = 1
   }
 }

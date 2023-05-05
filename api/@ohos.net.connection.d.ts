@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -92,7 +92,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getAllNets(callback: AsyncCallback<Array<NetHandle>>): void;
 
@@ -106,7 +106,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getAllNets(): Promise<Array<NetHandle>>;
 
@@ -123,7 +123,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
 
@@ -140,7 +140,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
 
@@ -157,7 +157,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
 
@@ -174,7 +174,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
@@ -212,7 +212,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
 
@@ -224,7 +224,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function hasDefaultNet(): Promise<boolean>;
 
@@ -238,7 +238,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error. 
-   * @since 9
+   * @since 8
    */
   function enableAirplaneMode(callback: AsyncCallback<void>): void;
 
@@ -252,7 +252,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function enableAirplaneMode(): Promise<void>;
 
@@ -266,7 +266,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
 
@@ -280,7 +280,7 @@ declare namespace connection {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function disableAirplaneMode(): Promise<void>;
 
@@ -294,7 +294,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
@@ -308,7 +308,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function reportNetConnected(netHandle: NetHandle): Promise<void>;
 
@@ -322,7 +322,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
@@ -336,7 +336,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
 
@@ -351,7 +351,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
@@ -366,7 +366,7 @@ declare namespace connection {
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
+   * @since 8
    */
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
@@ -502,11 +502,18 @@ declare namespace connection {
      *
      * @permission ohos.permission.GET_NETWORK_INFO
      * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - The parameter of netSpecifier is invalid.
+     * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
-     * @throws {BusinessError} 2101008 - The callback is not found.
+     * @throws {BusinessError} 2100105 - The parameter of netSpecifier or callback is nullptr.
+     * @throws {BusinessError} 2100202 - WriteInterfaceToken failed.
+     * @throws {BusinessError} 2100207 - Remote is null.
+     * @throws {BusinessError} 2100208 - The parameter of proxy is nullptr.
+     * @throws {BusinessError} 2101007 - UnregisterNetConnCallback can not find same callback.
+     * @throws {BusinessError} 2101008 - RegisterNetConnCallback find same callback.
      * @throws {BusinessError} 2101022 - The number of requests exceeded the maximum.
-     * @since 10
+     * @since 8
      */
     register(callback: AsyncCallback<void>): void;
 
@@ -515,7 +522,11 @@ declare namespace connection {
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
      * @throws {BusinessError} 2101007 - The same callback exists.
-     * @since 10
+     * @throws {BusinessError} 2100207 - Remote is null.
+     * @throws {BusinessError} 2100202 - WriteInterfaceToken failed.
+     * @throws {BusinessError} 2100105 - The parameter of netSpecifier or callback is nullptr.
+     * @throws {BusinessError} 2101007 - UnregisterNetConnCallback can not find same callback.
+     * @since 8
      */
     unregister(callback: AsyncCallback<void>): void;
   }
@@ -523,21 +534,21 @@ declare namespace connection {
   export interface NetSpecifier {
     /**
      * The transmission capacity and support of the network's global proxy storage data network.
-     * @since 10
+     * @since 8
      */
     netCapabilities: NetCapabilities;
 
     /**
      * Network identifier, the identifier for Wi Fi networks is "wifi", and the identifier for cellular networks is "slot0" (corresponding to SIM card 1).
-     * @since 10
+     * @since 8
      */
     bearerPrivateIdentifier?: string;
   }
 
   export interface NetHandle {
-     /**
+    /**
      * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
-     * @since 9
+     * @since 8
      */
     netId: number;
 
@@ -580,11 +591,11 @@ declare namespace connection {
      * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
-     * @since 9
+     * @since 8
      */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
-      /**
+    /**
      * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
@@ -595,7 +606,7 @@ declare namespace connection {
      * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
-     * @since 9
+     * @since 8
      */
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
@@ -610,11 +621,11 @@ declare namespace connection {
      * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
-     * @since 9
+     * @since 8
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
 
-     /**
+    /**
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
@@ -625,33 +636,33 @@ declare namespace connection {
      * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
-     * @since 9
+     * @since 8
      */
     getAddressByName(host: string): Promise<NetAddress>;
   }
 
   export interface NetCapabilities {
-     /**
+    /**
      * Uplink (device-to-network) bandwidth.
-     * @since 9
+     * @since 8
      */
     linkUpBandwidthKbps?: number;
 
-     /**
+    /**
      * Downstream (network-to-device) bandwidth.
-     * @since 9
+     * @since 8
      */
     linkDownBandwidthKbps?: number;
 
-     /**
+    /**
      * Network-specific capabilities.
-     * @since 9
+     * @since 8
      */
     networkCap?: Array<NetCap>;
 
     /**
      * Network type.
-     * @since 9
+     * @since 8
      */
     bearerTypes: Array<NetBearType>;
   }
@@ -659,31 +670,31 @@ declare namespace connection {
   export enum NetCap {
     /**
      * Indicates that the network can access the carrier's MMSC to send and receive multimedia messages.
-     * @since 9
+     * @since 8
      */
     NET_CAPABILITY_MMS = 0,
 
     /**
      * Indicates that the network traffic is not metered.
-     * @since 9
+     * @since 8
      */
     NET_CAPABILITY_NOT_METERED = 11,
 
     /**
      * Indicates that the network can access the Internet.
-     * @since 9
+     * @since 8
      */
     NET_CAPABILITY_INTERNET = 12,
 
     /**
      * Indicates that the network does not use a VPN.
-     * @since 9
+     * @since 8
      */
     NET_CAPABILITY_NOT_VPN = 15,
 
     /**
      * Indicates that the network is available.
-     * @since 9
+     * @since 8
      */
     NET_CAPABILITY_VALIDATED = 16,
   }
@@ -691,19 +702,19 @@ declare namespace connection {
   export enum NetBearType {
     /**
      * Indicates that the network is based on a cellular network.
-     * @since 9
+     * @since 8
      */
     BEARER_CELLULAR = 0,
 
     /**
      * Indicates that the network is based on a Wi-Fi network.
-     * @since 9
+     * @since 8
      */
     BEARER_WIFI = 1,
 
     /**
      * Indicates that the network is an Ethernet network.
-     * @since 9
+     * @since 8
      */
     BEARER_ETHERNET = 3,
   }
@@ -711,35 +722,35 @@ declare namespace connection {
   export interface ConnectionProperties {
     /**
      * Network card name.
-     * @since 9
+     * @since 8
      */
     interfaceName: string;
     /**
-     * Domain, default to ''.
-     * @since 9
+     * Domain. The default value is "".
+     * @since 8
      */
     domains: string;
     /**
      * Link information.
-     * @since 9
+     * @since 8
      */
     linkAddresses: Array<LinkAddress>;
 
     /**
-     * Network address, refer to [NetAddress] (# netaddress).
-     * @since 9
+     * Network address, refer to [NetAddress].
+     * @since 8
      */
     dnses: Array<NetAddress>;
 
-     /**
+    /**
      * Routing information.
-     * @since 9
+     * @since 8
      */
     routes: Array<RouteInfo>;
 
-     /**
+    /**
      * Maximum transmission unit.
-     * @since 9
+     * @since 8
      */
     mtu: number;
   }
@@ -747,31 +758,31 @@ declare namespace connection {
   export interface RouteInfo {
     /**
      * Network card name.
-     * @since 9
+     * @since 8
      */
     interface: string;
 
     /**
      * Destination Address
-     * @since 9
+     * @since 8
      */
     destination: LinkAddress;
 
     /**
      * Gateway address.
-     * @since 9
+     * @since 8
      */
     gateway: NetAddress;
 
     /**
-     * Gateway address.
-     * @since 9
+     * Whether a gateway is present.
+     * @since 8
      */
     hasGateway: boolean;
 
     /**
-     * Gateway address.
-     * @since 9
+     * Whether the route is the default route.
+     * @since 8
      */
     isDefaultRoute: boolean;
   }
@@ -779,34 +790,34 @@ declare namespace connection {
   export interface LinkAddress {
     /**
      * Link address.
-     * @since 9
+     * @since 8
      */
     address: NetAddress;
     /**
      * The length of the link address prefix.
-     * @since 9
+     * @since 8
      */
     prefixLength: number;
   }
 
   export interface NetAddress {
     /**
-     * The length of the link address prefix.
-     * @since 9
+     * Network address.
+     * @since 8
      */
     address: string;
 
     /**
-     * The length of the link address prefix.
-     * @since 9
+     * Address family identifier. The value is 1 for IPv4 and 2 for IPv6. The default value is 1.
+     * @since 8
      */
-    family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
+    family?: number; 
 
     /**
-     * Port, value range [0, 65535].
-     * @since 9
+     * Port number. The value ranges from 0 to 65535.
+     * @since 8
      */
-    port?: number; // [0, 65535]
+    port?: number; 
   }
 
   /**

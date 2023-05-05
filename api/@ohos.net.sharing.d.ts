@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -339,7 +339,7 @@ declare namespace sharing {
   /**
    * Register a callback for the global network sharing state change.
    *
-   * @param type event that need to be listened to
+   * @param type Indicates Event name.
    * @param callback callback function that returns the status
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
@@ -352,7 +352,7 @@ declare namespace sharing {
   /**
    * Unregister a callback for the global network sharing state change.
    *
-   * @param type events that need to be cancel listening to
+   * @param type Indicates Event name.
    * @param callback callback function that returns the status
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
@@ -365,7 +365,7 @@ declare namespace sharing {
   /**
    * Register a callback for the interface network sharing state change.
    *
-   * @param type event that need to be listened to
+   * @param type Indicates Event name.
    * @param callback callback function that returns the message
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
@@ -378,7 +378,7 @@ declare namespace sharing {
   /**
    * Unregister a callback for the interface network sharing state change.
    *
-   * @param type events that need to be cancel listening to
+   * @param type Indicates Event name.
    * @param callback callback function that returns the message
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
@@ -391,7 +391,7 @@ declare namespace sharing {
   /**
    * Register a callback for the sharing upstream network change.
    *
-   * @param type event that need to be listened to
+   * @param type Indicates Event name.
    * @param callback callback function that returns the network handle
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
@@ -404,7 +404,7 @@ declare namespace sharing {
   /**
    * Unregister a callback for the sharing upstream network change.
    *
-   * @param type events that need to be cancel listening to
+   * @param type Indicates Event name.
    * @param callback callback function that returns the network handle
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
