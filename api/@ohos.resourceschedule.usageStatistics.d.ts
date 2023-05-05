@@ -40,6 +40,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     id: number;
 
@@ -48,6 +49,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityInFgTotalTime?: number;
 
@@ -56,6 +58,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityPrevAccessTime?: number;
 
@@ -64,6 +67,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityPrevSeenTime?: number;
 
@@ -72,6 +76,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilitySeenTotalTime?: number;
 
@@ -80,6 +85,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName?: string;
 
@@ -88,6 +94,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     fgAbilityAccessTotalTime?: number;
 
@@ -96,6 +103,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     fgAbilityPrevAccessTime?: number;
 
@@ -105,6 +113,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     infosBeginTime?: number;
 
@@ -114,6 +123,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     infosEndTime?: number;
   }
@@ -130,6 +140,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formName: string;
 
@@ -138,6 +149,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formDimension: number;
 
@@ -146,6 +158,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formId: number;
 
@@ -154,6 +167,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formLastUsedTime: number;
 
@@ -162,6 +176,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     count: number;
   }
@@ -178,6 +193,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     deviceId?: string;
 
@@ -186,6 +202,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName: string;
 
@@ -194,6 +211,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     moduleName: string;
 
@@ -202,6 +220,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityName?: string;
 
@@ -210,6 +229,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appLabelId?: number;
 
@@ -218,6 +238,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     labelId?: number;
 
@@ -226,6 +247,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     descriptionId?: number;
 
@@ -234,6 +256,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityLableId?: number;
 
@@ -242,6 +265,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityDescriptionId?: number;
 
@@ -250,6 +274,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityIconId?: number;
 
@@ -258,6 +283,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     launchedCount: number;
 
@@ -266,6 +292,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     lastModuleUsedTime: number;
 
@@ -274,6 +301,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formRecords: Array<HapFormInfo>;
   }
@@ -290,6 +318,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     name: string;
 
@@ -298,6 +327,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     eventId: number;
 
@@ -306,6 +336,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     count: number;
   }
@@ -322,6 +353,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appGroup?: number;
 
@@ -330,6 +362,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName?: string;
 
@@ -338,6 +371,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     indexOfLink?: string;
 
@@ -346,6 +380,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     nameOfClass?: string;
 
@@ -354,6 +389,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     eventOccurredTime?: number;
 
@@ -362,6 +398,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     eventId?: number;
   }
@@ -375,26 +412,46 @@ declare namespace usageStatistics {
   interface AppGroupCallbackInfo {
     /*
      * The usage old group of the application
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appOldGroup: number;
 
     /*
      * The usage new group of the application
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appNewGroup: number;
 
     /*
      * The use id
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     userId: number;
 
     /*
      * The change reason
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     changeReason: number;
 
     /*
      * The bundle name
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName: string;
   }
@@ -617,6 +674,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_OPTIMIZED = 0,
 
@@ -625,6 +683,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_DAILY = 1,
 
@@ -633,6 +692,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_WEEKLY = 2,
 
@@ -641,6 +701,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_MONTHLY = 3,
 
@@ -649,6 +710,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_ANNUALLY = 4
   }
@@ -914,6 +976,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     ALIVE_GROUP = 10,
 
@@ -922,6 +985,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     DAILY_GROUP = 20,
 
@@ -930,6 +994,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     FIXED_GROUP = 30,
 
@@ -938,6 +1003,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     RARE_GROUP = 40,
 
@@ -946,6 +1012,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     LIMITED_GROUP = 50,
 
@@ -954,6 +1021,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     NEVER_GROUP = 60
   }
