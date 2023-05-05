@@ -3353,6 +3353,26 @@ declare namespace audio {
   }
 
   /**
+   * Describe playback capture filtering options
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   */
+  interface CaptureFilterOptions {
+    /**
+     * Filter by stream usage.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    usage: StreamUsage;
+    /**
+     * Filter by content type.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     */
+    content: ContentType;
+  }
+
+  /**
    * Describe playback capture config object.
    * @since 10
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
@@ -3364,10 +3384,10 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @permission ohos.permission.CAPTURE_VOICE_AUDIO
      */
-    rendererInfoForCapture: Array<{usage: StreamUsage, content: ContentType}>;
+    filterOptions: Array<CaptureFilterOptions>;
 
     /**
-     * Enable or disable external recording at the same time.
+     * Enable or disable external recording at the same time, default value is false.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @permission ohos.permission.MICROPHONE
