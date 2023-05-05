@@ -112,3 +112,4 @@
 /// <reference path="./grid_col.d.ts" />
 /// <reference path="./water_flow.d.ts" />
 /// <reference path="./flow_item.d.ts" />
+/// <reference path="./image_span.d.ts" />
