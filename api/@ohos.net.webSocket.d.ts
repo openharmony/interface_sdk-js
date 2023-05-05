@@ -29,6 +29,11 @@ declare namespace webSocket {
    */
   function createWebSocket(): WebSocket;
 
+  /**
+   * Defines the optional parameters carried in the request for establishing a WebSocket connection.
+   * @crossplatform
+   * @since 6
+   */
   export interface WebSocketRequestOptions {
     /**
      * HTTP request header.
@@ -38,6 +43,11 @@ declare namespace webSocket {
     header?: Object;
   }
 
+  /**
+   * Defines the optional parameters carried in the request for closing a WebSocket connection.
+   * @crossplatform
+   * @since 6
+   */
   export interface WebSocketCloseOptions {
     /**
      * Error code.
@@ -53,6 +63,11 @@ declare namespace webSocket {
     reason?: string;
   }
 
+  /**
+   * Defines a WebSocket object. Before invoking WebSocket APIs, you need to call [webSocket.createWebSocket](#websocketcreatewebsocket) to create a WebSocket object.
+   * @crossplatform
+   * @since 6
+   */
   export interface WebSocket {
     /**
      * Initiates a WebSocket request to establish a WebSocket connection to a given URL.

@@ -38,7 +38,7 @@ declare namespace ethernet {
    */
   function getIfaceConfig(iface: string, callback: AsyncCallback<InterfaceConfiguration>): void;
 
-    /**
+  /**
    * Get the specified network interface information.
    *
    * @param iface Indicates the network interface name.
@@ -138,7 +138,7 @@ declare namespace ethernet {
    */
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
 
-   /**
+  /**
    * Gets the names of all active network interfaces.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -228,10 +228,10 @@ declare namespace ethernet {
     dnsServers: string;
   }
 
-    /**
-     * @systemapi Hide this for inner system use.
-     * @since 9
-     */
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   export enum IPSetMode {
     /**
      * Static configuration.

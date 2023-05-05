@@ -53,7 +53,7 @@ declare namespace connection {
    */
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
 
- /**
+  /**
    * Obtains the data network that is activated by default.
    *
    * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
@@ -127,7 +127,7 @@ declare namespace connection {
    */
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
 
-/**
+  /**
    * Queries the connection properties of a network.
    *
    * <p>This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
@@ -161,7 +161,7 @@ declare namespace connection {
    */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
 
-    /**
+  /**
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
    *
    * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
@@ -216,7 +216,7 @@ declare namespace connection {
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
 
-   /**
+  /**
    * Checks whether the default data network is activated.
    *
    * @returns The promise returned by the function.
@@ -270,7 +270,7 @@ declare namespace connection {
    */
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
 
-   /**
+  /**
    * Disables the airplane mode for a device.
    *
    * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
@@ -298,7 +298,7 @@ declare namespace connection {
    */
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
-/**
+  /**
    * Reports the network state is connected.
    *
    * @param netHandle Indicates the network whose state is to be reported.
@@ -326,7 +326,7 @@ declare namespace connection {
    */
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
-   /**
+  /**
    * Reports the network state is disconnected.
    *
    * @param netHandle Indicates the network whose state is to be reported.
@@ -484,17 +484,44 @@ declare namespace connection {
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
+  /**
+   * Represents the network connection handle.
+   * since 8
+   */
   export interface NetConnection {
+    /**
+     * Registers a listener for netAvailable events.
+     * since 8
+     */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
+    /**
+     * Registers a listener for netBlockStatusChange events.
+     * since 8
+     */
     on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
 
+    /**
+     * Registers a listener for **netCapabilitiesChange** events.
+     * since 8
+     */
     on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
-
+    /**
+     * Registers a listener for netConnectionPropertiesChange events.
+     * since 8
+     */
     on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
 
+    /**
+     * Registers a listener for **netLost** events.
+     * since 8
+     */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
+    /**
+     * Registers a listener for netUnavailable events.
+     * since 8
+     */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
     /**
@@ -531,6 +558,10 @@ declare namespace connection {
     unregister(callback: AsyncCallback<void>): void;
   }
 
+  /**
+   * Provides an instance that bears data network capabilities.
+   * since 8
+   */
   export interface NetSpecifier {
     /**
      * The transmission capacity and support of the network's global proxy storage data network.
@@ -545,11 +576,15 @@ declare namespace connection {
     bearerPrivateIdentifier?: string;
   }
 
+  /**
+   * Defines the handle of the data network.
+   * since 8
+   */
   export interface NetHandle {
     /**
-     * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
-     * @since 8
-     */
+    * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
+    * @since 8
+    */
     netId: number;
 
     /**
@@ -641,6 +676,10 @@ declare namespace connection {
     getAddressByName(host: string): Promise<NetAddress>;
   }
 
+  /**
+   * Defines the network capability set.
+   * @since 8
+   */
   export interface NetCapabilities {
     /**
      * Uplink (device-to-network) bandwidth.
@@ -667,6 +706,10 @@ declare namespace connection {
     bearerTypes: Array<NetBearType>;
   }
 
+  5/**
+  5 * Defines the network capability.
+  5 * @since 8
+  5 */
   export enum NetCap {
     /**
      * Indicates that the network can access the carrier's MMSC to send and receive multimedia messages.
@@ -699,6 +742,10 @@ declare namespace connection {
     NET_CAPABILITY_VALIDATED = 16,
   }
 
+  /**
+   * Enumerates network types.
+   * @since 8
+   */
   export enum NetBearType {
     /**
      * Indicates that the network is based on a cellular network.
@@ -719,6 +766,10 @@ declare namespace connection {
     BEARER_ETHERNET = 3,
   }
 
+  /**
+   * Defines the network connection properties.
+   * @since 8
+   */
   export interface ConnectionProperties {
     /**
      * Network card name.
@@ -755,6 +806,10 @@ declare namespace connection {
     mtu: number;
   }
 
+    /**
+     * Defines network route information.
+     * @since 8
+     */
   export interface RouteInfo {
     /**
      * Network card name.
@@ -787,6 +842,10 @@ declare namespace connection {
     isDefaultRoute: boolean;
   }
 
+  /**
+   * Defines network link information.
+   * @since 8
+   */
   export interface LinkAddress {
     /**
      * Link address.
@@ -800,6 +859,10 @@ declare namespace connection {
     prefixLength: number;
   }
 
+  /**
+   * Defines a network address.
+   * @since 8
+   */
   export interface NetAddress {
     /**
      * Network address.
@@ -824,7 +887,6 @@ declare namespace connection {
    * Network Global Proxy Configuration Information.
    * @since 10
    */
-
   export interface HttpProxy {
     /**
      * Proxy server host name.

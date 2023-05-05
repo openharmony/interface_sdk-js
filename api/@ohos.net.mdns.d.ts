@@ -135,6 +135,10 @@ declare namespace mdns {
    */
   function resolveLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
+  /**
+   * Defines a DiscoveryService object for discovering mDNS services of the specified type.
+   * @since 10
+   */
   export interface DiscoveryService {
     /**
      * Enables listening for discoveryStart events of mDNS services.
@@ -175,6 +179,10 @@ declare namespace mdns {
     stopSearchingMDNS(): void;
   }
 
+  /**
+   * Defines the mDNS service information.
+   * @since 10
+   */
   export interface LocalServiceInfo {
     /**
      * Service type. Use an underscore (_) as the prefix, for example, _http._tcp.
@@ -203,6 +211,10 @@ declare namespace mdns {
     serviceAttribute?: Array<ServiceAttribute>;
   }
 
+  /**
+   * Defines the mDNS service attribute information.
+   * @since 10
+   */
   export interface ServiceAttribute {
     /**
      * TXT record key.
@@ -216,6 +228,10 @@ declare namespace mdns {
     value: Array<number>;
   }
 
+  /**
+   * Defines the mDNS error information.
+   * @since 10
+   */
   export enum MdnsError {
     /**
      * Indicates that the operation failed due to internal error.

@@ -201,7 +201,7 @@ declare namespace sharing {
    */
   function getStatsTxBytes(callback: AsyncCallback<number>): void;
 
-    /**
+  /**
    * Obtains the number of uplink data bytes of the sharing network interfaces.
    *
    * @returns The promise returned by the function.
@@ -416,6 +416,7 @@ declare namespace sharing {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   export enum SharingIfaceState {
     /**

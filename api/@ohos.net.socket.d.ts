@@ -55,6 +55,12 @@ declare namespace socket {
    */
   function constructTLSSocketInstance(): TLSSocket;
 
+  /**
+   * Defines the parameters for sending data over the UDPSocket connection.
+   *
+   * @crossplatform
+   * @since 7
+   */
   export interface UDPSendOptions {
     /**
      * Data to send.
@@ -110,6 +116,11 @@ declare namespace socket {
     broadcast?: boolean;
   }
 
+  /**
+   * Defines the status of the socket connection.
+   * @crossplatform
+   * @since 7
+   */
   export interface SocketStateBase {
     /**
      * Whether the connection is in the bound state.
@@ -133,6 +144,11 @@ declare namespace socket {
     isConnected: boolean;
   }
 
+  /**
+   * Defines information about the socket connection.
+   * @crossplatform
+   * @since 7
+   */
   export interface SocketRemoteInfo {
     /**
      * Bound IP address.
@@ -163,6 +179,11 @@ declare namespace socket {
     size: number;
   }
 
+  /**
+   * Defines a UDPSocket connection.
+   * @crossplatform
+   * @since 7
+   */
   export interface UDPSocket {
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
@@ -271,7 +292,7 @@ declare namespace socket {
      */
     setExtraOptions(options: UDPExtraOptions, callback: AsyncCallback<void>): void;
 
-     /**
+    /**
      * Sets other attributes of the UDPSocket connection.
      *
      * @param options Optional parameters {@link UDPExtraOptions}.
@@ -338,6 +359,11 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
   }
 
+  /**
+   * Defines TCPSocket connection parameters.
+   * @crossplatform
+   * @since 7
+   */
   export interface TCPConnectOptions {
     /**
      * Bound IP address and port number.
@@ -354,6 +380,11 @@ declare namespace socket {
     timeout?: number;
   }
 
+  /**
+   * Defines the parameters for sending data over the TCPSocket connection.
+   * @crossplatform
+   * @since 7
+   */
   export interface TCPSendOptions {
     /**
      * Data to send.
@@ -370,6 +401,11 @@ declare namespace socket {
     encoding?: string;
   }
 
+  /**
+   * Defines other properties of the TCPSocket connection.
+   * @crossplatform
+   * @since 7
+   */
   export interface TCPExtraOptions extends ExtraOptionsBase {
     /**
      * Whether to keep the connection alive. The default value is false.
@@ -400,6 +436,11 @@ declare namespace socket {
     socketLinger?: { on: boolean, linger: number };
   }
 
+  /**
+   * Defines a TCPSocket connection.
+   * @crossplatform
+   * @since 7
+   */
   export interface TCPSocket {
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
@@ -556,7 +597,7 @@ declare namespace socket {
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
-     /**
+    /**
      * Sets other attributes of the TCPSocket connection.
      *
      * @param options Optional parameters {@link TCPExtraOptions}.
@@ -569,7 +610,7 @@ declare namespace socket {
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
-     /**
+    /**
      * Listens for message receiving events of the TCPSocket connection.
      * @param type Indicates Event name.
      * @param callback Returns the callback of on.
@@ -578,7 +619,7 @@ declare namespace socket {
      */
     on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
-     /**
+    /**
      * Cancels listening for message receiving events of the TCPSocket connection.
      * @param type Indicates Event name.
      * @param callback callback function that returns the message
@@ -587,7 +628,7 @@ declare namespace socket {
      */
     off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
-     /**
+    /**
      * Listens for connection or close events of the TCPSocket connection.
      * @param type Indicates Event name.
      * @param callback Returns the callback of on.
@@ -596,7 +637,7 @@ declare namespace socket {
      */
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
-     /**
+    /**
      * Cancels listening for connection or close events of the TCPSocket connection.
      * @param type Indicates Event name.
      * @param callback callback function that returns the message
@@ -605,7 +646,7 @@ declare namespace socket {
      */
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
-     /**
+    /**
      * Listens for error events of the TCPSocket connection.
      * @param type Indicates Event name.
      * @param callback Returns the callback of on.
@@ -614,7 +655,7 @@ declare namespace socket {
      */
     on(type: 'error', callback: ErrorCallback): void;
 
-     /**
+    /**
      * Cancels listening for error events of the TCPSocket connection.
      * @param type Indicates Event name.
      * @param callback callback function that returns the message
@@ -625,6 +666,7 @@ declare namespace socket {
   }
 
      /**
+      * Defines a TLSSocket connection.
       * @crossplatform
       * @since 9
       */
@@ -669,7 +711,7 @@ declare namespace socket {
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
 
-     /**
+    /**
      * Obtains the peer address of a TLSSocket connection.
      *
      * @returns The promise returned by the function.
@@ -714,7 +756,7 @@ declare namespace socket {
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
 
-     /**
+    /**
      * Sets other attributes of the TLSSocket connection.
      *
      * @param options Optional parameters {@link TCPExtraOptions}.
@@ -800,7 +842,7 @@ declare namespace socket {
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
-     /**
+    /**
      * Returns an object representing a local certificate.
      *
      * @throws {BusinessError} 2303501 - SSL is null.
@@ -874,7 +916,7 @@ declare namespace socket {
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
-     /**
+    /**
      * Returns a list containing the negotiated cipher suite information.
      * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      *
@@ -898,7 +940,7 @@ declare namespace socket {
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
 
-     /**
+    /**
      * The list of signature algorithms shared between the server and the client, in descending order of priority.
      * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
      *
@@ -974,7 +1016,7 @@ declare namespace socket {
      */
     send(data: string, callback: AsyncCallback<void>): void;
 
-     /**
+    /**
      * Sends data over a TLSSocket connection.
      *
      * @param data Optional parameters {@link string}.
@@ -1017,6 +1059,7 @@ declare namespace socket {
   }
 
   /**
+   * Defines TLS security options. The CA certificate is mandatory, and other parameters are optional.
    * @crossplatform
    * @since 9
    */
@@ -1081,6 +1124,7 @@ declare namespace socket {
   }
 
   /**
+   * Defines TLS connection options.
    * @crossplatform
    * @since 9
    */
@@ -1108,6 +1152,7 @@ declare namespace socket {
   }
 
   /**
+   * Enumerates TLS protocol versions.
    * @crossplatform
    * @since 9
    */

@@ -60,16 +60,18 @@ declare namespace http {
     expectDataType?: HttpDataType;
 
     /**
+     * default is true
      * @crossplatform
      * @since 9
      */
-    usingCache?: boolean; // default is true
+    usingCache?: boolean;
 
     /**
+     * [1, 1000], default is 1.
      * @crossplatform
      * @since 9
      */
-    priority?: number; // [1, 1000], default is 1.
+    priority?: number; 
 
     /**
      * HTTP request header.
@@ -462,7 +464,9 @@ declare namespace http {
   }
 
   /**
+   * Defines an HTTP request method.
    * @crossplatform
+   * @since 6
    */
   export enum RequestMethod {
     /**
@@ -515,6 +519,7 @@ declare namespace http {
   }
 
   /**
+   * Enumerates the response codes for an HTTP request.
    * @crossplatform
    * @since 6
    */
@@ -525,20 +530,20 @@ declare namespace http {
      */
     OK = 200,
 
-     /**
+    /**
      * Created. Successfully requested and created a new resource.
      * @since 6
      */
 
     CREATED,
 
-     /**
+    /**
      * Accepted. The request has been accepted but has not been processed completely.
      * @since 6
      */
     ACCEPTED,
 
-     /**
+    /**
      * Unauthorized information. The request was successful.
      * @since 6
      */
@@ -556,7 +561,7 @@ declare namespace http {
      */
     RESET,
 
-     /**
+    /**
      * Partial content. The server successfully processed some GET requests.
      * @since 6
      */
@@ -568,7 +573,7 @@ declare namespace http {
      */
     MULT_CHOICE = 300,
 
-     /**
+    /**
      * Permanently move. The requested resource has been permanently moved to a new URI, and the returned information will include the new URI. The browser will automatically redirect to the new URI.
      * @since 6
      */
@@ -592,7 +597,7 @@ declare namespace http {
      */
     NOT_MODIFIED,
 
-     /**
+    /**
      * Using proxies.
      * @since 6
      */
@@ -777,11 +782,17 @@ declare namespace http {
     ARRAY_BUFFER = 2,
   }
 
+  /**
+   * Defines the response to an HTTP request.
+   * @crossplatform
+   * @since 6
+   */
   export interface HttpResponse {
     /**
      * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
      * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
      * @crossplatform
+     * @since 6
      */
     result: string | Object | ArrayBuffer;
 
@@ -810,6 +821,7 @@ declare namespace http {
     header: Object;
 
     /**
+     * Cookies returned by the server.
      * @crossplatform
      * @since 8
      */
@@ -826,6 +838,7 @@ declare namespace http {
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;
 
   /**
+   * Defines an object that stores the response to an HTTP request.
    * @crossplatform
    * @since 9
    */
