@@ -21,6 +21,7 @@ const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
 const { checkAPINameOfHump, checkAPIFileName } = require('./check_hump');
+const { checkJSDoc } = require('./check_legality');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
