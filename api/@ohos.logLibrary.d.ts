@@ -81,7 +81,6 @@ declare namespace logLibrary {
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid argument
      * @throws { BusinessError } 21300001 - source file does not exists
-     * @throws { BusinessError } 21300002 - no permission to write dest file
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10
@@ -100,7 +99,6 @@ declare namespace logLibrary {
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid argument
      * @throws { BusinessError } 21300001 - source file does not exists
-     * @throws { BusinessError } 21300002 - no permission to write dest file
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10
@@ -118,7 +116,6 @@ declare namespace logLibrary {
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid argument
      * @throws { BusinessError } 21300001 - source file does not exists
-     * @throws { BusinessError } 21300002 - no permission to write dest file
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10
@@ -137,7 +134,6 @@ declare namespace logLibrary {
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid argument
      * @throws { BusinessError } 21300001 - source file does not exists
-     * @throws { BusinessError } 21300002 - no permission to write dest file
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10
@@ -154,7 +150,6 @@ declare namespace logLibrary {
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid argument
      * @throws { BusinessError } 21300001 - source file does not exists
-     * @throws { BusinessError } 21300002 - no permission to write dest file
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
      * @since 10
