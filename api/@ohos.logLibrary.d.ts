@@ -95,7 +95,7 @@ declare namespace logLibrary {
      * @param { string } logType - log type
      * @param { string } logName - log name
      * @param { string } dest - log path under hiview sandbox of HAP
-     * @param callback after finish copy log will callback
+     * @param { AsyncCallback} callback - after finish copy log will callback
      * @returns { void } return void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid argument
@@ -132,7 +132,7 @@ declare namespace logLibrary {
      * @param { string } logType - log type
      * @param { string } logName - log name
      * @param { string } dest - log path under hiview sandbox of HAP
-     * @param callback after finish move log will callback
+     * @param {AsyncCallback} callback - after finish move log will callback
      * @returns { void } return void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid argument
