@@ -84,7 +84,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * @since 9
    */
   layoutDirection(value: FlexDirection): WaterFlowAttribute;
-  
+
   /**
    * Called when the water flow begins to arrive.
    * @since 9

@@ -155,7 +155,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * Called when scrolling has stopped.
    * @since 9
    */
-   onScrollStop(event: () => void): ScrollAttribute;
+  onScrollStop(event: () => void): ScrollAttribute;
 
   /**
    * Called when the status of the scroll bar is set.

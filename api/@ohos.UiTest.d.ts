@@ -609,7 +609,7 @@ declare enum ResizeDirection {
    * @since 9
    * @test
    */
-  RIGHT_DOWN = 7 
+  RIGHT_DOWN = 7
 }
 
 /**
@@ -618,7 +618,7 @@ declare enum ResizeDirection {
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
-declare enum DisplayRotation { 
+declare enum DisplayRotation {
   /**
    * Device display does not rotate to display vertically.
    * @syscap SystemCapability.Test.UiTest
@@ -728,11 +728,11 @@ declare interface WindowFilter {
    * @since 9
    */
   focused?: boolean;
-   /**
+  /**
    * The active state of the window.
    * @type boolean
    * @since 9
-   */ 
+   */
   actived?: boolean;
 }
 
@@ -956,7 +956,7 @@ declare class On {
    * @test
    */
   isAfter(on: On): On;
-  
+
   /**
    * Requires that the target Component which is inside of another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
@@ -968,7 +968,7 @@ declare class On {
    * @test
    */
   within(on: On): On;
-  
+
   /**
    * Specifies the bundleName of the application which the window that the target Component is located belongs.
    * @syscap SystemCapability.Test.UiTest
@@ -1569,7 +1569,7 @@ declare class Driver {
    * @test
    */
   injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>;
-  
+
   /**
    * Inject fling on the device display.
    * @syscap SystemCapability.Test.UiTest
@@ -1581,7 +1581,7 @@ declare class Driver {
    * @test
    */
   fling(direction: UiDirection, speed: number): Promise<void>;
-  
+
   /**
    * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
    * @syscap SystemCapability.Test.UiTest
@@ -1595,7 +1595,7 @@ declare class Driver {
    * @test
    */
   mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
-  
+
   /**
    * Move the mouse cursor to the specified location.
    * @syscap SystemCapability.Test.UiTest
@@ -1606,7 +1606,7 @@ declare class Driver {
    * @test
    */
   mouseMoveTo(p: Point): Promise<void>;
-  
+
   /**
    * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
    * @syscap SystemCapability.Test.UiTest
@@ -1621,7 +1621,7 @@ declare class Driver {
    * @test
    */
   mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
-  
+
   /**
    * Capture the specified area of current screen and save as picture which PNG format.
    * @syscap SystemCapability.Test.UiTest
@@ -1854,5 +1854,7 @@ declare const BY: By;
  */
 declare const ON: On;
 
-export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix,
-  UiDirection, MouseButton};
+export {
+  UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix,
+  UiDirection, MouseButton
+};

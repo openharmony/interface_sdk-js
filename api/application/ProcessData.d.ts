@@ -22,57 +22,57 @@
  * @permission N/A
  */
 export default class ProcessData {
-    /**
-     * The bundle name.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    bundleName: string;
+  /**
+   * The bundle name.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  bundleName: string;
 
-    /**
-     * The pid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    pid: number;
+  /**
+   * The pid.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  pid: number;
 
-    /**
-     * The uid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    uid: number;
+  /**
+   * The uid.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  uid: number;
 
-    /**
-     * The process state.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    state: number;
+  /**
+   * The process state.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  state: number;
 
-    /**
-     * Whether the process is continuous task.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    isContinuousTask: boolean;
+  /**
+   * Whether the process is continuous task.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  isContinuousTask: boolean;
 
-    /**
-     * Whether the process is keep alive.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    isKeepAlive: boolean;
+  /**
+   * Whether the process is keep alive.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   */
+  isKeepAlive: boolean;
 }

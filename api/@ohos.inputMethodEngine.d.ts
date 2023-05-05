@@ -19,7 +19,6 @@ import { AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import LocalStorage from 'StateManagement';
 import BaseContext from './application/BaseContext';
-import { Movement, Range } from './imf/InputMethodCommon';
 
 /**
  * Input method engine
@@ -554,9 +553,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Creates a panel.
-     * <p>The system only allows one soft keyboard and one status bar to be created.
-     * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
-     * status bar, and vice versa.</p>
+     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
      *
      * @param { BaseContext } ctx - indicates the context on which the window depends.
      * @param { PanelInfo } info - the info of panel to be created.
@@ -570,9 +567,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Creates a panel.
-     * <p>The system only allows one soft keyboard and one status bar to be created.
-     * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
-     * status bar, and vice versa.</p>
+     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
      *
      * @param { BaseContext } ctx - indicates the context on which the window depends.
      * @param { PanelInfo } info - the info of panel to be created.
@@ -1031,6 +1026,32 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     getTextIndexAtCursor(): Promise<number>;
+
+    /**
+     * Send extend action code.
+     *
+     * @param { ExtendAction } action - action code which will be send.
+     * @param { AsyncCallback<void> } callback - the callback of sendExtendAction.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    sendExtendAction(action: ExtendAction, callback: AsyncCallback<void>): void;
+
+    /**
+     * Send extend action code.
+     *
+     * @param { ExtendAction } action - action code which will be send.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    sendExtendAction(action: ExtendAction): Promise<void>;
   }
 
   /**
@@ -1212,7 +1233,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Moves a panel.
-     * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { number } x - the x-coordinate of the new position.
      * @param { number } y - the y-coordinate of the new position.
@@ -1225,7 +1246,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Moves a panel.
-     * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { number } x - the x-coordinate of the new position.
      * @param { number } y - the y-coordinate of the new position.
@@ -1296,7 +1317,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Changes panel flag.
-     * <p>When flag is changed, the panel will be hide. Developers should change the content, size, point of the panel
+     * <p>Before flag is changed, Developers should hide the panel.After that, developers can change the content, size, point of the panel
      *    and show it again at appropriate opportunity.</p>
      *
      * @param { PanelFlag } flag - the callback of changeFlag.
@@ -1435,6 +1456,125 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     flag?: PanelFlag;
+  }
+
+  /**
+   * Enumerates the moving direction of cursor
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export enum Direction {
+    /**
+     * Cursor moves up
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_UP = 1,
+
+    /**
+     * Cursor moves down
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_DOWN,
+
+    /**
+     * Cursor moves left
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_LEFT,
+
+    /**
+     * Cursor moves right
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_RIGHT
+  }
+
+  /**
+   * Range of selected text.
+   *
+   * @interface Range
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export interface Range {
+    /**
+     * Indicates the index of the first character of the selected text.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    start: number;
+
+    /**
+     * Indicates the index of the last character of the selected text.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    end: number;
+  }
+
+  /**
+   * Movement of cursor.
+   *
+   * @interface Movement
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export interface Movement {
+    /**
+     * Indicates the direction of cursor movement
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    direction: Direction;
+  }
+
+  /**
+   * Enumerates the extend action.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export enum ExtendAction {
+    /**
+     * Select all text.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    SELECT_ALL = 0,
+
+    /**
+     * Cut selecting text.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CUT = 3,
+
+    /**
+     * Copy selecting text.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    COPY = 4,
+
+    /**
+     * Paste from paste board.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    PASTE = 5
   }
 }
 

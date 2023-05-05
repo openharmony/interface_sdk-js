@@ -28,8 +28,8 @@ function checkExtendsValue(tag, node, fileName, JSDocIndex) {
   if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
     const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
     if (tagValue !== apiValue) {
-      extendsResult.checkResult = false,
-        extendsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS, [JSDocIndex + 1]);
+      extendsResult.checkResult = false;
+      extendsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS, [JSDocIndex + 1]);
     }
   }
   return extendsResult;

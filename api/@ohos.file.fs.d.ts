@@ -81,6 +81,7 @@ declare namespace fileIo {
    *
    * @namespace OpenMode
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   namespace OpenMode {
@@ -175,6 +176,7 @@ declare function accessSync(path: string): boolean;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function close(file: number | File): Promise<void>;
@@ -191,6 +193,7 @@ declare function close(file: number | File): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function close(file: number | File, callback: AsyncCallback<void>): void;
@@ -206,6 +209,7 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function closeSync(file: number | File): void;
@@ -479,6 +483,7 @@ declare function createWatcher(path: string, events: number, listener: WatchEven
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function fdatasync(fd: number): Promise<void>;
@@ -496,6 +501,7 @@ declare function fdatasync(fd: number): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
@@ -512,6 +518,7 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function fdatasyncSync(fd: number): void;
@@ -643,6 +650,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function fsync(fd: number): Promise<void>;
@@ -660,6 +668,7 @@ declare function fsync(fd: number): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function fsync(fd: number, callback: AsyncCallback<void>): void;
@@ -676,6 +685,7 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function fsyncSync(fd: number): void;
@@ -846,6 +856,7 @@ declare function lstatSync(path: string): Stat;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function mkdir(path: string): Promise<void>;
@@ -871,6 +882,7 @@ declare function mkdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function mkdir(path: string, callback: AsyncCallback<void>): void;
@@ -895,6 +907,7 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function mkdirSync(path: string): void;
@@ -920,6 +933,7 @@ declare function mkdirSync(path: string): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function mkdtemp(prefix: string): Promise<string>;
@@ -945,6 +959,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
@@ -970,6 +985,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function mkdtempSync(prefix: string): string;
@@ -1221,6 +1237,7 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function open(path: string, mode?: number): Promise<File>;
@@ -1257,6 +1274,7 @@ declare function open(path: string, mode?: number): Promise<File>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function open(path: string, callback: AsyncCallback<File>): void;
@@ -1294,6 +1312,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function open(path: string, mode: number, callback: AsyncCallback<File>): void;
@@ -1331,6 +1350,7 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function openSync(path: string, mode?: number): File;
@@ -1352,6 +1372,7 @@ declare function openSync(path: string, mode?: number): File;
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function read(
@@ -1379,6 +1400,7 @@ declare function read(
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
@@ -1400,6 +1422,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function read(
@@ -1429,6 +1452,7 @@ declare function read(
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function readSync(
@@ -1583,6 +1607,7 @@ declare function readTextSync(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function rename(oldPath: string, newPath: string): Promise<void>;
@@ -1613,6 +1638,7 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
@@ -1642,6 +1668,7 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function renameSync(oldPath: string, newPath: string): void;
@@ -1664,6 +1691,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function rmdir(path: string): Promise<void>;
@@ -1686,6 +1714,7 @@ declare function rmdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function rmdir(path: string, callback: AsyncCallback<void>): void;
@@ -1707,6 +1736,7 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function rmdirSync(path: string): void;
@@ -1730,6 +1760,7 @@ declare function rmdirSync(path: string): void;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function stat(file: string | number): Promise<Stat>;
@@ -1753,6 +1784,7 @@ declare function stat(file: string | number): Promise<Stat>;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function stat(file: string | number, callback: AsyncCallback<Stat>): void;
@@ -1776,6 +1808,7 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function statSync(file: string | number): Stat;
@@ -1877,6 +1910,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function truncate(file: string | number, len?: number): Promise<void>;
@@ -1903,6 +1937,7 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function truncate(file: string | number, callback: AsyncCallback<void>): void;
@@ -1930,6 +1965,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function truncate(file: string | number, len: number, callback: AsyncCallback<void>): void;
@@ -1956,6 +1992,7 @@ declare function truncate(file: string | number, len: number, callback: AsyncCal
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function truncateSync(file: string | number, len?: number): void;
@@ -1981,6 +2018,7 @@ declare function truncateSync(file: string | number, len?: number): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function unlink(path: string): Promise<void>;
@@ -2006,6 +2044,7 @@ declare function unlink(path: string): Promise<void>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function unlink(path: string, callback: AsyncCallback<void>): void;
@@ -2030,6 +2069,7 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function unlinkSync(path: string): void;
@@ -2054,6 +2094,7 @@ declare function unlinkSync(path: string): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function write(
@@ -2085,6 +2126,7 @@ declare function write(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function write(fd: number, buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
@@ -2109,6 +2151,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function write(
@@ -2142,6 +2185,7 @@ declare function write(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare function writeSync(
@@ -2159,6 +2203,7 @@ declare function writeSync(
  *
  * @interface File
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare interface File {
@@ -2166,6 +2211,7 @@ declare interface File {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly fd: number;
@@ -2251,6 +2297,7 @@ declare interface File {
  *
  * @interface Stat
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @since 9
  */
 declare interface Stat {
@@ -2260,6 +2307,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly ino: bigint;
@@ -2269,6 +2317,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly mode: number;
@@ -2280,6 +2329,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly uid: number;
@@ -2289,6 +2339,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly gid: number;
@@ -2298,6 +2349,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly size: number;
@@ -2307,6 +2359,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly atime: number;
@@ -2316,6 +2369,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly mtime: number;
@@ -2325,6 +2379,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   readonly ctime: number;
@@ -2335,6 +2390,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   isBlockDevice(): boolean;
@@ -2345,6 +2401,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   isCharacterDevice(): boolean;
@@ -2355,6 +2412,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   isDirectory(): boolean;
@@ -2365,6 +2423,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   isFIFO(): boolean;
@@ -2375,6 +2434,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   isFile(): boolean;
@@ -2385,6 +2445,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   isSocket(): boolean;
@@ -2395,6 +2456,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
    * @since 9
    */
   isSymbolicLink(): boolean;

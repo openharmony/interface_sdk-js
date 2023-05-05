@@ -2039,7 +2039,7 @@ export interface CanvasRenderingContext2D {
     dHeight: number,
   ): void;
 
-/**
+  /**
    * Draws an image.
    * @param image Image resource.
    * @param dx X-coordinate of the upper left corner of the drawing area on the canvas.
@@ -2665,23 +2665,23 @@ export interface ViewModel {
  */
 export interface ElementReferences {
   [k: string]: AnimationElement &
-    CanvasElement &
-    object &
-    WebElement &
-    CameraElement &
-    ListElement &
-    SwiperElement &
-    DialogElement &
-    ImageAnimatorElement &
-    MarqueeElement &
-    MenuElement &
-    ChartElement &
-    InputElement &
-    ButtonElement &
-    TextAreaElement &
-    PickerElement &
-    VideoElement &
-    DivElement;
+  CanvasElement &
+  object &
+  WebElement &
+  CameraElement &
+  ListElement &
+  SwiperElement &
+  DialogElement &
+  ImageAnimatorElement &
+  MarqueeElement &
+  MenuElement &
+  ChartElement &
+  InputElement &
+  ButtonElement &
+  TextAreaElement &
+  PickerElement &
+  VideoElement &
+  DivElement;
 }
 
 /**

@@ -22,27 +22,27 @@
  * @systemapi hide for inner use.
  */
 export interface MissionParameter {
-    /**
-     * Indicates the deviceId to start sync.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    deviceId: string;
+  /**
+   * Indicates the deviceId to start sync.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  deviceId: string;
 
-    /**
-     * If needed to fix the versions conflict.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    fixConflict: boolean;
+  /**
+   * If needed to fix the versions conflict.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  fixConflict: boolean;
 
-    /**
-     * Tag used to be specified.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    tag: number;
+  /**
+   * Tag used to be specified.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  tag: number;
 }

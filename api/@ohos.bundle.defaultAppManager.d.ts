@@ -133,7 +133,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>) : void;
+  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Get default application based on type.
@@ -151,7 +151,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>) : void;
+  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Get default application based on type.
@@ -193,7 +193,7 @@ declare namespace defaultAppManager {
    * @since 9
    */
   function setDefaultApplication(type: string,
-      elementName: ElementName, userId: number, callback: AsyncCallback<void>) : void;
+    elementName: ElementName, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Set default application based on type.
@@ -212,7 +212,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>) : void;
+  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>): void;
 
   /**
    * Set default application based on type.
@@ -252,7 +252,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>) : void;
+  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Reset default application based on type.
@@ -269,7 +269,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function resetDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
+  function resetDefaultApplication(type: string, callback: AsyncCallback<void>): void;
 
   /**
    * Reset default application based on type.
