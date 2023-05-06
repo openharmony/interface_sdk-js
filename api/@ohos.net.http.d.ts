@@ -74,39 +74,39 @@ declare namespace http {
     priority?: number; 
 
     /**
-     * HTTP request header.
+     * HTTP request header. default is 'content-type': 'application/json'
      * @crossplatform
      * @since 6
      */
-    header?: Object; // default is 'content-type': 'application/json'
+    header?: Object;
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
      * @crossplatform
      * @since 6
      */
-    readTimeout?: number; // default is 60s
+    readTimeout?: number;
 
     /**
      * Connection timeout interval. The default value is 60,000, in ms.
      * @crossplatform
      * @since 6
      */
-    connectTimeout?: number; // default is 60s.
+    connectTimeout?: number;
 
     /**
+     * default is automatically specified by the system.
      * @crossplatform
      * @since 9
      */
-    usingProtocol?: HttpProtocol; // default is automatically specified by the system.
-
+    usingProtocol?: HttpProtocol;
     /**
      * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
      * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
      *
      * @since 10
      */
-    usingProxy?: boolean | HttpProxy; // default is false.
+    usingProxy?: boolean | HttpProxy;
 
     /**
      * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system. 
@@ -531,14 +531,14 @@ declare namespace http {
     OK = 200,
 
     /**
-     * Created. Successfully requested and created a new resource.
+     * Successfully requested and created a new resource.
      * @since 6
      */
 
     CREATED,
 
     /**
-     * Accepted. The request has been accepted but has not been processed completely.
+     * The request has been accepted but has not been processed completely.
      * @since 6
      */
     ACCEPTED,

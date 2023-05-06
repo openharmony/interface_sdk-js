@@ -31,6 +31,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
@@ -45,6 +46,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
@@ -59,6 +61,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
@@ -73,6 +76,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2202011 - Cannot get network sharing configuration.
@@ -88,6 +92,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -109,6 +114,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -130,6 +136,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -150,6 +157,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -169,6 +177,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @since 9
@@ -182,6 +191,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @since 9
@@ -195,6 +205,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @since 9
@@ -208,6 +219,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @since 9
@@ -221,6 +233,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @since 9
@@ -234,6 +247,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    * @since 9
@@ -248,6 +262,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -264,6 +279,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -280,6 +296,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -296,6 +313,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -312,6 +330,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
@@ -328,6 +347,7 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System permission denied
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.

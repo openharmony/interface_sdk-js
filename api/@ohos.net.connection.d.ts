@@ -506,6 +506,7 @@ declare namespace connection {
      * since 8
      */
     on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
+
     /**
      * Registers a listener for netConnectionPropertiesChange events.
      * since 8
@@ -552,7 +553,6 @@ declare namespace connection {
      * @throws {BusinessError} 2100207 - Remote is null.
      * @throws {BusinessError} 2100202 - WriteInterfaceToken failed.
      * @throws {BusinessError} 2100105 - The parameter of netSpecifier or callback is nullptr.
-     * @throws {BusinessError} 2101007 - UnregisterNetConnCallback can not find same callback.
      * @since 8
      */
     unregister(callback: AsyncCallback<void>): void;
@@ -570,7 +570,7 @@ declare namespace connection {
     netCapabilities: NetCapabilities;
 
     /**
-     * Network identifier, the identifier for Wi Fi networks is "wifi", and the identifier for cellular networks is "slot0" (corresponding to SIM card 1).
+     * Network identifier, the identifier for Wi Fi networks is "wifi", and the identifier for cellular networks is "simId1" (corresponding to SIM card 1).
      * @since 8
      */
     bearerPrivateIdentifier?: string;
@@ -706,10 +706,10 @@ declare namespace connection {
     bearerTypes: Array<NetBearType>;
   }
 
-  5/**
-  5 * Defines the network capability.
-  5 * @since 8
-  5 */
+  /**
+  * Defines the network capability.
+  * @since 8
+  */
   export enum NetCap {
     /**
      * Indicates that the network can access the carrier's MMSC to send and receive multimedia messages.
@@ -806,10 +806,10 @@ declare namespace connection {
     mtu: number;
   }
 
-    /**
-     * Defines network route information.
-     * @since 8
-     */
+  /**
+   * Defines network route information.
+   * @since 8
+   */
   export interface RouteInfo {
     /**
      * Network card name.

@@ -465,7 +465,6 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      * @since 7
-     *
      */
     bind(address: NetAddress): Promise<void>;
 
@@ -665,11 +664,11 @@ declare namespace socket {
     off(type: 'error', callback?: ErrorCallback): void;
   }
 
-     /**
-      * Defines a TLSSocket connection.
-      * @crossplatform
-      * @since 9
-      */
+  /**
+   * Defines a TLSSocket connection.
+   * @crossplatform
+   * @since 9
+   */
   export interface TLSSocket {
 
     /**
