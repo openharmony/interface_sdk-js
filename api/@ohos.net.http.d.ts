@@ -759,7 +759,7 @@ declare namespace http {
    * Indicates the type of the returned data.
    *
    * @crossplatform
-   * @since 6
+   * @since 9
    */
   export enum HttpDataType {
     /**
