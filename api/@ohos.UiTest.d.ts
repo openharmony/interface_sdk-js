@@ -16,7 +16,7 @@
 /**
  * Enumerates the string value match pattern.
  *
- * @enum { number }
+ * @enum {number}
  * @syscap SystemCapability.Test.UiTest
  * @since 8
  */
