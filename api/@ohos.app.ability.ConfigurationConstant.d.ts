@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,6 +15,7 @@
 
 /**
  * The definition of ConfigurationConstant.
+ *
  * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
@@ -22,6 +23,7 @@
 declare namespace ConfigurationConstant {
   /**
    * ColorMode
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
@@ -30,11 +32,12 @@ declare namespace ConfigurationConstant {
   export enum ColorMode {
     COLOR_MODE_NOT_SET = -1,
     COLOR_MODE_DARK = 0,
-    COLOR_MODE_LIGHT = 1,
+    COLOR_MODE_LIGHT = 1
   }
 
   /**
    * Direction
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
@@ -43,12 +46,12 @@ declare namespace ConfigurationConstant {
   export enum Direction {
     DIRECTION_NOT_SET = -1,
     DIRECTION_VERTICAL = 0,
-    DIRECTION_HORIZONTAL = 1,
+    DIRECTION_HORIZONTAL = 1
   }
 
   /**
    * ScreenDensity
-   * @name ScreenDensity
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
@@ -60,8 +63,8 @@ declare namespace ConfigurationConstant {
     SCREEN_DENSITY_LDPI = 240,
     SCREEN_DENSITY_XLDPI = 320,
     SCREEN_DENSITY_XXLDPI = 480,
-    SCREEN_DENSITY_XXXLDPI = 640,
+    SCREEN_DENSITY_XXXLDPI = 640
   }
 }
 
-export default ConfigurationConstant
+export default ConfigurationConstant;

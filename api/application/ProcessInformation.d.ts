@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,39 +16,40 @@
 /**
  * The class of an process information.
  *
- * @since 9
- * @crossplatform
+ * @interface ProcessInformation
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 9
  */
 export interface ProcessInformation {
   /**
    * @default process id
-   * @since 9
-   * @crossplatform
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 9
    */
   pid: number;
 
   /**
    * @default user id
-   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   uid: number;
 
   /**
    * @default the name of the process
-   * @since 9
-   * @crossplatform
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 9
    */
   processName: string;
 
   /**
    * @default an array of the bundleNames running in the process
-   * @since 9
-   * @crossplatform
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 9
    */
   bundleNames: Array<string>;
 }

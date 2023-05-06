@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * Interface of quickFixManager.
+ *
  * @namespace quickFixManager
  * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
  * @systemapi
@@ -25,6 +26,7 @@ import { AsyncCallback } from "./@ohos.base";
 declare namespace quickFixManager {
   /**
    * Quick fix info of hap module.
+   *
    * @typedef HapModuleQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
@@ -33,6 +35,7 @@ declare namespace quickFixManager {
   export interface HapModuleQuickFixInfo {
     /**
      * Indicates hap module name.
+     *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -42,6 +45,7 @@ declare namespace quickFixManager {
 
     /**
      * Indicates hash value of a hap.
+     *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -51,6 +55,7 @@ declare namespace quickFixManager {
 
     /**
      * Indicates installed path of quick fix file.
+     *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -61,6 +66,7 @@ declare namespace quickFixManager {
 
   /**
    * Quick fix info of application.
+   *
    * @typedef ApplicationQuickFixInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
@@ -69,6 +75,7 @@ declare namespace quickFixManager {
   export interface ApplicationQuickFixInfo {
     /**
      * Bundle name.
+     *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -78,6 +85,7 @@ declare namespace quickFixManager {
 
     /**
      * The version number of the bundle.
+     *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -87,6 +95,7 @@ declare namespace quickFixManager {
 
     /**
      * The version name of the bundle.
+     *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -96,6 +105,7 @@ declare namespace quickFixManager {
 
     /**
      * The version number of the quick fix.
+     *
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -105,6 +115,7 @@ declare namespace quickFixManager {
 
     /**
      * The version name of the quick fix.
+     *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -114,6 +125,7 @@ declare namespace quickFixManager {
 
     /**
      * Hap module quick fix info.
+     *
      * @type { Array<HapModuleQuickFixInfo> }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
@@ -124,6 +136,7 @@ declare namespace quickFixManager {
 
   /**
    * Apply quick fix files.
+   *
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
    *                                                   path and file name.
@@ -141,6 +154,7 @@ declare namespace quickFixManager {
 
   /**
    * Apply quick fix files.
+   *
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
    *                                                   path and file name.
@@ -158,6 +172,7 @@ declare namespace quickFixManager {
 
   /**
    * Get application quick fix info by bundle name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name wish to query.
    * @param { AsyncCallback<ApplicationQuickFixInfo> } callback - The callback is used to return the ApplicationQuickFixInfo.
@@ -174,6 +189,7 @@ declare namespace quickFixManager {
 
   /**
    * Get application quick fix info by bundle name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name wish to query.
    * @returns { Promise<ApplicationQuickFixInfo> } Returns the ApplicationQuickFixInfo.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,25 +13,25 @@
  * limitations under the License.
  */
 
-import { CommonEventData } from "./commonEvent/commonEventData";
+import { CommonEventData } from './commonEvent/commonEventData';
 
 /**
  * class of static subscriber extension ability.
  *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
+ * @systemapi
  * @StageModelOnly
+ * @since 9
  */
 export default class StaticSubscriberExtensionAbility {
   /**
    * Called back when a specific common event is published.
    *
-   * @since 9
+   * @param { CommonEventData } event Static subscriber universal event callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide for inner use.
-   * @returns -
+   * @systemapi
    * @StageModelOnly
+   * @since 9
    */
   onReceiveEvent(event: CommonEventData): void;
 }

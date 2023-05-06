@@ -17,6 +17,7 @@ import { BusinessError } from './@ohos.base';
 
 /**
  * Interface of formBindingData.
+ *
  * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
  * @since 9
@@ -24,6 +25,7 @@ import { BusinessError } from './@ohos.base';
 declare namespace formBindingData {
   /**
    * Create an FormBindingData instance.
+   *
    * @param { Object | string } obj - Indicates the FormBindingData instance data.
    * @returns { FormBindingData } Returns the FormBindingData.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -34,12 +36,13 @@ declare namespace formBindingData {
 
   /**
    * Defines the createFormBindingData result interface.
+   *
    * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
   interface FormBindingData {
-    data: Object
+    data: Object;
   }
 }
 export default formBindingData;

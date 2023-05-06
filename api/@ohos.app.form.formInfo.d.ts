@@ -17,6 +17,7 @@ import Want from './@ohos.app.ability.Want';
 
 /**
  * interface of formInfo.
+ *
  * @namespace formInfo
  * @syscap SystemCapability.Ability.Form
  * @since 9
@@ -24,6 +25,7 @@ import Want from './@ohos.app.ability.Want';
 declare namespace formInfo {
   /**
    * Provides information about a form.
+   *
    * @typedef FormInfo
    * @syscap SystemCapability.Ability.Form
    * @since 9
@@ -31,6 +33,7 @@ declare namespace formInfo {
   interface FormInfo {
     /**
      * Obtains the bundle name of the application to which this form belongs.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -38,6 +41,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the name of the application module to which this form belongs.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -45,6 +49,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the class name of the ability to which this form belongs.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -52,6 +57,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the name of this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -59,6 +65,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the name of this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -66,6 +73,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the type of this form. Currently, JS forms are supported.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -73,6 +81,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the JS component name of this JS form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -80,6 +89,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the color mode of this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -87,6 +97,7 @@ declare namespace formInfo {
 
     /**
      * Checks whether this form is a default form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -94,6 +105,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the updateEnabled.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -101,6 +113,7 @@ declare namespace formInfo {
 
     /**
      * Obtains whether notify visible of this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -108,6 +121,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the scheduledUpdateTime.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -115,6 +129,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the form config ability about this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -122,6 +137,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the updateDuration.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -129,6 +145,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the default grid style of this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -136,6 +153,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the grid styles supported by this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -143,6 +161,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the custom data defined in this form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -151,13 +170,15 @@ declare namespace formInfo {
 
   /**
    * Type of form.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
-  */
+   */
   enum FormType {
     /**
      * JS form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -165,6 +186,7 @@ declare namespace formInfo {
 
     /**
      * eTS form.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -173,13 +195,15 @@ declare namespace formInfo {
 
   /**
    * Color mode.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
-  */
+   */
   enum ColorMode {
     /**
      * Automatic mode.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -187,6 +211,7 @@ declare namespace formInfo {
 
     /**
      * Dark mode.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -194,6 +219,7 @@ declare namespace formInfo {
 
     /**
      * Light mode.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -202,6 +228,7 @@ declare namespace formInfo {
 
   /**
    * Provides state information about a form.
+   *
    * @typedef FormStateInfo
    * @syscap SystemCapability.Ability.Form
    * @since 9
@@ -209,6 +236,7 @@ declare namespace formInfo {
   interface FormStateInfo {
     /**
      * Obtains the form state.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -216,6 +244,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the want form .
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -224,6 +253,7 @@ declare namespace formInfo {
 
   /**
    * Provides state about a form.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
@@ -231,6 +261,7 @@ declare namespace formInfo {
   enum FormState {
     /**
      * Indicates that the form status is unknown due to an internal error.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -238,6 +269,7 @@ declare namespace formInfo {
 
     /**
      * Indicates that the form is in the default state.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -245,14 +277,16 @@ declare namespace formInfo {
 
     /**
      * Indicates that the form is ready.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    READY = 1,
+    READY = 1
   }
 
   /**
    * Parameter of form.
+   *
    * @enum { string }
    * @syscap SystemCapability.Ability.Form
    * @since 9
@@ -269,7 +303,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    IDENTITY_KEY = "ohos.extra.param.key.form_identity",
+    IDENTITY_KEY = 'ohos.extra.param.key.form_identity',
 
     /**
      * Indicates the key specifying the grid style of the form to be obtained, which is represented as
@@ -282,7 +316,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    DIMENSION_KEY = "ohos.extra.param.key.form_dimension",
+    DIMENSION_KEY = 'ohos.extra.param.key.form_dimension',
 
     /**
      * Indicates the key specifying the name of the form to be obtained, which is represented as
@@ -295,7 +329,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    NAME_KEY = "ohos.extra.param.key.form_name",
+    NAME_KEY = 'ohos.extra.param.key.form_name',
 
     /**
      * Indicates the key specifying the name of the module to which the form to be obtained belongs, which is
@@ -310,7 +344,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    MODULE_NAME_KEY = "ohos.extra.param.key.module_name",
+    MODULE_NAME_KEY = 'ohos.extra.param.key.module_name',
 
     /**
      * Indicates the key specifying the width of the form to be obtained, which is represented as
@@ -323,7 +357,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    WIDTH_KEY = "ohos.extra.param.key.form_width",
+    WIDTH_KEY = 'ohos.extra.param.key.form_width',
 
     /**
      * Indicates the key specifying the height of the form to be obtained, which is represented as
@@ -336,7 +370,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    HEIGHT_KEY = "ohos.extra.param.key.form_height",
+    HEIGHT_KEY = 'ohos.extra.param.key.form_height',
 
     /**
      * Indicates the key specifying whether a form is temporary, which is represented as
@@ -349,7 +383,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    TEMPORARY_KEY = "ohos.extra.param.key.form_temporary",
+    TEMPORARY_KEY = 'ohos.extra.param.key.form_temporary',
 
     /**
      * Indicates the key specifying the name of the bundle to be obtained, which is represented as
@@ -362,7 +396,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    BUNDLE_NAME_KEY = "ohos.extra.param.key.bundle_name",
+    BUNDLE_NAME_KEY = 'ohos.extra.param.key.bundle_name',
 
     /**
      * Indicates the key specifying the name of the ability to be obtained, which is represented as
@@ -375,7 +409,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    ABILITY_NAME_KEY = "ohos.extra.param.key.ability_name",
+    ABILITY_NAME_KEY = 'ohos.extra.param.key.ability_name',
 
     /**
      * Indicates the key specifying the the device ID, which is represented as
@@ -389,7 +423,7 @@ declare namespace formInfo {
      * @systemapi
      * @since 9
      */
-    DEVICE_ID_KEY = "ohos.extra.param.key.device_id",
+    DEVICE_ID_KEY = 'ohos.extra.param.key.device_id',
 
     /**
      * Indicates the key specifying the launch reason of the form to be obtained, which is represented as
@@ -402,7 +436,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
-    LAUNCH_REASON_KEY = "ohos.extra.param.key.form_launch_reason",
+    LAUNCH_REASON_KEY = 'ohos.extra.param.key.form_launch_reason',
 
     /**
      * Indicates the key specifying the custom data of the form to be obtained, which is represented as
@@ -417,12 +451,13 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
-    PARAM_FORM_CUSTOMIZE_KEY = "ohos.extra.param.key.form_customize"
+    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize'
   }
 
   /**
    * The optional options used as filters to ask
    * getFormsInfo to return formInfos from only forms that match the options.
+   *
    * @typedef FormInfoFilter
    * @syscap SystemCapability.Ability.Form
    * @since 9
@@ -431,6 +466,7 @@ declare namespace formInfo {
     /**
      * optional moduleName that used to ask getFormsInfo to return
      * form infos with the same moduleName.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -439,6 +475,7 @@ declare namespace formInfo {
 
   /**
    * Defines the FormDimension enum.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
@@ -446,6 +483,7 @@ declare namespace formInfo {
   enum FormDimension {
     /**
      * 1 x 2 form
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -453,6 +491,7 @@ declare namespace formInfo {
 
     /**
      * 2 x 2 form
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -460,6 +499,7 @@ declare namespace formInfo {
 
     /**
      * 2 x 4 form
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -467,6 +507,7 @@ declare namespace formInfo {
 
     /**
      * 4 x 4 form
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -474,13 +515,15 @@ declare namespace formInfo {
 
     /**
      * 2 x 1 form
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    Dimension_2_1,
+    Dimension_2_1
   }
   /**
    * The visibility of a form.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
@@ -490,6 +533,7 @@ declare namespace formInfo {
      * Indicates the type of the form is visible.
      * Often used as a condition variable in function OnVisibilityChange to specify actions only on forms that are
      * changing to visible.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -498,14 +542,16 @@ declare namespace formInfo {
      * Indicates the type of the form is invisible.
      * Often used as a condition variable in function OnVisibilityChange to specify actions only on forms that are
      * changing to invisible.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
-    FORM_INVISIBLE,
+    FORM_INVISIBLE
   }
 
   /**
    * Indicates the launch reason of a form.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 10
@@ -513,16 +559,18 @@ declare namespace formInfo {
   enum LaunchReason {
     /**
      * Indicates the launch reason of a form is default.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
     FORM_DEFAULT = 1,
     /**
      * Indicates the launch reason of a form is share.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
-    FORM_SHARE,
+    FORM_SHARE
   }
 }
 export default formInfo;

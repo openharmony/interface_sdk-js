@@ -15,6 +15,7 @@
 
 /**
  * Describes a BundleOption.
+ *
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
  * @since 9

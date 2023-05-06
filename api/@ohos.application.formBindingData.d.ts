@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,9 +16,9 @@
 /**
  * interface of formBindingData.
  *
- * @name formBindingData
- * @since 8
+ * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.app.form.formBindingData
  */
@@ -26,20 +26,24 @@ declare namespace formBindingData {
   /**
    * Create an FormBindingData instance.
    *
-   * @since 8
+   * @param { Object | string } obj Indicates the FormBindingData instance data.
+   * @returns { FormBindingData } Returns the {@link FormBindingData} instance.
    * @syscap SystemCapability.Ability.Form
-   * @param obj Indicates the FormBindingData instance data.
-   * @returns Returns the {@link FormBindingData} instance.
+   * @since 8
+   * @deprecated since 9
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
   /**
    * Defines the createFormBindingData result interface.
+   *
+   * @interface FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @since 8
+   * @deprecated since 9
    */
   interface FormBindingData {
-    data: Object
+    data: Object;
   }
 }
 export default formBindingData;

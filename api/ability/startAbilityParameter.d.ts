@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,18 +16,18 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
-* @since 6
-* @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-* @permission N/A
-*/
+ * @interface StartAbilityParameter
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @since 6
+ */
 export interface StartAbilityParameter {
   /**
    * Indicates the Want containing information about the target ability to start.
    *
    * @default -
-   * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 6
    */
   want: Want;
 
@@ -35,10 +35,9 @@ export interface StartAbilityParameter {
    * Indicates the special start setting used in starting ability.
    *
    * @default -
-   * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 6
    */
   abilityStartSetting?: { [key: string]: any };
-
 }

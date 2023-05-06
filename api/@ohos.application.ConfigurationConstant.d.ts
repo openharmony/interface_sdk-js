@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,24 +16,24 @@
 /**
  * The definition of ConfigurationConstant.
  *
- * @since 8
+ * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
- * @permission N/A
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.app.ability.ConfigurationConstant
  */
 declare namespace ConfigurationConstant {
   /**
-   * @name ColorMode
-   * @since 8
+   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @permission N/A
+   * @since 8
+   * @deprecated since 9
    */
   export enum ColorMode {
     COLOR_MODE_NOT_SET = -1,
     COLOR_MODE_DARK = 0,
-    COLOR_MODE_LIGHT = 1,
+    COLOR_MODE_LIGHT = 1
   }
 }
 
-export default ConfigurationConstant
+export default ConfigurationConstant;

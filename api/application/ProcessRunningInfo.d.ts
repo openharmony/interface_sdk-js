@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,17 +16,17 @@
 /**
  * The class of an process running information.
  *
- * @since 8
+ * @interface ProcessRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
+ * @since 8
  * @deprecated since 9
  * @useinstead ProcessInformation
  */
 export interface ProcessRunningInfo {
   /**
    * @default process id
-   * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
    * @deprecated since 9
    * @useinstead ProcessInformation.pid
    */
@@ -34,8 +34,8 @@ export interface ProcessRunningInfo {
 
   /**
    * @default user id
-   * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
    * @deprecated since 9
    * @useinstead ProcessInformation.uid
    */
@@ -43,8 +43,8 @@ export interface ProcessRunningInfo {
 
   /**
    * @default the name of the process
-   * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
    * @deprecated since 9
    * @useinstead ProcessInformation.processName
    */
@@ -52,8 +52,8 @@ export interface ProcessRunningInfo {
 
   /**
    * @default an array of the bundleNames running in the process
-   * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
    * @deprecated since 9
    * @useinstead ProcessInformation.bundleNames
    */

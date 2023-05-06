@@ -15,12 +15,14 @@
 
 /**
  * Want is the basic communication component of the system.
+ *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
  */
 export default class Want {
   /**
    * bundle name
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -28,6 +30,7 @@ export default class Want {
 
   /**
    * ability name
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -35,6 +38,7 @@ export default class Want {
 
   /**
    * device id
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -42,6 +46,7 @@ export default class Want {
 
   /**
    * The description of a URI in a Want.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -49,6 +54,7 @@ export default class Want {
 
   /**
    * The description of the type in this Want.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -56,6 +62,7 @@ export default class Want {
 
   /**
    * The options of the flags in this Want.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -63,6 +70,7 @@ export default class Want {
 
   /**
    * The description of an action in an want.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -70,6 +78,7 @@ export default class Want {
 
   /**
    * The description of the WantParams object in an Want
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -77,6 +86,7 @@ export default class Want {
 
   /**
    * The description of a entities in a Want.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -84,6 +94,7 @@ export default class Want {
 
   /**
    * The description of an module name in an want.
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,24 +19,32 @@ import image from '../@ohos.multimedia.image';
 /**
  * Describes a normal text notification.
  *
- * @name NotificationBasicContent
- * @since 7
+ * @interface NotificationBasicContent
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
+ * @since 7
  */
 export interface NotificationBasicContent {
   /**
    * Title of the normal text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   title: string;
 
   /**
    * Content of the normal text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   text: string;
 
   /**
    * Additional information of the normal text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   additionalText?: string;
 }
@@ -44,24 +52,32 @@ export interface NotificationBasicContent {
 /**
  * Describes a long text notification.
  *
- * @name NotificationLongTextContent
- * @since 7
+ * @interface NotificationLongTextContent
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
+ * @since 7
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
    * Long text content of the notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   longText: string;
 
   /**
    * Brief text of the long text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   briefText: string;
 
   /**
    * Title that will be displayed for the long text notification when it is expanded.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   expandedTitle: string;
 }
@@ -69,24 +85,32 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
 /**
  * Describes a multi-line text notification.
  *
- * @name NotificationMultiLineContent
- * @since 7
+ * @interface NotificationMultiLineContent
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
+ * @since 7
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
    * Brief text of the multi-line text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   briefText: string;
 
   /**
    * Brief text of the multi-line text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   longTitle: string;
 
   /**
    * Multi-line content of the multi-line text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   lines: Array<string>;
 }
@@ -94,24 +118,32 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
 /**
  * Describes a picture-attached notification.
  *
- * @name NotificationPictureContent
- * @since 7
+ * @interface NotificationPictureContent
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
+ * @since 7
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
    * Multi-line content of the multi-line text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   briefText: string;
 
   /**
    * Title that will be displayed for the picture-attached notification when it is expanded.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   expandedTitle: string;
 
   /**
    * Picture to be included in a notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   picture: image.PixelMap;
 }
@@ -119,34 +151,48 @@ export interface NotificationPictureContent extends NotificationBasicContent {
 /**
  * Describes notification types.
  *
- * @name NotificationContent
- * @since 7
+ * @interface NotificationContent
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
+ * @since 7
  */
 export interface NotificationContent {
   /**
    * Notification content type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   contentType: notification.ContentType;
 
   /**
    * Normal text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   normal?: NotificationBasicContent;
 
   /**
    * Long text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   longText?: NotificationLongTextContent;
 
   /**
    * Multi-line text notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   multiLine?: NotificationMultiLineContent;
 
   /**
    * Picture-attached notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   picture?: NotificationPictureContent;
 }
