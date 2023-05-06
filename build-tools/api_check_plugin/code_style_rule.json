@@ -310,7 +310,8 @@
       "SystemCapability.XTS.DeviceAttestLite",
       "SystemCapability.Base",
       "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
-      "SystemCapability.MultimodalInput.Input.ShortKey"
+      "SystemCapability.MultimodalInput.Input.ShortKey",
+      "SystemCapability.Msdp.DeviceStatus.Cooperate"
     ]
   },
   "administrators": [
