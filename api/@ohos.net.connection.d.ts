@@ -47,6 +47,7 @@ declare namespace connection {
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 8
@@ -90,6 +91,7 @@ declare namespace connection {
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 8
@@ -119,7 +121,7 @@ declare namespace connection {
    * @param callback Returns the {@link ConnectionProperties} object.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
@@ -136,7 +138,7 @@ declare namespace connection {
    * @returns The promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 401 - Parameter error
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
@@ -185,6 +187,7 @@ declare namespace connection {
    *      returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 9
@@ -210,6 +213,7 @@ declare namespace connection {
    * @param callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 8
@@ -236,6 +240,7 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error. 
    * @since 8
@@ -264,6 +269,7 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 8
@@ -376,6 +382,7 @@ declare namespace connection {
    * @param callback Returns the {@link NetHandle} bound to the process;
    *      returns {@code null} if no {@link NetHandle} is bound to the process.
    *      For details, see {@link NetHandle}.
+   * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 9
@@ -434,6 +441,7 @@ declare namespace connection {
    * Obtains the network independent global {@link HttpProxy} proxy settings.
    *
    * @param callback Returns the proxy settings. For details, see {@link HttpProxy}.
+   * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @systemapi Hide this for inner system use.
@@ -530,7 +538,7 @@ declare namespace connection {
      *
      * @permission ohos.permission.GET_NETWORK_INFO
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - The parameter of netSpecifier is invalid.
+     * @throws {BusinessError} 401 - Parameter error
      * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
@@ -538,18 +546,18 @@ declare namespace connection {
      * @throws {BusinessError} 2100202 - WriteInterfaceToken failed.
      * @throws {BusinessError} 2100207 - Remote is null.
      * @throws {BusinessError} 2100208 - The parameter of proxy is nullptr.
-     * @throws {BusinessError} 2101007 - UnregisterNetConnCallback can not find same callback.
-     * @throws {BusinessError} 2101008 - RegisterNetConnCallback find same callback.
      * @throws {BusinessError} 2101022 - The number of requests exceeded the maximum.
+     * @throws {BusinessError} 2101007 - The same callback exists.
      * @since 8
      */
     register(callback: AsyncCallback<void>): void;
 
     /**
      * Cancels listening for network status changes.
+     * @throws {BusinessError} 401 - Parameter error
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
-     * @throws {BusinessError} 2101007 - The same callback exists.
+     * @throws {BusinessError} 2101008 - RegisterNetConnCallback find same callback.
      * @throws {BusinessError} 2100207 - Remote is null.
      * @throws {BusinessError} 2100202 - WriteInterfaceToken failed.
      * @throws {BusinessError} 2100105 - The parameter of netSpecifier or callback is nullptr.
