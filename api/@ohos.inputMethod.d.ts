@@ -252,6 +252,30 @@ declare namespace inputMethod {
     ): void;
 
     /**
+     * Subscribe input window show or hide event.
+     *
+     * @param { 'imeShow'|'imeHide' } type - Indicates the event type.
+     * @param { (info: Array<InputWindowInfo>) => void } callback - the callback of 'imeShow' or 'imeHide'
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 10
+     */
+    on(type: 'imeShow' | 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
+
+    /**
+     * Unsubscribe input window show or hide event.
+     *
+     * @param { 'imeShow'|'imeHide' } type - Indicates the event type.
+     * @param { (info: Array<InputWindowInfo>) => void } callback - the callback of 'imeShow' or 'imeHide',
+     *        when subscriber unsubscribes all callback functions of event 'imeShow' or 'imeHide', this parameter can be left blank.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'imeShow' | 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
+
+    /**
      * List subtype of the specified input method.
      *
      * @param { InputMethodProperty } inputMethodProperty - the property of the specified inputmethod.
@@ -1373,6 +1397,60 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     PASTE = 5
+  }
+
+  /**
+   * Information of input window.
+   *
+   * @typedef InputWindowInfo
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export interface InputWindowInfo {
+    /**
+     * Indicates name of the input window.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    name: string;
+
+    /**
+     * Indicates the abscissa of the upper-left vertex of input window
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    left: number;
+
+    /**
+     * Indicates the ordinate of the upper-left vertex of input window
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    top: number;
+
+    /**
+     * Indicates the width of the input window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    width: number;
+
+    /**
+     * Indicates the height of the input window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    height: number;
   }
 }
 
