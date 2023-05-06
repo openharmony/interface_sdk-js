@@ -499,7 +499,15 @@ export default class ServiceExtensionContext extends ExtensionContext {
 
   /**
    * Get the caller object that specifies the accountId startup capability
+   * If the local device starts a new ability, you need to apply for permission:ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
+   * and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS to use this method.
+   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
+   * @permission ohos.permission.START_INVISIBLE_ABILITY
    * @param { Want } want - Indicates the ability to start.
    * @param { number } accountId - Indicates the account to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
@@ -512,12 +520,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
-   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
