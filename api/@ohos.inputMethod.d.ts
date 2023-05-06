@@ -255,7 +255,7 @@ declare namespace inputMethod {
      * Subscribe input window show or hide event.
      *
      * @param { 'imeShow'|'imeHide' } type - Indicates the event type.
-     * @param { (info: Array<InputWindowInfo>) => void } callback - the callback of 'imeShow' or 'imeHide'
+     * @param { (info: Array<InputWindowInfo>) => void } callback - the callback of 'imeShow' or 'imeHide'.
      * @throws { BusinessError } 201 - permissions check fails.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -267,7 +267,7 @@ declare namespace inputMethod {
      * Unsubscribe input window show or hide event.
      *
      * @param { 'imeShow'|'imeHide' } type - Indicates the event type.
-     * @param { (info: Array<InputWindowInfo>) => void } callback - the callback of 'imeShow' or 'imeHide',
+     * @param { (info: Array<InputWindowInfo>) => void } [callback] - the callback of 'imeShow' or 'imeHide',
      *        when subscriber unsubscribes all callback functions of event 'imeShow' or 'imeHide', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -1417,7 +1417,7 @@ declare namespace inputMethod {
     name: string;
 
     /**
-     * Indicates the abscissa of the upper-left vertex of input window
+     * Indicates the abscissa of the upper-left vertex of input window.
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1426,7 +1426,7 @@ declare namespace inputMethod {
     left: number;
 
     /**
-     * Indicates the ordinate of the upper-left vertex of input window
+     * Indicates the ordinate of the upper-left vertex of input window.
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
