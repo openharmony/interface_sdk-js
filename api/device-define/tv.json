@@ -90,6 +90,7 @@
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiTrace",
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
+    "SystemCapability.HiviewDFX.Hiview.LogLibrary",
     "SystemCapability.HiviewDFX.HiChecker",
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.HiviewDFX.HiDumper",
