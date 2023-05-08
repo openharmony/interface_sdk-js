@@ -1166,7 +1166,6 @@ declare namespace i18n {
      */
     static getTimezoneFromCity(cityID: string): TimeZone;
 
-
     /**
      * Get the possible time zones from the specified longitude and latitude.
      *
