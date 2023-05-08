@@ -158,6 +158,7 @@ declare namespace reminderAgentManager {
   /**
    * Declares action button type.
    *
+   * @enum { number }
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
@@ -188,6 +189,7 @@ declare namespace reminderAgentManager {
   /**
    * Declares reminder type.
    *
+   * @enum { number }
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
@@ -217,6 +219,7 @@ declare namespace reminderAgentManager {
   /**
    * Action button information. The button will show on displayed reminder.
    *
+   * @interface ActionButton
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
@@ -248,6 +251,7 @@ declare namespace reminderAgentManager {
    * Want agent information.
    * It will switch to target ability when you click the displayed reminder.
    *
+   * @interface WantAgent
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
@@ -278,6 +282,7 @@ declare namespace reminderAgentManager {
   /**
    * Max screen want agent information.
    *
+   * @interface MaxScreenWantAgent
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
@@ -300,6 +305,7 @@ declare namespace reminderAgentManager {
   /**
    * Reminder Common information.
    *
+   * @interface ReminderRequest
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
@@ -444,6 +450,7 @@ declare namespace reminderAgentManager {
   /**
    * Alarm reminder information.
    *
+   * @interface ReminderRequestAlarm
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
@@ -473,6 +480,7 @@ declare namespace reminderAgentManager {
   /**
    * CountDown reminder information.
    *
+   * @interface ReminderRequestTimer
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    */
