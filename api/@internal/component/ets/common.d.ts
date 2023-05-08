@@ -1479,6 +1479,18 @@ declare interface BackgroundBlurStyleOptions {
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
+
+  /**
+   * Define the scale of background blur effect. 
+   * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
+   * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
+   * @type { number }
+   * @default 1.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @systemapi
+   */
+  scale?: number;
 }
 
 /**
@@ -1506,6 +1518,27 @@ declare interface PickerTextStyle {
 }
 
 /**
+ * Define the type of shadow
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ShadowType {
+  /**
+   * Define a color type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COLOR,
+
+  /**
+   * Define a blur type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BLUR,
+}
+
+/**
  * Define the options of shadow
  * @since 7
  */
@@ -1525,6 +1558,15 @@ declare interface ShadowOptions {
    * @since 9
    */
   radius: number | Resource;
+
+  /**
+   * Define the type of shadow
+   * @type { ShadowType }
+   * @default ShadowType.COLOR
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type?: ShadowType;
 
   /**
    * Define the color of shadow
