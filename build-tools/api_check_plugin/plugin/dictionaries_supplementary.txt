@@ -23,6 +23,7 @@ alterase
 alternating
 altitudes
 amr
+animatable
 annually
 antialias
 apdu
