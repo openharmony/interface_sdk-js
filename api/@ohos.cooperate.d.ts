@@ -87,6 +87,14 @@ declare namespace cooperate {
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
     COOPERATE_DEACTIVATE_FAIL,
+
+    /**
+     * 设备间会话断开
+     *
+     * @since 10
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     */
+    COOPERATE_SESSION_DISCONNECTED,
   }
 
   /**
