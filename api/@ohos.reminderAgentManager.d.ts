@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import notification from './@ohos.notification';
+import notification from './@ohos.notificationManager';
 import { NotificationSlot } from './notification/notificationSlot';
 
 /**
@@ -174,7 +174,15 @@ declare namespace reminderAgentManager {
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
-    ACTION_BUTTON_TYPE_SNOOZE = 1
+    ACTION_BUTTON_TYPE_SNOOZE = 1,
+
+    /**
+     * The custom button.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+     ACTION_BUTTON_TYPE_CUSTOM = 2
   }
 
   /**
@@ -226,6 +234,14 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     type: ActionButtonType;
+
+    /**
+     * Information about the ability that is redirected to when the button is clicked.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+     wantAgent?: WantAgent;
   }
 
   /**
@@ -249,6 +265,14 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     abilityName: string;
+
+    /**
+     * The Uniform Resource Identifier (URI) that will be redirected to.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    uri?: string;
   }
 
   /**
@@ -293,7 +317,13 @@ declare namespace reminderAgentManager {
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
-    actionButton?: [ActionButton?, ActionButton?];
+    /**
+     * Action button displayed on the reminder notification.
+     * (The parameter is optional. Up to three buttons are supported).
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
+     */
+    actionButton?: [ActionButton?, ActionButton?, ActionButton?];
 
     /**
      * Information about the ability that is redirected to when the notification is clicked.
@@ -372,6 +402,20 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     slotType?: notification.SlotType;
+
+    /**
+     * Whether the notification is automatically cleared.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
+     */
+    tapDismissed?: boolean;
+
+    /**
+     * Time when the notification is automatically cleared.
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
+     */
+    autoDeletedTime?: number;
   }
 
   interface ReminderRequestCalendar extends ReminderRequest {
