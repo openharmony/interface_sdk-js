@@ -505,9 +505,9 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   * @permission (ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS) or
-   * ohos.permission.START_ABILITIES_FROM_BACKGROUND or ohos.permission.START_INVISIBLE_ABILITY or ohos.permission.DISTRIBUTED_DATASYNC
+   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
+   * @permission ohos.permission.START_INVISIBLE_ABILITY
    * @param { Want } want - Indicates the ability to start.
    * @param { number } accountId - Indicates the account to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
