@@ -622,7 +622,6 @@ declare namespace i18n {
      * @param { string } locale - Locale used to get the localized name for this calendar.
      * @returns { string } the localized name of this calendar.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     getDisplayName(locale: string): string;
@@ -1140,7 +1139,6 @@ declare namespace i18n {
      * @param { boolean } [isDST] - wether consider daylight saving time when display timezone object's name.
      * @returns { string } a string represents the display name.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 7
      */
     getDisplayName(locale?: string, isDST?: boolean): string;
