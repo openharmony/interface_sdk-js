@@ -768,5 +768,39 @@ declare namespace formHost {
      * @since 10
      */
     function acquireFormData(formId: string): Promise<{[key: string]: Object}>;
+
+    /**
+     * Obtains the RunningFormInfo objects by FormProviderFilter.
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { formInfo.FormProviderFilter } formProviderFilter - Indicates the form provider app info.
+     * @returns { Promise<Array<formInfo.RunningFormInfo>> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+    */
+    function getRunningFormInfosByFilter(formProviderFilter: formInfo.FormProviderFilter): Promise<Array<formInfo.RunningFormInfo>>;
+
+    /**
+     * Obtains the RunningFormInfo objects by FormProviderFilter.
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { formInfo.FormProviderFilter } formProviderFilter - Indicates the form provider app info.
+     * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback of getFormInstancesByFilter.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    function getRunningFormInfosByFilter(formProviderFilter: formInfo.FormProviderFilter, callback: AsyncCallback<Array<formInfo.RunningFormInfo>>): void;
 }
 export default formHost;
