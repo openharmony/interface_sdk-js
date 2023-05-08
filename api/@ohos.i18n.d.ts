@@ -1205,19 +1205,6 @@ declare namespace i18n {
      * @since 9
      */
     static getTimezoneFromCity(cityID: string): TimeZone;
-
-     /**
-      * Get the possible time zones from the specified longitude and latitude.
-      *
-      * @throws {BusinessError} 401 - check param failed
-      * @throws {BusinessError} 890001 - param value not valid
-      * @syscap SystemCapability.Global.I18n
-      * @param longitude longitude value
-      * @param latitude latitude value
-      * @returns Returns a TimeZone array from the specified longitude and latitude.
-      * @since 10
-      */
-    static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
   }
 
   /**
