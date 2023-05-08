@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, BusinessError } from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * A static class to do update for device.
@@ -658,7 +658,7 @@ declare namespace update {
   /**
    * Represents upgrade info.
    *
-   * @interface UpgradeInfo
+   * @typedef UpgradeInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -688,7 +688,7 @@ declare namespace update {
   /**
    * Represents business type.
    *
-   * @interface BusinessType
+   * @typedef BusinessType
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -718,7 +718,7 @@ declare namespace update {
   /**
    * Represents new version check result.
    *
-   * @interface CheckResult
+   * @typedef CheckResult
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -748,7 +748,7 @@ declare namespace update {
   /**
    * Represents new version info.
    *
-   * @interface NewVersionInfo
+   * @typedef NewVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -778,7 +778,7 @@ declare namespace update {
   /**
    * Represents version digest info.
    *
-   * @interface VersionDigestInfo
+   * @typedef VersionDigestInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -798,7 +798,7 @@ declare namespace update {
   /**
    * Represents version component info.
    *
-   * @interface VersionComponent
+   * @typedef VersionComponent
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -888,7 +888,7 @@ declare namespace update {
   /**
    * Represents description options.
    *
-   * @interface DescriptionOptions
+   * @typedef DescriptionOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -918,7 +918,7 @@ declare namespace update {
   /**
    * Represents version component description.
    *
-   * @interface ComponentDescription
+   * @typedef ComponentDescription
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -948,7 +948,7 @@ declare namespace update {
   /**
    * Represents new version description information.
    *
-   * @interface DescriptionInfo
+   * @typedef DescriptionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -978,7 +978,7 @@ declare namespace update {
   /**
    * Represents current version info.
    *
-   * @interface CurrentVersionInfo
+   * @typedef CurrentVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1018,7 +1018,7 @@ declare namespace update {
   /**
    * Represents download options.
    *
-   * @interface DownloadOptions
+   * @typedef DownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1048,7 +1048,7 @@ declare namespace update {
   /**
    * Represents resume download options.
    *
-   * @interface ResumeDownloadOptions
+   * @typedef ResumeDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1068,7 +1068,7 @@ declare namespace update {
   /**
    * Represents pause download options.
    *
-   * @interface PauseDownloadOptions
+   * @typedef PauseDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1088,7 +1088,7 @@ declare namespace update {
   /**
    * Represents upgrade options.
    *
-   * @interface UpgradeOptions
+   * @typedef UpgradeOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1108,7 +1108,7 @@ declare namespace update {
   /**
    * Represents clear error options.
    *
-   * @interface ClearOptions
+   * @typedef ClearOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1128,7 +1128,7 @@ declare namespace update {
   /**
    * Represents upgrade policy.
    *
-   * @interface UpgradePolicy
+   * @typedef UpgradePolicy
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1168,7 +1168,7 @@ declare namespace update {
   /**
    * Represents upgrade period.
    *
-   * @interface UpgradePeriod
+   * @typedef UpgradePeriod
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1198,7 +1198,7 @@ declare namespace update {
   /**
    * Represents task info.
    *
-   * @interface TaskInfo
+   * @typedef TaskInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1228,7 +1228,7 @@ declare namespace update {
   /**
    * Represents event info.
    *
-   * @interface EventInfo
+   * @typedef EventInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1258,7 +1258,7 @@ declare namespace update {
   /**
    * Represents task body info.
    *
-   * @interface TaskBody
+   * @typedef TaskBody
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1338,7 +1338,7 @@ declare namespace update {
   /**
    * Represents error message.
    *
-   * @interface ErrorMessage
+   * @typedef ErrorMessage
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1368,7 +1368,7 @@ declare namespace update {
   /**
    * Represents event classify info.
    *
-   * @interface EventClassifyInfo
+   * @typedef EventClassifyInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1398,7 +1398,7 @@ declare namespace update {
   /**
    * Represents upgrade file info.
    *
-   * @interface UpgradeFile
+   * @typedef UpgradeFile
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
@@ -1429,7 +1429,7 @@ declare namespace update {
    * Called when upgrade task info changes.
    * You need to implement this method in a child class.
    *
-   * @interface UpgradeTaskCallback
+   * @typedef UpgradeTaskCallback
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 9
