@@ -58,11 +58,18 @@ declare namespace formInfo {
     name: string;
 
     /**
-     * Obtains the name of this form.
+     * Obtains the description of this form.
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     description: string;
+
+    /**
+     * Obtains the description id of this form.
+     * @syscap SystemCapability.Ability.Form
+     * @since 10
+     */
+    descriptionId: number;
 
     /**
      * Obtains the type of this form. Currently, JS forms are supported.
@@ -586,7 +593,7 @@ declare namespace formInfo {
  * @systemapi hide this for inner system use
  * @since 10
  */
-  export interface RunningFormInfo {
+  interface RunningFormInfo {
     /**
      * Obtains the id of the this form.
      * @type { string }
