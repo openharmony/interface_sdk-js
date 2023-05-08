@@ -295,6 +295,32 @@ declare namespace userFileManager {
      * @param isFavorite True is favorite file, false is not favorite file
      */
     favorite(isFavorite: boolean): Promise<void>;
+    /**
+     * Set file hidden state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } hiddenState - true: Put the asset into hidden album; false: Recover the asset from hidden album.
+     * @param { AsyncCallback<void> } callback - Return void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    setHidden(hiddenState: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set file hidden state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } hiddenState - true: Put the asset into hidden album; false: Recover the asset from hidden album.
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    setHidden(hiddenState: boolean): Promise<void>;
   }
 
   /**
