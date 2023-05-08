@@ -799,7 +799,7 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId - Indicates the form ID.
-   * @param { AsyncCallback<Object> } callback - The callback of acquireFormData.
+   * @param { Object } callback - The callback of acquireFormData.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.Form
@@ -813,7 +813,7 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId - Indicates the form ID.
-   * @returns { Promise<Object> } The promise returned by the function.
+   * @returns { Object } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.Form

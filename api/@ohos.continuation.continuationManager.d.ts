@@ -53,7 +53,7 @@ declare namespace continuationManager {
    * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { "deviceSelected" } type deviceSelected.
+   * @param { 'deviceSelected' } type deviceSelected.
    * @param { number } token Registered token.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.

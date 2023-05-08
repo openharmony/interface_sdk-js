@@ -63,7 +63,7 @@ declare namespace appManager {
    * Register application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { "applicationState" } type - applicationState.
+   * @param { 'applicationState' } type - applicationState.
    * @param { ApplicationStateObserver } observer - The application state observer.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 201 - Permission denied.
@@ -80,7 +80,7 @@ declare namespace appManager {
    * Register application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { "applicationState" } type - applicationState.
+   * @param { 'applicationState' } type - applicationState.
    * @param { ApplicationStateObserver } observer - The application state observer.
    * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
    * @returns { number } Returns the number code of the observer.
@@ -98,7 +98,7 @@ declare namespace appManager {
    * Unregister application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { "applicationState" } type - applicationState.
+   * @param { 'applicationState' } type - applicationState.
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 201 - Permission denied.
@@ -115,7 +115,7 @@ declare namespace appManager {
    * Unregister application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { "applicationState" } type - applicationState.
+   * @param { 'applicationState' } type - applicationState.
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.

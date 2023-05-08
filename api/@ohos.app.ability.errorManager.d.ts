@@ -27,7 +27,7 @@ declare namespace errorManager {
   /**
    * Register error observer.
    *
-   * @param { "error" } type - error.
+   * @param { 'error' } type - error.
    * @param { ErrorObserver } observer - The error observer.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -40,7 +40,7 @@ declare namespace errorManager {
   /**
    * Unregister error observer.
    *
-   * @param { "error" } type - error.
+   * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -53,7 +53,7 @@ declare namespace errorManager {
   /**
    * Unregister error observer.
    *
-   * @param { "error" } type - error.
+   * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

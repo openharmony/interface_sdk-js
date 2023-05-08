@@ -33,7 +33,7 @@ declare namespace missionManager {
    * Register the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { "mission" } type - mission.
+   * @param { 'mission' } type - mission.
    * @param { MissionListener } listener - Indicates the MissionListener to be registered.
    * @returns { number } Returns the index number of the MissionListener.
    * @throws { BusinessError } 201 - Permission denied.
@@ -49,7 +49,7 @@ declare namespace missionManager {
    * Unregister the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { "mission" } type - mission.
+   * @param { 'mission' } type - mission.
    * @param { number } listenerId - Indicates the listener id to be unregistered.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 201 - Permission denied.
@@ -66,7 +66,7 @@ declare namespace missionManager {
    * Unregister the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { "mission" } type - mission.
+   * @param { 'mission' } type - mission.
    * @param { number } listenerId - Indicates the listener id to be unregistered.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
