@@ -36,7 +36,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -54,7 +53,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -72,7 +70,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -90,7 +87,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -108,7 +104,6 @@ declare namespace intl {
      *
      * @type { boolean }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -126,7 +121,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -305,7 +299,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -323,7 +316,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -341,7 +333,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -359,7 +350,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -377,7 +367,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -395,7 +384,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -413,7 +401,6 @@ declare namespace intl {
      *
      * @type { boolean }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -431,7 +418,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -449,7 +435,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -467,7 +452,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -475,7 +459,6 @@ declare namespace intl {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 9
      */
     year?: string;
@@ -485,7 +468,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -503,7 +485,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -521,7 +502,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -539,7 +519,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -557,7 +536,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -575,7 +553,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -593,7 +570,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -611,7 +587,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -629,7 +604,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -720,7 +694,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -738,7 +711,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -756,7 +728,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -774,7 +745,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -792,7 +762,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -810,7 +779,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -828,7 +796,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -846,7 +813,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -864,7 +830,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -882,7 +847,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -900,7 +864,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -918,7 +881,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -936,7 +898,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -954,7 +915,6 @@ declare namespace intl {
      *
      * @type { boolean }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -972,7 +932,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -990,7 +949,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -1008,7 +966,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -1026,7 +983,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -1044,7 +1000,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -1124,7 +1079,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1144,7 +1098,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1170,7 +1123,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1195,7 +1147,6 @@ declare namespace intl {
      *
      * @type { boolean }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1213,7 +1164,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1231,7 +1181,6 @@ declare namespace intl {
      *
      * @type { boolean }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1250,7 +1199,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1335,7 +1283,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1354,7 +1301,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1373,7 +1319,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1393,7 +1338,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1414,7 +1358,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1435,7 +1378,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1455,7 +1397,6 @@ declare namespace intl {
      *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1527,7 +1468,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1547,7 +1487,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -1567,7 +1506,6 @@ declare namespace intl {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
