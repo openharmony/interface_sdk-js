@@ -19,16 +19,17 @@ import Want from './@ohos.app.ability.Want';
 /**
  * class of static subscriber extension context.
  *
- * @since 10
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
+ * @systemapi
  * @StageModelOnly
+ * @since 10
  */
 export default class StaticSubscriberExtensionContext {
   /**
    * Starts a new ability.
+   *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
-   * @param want { Want } - Indicates the ability to start.
+   * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -42,6 +43,7 @@ export default class StaticSubscriberExtensionContext {
 
   /**
    * Starts a new ability.
+   *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<void> } The promise returned by the function.

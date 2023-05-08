@@ -14,7 +14,7 @@
  */
 
 import { CommonEventData } from "./commonEvent/commonEventData";
-import StaticSubscriberExtensionContext from "./@ohos.application.StaticSubscriberExtensionContext";
+import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**
  * class of static subscriber extension ability.
@@ -27,11 +27,12 @@ import StaticSubscriberExtensionContext from "./@ohos.application.StaticSubscrib
 export default class StaticSubscriberExtensionAbility {
   /**
    * Indicates configuration information about an ability context.
-   * 
-   * @since 10
+   *
    * @type { StaticSubscriberExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
    * @StageModelOnly
+   * @since 10
    */
   context: StaticSubscriberExtensionContext;
 
