@@ -88,6 +88,7 @@ declare namespace i18n {
    * Provides system functions.
    *
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 9
    */
   export class System {
@@ -101,6 +102,7 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
@@ -115,6 +117,7 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
@@ -158,6 +161,7 @@ declare namespace i18n {
      *
      * @returns { string } the language currently used by the system.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getSystemLanguage(): string;
@@ -181,6 +185,7 @@ declare namespace i18n {
      *
      * @returns { string } the region currently used by the system.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getSystemRegion(): string;
@@ -204,6 +209,7 @@ declare namespace i18n {
      *
      * @returns { string } the locale currently used by the system.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getSystemLocale(): string;
@@ -227,6 +233,7 @@ declare namespace i18n {
      *
      * @returns { boolean } a boolean represent whether system is 24-hour system.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static is24HourClock(): boolean;
@@ -356,6 +363,7 @@ declare namespace i18n {
    * Provides util functions.
    *
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 9
    */
   export class I18NUtil {
@@ -380,6 +388,7 @@ declare namespace i18n {
      * @param { string } locale - Information of the locale
      * @returns { string } the string of 'y', 'L', 'd' joined by '-'.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getDateOrder(locale: string): string;
@@ -493,6 +502,7 @@ declare namespace i18n {
    *  japanese, persian.
    * @returns { Calendar } Calendar object
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 8
    */
   export function getCalendar(locale: string, type?: string): Calendar;
@@ -503,6 +513,7 @@ declare namespace i18n {
      *
      * @param { Date } date - Date object used to set the time and date.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     setTime(date: Date): void;
@@ -512,6 +523,7 @@ declare namespace i18n {
      *
      * @param { number } time - Indicates the elapsed milliseconds from 1970.1.1 00:00:00 GMT.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     setTime(time: number): void;
@@ -526,6 +538,7 @@ declare namespace i18n {
      * @param { number } minute - The minute field of the calendar, ranges from 0 to 59.
      * @param { number } second - the second field of the calendar, ranges from 0 to 59.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     set(year: number, month: number, date: number, hour?: number, minute?: number, second?: number): void;
@@ -535,6 +548,7 @@ declare namespace i18n {
      *
      * @param { string } timezone - The id of a timezone.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     setTimeZone(timezone: string): void;
@@ -544,6 +558,7 @@ declare namespace i18n {
      *
      * @returns { string } the timezone id of this calendar.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     getTimeZone(): string;
@@ -553,6 +568,7 @@ declare namespace i18n {
      *
      * @returns { number } start day of a week.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     getFirstDayOfWeek(): number;
@@ -562,6 +578,7 @@ declare namespace i18n {
      *
      * @param { number } value - Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     setFirstDayOfWeek(value: number): void;
@@ -571,6 +588,7 @@ declare namespace i18n {
      *
      * @returns { number } the minimal days of a week.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     getMinimalDaysInFirstWeek(): number;
@@ -580,6 +598,7 @@ declare namespace i18n {
      *
      * @param { number } value - The value to be set.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     setMinimalDaysInFirstWeek(value: number): void;
@@ -592,6 +611,7 @@ declare namespace i18n {
      *  dow_local, extended_year, julian_day, milliseconds_in_day, is_leap_month.
      * @returns { number } the associated value.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     get(field: string): number;
@@ -602,6 +622,7 @@ declare namespace i18n {
      * @param { string } locale - Locale used to get the localized name for this calendar.
      * @returns { string } the localized name of this calendar.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     getDisplayName(locale: string): string;
@@ -613,6 +634,7 @@ declare namespace i18n {
      * @param { Date } [date] - Date object whose attribute is desired.
      * @returns { boolean } whether the date is a weekend day.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 8
      */
     isWeekend(date?: Date): boolean;
@@ -624,6 +646,7 @@ declare namespace i18n {
    * @param { string } locale - The locale to be used.
    * @returns { boolean } true representing the locale is an RTL locale
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 7
    */
   export function isRTL(locale: string): boolean;
@@ -904,6 +927,7 @@ declare namespace i18n {
    * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
    *
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 9
    */
   export class Unicode {
@@ -913,6 +937,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a digit character
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isDigit(char: string): boolean;
@@ -923,6 +948,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a space character
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isSpaceChar(char: string): boolean;
@@ -933,6 +959,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a whitespace character
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isWhitespace(char: string): boolean;
@@ -943,6 +970,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a RTL character
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isRTL(char: string): boolean;
@@ -953,6 +981,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a Ideographic character
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isIdeograph(char: string): boolean;
@@ -963,6 +992,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a Letter
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isLetter(char: string): boolean;
@@ -973,6 +1003,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a LowerCase character
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isLowerCase(char: string): boolean;
@@ -983,6 +1014,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { boolean } true if the character is a UpperCase character
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static isUpperCase(char: string): boolean;
@@ -993,6 +1025,7 @@ declare namespace i18n {
      * @param { string } char - the character to be tested
      * @returns { string } the general category of the specified character.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getType(char: string): string;
@@ -1077,6 +1110,7 @@ declare namespace i18n {
    * @param { string } [zoneID] - TimeZone ID used to create TimeZone Object.
    * @returns { TimeZone } a TimeZone object corresponds to zoneID.
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 7
    */
   export function getTimeZone(zoneID?: string): TimeZone;
@@ -1085,6 +1119,7 @@ declare namespace i18n {
    * Provides the API for accessing TimeZone name, rawOffset and offset information.
    *
    * @syscap SystemCapability.Global.I18n
+   * @crossplatform
    * @since 7
    */
   export class TimeZone {
@@ -1093,6 +1128,7 @@ declare namespace i18n {
      *
      * @returns { string } a string represents the timezone id.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 7
      */
     getID(): string;
@@ -1104,6 +1140,7 @@ declare namespace i18n {
      * @param { boolean } [isDST] - wether consider daylight saving time when display timezone object's name.
      * @returns { string } a string represents the display name.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 7
      */
     getDisplayName(locale?: string, isDST?: boolean): string;
@@ -1113,6 +1150,7 @@ declare namespace i18n {
      *
      * @returns { number } a number represents the raw offset.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 7
      */
     getRawOffset(): number;
@@ -1123,6 +1161,7 @@ declare namespace i18n {
      * @param { number } [date] - Indicates a date use to compute offset.
      * @returns { number } a number represents the offset with date.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 7
      */
     getOffset(date?: number): number;
@@ -1132,6 +1171,7 @@ declare namespace i18n {
      *
      * @returns { Array<string> } a string array represents the available TimeZone ID list.
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 9
      */
     static getAvailableIDs(): Array<string>;
@@ -1165,6 +1205,19 @@ declare namespace i18n {
      * @since 9
      */
     static getTimezoneFromCity(cityID: string): TimeZone;
+
+     /**
+      * Get the possible time zones from the specified longitude and latitude.
+      *
+      * @throws {BusinessError} 401 - check param failed
+      * @throws {BusinessError} 890001 - param value not valid
+      * @syscap SystemCapability.Global.I18n
+      * @param longitude longitude value
+      * @param latitude latitude value
+      * @returns Returns a TimeZone array from the specified longitude and latitude.
+      * @since 10
+      */
+    static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
   }
 
   /**
