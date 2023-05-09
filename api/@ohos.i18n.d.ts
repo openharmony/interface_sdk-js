@@ -726,6 +726,13 @@ declare namespace i18n {
      *
      * @returns { number } the minimal days of a week.
      * @syscap SystemCapability.Global.I18n
+     * @since 8
+     */
+    /**
+     * Get the minimal days of a week, which is needed for the first day of a year.
+     *
+     * @returns { number } the minimal days of a week.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 10
      */
@@ -788,8 +795,17 @@ declare namespace i18n {
      * @param { Date } [date] - Date object whose attribute is desired.
      * @returns { boolean } whether the date is a weekend day.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Returns true if the given date is a weekend day. If the date is not given,
+     *  the date object of this calendar is used.
+     *
+     * @param { Date } [date] - Date object whose attribute is desired.
+     * @returns { boolean } whether the date is a weekend day.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     isWeekend(date?: Date): boolean;
   }
@@ -1382,8 +1398,15 @@ declare namespace i18n {
      *
      * @returns { string } a string represents the timezone id.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Get the id of the TimeZone object.
+     *
+     * @returns { string } a string represents the timezone id.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     getID(): string;
 
