@@ -932,9 +932,9 @@ declare namespace socket {
     getCertificate(): Promise<X509CertRawData>;
 
     /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,</p>
+     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
      * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * <p>It only contains the peer's certificate.</p>
+     * It only contains the peer's certificate.
      * @param { AsyncCallback<X509CertRawData> } callback - the callback of getRemoteCertificate.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -945,9 +945,9 @@ declare namespace socket {
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
 
     /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,</p>
+     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
      * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * <p>It only contains the peer's certificate.</p>
+     * It only contains the peer's certificate.
      * @returns { Promise<X509CertRawData> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -958,9 +958,9 @@ declare namespace socket {
     getRemoteCertificate(): Promise<X509CertRawData>;
 
     /**
-     * <p>Returns a string containing the negotiated SSL/TLS protocol version of the current connection.</p>
-     * <p>For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.</p>
-     * <p>Server sockets or disconnected client sockets will return a value of null.</p>
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
      * @param { AsyncCallback<string> } callback - the callback of getProtocol.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
@@ -972,9 +972,9 @@ declare namespace socket {
     getProtocol(callback: AsyncCallback<string>): void;
 
     /**
-     * <p>Returns a string containing the negotiated SSL/TLS protocol version of the current connection.</p>
-     * <p>For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.</p>
-     * <p>Server sockets or disconnected client sockets will return a value of null.</p>
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
      * @returns { Promise<string> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
@@ -986,8 +986,8 @@ declare namespace socket {
     getProtocol(): Promise<string>;
 
     /**
-     * <p>Returns a list containing the negotiated cipher suite information.</p>
-     * <p>For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}</p>
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      * @param { AsyncCallback<Array<string>> } callback - the callback of getCipherSuite.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - Error in tls reading.
@@ -1000,8 +1000,8 @@ declare namespace socket {
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * <p>Returns a list containing the negotiated cipher suite information.</p>
-     * <p>For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}</p>
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      * @returns { Promise<string> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - Error in tls reading.
@@ -1208,9 +1208,8 @@ declare namespace socket {
     useRemoteCipherPrefer?: boolean;
 
     /**
-     * <P>Supported signature algorithms. This string can contain summary algorithms(SHA256,MD5,etc),</P>
-     * <P>Public key algorithm(RSA-PSS,ECDSA,etc),Combination of the two(For example 'RSA+SHA384')
-     * or TLS v1.3 Scheme name(For example  rsa_pss_pss_sha512)</P>
+     * <P>Supported signature algorithms. This string can contain summary algorithms(SHA256,MD5,etc),Public key algorithm(RSA-PSS,ECDSA,etc),
+     * Combination of the two(For example 'RSA+SHA384') or TLS v1.3 Scheme name(For example  rsa_pss_pss_sha512)</P>
      * @type {string}
      * @crossplatform
      * @since 9

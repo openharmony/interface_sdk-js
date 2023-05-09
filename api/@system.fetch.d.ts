@@ -22,21 +22,18 @@
 export interface FetchResponse {
   /**
    * Server status code.
-   * @type {number}
    * @since 3
    */
   code: number;
 
   /**
    * Data returned by the success function.
-   * @type {string | object}
    * @since 3
    */
   data: string | object;
 
   /**
    * All headers in the response from the server.
-   * @type {Object}
    * @since 3
    */
   headers: Object;
@@ -55,35 +52,30 @@ export default class Fetch {
   static fetch(options: {
     /**
      * Resource URL.
-     * @type {string}
      * @since 3
      */
     url: string;
 
     /**
      * Request parameter, which can be of the string type or a JSON object.
-     * @type {string | object}
      * @since 3
      */
     data?: string | object;
 
     /**
      * Request header, which accommodates all attributes of the request.
-     * @type {Object}
      * @since 3
      */
     header?: Object;
 
     /**
      * Request methods available: OPTIONS, GET, HEAD, POST, PUT, DELETE and TRACE. The default value is GET.
-     * @type {string}
      * @since 3
      */
     method?: string;
 
     /**
      * The return type can be text, or JSON. By default, the return type is determined based on Content-Type in the header returned by the server.
-     * @type {string}
      * @since 3
      */
     responseType?: string;

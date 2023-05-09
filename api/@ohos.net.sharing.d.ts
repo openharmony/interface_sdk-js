@@ -26,7 +26,8 @@ declare namespace sharing {
   type NetHandle = connection.NetHandle;
   /**
    * Checks whether this device allows for network sharing.
-   * @param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is supported; returns {@code false} otherwise.
+   * <p>@param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is supported;
+   * returns {@code false} otherwise.</p>
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
@@ -56,7 +57,8 @@ declare namespace sharing {
 
   /**
    * Return the global network sharing state.
-   * @param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is running; returns {@code false} otherwise.
+   * <p>@param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is running;
+   * returns {@code false} otherwise.</p>
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.

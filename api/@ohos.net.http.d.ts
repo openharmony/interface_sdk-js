@@ -37,12 +37,12 @@ declare namespace http {
    */
   function createHttp(): HttpRequest;
   
-/**
- * Specifies the type and value range of the optional parameters in the HTTP request.
- * @interface HttpRequestOptions
- * @syscap SystemCapability.Communication.NetStack
- * @since 6
- */
+  /**
+   * Specifies the type and value range of the optional parameters in the HTTP request.
+   * @interface HttpRequestOptions
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 6
+   */
   export interface HttpRequestOptions {
     /**
      * Request method,default is GET.
@@ -132,13 +132,13 @@ declare namespace http {
     caPath?: string;
   }
 
-/**
- * <p>Defines an HTTP request task. Before invoking APIs provided by HttpRequest,
- * you must call createHttp() to create an HttpRequestTask object.</p>
- * @interface HttpRequest
- * @syscap SystemCapability.Communication.NetStack
- * @since 6
- */
+  /**
+   * <p>Defines an HTTP request task. Before invoking APIs provided by HttpRequest,
+   * you must call createHttp() to create an HttpRequestTask object.</p>
+   * @interface HttpRequest
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 6
+   */
   export interface HttpRequest {
     /**
      * Initiates an HTTP request to a given URL.
@@ -271,8 +271,8 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @param { string } url URL for initiating an HTTP request.
-     * <p>@param { AsyncCallback<number> } callback Returns the callback of request2 {@link ResponseCode}, should use on_headersReceive and on_dataReceive
-     * to get http response.</p>
+     * <p>@param { AsyncCallback<number> } callback Returns the callback of request2 {@link ResponseCode},
+     * should use on_headersReceive and on_dataReceive to get http response.</p>
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -636,7 +636,8 @@ declare namespace http {
     MULT_CHOICE = 300,
 
     /**
-     * Permanently move. The requested resource has been permanently moved to a new URI, and the returned information will include the new URI. The browser will automatically redirect to the new URI.
+     * <p>Permanently move. The requested resource has been permanently moved to a new URI,
+     * and the returned information will include the new URI. The browser will automatically redirect to the new URI.</p>
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */
@@ -733,7 +734,8 @@ declare namespace http {
      */
     CLIENT_TIMEOUT,
     /**
-     * The server may have returned this code when completing the client's PUT request, as there was a conflict when the server was processing the request.
+     * <p>The server may have returned this code when completing the client's PUT request,
+     * as there was a conflict when the server was processing the request.</p>
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      */

@@ -21,6 +21,7 @@ import socket from "./@ohos.net.socket";
  * Provides interfaces to manage and use data networks.
  * @namespace connection
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @crossplatform
  * @since 8
  */
 declare namespace connection {
@@ -31,7 +32,7 @@ declare namespace connection {
   /**
    * Create a network connection with optional netSpecifier and timeout.
    * @param { NetSpecifier } netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
-   * <p> @param { number } timeout The time in milliseconds to attempt looking for a suitable network before
+   * <p>@param { number } timeout The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.</p>
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
@@ -39,8 +40,8 @@ declare namespace connection {
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: number): NetConnection;
 
   /**
-   * <p>Obtains the data network that is activated by default.</p>
-   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Obtains the data network that is activated by default.
+   * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @param { AsyncCallback<NetHandle> } callback Returns the {@link NetHandle} object;
    * returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -54,8 +55,8 @@ declare namespace connection {
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
 
   /**
-   * <p>Obtains the data network that is activated by default.</p>
-   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Obtains the data network that is activated by default.
+   * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @returns { Promise<NetHandle> } The promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
@@ -68,8 +69,8 @@ declare namespace connection {
   function getDefaultNet(): Promise<NetHandle>;
 
   /**
-   * <p>Obtains the data network that is activated by default.</p>
-   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Obtains the data network that is activated by default.
+   * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
@@ -82,8 +83,8 @@ declare namespace connection {
   function getDefaultNetSync(): NetHandle;
 
   /**
-   * <p>Obtains the list of data networks that are activated.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Obtains the list of data networks that are activated.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @param { AsyncCallback<Array<NetHandle>> } callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
@@ -96,8 +97,8 @@ declare namespace connection {
   function getAllNets(callback: AsyncCallback<Array<NetHandle>>): void;
 
   /**
-   * <p>Obtains the list of data networks that are activated.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Obtains the list of data networks that are activated.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @returns { Promise<Array<NetHandle>> } The promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
@@ -110,8 +111,8 @@ declare namespace connection {
   function getAllNets(): Promise<Array<NetHandle>>;
 
   /**
-   * <p>Queries the connection properties of a network.</p>
-   * <p>This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Queries the connection properties of a network.
+   * This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @param { NetHandle } netHandle Indicates the network to be queried.
    * @param { AsyncCallback<ConnectionProperties> } callback Returns the {@link ConnectionProperties} object.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -126,8 +127,8 @@ declare namespace connection {
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
 
   /**
-   * <p>Queries the connection properties of a network.</p>
-   * <p>This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Queries the connection properties of a network.
+   * This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @param { NetHandle } netHandle Indicates the network to be queried.
    * @returns { Promise<ConnectionProperties> } The promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -142,8 +143,8 @@ declare namespace connection {
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
 
   /**
-   * <p>Obtains {@link NetCapabilities} of a {@link NetHandle} object.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @param { NetHandle } netHandle Indicates the handle. See {@link NetHandle}.
    * @param { AsyncCallback<NetCapabilities> } callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -158,8 +159,8 @@ declare namespace connection {
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
 
   /**
-   * <p>Obtains {@link NetCapabilities} of a {@link NetHandle} object.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.</p>
+   * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @param { NetHandle } netHandle Indicates the handle. See {@link NetHandle}.
    * @returns { Promise<NetCapabilities> } The promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -205,7 +206,8 @@ declare namespace connection {
 
   /**
    * Checks whether the default data network is activated.
-   * @param { AsyncCallback<boolean> } callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
+   * <p>@param { AsyncCallback<boolean> } callback Returns {@code true} if the default data network is activated;
+   * returns {@code false} otherwise.</p>
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -230,8 +232,8 @@ declare namespace connection {
   function hasDefaultNet(): Promise<boolean>;
 
   /**
-   * <p>Enables the airplane mode for a device.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.</p>
+   * Enables the airplane mode for a device.
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @param { AsyncCallback<void> } callback - the callback of enableAirplaneMode.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
@@ -246,8 +248,8 @@ declare namespace connection {
   function enableAirplaneMode(callback: AsyncCallback<void>): void;
 
   /**
-   * <p>Enables the airplane mode for a device.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.</p>
+   * Enables the airplane mode for a device.
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
@@ -262,8 +264,8 @@ declare namespace connection {
   function enableAirplaneMode(): Promise<void>;
 
   /**
-   * <p>Disables the airplane mode for a device.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.</p>
+   * Disables the airplane mode for a device.</p>
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @param { AsyncCallback<void> } callback - the callback of disableAirplaneMode.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
@@ -278,8 +280,8 @@ declare namespace connection {
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
 
   /**
-   * <p>Disables the airplane mode for a device.</p>
-   * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.</p>
+   * Disables the airplane mode for a device.</p>
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
@@ -408,7 +410,7 @@ declare namespace connection {
   function getAppNet(): Promise<NetHandle>;
 
   /**
-   * <p>Binds a process to {@code NetHandle}.</p>
+   * Binds a process to {@code NetHandle}.
    * <p>All the sockets created from the process will be bound to the {@code NetHandle},
    * and the resolution of all host names will be managed by the {@code NetHandle}.</p>
    * @param { NetHandle } netHandle Indicates the handle. For details, see {@link NetHandle}.
@@ -425,7 +427,7 @@ declare namespace connection {
   function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
   /**
-   * <p>Binds a process to {@code NetHandle}.</p>
+   * Binds a process to {@code NetHandle}.
    * <p>All the sockets created from the process will be bound to the {@code NetHandle},
    * and the resolution of all host names will be managed by the {@code NetHandle}.</p>
    * @param { NetHandle } netHandle Indicates the handle. For details, see {@link NetHandle}.
@@ -501,7 +503,7 @@ declare namespace connection {
    * Represents the network connection handle.
    * @interface NetConnection
    * @syscap SystemCapability.Communication.NetManager.Core
-   * since 8
+   * @since 8
    */
   export interface NetConnection {
     /**
@@ -509,7 +511,8 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<NetHandle> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * since 8
+     * @crossplatform
+     * @since 8
      */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
@@ -518,7 +521,7 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * since 8
+     * @since 8
      */
     on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
 
@@ -527,7 +530,8 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * since 8
+     * @crossplatform
+     * @since 8
      */
     on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
 
@@ -536,7 +540,7 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * since 8
+     * @since 8
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
 
@@ -545,7 +549,8 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<NetHandle> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * since 8
+     * @crossplatform
+     * @since 8
      */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
@@ -554,7 +559,7 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<void> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * since 8
+     * @since 8
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
@@ -588,10 +593,10 @@ declare namespace connection {
   }
 
   /**
-   * Provides an instance that bears data network capabilities.
+   * Provides an instance that bear data network capabilities.
    * @interface NetSpecifier
    * @syscap SystemCapability.Communication.NetManager.Core
-   * since 8
+   * @since 8
    */
   export interface NetSpecifier {
     /**
@@ -613,14 +618,16 @@ declare namespace connection {
    * Defines the handle of the data network.
    * @interface NetHandle
    * @syscap SystemCapability.Communication.NetManager.Core
-   * since 8
+   * @crossplatform
+   * @since 8
    */
   export interface NetHandle {
-   /**
-    * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
-    * @type {number}
-    * @since 8
-    */
+    /**
+     * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
+     * @type {number}
+     * @crossplatform
+     * @since 8
+     */
     netId: number;
 
     /**
@@ -718,6 +725,7 @@ declare namespace connection {
    * Defines the network capability set.
    * @interface NetCapabilities
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
    * @since 8
    */
   export interface NetCapabilities {
@@ -745,17 +753,18 @@ declare namespace connection {
     /**
      * Network type.
      * @type {Array<NetBearType>}
+     * @crossplatform
      * @since 8
      */
     bearerTypes: Array<NetBearType>;
   }
 
- /**
-  * Defines the network capability.
-  * @enum {number}
-  * @syscap SystemCapability.Communication.NetManager.Core
-  * @since 8
-  */
+  /**
+   * Defines the network capability.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 8
+   */
   export enum NetCap {
     /**
      * Indicates that the network can access the carrier's MMSC to send and receive multimedia messages.
@@ -797,12 +806,14 @@ declare namespace connection {
    * Enumerates network types.
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
    * @since 8
    */
   export enum NetBearType {
     /**
      * Indicates that the network is based on a cellular network.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
      * @since 8
      */
     BEARER_CELLULAR = 0,
@@ -810,6 +821,7 @@ declare namespace connection {
     /**
      * Indicates that the network is based on a Wi-Fi network.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
      * @since 8
      */
     BEARER_WIFI = 1,
