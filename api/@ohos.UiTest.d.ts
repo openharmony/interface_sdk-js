@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Callback } from './basic';
+
 /**
  * Enumerates the string value match pattern.
  *
@@ -831,6 +833,75 @@ declare interface WindowFilter {
    * @since 9
    */
   actived?: boolean;
+}
+
+/**
+ * Represents the information of an UI element, can be a component or window.
+ * 
+ * @typedef UiElementInfo
+ * @syscap SystemCapability.Test.UiTest
+ * @since 10
+ * @test
+ */
+declare interface UiElementInfo {
+  /**
+   * The bundle name of the host application.
+   * @type { string }
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  readonly bundleName: string;
+  /**
+   * The component type.
+   * @type { string }
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  readonly componentType: string;
+  /**
+   * The window title.
+   * @type { string }
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  readonly title: string;
+}
+
+/**
+ * Observer to monitor UI events.
+ * 
+ * @typedef UiEventObserver
+ * @syscap SystemCapability.Test.UiTest
+ * @since 10
+ * @test
+ */
+declare interface UiEventObserver {
+  /**
+   * Listen for toast show once
+   * 
+   * @param { string } type 'toastShow'.
+   * @param { Callback<UiElementInfo> } callback function, returns the monitored UiElementInfo.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  once(type: 'toastShow', callback: Callback<UiElementInfo>): void;
+
+  /**
+   * Listen for dialog show once
+   * 
+   * @param { string } type 'dialogShow'.
+   * @param { Callback<UiElementInfo> } callback function, returns the monitored UiElementInfo.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  once(type: 'dialogShow', callback: Callback<UiElementInfo>): void;
 }
 
 /**
@@ -2098,5 +2169,7 @@ export {
   WindowMode,
   PointerMatrix,
   UiDirection,
-  MouseButton
+  MouseButton,
+  UiElementInfo,
+  UiEventObserver
 };
