@@ -61,6 +61,8 @@
     "SystemCapability.Multimedia.Media.VideoEncoder",
     "SystemCapability.Multimedia.Media.Spliter",
     "SystemCapability.Multimedia.Media.Muxer",
+    "SystemCapability.Multimedia.Media.AVPlayer",
+    "SystemCapability.Multimedia.Media.AVRecorder",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.Audio.Core",
