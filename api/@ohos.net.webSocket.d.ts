@@ -17,7 +17,7 @@ import { AsyncCallback, ErrorCallback } from "./@ohos.base";
 
 /**
  * Provides WebSocket APIs.
- *
+ * @namespace webSocket
  * @syscap SystemCapability.Communication.NetStack
  * @since 6
  */
@@ -32,11 +32,13 @@ declare namespace webSocket {
   /**
    * Defines the optional parameters carried in the request for establishing a WebSocket connection.
    * @crossplatform
+   * @syscap SystemCapability.Communication.NetStack
    * @since 6
    */
   export interface WebSocketRequestOptions {
     /**
      * HTTP request header.
+     * @type {Object}
      * @crossplatform
      * @since 6
      */
@@ -45,18 +47,22 @@ declare namespace webSocket {
 
   /**
    * Defines the optional parameters carried in the request for closing a WebSocket connection.
+   * @interface WebSocketCloseOptions
    * @crossplatform
+   * @syscap SystemCapability.Communication.NetStack
    * @since 6
    */
   export interface WebSocketCloseOptions {
     /**
      * Error code.
+     * @type {number}
      * @crossplatform
      * @since 6
      */
     code?: number;
     /**
      * Error cause.
+     * @type {string}
      * @crossplatform
      * @since 6
      */
@@ -65,47 +71,48 @@ declare namespace webSocket {
 
   /**
    * Defines a WebSocket object. Before invoking WebSocket APIs, you need to call [webSocket.createWebSocket](#websocketcreatewebsocket) to create a WebSocket object.
+   * @interface WebSocket
    * @crossplatform
+   * @syscap SystemCapability.Communication.NetStack
    * @since 6
    */
   export interface WebSocket {
     /**
      * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     *
-     * @param url URL for establishing a WebSocket connection.
-     * @param options Optional parameters {@link WebSocketRequestOptions}.
-     * @param callback Returns callback used to return the execution result.
+     * @param { string } url URL for establishing a WebSocket connection.
+     * @param { AsyncCallback<boolean> } callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
 
-     /**
+    /**
      * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     *
-     * @param url URL for establishing a WebSocket connection.
-     * @param options Optional parameters {@link WebSocketRequestOptions}.
-     * @param callback Returns callback used to return the execution result.
+     * @param { string } url URL for establishing a WebSocket connection.
+     * @param { WebSocketRequestOptions } options Optional parameters {@link WebSocketRequestOptions}.
+     * @param { AsyncCallback<boolean> } callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
 
-     /**
+    /**
      * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
-     *
-     * @param url URL for establishing a WebSocket connection.
-     * @param options Optional parameters {@link WebSocketRequestOptions}.
-     * @returns The promise returned by the function.
+     * @param { string } url URL for establishing a WebSocket connection.
+     * @param { WebSocketRequestOptions } options Optional parameters {@link WebSocketRequestOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -113,12 +120,12 @@ declare namespace webSocket {
 
     /**
      * Sends data through a WebSocket connection.
-     *
-     * @param data Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param callback Returns callback used to return the execution result.
+     * @param { string | ArrayBuffer } data Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
+     * @param { AsyncCallback<boolean> } callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -126,12 +133,12 @@ declare namespace webSocket {
 
     /**
      * Sends data through a WebSocket connection.
-     *
-     * @param data Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
-     * @returns The promise returned by the function.
+     * @param { string | ArrayBuffer } data Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
+     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -139,38 +146,37 @@ declare namespace webSocket {
 
     /**
      * Closes a WebSocket connection.
-     *
-     * @param options Optional parameters {@link WebSocketCloseOptions}.
-     * @param callback Returns callback used to return the execution result.
+     * @param { AsyncCallback<boolean> } callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
     close(callback: AsyncCallback<boolean>): void;
 
-     /**
+    /**
      * Closes a WebSocket connection.
-     *
-     * @param options Optional parameters {@link WebSocketCloseOptions}.
-     * @param callback Returns callback used to return the execution result.
+     * @param { WebSocketCloseOptions } options Optional parameters {@link WebSocketCloseOptions}.
+     * @param { AsyncCallback<boolean> } callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
     close(options: WebSocketCloseOptions, callback: AsyncCallback<boolean>): void;
 
-     /**
+    /**
      * Closes a WebSocket connection.
-     *
-     * @param options Optional parameters {@link WebSocketCloseOptions}.
-     * @returns The promise returned by the function.
+     * @param { WebSocketCloseOptions } options Optional parameters {@link WebSocketCloseOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -178,6 +184,9 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the open events of a WebSocket connection.
+     * @param { string } type event indicating that a WebSocket connection has been opened. 
+     * @param { AsyncCallback<Object> } callback Returns callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -185,6 +194,9 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for the open events of a WebSocket connection.
+     * @param { string } type event indicating that a WebSocket connection has been opened. 
+     * @param { AsyncCallback<Object> } callback Returns callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -193,6 +205,9 @@ declare namespace webSocket {
     /**
      * Enables listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
+     * @param { string } type event indicating that a message has been received from the server.
+     * @param { AsyncCallback<string | ArrayBuffer> } callback Returns callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -201,6 +216,9 @@ declare namespace webSocket {
     /**
      * Cancels listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
+     * @param { string } type event indicating that a message has been received from the server.
+     * @param { AsyncCallback<string | ArrayBuffer> } callback Returns callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -208,6 +226,10 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the close events of a WebSocket connection.
+     * @param { string } type event indicating that a WebSocket connection has been closed.
+     * @param { AsyncCallback<{ code: number, reason: string }> } callback Callback used to return the result.
+     * <br>close indicates the close error code and reason indicates the error code description.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -215,6 +237,10 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for the close events of a WebSocket connection.
+     * @param { string } type event indicating that a WebSocket connection has been closed.
+     * @param { AsyncCallback<{ code: number, reason: string }> } callback Callback used to return the result.
+     * <br>close indicates the close error code and reason indicates the error code description.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -222,6 +248,9 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the error events of a WebSocket connection.
+     * @param { string } type event indicating the WebSocket connection has encountered an error.
+     * @param { ErrorCallback } callback return callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -229,6 +258,9 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for the error events of a WebSocket connection.
+     * @param { string } type event indicating the WebSocket connection has encountered an error.
+     * @param { ErrorCallback } callback return callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */

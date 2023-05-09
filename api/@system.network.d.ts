@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,25 +14,28 @@
  */
 
 /**
- * @since 3
+ * This module provides the Network Response.
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 3
  */
 export interface NetworkResponse {
   /**
    * Network type. The values can be 2G, 3G, 4G, WiFi, or none.
+   * @type {string}
    * @since 3
    */
   type: string;
   /**
    * Whether the billing is based on the data volume.
+   * @type {boolean}
    * @since 3
    */
   metered: boolean;
 }
 
 /**
- * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 3
  */
 export default class Network {
   /**

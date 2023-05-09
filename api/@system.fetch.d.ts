@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,32 +14,38 @@
  */
 
 /**
- * @since 3
+ * This module provides the Fetch Response.
+ * @interface FetchResponse
  * @syscap SystemCapability.Communication.NetStack
+ * @since 3
  */
 export interface FetchResponse {
   /**
    * Server status code.
+   * @type {number}
    * @since 3
    */
   code: number;
 
   /**
    * Data returned by the success function.
+   * @type {string | object}
    * @since 3
    */
   data: string | object;
 
   /**
    * All headers in the response from the server.
+   * @type {Object}
    * @since 3
    */
   headers: Object;
 }
 
 /**
- * @since 3
+ * Obtains data through a network.
  * @syscap SystemCapability.Communication.NetStack
+ * @since 3
  */
 export default class Fetch {
   /**
@@ -49,30 +55,35 @@ export default class Fetch {
   static fetch(options: {
     /**
      * Resource URL.
+     * @type {string}
      * @since 3
      */
     url: string;
 
     /**
      * Request parameter, which can be of the string type or a JSON object.
+     * @type {string | object}
      * @since 3
      */
     data?: string | object;
 
     /**
      * Request header, which accommodates all attributes of the request.
+     * @type {Object}
      * @since 3
      */
     header?: Object;
 
     /**
      * Request methods available: OPTIONS, GET, HEAD, POST, PUT, DELETE and TRACE. The default value is GET.
+     * @type {string}
      * @since 3
      */
     method?: string;
 
     /**
      * The return type can be text, or JSON. By default, the return type is determined based on Content-Type in the header returned by the server.
+     * @type {string}
      * @since 3
      */
     responseType?: string;
