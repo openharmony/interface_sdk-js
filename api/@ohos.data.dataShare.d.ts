@@ -367,7 +367,6 @@ declare namespace dataShare {
      * @param { Template } template - the template to add.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @throws { BusinessError } 15700011 - the uri is not exist.
-     * @throws { BusinessError } 15700012 - the templates has been created too much.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -457,7 +456,7 @@ declare namespace dataShare {
      *
      * @param { 'publishedDataChange' } type - type must be 'publishedDataChange'.
      * @param { Array<string> } uris - Indicates the uris of the data to operate.
-     * @param { number } subscriberId - the template of off.
+     * @param { string } subscriberId - the template of off.
      * @param { AsyncCallback<PublishedDataChangeNode> } callback - the callback of off.
      * @returns { Array<OperationResult> } : the operation result.
      * @throws { BusinessError } 401 - the parameter check failed.
@@ -469,7 +468,7 @@ declare namespace dataShare {
     off(
       type: 'publishedDataChange',
       uris: Array<string>,
-      subscriberId: number,
+      subscriberId: string,
       callback?: AsyncCallback<PublishedDataChangeNode>
     ): Array<OperationResult>;
 
