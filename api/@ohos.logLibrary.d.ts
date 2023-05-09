@@ -23,7 +23,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace logLibrary {
   /**
-   * log file entry
+   * Log file entry
    *
    * @typedef LogEntry
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
@@ -32,7 +32,7 @@ declare namespace logLibrary {
    */
   interface LogEntry {
     /**
-     * log file name
+     * Log file name
      *
      * @type { string }
      * @since 10
@@ -40,7 +40,7 @@ declare namespace logLibrary {
     name: string;
 
     /**
-     * modify time, second from 1970-01-01
+     * File modification time, expressed by the number of seconds elapsed from 1970-01-01
      *
      * @type { number }
      * @since 10
@@ -48,7 +48,7 @@ declare namespace logLibrary {
     mtime: number;
 
     /**
-     * log file size, byte
+     * Log file size, byte
      *
      * @type { number }
      * @since 10
@@ -60,8 +60,8 @@ declare namespace logLibrary {
    * List all log names of log type
    *
    * @permission ohos.permission.READ_HIVIEW_SYSTEM
-   * @param  { string } logType - log type
-   * @returns { LogEntry[] } return LogEntry[]
+   * @param  { string } logType - Log type
+   * @returns { LogEntry[] } Return LogEntry[]
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - Invalid argument
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
@@ -74,13 +74,13 @@ declare namespace logLibrary {
    * Copy log to dest path
    *
    * @permission ohos.permission.READ_HIVIEW_SYSTEM
-   * @param { string } logType - log type
-   * @param { string } logName - log name
-   * @param { string } dest - log path under hiview sandbox of HAP
-   * @returns { void } return void
+   * @param { string } logType - Log type
+   * @param { string } logName - Log name
+   * @param { string } dest - Log path under hiview sandbox of HAP
+   * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - Invalid argument
-   * @throws { BusinessError } 21300001 - source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
@@ -91,14 +91,14 @@ declare namespace logLibrary {
    * Copy log to dest path
    *
    * @permission ohos.permission.READ_HIVIEW_SYSTEM
-   * @param { string } logType - log type
-   * @param { string } logName - log name
-   * @param { string } dest - log path under hiview sandbox of HAP
-   * @param { AsyncCallback} callback - after finish copy log will callback
-   * @returns { void } return void
+   * @param { string } logType - Log type
+   * @param { string } logName - Log name
+   * @param { string } dest - Log path under hiview sandbox of HAP
+   * @param { AsyncCallback} callback - After finish copy log will callback
+   * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - Invalid argument
-   * @throws { BusinessError } 21300001 - source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
@@ -109,13 +109,13 @@ declare namespace logLibrary {
    * Move log to dest path
    *
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-   * @param { string } logType - log type
-   * @param { string } logName - log name
-   * @param { string } dest - log path under hiview sandbox of HAP
-   * @returns { void } return void
+   * @param { string } logType - Log type
+   * @param { string } logName - Log name
+   * @param { string } dest - Log path under hiview sandbox of HAP
+   * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - Invalid argument
-   * @throws { BusinessError } 21300001 - source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
@@ -126,14 +126,14 @@ declare namespace logLibrary {
    * Move log to dest path
    *
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-   * @param { string } logType - log type
-   * @param { string } logName - log name
-   * @param { string } dest - log path under hiview sandbox of HAP
-   * @param {AsyncCallback} callback - after finish move log will callback
-   * @returns { void } return void
+   * @param { string } logType - Log type
+   * @param { string } logName - Log name
+   * @param { string } dest - Log path under hiview sandbox of HAP
+   * @param {AsyncCallback} callback - After finish move log will callback
+   * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - Invalid argument
-   * @throws { BusinessError } 21300001 - source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
@@ -144,12 +144,12 @@ declare namespace logLibrary {
    * Remove the log
    *
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
-   * @param { string } logType - log type
-   * @param { string } logName - log name
-   * @returns { void } return void
+   * @param { string } logType - Log type
+   * @param { string } logName - Log name
+   * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 401 - Invalid argument
-   * @throws { BusinessError } 21300001 - source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
