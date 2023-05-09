@@ -487,6 +487,14 @@ declare namespace formInfo {
    */
   enum VisibilityType {
     /**
+     * Indicates the type of the form type is unknown.
+     * Often used as a condition variable in function OnVisibilityChange to specify actions only on forms that are
+     * changing to unknown.
+     * @syscap SystemCapability.Ability.Form
+     * @since 10
+     */
+    UNKNOWN = 0,
+    /**
      * Indicates the type of the form is visible.
      * Often used as a condition variable in function OnVisibilityChange to specify actions only on forms that are
      * changing to visible.
@@ -523,6 +531,141 @@ declare namespace formInfo {
      * @since 10
      */
     FORM_SHARE,
+  }
+
+  /**
+   * Information about a running form.
+   * @typedef FormProviderFilter
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  interface FormProviderFilter {
+    /**
+     * Obtains the bundle name of the provider application.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    bundleName: string;
+
+    /**
+     * Obtains the form name of the provider application form.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    formName ?: string;
+
+    /**
+     * Obtains the module name of the provider application module.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    moduleName ?: string;
+
+    /**
+     * Obtains the ability name of the provider application module.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    abilityName ?: string;
+  }
+  /**
+ * The class of a running form information.
+ *
+ * @permission N/A
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi hide this for inner system use
+ * @since 10
+ */
+  export interface RunningFormInfo {
+    /**
+     * Obtains the id of the this form.
+     * @type { string }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly formId: string;
+
+    /**
+     * Obtains the bundle name of the application to which this form belongs.
+     * @type { string }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly bundleName: string;
+
+    /**
+     * Obtains the bundle name of the form host application.
+     * @type { string }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly hostBundleName: string;
+
+    /**
+     * Obtains the visibility of this form.
+     * @type { VisibilityType }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly visibilityType: VisibilityType;
+
+    /**
+     * Obtains the name of the application module to which this form belongs.
+     * @type { string }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly moduleName: string;
+
+    /**
+     * Obtains the class name of the ability to which this form belongs.
+     * @type { string }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly abilityName: string;
+
+    /**
+     * Obtains the name of this form.
+     * @type { string }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly formName: string;
+
+    /**
+     * Obtains the grid style of this form.
+     * @type { number }
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 10
+     */
+    readonly dimension: number;
   }
 }
 export default formInfo;

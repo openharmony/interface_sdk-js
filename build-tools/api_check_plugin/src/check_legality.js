@@ -15,7 +15,9 @@
 
 const path = require('path');
 const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo, createErrorInfo } = require('./utils');
+const whiteLists = require('../config/jsdocCheckWhiteList.json');
+const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo,
+  createErrorInfo, isWhiteListFile } = require('./utils');
 const { checkApiOrder, checkAPITagName, checkInheritTag } = require('./check_jsdoc_value/chek_order');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
@@ -133,9 +135,12 @@ function dealSpecialTag(comment, tagName) {
 
 function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInfoMap, extraCheckCallback) {
   const illegalKinds = getIllegalKinds(legalKinds);
-  const illegalKindSet = new Set(illegalKinds);
+  let illegalKindSet = new Set(illegalKinds);
   const legalKindSet = new Set(legalKinds);
   tagsName.forEach(tagName => {
+    if (tagName === 'extends') {
+      illegalKindSet = new Set(commentNodeWhiteList);
+    }
     comments.forEach((comment, index) => {
       if (!checkInfoMap[index]) {
         checkInfoMap[index] = {
@@ -279,26 +284,33 @@ exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
 function checkJSDoc(node, sourcefile, permissionConfigPath, fileName) {
   const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName);
 
+  let isMissingTagWhitetFile = true;
+  let isIllegalTagWhitetFile = true;
+  let isOrderTagWhitetFile = true;
+  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
+  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
+  isOrderTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkOrderResult);
+
   verificationResult.forEach(item => {
     let errorInfo = '';
-    if (item.missingTags.length > 0) {
+    if (item.missingTags.length > 0 && isMissingTagWhitetFile) {
       item.missingTags.forEach(lostLabel => {
         errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
-          ErrorLevel.LOW);
+          ErrorLevel.MIDDLE);
       });
     }
-    if (item.illegalTags.length > 0) {
+    if (item.illegalTags.length > 0 && isIllegalTagWhitetFile) {
       item.illegalTags.forEach(wrongValueLabel => {
         errorInfo = wrongValueLabel.errorInfo;
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_VALUE, errorInfo, FileType.JSDOC,
-          ErrorLevel.LOW);
+          ErrorLevel.MIDDLE);
       });
     }
-    if (!item.orderResult.checkResult) {
+    if (!item.orderResult.checkResult && isOrderTagWhitetFile) {
       errorInfo = item.orderResult.errorInfo;
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+        ErrorLevel.MIDDLE);
     }
   })
 
