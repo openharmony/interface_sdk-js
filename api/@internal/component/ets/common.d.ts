@@ -1232,92 +1232,129 @@ declare enum RepeatMode {
    */
   Space,
 }
+
 /**
  * enum Blur style
  * @form
  * @since 9
  */
+/**
+ * enum Blur style
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @since 10
+ */
 declare enum BlurStyle {
+  /**
+   * Defines none material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE = 0,    
+  
   /**
    * Defines the thin card material.
    * @form
    * @since 9
    */
-  Thin,
+  /**
+   * Defines the thin card material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */  
+  Thin = 1,
 
   /**
    * Defines the regular card material.
    * @form
    * @since 9
    */
-  Regular,
+  /**
+   * Defines the regular card material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */  
+  Regular = 2,
 
   /**
    * Defines the thick card material.
    * @form
    * @since 9
    */
-  Thick,
+  /**
+   * Defines the thick card material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */  
+  Thick = 3,
 
   /**
    * Defines the thin background material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    * @deprecated since 10
    * @useinstead BlurStyle#BACKGROUND_THIN
    */
-  BackgroundThin,
-
-  /**
-   * Defines the thin regular material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_REGULAR
-   */
-  BackgroundRegular,
-
-  /**
-   * Defines the thin thick material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THICK
-   */
-  BackgroundThick,
-
-  /**
-   * Defines the thin ultra thick material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
-   */
-  BackgroundUltraThick,
+  BackgroundThin = 4,
 
   /**
    * Defines the thin background material.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  BACKGROUND_THIN,
+  BACKGROUND_THIN = 4,
+
+  /**
+   * Defines the thin regular material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_REGULAR
+   */
+  BackgroundRegular = 5,
 
   /**
    * Defines the thin regular material.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  BACKGROUND_REGULAR,
+  BACKGROUND_REGULAR = 5,
+
+  /**
+   * Defines the thin thick material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_THICK
+   */
+  BackgroundThick = 6,
 
   /**
    * Defines the thin thick material.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  BACKGROUND_THICK,
+  BACKGROUND_THICK = 6,
+
+  /**
+   * Defines the thin ultra thick material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
+   */
+  BackgroundUltraThick = 7,
 
   /**
    * Defines the thin ultra thick material.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  BACKGROUND_ULTRA_THICK,
+  BACKGROUND_ULTRA_THICK = 7,
 }
 
 /**
@@ -1464,11 +1501,29 @@ declare enum ModalTransition {
 
 /**
  * Defines the options of backgroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface BackgroundBlurStyleOptions {
+declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of ForegroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of blurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface BlurStyleOptions {
   /**
    * color mode
+   * @type { ThemeColorMode }
+   * @default ThemeColorMode.SYSTEM
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   colorMode?: ThemeColorMode;
@@ -1476,12 +1531,15 @@ declare interface BackgroundBlurStyleOptions {
 
   /**
    * adaptive color
+   * @type { AdaptiveColor }
+   * @default AdaptiveColor.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
 
   /**
-   * Define the scale of background blur effect. 
+   * Define the scale of blur effect. 
    * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
    * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
    * @type { number }
@@ -2693,6 +2751,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
+  /**
+   * Foreground blur style.
+   * blurStyle:Blur style type.
+   * @param { BlurStyle } value
+   * @param { ForegroundBlurStyleOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
+   * @since 10
+   */
+  foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
   /**
    * Opacity
