@@ -578,15 +578,16 @@ declare namespace formInfo {
      */
     abilityName ?: string;
   }
+
   /**
- * The class of a running form information.
- *
- * @permission N/A
- * @syscap SystemCapability.Ability.Form
- * @systemapi hide this for inner system use
- * @since 10
- */
-  export interface RunningFormInfo {
+   * The class of a running form information.
+   *
+   * @permission N/A
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi hide this for inner system use
+   * @since 10
+   */
+  interface RunningFormInfo {
     /**
      * Obtains the id of the this form.
      * @type { string }
