@@ -140,7 +140,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    subscriberId: number;
+    subscriberId: string;
     /**
      * Specifies the bundleName of template owner, who create the template
      * Same as the caller's bundleName of {@link DataShareHelper#addTemplate}
@@ -189,7 +189,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    subscriberId: number;
+    subscriberId: string;
   }
 
   /**
@@ -363,7 +363,7 @@ declare namespace dataShare {
      * Adds a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
      *
      * @param { string } uri - Indicates the uri to add.
-     * @param { number } subscriberId - the subscribe id to add..
+     * @param { string } subscriberId - the subscribe id to add..
      * @param { Template } template - the template to add.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @throws { BusinessError } 15700011 - the uri is not exist.
@@ -373,13 +373,13 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    addTemplate(uri: string, subscriberId: number, template: Template): void;
+    addTemplate(uri: string, subscriberId: string, template: Template): void;
 
     /**
      * Deletes a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
      *
      * @param { string } uri - Indicates the uri to delete.
-     * @param { number } subscriberId - the subscribe id.
+     * @param { string } subscriberId - the subscribe id.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @throws { BusinessError } 15700011 - the uri is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -387,7 +387,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    delTemplate(uri: string, subscriberId: number): void;
+    delTemplate(uri: string, subscriberId: string): void;
 
     /**
      * Registers observers to observe rdb data specified by the given uri and template.
@@ -436,7 +436,7 @@ declare namespace dataShare {
      *
      * @param { 'publishedDataChange' } type - type must be 'publishedDataChange'.
      * @param { Array<string> } uris - Indicates the uris of the data to operate.
-     * @param { number } subscriberId - the subscriberId of on.
+     * @param { string } subscriberId - the subscriberId of on.
      * @param { AsyncCallback<PublishedDataChangeNode> } callback - the callback of on.
      * @returns { Array<OperationResult> } : the operation result.
      * @throws { BusinessError } 401 - the parameter check failed.
@@ -448,7 +448,7 @@ declare namespace dataShare {
     on(
       type: 'publishedDataChange',
       uris: Array<string>,
-      subscriberId: number,
+      subscriberId: string,
       callback: AsyncCallback<PublishedDataChangeNode>
     ): Array<OperationResult>;
 
