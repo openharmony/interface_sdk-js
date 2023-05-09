@@ -709,7 +709,6 @@ declare namespace i18n {
      *
      * @param { number } value - Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 8
      */
     /**
@@ -717,7 +716,8 @@ declare namespace i18n {
      *
      * @param { number } value - Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
+     * @crossplatform
+     * @since 10
      */
     setFirstDayOfWeek(value: number): void;
 
