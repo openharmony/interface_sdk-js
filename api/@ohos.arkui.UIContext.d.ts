@@ -22,6 +22,7 @@
 
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
+import type inspector from './@ohos.arkui.inspector';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
@@ -83,6 +84,24 @@ export class MediaQuery {
    * @since 10
    */
   matchMediaSync(condition: string): mediaQuery.MediaQueryListener;
+}
+
+/**
+ * class UIInspector
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+export class UIInspector {
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle
+   * @param { string } id - component id.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  createComponentObserver(id: string): inspector.ComponentObserver;
 }
 
 /**
@@ -468,6 +487,15 @@ export class UIContext {
    * @since 10
    */
   getMediaQuery(): MediaQuery;
+  
+  /**
+   * get object UIInspector.
+   * @returns object UIInspector.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getUIInspector(): UIInspector;
 
   /**
    * get object router.
