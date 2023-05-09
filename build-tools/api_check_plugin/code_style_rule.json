@@ -310,19 +310,16 @@
       "SystemCapability.XTS.DeviceAttestLite",
       "SystemCapability.Base",
       "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
-      "SystemCapability.MultimodalInput.Input.ShortKey"
+      "SystemCapability.MultimodalInput.Input.ShortKey",
+      "SystemCapability.Msdp.DeviceStatus.Cooperate"
     ]
   },
   "administrators": [
     {
-      "id": "1505186",
-      "login": "txdyyangbo",
-      "name": "yangbo_404"
+      "user": "1505186"
     },
     {
-      "id": "8046261",
-      "login": "mgy917",
-      "name": "MGY917"
+      "user": "8046261"
     }
   ]
 }

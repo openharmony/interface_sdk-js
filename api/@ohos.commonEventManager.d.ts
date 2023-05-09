@@ -1110,6 +1110,13 @@ declare namespace commonEventManager {
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
 
     /**
+     * Sent when the list of exempt applications in idle mode is updated.
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = "usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED",
+
+    /**
      * Sent when device's power save mode changed
      *
      * @syscap SystemCapability.Notification.CommonEvent

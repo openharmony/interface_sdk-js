@@ -21,6 +21,7 @@ const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
 const { checkAPINameOfHump, checkAPIFileName } = require('./check_hump');
+const { checkJSDoc } = require('./check_legality');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
@@ -92,13 +93,9 @@ function checkAllNode(node, sourcefile, fileName) {
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
 
-function scanEntry(url, isOpenEscapeWay) {
+function scanEntry(url) {
   // scan entry
-  if (isOpenEscapeWay) {
-    ApiCheckResult.format_check_result = true;
-  } else {
-    checkAPICodeStyle(url);
-  }
+  checkAPICodeStyle(url);
   result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
   return result.scanResult;
 }

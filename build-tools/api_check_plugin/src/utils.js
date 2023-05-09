@@ -172,6 +172,7 @@ exports.excelApiCheckResult = excelApiCheckResult;
 function getApiInfo(node) {
   const notesStr = getAPINote(node);
   let apiInfo = {};
+  let versionArr=[];
   if (notesStr !== '') {
     if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
@@ -181,8 +182,10 @@ function getApiInfo(node) {
     }
     if (/\@since\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@since\s*(\d+)/g, (versionInfo) => {
+        versionArr.push(versionInfo)
         apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
+      apiInfo.humpVersion=versionArr[0].replace(/\@since/g, '').trim();
     }
     if (/\@deprecated.*since\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@deprecated.*since\s*(\d+)/g,
@@ -218,8 +221,8 @@ function getApiInfo(node) {
 exports.getApiInfo = getApiInfo;
 
 function getApiVersion(node) {
-  if (getApiInfo(node).version) {
-    return getApiInfo(node).version;
+  if (getApiInfo(node).humpVersion) {
+    return getApiInfo(node).humpVersion;
   } else if (node.parent) {
     return getApiVersion(node.parent);
   } else {
