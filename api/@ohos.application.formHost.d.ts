@@ -413,7 +413,7 @@ declare namespace formHost {
    * @permission ohos.permission.REQUIRE_FORM
    * @param { Array<string> } formIds Indicates the specify form id.
    * @param { AsyncCallback<number> } callback Callback function, when deleting invalid cards from the application
-   *                                           program based on the list issuccessful, error is undefined, and
+   *                                           program based on the list is successful, error is undefined, and
    *                                           data is the number of deleted cards; Otherwise,
    *                                           it is the wrong object.
    * @syscap SystemCapability.Ability.Form

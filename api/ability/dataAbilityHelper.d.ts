@@ -51,8 +51,8 @@ export interface DataAbilityHelper {
    * @param { string } uri Indicates the path of the file to open.
    * @param { string } mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only
    *                   access (erasing whatever data is currently in the file), "wt" for write access that truncates
-   *                   any existingfile, "wa" for write-only access to append to any existing data, "rw" for read and
-   *                   write access onany existing data, or "rwt" for read and write access that truncates any
+   *                   any existing file, "wa" for write-only access to append to any existing data, "rw" for read and
+   *                   write access on any existing data, or "rwt" for read and write access that truncates any
    *                   existing file.
    * @returns { Promise<number> } Returns the file descriptor.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel

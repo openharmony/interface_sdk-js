@@ -94,9 +94,9 @@ export declare interface LifecycleForm {
    * JS forms.
    *
    * @param { string } formId Indicates the ID of the form on which the message event is triggered, which is
-   *                          provided bythe client to the form provider.
+   *                          provided by the client to the form provider.
    * @param { string } message Indicates the value of the {@code params} field of the message event. This parameter
-   *                           isused to identify the specific component on which the event is triggered.
+   *                           is used to identify the specific component on which the event is triggered.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 8
@@ -458,9 +458,9 @@ export declare interface LifecycleData {
    *
    * @param { string } uri Indicates the database table storing the data to delete.
    * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. If this parameter is null,
-   *                                                         all data records will be deleted bydefault.
+   *                                                         all data records will be deleted by default.
    * @param { AsyncCallback<number> } callback function specified by framework to receive the result, developer should
-   *                                           call this function toreturn the result to framework.
+   *                                           call this function to return the result to framework.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
