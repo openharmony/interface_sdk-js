@@ -75,7 +75,7 @@ export declare interface LifecycleForm {
   /**
    * Called when the form provider receives form events from the system.
    *
-   * @param { number } newStatus Indicates the form events occurred. The key in the {@code Map} object indicates
+   * @param { object } newStatus Indicates the form events occurred. The key in the {@code Map} object indicates
    *                             form ID,and the value indicates the event type, which can be either
    *                             {@link formInfo#VisibilityType#FORM_VISIBLE} or
    *                             {@link formInfo#VisibilityType#FORM_INVISIBLE}.
@@ -132,7 +132,7 @@ export declare interface LifecycleForm {
    * Called when the system shares the form.
    *
    * @param { string } formId Indicates the ID of the deleted form.
-   * @returns { any } Returns the wantParams object.
+   * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @systemapi
    * @FAModelOnly

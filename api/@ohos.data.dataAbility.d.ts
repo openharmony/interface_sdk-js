@@ -304,8 +304,6 @@ declare namespace dataAbility {
      *
      * @param { number } value Indicates the max length of the return list.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
-     * @throws { BusinessError } IllegalPredicateException Throws this exception if DataAbilityPredicates are added
-     *                           to a wrong position.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @since 7
      */

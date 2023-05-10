@@ -520,7 +520,7 @@ function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<fo
 /**
  * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
  * @permission ohos.permission.REQUIRE_FORM
- * @param { AsyncCallback<Array<RunningFormInfo>> } callback - The callback is used to return the RunningFormInfo.
+ * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the RunningFormInfo.
  * @param { string } hostBundleName - Indicates the bundle name of the form host application.
  * @throws { BusinessError } 201 - Permissions denied.
  * @throws { BusinessError } 202 - The application is not a system application.
@@ -536,7 +536,7 @@ function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormI
  * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
  * @permission ohos.permission.REQUIRE_FORM
  * @param { string } hostBundleName - Indicates the bundle name of the form host application.
- * @returns { Promise<Array<RunningFormInfo>> } Returns the RunningFormInfo.
+ * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
  * @throws { BusinessError } 201 - Permissions denied.
  * @throws { BusinessError } 202 - The application is not a system application.
  * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -659,7 +659,7 @@ function off(type: 'formUninstall', callback?: Callback<string>): void;
  * Listens to the event of add form.
  * <p>You can use this method to listen to the event of add form.</p>
  * @permission ohos.permission.REQUIRE_FORM
- * @param { string } type - Indicates event type.
+ * @param { 'formAdd' } type - Indicates event type.
  * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
  * @param { string } bundleName - Indicates the bundle name of the form host application.
  * @throws { BusinessError } 202 - The application is not a system application.
@@ -668,12 +668,12 @@ function off(type: 'formUninstall', callback?: Callback<string>): void;
  * @systemapi
  * @since 10
  */
-function on(type: "formAdd", observerCallback: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+function on(type: 'formAdd', observerCallback: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 /**
  * Cancels listening to the event of add form.
  * <p>You can use this method to cancel listening to the event of add form.</p>
  * @permission ohos.permission.REQUIRE_FORM
- * @param { string } type - Indicates event type.
+ * @param { 'formAdd' } type - Indicates event type.
  * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
  * @param { string } bundleName - Indicates the bundle name of the form host application.
  * @throws { BusinessError } 202 - The application is not a system application.
@@ -682,13 +682,13 @@ function on(type: "formAdd", observerCallback: Callback<formInfo.RunningFormInfo
  * @systemapi
  * @since 10
  */
-function off(type: "formAdd", observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+function off(type: 'formAdd', observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
 /**
  * Listens to the event of remove form.
  * <p>You can use this method to listen to the event of remove form.</p>
  * @permission ohos.permission.REQUIRE_FORM
- * @param { string } type - Indicates event type.
+ * @param { 'formRemove' } type - Indicates event type.
  * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
  * @param { string } bundleName - Indicates the bundle name of the form host application.
  * @throws { BusinessError } 202 - The application is not a system application.
@@ -697,13 +697,13 @@ function off(type: "formAdd", observerCallback?: Callback<formInfo.RunningFormIn
  * @systemapi
  * @since 10
  */
-function on(type: "formRemove", observerCallback: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+function on(type: 'formRemove', observerCallback: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
 /**
  * Cancels listening to the event of remove form.
  * <p>You can use this method to cancel listening to the event of remove form.</p>
  * @permission ohos.permission.REQUIRE_FORM
- * @param { string } type - Indicates event type.
+ * @param { 'formRemove' } type - Indicates event type.
  * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
  * @param { string } bundleName - Indicates the bundle name of the form host application.
  * @throws { BusinessError } 202 - The application is not a system application.
@@ -712,7 +712,7 @@ function on(type: "formRemove", observerCallback: Callback<formInfo.RunningFormI
  * @systemapi
  * @since 10
  */
-function off(type: "formRemove", observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+function off(type: 'formRemove', observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
   /**
  * Notify form is Visible
@@ -889,7 +889,7 @@ function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolea
  *
  * @permission ohos.permission.REQUIRE_FORM
  * @param { string } formId - Indicates the form ID.
- * @param { Object } callback - The callback of acquireFormData.
+ * @param { AsyncCallback<{ [key: string]: Object }> } callback - The callback of acquireFormData.
  * @throws { BusinessError } 201 - Permissions denied.
  * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
  * @throws { BusinessError } 16500050 - An IPC connection error happened.
@@ -909,7 +909,7 @@ function acquireFormData(formId: string, callback: AsyncCallback<{ [key: string]
  *
  * @permission ohos.permission.REQUIRE_FORM
  * @param { string } formId - Indicates the form ID.
- * @returns { Object } The promise returned by the function.
+ * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function.
  * @throws { BusinessError } 201 - Permissions denied.
  * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
  * @throws { BusinessError } 16500050 - An IPC connection error happened.

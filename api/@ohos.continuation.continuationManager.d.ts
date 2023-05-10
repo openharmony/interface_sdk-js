@@ -113,7 +113,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceSelected")
+   * @useinstead ohos.continuation.continuationManager.continuationManager on(type: "deviceSelected")
    */
   function on(type: 'deviceConnect', callback: Callback<ContinuationResult>): void;
 
@@ -128,7 +128,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceSelected")
+   * @useinstead ohos.continuation.continuationManager.continuationManager off(type: "deviceSelected")
    */
   function off(type: 'deviceConnect', callback?: Callback<ContinuationResult>): void;
 
@@ -142,7 +142,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceUnSelected")
+   * @useinstead ohos.continuation.continuationManager.continuationManager on(type: "deviceUnSelected")
    */
   function on(type: 'deviceDisconnect', callback: Callback<string>): void;
 
@@ -156,7 +156,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceUnSelected")
+   * @useinstead ohos.continuation.continuationManager.continuationManager off(type: "deviceUnSelected")
    */
   function off(type: 'deviceDisconnect', callback?: Callback<string>): void;
 

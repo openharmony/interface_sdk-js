@@ -74,7 +74,7 @@ export default class FormExtensionAbility {
   /**
    * Called when the form provider receives form events from the system.
    *
-   * @param { number } newStatus - Indicates the form events occurred. The key in the {@code Map}
+   * @param { object } newStatus - Indicates the form events occurred. The key in the {@code Map}
    *                               object indicates the form ID, and the value indicates the event
    *                               type, which can be either
    *                               {@link formInfo#VisibilityType#FORM_VISIBLE} or
@@ -142,7 +142,7 @@ export default class FormExtensionAbility {
    * Called when the system shares the form.
    *
    * @param { string } formId - Indicates the ID of the form.
-   * @returns { Object } Returns the wantParams object.
+   * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly
@@ -154,7 +154,7 @@ export default class FormExtensionAbility {
    * Called when the system acquire the form data.
    *
    * @param { string } formId - Indicates the ID of the form.
-   * @returns { Object } Returns the wantParams object.
+   * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly
