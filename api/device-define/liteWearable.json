@@ -2,6 +2,7 @@
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.Base",
+    "SystemCapability.BundleManager.PackingTool",
     "SystemCapability.Location.Location.Lite",
     "SystemCapability.PowerManager.BatteryManager.Core",
     "SystemCapability.FileManagement.File.FileIO",
