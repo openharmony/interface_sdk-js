@@ -2039,6 +2039,30 @@ declare namespace resourceManager {
      * @since 10
      */
     getDrawableDescriptor(resource: Resource, density?: number): DrawableDescriptor;
+
+    /**
+     * Obtains the rawfile resource list corresponding to the specified resource path in callback mode.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the raw file list.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileList(path: string, callback: _AsyncCallback<Array<string>>): void;
+
+    /**
+     * Obtains the rawfile resource list corresponding to the specified resource path in Promise mode.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<Array<string>> } The rawfile list corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileList(path: string): Promise<Array<string>>;
   }
 
   /**
