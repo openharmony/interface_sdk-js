@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 
 /**
  * Enumerates the string value match pattern.
@@ -853,21 +853,21 @@ declare interface UiElementInfo {
    */
   readonly bundleName: string;
   /**
-   * The component type.
+   * The component type, set it as 'window' if it's a window.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
    */
-  readonly componentType: string;
+  readonly type: string;
   /**
-   * The window title.
+   * The text of component, set it as window's title if it's a window.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
    */
-  readonly title: string;
+  readonly text: string;
 }
 
 /**
