@@ -34,14 +34,14 @@ declare namespace backgroundTaskManager {
   interface DelaySuspendInfo {
     /**
      * The unique identifier of the delay request.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
     requestId: number;
     /**
      * The actual delay duration (ms).
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
@@ -95,7 +95,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900002 - Background task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
-  */
+   */
   function getRemainingDelayTime(requestId: number): Promise<number>;
 
   /**
@@ -332,7 +332,7 @@ declare namespace backgroundTaskManager {
   export enum ResourceType {
     /**
      * The cpu resource for not being suspended.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -341,7 +341,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The resource for not being proxyed common_event.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -350,7 +350,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The resource for not being proxyed timer.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -359,7 +359,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The resource for not being proxyed workscheduler.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -368,7 +368,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The resource for not being proxyed bluetooth.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -377,7 +377,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The resource for not being proxyed gps.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -386,7 +386,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The resource for not being proxyed audio.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -405,7 +405,7 @@ declare namespace backgroundTaskManager {
   export interface EfficiencyResourcesRequest {
     /**
      * The set of resource types that app wants to apply.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -414,7 +414,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * True if the app begin to use, else false.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -423,7 +423,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The duration that the resource can be used most.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -432,7 +432,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * True if the apply action is persist, else false. Default value is false.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -441,7 +441,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * True if apply action is for process, false is for package. Default value is false.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -450,7 +450,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * The apply reason.
-     * 
+     *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
