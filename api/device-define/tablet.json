@@ -8,7 +8,6 @@
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
     "SystemCapability.BundleManager.BundleFramework.Overlay",
-    "SystemCapability.BundleManager.EcologicalRuleManager.Core",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
