@@ -59,7 +59,7 @@ declare namespace deviceStandby {
    * Returns the information about the specified exemption application.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { number } resourceTypes
+   * @param { number } resourceTypes - the combination of {@link ResourceType} values.
    * @param { AsyncCallback<Array<ExemptionAppInfo>> } callback - the callback of getExemptionListApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -79,7 +79,7 @@ declare namespace deviceStandby {
    * Returns the information about the specified exemption application.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { number } resourceTypes
+   * @param { number } resourceTypes - the combination of {@link ResourceType} values.
    * @returns { Promise<Array<ExemptionAppInfo>> } the promise returned by getExemptionListApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -99,7 +99,7 @@ declare namespace deviceStandby {
    * Application apply for Resource Exemption.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { ResourceRequest } request
+   * @param { ResourceRequest } request - the request of apply or unapply resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error.
@@ -118,7 +118,7 @@ declare namespace deviceStandby {
    * Application unapply for Resource Exemption.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { ResourceRequest } request
+   * @param { ResourceRequest } request - the request of apply or unapply resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error.
