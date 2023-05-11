@@ -57,7 +57,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName:string]:boolean} } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
+     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @param { AsyncCallback<void> } callback - the callback of enableCloud.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
@@ -78,7 +78,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName:string]:boolean} } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
+     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
@@ -123,7 +123,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { string } bundleName -  Indicates the name of application.
      * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @param { AsyncCallback<void> } callback - the callback of changeAppSwitch.
+     * @param { AsyncCallback<void> } callback - the callback of changeAppCloudSwitch.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
