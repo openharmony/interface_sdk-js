@@ -87,7 +87,8 @@ declare namespace particleAbility {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { number } id Identifies the notification bar information.
-   * @param { NotificationRequest } request Indicates the notificationRequest instance containing information for displaying a notification bar.
+   * @param { NotificationRequest } request Indicates the notificationRequest instance containing information
+   *                                        for displaying a notification bar.
    * @param { AsyncCallback<void> } callback returns the result of starting a long-term task in the form of callback.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
@@ -102,7 +103,8 @@ declare namespace particleAbility {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { number } id Identifies the notification bar information.
-   * @param { NotificationRequest } request Indicates the notificationRequest instance containing information for displaying a notification bar.
+   * @param { NotificationRequest } request Indicates the notificationRequest instance containing information
+   *                                        for displaying a notification bar.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
@@ -179,6 +181,14 @@ declare namespace particleAbility {
    * @since 7
    */
   export enum ErrorCode {
+
+  /**
+   * Invalid parameter.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     INVALID_PARAMETER = -1
   }
 }

@@ -1022,7 +1022,7 @@ declare namespace notification {
   /**
    * Obtains the number of all active notifications.
    *
-   * @param { AsyncCallback<number> } callback Callback function to obtain the number of undeleted notifications.
+   * @param { AsyncCallback<number> } callback Callback function to obtain the number of undelete notifications.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -1033,7 +1033,7 @@ declare namespace notification {
   /**
    * Obtains the number of all active notifications.
    *
-   * @returns { Promise<number> } Returns the number of undeleted notifications for the current application as promise.
+   * @returns { Promise<number> } Returns the number of undelete notifications for the current application as promise.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9

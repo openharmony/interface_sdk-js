@@ -247,10 +247,52 @@ declare namespace featureAbility {
    * @since 7
    */
   export enum AbilityWindowConfiguration {
+
+  /**
+   * Undefined.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     WINDOW_MODE_UNDEFINED = 0,
+
+  /**
+   * Full screen.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     WINDOW_MODE_FULLSCREEN = 1,
+
+  /**
+   * If the screen is horizontally oriented, it indicates left split, and if the screen is vertically oriented,
+   * it indicates upper split.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
+
+  /**
+   * If the screen is horizontally oriented, it indicates right split, and if the screen is vertically oriented,
+   * it indicates bottom split.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
+
+  /**
+   * Suspended window.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     WINDOW_MODE_FLOATING = 102
   }
 
@@ -263,8 +305,32 @@ declare namespace featureAbility {
    * @since 7
    */
   export enum AbilityStartSetting {
+
+  /**
+   * The parameter name for the window display size attribute.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     BOUNDS_KEY = 'abilityBounds',
+
+  /**
+   * The parameter name of the window display mode attribute.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     WINDOW_MODE_KEY = 'windowMode',
+
+  /**
+   * The window displays the parameter name of the device ID attribute.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     DISPLAY_ID_KEY = 'displayId'
   }
 
@@ -277,9 +343,41 @@ declare namespace featureAbility {
    * @since 7
    */
   export enum ErrorCode {
+
+  /**
+   * There are no errors.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     NO_ERROR = 0,
+
+  /**
+   * Invalid parameter.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     INVALID_PARAMETER = -1,
+
+  /**
+   * Unable to find ABILITY.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     ABILITY_NOT_FOUND = -2,
+
+  /**
+   * Permission denied.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     PERMISSION_DENY = -3
   }
 
@@ -292,9 +390,41 @@ declare namespace featureAbility {
    * @since 7
    */
   export enum DataAbilityOperationType {
+
+  /**
+   * Insert type.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     TYPE_INSERT = 1,
+
+  /**
+   * Modify the type.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     TYPE_UPDATE = 2,
+
+  /**
+   * Delete type.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     TYPE_DELETE = 3,
+
+  /**
+   * Declaration type.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 7
+   */
     TYPE_ASSERT = 4
   }
 

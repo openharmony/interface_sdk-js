@@ -49,6 +49,9 @@ declare namespace ability {
   export type PacMap = _PacMap;
 
   /**
+   * DataAbilityOperation secondary module.Define the DataAbility data operation method,
+   * which can be used as an input parameter for [executeBatch] to manipulate database information.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
@@ -56,6 +59,10 @@ declare namespace ability {
   export type DataAbilityOperation = _DataAbilityOperation;
 
   /**
+   * DataAbilityResult secondary module.Define the DataAbility data operation result.
+   * When operating the database through [executeBatch], the operation result is returned
+   * using the DataAbility Result object.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
@@ -63,6 +70,11 @@ declare namespace ability {
   export type DataAbilityResult = _DataAbilityResult;
 
   /**
+   * AbilityResult secondary module.The result code and data returned after the ability is pulled
+   * up and exited can be defined. The ability result object returned after the ability is pulled
+   * up and exited can be obtained through [startAbilityForResult], and the ability object pulled up
+   * by startAbilityForResult can be returned through [terminateSelfWithResult].
+   *
    * @syscap SystemCapability.Ability.AbilityBase
    * @FAModelOnly
    * @since 9
@@ -70,6 +82,9 @@ declare namespace ability {
   export type AbilityResult = _AbilityResult;
 
   /**
+   * ConnectOptions secondary module.As an input parameter when connecting to a specified backend service,
+   * used to receive state changes during the connection process
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 9
@@ -77,6 +92,9 @@ declare namespace ability {
   export type ConnectOptions = _ConnectOptions;
 
   /**
+   * StartAbilityParameter secondary module.Define the Start Ability parameter, which can be used as
+   * an input parameter to call [startAbility] to start the specified Ability.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
