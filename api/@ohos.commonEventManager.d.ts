@@ -170,6 +170,35 @@ declare namespace commonEventManager {
   function removeStickyCommonEvent(event: string): Promise<void>;
 
   /**
+   * Set static subscriber state.
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @systemapi Hide this for inner system use.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
+   * @since 10
+   */
+  function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set static subscriber state.
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @systemapi Hide this for inner system use.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
+   * @since 10
+   */
+  function setStaticSubscriberState(enable: boolean): Promise<void>;
+
+  /**
    * The event type that the commonEvent supported.
    * @enum { string }
    * @syscap SystemCapability.Notification.CommonEvent
