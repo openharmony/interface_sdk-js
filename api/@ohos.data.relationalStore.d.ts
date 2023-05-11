@@ -2754,6 +2754,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
+    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+
     /**
      * Registers an observer for the database. When data in the distributed database changes,
      * the callback will be invoked.
@@ -2779,6 +2781,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
+    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+
     /**
      * Remove specified observer of specified type from the database.
      *
