@@ -18,7 +18,7 @@ import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
 /**
  * configuration item.
  *
- * @interface Configuration
+ * @typedef Configuration
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
  * @deprecated since 9
@@ -31,6 +31,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Configuration
    */
   language?: string;
 
@@ -40,6 +41,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Configuration
    */
   colorMode?: ConfigurationConstant.ColorMode;
 }

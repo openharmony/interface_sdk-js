@@ -40,7 +40,7 @@ declare namespace dialogRequest {
   /**
    * The result of requestDialogService with asynchronous callback.
    *
-   * @interface RequestResult
+   * @typedef RequestResult
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9

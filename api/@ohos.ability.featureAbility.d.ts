@@ -239,7 +239,7 @@ declare namespace featureAbility {
   function getWindow(): Promise<window.Window>;
 
   /**
-   * Obtain the window configuration.
+   * Enum for the window configuration.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -255,7 +255,7 @@ declare namespace featureAbility {
   }
 
   /**
-   * Obtain the window properties.
+   * Enum for the special start setting used in starting ability.
    *
    * @enum { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -269,7 +269,7 @@ declare namespace featureAbility {
   }
 
   /**
-   * Obtain the errorCode.
+   * Enum for the error code.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -284,7 +284,7 @@ declare namespace featureAbility {
   }
 
   /**
-   * Indicates the operation type of data.
+   * Enum for the operation type of data.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -299,7 +299,7 @@ declare namespace featureAbility {
   }
 
   /**
-   * The context of an ability or an application.  It allows access to
+   * The context of an ability or an application. It allows access to
    * application-specific resources, request and verification permissions.
    * Can only be obtained through the ability.
    *
@@ -318,6 +318,8 @@ declare namespace featureAbility {
   export type AppVersionInfo = _AppVersionInfo;
 
   /**
+   * This process information about an application.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */

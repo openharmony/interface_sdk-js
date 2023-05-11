@@ -20,7 +20,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.app.ability.dataUriUtils.d.ts
+ * @useinstead ohos.app.ability.dataUriUtils
  */
 declare namespace dataUriUtils {
   /**
@@ -31,6 +31,7 @@ declare namespace dataUriUtils {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.dataUriUtils
    */
   function getId(uri: string): number;
 
@@ -43,6 +44,7 @@ declare namespace dataUriUtils {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.dataUriUtils
    */
   function attachId(uri: string, id: number): string;
 
@@ -54,6 +56,7 @@ declare namespace dataUriUtils {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.dataUriUtils
    */
   function deleteId(uri: string): string;
 
@@ -66,6 +69,7 @@ declare namespace dataUriUtils {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.dataUriUtils
    */
   function updateId(uri: string, id: number): string;
 }

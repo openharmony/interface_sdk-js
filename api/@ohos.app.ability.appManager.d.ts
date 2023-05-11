@@ -319,7 +319,8 @@ declare namespace appManager {
   function getAppMemorySize(callback: AsyncCallback<number>): void;
 
   /**
-   * If you apply for permission, you can obtain information about all running processes. If you do not apply, you can only obtain information about the current process.
+   * If you apply for permission, you can obtain information about all running processes.
+   * If you do not apply, you can only obtain information about the current process.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
@@ -330,7 +331,8 @@ declare namespace appManager {
   function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
   /**
-   * If you apply for permission, you can obtain information about all running processes. If you do not apply, you can only obtain information about the current process.
+   * If you apply for permission, you can obtain information about all running processes.
+   * If you do not apply, you can only obtain information about the current process.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
@@ -364,7 +366,8 @@ declare namespace appManager {
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { string } bundleName - Indicates the bundle name of the shared bundle.
    * @param { number } versionCode - Indicates the version code of the shared bundle.
-   * @param { AsyncCallback<boolean> } callback - The callback of checking the shared bundle running result. The result is true if running, false otherwise.
+   * @param { AsyncCallback<boolean> } callback - The callback of checking the shared bundle running result.
+   *                                              The result is true if running, false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

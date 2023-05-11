@@ -30,6 +30,7 @@ declare namespace wantConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.wantConstant
    */
   export enum Action {
     /**
@@ -38,6 +39,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_HOME = 'ohos.want.action.home',
 
@@ -47,6 +49,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_DIAL = 'ohos.want.action.dial',
 
@@ -56,6 +59,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SEARCH = 'ohos.want.action.search',
 
@@ -66,6 +70,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_WIRELESS_SETTINGS = 'ohos.settings.wireless',
 
@@ -75,6 +80,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_MANAGE_APPLICATIONS_SETTINGS = 'ohos.settings.manage.applications',
 
@@ -86,6 +92,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_APPLICATION_DETAILS_SETTINGS = 'ohos.settings.application.details',
 
@@ -95,6 +102,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SET_ALARM = 'ohos.want.action.setAlarm',
 
@@ -105,6 +113,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SHOW_ALARMS = 'ohos.want.action.showAlarms',
 
@@ -114,6 +123,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SNOOZE_ALARM = 'ohos.want.action.snoozeAlarm',
 
@@ -123,6 +133,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_DISMISS_ALARM = 'ohos.want.action.dismissAlarm',
 
@@ -132,6 +143,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_DISMISS_TIMER = 'ohos.want.action.dismissTimer',
 
@@ -141,6 +153,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SEND_SMS = 'ohos.want.action.sendSms',
 
@@ -150,6 +163,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_CHOOSE = 'ohos.want.action.choose',
 
@@ -159,6 +173,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_IMAGE_CAPTURE = 'ohos.want.action.imageCapture',
 
@@ -168,6 +183,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_VIDEO_CAPTURE = 'ohos.want.action.videoCapture',
 
@@ -177,6 +193,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SELECT = 'ohos.want.action.select',
 
@@ -186,6 +203,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SEND_DATA = 'ohos.want.action.sendData',
 
@@ -195,6 +213,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SEND_MULTIPLE_DATA = 'ohos.want.action.sendMultipleData',
 
@@ -204,6 +223,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_SCAN_MEDIA_FILE = 'ohos.want.action.scanMediaFile',
 
@@ -213,6 +233,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_VIEW_DATA = 'ohos.want.action.viewData',
 
@@ -222,6 +243,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_EDIT_DATA = 'ohos.want.action.editData',
 
@@ -231,6 +253,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     INTENT_PARAMS_INTENT = 'ability.want.params.INTENT',
 
@@ -240,6 +263,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     INTENT_PARAMS_TITLE = 'ability.want.params.TITLE',
 
@@ -249,6 +273,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ACTION_FILE_SELECT = 'ohos.action.fileSelect',
 
@@ -258,6 +283,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     PARAMS_STREAM = 'ability.params.stream',
 
@@ -279,6 +305,7 @@ declare namespace wantConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.wantConstant
    */
   export enum Entity {
     /**
@@ -287,6 +314,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ENTITY_DEFAULT = 'entity.system.default',
 
@@ -296,6 +324,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ENTITY_HOME = 'entity.system.home',
 
@@ -305,6 +334,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ENTITY_VOICE = 'entity.system.voice',
 
@@ -314,6 +344,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ENTITY_BROWSABLE = 'entity.system.browsable',
 
@@ -323,6 +354,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     ENTITY_VIDEO = 'entity.system.video'
   }
@@ -334,6 +366,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
@@ -343,6 +376,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
@@ -352,6 +386,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITY_FORWARD_RESULT = 0x00000004,
 
@@ -361,6 +396,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITY_CONTINUATION = 0x00000008,
 
@@ -370,6 +406,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_NOT_OHOS_COMPONENT = 0x00000010,
 
@@ -379,6 +416,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITY_FORM_ENABLED = 0x00000020,
 
@@ -389,6 +427,7 @@ declare namespace wantConstant {
      * @systemapi
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
@@ -399,6 +438,7 @@ declare namespace wantConstant {
      * @systemapi
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_AUTH_PREFIX_URI_PERMISSION = 0x00000080,
 
@@ -408,6 +448,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITYSLICE_MULTI_DEVICE = 0x00000100,
 
@@ -418,6 +459,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_START_FOREGROUND_ABILITY = 0x00000200,
 
@@ -428,6 +470,7 @@ declare namespace wantConstant {
      * @systemapi
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITY_CONTINUATION_REVERSIBLE = 0x00000400,
 
@@ -437,6 +480,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
@@ -446,6 +490,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
 
@@ -456,6 +501,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITY_CLEAR_MISSION = 0x00008000,
 
@@ -465,6 +511,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITY_NEW_MISSION = 0x10000000,
 
@@ -475,6 +522,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant
      */
     FLAG_ABILITY_MISSION_TOP = 0x20000000
   }
