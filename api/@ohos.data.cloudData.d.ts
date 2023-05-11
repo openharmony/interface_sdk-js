@@ -57,7 +57,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName:string]:boolean} } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppSwitch(cloudId:string,bundle:string,switch:boolean)} method will notify the data manager service.
+     * the {@link changeAppSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @param { AsyncCallback<void> } callback - the callback of enableCloud.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
