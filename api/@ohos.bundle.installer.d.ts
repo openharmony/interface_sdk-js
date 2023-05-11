@@ -161,6 +161,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -179,6 +180,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -199,6 +201,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
