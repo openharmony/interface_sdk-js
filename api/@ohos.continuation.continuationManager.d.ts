@@ -452,7 +452,7 @@ declare namespace continuationManager {
    * @param { number } token Indicates the registration token of the ability.
    * @param { ContinuationExtraParams } options Indicates the extraParams object containing the extra parameters
    *                                            used to filter list of available devices. This parameter can be null.
-   * @param { AsyncCallback<void> } callback AsynCallback form returns the interface call result.
+   * @param { AsyncCallback<void> } callback AsyncCallback form returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
