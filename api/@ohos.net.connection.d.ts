@@ -387,9 +387,8 @@ declare namespace connection {
 
   /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
-   * <p>@param callback Returns the {@link NetHandle} bound to the process;</p>
-   * <p>returns {@code null} if no {@link NetHandle} is bound to the process.
-   * For details, see {@link NetHandle}.</p>
+   * <p>@param callback Returns the {@link NetHandle} bound to the process;
+   * returns {@code null} if no {@link NetHandle} is bound to the process.For details, see {@link NetHandle}.</p>
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
