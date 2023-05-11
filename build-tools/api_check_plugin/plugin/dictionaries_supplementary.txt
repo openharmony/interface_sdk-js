@@ -540,6 +540,7 @@ recursions
 redirections
 refill
 rejects
+relocation
 remidner
 remotedevice
 removable
@@ -642,6 +643,8 @@ subscrbers
 subscribale
 subscribes
 subtypes
+subwindow
+subwindows
 superimposed
 suscriber
 suscribes
@@ -767,6 +770,7 @@ vsync
 wakes
 waking
 wallpapers
+wantagent
 wapi
 wappush
 watchers
@@ -808,3 +812,5 @@ zoomreset
 zooms
 zpass
 commonevent
+unprepare
+unchained

@@ -302,7 +302,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+    dispatchSessionEvent(event: string, args: { [key: string]: Object }, callback: AsyncCallback<void>): void;
 
     /**
      * Dispatch the session event of this session.
@@ -315,7 +315,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    dispatchSessionEvent(event: string, args: {[key: string]: Object}): Promise<void>;
+    dispatchSessionEvent(event: string, args: { [key: string]: Object }): Promise<void>;
 
     /**
      * Set the playlist of queueItem. Identifies the content of the playlist presented by this session.
@@ -360,6 +360,28 @@ declare namespace avSession {
      * @since 10
      */
     setAVQueueTitle(title: string): Promise<void>;
+
+    /**
+     * Set the custom media packets for this session.
+     * @param extras The custom media packets
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    setExtras(extras: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the custom media packets for this session.
+     * @param extras The custom media packets
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    setExtras(extras: {[key: string]: Object}): Promise<void>;
 
     /**
      * Get the current session's own controller
@@ -589,7 +611,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    on(type: 'commonCommand', callback: (command: string, args: {[key: string]: Object}) => void): void;
+    on(type: 'commonCommand', callback: (command: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Unregister session custom command change callback
@@ -603,7 +625,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    off(type: 'commonCommand', callback?: (command: string, args: {[key: string]: Object}) => void): void;
+    off(type: 'commonCommand', callback?: (command: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Register the item to play from the playlist change callback
@@ -818,7 +840,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    extras?: {[key: string]: object};
+    extras?: { [key: string]: object };
     /**
      * The uri of the media, used to locate the media in some special cases
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -893,6 +915,18 @@ declare namespace avSession {
      * @since 9
      */
     isFavorite?: boolean;
+    /**
+     * Current active item id
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    activeItemId?: number;
+    /**
+     * Current custom media packets
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    extras?: {[key: string]: Object};
   }
 
   /**
@@ -1286,7 +1320,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    sendCommonCommand(command: string, args: {[key: string]: Object}, callback: AsyncCallback<void>): void;
+    sendCommonCommand(command: string, args: { [key: string]: Object }, callback: AsyncCallback<void>): void;
 
     /**
      * Send common commands to this session
@@ -1302,7 +1336,33 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    sendCommonCommand(command: string, args: {[key: string]: Object}): Promise<void>;
+    sendCommonCommand(command: string, args: { [key: string]: Object }): Promise<void>;
+
+    /**
+     * Get custom media packets provided by the corresponding session
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600102 - session does not exist
+     * @throws {BusinessError} 6600103 - controller does not exist
+     * @throws {BusinessError} 6600105 - command not supported
+     * @throws {BusinessError} 6600107 - command or event overload
+     * @systemapi
+     * @since 10
+     */
+    getExtras(callback: AsyncCallback<{[key: string]: Object}>): void;
+
+    /**
+     * Get custom media packets provided by the corresponding session
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600102 - session does not exist
+     * @throws {BusinessError} 6600103 - controller does not exist
+     * @throws {BusinessError} 6600105 - command not supported
+     * @throws {BusinessError} 6600107 - command or event overload
+     * @systemapi
+     * @since 10
+     */
+    getExtras(): Promise<{[key: string]: Object}>;
 
     /**
      * Register metadata changed callback
@@ -1477,7 +1537,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    on(type: 'sessionEvent', callback: (sessionEvent: string, args: {[key:string]: Object}) => void): void;
+    on(type: 'sessionEvent', callback: (sessionEvent: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Unregister session event callback
@@ -1490,7 +1550,7 @@ declare namespace avSession {
      * @systemapi
      * @since 10
      */
-    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: {[key:string]: Object}) => void): void;
+    off(type: 'sessionEvent', callback?: (sessionEvent: string, args: { [key: string]: Object }) => void): void;
 
     /**
      * Register session playlist change callback
@@ -1543,6 +1603,34 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'queueTitleChange', callback?: (title: string) => void): void;
+
+    /**
+     * Register the custom media packets change callback
+     * @param type Registration Type
+     * @param callback Used to handle custom media packets changed.
+     * The callback provide the new media packets.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 10
+     */
+    on(type: 'extrasChange', callback: (extras: {[key: string]: Object}) => void): void;
+
+    /**
+     * Unregister the custom media packets change callback
+     * @param type Registration Type
+     * @param callback Used to handle custom media packets changed.
+     * The callback provide the new media packets.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'extrasChange', callback?: (extras: {[key: string]: Object}) => void): void;
   }
 
   /**
@@ -1552,7 +1640,7 @@ declare namespace avSession {
    * @since 9
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-                              'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+    'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
 
   /**
    * The definition of command to be sent to the session

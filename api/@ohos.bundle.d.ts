@@ -341,10 +341,9 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getBundleInfo
    */
-   function getBundleInfo(bundleName: string,
-      bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleInfo(bundleName: string,
+    bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
@@ -356,7 +355,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getBundleInfo
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
@@ -371,7 +369,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getBundleInfo
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>;
 
@@ -411,7 +408,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
 
@@ -425,7 +421,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
    */
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
 
@@ -441,10 +436,9 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getApplicationInfo
    */
-   function getApplicationInfo(bundleName: string,
-      bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
+  function getApplicationInfo(bundleName: string,
+    bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains based on a given bundle name.
@@ -457,7 +451,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getApplicationInfo
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
 
@@ -473,7 +466,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getApplicationInfo
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<ApplicationInfo>;
 
@@ -490,10 +482,9 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
    */
-   function queryAbilityByWant(want: Want,
-      bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityByWant(want: Want,
+    bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want.
@@ -507,7 +498,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
@@ -524,7 +514,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
@@ -539,7 +528,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
 
@@ -553,7 +541,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
 
@@ -568,7 +555,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
 
@@ -583,10 +569,9 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
-   function getAllApplicationInfo(bundleFlags: number,
-      userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
+  function getAllApplicationInfo(bundleFlags: number,
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
@@ -598,7 +583,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
   function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
@@ -613,7 +597,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
   function getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
@@ -625,7 +608,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getNameForUid
    */
   function getNameForUid(uid: number, callback: AsyncCallback<string>): void;
 
@@ -637,7 +619,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getNameForUid
    */
   function getNameForUid(uid: number): Promise<string>;
 
@@ -652,7 +633,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getBundleArchiveInfo
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
@@ -667,7 +647,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getBundleArchiveInfo
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number): Promise<BundleInfo>;
 
@@ -683,7 +662,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getLaunchWantForBundle
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
 
@@ -699,7 +677,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getLaunchWantForBundle
    */
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
 
@@ -833,7 +810,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAbilityLabel
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
 
@@ -847,7 +823,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getAbilityLabel
    */
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
 
@@ -887,7 +862,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#isAbilityEnabled
    */
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
 
@@ -899,31 +873,28 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#isAbilityEnabled
    */
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
 
   /**
    * Checks whether a specified application is enabled.
    *
-   * @param { string }bundleName - Indicates the bundle name of the application.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#isApplicationEnabled
    */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether a specified application is enabled.
    *
-   * @param { string }bundleName - Indicates the bundle name of the application.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#isApplicationEnabled
    */
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
 }

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./@ohos.base";
+import { AsyncCallback, Callback } from "./@ohos.base";
 
 /**
  * Provides methods related to call management.
@@ -53,7 +53,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
    * Makes a call.
@@ -71,7 +71,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Makes a call.
@@ -89,7 +89,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
+  function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
   /**
    * Go to the dial screen and the called number is displayed.
@@ -322,38 +322,38 @@ declare namespace call {
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
 
-    /**
-   * Reject the incoming call.
-   *
-   * @param callId Indicates the identifier of the call to reject.
-   * @param options Indicates the text message to reject.
-   * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
+  /**
+ * Reject the incoming call.
+ *
+ * @param callId Indicates the identifier of the call to reject.
+ * @param options Indicates the text message to reject.
+ * @permission ohos.permission.ANSWER_CALL
+ * @throws {BusinessError} 201 - Permission denied.
+ * @throws {BusinessError} 401 - Parameter error.
+ * @throws {BusinessError} 8300001 - Invalid parameter value.
+ * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+ * @throws {BusinessError} 8300003 - System internal error.
+ * @throws {BusinessError} 8300999 - Unknown error code.
+ * @systemapi Hide this for inner system use.
+ * @since 9
+ */
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
-    /**
-   * Reject the incoming call.
-   *
-   * @param callId Indicates the identifier of the call to reject.
-   * @param options Indicates the text message to reject.
-   * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
+  /**
+ * Reject the incoming call.
+ *
+ * @param callId Indicates the identifier of the call to reject.
+ * @param options Indicates the text message to reject.
+ * @permission ohos.permission.ANSWER_CALL
+ * @throws {BusinessError} 201 - Permission denied.
+ * @throws {BusinessError} 401 - Parameter error.
+ * @throws {BusinessError} 8300001 - Invalid parameter value.
+ * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+ * @throws {BusinessError} 8300003 - System internal error.
+ * @throws {BusinessError} 8300999 - Unknown error code.
+ * @systemapi Hide this for inner system use.
+ * @since 9
+ */
   function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
@@ -718,6 +718,42 @@ declare namespace call {
   function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
 
   /**
+   * Subscribe to the audioDeviceChange event.
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of current audio device.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceInfo>): void;
+
+  /**
+   * Unsubscribe from the audioDeviceChange event.
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of current audio device.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceInfo>): void;
+
+  /**
    * Judge whether to allow another new call.
    *
    * @param callback Returns {@code true} If the device currently allows new calls; returns {@code false} otherwise.
@@ -886,6 +922,23 @@ declare namespace call {
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
 
   /**
+   * Set the audio device.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param device Indicates the device of audio.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setAudioDevice(device: AudioDevice): Promise<void>;
+
+  /**
    * Set the audio device with options.
    *
    * @param device Indicates the device of audio.
@@ -988,6 +1041,201 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
   /**
+   * Close unfinished ussd.
+   * 
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param {AsyncCallback <void>} callback - void
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function closeUnfinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Close unfinished ussd.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns {Promise <void>} 
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function closeUnfinishedUssd(slotId: number): Promise<void>;
+
+  /**
+   * Set switch state for voice over NR.
+   * 
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param state Indicates the VoNR state.
+   * @param callback {@code true} if the device set VoNR succesfully; returns {@code false} otherwise.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Set switch state for voice over NR.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param state Indicates the VoNR state.
+   * @returns {@code true} if the device set VoNR succesfully; returns {@code false} otherwise.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setVoNRState(slotId: number, state: VoNRState): Promise<boolean>;
+
+  /**
+   * Get switch state for voice over NR.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param state Indicates the VoNR state.
+   * @param {AsyncCallback <VoNRState>} callback - VoNR state
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getVoNRState(slotId: number, callback: AsyncCallback<VoNRState>): void;
+
+  /**
+   * Get switch state for voice over NR.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns {Promise <VoNRState>} the VoNR state.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getVoNRState(slotId: number): Promise<VoNRState>;
+
+  /**
+   * Checks whether can set call transfer time.
+   *
+   * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
+   * 
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether can set call transfer time.
+   *
+   * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
+   * 
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function canSetCallTransferTime(slotId: number): Promise<boolean>;
+
+  /**
+   * Enters the secret code on the keypad.
+   * 
+   * @param inputCode indicates the secret code to enter.
+   * @param callback - void
+   * @permission ohos.permission.PLACE_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Enters the secret code on the keypad.
+   *
+   * @param inputCode indicates the secret code to enter.
+   * @returns {Promise <void>} - void
+   * @permission ohos.permission.PLACE_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function inputDialerSpecialCode(inputCode: string): Promise<void>;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -1001,6 +1249,16 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum VoNRState {
+    /** Indicates the VoNR switch is on */
+    VONR_STATE_ON = 0,
+    /** Indicates the VoNR switch is off */
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   export enum AudioDevice {
@@ -1009,6 +1267,34 @@ declare namespace call {
     DEVICE_WIRED_HEADSET,
     DEVICE_BLUETOOTH_SCO,
     DEVICE_MIC,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum AudioDeviceType {
+    /** Indicates the audio device is earpiece */
+    DEVICE_EARPIECE,
+    /** Indicates the audio device is speaker */
+    DEVICE_SPEAKER,
+    /** Indicates the audio device is wired headset */
+    DEVICE_WIRED_HEADSET,
+    /** Indicates the audio device is bluetooth headset */
+    DEVICE_BLUETOOTH_SCO,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface AudioDeviceInfo {
+    /** Indicates the list of supported audio devices. */
+    audioDeviceList: Array<AudioDevice>;
+    /** Indicates the type of current audio device. */
+    currentAudioDevice: AudioDevice;
+    /** Indicates the status of mute. */
+    isMuted: boolean;
   }
 
   /**
@@ -1261,7 +1547,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   export interface DialCallOptions {
+  export interface DialCallOptions {
     /**
      * @systemapi Hide this for inner system use.
      */
@@ -1732,7 +2018,7 @@ declare namespace call {
      *
      * @since 9
      */
-     ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
+    ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
 
     /**
      * Requested facility not implemented.

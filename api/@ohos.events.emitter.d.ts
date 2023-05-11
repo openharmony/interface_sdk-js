@@ -71,7 +71,7 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      */
-    data?: {[key: string]: any};
+    data?: { [key: string]: any };
   }
 
   /**

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./@ohos.base";
+import { AsyncCallback, Callback } from "./@ohos.base";
 import http from "./@ohos.net.http";
 import socket from "./@ohos.net.socket";
 
@@ -22,6 +22,7 @@ import socket from "./@ohos.net.socket";
  *
  * @since 8
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @crossplatform
  */
 declare namespace connection {
   type HttpRequest = http.HttpRequest;
@@ -34,6 +35,7 @@ declare namespace connection {
    * @param netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
    * @param timeout The time in milliseconds to attempt looking for a suitable network before
    *   {@link NetConnection#netUnavailable} is called.
+   * @crossplatform
    */
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: number): NetConnection;
 
@@ -136,7 +138,8 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 2100003 - System internal error. 
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @crossplatform
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
   function hasDefaultNet(): Promise<boolean>;
@@ -327,16 +330,28 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   export interface NetConnection {
+    /**
+     * @crossplatform
+     */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
     on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
 
     on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
+    /**
+     * @crossplatform
+     */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
     /**
@@ -348,6 +363,7 @@ declare namespace connection {
      * @throws {BusinessError} 2100003 - System internal error.
      * @throws {BusinessError} 2101008 - The callback is not found.
      * @throws {BusinessError} 2101022 - The number of requests exceeded the maximum.
+     * @crossplatform
      */
     register(callback: AsyncCallback<void>): void;
 
@@ -356,6 +372,7 @@ declare namespace connection {
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
      * @throws {BusinessError} 2101007 - The same callback exists.
+     * @crossplatform
      */
     unregister(callback: AsyncCallback<void>): void;
   }
@@ -365,7 +382,13 @@ declare namespace connection {
     bearerPrivateIdentifier?: string;
   }
 
+  /**
+   * @crossplatform
+   */
   export interface NetHandle {
+    /**
+     * @crossplatform
+     */
     netId: number;
 
     /**
@@ -414,10 +437,17 @@ declare namespace connection {
     getAddressByName(host: string): Promise<NetAddress>;
   }
 
+  /**
+   * @crossplatform
+   */
   export interface NetCapabilities {
     linkUpBandwidthKbps?: number;
     linkDownBandwidthKbps?: number;
     networkCap?: Array<NetCap>;
+
+    /**
+     * @crossplatform
+     */
     bearerTypes: Array<NetBearType>;
   }
 
@@ -448,14 +478,19 @@ declare namespace connection {
     NET_CAPABILITY_VALIDATED = 16,
   }
 
+  /**
+   * @crossplatform
+   */
   export enum NetBearType {
     /**
      * Indicates that the network is based on a cellular network.
+     * @crossplatform
      */
     BEARER_CELLULAR = 0,
 
     /**
      * Indicates that the network is based on a Wi-Fi network.
+     * @crossplatform
      */
     BEARER_WIFI = 1,
 

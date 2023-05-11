@@ -21,7 +21,7 @@
  * @systemapi
  * @since 9
  */
- export interface BundlePackInfo {
+export interface BundlePackInfo {
   /**
    * This contains package information in pack.info
    *

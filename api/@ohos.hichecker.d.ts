@@ -23,99 +23,99 @@
 declare namespace hichecker {
 
 
-    /**
-    * The caution rule print log.
-    * @since 8
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    const RULE_CAUTION_PRINT_LOG: 9223372036854775808n; // 1 << 63
+  /**
+  * The caution rule print log.
+  * @since 8
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  const RULE_CAUTION_PRINT_LOG: 9223372036854775808n; // 1 << 63
 
-    /**
-    * The caution rule trigger crash.
-    * @since 8
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    const RULE_CAUTION_TRIGGER_CRASH: 4611686018427387904n; // 1 << 62
+  /**
+  * The caution rule trigger crash.
+  * @since 8
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  const RULE_CAUTION_TRIGGER_CRASH: 4611686018427387904n; // 1 << 62
 
-    /**
-    * The thread rule check slow process.
-    * @since 8
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    const RULE_THREAD_CHECK_SLOW_PROCESS: 1n;
+  /**
+  * The thread rule check slow process.
+  * @since 8
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  const RULE_THREAD_CHECK_SLOW_PROCESS: 1n;
 
-    /**
-    * The process rule check ability connection leak.
-    * @since 8
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    const RULE_CHECK_ABILITY_CONNECTION_LEAK: 8589934592n; // 1 << 33
+  /**
+  * The process rule check ability connection leak.
+  * @since 8
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  const RULE_CHECK_ABILITY_CONNECTION_LEAK: 8589934592n; // 1 << 33
 
-    /**
-    * add one or more rule.
-    * @param rule 
-    * @since 8
-    * @deprecated since 9
-    * @useinstead ohos.hichecker/hichecker#addCheckRule
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    function addRule(rule: bigint) : void;
+  /**
+  * add one or more rule.
+  * @param rule 
+  * @since 8
+  * @deprecated since 9
+  * @useinstead ohos.hichecker/hichecker#addCheckRule
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  function addRule(rule: bigint): void;
 
-    /**
-    * remove one or more rule.
-    * @param rule 
-    * @since 8
-    * @deprecated since 9
-    * @useinstead ohos.hichecker/hichecker#removeCheckRule
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    function removeRule(rule: bigint) : void;
+  /**
+  * remove one or more rule.
+  * @param rule 
+  * @since 8
+  * @deprecated since 9
+  * @useinstead ohos.hichecker/hichecker#removeCheckRule
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  function removeRule(rule: bigint): void;
 
-    /**
-    * get added rule
-    * @returns all added thread rule and process rule.
-    * @since 8
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    function getRule() : bigint;
+  /**
+  * get added rule
+  * @returns all added thread rule and process rule.
+  * @since 8
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  function getRule(): bigint;
 
-    /**
-    * whether the query rule is added
-    * @param rule
-    * @returns the result of whether the query rule is added.
-    * @since 8
-    * @deprecated since 9
-    * @useinstead ohos.hichecker/hichecker#containsCheckRule
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    function contains(rule: bigint) : boolean;
+  /**
+  * whether the query rule is added
+  * @param rule
+  * @returns the result of whether the query rule is added.
+  * @since 8
+  * @deprecated since 9
+  * @useinstead ohos.hichecker/hichecker#containsCheckRule
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  */
+  function contains(rule: bigint): boolean;
 
-    /**
-    * Add one or more rule.
-    * @param rule 
-    * @since 9
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    * @throws { BusinessError } 401 - the parameter check failed
-    */
-    function addCheckRule(rule: bigint) : void;
+  /**
+  * Add one or more rule.
+  * @param rule 
+  * @since 9
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  * @throws { BusinessError } 401 - the parameter check failed
+  */
+  function addCheckRule(rule: bigint): void;
 
-    /**
-    * Remove one or more rule.
-    * @param rule 
-    * @since 9
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    * @throws { BusinessError } 401 - the parameter check failed
-    */
-    function removeCheckRule(rule: bigint) : void;
+  /**
+  * Remove one or more rule.
+  * @param rule 
+  * @since 9
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  * @throws { BusinessError } 401 - the parameter check failed
+  */
+  function removeCheckRule(rule: bigint): void;
 
-    /**
-    * Whether the query rule is added
-    * @param rule
-    * @returns the result of whether the query rule is added.
-    * @since 9
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    * @throws { BusinessError } 401 - the parameter check failed
-    */
-     function containsCheckRule(rule: bigint) : boolean;
+  /**
+  * Whether the query rule is added
+  * @param rule
+  * @returns the result of whether the query rule is added.
+  * @since 9
+  * @syscap SystemCapability.HiviewDFX.HiChecker
+  * @throws { BusinessError } 401 - the parameter check failed
+  */
+  function containsCheckRule(rule: bigint): boolean;
 }
 export default hichecker;

@@ -19,14 +19,14 @@
  * @since 10
  */
 interface ImageSpanInterface {
-    /**
-     * Called when image is entered in span.
-     * @param { ResourceStr | PixelMap } - The image resource.
-     * @returns { ImageSpanAttribute } The attribute of the image span.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
-     */
-    (value: ResourceStr | PixelMap): ImageSpanAttribute;
+  /**
+   * Called when image is entered in span.
+   * @param { ResourceStr | PixelMap } - The image resource.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  (value: ResourceStr | PixelMap): ImageSpanAttribute;
 }
 
 /**

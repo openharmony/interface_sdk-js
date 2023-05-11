@@ -20,77 +20,77 @@
  * @since 9
  */
 export default class Want {
-    /**
-     * bundle name
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 9
-     */
-    bundleName?: string;
+  /**
+   * bundle name
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  bundleName?: string;
 
-    /**
-     * ability name
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 9
-     */
-    abilityName?: string;
+  /**
+   * ability name
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  abilityName?: string;
 
-    /**
-     * device id
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    deviceId?: string;
+  /**
+   * device id
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  deviceId?: string;
 
-    /**
-     * The description of a URI in a Want.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    uri?: string;
+  /**
+   * The description of a URI in a Want.
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  uri?: string;
 
-    /**
-     * The description of the type in this Want.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    type?: string;
+  /**
+   * The description of the type in this Want.
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  type?: string;
 
-    /**
-     * The options of the flags in this Want.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    flags?: number;
+  /**
+   * The options of the flags in this Want.
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  flags?: number;
 
-    /**
-     * The description of an action in an want.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    action?: string;
+  /**
+   * The description of an action in an want.
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  action?: string;
 
-    /**
-     * The description of the WantParams object in an Want
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 9
-     */
-    parameters?: {[key: string]: Object};
+  /**
+   * The description of the WantParams object in an Want
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  parameters?: { [key: string]: Object };
 
-    /**
-     * The description of a entities in a Want.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    entities?: Array<string>;
+  /**
+   * The description of a entities in a Want.
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  entities?: Array<string>;
 
-    /**
-     * The description of an module name in an want.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
-     * @since 9
-     */
-    moduleName?: string;
+  /**
+   * The description of an module name in an want.
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 9
+   */
+  moduleName?: string;
 }

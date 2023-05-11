@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 const { requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
-  inheritArr, ErrorValueInfo, createErrorInfo } = require('../utils');
+  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
+const whiteLists = require('../../config/jsdocCheckWhiteList.json');
 const ts = requireTypescriptModule();
 
 /**
@@ -38,7 +39,7 @@ function isAscendingOrder(tags) {
       // 判断标签是否为官方标签
       const firstTag = isOfficialTag(tags[tagIndex].tag);
       // 非自定义标签在前或数组降序时报错
-      if ((firstTag && secondIndex > 1) || firstIndex > secondIndex) {
+      if ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1)) {
         checkResult = false;
         break;
       }
@@ -69,6 +70,8 @@ function checkApiOrder(comments) {
 exports.checkApiOrder = checkApiOrder;
 
 function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
+  let isIllegalTagWhitetFile = true;
+  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
   let APITagNameResult = {
     checkResult: true,
     errorInfo: '',
@@ -76,11 +79,11 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
   const tagName = tag.tag;
   const docTags = [...rules.decorators['customDoc'], ...rules.decorators['jsDoc']];
   const decoratorRuleSet = new Set(docTags);
-  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
+  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind) && isIllegalTagWhitetFile) {
     APITagNameResult.checkResult = false;
     APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [JSDocIndec + 1, tagName]);
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APITagNameResult.errorInfo,
-      FileType.JSDoc, ErrorLevel.LOW);
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, APITagNameResult.errorInfo,
+      FileType.JSDOC, ErrorLevel.MIDDLE);
   }
   return APITagNameResult;
 }
@@ -112,6 +115,8 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
 }
 
 function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
+  let isMissingTagWhitetFile = true;
+  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
   let inheritResult = {
     checkResult: true,
     errorInfo: '',
@@ -126,9 +131,9 @@ function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
         checkParentInheritTag(node, inheritArr[index], inheritResult, JSocIndex);
       }
     })
-    if (!inheritResult.checkResult) {
+    if (!inheritResult.checkResult && isMissingTagWhitetFile) {
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.API,
-        ErrorLevel.LOW);
+        ErrorLevel.MIDDLE);
     }
   }
   return inheritResult;

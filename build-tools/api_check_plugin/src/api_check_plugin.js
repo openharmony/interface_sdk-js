@@ -82,6 +82,9 @@ function checkAllNode(node, sourcefile, fileName) {
     checkDeprecated(node, sourcefile, fileName);
     // check permission
     checkPermission(node, sourcefile, fileName);
+
+    const permissionConfigPath = require('../config/config.json');
+    checkJSDoc(node, sourcefile, permissionConfigPath, fileName);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling

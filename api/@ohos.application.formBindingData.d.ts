@@ -23,23 +23,23 @@
  * @useinstead ohos.app.form.formBindingData
  */
 declare namespace formBindingData {
-    /**
-     * Create an FormBindingData instance.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.Form
-     * @param obj Indicates the FormBindingData instance data.
-     * @returns Returns the {@link FormBindingData} instance.
-     */
-    function createFormBindingData(obj?: Object | string): FormBindingData;
+  /**
+   * Create an FormBindingData instance.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.Form
+   * @param obj Indicates the FormBindingData instance data.
+   * @returns Returns the {@link FormBindingData} instance.
+   */
+  function createFormBindingData(obj?: Object | string): FormBindingData;
 
-    /**
-     * Defines the createFormBindingData result interface.
-     * @syscap SystemCapability.Ability.Form
-     * @since 8
-     */
-    interface FormBindingData {
-        data: Object
-    }
+  /**
+   * Defines the createFormBindingData result interface.
+   * @syscap SystemCapability.Ability.Form
+   * @since 8
+   */
+  interface FormBindingData {
+    data: Object
+  }
 }
 export default formBindingData;

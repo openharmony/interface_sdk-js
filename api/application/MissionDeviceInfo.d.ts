@@ -21,12 +21,12 @@
  * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
  */
- export interface MissionDeviceInfo {
-    /**
-     * Indicates the deviceId to start sync.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    deviceId: string;
- }
+export interface MissionDeviceInfo {
+  /**
+   * Indicates the deviceId to start sync.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  deviceId: string;
+}

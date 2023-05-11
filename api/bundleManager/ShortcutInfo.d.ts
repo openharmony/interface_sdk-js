@@ -21,7 +21,7 @@
  * @systemapi
  * @since 9
  */
- export interface ShortcutInfo {
+export interface ShortcutInfo {
   /**
    * Indicates the ID of the application to which this shortcut belongs
    *

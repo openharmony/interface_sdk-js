@@ -26,54 +26,54 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @since 9
  */
 export default class AbilityStage {
-    /**
-     * Indicates configuration information about context.
-     * @type { AbilityStageContext }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 9
-     */
-    context: AbilityStageContext;
+  /**
+   * Indicates configuration information about context.
+   * @type { AbilityStageContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 9
+   */
+  context: AbilityStageContext;
 
-    /**
-     * Called back when an ability stage is started for initialization.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 9
-     */
-    onCreate(): void;
+  /**
+   * Called back when an ability stage is started for initialization.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 9
+   */
+  onCreate(): void;
 
-    /**
-     * Called back when start specified ability.
-     * @param { Want } want - Indicates the want info of started ability.
-     * @returns { string } The user returns an ability string ID. If the ability of this ID has been started before,
-     *         do not create a new instance and pull it back to the top of the stack.
-     *         Otherwise, create a new instance and start it.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    onAcceptWant(want: Want): string;
+  /**
+   * Called back when start specified ability.
+   * @param { Want } want - Indicates the want info of started ability.
+   * @returns { string } The user returns an ability string ID. If the ability of this ID has been started before,
+   *         do not create a new instance and pull it back to the top of the stack.
+   *         Otherwise, create a new instance and start it.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  onAcceptWant(want: Want): string;
 
-    /**
-     * Called when the system configuration is updated.
-     * @param { Configuration } newConfig - Indicates the updated configuration.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 9
-     */
-    onConfigurationUpdate(newConfig: Configuration): void;
+  /**
+   * Called when the system configuration is updated.
+   * @param { Configuration } newConfig - Indicates the updated configuration.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 9
+   */
+  onConfigurationUpdate(newConfig: Configuration): void;
 
-    /**
-     * Called when the system has determined to trim the memory, for example, when the ability is running in the
-     * background and there is no enough memory for running as many background processes as possible.
-     * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
+  /**
+   * Called when the system has determined to trim the memory, for example, when the ability is running in the
+   * background and there is no enough memory for running as many background processes as possible.
+   * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

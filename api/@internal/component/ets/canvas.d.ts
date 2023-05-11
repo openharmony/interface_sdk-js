@@ -737,7 +737,7 @@ declare class ImageData {
    * Height of the image.
    * @since 8
    */
-   /**
+  /**
    * Height of the image.
    * @form
    * @since 9
@@ -1078,7 +1078,18 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  fillStyle: string | CanvasGradient | CanvasPattern;
+  /**
+   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  fillStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
    * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
@@ -1097,7 +1108,18 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  strokeStyle: string | CanvasGradient | CanvasPattern;
+  /**
+   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates

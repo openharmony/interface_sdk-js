@@ -15,15 +15,16 @@
 
 /**
  * Contains rawFile descriptor information.
- * @name Contains rawFile descriptor information
- * @since 8
- * @syscap SystemCapability.Global.ResourceManager
  *
+ * @interface RawFileDescriptor
+ * @syscap SystemCapability.Global.ResourceManager
+ * @since 8
  */
- export interface RawFileDescriptor {
+export interface RawFileDescriptor {
   /**
    * rawfile descriptor
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 8
    */
   fd: number;
@@ -31,6 +32,7 @@
   /**
    * the offset from where the raw file starts in the HAP
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 8
    */
   offset: number;
@@ -38,6 +40,7 @@
   /**
    * the length of the raw file in the HAP
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 8
    */
   length: number;

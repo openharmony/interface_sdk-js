@@ -106,7 +106,7 @@ declare namespace nfcController {
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @since 9
    */
-   function disableNfc(): void
+  function disableNfc(): void
 
   /**
    * Checks whether NFC is enabled.
