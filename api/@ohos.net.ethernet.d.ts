@@ -29,6 +29,7 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -46,6 +47,7 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -64,6 +66,7 @@ declare namespace ethernet {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -85,6 +88,7 @@ declare namespace ethernet {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -105,6 +109,7 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -122,6 +127,7 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2200001 - Invalid parameter value.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -138,6 +144,7 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -151,6 +158,7 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -165,7 +173,7 @@ declare namespace ethernet {
    * and active Indicates whether the interface is active.</p>
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 Permission denied.
-   * @throws { BusinessError } 202 Applicable only to system applications.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
@@ -180,7 +188,7 @@ declare namespace ethernet {
    * and active Indicates whether the interface is active.</p>
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 Permission denied.
-   * @throws { BusinessError } 202 Applicable only to system applications.
+   * @throws { BusinessError } 202 - System permission denied.
    * @throws { BusinessError } 401 Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
