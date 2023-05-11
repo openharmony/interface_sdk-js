@@ -36,7 +36,7 @@ arrlist
 ashmem
 associating
 asy
-asyncallback
+asyn
 asynchronized
 atime
 atio
