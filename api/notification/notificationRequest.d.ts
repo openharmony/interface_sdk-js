@@ -184,10 +184,10 @@ export interface NotificationRequest {
    * Whether the notification can be remove.
    *
    * @default true
-   * @since 8
+   * @since 10
    * @systemapi Hide this for inner system use.
    */
-  readonly isRemoveAllowed?: boolean;
+  isRemoveAllowed?: boolean;
 
   /**
    * Notification source. enum SourceType
