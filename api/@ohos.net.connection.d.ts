@@ -215,6 +215,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
    * @since 8
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
@@ -228,6 +229,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
    * @since 8
    */
   function hasDefaultNet(): Promise<boolean>;
@@ -540,7 +542,6 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
