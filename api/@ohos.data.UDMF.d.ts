@@ -18,7 +18,6 @@
  *
  * @namespace UDMF
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @import import unifiedData from '@ohos.data.UDMF';
  */
 declare namespace UDMF {
   /**
@@ -48,7 +47,7 @@ declare namespace UDMF {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    HYPERLINK = 'Text.HyperLink',
+    HYPERLINK = 'Text.Hyperlink',
     /**
      * indicate the data type is html
      *
@@ -56,6 +55,13 @@ declare namespace UDMF {
      * @since 10
      */
     HTML = 'Text.HTML',
+    /**
+     * indicate the data type is File
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    FILE = 'File',
     /**
      * indicate the data type is image
      *
@@ -70,6 +76,13 @@ declare namespace UDMF {
      * @since 10
      */
     VIDEO = 'File.Media.Video',
+    /**
+     * indicate the data type is Folder
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    FOLDER = 'File.Folder',
     /**
      * indicate the data type is system defined record(this kind of data is provided and bound to OpenHarmony,
      * also can be parsed by system provided API)
@@ -102,6 +115,14 @@ declare namespace UDMF {
      * @since 10
      */
     SYSTEM_DEFINED_PIXEL_MAP = 'SystemDefinedType.PixelMap',
+    /**
+     * indicate the data type is application defined data(this kind of data is provided and bound to OpenHarmony,
+     * also can be parsed by system provided API)
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    APPLICATION_DEFINED_RECORD = 'ApplicationDefinedType'
   }
 
   /**
@@ -132,10 +153,9 @@ declare namespace UDMF {
     /**
      * get all records of unified data
      *
-     * @returns { Array<UnifiedRecord> }
+     * @returns { Array<UnifiedRecord> } Return the records of unified data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
-     * @return the records of unified data
      */
     getRecords(): Array<UnifiedRecord>;
   }
@@ -173,10 +193,9 @@ declare namespace UDMF {
     /**
      * get type of unified record
      *
-     * @returns { string }
+     * @returns { string } Return the type of unified data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
-     * @return the type of unified data
      */
     getType(): string;
   }
@@ -229,7 +248,7 @@ declare namespace UDMF {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class HyperLink extends Text {
+  class Hyperlink extends Text {
     /**
      * indicates the url of a link
      *
@@ -271,13 +290,37 @@ declare namespace UDMF {
   }
 
   /**
+   * describe the unified file data
+   *
+   * @extends UnifiedRecord
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  class File extends UnifiedRecord {
+    /**
+     * indicates the details of unified File
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    details?: { [key: string]: string };
+    /**
+     * indicates the uri of file
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    uri: string;
+  }
+
+  /**
    * describe the unified image data
    *
    * @extends File
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Image extends UnifiedRecord {
+  class Image extends File {
     /**
      * indicates the uri of image
      *
@@ -294,7 +337,7 @@ declare namespace UDMF {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Video extends UnifiedRecord {
+  class Video extends File {
     /**
      * indicates the uri of video
      *
@@ -302,6 +345,23 @@ declare namespace UDMF {
      * @since 10
      */
     videoUri: string;
+  }
+
+  /**
+   * describe the unified folder data
+   *
+   * @extends File
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  class Folder extends File {
+    /**
+     * indicates the uri of folder
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    folderUri: string;
   }
 
   /**
@@ -432,6 +492,32 @@ declare namespace UDMF {
   class SystemDefinedPixelMap extends SystemDefinedRecord {
     /**
      * indicates the raw data of pixel map
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    rawData: Uint8Array;
+  }
+
+  /**
+   * describe application defined data(this kind of data is provided and bound to OpenHarmony,
+   * also can be parsed by system provided API)
+   *
+   * @extends UnifiedRecord
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  class ApplicationDefinedRecord extends UnifiedRecord {
+    /**
+     * indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * return error otherwise
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    applicationDefinedType: string;
+    /**
+     * indicates the raw data of application defined data
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
