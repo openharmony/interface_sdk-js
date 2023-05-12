@@ -90,8 +90,6 @@ declare namespace UDMF {
         SYSTEM_DEFINED_PIXEL_MAP = "SystemDefinedType.PixelMap"
     }
 
-    type UnifiedKey = string;
-
     /**
      * describe the unified data, which can at most contains 512 unified data records, and its maximum memory is 512M.
      * @since 10
