@@ -236,11 +236,11 @@ declare namespace relationalStore {
   /**
    * Describes the {@code Statistic} details of the table.
    *
-   * @enum { number }
+   * @interface TableDetails
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 10
    */
-  interface TableDetail {
+  interface TableDetails {
     /**
      * Describes the {@code Statistic} details of the upload process.
      *
@@ -263,11 +263,11 @@ declare namespace relationalStore {
   /**
    * Describes detail of the cloud sync {@code Process}.
    *
-   * @interface ProgressDetail
+   * @interface ProgressDetails
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 10
    */
-  interface ProgressDetail {
+  interface ProgressDetails {
     /**
      * Describes the status of data sync progress.
      *
@@ -291,7 +291,7 @@ declare namespace relationalStore {
      * @since 10
      */
     details: {
-      [table: string]: TableDetail;
+      [table: string]: TableDetails;
     };
   }
 
@@ -439,13 +439,13 @@ declare namespace relationalStore {
     SUBSCRIBE_TYPE_CLOUD,
 
     /**
-     * Subscription to cloud data changes detail
+     * Subscription to cloud data changes details
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SUBSCRIBE_TYPE_CLOUD_DETAIL
+    SUBSCRIBE_TYPE_CLOUD_DETAILS
   }
 
   /**
@@ -2659,28 +2659,28 @@ declare namespace relationalStore {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { number } mode - indicates the database synchronization mode.
-     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    cloudSync(mode: SyncMode, progress: Callback<ProgressDetail>, callback: AsyncCallback<void>): void;
+    cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
 
     /**
      * Sync data to cloud.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { number } mode - indicates the database synchronization mode.
-     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    cloudSync(mode: SyncMode, progress: Callback<ProgressDetail>): Promise<void>;
+    cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
      * Sync data to cloud.
@@ -2688,14 +2688,14 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { number } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the name of tables to sync.
-     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetail>, callback: AsyncCallback<void>): void;
+    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
 
     /**
      * Sync data to cloud.
@@ -2703,14 +2703,14 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { number } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the name of tables to sync.
-     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetail>): Promise<void>;
+    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
