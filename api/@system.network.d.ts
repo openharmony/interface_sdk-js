@@ -35,47 +35,6 @@ export interface NetworkResponse {
 }
 
 /**
- * @interface GetTypeOptions
- * @syscap SystemCapability.Communication.NetManager.Core
- * @since 3
- */
-export interface GetTypeOptions {
-  /**
-   * Called when the network type is obtained.
-   * @since 3
-   */
-  success?: (data: NetworkResponse) => void;
-  /**
-   * Called when the network type fails to be obtained.
-   * @since 3
-   */
-  fail?: (data: any, code: number) => void;
-  /**
-   * Called when the execution is completed.
-   * @since 3
-   */
-  complete?: () => void;
-}
-
-/**
- * @interface SubscribeOptions
- * @syscap SystemCapability.Communication.NetManager.Core
- * @since 3
- */
-export interface SubscribeOptions {
-  /**
-   * Called when the network connection state changes.
-   * @since 3
-   */
-  success?: (data: NetworkResponse) => void;
-  /**
-   * Called when the listening fails.
-   * @since 3
-   */
-  fail?: (data: any, code: number) => void;
-}
-
-/**
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 3
  */
@@ -84,13 +43,41 @@ export default class Network {
    * Obtains the network type.
    * @param options
    */
-  static getType(options?: GetTypeOptions): void;
+  static getType(options?: {
+    /**
+     * Called when the network type is obtained.
+     * @since 3
+     */
+    success?: (data: NetworkResponse) => void;
+    /**
+     * Called when the network type fails to be obtained.
+     * @since 3
+     */
+    fail?: (data: any, code: number) => void;
+    /**
+     * Called when the execution is completed.
+     * @since 3
+     */
+    complete?: () => void;
+  }): void;
 
   /**
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @param options
    */
-  static subscribe(options?:SubscribeOptions): void;
+  static subscribe(options?:{
+    /**
+     * Called when the network connection state changes.
+     * @since 3
+     */
+    success?: (data: NetworkResponse) => void;
+    /**
+     * Called when the listening fails.
+     * @since 3
+     */
+    fail?: (data: any, code: number) => void;
+  }): void;
 
   /**
    * Cancels listening to the network connection state.
