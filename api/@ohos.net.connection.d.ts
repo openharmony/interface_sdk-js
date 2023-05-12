@@ -539,6 +539,7 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
      * @since 8
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
@@ -558,6 +559,7 @@ declare namespace connection {
      * @param { string } type Indicates Event name.
      * @param { Callback<void> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform 
      * @since 8
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
@@ -573,6 +575,7 @@ declare namespace connection {
      * @throws { BusinessError } 2101008 - The callback is not found.
      * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform 
      * @since 8
      */
     register(callback: AsyncCallback<void>): void;
@@ -586,6 +589,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @throws { BusinessError } 2100207 - Remote is null.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform 
      * @since 8
      */
     unregister(callback: AsyncCallback<void>): void;
