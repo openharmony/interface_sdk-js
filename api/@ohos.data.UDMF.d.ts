@@ -87,7 +87,13 @@ declare namespace UDMF {
          * also can be parsed by system provided API)
          * @since 10
          */
-        SYSTEM_DEFINED_PIXEL_MAP = "SystemDefinedType.PixelMap"
+        SYSTEM_DEFINED_PIXEL_MAP = "SystemDefinedType.PixelMap",
+        /**
+         * indicate the data type is application defined data(this kind of data is provided and bound to OpenHarmony,
+         * also can be parsed by system provided API)
+         * @since 10
+         */
+        APPLICATION_DEFINED_RECORD = "ApplicationDefinedType",
     }
 
     /**
@@ -115,11 +121,6 @@ declare namespace UDMF {
          * @since 10
          */
         getRecords(): Array<UnifiedRecord>;
-    }
-
-    class Option {
-        intention: Intention;
-        key: UnifiedKey;
     }
 
     /**
@@ -216,10 +217,27 @@ declare namespace UDMF {
     }
 
     /**
+     * describe the unified file data
+     * @since 10
+     */
+    class File extends UnifiedRecord {
+        /**
+         * indicates the details of unified File
+         * @since 10
+         */
+        details?: { [key: string]: string };
+        /**
+         * indicates the uri of file
+         * @since 10
+         */
+        uri: string;
+    }
+
+    /**
      * describe the unified image data
      * @since 10
      */
-    class Image extends UnifiedRecord {
+    class Image extends File {
         /**
          * indicates the uri of image
          * @since 10
@@ -231,12 +249,24 @@ declare namespace UDMF {
      * describe the unified video data
      * @since 10
      */
-    class Video extends UnifiedRecord {
+    class Video extends File {
         /**
          * indicates the uri of video
          * @since 10
          */
         videoUri: string;
+    }
+
+    /**
+     * describe the unified folder data
+     * @since 10
+     */
+    class Folder extends File {
+        /**
+         * indicates the uri of folder
+         * @since 10
+         */
+        uri: string;
     }
 
     /**
@@ -331,6 +361,25 @@ declare namespace UDMF {
     class SystemDefinedPixelMap extends SystemDefinedRecord {
         /**
          * indicates the raw data of pixel map
+         * @since 10
+         */
+        rawData: Uint8Array;
+    }
+
+    /**
+     * describe application defined data(this kind of data is provided and bound to OpenHarmony,
+     * also can be parsed by system provided API)
+     * @since 10
+     */
+    class ApplicationDefinedRecord extends UnifiedRecord {
+        /**
+         * indicates the type of data, should always be started with 'ApplicationDefined.', will
+         * return error otherwise
+         * @since 10
+         */
+        applicationDefinedType: string;
+        /**
+         * indicates the raw data of application defined data
          * @since 10
          */
         rawData: Uint8Array;
