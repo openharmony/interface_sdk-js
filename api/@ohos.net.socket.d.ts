@@ -304,7 +304,7 @@ declare namespace socket {
 
     /**
      * Obtains the status of the UDPSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack

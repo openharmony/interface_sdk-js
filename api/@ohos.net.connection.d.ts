@@ -35,6 +35,7 @@ declare namespace connection {
    * <p>@param { number } timeout The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.</p>
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
    * @since 8
    */
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: number): NetConnection;
@@ -238,7 +239,7 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System permission denied
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error. 
@@ -254,7 +255,7 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System permission denied
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -270,7 +271,7 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System permission denied
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -286,7 +287,7 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - System permission denied
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
