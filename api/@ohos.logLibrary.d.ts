@@ -141,7 +141,7 @@ declare namespace logLibrary {
   function move(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove the log
+   * Delete the log based on log name and log type
    *
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
    * @param { string } logType - Log type
