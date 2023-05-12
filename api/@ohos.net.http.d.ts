@@ -859,21 +859,21 @@ declare namespace http {
      * The returned type is string.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 6
+     * @since 9
      */
     STRING,
     /**
      * The returned type is Object.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 6
+     * @since 9
      */
     OBJECT = 1,
     /**
      * The returned type is ArrayBuffer.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 6
+     * @since 9
      */
     ARRAY_BUFFER = 2,
   }
