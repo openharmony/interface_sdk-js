@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -673,6 +673,7 @@ declare namespace radio {
    *
    * @param { AsyncCallback<number> } callback - Indicates the callback for getting the index number of
    * the primary card slot.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -1129,8 +1130,7 @@ declare namespace radio {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
-   * @param { AsyncCallback<ImsRegInfo> } callback - Indicates the callback for getting an instance of
-   * the {@link ImsRegInfo} class.
+   * @returns { Promise<ImsRegInfo> } Returns an instance of the {@link ImsRegInfo} class.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1149,6 +1149,7 @@ declare namespace radio {
    * a monitored {@code slotId} updates.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { string } type - imsRegStateChange.
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
@@ -1167,11 +1168,11 @@ declare namespace radio {
    */
   function on(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback: Callback<ImsRegInfo>): void;
 
-
   /**
    * Unsubscribe from imsRegStateChange event.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { string } type - imsRegStateChange.
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.

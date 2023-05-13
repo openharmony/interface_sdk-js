@@ -1,6 +1,5 @@
-
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -52,7 +51,7 @@ declare namespace data {
   function getDefaultCellularDataSlotIdSync(): number;
 
   /**
-   * Switches cellular data services to another card, without changing the default settings.
+   * Switch cellular data services to another card, without changing the default settings.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the ID of the target card slot.
@@ -74,7 +73,7 @@ declare namespace data {
   function setDefaultCellularDataSlotId(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches cellular data services to another card, without changing the default settings.
+   * Switch cellular data services to another card, without changing the default settings.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the ID of the target card slot.
@@ -116,7 +115,7 @@ declare namespace data {
   function getCellularDataFlowType(): Promise<DataFlowType>;
 
   /**
-   * Obtains the connection state of the PS domain.
+   * Obtain the connection state of the PS domain.
    *
    * @param { AsyncCallback<DataConnectState> } callback - Indicates the callback for getting the connection state,
    * which can be any of the following:
@@ -133,7 +132,7 @@ declare namespace data {
   function getCellularDataState(callback: AsyncCallback<DataConnectState>): void;
 
   /**
-   * Obtains the connection state of the PS domain.
+   * Obtain the connection state of the PS domain.
    *
    * @returns { Promise<DataConnectState> } Returns the connection state, which can be any of the following:
    * <ul>
@@ -149,7 +148,7 @@ declare namespace data {
   function getCellularDataState(): Promise<DataConnectState>;
 
   /**
-   * Checks whether cellular data services are enabled.
+   * Check whether cellular data services are enabled.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking whether cellular data services
@@ -166,7 +165,7 @@ declare namespace data {
   function isCellularDataEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether cellular data services are enabled.
+   * Check whether cellular data services are enabled.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { Promise<boolean> } Returns {@code true} if cellular data services are enabled.
@@ -181,7 +180,7 @@ declare namespace data {
   function isCellularDataEnabled(): Promise<boolean>;
 
   /**
-   * Enables cellular data services.
+   * Enable cellular data services.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AsyncCallback<void> } callback - The callback of enableCellularData.
@@ -199,7 +198,7 @@ declare namespace data {
   function enableCellularData(callback: AsyncCallback<void>): void;
 
   /**
-   * Enables cellular data services.
+   * Enable cellular data services.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @returns { Promise<void> } The promise returned by the enableCellularData.
@@ -215,7 +214,7 @@ declare namespace data {
   function enableCellularData(): Promise<void>;
 
   /**
-   * Disables cellular data services.
+   * Disable cellular data services.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AsyncCallback<void> } callback - The callback of disableCellularData.
@@ -233,7 +232,7 @@ declare namespace data {
   function disableCellularData(callback: AsyncCallback<void>): void;
 
   /**
-   * Disables cellular data services.
+   * Disable cellular data services.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @returns { Promise<void> } The promise returned by the disableCellularData.
@@ -249,7 +248,7 @@ declare namespace data {
   function disableCellularData(): Promise<void>;
 
   /**
-   * Checks whether roaming is enabled for cellular data services.
+   * Check whether roaming is enabled for cellular data services.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the ID of a card slot.
@@ -269,7 +268,7 @@ declare namespace data {
   function isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether roaming is enabled for cellular data services.
+   * Check whether roaming is enabled for cellular data services.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the ID of a card slot.
@@ -288,7 +287,7 @@ declare namespace data {
   function isCellularDataRoamingEnabled(slotId: number): Promise<boolean>;
 
   /**
-   * Enables cellular data roaming.
+   * Enable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the ID of a card slot.
@@ -308,7 +307,7 @@ declare namespace data {
   function enableCellularDataRoaming(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Enables cellular data roaming.
+   * Enable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the ID of a card slot.
@@ -328,7 +327,7 @@ declare namespace data {
   function enableCellularDataRoaming(slotId: number): Promise<void>;
 
   /**
-   * Disables cellular data roaming.
+   * Disable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the ID of a card slot.
@@ -348,7 +347,7 @@ declare namespace data {
   function disableCellularDataRoaming(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables cellular data roaming.
+   * Disable cellular data roaming.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the ID of a card slot.

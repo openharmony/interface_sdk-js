@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -131,8 +131,8 @@ declare namespace sim {
    *
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the country code defined
-   * in ISO 3166-2; returns an empty string if no SIM card is inserted.
+   * @returns { Promise<string> } Returns the country code defined in ISO 3166-2;
+   * returns an empty string if no SIM card is inserted.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -977,7 +977,6 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } number - Indicates SIM card number.
    * @param { AsyncCallback<void> } callback - The callback of setShowNumber.
-   * 
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
