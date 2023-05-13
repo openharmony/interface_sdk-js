@@ -26,7 +26,7 @@ import { Callback } from './@ohos.base';
 declare namespace cooperate {
   /**
    * Enumerates screen hopping message notifications.
-   * 
+   *
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -213,7 +213,7 @@ declare namespace cooperate {
 
   /**
    * Enables listening for screen hopping status change events.
-   * 
+   *
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -225,7 +225,7 @@ declare namespace cooperate {
 
   /**
    * Disables listening for screen hopping status change events.
-   * 
+   *
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
