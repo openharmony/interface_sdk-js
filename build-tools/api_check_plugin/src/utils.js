@@ -118,6 +118,8 @@ const ErrorType = {
   WRONG_ORDER: 'wrong order',
   WRONG_VALUE: 'wrong value',
   WRONG_SCENE: 'wrong scene',
+  PARAMETER_ERRORS: 'wrong parameter',
+  API_PAIR_ERRORS: 'limited api pair errors',
 };
 exports.ErrorType = ErrorType;
 
