@@ -452,14 +452,31 @@ declare class Path2D extends CanvasPath {
 
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
  */
-declare type CanvasPattern = import('../api/@internal/full/canvaspattern').CanvasPattern;
+declare interface CanvasPattern {
+  /**
+   * Adds the matrix transformation effect to the current template.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param transform transformation matrix
+   * @since 8
+   */
+  /**
+   * Adds the matrix transformation effect to the current template.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param transform transformation matrix
+   * @form
+   * @since 9
+   */
+  setTransform(transform?: Matrix2D): void;
+}
 
 /**
  * Size information of the text
