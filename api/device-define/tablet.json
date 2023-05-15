@@ -184,6 +184,7 @@
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
-    "SystemCapability.Msdp.DeviceStatus.Stationary"
+    "SystemCapability.Msdp.DeviceStatus.Stationary",
+    "SystemCapability.Request.FileTransferAgent"
   ]
 }

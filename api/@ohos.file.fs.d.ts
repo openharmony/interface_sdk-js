@@ -28,6 +28,7 @@ declare namespace fileIo {
   export { accessSync };
   export { close };
   export { closeSync };
+  export { copyDir };
   export { copyFile };
   export { copyFileSync };
   export { createStream };
@@ -213,6 +214,92 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
  * @since 9
  */
 declare function closeSync(file: number | File): void;
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { number } [mode = 0] - mode.
+ * @returns { Promise<void> } return Promise
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { AsyncCallback<void> } [callback] - callback.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { number } mode - mode.
+ * @param { AsyncCallback<void> } [callback] - callback.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
  * Copy file.
@@ -2950,3 +3037,25 @@ export type Filter = {
    */
   excludeMedia?: boolean;
 };
+
+/**
+ * Conflict Files type
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+export type ConflictFiles = {
+  /**
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  srcFile: string;
+
+  /**
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  destFile: string;
+}

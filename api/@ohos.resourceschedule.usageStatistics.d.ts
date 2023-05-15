@@ -28,7 +28,6 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @since 9
  */
 declare namespace usageStatistics {
-
   /**
    * @interface BundleStatsInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -38,44 +37,93 @@ declare namespace usageStatistics {
   interface BundleStatsInfo {
     /**
      * The identifier of BundleStatsInfo.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     id: number;
+
     /**
      * The total duration, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityInFgTotalTime?: number;
+
     /**
      * The last time when the application was accessed, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityPrevAccessTime?: number;
+
     /**
      * The last time when the application was visible in the foreground, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityPrevSeenTime?: number;
+
     /**
      * The total duration, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilitySeenTotalTime?: number;
+
     /**
      * The bundle name of the application.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName?: string;
+
     /**
      * The total duration, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     fgAbilityAccessTotalTime?: number;
+
     /**
      * The last time when the foreground application was accessed, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     fgAbilityPrevAccessTime?: number;
+
     /**
      * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     infosBeginTime?: number;
+
     /**
      * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     infosEndTime?: number;
   }
@@ -89,22 +137,46 @@ declare namespace usageStatistics {
   interface HapFormInfo {
     /**
      * The form name.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formName: string;
+
     /**
      * The form dimension.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formDimension: number;
+
     /**
      * The form id.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formId: number;
+
     /**
      * The last time when the form was accessed, in milliseconds..
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formLastUsedTime: number;
+
     /**
      * The click count of module.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     count: number;
   }
@@ -118,54 +190,118 @@ declare namespace usageStatistics {
   interface HapModuleInfo {
     /**
      * The device id of module.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     deviceId?: string;
+
     /**
      * The bundle name.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName: string;
+
     /**
      * The module name.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     moduleName: string;
+
     /**
      * The main ability name of module.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityName?: string;
+
     /**
      * The label id of application.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appLabelId?: number;
+
     /**
      * The label id of module.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     labelId?: number;
+
     /**
      * The description id of application.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     descriptionId?: number;
+
     /**
      * The ability id of main ability.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityLableId?: number;
+
     /**
      * The description id of main ability.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityDescriptionId?: number;
+
     /**
      * The icon id of main ability.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     abilityIconId?: number;
+
     /**
      * The launch count of module.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     launchedCount: number;
+
     /**
      * The last time when the module was accessed, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     lastModuleUsedTime: number;
+
     /**
      * The form usage record list of current module.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     formRecords: Array<HapFormInfo>;
   }
@@ -179,16 +315,28 @@ declare namespace usageStatistics {
   interface DeviceEventStats {
     /**
      * The bundle name or system event name.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     name: string;
 
     /**
      * The event id.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     eventId: number;
 
     /**
      * The the event occurrence number.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     count: number;
   }
@@ -202,29 +350,59 @@ declare namespace usageStatistics {
   interface BundleEvents {
     /**
      * The usage group of the application.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appGroup?: number;
+
     /**
      * The bundle name.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName?: string;
+
     /**
      * The shortcut ID.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     indexOfLink?: string;
+
     /**
      * The class name.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     nameOfClass?: string;
+
     /**
      * The time when this state occurred, in milliseconds.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     eventOccurredTime?: number;
+
     /**
      * The event id.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     eventId?: number;
   }
+
   /**
    * @interface AppGroupCallbackInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -234,22 +412,46 @@ declare namespace usageStatistics {
   interface AppGroupCallbackInfo {
     /*
      * The usage old group of the application
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appOldGroup: number;
+
     /*
      * The usage new group of the application
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     appNewGroup: number;
+
     /*
      * The use id
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     userId: number;
+
     /*
      * The change reason
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     changeReason: number;
+
     /*
      * The bundle name
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     bundleName: string;
   }
@@ -262,8 +464,8 @@ declare namespace usageStatistics {
    * @param { AsyncCallback<boolean> } callback - the callback of isIdleState.
    * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
    * The time range of the particular period is defined by the system, which may be hours or days.</p>
-   * @throws { BusinessError } 201 - Parameter error.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -281,11 +483,11 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - Indicates the bundle name of the application to query.
-   * @returns { Promise<boolean> } the promise returned by queryAppGroup.
+   * @returns { Promise<boolean> } the promise returned by isIdleState.
    * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
    * The time range of the particular period is defined by the system, which may be hours or days.</p>
-   * @throws { BusinessError } 201 - Parameter error.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -305,9 +507,9 @@ declare namespace usageStatistics {
    *
    * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
    * <p> Returns the app group of the calling application.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -329,9 +531,9 @@ declare namespace usageStatistics {
    *
    * @returns { Promise<number> } the promise returned by queryAppGroup.
    * <p> Returns the app group of the calling application.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -355,9 +557,9 @@ declare namespace usageStatistics {
    * @param { string } bundleName - name of the application.
    * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
    * <p> the usage priority group of the calling application.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -373,29 +575,29 @@ declare namespace usageStatistics {
   function queryAppGroup(bundleName: string, callback: AsyncCallback<number>): void;
 
   /**
-  * Queries the usage priority group by bundleName.
-  * <p>The priority defined in a priority group restricts the resource usage of an application,
-  * for example, restricting the running of background tasks. </p>
-  *
-  * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-  * @param { string } bundleName - name of the application.
-  * @returns { Promise<number> } the promise returned by queryAppGroup.
-  * <p> the usage priority group of the calling application.</p>
-  * @throws { BusinessError } 201 - Parameter error.
-  * @throws { BusinessError } 202 - Not System App.
-  * @throws { BusinessError } 401 - Permission denied.
-  * @throws { BusinessError } 801 - Capability not supported.
-  * @throws { BusinessError } 10000001 - Memory operation failed.
-  * @throws { BusinessError } 10000002 - Parcel operation failed.
-  * @throws { BusinessError } 10000003 - System service operation failed.
-  * @throws { BusinessError } 10000004 - IPC failed.
-  * @throws { BusinessError } 10000005 - Application is not installed.
-  * @throws { BusinessError } 10000006 - Failed to get the application information.
-  * @throws { BusinessError } 10100002 - Failed to get the application group information.
-  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-  * @systemapi Hide this for inner system use.
-  * @since 9
-  */
+   * Queries the usage priority group by bundleName.
+   * <p>The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks. </p>
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { string } bundleName - name of the application.
+   * @returns { Promise<number> } the promise returned by queryAppGroup.
+   * <p> the usage priority group of the calling application.</p>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Parcel operation failed.
+   * @throws { BusinessError } 10000003 - System service operation failed.
+   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000005 - Application is not installed.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10100002 - Failed to get the application group information.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function queryAppGroup(bundleName: string): Promise<number>;
 
   /**
@@ -413,13 +615,13 @@ declare namespace usageStatistics {
    * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param {number} begin - Indicates the start time of the query period, in milliseconds.
-   * @param {number} end - Indicates the end time of the query period, in milliseconds.
+   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
+   * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @param { AsyncCallback<BundleStatsMap> } callback - the callback of queryBundleStatsInfos,
    * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -438,13 +640,13 @@ declare namespace usageStatistics {
    * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param {number} begin - Indicates the start time of the query period, in milliseconds.
-   * @param {number} end - Indicates the end time of the query period, in milliseconds.
+   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
+   * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @returns { Promise<BundleStatsMap> } the promise returned by queryBundleStatsInfos.
    * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -469,26 +671,46 @@ declare namespace usageStatistics {
   export enum IntervalType {
     /**
      * Indicates the interval type that will determine the optimal interval based on the start and end time.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_OPTIMIZED = 0,
 
     /**
      * Indicates the daily interval.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_DAILY = 1,
 
     /**
      * Indicates the weekly interval.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_WEEKLY = 2,
 
     /**
      * Indicates the monthly interval.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_MONTHLY = 3,
 
     /**
      * Indicates the annually interval.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     BY_ANNUALLY = 4
   }
@@ -504,9 +726,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - the callback of queryBundleStatsInfoByInterval.
    * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -518,7 +740,12 @@ declare namespace usageStatistics {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStatsInfo>>): void;
+  function queryBundleStatsInfoByInterval(
+    byInterval: IntervalType,
+    begin: number,
+    end: number,
+    callback: AsyncCallback<Array<BundleStatsInfo>>
+  ): void;
 
   /**
    * Queries usage information about each bundle within a specified period at a specified interval.
@@ -531,9 +758,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @returns { Promise<Array<BundleStatsInfo>> } the promise returned by queryBundleStatsInfoByInterval.
    * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -545,7 +772,11 @@ declare namespace usageStatistics {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStatsInfo>>;
+  function queryBundleStatsInfoByInterval(
+    byInterval: IntervalType,
+    begin: number,
+    end: number
+  ): Promise<Array<BundleStatsInfo>>;
 
   /**
    * Queries state data of all bundles within a specified period identified by the start and end time.
@@ -555,9 +786,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @param { AsyncCallback<Array<BundleEvents>> } callback - the promise returned by queryBundleEvents.
    * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -579,9 +810,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
    * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -602,9 +833,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -625,9 +856,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -648,9 +879,9 @@ declare namespace usageStatistics {
    * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
    * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
    * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -671,9 +902,9 @@ declare namespace usageStatistics {
    * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
    * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
    * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -693,9 +924,9 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
    * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -715,9 +946,9 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
    * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -742,32 +973,56 @@ declare namespace usageStatistics {
   export enum GroupType {
     /**
      * Indicates the alive group.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     ALIVE_GROUP = 10,
 
     /**
      * Indicates the daily group.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     DAILY_GROUP = 20,
 
     /**
      * Indicates the fixed group.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     FIXED_GROUP = 30,
 
     /**
      * Indicates the rare group.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     RARE_GROUP = 40,
 
     /**
      * Indicates the limit group.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
     LIMITED_GROUP = 50,
 
     /**
-    * Indicates the never group.
-    */
+     * Indicates the never group.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     NEVER_GROUP = 60
   }
 
@@ -778,9 +1033,9 @@ declare namespace usageStatistics {
    * @param { string } bundleName - name of the application.
    * @param { GroupType } newGroup - the group of the application whose name is bundleName.
    * @param { AsyncCallback<void> } callback - the callback of setAppGroup.
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -801,9 +1056,9 @@ declare namespace usageStatistics {
    * @param { string } bundleName - name of the application.
    * @param { GroupType } newGroup - the group of the application whose name is bundleName.
    * @returns { Promise<void> } the promise returned by setAppGroup.
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -822,11 +1077,11 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-   * <p> callback when AppGroupCallbackInfo when the group of app changed.</p>
+   * <p> callback of AppGroupCallbackInfo when the group of app changed.</p>
    * @param { AsyncCallback<void> } callback - the callback of registerAppGroupCallBack.
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -844,11 +1099,11 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-   * <p> callback when AppGroupCallbackInfo when the group of app changed.</p>
+   * <p> callback of AppGroupCallbackInfo when the group of app changed.</p>
    * @returns { Promise<void> } the promise returned by registerAppGroupCallBack.
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -866,9 +1121,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { AsyncCallback<void> } callback - the callback of unregisterAppGroupCallBack.
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -886,9 +1141,9 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<void> } the promise returned by unregisterAppGroupCallBack.
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -909,9 +1164,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryDeviceEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -933,9 +1188,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryDeviceEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -957,9 +1212,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryNotificationEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
@@ -971,7 +1226,11 @@ declare namespace usageStatistics {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function queryNotificationEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
+  function queryNotificationEventStats(
+    begin: number,
+    end: number,
+    callback: AsyncCallback<Array<DeviceEventStats>>
+  ): void;
 
   /**
    * Queries app notification number within a specified period identified by the start and end time.
@@ -981,9 +1240,9 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryNotificationEventStats.
    * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
-   * @throws { BusinessError } 201 - Parameter error.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Parcel operation failed.
