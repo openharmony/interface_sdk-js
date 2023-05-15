@@ -1919,7 +1919,7 @@ declare class Driver {
    * @since 10
    * @test
    */
-  createUiEventObserver(): UIEventObserver;
+  createUIEventObserver(): UIEventObserver;
 }
 
 /**
