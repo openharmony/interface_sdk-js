@@ -452,14 +452,31 @@ declare class Path2D extends CanvasPath {
 
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
  */
-declare type CanvasPattern = import('../api/@internal/full/canvaspattern').CanvasPattern;
+declare interface CanvasPattern {
+  /**
+   * Adds the matrix transformation effect to the current template.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param transform transformation matrix
+   * @since 8
+   */
+  /**
+   * Adds the matrix transformation effect to the current template.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param transform transformation matrix
+   * @form
+   * @since 9
+   */
+  setTransform(transform?: Matrix2D): void;
+}
 
 /**
  * Size information of the text
@@ -1078,7 +1095,18 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  fillStyle: string | CanvasGradient | CanvasPattern;
+  /**
+   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  fillStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
    * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
@@ -1097,7 +1125,18 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  strokeStyle: string | CanvasGradient | CanvasPattern;
+  /**
+   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates

@@ -18,20 +18,22 @@ const fs = require('fs');
 
 function checkEntry(prId) {
   let result = '';
-  let isOpenEscapeWay = false;
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
+  const execSync = require('child_process').execSync;
+  execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
   try {
-    const execSync = require('child_process').execSync;
-    execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
     const rules = require(path.resolve(__dirname, './code_style_rule.json'));
     const administrators = new Set();
     rules.administrators.forEach((administrator) => {
-      administrators.add(administrator.id);
+      administrators.add(administrator.user);
     })
     const request = require(path.resolve(__dirname, './node_modules/sync-request'));
-    if (prId && prId !== 'NA') {
+    const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    result = scanEntry(mdFilesPath);
+    const { ApiCheckResult } = require(path.resolve(__dirname, './src/utils.js'));
+    if (!ApiCheckResult.format_check_result && prId && prId !== 'NA') {
       // 默认搜寻100条评论
       const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;
       let res = request('GET', commentRequestPath, {
@@ -39,29 +41,31 @@ function checkEntry(prId) {
           'Content-Type': 'application/json;charset=UFT-8'
         }
       });
-      let resBody = new TextDecoder('utf-8').decode(res.body);
-      let comments = JSON.parse(`{"resultBody": "${resBody}"}`);
-      let resultBody = comments.resultBody;
-      if (resultBody && resultBody.length) {
-        for (let i = 0; i < resultBody.length; i++) {
-          const comment = resultBody[i];
-          if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
-            comment.body && /^approve api check$/.test(comment.body)) {
-            isOpenEscapeWay = true;
-            break;
+      if (res.statusCode == 200) {
+        let resBody = new TextDecoder('utf-8').decode(res.body);
+        let comments = JSON.parse(`{"resultBody": ${resBody}}`);
+        let resultBody = comments.resultBody;
+        if (resultBody && resultBody.length && resultBody instanceof Array) {
+          for (let i = 0; i < resultBody.length; i++) {
+            const comment = resultBody[i];
+            if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
+              comment.body && /^approve api check$/.test(comment.body)) {
+              ApiCheckResult.format_check_result = true;
+              result = "['api_check: true']";
+              break;
+            }
           }
         }
       }
     }
-    const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath, isOpenEscapeWay);
     const { removeDir } = require(path.resolve(__dirname, './src/utils'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
     result = `API_CHECK_ERROR : ${error}`;
+  } finally {
+    const { writeResultFile } = require('./src/utils');
+    writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
   }
-  const { writeResultFile } = require('./src/utils');
-  writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
 }
 checkEntry(process.argv[2]);
