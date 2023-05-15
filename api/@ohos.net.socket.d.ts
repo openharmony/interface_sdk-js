@@ -1260,7 +1260,7 @@ declare namespace socket {
 
   /**
    * Enumerates TLS protocol versions.
-   * @namespace Protocol
+   * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 9

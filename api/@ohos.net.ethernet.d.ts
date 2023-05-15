@@ -27,7 +27,6 @@ declare namespace ethernet {
    * @param { string } iface Indicates the network interface name.
    * @param { AsyncCallback<InterfaceConfiguration> } callback - the callback of getIfaceConfig.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -36,6 +35,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function getIfaceConfig(iface: string, callback: AsyncCallback<InterfaceConfiguration>): void;
@@ -45,7 +45,6 @@ declare namespace ethernet {
    * @param { string } iface Indicates the network interface name.
    * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -54,6 +53,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function getIfaceConfig(iface: string): Promise<InterfaceConfiguration>;
@@ -64,7 +64,6 @@ declare namespace ethernet {
    * @param { InterfaceConfiguration } ic Indicates the ic. See {@link InterfaceConfiguration}.
    * @param { AsyncCallback<void> } callback - the callback of setIfaceConfig.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -76,6 +75,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201006 - Ethernet device not connected.
    * @throws { BusinessError } 2201007 - Ethernet failed to write user configuration information.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration, callback: AsyncCallback<void>): void;
@@ -86,7 +86,6 @@ declare namespace ethernet {
    * @param { InterfaceConfiguration } ic Indicates the ic. See {@link InterfaceConfiguration}.
    * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -98,6 +97,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201006 - Ethernet device not connected.
    * @throws { BusinessError } 2201007 - Ethernet failed to write user configuration information.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
@@ -107,7 +107,6 @@ declare namespace ethernet {
    * @param { string } iface Indicates the network interface name.
    * @param { AsyncCallback<number> } callback - the callback of isIfaceActive.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -116,6 +115,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function isIfaceActive(iface: string, callback: AsyncCallback<number>): void;
@@ -125,7 +125,6 @@ declare namespace ethernet {
    * @param { string } iface Indicates the network interface name.
    * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -134,6 +133,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200003 - System internal error.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function isIfaceActive(iface: string): Promise<number>;
@@ -142,12 +142,12 @@ declare namespace ethernet {
    * Gets the names of all active network interfaces.
    * @param { AsyncCallback<Array<string>> } callback - the callback of getAllActiveIfaces.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
@@ -156,12 +156,12 @@ declare namespace ethernet {
    * Gets the names of all active network interfaces.
    * @returns { Promise<Array<string>> } the promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @systemapi Hide this for inner system use.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function getAllActiveIfaces(): Promise<Array<string>>;

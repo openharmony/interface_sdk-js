@@ -951,7 +951,6 @@ declare namespace http {
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
      * @param { AsyncCallback<void> } callback Returns the callback of flush.
-     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
@@ -961,7 +960,6 @@ declare namespace http {
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
      * @returns { Promise<void> } The promise returned by the flush.
-     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
@@ -971,7 +969,6 @@ declare namespace http {
     /**
      * Disables a cache and deletes the data in it.
      * @param { AsyncCallback<void> } callback Returns the callback of delete.
-     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
@@ -981,7 +978,6 @@ declare namespace http {
     /**
      * Disables a cache and deletes the data in it.
      * @returns { Promise<void> } The promise returned by the delete.
-     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9

@@ -239,13 +239,13 @@ declare namespace connection {
    * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @param { AsyncCallback<void> } callback - the callback of enableAirplaneMode.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error. 
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8
    */
   function enableAirplaneMode(callback: AsyncCallback<void>): void;
@@ -255,13 +255,13 @@ declare namespace connection {
    * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8
    */
   function enableAirplaneMode(): Promise<void>;
@@ -271,13 +271,13 @@ declare namespace connection {
    * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @param { AsyncCallback<void> } callback - the callback of disableAirplaneMode.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8
    */
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
@@ -287,13 +287,13 @@ declare namespace connection {
    * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @systemapi Hide this for inner system use. Only used for system app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
    * @since 8
    */
   function disableAirplaneMode(): Promise<void>;
