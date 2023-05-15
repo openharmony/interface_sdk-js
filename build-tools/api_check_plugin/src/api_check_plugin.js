@@ -85,8 +85,7 @@ function checkAllNode(node, sourcefile, fileName) {
     checkPermission(node, sourcefile, fileName);
 
     if (commentNodeWhiteList.includes(node.kind)) {
-      const permissionConfigPath = require('../config/config.json');
-      checkJSDoc(node, sourcefile, permissionConfigPath, fileName);
+      checkJSDoc(node, sourcefile, fileName);
     }
 
   }

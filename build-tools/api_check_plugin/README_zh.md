@@ -17,7 +17,7 @@
 
 ### permission文件配置
 
-在api_check_plugin/config文件夹下，创建名为“config.json”的文件，用于存放permission配置文件。打开链接中的仓库，打开systemres/main/config.json文件，将文件内容复制到刚创建的api_check_plugin/config/config.json中
+在api_check_plugin/config文件夹下，存在名为“config.json”的文件，用于存放permission配置文件。打开链接中的仓库，打开systemres/main/config.json文件，将文件内容复制到api_check_plugin/config/config.json中（覆盖原内容）
 
 [utils_system_resources: Providing system resources such as fonts | 字体等系统资源 (gitee.com)](https://gitee.com/openharmony/utils_system_resources)
 

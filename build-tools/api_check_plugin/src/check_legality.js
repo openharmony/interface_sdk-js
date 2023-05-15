@@ -54,26 +54,26 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
   // 'param'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
     ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+    (currentNode, checkResult) => {
+      if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
-      return true;
+        return true;
+      }
+      return currentNode.parameters && currentNode.parameters.length > 0;
     }
-    return currentNode.parameters && currentNode.parameters.length > 0;
-  }
   );
   // 'returns'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
     ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['returns'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+    (currentNode, checkResult) => {
+      if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) {
-      return false;
-    }
-    return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) && (currentNode.type
+        return false;
+      }
+      return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+        ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) && (currentNode.type
         && currentNode.type.kind !== ts.SyntaxKind.VoidKeyword);
-  }
+    }
   );
   // 'useinstead'
   legalityCheck(node, comments, commentNodeWhiteList, ['useinstead'], true, checkInfoMap,
@@ -244,11 +244,7 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
   }
 }
 
-function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName) {
-  let { permissionFile } = require('./utils');
-  if (permissionConfigPath && fs.existsSync(permissionConfigPath)) {
-    permissionFile = permissionConfigPath;
-  }
+function checkJsDocOfCurrentNode(node, sourcefile, fileName) {
   const checkInfoArray = [];
   const comments = parseJsDoc(node);
   const checkInfoMap = checkJsDocLegality(node, comments, {});
@@ -281,8 +277,8 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
 }
 exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
 
-function checkJSDoc(node, sourcefile, permissionConfigPath, fileName) {
-  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName);
+function checkJSDoc(node, sourcefile, fileName) {
+  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName);
 
   let isMissingTagWhitetFile = true;
   let isIllegalTagWhitetFile = true;
