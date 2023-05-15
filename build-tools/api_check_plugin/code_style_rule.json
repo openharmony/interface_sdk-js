@@ -226,6 +226,7 @@
       "SystemCapability.HiviewDFX.HiLogLite",
       "SystemCapability.HiviewDFX.HiTrace",
       "SystemCapability.HiviewDFX.Hiview.FaultLogger",
+      "SystemCapability.HiviewDFX.Hiview.LogLibrary",
       "SystemCapability.HiviewDFX.HiviewLite",
       "SystemCapability.HiviewDFX.HiChecker",
       "SystemCapability.HiviewDFX.HiCollie",
@@ -311,5 +312,17 @@
       "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
       "SystemCapability.MultimodalInput.Input.ShortKey"
     ]
-  }
+  },
+  "administrators": [
+    {
+      "id": "1505186",
+      "login": "txdyyangbo",
+      "name": "yangbo_404"
+    },
+    {
+      "id": "8046261",
+      "login": "mgy917",
+      "name": "MGY917"
+    }
+  ]
 }

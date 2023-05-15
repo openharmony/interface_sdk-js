@@ -143,6 +143,88 @@ declare namespace networkManager {
    * @since 10
    */
   function getMac(admin: Want, networkInterface: string): Promise<string>;
+
+  /**
+   * Gets state of whether the network interface is disabled.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - networkInterface indicates the network interface to get status.
+   * @param { AsyncCallback<boolean> } callback - the callback of isNetworkInterfaceDisabled.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function isNetworkInterfaceDisabled(admin: Want, networkInterface: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Gets state of whether the network interface is disabled.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - networkInterface indicates the network interface to get status.
+   * @returns { Promise<boolean> } the promise returned by isNetworkInterfaceDisabled.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function isNetworkInterfaceDisabled(admin: Want, networkInterface: string): Promise<boolean>;
+
+  /**
+   * Disables the network interfaces.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - networkInterface indicates the network interface to set status.
+   * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
+   * @param { AsyncCallback<void> } callback - the callback of setNetworkInterfaceDisabled.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Disables the network interfaces.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - networkInterface indicates the network interface to set status.
+   * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
+   * @returns { Promise<void> } the promise returned setNetworkInterfaceDisabled.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): Promise<void>;
 }
 
 export default networkManager;
