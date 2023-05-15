@@ -4033,11 +4033,11 @@ declare class CustomComponent extends CommonAttribute {
 
   /**
    * onRecycle Method
-   * @param {{ [key: string]: any }} params - Custom component init params.
+   * @param {{ [key: string]: unknown }} params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onRecycle?(params: { [key: string]: any }): void;
+  onRecycle?(params: { [key: string]: unknown }): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
