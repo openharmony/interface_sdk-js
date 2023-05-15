@@ -215,3 +215,5 @@ declare namespace cloudData {
     static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
   }
 }
+
+export default cloudData;
