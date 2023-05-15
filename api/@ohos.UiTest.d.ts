@@ -1911,15 +1911,15 @@ declare class Driver {
   screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
   
   /**
-   * Create an {@link UiEventObserver} object.
+   * Create an {@link UIEventObserver} object.
    *
-   * @returns { UiEventObserver } the {@link UiEventObserver} object.
+   * @returns { UIEventObserver } the {@link UIEventObserver} object.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
    */
-  createUiEventObserver(): UiEventObserver;
+  createUiEventObserver(): UIEventObserver;
 }
 
 /**
