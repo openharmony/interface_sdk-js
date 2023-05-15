@@ -343,3 +343,21 @@ function isWhiteListFile(fileName, whiteList) {
   return false
 }
 exports.isWhiteListFile = isWhiteListFile;
+
+function getcheckApiVersion() {
+  const packageJsonPath = path.join(__dirname, "../package.json");
+  let packageJson;
+  let checkApiVersion;
+  try {
+    const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
+    packageJson = JSON.parse(packageJsonContent);
+    checkApiVersion = packageJson.checkApiVersion;
+  } catch(error) {
+    console.error("Failed to read package.json or parse JSON content:", error);
+  }
+  if (!checkApiVersion) {
+    console.error("Invalid checkApiVersion:", checkApiVersion);
+  }
+  return checkApiVersion;
+}
+exports.getcheckApiVersion = getcheckApiVersion;
