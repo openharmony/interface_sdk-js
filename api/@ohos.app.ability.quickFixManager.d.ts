@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -155,6 +155,38 @@ declare namespace quickFixManager {
    * @since 9
    */
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
+
+  /**
+   * Revoke quick fix by bundle name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName - Bundle name wish to revoke quick fix.
+   * @param { AsyncCallback<void> } callback
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 18500001 - The bundle is not exist or no patch has applied.
+   * @throws { BusinessError } 18500009 - The application has a apply quick fix task that is being processed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 10
+   */
+  function revokeQuickFix(bundleName: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Revoke quick fix by bundle name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName - Bundle name wish to revoke quick fix.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 18500001 - The bundle is not exist or no patch has applied.
+   * @throws { BusinessError } 18500009 - The application has a apply quick fix task that is being processed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 10
+   */
+  function revokeQuickFix(bundleName: string): Promise<void>;
 
   /**
    * Get application quick fix info by bundle name.
