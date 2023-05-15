@@ -838,12 +838,12 @@ declare interface WindowFilter {
 /**
  * Represents the information of an UI element, can be a component or window.
  * 
- * @typedef UiElementInfo
+ * @typedef UIElementInfo
  * @syscap SystemCapability.Test.UiTest
  * @since 10
  * @test
  */
-declare interface UiElementInfo {
+declare interface UIElementInfo {
   /**
    * The bundle name of the host application.
    * @type { string }
@@ -873,35 +873,35 @@ declare interface UiElementInfo {
 /**
  * Observer to monitor UI events.
  * 
- * @typedef UiEventObserver
+ * @typedef UIEventObserver
  * @syscap SystemCapability.Test.UiTest
  * @since 10
  * @test
  */
-declare interface UiEventObserver {
+declare interface UIEventObserver {
   /**
    * Listen for toast show once
    * 
    * @param { string } type 'toastShow'.
-   * @param { Callback<UiElementInfo> } callback function, returns the monitored UiElementInfo.
+   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
    */
-  once(type: 'toastShow', callback: Callback<UiElementInfo>): void;
+  once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
 
   /**
    * Listen for dialog show once
    * 
    * @param { string } type 'dialogShow'.
-   * @param { Callback<UiElementInfo> } callback function, returns the monitored UiElementInfo.
+   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
    */
-  once(type: 'dialogShow', callback: Callback<UiElementInfo>): void;
+  once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
 }
 
 /**
@@ -2170,6 +2170,6 @@ export {
   PointerMatrix,
   UiDirection,
   MouseButton,
-  UiElementInfo,
-  UiEventObserver
+  UIElementInfo,
+  UIEventObserver
 };
