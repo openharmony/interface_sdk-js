@@ -22,7 +22,9 @@ const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
 const { checkAPINameOfHump, checkAPIFileName } = require('./check_hump');
 const { checkJSDoc } = require('./check_legality');
-const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
+const { checkNaming } = require('./check_naming');
+const { checkEventSubscription } = require('./check_eventSubscription');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
 
@@ -82,13 +84,21 @@ function checkAllNode(node, sourcefile, fileName) {
     checkDeprecated(node, sourcefile, fileName);
     // check permission
     checkPermission(node, sourcefile, fileName);
+    // check event subscription api
+    checkEventSubscription(node, sourcefile, fileName);
 
-    const permissionConfigPath = require('../config/config.json');
-    checkJSDoc(node, sourcefile, permissionConfigPath, fileName);
+    if (commentNodeWhiteList.includes(node.kind)) {
+      checkJSDoc(node, sourcefile, fileName);
+    }
+
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
     checkSpelling(node, sourcefile, fileName);
+    // check naming
+    if(node.parent.parent.kind !== ts.SyntaxKind.JSDoc){
+      checkNaming(node, sourcefile, fileName);
+    }
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }

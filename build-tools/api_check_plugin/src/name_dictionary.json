@@ -1,0 +1,48 @@
+[
+  {
+    "badWord": "MessageParcel",
+    "suggestion": "MessageSequence",
+    "ignore": []
+  },
+  {
+    "badWord": "verify",
+    "suggestion": "check",
+    "ignore": []
+  },
+  {
+    "badWord": "pic",
+    "suggestion": "image",
+    "ignore": [
+      "picture"
+    ]
+  },
+  {
+    "badWord": "picture",
+    "suggestion": "image",
+    "ignore": []
+  },
+  {
+    "badWord": "put",
+    "suggestion": "get",
+    "ignore": [
+      "input",
+      "output",
+      "computer",
+      "dispute",
+      "reputation"
+    ]
+  },
+  {
+    "badWord": "configuration",
+    "suggestion": "config",
+    "ignore": []
+  },
+  {
+    "badWord": "info",
+    "suggestion": "information",
+    "ignore": [
+      "information",
+      "infographics"
+    ]
+  }
+]
