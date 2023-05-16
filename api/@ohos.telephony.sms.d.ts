@@ -369,7 +369,7 @@ declare namespace sms {
    * Update a SIM SMS of SIM card.
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { number } options - Indicates update SIM message options.
+   * @param { UpdateSimMessageOptions } options - Indicates update SIM message options.
    * @param { AsyncCallback<void> } callback - The callback of updateSimMessage.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -388,7 +388,7 @@ declare namespace sms {
    * Update a SIM SMS of SIM card.
    *
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @param { number } options - Indicates update SIM message options.
+   * @param { UpdateSimMessageOptions } options - Indicates update SIM message options.
    * @returns { Promise<void> } The promise returned by the updateSimMessage.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -752,7 +752,7 @@ declare namespace sms {
     /**
      * Indicates the destination address for the MMS message sending request.
      *
-     * @type { ?MmsAddress }
+     * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1122,7 +1122,7 @@ declare namespace sms {
     /**
      * Indicates the destination address for the MMS message retrieval configuration.
      *
-     * @type { MmsAddress }
+     * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1152,7 +1152,7 @@ declare namespace sms {
     /**
      * Indicates the carbon copy address for the MMS message retrieval configuration.
      *
-     * @type { ?Array<MmsAddress }
+     * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1292,7 +1292,7 @@ declare namespace sms {
     /**
      * Indicates the destination address for the MMS message delivery indication.
      *
-     * @type { MmsAddress }
+     * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1352,7 +1352,7 @@ declare namespace sms {
     /**
      * Indicates the destination address for the original MMS message reading indication.
      *
-     * @type { MmsAddress }
+     * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1422,7 +1422,7 @@ declare namespace sms {
     /**
      * Indicates the destination address for the MMS message reading indication.
      *
-     * @type { MmsAddress }
+     * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2242,7 +2242,6 @@ declare namespace sms {
      * @syscap SystemCapability.Telephony.SmsMms
      * @since 6
      */
-    /** Indicates Protocol Data Units (PDUs) from an SMS message. */
     pdu: Array<number>;
 
     /**
@@ -2342,7 +2341,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_UNREAD = 3,
 
     /**
-     * Indicates a sent message (only applicable to SMs).
+     * Indicates a sent message (only applicable to SMS).
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
@@ -2351,7 +2350,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_SENT = 5,
 
     /**
-     * Indicates an unsent message (only applicable to SMs).
+     * Indicates an unsent message (only applicable to SMS).
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.

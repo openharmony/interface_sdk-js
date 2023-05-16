@@ -1464,7 +1464,7 @@ declare namespace sim {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function queryIccDiallingNumbers(slotId: number, type: ContactType, callback: AsyncCallback<Array<DiallingNumbersInfo>>): void
+  function queryIccDiallingNumbers(slotId: number, type: ContactType, callback: AsyncCallback<Array<DiallingNumbersInfo>>): void;
 
   /**
    * Query dialing number information on SIM card.

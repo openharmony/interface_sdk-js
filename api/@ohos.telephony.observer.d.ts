@@ -132,7 +132,8 @@ declare namespace observer {
    * Cancel callback when the signal strength is updated.
    *
    * @param { string } type - signalInfoChange.
-   * @param { Callback<NetworkState> } callback - Indicates the callback to unsubscribe from the signalInfoChange event.
+   * @param { Callback<SignalInformation> } callback - Indicates the callback to unsubscribe from
+   * the signalInfoChange event.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
