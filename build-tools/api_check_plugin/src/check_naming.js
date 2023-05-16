@@ -49,21 +49,20 @@ function checkApiNaming(node, sourcefile, fileName) {
   for (const [key, value] of lowercaseNamingMap) {
     const prohibitedWordIndex = lowIdentifier.indexOf(key)
     const lowercaseIgnoreWordArr = value.ignore.map(word => word.toLowerCase())
-    if (
-      prohibitedWordIndex !== -1 &&
-      !lowercaseIgnoreWordArr.includes(lowIdentifier)
-    ) {
-      const internalWord = node.getText().substr(prohibitedWordIndex, key.length)
-      const errorInfo = `Prohibited word in [${node.getText()}]:{${internalWord}}.The word allowed is [${value.suggestion}]`;
-      addAPICheckErrorLogs(
-        node,
-        sourcefile,
-        fileName,
-        ErrorType.NAMING_ERRORS,
-        errorInfo,
-        FileType.LOG_API,
-        ErrorLevel.MIDDLE
-      );
+    for (let i = 0; i < lowercaseIgnoreWordArr.length; i++) {
+      if (prohibitedWordIndex !== -1 && lowIdentifier.indexOf(lowercaseIgnoreWordArr[i]) === - 1) {
+        const internalWord = node.getText().substr(prohibitedWordIndex, key.length)
+        const errorInfo = `Prohibited word in [${node.getText()}]:{${internalWord}}.The word allowed is [${value.suggestion}]`;
+        addAPICheckErrorLogs(
+          node,
+          sourcefile,
+          fileName,
+          ErrorType.NAMING_ERRORS,
+          errorInfo,
+          FileType.LOG_API,
+          ErrorLevel.MIDDLE
+        );
+      }
     }
   }
 
@@ -109,10 +108,10 @@ function getlowercaseNamingScenarioMap() {
 }
 
 function isInAllowedFiles(files, fileName) {
-  for(let item of files) {
+  for (let item of files) {
     const pattern = new RegExp(item)
     pattern.test(fileName)
-    if(pattern.test(fileName)){
+    if (pattern.test(fileName)) {
       return true
     }
   }
