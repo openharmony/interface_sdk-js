@@ -579,15 +579,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * Called when sliding is curve
+   * @type { ?(Curve | string) }
    * @since 8
    */
   /**
    * Called when sliding is curve
+   * Curve is an enumeration type for common curves
+   * ICurve is a curve object
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { ?(Curve | string | ICurve) }
    * @since 10
    */
-  curve(value: Curve | string): SwiperAttribute;
+  curve(value: Curve | string | ICurve): SwiperAttribute;
   /**
    * Called when the index value changes.
    * @since 7
