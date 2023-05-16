@@ -58,11 +58,18 @@ declare namespace formInfo {
     name: string;
 
     /**
-     * Obtains the name of this form.
+     * Obtains the description of this form.
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     description: string;
+
+    /**
+     * Obtains the description id of this form.
+     * @syscap SystemCapability.Ability.Form
+     * @since 10
+     */
+    descriptionId: number;
 
     /**
      * Obtains the type of this form. Currently, JS forms are supported.
