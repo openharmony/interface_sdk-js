@@ -2047,6 +2047,26 @@ declare interface PixelMapMock {
 }
 
 /**
+ * Enum for Drag Behavior.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum DragBehavior {
+  /**
+   * If drag use copy event, then set DragBehavior.COPY.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COPY,
+  /**
+   * If drag use move event, then set DragBehavior.MOVE.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MOVE
+}
+
+/**
  * DragEvent object description
  * @since 7
  */
@@ -2062,6 +2082,15 @@ declare interface DragEvent {
    * @since 7
    */
   getY(): number;
+  
+ /**
+  * If copy is COPY, this DragEvent is a copy event.
+  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+  * @default COPY
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 10
+  */
+ dragBehavior: DragBehavior;
 }
 
 /**
