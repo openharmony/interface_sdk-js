@@ -227,6 +227,13 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
+ * Defining Recycle ClassDecorator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare const Recycle: ClassDecorator;
+
+/**
  * Get context.
  * @StageModelOnly
  * @since 9
@@ -4023,6 +4030,14 @@ declare class CustomComponent extends CommonAttribute {
    * @since 9
    */
   aboutToDisappear?(): void;
+
+  /**
+   * onRecycle Method
+   * @param {{ [key: string]: unknown }} params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onRecycle?(params: { [key: string]: unknown }): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
