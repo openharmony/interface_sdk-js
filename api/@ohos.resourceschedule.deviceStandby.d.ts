@@ -56,11 +56,11 @@ declare namespace deviceStandby {
   function isDeviceInStandby(): Promise<boolean>;
 
   /**
-   * Returns the information about the specified exemption application.
+   * Returns the information about the specified exempted application.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
    * @param { number } resourceTypes - the combination of {@link ResourceType} values.
-   * @param { AsyncCallback<Array<ExemptionAppInfo>> } callback - the callback of getExemptionListApps.
+   * @param { AsyncCallback<Array<ExemptedAppInfo>> } callback - the callback of getExemptedApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error.
@@ -73,14 +73,14 @@ declare namespace deviceStandby {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getExemptionListApps(resourceTypes: number, callback: AsyncCallback<Array<ExemptionAppInfo>>): void;
+  function getExemptedApps(resourceTypes: number, callback: AsyncCallback<Array<ExemptedAppInfo>>): void;
 
   /**
-   * Returns the information about the specified exemption application.
+   * Returns the information about the specified exempted application.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
    * @param { number } resourceTypes - the combination of {@link ResourceType} values.
-   * @returns { Promise<Array<ExemptionAppInfo>> } the promise returned by getExemptionListApps.
+   * @returns { Promise<Array<ExemptedAppInfo>> } the promise returned by getExemptedApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error.
@@ -93,13 +93,13 @@ declare namespace deviceStandby {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getExemptionListApps(resourceTypes: number): Promise<Array<ExemptionAppInfo>>;
+  function getExemptedApps(resourceTypes: number): Promise<Array<ExemptedAppInfo>>;
 
   /**
-   * Application apply for Resource Exemption.
+   * Requests exemption resources.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { ResourceRequest } request - the request of apply or unapply resources.
+   * @param { ResourceRequest } request - requesting or releasing resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error.
@@ -112,13 +112,13 @@ declare namespace deviceStandby {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function applyExemptionAppResource(request: ResourceRequest): void;
+  function requestExemptionResource(request: ResourceRequest): void;
 
   /**
-   * Application unapply for Resource Exemption.
+   * Releases exemption resources.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { ResourceRequest } request - the request of apply or unapply resources.
+   * @param { ResourceRequest } request - requesting or releasing resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error.
@@ -131,10 +131,10 @@ declare namespace deviceStandby {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function unapplyExemptionAppResource(request: ResourceRequest): void;
+  function releaseExemptionResource(request: ResourceRequest): void;
 
   /**
-   * The resource type of exemption application.
+   * The type of exemption resources requested by the application.
    *
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
@@ -152,7 +152,7 @@ declare namespace deviceStandby {
     NETWORK = 1,
 
     /**
-     * The resource for non-standby cpu-runninglock.
+     * The resource for non-standby cpu running-lock.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
@@ -179,7 +179,7 @@ declare namespace deviceStandby {
     WORK_SCHEDULER = 1 << 3,
 
     /**
-     * The resource for non-standby Automatic synchronization.
+     * The resource for non-standby automatic synchronization.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
@@ -188,7 +188,7 @@ declare namespace deviceStandby {
     AUTO_SYNC = 1 << 4,
 
     /**
-     * The resource for non-standby pushkit.
+     * The resource for non-standby push-kit.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
@@ -207,14 +207,14 @@ declare namespace deviceStandby {
   }
 
   /**
-   * The information of exemption application.
+   * Information about an exempted application.
    *
-   * @interface ExemptionAppInfo
+   * @interface ExemptedAppInfo
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export interface ExemptionAppInfo {
+  export interface ExemptedAppInfo {
     /**
      * The set of resource types that app wants to apply.
      *
@@ -225,7 +225,7 @@ declare namespace deviceStandby {
     resourceTypes: number;
 
     /**
-     *  The app name.
+     *  The application name.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
@@ -253,7 +253,7 @@ declare namespace deviceStandby {
    */
   export interface ResourceRequest {
     /**
-     * The set of resource types that app wants to apply.
+     * The set of resource types that an application requests.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
@@ -262,7 +262,7 @@ declare namespace deviceStandby {
     resourceTypes: number;
 
     /**
-     *  The app uid.
+     *  The application uid.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
@@ -271,7 +271,7 @@ declare namespace deviceStandby {
     uid: number;
 
     /**
-     *  The app name.
+     *  The application name.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
@@ -289,7 +289,7 @@ declare namespace deviceStandby {
     duration: number;
 
     /**
-     *  The apply reason.
+     *  The reason for the request.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
      * @systemapi Hide this for inner system use.
