@@ -20,6 +20,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace display
  * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
  * @since 7
  */
 declare namespace display {
@@ -51,6 +52,7 @@ declare namespace display {
    * @returns { Display } the result of display
    * @throws { BusinessError } 1400001 - If display or screen is invalid
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 9
    */
   function getDefaultDisplaySync(): Display;
@@ -220,6 +222,7 @@ declare namespace display {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 10
    */
   enum Orientation {
@@ -227,6 +230,7 @@ declare namespace display {
      * Indicate that the display content is in portrait mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     PORTRAIT = 0,
@@ -235,6 +239,7 @@ declare namespace display {
      * Indicate that the display content is in landscape mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     LANDSCAPE = 1,
@@ -243,6 +248,7 @@ declare namespace display {
      * Indicate that the display content is in the opposite direction of the portrait mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     PORTRAIT_INVERTED = 2,
@@ -251,6 +257,7 @@ declare namespace display {
      * Indicate that the display content is in the opposite direction of the landscape mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     LANDSCAPE_INVERTED = 3
@@ -261,6 +268,7 @@ declare namespace display {
    *
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 9
    */
   interface Rect {
@@ -268,6 +276,7 @@ declare namespace display {
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     left: number;
@@ -276,6 +285,7 @@ declare namespace display {
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     top: number;
@@ -284,6 +294,7 @@ declare namespace display {
      * Width of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     width: number;
@@ -292,6 +303,7 @@ declare namespace display {
      * Height of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     height: number;
@@ -368,6 +380,7 @@ declare namespace display {
    *
    * @interface Display
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 7
    */
   interface Display {
@@ -375,6 +388,7 @@ declare namespace display {
      * Display ID.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 7
      */
     id: number;
@@ -423,6 +437,7 @@ declare namespace display {
      * Display width, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 7
      */
     width: number;
@@ -431,6 +446,7 @@ declare namespace display {
      * Display height, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 7
      */
     height: number;
@@ -447,6 +463,7 @@ declare namespace display {
      * Display orientation.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     orientation: Orientation;
