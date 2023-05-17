@@ -24,8 +24,14 @@ declare namespace ConfigurationConstant {
    * ColorMode
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * ColorMode
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 10
    */
   export enum ColorMode {
     COLOR_MODE_NOT_SET = -1,
@@ -37,8 +43,14 @@ declare namespace ConfigurationConstant {
    * Direction
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Direction
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 10
    */
   export enum Direction {
     DIRECTION_NOT_SET = -1,

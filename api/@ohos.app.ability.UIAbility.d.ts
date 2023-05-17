@@ -195,8 +195,14 @@ export interface Callee {
  * The class of a UI ability.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
- * @crossplatform
  * @since 9
+ */
+/**
+ * The class of a UI ability.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 export default class UIAbility extends Ability {
   /**
@@ -204,8 +210,15 @@ export default class UIAbility extends Ability {
    * @type { UIAbilityContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates configuration information about an ability context.
+   * @type { UIAbilityContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   context: UIAbilityContext;
 
@@ -242,8 +255,16 @@ export default class UIAbility extends Ability {
    * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when an ability is started for initialization.
+   * @param { Want } want - Indicates the want info of the created ability.
+   * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
 
@@ -252,8 +273,15 @@ export default class UIAbility extends Ability {
    * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when an ability window stage is created.
+   * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
@@ -261,8 +289,14 @@ export default class UIAbility extends Ability {
    * Called back when an ability window stage is destroyed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when an ability window stage is destroyed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onWindowStageDestroy(): void;
 
@@ -279,8 +313,14 @@ export default class UIAbility extends Ability {
    * Called back before an ability is destroyed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back before an ability is destroyed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onDestroy(): void | Promise<void>;
 
@@ -288,8 +328,14 @@ export default class UIAbility extends Ability {
    * Called back when the state of an ability changes to foreground.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when the state of an ability changes to foreground.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onForeground(): void;
 
@@ -297,8 +343,14 @@ export default class UIAbility extends Ability {
    * Called back when the state of an ability changes to background.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when the state of an ability changes to background.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onBackground(): void;
 
@@ -319,8 +371,17 @@ export default class UIAbility extends Ability {
    * @param { AbilityConstant.LaunchParam } launchParams - Indicates the launch parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called when the launch mode of an ability is set to singleton.
+   * This happens when you re-launch an ability that has been at the top of the ability stack.
+   * @param { Want } want - Indicates the want info of ability.
+   * @param { AbilityConstant.LaunchParam } launchParams - Indicates the launch parameters.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onNewWant(want: Want, launchParams: AbilityConstant.LaunchParam): void;
 
