@@ -144,6 +144,16 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    */
   layoutDirection(value: FlexDirection): WaterFlowAttribute;
 
+
+  /**
+   * Called to setting the nested scroll options.
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nestedScroll(value: NestedScrollOptions): WaterFlowAttribute
+
   /**
    * Called when the water flow begins to arrive.
    * @since 9
@@ -165,6 +175,16 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * @since 10
    */
   onReachEnd(event: () => void): WaterFlowAttribute;
+
+  /**
+   * Called when scrolling begin each frame.
+   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): WaterFlowAttribute;
 }
 
 /**

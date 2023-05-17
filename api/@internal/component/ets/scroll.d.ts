@@ -221,6 +221,15 @@ declare class Scroller {
    * @since 10
    */
   scrollBy(dx: Length, dy: Length);
+
+  /**
+   * Indicates whether the component scrolls to the end position.
+   * @returns {boolean} Returns whether the component scrolls to the end position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  isAtEnd(): boolean;
 }
 
 /**
@@ -372,6 +381,15 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @since 10
    */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ScrollAttribute;
+
+  /**
+   * Called to setting the nested scroll options.
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nestedScroll(value: NestedScrollOptions): ScrollAttribute
 }
 
 /**
