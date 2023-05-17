@@ -219,8 +219,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Enable the selectable area can be dragged.
    * @type boolean
    * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @deprecated since 10
+   * @useinstead common.CommonMethod#draggable
    */
   draggable(value: boolean): TextAttribute;
 
