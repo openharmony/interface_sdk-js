@@ -38,7 +38,7 @@ declare namespace dataShare {
    * @StageModelOnly
    * @since 10
    */
-  interface DataShareHelperOption {
+  interface DataShareHelperOptions {
     /**
      * Specifies whether the {@link DataShareHelper} in proxy mode.
      * If value is true, the {@link DataShareHelper} to be created is in proxy mode, and all operations will not open provider APP as possible
@@ -71,7 +71,7 @@ declare namespace dataShare {
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
-   * @param { DataShareHelperOption } option - Indicates the optional config.
+   * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 15700010 - the DataShareHelper is not created successfully.
@@ -83,7 +83,7 @@ declare namespace dataShare {
   function createDataShareHelper(
     context: Context,
     uri: string,
-    option: DataShareHelperOption,
+    options: DataShareHelperOptions,
     callback: AsyncCallback<DataShareHelper>
   ): void;
 
@@ -105,7 +105,7 @@ declare namespace dataShare {
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
-   * @param { DataShareHelperOption } option - Indicates the optional config.
+   * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 15700010 - the DataShareHelper is not created successfully.
@@ -117,7 +117,7 @@ declare namespace dataShare {
   function createDataShareHelper(
     context: Context,
     uri: string,
-    option?: DataShareHelperOption
+    options?: DataShareHelperOptions
   ): Promise<DataShareHelper>;
 
   /**
