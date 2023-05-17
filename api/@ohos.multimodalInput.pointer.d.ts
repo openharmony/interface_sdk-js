@@ -604,8 +604,7 @@ declare namespace pointer {
    *
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -617,8 +616,7 @@ declare namespace pointer {
    *
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -629,8 +627,7 @@ declare namespace pointer {
    * Get the number of mouse scrolling rows.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -641,8 +638,7 @@ declare namespace pointer {
    * Get the number of mouse scrolling rows.
    *
    * @returns { Promise<number> } Returns the result through a promise.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
