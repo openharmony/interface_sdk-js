@@ -604,6 +604,7 @@ declare namespace pointer {
    *
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -616,6 +617,7 @@ declare namespace pointer {
    *
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -627,6 +629,7 @@ declare namespace pointer {
    * Get the number of mouse scrolling rows.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -638,6 +641,7 @@ declare namespace pointer {
    * Get the number of mouse scrolling rows.
    *
    * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
