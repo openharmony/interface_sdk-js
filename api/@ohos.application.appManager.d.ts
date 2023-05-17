@@ -18,6 +18,7 @@ import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AbilityStateData from './application/AbilityStateData';
 import AppStateData from './application/AppStateData';
 import { ProcessRunningInfo } from './application/ProcessRunningInfo';
+import LowMemoryObserver from './application/LowMemoryObserver';
 
 /**
  * This module provides the function of app manager service.
@@ -143,6 +144,35 @@ declare namespace appManager {
    */
   function getAppMemorySize(): Promise<number>;
   function getAppMemorySize(callback: AsyncCallback<number>): void;
+
+  /**
+   * Register system low memory state observer.
+   *
+   * @default -
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param observer The system low memory state observer.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @systemapi hide this for inner system use
+   * @returns Returns the number code of the observer.
+   */
+  function registerLowMemoryObserver(observer: LowMemoryObserver): number;
+
+  /**
+   * Unregister system low memory state observer.
+   *
+   * @default -
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param observerId Indicates the number code of the observer.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @systemapi hide this for inner system use
+   * @returns -
+   */
+  function unregisterLowMemoryObserver(observerId: number, callback: AsyncCallback<void>): void;
+  function unregisterLowMemoryObserver(observerId: number): Promise<void>;
 }
 
 export default appManager;

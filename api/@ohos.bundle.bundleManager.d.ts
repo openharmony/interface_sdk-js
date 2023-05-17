@@ -1722,6 +1722,79 @@ declare namespace bundleManager {
   function getAppProvisionInfo(bundleName: string, userId?: number): Promise<AppProvisionInfo>;
 
   /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @returns { Promise<number> } Returns the memory usage of the process in KB.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700046 - The specified pid is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number): Promise<number>;
+
+  /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @param { AsyncCallback<number> } - Indicates the callback of getting process memory by pid result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700046 - The specified pid is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes blong to.
+   * @param { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string, callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes blong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes blong to.
+   * @returns { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes blong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes blong to, or do not pass user ID.
+   * @returns { Promise<Array<number>> } - Returns a list of pid numbers.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string, userId?: number): Promise<Array<number>>;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
