@@ -278,6 +278,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Default value is false.
    * @form
    * @since 9
+   * @deprecated since 10
+   * @useinstead common.CommonMethod#draggable
    */
   draggable(value: boolean): ImageAttribute;
 
