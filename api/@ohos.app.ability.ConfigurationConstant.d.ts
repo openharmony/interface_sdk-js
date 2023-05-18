@@ -22,7 +22,7 @@
  */
 declare namespace ConfigurationConstant {
   /**
-   * ColorMode
+   * Color mode
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
@@ -59,7 +59,7 @@ declare namespace ConfigurationConstant {
   }
 
   /**
-   * Direction
+   * Screen direction.
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
@@ -77,7 +77,7 @@ declare namespace ConfigurationConstant {
     DIRECTION_NOT_SET = -1,
 
     /**
-     * Vertical.
+     * Vertical direction.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
@@ -86,7 +86,7 @@ declare namespace ConfigurationConstant {
     DIRECTION_VERTICAL = 0,
 
     /**
-     * Horizontally.
+     * Horizontal direction.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
@@ -96,7 +96,7 @@ declare namespace ConfigurationConstant {
   }
 
   /**
-   * ScreenDensity
+   * Screen density
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase

@@ -168,7 +168,7 @@ declare namespace AbilityConstant {
    */
   export enum OnContinueResult {
     /**
-     * Agree.
+     * Agree to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
@@ -177,7 +177,7 @@ declare namespace AbilityConstant {
     AGREE = 0,
 
     /**
-     * Reject.
+     * Reject to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
@@ -186,7 +186,7 @@ declare namespace AbilityConstant {
     REJECT = 1,
 
     /**
-     * Mismatch.
+     * Mismatch to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly

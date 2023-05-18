@@ -249,7 +249,7 @@ declare namespace featureAbility {
   export enum AbilityWindowConfiguration {
 
   /**
-   * Undefined.
+   * Undefined window format.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly

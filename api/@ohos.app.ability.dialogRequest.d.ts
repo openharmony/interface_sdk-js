@@ -41,7 +41,7 @@ declare namespace dialogRequest {
    */
   export enum ResultCode {
     /**
-     * Success.
+     * The modal bullet box requests succeeded.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
@@ -49,7 +49,7 @@ declare namespace dialogRequest {
     RESULT_OK = 0,
 
     /**
-     * Failed.
+     * The modal bullet box requests Failed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
