@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { MissionInfo } from './application/MissionInfo';
 import { MissionListener } from './application/MissionListener';
 import { MissionSnapshot } from './application/MissionSnapshot';

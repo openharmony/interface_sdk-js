@@ -25,7 +25,7 @@ import rdb from '../../@ohos.data.rdb';
 import rpc from '../../@ohos.rpc';
 import resourceManager from '../../@ohos.resourceManager';
 import { PacMap } from '../../ability/dataAbilityHelper';
-import { AsyncCallback } from '../../basic';
+import { AsyncCallback } from "../../@ohos.base";
 
 /**
  * interface of form lifecycle.
