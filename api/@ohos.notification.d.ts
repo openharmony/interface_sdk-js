@@ -593,7 +593,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#unsubscrib
+   * @useinstead ohos.notificationSubscribe#unsubscribe
    */
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
