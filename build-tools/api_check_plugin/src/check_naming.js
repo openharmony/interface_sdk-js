@@ -20,7 +20,7 @@ const {
   FileType,
   requireTypescriptModule,
   getApiVersion,
-  getcheckApiVersion,
+  getCheckApiVersion,
 } = require("./utils");
 const { addAPICheckErrorLogs } = require("./compile_info");
 const nameDictionary = require("./name_dictionary.json");
@@ -28,7 +28,7 @@ const nameScenarioScope = require("./name_scenario_scope.json");
 const ts = requireTypescriptModule();
 
 function checkNaming(node, sourcefile, fileName) {
-  const checkApiVersion = getcheckApiVersion();
+  const checkApiVersion = getCheckApiVersion();
   const apiVersion = Number(getApiVersion(node));
   if (checkApiVersion.indexOf("^") !== -1) {
     let minCheckApiVersion = Number(checkApiVersion.substr(1));
