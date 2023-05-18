@@ -1690,7 +1690,7 @@ declare namespace notificationManager {
    */
   export interface NotificationCheckInfo {
     /**
-     * the application bundle name for publishing notification.
+     * The application bundle name for publishing notification.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -1700,7 +1700,7 @@ declare namespace notificationManager {
     bundleName: string;
 
     /**
-     * the notification id.
+     * The notification id.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -1710,7 +1710,7 @@ declare namespace notificationManager {
     notificationId: number;
 
     /**
-     * the notification content type.
+     * The notification content type.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -1731,7 +1731,7 @@ declare namespace notificationManager {
    */
   export interface NotificationCheckResult {
     /**
-     * the result code. 0-display, 1-no display
+     * The result code. 0-display, 1-no display
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -1741,7 +1741,7 @@ declare namespace notificationManager {
     code: number;
 
     /**
-     * the result message.
+     * The result message.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
      * @syscap SystemCapability.Notification.Notification
@@ -1967,7 +1967,7 @@ declare namespace notificationManager {
     type: DoNotDisturbType;
 
     /**
-     * the start time of the Do Not Disturb.
+     * The start time of the Do Not Disturb.
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -1976,7 +1976,7 @@ declare namespace notificationManager {
     begin: Date;
 
     /**
-     * the end time of the Do Not Disturb.
+     * The end time of the Do Not Disturb.
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
