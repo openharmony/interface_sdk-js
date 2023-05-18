@@ -1682,8 +1682,8 @@ declare namespace notificationManager {
   /**
    * Describes the parameters of check notifications.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @typedef NotificationCheckInfo
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
@@ -1691,16 +1691,31 @@ declare namespace notificationManager {
   export interface NotificationCheckInfo {
     /**
      * the application bundle name for publishing notification.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 10
      */
     bundleName: string;
 
     /**
      * the notification id.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 10
      */
     notificationId: number;
 
     /**
      * the notification content type.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 10
      */
     contentType: ContentType;
   }
@@ -1708,8 +1723,8 @@ declare namespace notificationManager {
   /**
    * Describes the result of check notifications.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @typedef NotificationCheckResult
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
@@ -1717,11 +1732,21 @@ declare namespace notificationManager {
   export interface NotificationCheckResult {
     /**
      * the result code. 0-display, 1-no display
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 10
      */
     code: number;
 
     /**
      * the result message.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 10
      */
     message: string;
   }

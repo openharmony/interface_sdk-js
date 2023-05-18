@@ -200,8 +200,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10
    */
@@ -210,12 +210,13 @@ declare namespace commonEventManager {
   /**
    * Set static subscriber state.
    * @param { boolean } enable - static subscribe event enable/disable state.
+   * @returns { Promise<void> }
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10
    */
@@ -1531,6 +1532,8 @@ declare namespace commonEventManager {
     /**
      * Indicate the result of quick fix revoke.
      * This common event can be triggered only by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
      */
     COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = "usual.event.QUICK_FIX_REVOKE_RESULT",
@@ -1765,6 +1768,8 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that domain account status has been changed.
      * To subscribe to this protected common event, your application must have the ohos.permission.GET_LOCAL_ACCOUNTS
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10
      */

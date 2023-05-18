@@ -637,7 +637,7 @@ declare namespace formInfo {
   /**
    * The class of a running form information.
    *
-   * @permission N/A
+   * @typedef RunningFormInfo
    * @syscap SystemCapability.Ability.Form
    * @systemapi hide this for inner system use
    * @since 10
