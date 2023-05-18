@@ -194,6 +194,56 @@ declare const Styles: MethodDecorator;
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
 /**
+ * Define AnimatableExtend MethodDecorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
+
+/**
+ * Define AnimatableArithmetic interface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface AnimatableArithmetic<T> {
+  /**
+   * Define plus method
+   * @param rhs { AnimatableArithmetic<T> } another value
+   * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  plus(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
+
+  /**
+   * Define subtract method
+   * @param rhs { AnimatableArithmetic<T> } another value
+   * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  subtract(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
+
+  /**
+   * Define multiply method
+   * @param scale { number } scale value
+   * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  multiply(scale: number): AnimatableArithmetic<T>;
+
+  /**
+   * Define equals method
+   * @param rhs { AnimatableArithmetic<T> } another value
+   * @returns { boolean } is equals
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  equals(rhs: AnimatableArithmetic<T>): boolean;
+}
+
+/**
  * Defining Concurrent MethodDecorator
  * @since 9
  */
