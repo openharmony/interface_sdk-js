@@ -1609,11 +1609,9 @@ declare namespace call {
   /**
    * Set the audio device with options.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AudioDevice } device - Indicates the device of audio.
    * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
    * @param { AsyncCallback<void> } callback - The callback of setAudioDevice.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1629,11 +1627,9 @@ declare namespace call {
   /**
    * Set the audio device with options.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AudioDevice } device - Indicates the device of audio.
    * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
    * @returns { Promise<void> } The promise returned by the setAudioDevice.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -3022,6 +3018,7 @@ declare namespace call {
      *
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 8
      */
     accountId?: number;
@@ -3031,6 +3028,7 @@ declare namespace call {
      *
      * @type { ?VideoStateType }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 8
      */
     videoState?: VideoStateType;
@@ -3040,6 +3038,7 @@ declare namespace call {
      *
      * @type { ?DialScene }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 8
      */
     dialScene?: DialScene;
@@ -3049,6 +3048,7 @@ declare namespace call {
      *
      * @type { ?DialType }
      * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
      * @since 8
      */
     dialType?: DialType;
