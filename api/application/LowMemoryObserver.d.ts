@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,20 +16,20 @@
 /**
  * The system low memory state observer.
  *
- * @since 10
+ * @interface LowMemoryObserver
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
- * @permission N/A
+ * @systemapi
+ * @since 10
  */
-export default class LowMemoryObserver {
+export interface LowMemoryObserver {
 
     /**
      * Will be called when system low memory state is notified.
      *
-     * @since 10
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
      * @returns -
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 10
      */
     onLowMemoryNotified(): void;
 }

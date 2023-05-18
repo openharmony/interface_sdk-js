@@ -1750,9 +1750,9 @@ declare namespace bundleManager {
   function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the pid list of running processes that belong to a specific bundle.
+   * Obtains the pid list of running processes that belong to a specific bundle of current user.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application to which the processes blong to.
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
    * @param { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1764,11 +1764,11 @@ declare namespace bundleManager {
   function getPidsByBundleName(bundleName: string, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Obtains the pid list of running processes that belong to a specific bundle.
+   * Obtains the pid list of running processes that belong to a specific bundle and specific user ID.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application to which the processes blong to.
-   * @param { number } userId - Indicates the user ID of the application to which the processes blong to.
-   * @returns { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @param { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -1779,10 +1779,9 @@ declare namespace bundleManager {
   function getPidsByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Obtains the pid list of running processes that belong to a specific bundle.
+   * Obtains the pid list of running processes that belong to a specific bundle of current user.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application to which the processes blong to.
-   * @param { number } userId - Indicates the user ID of the application to which the processes blong to, or do not pass user ID.
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
    * @returns { Promise<Array<number>> } - Returns a list of pid numbers.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1792,7 +1791,23 @@ declare namespace bundleManager {
    * @systemapi
    * @since 10
    */
-  function getPidsByBundleName(bundleName: string, userId?: number): Promise<Array<number>>;
+  function getPidsByBundleName(bundleName: string): Promise<Array<number>>;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle and specific user ID.
+   * 
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @returns { Promise<Array<number>> } - Returns a list of pid numbers.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string, userId: number): Promise<Array<number>>;
 
   /**
    * Obtains configuration information about an application.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,7 @@ import * as _ApplicationStateObserver from './application/ApplicationStateObserv
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
+import { LowMemoryObserver as _LowMemoryObserver } from './application/LowMemoryObserver';
 
 /**
  * This module provides the function of app manager service.
@@ -351,6 +352,44 @@ declare namespace appManager {
    */
   function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
 
+  /**
+   * Register system low memory state observer.
+   * @param { string } type - lowMemory.
+   * @param { LowMemoryObserver } observer - Indicates the LowMemoryObserver to be registered.
+   * @returns { number } Returns the index number of the LowMemoryObserver.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: "lowMemory", observer: LowMemoryObserver): number;
+
+  /**
+   * Unregister system low memory state observer.
+   * @param { string } type - lowMemory.
+   * @param { number } observerId - Indicates the observer id to be unregistered.
+   * @param { AsyncCallback<void> } callback - the callback of off.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function off(type: "lowMemory", observerId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregister system low memory state observer.
+   * @param { string } type - lowMemory.
+   * @param { number } observerId - Indicates the observer id to be unregistered.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function off(type: "lowMemory", observerId: number): Promise<void>;
 
   /**
    * The ability or extension state data.
@@ -382,6 +421,14 @@ declare namespace appManager {
    * @since 9
    */
   export type ProcessInformation = _ProcessInformation
+
+  /**
+   * The system low memory state observer.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  export type LowMemoryObserver = _LowMemoryObserver;
 }
 
 export default appManager;
