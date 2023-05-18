@@ -1663,11 +1663,11 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 10
    */
-  export interface SortedOptions {
+  export interface SortOptions {
     /**
      * Locale code.
      *
-	 * @type { string }
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1676,7 +1676,7 @@ declare namespace i18n {
     /**
      * Whether to use local names for sorting
      *
-	 * @type { boolean }
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1685,7 +1685,7 @@ declare namespace i18n {
     /**
      * Whether to put the suggested item at the top
      *
-	 * @type { boolean }
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1698,12 +1698,12 @@ declare namespace i18n {
    * @interface LocaleItem
    * @syscap SystemCapability.Global.I18n
    * @since 10
-   */	
+   */
   export interface LocaleItem {
     /**
      * language or region code.
      *
-	 * @type { string }
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1712,16 +1712,16 @@ declare namespace i18n {
     /**
      * The suggestion type of the language or region.
      *
-	 * @type { string }
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
-    suggestionType: SuggestionTypeType;
+    suggestionType: SuggestionType;
 
     /**
      * The name of the language or region in specified language
      *
-	 * @type { string }
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1745,12 +1745,12 @@ declare namespace i18n {
    * @since 10
    */
   export class SystemLocaleManager {
-	/**
+    /**
      * A constructor used to create a SystemLocaleManager object.
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-	 * @since 10
+     * @since 10
      */
     constructor();
 
@@ -1763,10 +1763,10 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
-	 * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getLanguageInfoArray(langauges: Array<string>, options?: SortedOptions): Array<LocaleItem>;
+    getLanguageInfoArray(langauges: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
     /**
      * Obtains sorted region array to setting or oobe app.
@@ -1778,7 +1778,7 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-	 * @since 10
+     * @since 10
      */
     getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
   }
