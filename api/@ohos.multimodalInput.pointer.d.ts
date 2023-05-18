@@ -598,6 +598,52 @@ declare namespace pointer {
    * @since 10
    */
   function getHoverScrollState(): Promise<boolean>;
+
+  /**
+   * Set the number of mouse scrolling rows.
+   *
+   * @param { number } rows - Indicates the number of mouse scrolling rows.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setMouseScrollRows(rows: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the number of mouse scrolling rows.
+   *
+   * @param { number } rows - Indicates the number of mouse scrolling rows.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setMouseScrollRows(rows: number): Promise<void>;
+
+  /**
+   * Get the number of mouse scrolling rows.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getMouseScrollRows(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the number of mouse scrolling rows.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getMouseScrollRows(): Promise<number>;
 }
 
 export default pointer;

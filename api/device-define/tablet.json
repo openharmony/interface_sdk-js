@@ -7,6 +7,7 @@
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
+    "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
@@ -184,6 +185,7 @@
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
-    "SystemCapability.Msdp.DeviceStatus.Stationary"
+    "SystemCapability.Msdp.DeviceStatus.Stationary",
+    "SystemCapability.Request.FileTransferAgent"
   ]
 }

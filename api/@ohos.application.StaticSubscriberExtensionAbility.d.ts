@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import { CommonEventData } from './commonEvent/commonEventData';
+import { CommonEventData } from "./commonEvent/commonEventData";
+import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**
  * class of static subscriber extension ability.
@@ -24,6 +25,17 @@ import { CommonEventData } from './commonEvent/commonEventData';
  * @since 9
  */
 export default class StaticSubscriberExtensionAbility {
+  /**
+   * Indicates configuration information about an ability context.
+   *
+   * @type { StaticSubscriberExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   * @since 10
+   */
+  context: StaticSubscriberExtensionContext;
+
   /**
    * Called back when a specific common event is published.
    *

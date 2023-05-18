@@ -193,6 +193,35 @@ declare namespace commonEventManager {
   function removeStickyCommonEvent(event: string): Promise<void>;
 
   /**
+   * Set static subscriber state.
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @systemapi Hide this for inner system use.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
+   * @since 10
+   */
+  function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set static subscriber state.
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @systemapi Hide this for inner system use.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
+   * @since 10
+   */
+  function setStaticSubscriberState(enable: boolean): Promise<void>;
+
+  /**
    * The event type that the commonEvent supported.
    *
    * @enum { string }
@@ -1500,6 +1529,13 @@ declare namespace commonEventManager {
     COMMON_EVENT_QUICK_FIX_APPLY_RESULT = 'usual.event.QUICK_FIX_APPLY_RESULT',
 
     /**
+     * Indicate the result of quick fix revoke.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = "usual.event.QUICK_FIX_REVOKE_RESULT",
+
+    /**
      * Indicate the action of a common event that the user information has been updated.
      * This common event can be triggered only by system.
      *
@@ -1725,6 +1761,14 @@ declare namespace commonEventManager {
      * @since 10
      */
     COMMON_EVENT_RADIO_STATE_CHANGE = 'usual.event.RADIO_STATE_CHANGE',
+
+    /**
+     * Indicate the action of a common event that domain account status has been changed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.GET_LOCAL_ACCOUNTS
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = "usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED",
 
     /**
      * This commonEvent means when the screen is unlocked.

@@ -384,72 +384,75 @@ declare namespace privacyManager {
     /**
      * AccessTokenID
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
      */
-    tokenId: number;
+    tokenId?: number;
 
     /**
      * Distribute flag
      *
-     * @type { boolean }
+     * @type { ?boolean }
+     * @default false
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
      */
-    isRemote: boolean;
+    isRemote?: boolean;
 
     /**
      * The device id
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
      */
-    deviceId: string;
+    deviceId?: string;
 
     /**
      * The bundle name
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
      */
-    bundleName: string;
+    bundleName?: string;
 
     /**
      * The list of permission name
      *
-     * @type { Array<Permissions> }
+     * @type { ?Array<Permissions> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
      */
-    permissionNames: Array<Permissions>;
+    permissionNames?: Array<Permissions>;
 
     /**
      * The begin time, in milliseconds
      *
-     * @type { number }
+     * @type { ?number }
+     * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
      */
-    beginTime: number;
+    beginTime?: number;
 
     /**
      * The end time, in milliseconds
      *
-     * @type { number }
+     * @type { ?number }
+     * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 9
      */
-    endTime: number;
+    endTime?: number;
 
     /**
      * The permission usage flag

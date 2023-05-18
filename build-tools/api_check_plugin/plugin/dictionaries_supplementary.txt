@@ -644,6 +644,8 @@ subscrbers
 subscribale
 subscribes
 subtypes
+subwindow
+subwindows
 superimposed
 suscriber
 suscribes

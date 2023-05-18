@@ -657,6 +657,23 @@ declare namespace resourceManager {
     getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource object in callback mode.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
+     *                 specified screen density media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getMediaContent(resource: Resource, density: number, callback: _AsyncCallback<Uint8Array>): void;
+
+    /**
      * Obtains the content of the media file corresponding to a specified resource object in Promise mode.
      *
      * @param { Resource } resource - Indicates the resource object.
@@ -680,6 +697,23 @@ declare namespace resourceManager {
      * @since 10
      */
     getMediaContent(resource: Resource): Promise<Uint8Array>;
+
+    /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource object in Promise mode.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the
+     *                 specified resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getMediaContent(resource: Resource, density: number): Promise<Uint8Array>;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
@@ -734,6 +768,23 @@ declare namespace resourceManager {
     getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void;
 
     /**
+     * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource object in callback mode.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
+     *                 specified screen density image resource.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getMediaContentBase64(resource: Resource, density: number, callback: _AsyncCallback<string>): void;
+
+    /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource object in Promise mode.
      *
      * @param { Resource } resource - Indicates the resource object.
@@ -757,6 +808,22 @@ declare namespace resourceManager {
      * @since 10
      */
     getMediaContentBase64(resource: Resource): Promise<string>;
+
+    /**
+     * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource object in Promise mode.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { Promise<string> } The Base64 code of the specified screen density image resource corresponding to the specified resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getMediaContentBase64(resource: Resource, density: number): Promise<string>;
 
     /**
      * Obtains the device capability in callback mode.
@@ -1130,6 +1197,22 @@ declare namespace resourceManager {
     getMediaByName(resName: string, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource name in callback mode.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
+     *                 specified screen density media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaByName(resName: string, density: number, callback: _AsyncCallback<Uint8Array>): void;
+
+    /**
      * Obtains the content of the media file corresponding to a specified resource name in Promise mode.
      *
      * @param { string } resName - Indicates the resource name.
@@ -1153,6 +1236,22 @@ declare namespace resourceManager {
      * @since 10
      */
     getMediaByName(resName: string): Promise<Uint8Array>;
+
+    /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource name in Promise mode.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the
+     *                 specified resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaByName(resName: string, density: number): Promise<Uint8Array>;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in callback mode.
@@ -1182,6 +1281,22 @@ declare namespace resourceManager {
     getMediaBase64ByName(resName: string, callback: _AsyncCallback<string>): void;
 
     /**
+     * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource name in callback mode.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
+     *                 specified screen density image resource.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaBase64ByName(resName: string, density: number, callback: _AsyncCallback<string>): void;
+
+    /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in Promise mode.
      *
      * @param { string } resName - Indicates the resource name.
@@ -1205,6 +1320,21 @@ declare namespace resourceManager {
      * @since 10
      */
     getMediaBase64ByName(resName: string): Promise<string>;
+
+    /**
+     * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource name in Promise mode.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { Promise<string> } The Base64 code of the specified screen density image resource corresponding to the specified resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaBase64ByName(resName: string, density: number): Promise<string>;
 
     /**
      * Obtains the singular-plural character string represented by the name string corresponding to the
@@ -1781,6 +1911,22 @@ declare namespace resourceManager {
     getMediaContent(resId: number, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource ID in callback mode.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
+     *                 specified screen density media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaContent(resId: number, density: number, callback: _AsyncCallback<Uint8Array>): void;
+
+    /**
      * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
      *
      * @param { number } resId - Indicates the resource ID.
@@ -1804,6 +1950,21 @@ declare namespace resourceManager {
      * @since 10
      */
     getMediaContent(resId: number): Promise<Uint8Array>;
+
+    /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource ID in Promise mode.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the specified resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaContent(resId: number, density: number): Promise<Uint8Array>;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
@@ -1833,6 +1994,22 @@ declare namespace resourceManager {
     getMediaContentBase64(resId: number, callback: _AsyncCallback<string>): void;
 
     /**
+     * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource ID in callback mode.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
+     *                 specified screen density image resource.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaContentBase64(resId: number, density: number, callback: _AsyncCallback<string>): void;
+
+    /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
      *
      * @param { number } resId - Indicates the resource ID.
@@ -1856,6 +2033,21 @@ declare namespace resourceManager {
      * @since 10
      */
     getMediaContentBase64(resId: number): Promise<string>;
+
+    /**
+     * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource ID in Promise mode.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { Promise<string> } the Base64 code of the specified screen density image resource corresponding to the specified resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaContentBase64(resId: number, density: number): Promise<string>;
 
     /**
      * Obtains the raw file resource corresponding to the specified resource path in callback mode.
@@ -2039,6 +2231,30 @@ declare namespace resourceManager {
      * @since 10
      */
     getDrawableDescriptor(resource: Resource, density?: number): DrawableDescriptor;
+
+    /**
+     * Obtains the rawfile resource list corresponding to the specified resource path in callback mode.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the raw file list.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileList(path: string, callback: _AsyncCallback<Array<string>>): void;
+
+    /**
+     * Obtains the rawfile resource list corresponding to the specified resource path in Promise mode.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Promise<Array<string>> } The rawfile list corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileList(path: string): Promise<Array<string>>;
   }
 
   /**

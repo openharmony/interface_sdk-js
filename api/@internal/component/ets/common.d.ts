@@ -227,6 +227,13 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
+ * Defining Recycle ClassDecorator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare const Recycle: ClassDecorator;
+
+/**
  * Get context.
  * @StageModelOnly
  * @since 9
@@ -1699,6 +1706,31 @@ declare enum ShadowStyle {
 }
 
 /**
+ * Defines sheet size type.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum SheetSize {
+  /**
+   * Defines the sheet size medium height type. The height is half the screen height
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  MEDIUM,
+
+  /**
+   * Defines the sheet size large height type. The height is almost screen height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  LARGE,
+}
+
+/**
  * Defines the base event.
  * @since 8
  */
@@ -2015,21 +2047,153 @@ declare interface PixelMapMock {
 }
 
 /**
+ * Enum for Drag Behavior.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum DragBehavior {
+  /**
+   * If drag use copy event, then set DragBehavior.COPY.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COPY,
+  /**
+   * If drag use move event, then set DragBehavior.MOVE.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MOVE
+}
+/**
+ * Import the UnifiedData, Summary, UnifiedDataType type object for ui component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type UnifiedData = import('../api/@ohos.data.UDMF').UnifiedData;
+declare type Summary = import('../api/@ohos.data.UDMF').Summary;
+declare type UnifiedDataType = import('../api/@ohos.data.UDMF').UnifiedDataType;
+
+/**
+ * Enum for Drag Result.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum DragRet {
+  /**
+   * If drag success, return DragRet.DRAG_SUCCESS.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DRAG_SUCCESS,
+  /**
+   * If drag fail, return DragRet.DRAG_FAILED.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DRAG_FAILED,
+  /**
+   * If drag action cancel, return DragRet.DRAG_CANCELED.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DRAG_CANCELED,
+  /**
+   * If node allow drop in, return DragRet.DROP_ENABLED.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DROP_ENABLED,
+  /**
+   * If node don't allow drop in, return DragRet.DROP_DISABLED.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DROP_DISABLED
+}
+
+/**
  * DragEvent object description
  * @since 7
  */
 declare interface DragEvent {
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * Get the X coordinate of the finger, in vp.
    * @since 7
    */
   getX(): number;
 
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * Get the Y coordinate of the finger, in vp.
    * @since 7
    */
   getY(): number;
+
+ /**
+  * If copy is COPY, this DragEvent is a copy event.
+  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+  * @default COPY
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 10
+  */
+ dragBehavior: DragBehavior;
+
+  /**
+   * If useCustomDropAnimation is true, System will not use drop animation.
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  useCustomDropAnimation: boolean;
+
+  /**
+   * Set dragData into DragEvent.
+   * @param { UnifiedData } unifiedData - dragData.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setData(unifiedData: UnifiedData): void;
+
+  /**
+   * Get dragData from DragEvent.
+   * @returns { UnifiedData } - get dragData.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getData(): UnifiedData;
+
+  /**
+   * Get dragData summary from DragEvent.
+   * @returns { Summary } - get Summary Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getSummary(): Summary;
+
+  /**
+   * Set dragEvent result to DragEvent.
+   * @param { DragRet } dragRet - the return of dragEvent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setResult(dragRet: DragRet): void;
+
+  /**
+   * Get dragEvent result from DragEvent.
+   * @returns { DragRet } - dragRet Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getResult(): DragRet;
+
+  /**
+   * Get the rectangle of drag window.
+   * @returns { Rectangle } - getPreview rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getPreviewRect(): Rectangle;
 }
 
 /**
@@ -2085,6 +2249,34 @@ declare interface KeyEvent {
    * @since 7
    */
   stopPropagation?: () => void;
+}
+
+/**
+ * Component Sheet Styles
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SheetStyle {
+  /**
+   * Defines sheet height
+   * @type { SheetSize | Length }
+   * @default Sheet.LARGE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  height?: SheetSize | Length;
+
+  /**
+   * Defines whether the control bar is displayed.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  dragBar?: boolean;
 }
 
 /**
@@ -3388,6 +3580,34 @@ declare class CommonMethod<T> {
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
+   * This function is called when the drag event is end.
+   * @param { DragEvent } event - indicates the function to be called.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
+
+  /**
+   * Allowed drop unifiedData type for this node.
+   * @param { Array<UnifiedDataType> } value - the unifiedData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  allowDrop(value: Array<UnifiedDataType>): T;
+
+  /**
+   * Enable the selectable area can be dragged.
+   * @param { boolean } value - true means the area can be dragged, false means the area can't be dragged.
+   * @default false
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  draggable(value: boolean): T;
+
+  /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    * @since 7
    */
@@ -3596,6 +3816,19 @@ declare class CommonMethod<T> {
    * @since 10
    */
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
+
+
+  /**
+   * Bind sheet
+   * @param { boolean } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { style } style - sheet style type.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
 
   /**
    * Sets styles for component state.
@@ -4023,6 +4256,14 @@ declare class CustomComponent extends CommonAttribute {
    * @since 9
    */
   aboutToDisappear?(): void;
+
+  /**
+   * onRecycle Method
+   * @param {{ [key: string]: unknown }} params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onRecycle?(params: { [key: string]: unknown }): void;
 
   /**
    * Custom component override this method to layout each of its sub components.

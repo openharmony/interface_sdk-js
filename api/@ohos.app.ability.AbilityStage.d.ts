@@ -33,6 +33,7 @@ export default class AbilityStage {
    * @type { AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @crossplatform
    * @since 9
    */
   context: AbilityStageContext;
