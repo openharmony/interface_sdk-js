@@ -14,7 +14,7 @@
  */
 
 /**
- * @interface ActionResult
+ * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
  * @since 3
  */
@@ -49,7 +49,7 @@ export interface ActionResult {
 }
 
 /**
- * @interface ShowNotificationOptions
+ * @typedef ShowNotificationOptions
  * @syscap SystemCapability.Notification.Notification
  * @since 3
  */

@@ -18,7 +18,7 @@ import { NotificationSlot } from './notificationSlot';
 /**
  * Provides sorting information about an active notification.
  *
- * @interface NotificationSorting
+ * @typedef NotificationSorting
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7

@@ -31,13 +31,14 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formBindingData#createFormBindingData
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
   /**
    * Defines the createFormBindingData result interface.
    *
-   * @interface FormBindingData
+   * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9

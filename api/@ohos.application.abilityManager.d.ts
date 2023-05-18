@@ -31,17 +31,69 @@ import { ElementName } from './bundle/elementName';
  */
 declare namespace abilityManager {
   /**
+   * Status information for the Ability.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager#AbilityState
    */
   export enum AbilityState {
+    /**
+     * Indicates that the ability is initial.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager#INITIAL
+     */
     INITIAL = 0,
+
+    /**
+     * Indicates that the ability is foreground.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager#FOREGROUND
+     */
     FOREGROUND = 9,
+
+    /**
+     * Indicates that the ability is background.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager#BACKGROUND
+     */
     BACKGROUND = 10,
+
+    /**
+     * Indicates that the ability is foregrounding.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager#FOREGROUNDING
+     */
     FOREGROUNDING = 11,
+
+    /**
+     * Indicates that the ability is backgrounding.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager#BACKGROUNDING
+     */
     BACKGROUNDING = 12
   }
 
@@ -55,6 +107,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager#updateConfiguration
    */
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
@@ -68,6 +121,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager#updateConfiguration
    */
   function updateConfiguration(config: Configuration): Promise<void>;
 
@@ -80,6 +134,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager#getAbilityRunningInfos
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
@@ -92,6 +147,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager#getAbilityRunningInfos
    */
   function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 }

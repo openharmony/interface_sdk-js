@@ -36,6 +36,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry#getAbilityDelegator
    */
   function getAbilityDelegator(): AbilityDelegator;
 
@@ -46,6 +47,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry#getArguments
    */
   function getArguments(): AbilityDelegatorArgs;
 
@@ -56,12 +58,57 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry#AbilityLifecycleState
    */
   export enum AbilityLifecycleState {
+    /**
+     * Indicates an invalid state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry#UNINITIALIZED
+     */
     UNINITIALIZED,
+
+    /**
+     * Indicates that the Ability is in the created state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry#CREATE
+     */
     CREATE,
+
+    /**
+     * Indicates that Ability is in the foreground state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry#FOREGROUND
+     */
     FOREGROUND,
+
+    /**
+     * Indicates that the Ability is in the background state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry#BACKGROUND
+     */
     BACKGROUND,
+
+    /**
+     * Indicates that the Ability is in a destroyed state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry#DESTROY
+     */
     DESTROY
   }
 }

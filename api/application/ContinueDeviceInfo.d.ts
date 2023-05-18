@@ -16,7 +16,7 @@
 /**
  * Parameters corresponding to continue mission.
  *
- * @interface ContinueDeviceInfo
+ * @typedef ContinueDeviceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9

@@ -31,7 +31,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Configuration
+   * @useinstead ohos.app.ability.Configuration#language
    */
   language?: string;
 
@@ -41,7 +41,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Configuration
+   * @useinstead ohos.app.ability.Configuration#colorMode
    */
   colorMode?: ConfigurationConstant.ColorMode;
 }

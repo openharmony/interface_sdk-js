@@ -18,7 +18,7 @@ import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
 
 /**
- * @interface DataAbilityOperation
+ * @typedef DataAbilityOperation
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 7
  */

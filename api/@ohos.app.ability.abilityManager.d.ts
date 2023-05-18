@@ -37,11 +37,58 @@ declare namespace abilityManager {
    * @since 9
    */
   export enum AbilityState {
+    /**
+     * Ability is initialized.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     INITIAL = 0,
+
+    /**
+     * Ability is in the state of getting focus.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     FOCUS = 2,
+
+    /**
+     * Ability is in the foreground state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     FOREGROUND = 9,
+
+    /**
+     * Ability is in the background state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     BACKGROUND = 10,
+
+    /**
+     * Ability is in the process of scheduling at the foreground.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     FOREGROUNDING = 11,
+
+    /**
+     * Ability is in the process of scheduling in the background.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     BACKGROUNDING = 12
   }
 

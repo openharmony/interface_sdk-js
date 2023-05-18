@@ -19,7 +19,7 @@ import image from '../@ohos.multimedia.image';
 /**
  * Mission snapshot corresponding to mission.
  *
- * @interface MissionSnapshot
+ * @typedef MissionSnapshot
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 8

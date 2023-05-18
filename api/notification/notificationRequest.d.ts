@@ -24,7 +24,7 @@ import { NotificationFlags } from './notificationFlags';
 /**
  * Defines a NotificationRequest instance.
  *
- * @interface NotificationRequest
+ * @typedef NotificationRequest
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
@@ -334,7 +334,7 @@ export interface NotificationRequest {
 /**
  * Describes distributed options.
  *
- * @interface DistributedOptions
+ * @typedef DistributedOptions
  * @syscap SystemCapability.Notification.Notification
  * @since 8
  */

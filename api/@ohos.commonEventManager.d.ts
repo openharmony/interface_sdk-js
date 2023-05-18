@@ -1111,6 +1111,8 @@ declare namespace commonEventManager {
 
     /**
      * Sent when the list of exempt applications in idle mode is updated.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10
      */

@@ -26,6 +26,7 @@ declare namespace dataUriUtils {
    *
    * @param { string } uri Indicates the uri object from which the ID is to be obtained.
    * @returns { number } Returns the ID attached to the end of the path component;
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -37,6 +38,7 @@ declare namespace dataUriUtils {
    * @param { string } uri Indicates the uri string from which the ID is to be obtained.
    * @param { number } id Indicates the ID to attach.
    * @returns { string } Returns the uri object with the given ID attached.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -47,6 +49,7 @@ declare namespace dataUriUtils {
    *
    * @param { string } uri Indicates the uri object from which the ID is to be deleted.
    * @returns { string } Returns the uri object with the ID deleted.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -58,6 +61,7 @@ declare namespace dataUriUtils {
    * @param { string } uri Indicates the uri object to be updated.
    * @param { number } id Indicates the new ID.
    * @returns { string } Returns the updated uri object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */

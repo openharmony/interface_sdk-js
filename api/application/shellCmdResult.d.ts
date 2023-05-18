@@ -16,7 +16,7 @@
 /**
  * A object that records the result of shell command executes.
  *
- * @interface ShellCmdResult
+ * @typedef ShellCmdResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  */

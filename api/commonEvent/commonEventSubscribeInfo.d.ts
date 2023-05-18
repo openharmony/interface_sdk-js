@@ -16,7 +16,7 @@
 /**
  * the information of the subscriber
  *
- * @interface CommonEventSubscribeInfo
+ * @typedef CommonEventSubscribeInfo
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  */

@@ -18,7 +18,7 @@ import notification from '../@ohos.notification';
 /**
  * Describes a NotificationSlot instance.
  *
- * @interface NotificationSlot
+ * @typedef NotificationSlot
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */

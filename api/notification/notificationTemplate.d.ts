@@ -16,7 +16,7 @@
 /**
  * Describes a NotificationTemplate instance.
  *
- * @interface NotificationTemplate
+ * @typedef NotificationTemplate
  * @syscap SystemCapability.Notification.Notification
  * @since 8
  */

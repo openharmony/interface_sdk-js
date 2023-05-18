@@ -19,7 +19,7 @@ import bundle from '../@ohos.bundle.bundleManager';
 /**
  * The class of an extension running information.
  *
- * @interface ExtensionRunningInfo
+ * @typedef ExtensionRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 9

@@ -53,7 +53,7 @@ export enum NotificationFlagStatus {
 /**
  * Describes a NotificationFlags instance.
  *
- * @interface NotificationFlags
+ * @typedef NotificationFlags
  * @syscap SystemCapability.Notification.Notification
  * @since 8
  */

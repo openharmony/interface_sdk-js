@@ -414,7 +414,7 @@ declare namespace wantAgent {
     /**
      * Extra data collected by the common event.
      *
-     * @type { [key: string]: Object }
+     * @type { ?[key: string]: Object }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */

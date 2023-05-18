@@ -16,7 +16,7 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * @interface StartAbilityParameter
+ * @typedef StartAbilityParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 6
  */

@@ -116,6 +116,13 @@ declare namespace wantConstant {
     SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl'
   }
 
+  /**
+   * Used to indicate how Want is handled.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
   export enum Flags {
     /**
      * Indicates the grant to perform read operations on the URI.

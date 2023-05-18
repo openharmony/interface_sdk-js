@@ -16,7 +16,7 @@
 /**
  * Store unit testing-related parameters, including test case names, and test runner name.
  *
- * @interface AbilityDelegatorArgs
+ * @typedef AbilityDelegatorArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  */

@@ -32,8 +32,28 @@ declare namespace dialogRequest {
    */
   export interface RequestInfo {}
 
+  /**
+   * The modal bullet box requests the result code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
   export enum ResultCode {
+    /**
+     * Success.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     RESULT_OK = 0,
+
+    /**
+     * Failed.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     RESULT_CANCEL = 1
   }
 

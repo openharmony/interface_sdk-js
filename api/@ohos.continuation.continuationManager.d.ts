@@ -113,7 +113,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager on(type: "deviceSelected")
+   * @useinstead ohos.continuation.continuationManager#on
    */
   function on(type: 'deviceConnect', callback: Callback<ContinuationResult>): void;
 
@@ -128,7 +128,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager off(type: "deviceSelected")
+   * @useinstead ohos.continuation.continuationManager#off
    */
   function off(type: 'deviceConnect', callback?: Callback<ContinuationResult>): void;
 
@@ -142,7 +142,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager on(type: "deviceUnSelected")
+   * @useinstead ohos.continuation.continuationManager#on
    */
   function on(type: 'deviceDisconnect', callback: Callback<string>): void;
 
@@ -156,7 +156,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager off(type: "deviceUnSelected")
+   * @useinstead ohos.continuation.continuationManager#off
    */
   function off(type: 'deviceDisconnect', callback?: Callback<string>): void;
 
@@ -491,9 +491,36 @@ declare namespace continuationManager {
    * @since 8
    */
   export enum DeviceConnectState {
+    /**
+     * Initial state of device connection.
+     *
+     * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @since 8
+     */
     IDLE = 0,
+    
+    /**
+     * Device connection status.
+     *
+     * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @since 8
+     */
     CONNECTING = 1,
+    
+    /**
+     * The device is connected.
+     *
+     * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @since 8
+     */
     CONNECTED = 2,
+    
+    /**
+     * The device is disconnected.
+     *
+     * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @since 8
+     */
     DISCONNECTING = 3
   }
 

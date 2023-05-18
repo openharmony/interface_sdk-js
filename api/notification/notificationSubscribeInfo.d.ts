@@ -16,7 +16,7 @@
 /**
  * Sets filter criteria of publishers for subscribing to desired notifications.
  *
- * @interface NotificationSubscribeInfo
+ * @typedef NotificationSubscribeInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7

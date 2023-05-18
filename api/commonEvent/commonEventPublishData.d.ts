@@ -16,7 +16,7 @@
 /**
  * containing the common event content and attributes
  *
- * @interface CommonEventPublishData
+ * @typedef CommonEventPublishData
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  */

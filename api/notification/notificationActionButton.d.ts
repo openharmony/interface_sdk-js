@@ -19,7 +19,7 @@ import { WantAgent } from '../@ohos.wantAgent';
 /**
  * Describes an action button displayed in a notification.
  *
- * @interface NotificationActionButton
+ * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */

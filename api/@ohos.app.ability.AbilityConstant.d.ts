@@ -65,6 +65,8 @@ declare namespace AbilityConstant {
    */
   export enum LaunchReason {
     /**
+     * Unknown reason.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @crossplatform
@@ -73,6 +75,8 @@ declare namespace AbilityConstant {
     UNKNOWN = 0,
 
     /**
+     * Start ability through the startAbility interface.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -80,6 +84,8 @@ declare namespace AbilityConstant {
     START_ABILITY = 1,
 
     /**
+     * Start ability through the startAbilityByCall interface.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -87,6 +93,8 @@ declare namespace AbilityConstant {
     CALL = 2,
 
     /**
+     * Cross-end device migration starts ability.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -94,6 +102,8 @@ declare namespace AbilityConstant {
     CONTINUATION = 3,
 
     /**
+     * After the application is restored, the ability is automatically restored and started when the application fails.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -101,6 +111,8 @@ declare namespace AbilityConstant {
     APP_RECOVERY = 4,
 
     /**
+     * Start ability through the acquireShareData interface.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 10
      */
@@ -118,6 +130,8 @@ declare namespace AbilityConstant {
    */
   export enum LastExitReason {
     /**
+     * Unknown reason.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @crossplatform
@@ -126,6 +140,8 @@ declare namespace AbilityConstant {
     UNKNOWN = 0,
 
     /**
+     * Ability is not responding.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -133,6 +149,8 @@ declare namespace AbilityConstant {
     ABILITY_NOT_RESPONDING = 1,
 
     /**
+     * Exit normally.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -149,8 +167,31 @@ declare namespace AbilityConstant {
    * @since 9
    */
   export enum OnContinueResult {
+    /**
+     * Agree.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     AGREE = 0,
+
+    /**
+     * Reject.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     REJECT = 1,
+
+    /**
+     * Mismatch.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     MISMATCH = 2
   }
 
@@ -163,8 +204,31 @@ declare namespace AbilityConstant {
    * @since 9
    */
   export enum MemoryLevel {
+    /**
+     * Memory footprint is moderate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     MEMORY_LEVEL_MODERATE = 0,
+
+    /**
+     * Low memory footprint.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     MEMORY_LEVEL_LOW = 1,
+
+    /**
+     * High memory footprint.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     MEMORY_LEVEL_CRITICAL = 2
   }
 
@@ -178,10 +242,56 @@ declare namespace AbilityConstant {
    * @since 9
    */
   export enum WindowMode {
+    /**
+     * The window mode is not defined.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     WINDOW_MODE_UNDEFINED = 0,
+
+    /**
+     * Full screen mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     WINDOW_MODE_FULLSCREEN = 1,
+
+    /**
+     * The horizontal direction of the screen indicates the left split screen, and the vertical direction of the
+     * screen indicates the upper split screen.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
+
+    /**
+     * If the screen is horizontal, it means the right split screen, and if the screen is vertical,
+     * it means the lower split screen.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
+
+    /**
+     * Free floating form window mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     WINDOW_MODE_FLOATING = 102
   }
 
@@ -194,11 +304,58 @@ declare namespace AbilityConstant {
    * @since 9
    */
   export enum OnSaveResult {
+    /**
+     * Always agree to save the state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     ALL_AGREE = 0,
+
+    /**
+     * Refuse to migrate save state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     CONTINUATION_REJECT = 1,
+
+    /**
+     * The migration does not match.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     CONTINUATION_MISMATCH = 2,
+
+    /**
+     * Agree to restore the saved state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     RECOVERY_AGREE = 3,
+
+    /**
+     * Refusing to restore the saved state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     RECOVERY_REJECT = 4,
+
+    /**
+     * Always refuses to save the state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     ALL_REJECT
   }
 
@@ -211,7 +368,22 @@ declare namespace AbilityConstant {
    * @since 9
    */
   export enum StateType {
+    /**
+     * Migrate and save the state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     CONTINUATION = 0,
+
+    /**
+     * Apply to restore the saved state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
     APP_RECOVERY = 1
   }
 }

@@ -18,7 +18,7 @@ import Want from '../@ohos.app.ability.Want';
 /**
  * Provides the information required for triggering a WantAgent.
  *
- * @interface TriggerInfo
+ * @typedef TriggerInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */

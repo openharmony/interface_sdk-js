@@ -16,7 +16,7 @@
 /**
  * The class of an process running information.
  *
- * @interface ProcessRunningInfo
+ * @typedef ProcessRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @since 8
  * @deprecated since 9
@@ -28,7 +28,7 @@ export interface ProcessRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation.pid
+   * @useinstead ProcessInformation#pid
    */
   pid: number;
 
@@ -37,7 +37,7 @@ export interface ProcessRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation.uid
+   * @useinstead ProcessInformation#uid
    */
   uid: number;
 
@@ -46,7 +46,7 @@ export interface ProcessRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation.processName
+   * @useinstead ProcessInformation#processName
    */
   processName: string;
 
@@ -55,7 +55,7 @@ export interface ProcessRunningInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation.bundleNames
+   * @useinstead ProcessInformation#bundleNames
    */
   bundleNames: Array<string>;
 }

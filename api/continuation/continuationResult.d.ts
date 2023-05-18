@@ -16,7 +16,7 @@
 /**
  * Indicates the description of transfer results for continuation.
  *
- * @interface ContinuationResult
+ * @typedef ContinuationResult
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @since 8
  */

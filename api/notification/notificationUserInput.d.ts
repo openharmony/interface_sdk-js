@@ -16,7 +16,7 @@
 /**
  * Describes a NotificationUserInput instance.
  *
- * @interface NotificationUserInput
+ * @typedef NotificationUserInput
  * @syscap SystemCapability.Notification.Notification
  * @since 8
  */

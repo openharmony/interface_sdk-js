@@ -32,7 +32,7 @@ export default class StartOptions {
   windowMode?: number;
 
   /**
-   * displayId
+   * The type of displayId
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly

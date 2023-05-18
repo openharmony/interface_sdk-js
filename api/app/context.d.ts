@@ -562,7 +562,7 @@ export interface Context extends BaseContext {
   printDrawnCompleted(): Promise<void>;
 }
 /**
- * @interface PermissionRequestResult
+ * @typedef PermissionRequestResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @FAModelOnly
  * @since 7
@@ -594,7 +594,7 @@ interface PermissionRequestResult {
 }
 
 /**
- * @interface PermissionOptions
+ * @typedef PermissionOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @FAModelOnly
  * @since 7

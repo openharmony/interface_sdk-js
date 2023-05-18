@@ -16,7 +16,7 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * @interface AbilityResult
+ * @typedef AbilityResult
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 7
  */

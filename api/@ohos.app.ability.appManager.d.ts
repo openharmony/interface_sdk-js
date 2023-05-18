@@ -36,10 +36,49 @@ declare namespace appManager {
    * @since 9
    */
   export enum ApplicationState {
+    /**
+     * The state in which the application is being created.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_CREATE,
+
+    /**
+     * The state that the application is in when it switches to the foreground.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_FOREGROUND,
+
+    /**
+     * The state in which the application is in focus.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_ACTIVE,
+
+    /**
+     * The state in which the application is invisible in the background.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_BACKGROUND,
+
+    /**
+     * The state that the application is in when it is destroyed.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_DESTROY
   }
 
@@ -52,10 +91,49 @@ declare namespace appManager {
    * @since 9
    */
   export enum ProcessState {
+    /**
+     * The state that the process is in when it is being created.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_CREATE,
+
+    /**
+     * The state in which the process is in when it switches to the foreground.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_FOREGROUND,
+
+    /**
+     * The state in which the process is in focus.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_ACTIVE,
+
+    /**
+     * The state in which a process is invisible in the background.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_BACKGROUND,
+
+    /**
+     * The state that the process is in when it is destroyed.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     STATE_DESTROY
   }
 

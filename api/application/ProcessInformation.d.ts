@@ -16,7 +16,7 @@
 /**
  * The class of an process information.
  *
- * @interface ProcessInformation
+ * @typedef ProcessInformation
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @since 9

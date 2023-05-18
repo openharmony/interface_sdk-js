@@ -39,6 +39,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#on
    */
   function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
 
@@ -52,6 +53,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#off
    */
   function unregisterApplicationStateObserver(observerId: number, callback: AsyncCallback<void>): void;
 
@@ -65,6 +67,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#off
    */
   function unregisterApplicationStateObserver(observerId: number): Promise<void>;
 
@@ -78,6 +81,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#getForegroundApplications
    */
   function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
 
@@ -90,6 +94,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#getForegroundApplications
    */
   function getForegroundApplications(): Promise<Array<AppStateData>>;
 
@@ -104,6 +109,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#killProcessWithAccount
    */
   function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
 
@@ -118,6 +124,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#killProcessWithAccount
    */
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -128,6 +135,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#isRunningInStabilityTest
    */
   function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
 
@@ -138,6 +146,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#isRunningInStabilityTest
    */
   function isRunningInStabilityTest(): Promise<boolean>;
 
@@ -188,6 +197,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#killProcessesByBundleName
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
@@ -201,6 +211,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#killProcessesByBundleName
    */
   function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
 
@@ -214,6 +225,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#clearUpApplicationData
    */
   function clearUpApplicationData(bundleName: string): Promise<void>;
 
@@ -227,6 +239,7 @@ declare namespace appManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#clearUpApplicationData
    */
   function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 
@@ -237,6 +250,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#isRamConstrainedDevice
    */
   function isRamConstrainedDevice(): Promise<boolean>;
 
@@ -247,6 +261,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#isRamConstrainedDevice
    */
   function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
 
@@ -257,6 +272,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#getAppMemorySize
    */
   function getAppMemorySize(): Promise<number>;
 
@@ -267,6 +283,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager#getAppMemorySize
    */
   function getAppMemorySize(callback: AsyncCallback<number>): void;
 }

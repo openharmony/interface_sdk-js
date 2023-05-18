@@ -19,7 +19,7 @@ import wantAgent from '../@ohos.wantAgent';
 /**
  * Provides the information required for triggering a WantAgent.
  *
- * @interface WantAgentInfo
+ * @typedef WantAgentInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */

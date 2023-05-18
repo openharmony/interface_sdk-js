@@ -483,7 +483,7 @@ export interface DataAbilityHelper {
 /**
  * Defines a PacMap object for storing a series of values.
  *
- * @interface PacMap
+ * @typedef PacMap
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
  * @since 7

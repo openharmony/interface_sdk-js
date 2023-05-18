@@ -16,7 +16,7 @@
 /**
  * Want is the basic communication component of the system.
  *
- * @interface Want
+ * @typedef Want
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 6
  * @deprecated since 9
@@ -30,6 +30,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#deviceId
    */
   deviceId?: string;
 
@@ -40,6 +41,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#bundleName
    */
   bundleName?: string;
 
@@ -50,6 +52,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#abilityName
    */
   abilityName?: string;
 
@@ -60,6 +63,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#uri
    */
   uri?: string;
 
@@ -70,6 +74,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#type
    */
   type?: string;
 
@@ -80,6 +85,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#flags
    */
   flags?: number;
 
@@ -90,6 +96,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#action
    */
   action?: string;
 
@@ -100,6 +107,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#parameters
    */
   parameters?: { [key: string]: any };
 
@@ -110,6 +118,7 @@ export declare interface Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.Want#entities
    */
   entities?: Array<string>;
 }

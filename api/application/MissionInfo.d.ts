@@ -18,7 +18,7 @@ import Want from '../@ohos.app.ability.Want';
 /**
  * Mission information corresponding to ability.
  *
- * @interface MissionInfo
+ * @typedef MissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 8

@@ -37,7 +37,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getBundleName
    */
   function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
 
@@ -49,7 +49,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getBundleName
    */
   function getBundleName(agent: WantAgent): Promise<string>;
 
@@ -61,7 +61,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getUid
    */
   function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
 
@@ -73,7 +73,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getUid
    */
   function getUid(agent: WantAgent): Promise<number>;
 
@@ -86,7 +86,7 @@ declare namespace wantAgent {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getWant
    */
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
@@ -99,7 +99,7 @@ declare namespace wantAgent {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getWant
    */
   function getWant(agent: WantAgent): Promise<Want>;
 
@@ -111,7 +111,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#cancel
    */
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
@@ -123,7 +123,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#cancel
    */
   function cancel(agent: WantAgent): Promise<void>;
 
@@ -136,7 +136,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#trigger
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
 
@@ -149,7 +149,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#equal
    */
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
 
@@ -162,7 +162,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#equal
    */
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
@@ -174,7 +174,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getWantAgent
    */
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
 
@@ -186,7 +186,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#getWantAgent
    */
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
@@ -197,7 +197,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#WantAgentFlags
    */
   export enum WantAgentFlags {
     /**
@@ -207,7 +207,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#ONE_TIME_FLAG
      */
     ONE_TIME_FLAG = 0,
 
@@ -218,7 +218,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#NO_BUILD_FLAG
      */
     NO_BUILD_FLAG,
 
@@ -229,7 +229,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#CANCEL_PRESENT_FLAG
      */
     CANCEL_PRESENT_FLAG,
 
@@ -240,7 +240,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#UPDATE_PRESENT_FLAG
      */
     UPDATE_PRESENT_FLAG,
 
@@ -250,7 +250,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#CONSTANT_FLAG
      */
     CONSTANT_FLAG,
 
@@ -260,7 +260,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#REPLACE_ELEMENT
      */
     REPLACE_ELEMENT,
 
@@ -270,7 +270,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#REPLACE_ACTION
      */
     REPLACE_ACTION,
 
@@ -280,7 +280,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#REPLACE_URI
      */
     REPLACE_URI,
 
@@ -290,7 +290,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#REPLACE_ENTITIES
      */
     REPLACE_ENTITIES,
 
@@ -300,7 +300,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#REPLACE_BUNDLE
      */
     REPLACE_BUNDLE
   }
@@ -312,7 +312,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#OperationType
    */
   export enum OperationType {
     /**
@@ -321,7 +321,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#UNKNOWN_TYPE
      */
     UNKNOWN_TYPE = 0,
 
@@ -331,7 +331,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#START_ABILITY
      */
     START_ABILITY,
 
@@ -341,7 +341,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#START_ABILITIES
      */
     START_ABILITIES,
 
@@ -351,7 +351,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#START_SERVICE
      */
     START_SERVICE,
 
@@ -361,7 +361,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#SEND_COMMON_EVENT
      */
     SEND_COMMON_EVENT
   }
@@ -369,11 +369,11 @@ declare namespace wantAgent {
   /**
    * Describes the data returned by after wantAgent.trigger is called.
    *
-   * @interface CompleteData
+   * @typedef CompleteData
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.app.ability.wantAgent
+   * @useinstead ohos.app.ability.wantAgent#CompleteData
    */
   export interface CompleteData {
     /**
@@ -382,7 +382,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#info
      */
     info: WantAgent;
 
@@ -392,7 +392,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#want
      */
     want: Want;
 
@@ -402,7 +402,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#finalCode
      */
     finalCode: number;
 
@@ -412,7 +412,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#finalData
      */
     finalData: string;
 
@@ -422,7 +422,7 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.app.ability.wantAgent
+     * @useinstead ohos.app.ability.wantAgent#extraInfo
      */
     extraInfo?: { [key: string]: any };
   }

@@ -18,7 +18,7 @@ import continuationManager from '../@ohos.continuation.continuationManager';
 /**
  * Indicates the description of additional parameters for continuation.
  *
- * @interface ContinuationExtraParams
+ * @typedef ContinuationExtraParams
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @since 8
  */

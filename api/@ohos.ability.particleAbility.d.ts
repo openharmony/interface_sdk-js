@@ -94,7 +94,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager#startBackgroundRunning
    */
   function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -110,7 +110,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager#startBackgroundRunning
    */
   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
 
@@ -122,7 +122,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager#stopBackgroundRunning
    */
   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
 
@@ -134,7 +134,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager#stopBackgroundRunning
    */
   function cancelBackgroundRunning(): Promise<void>;
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @interface DataAbilityResult
+ * @typedef DataAbilityResult
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 7
  */

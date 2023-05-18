@@ -18,7 +18,7 @@ import { NotificationSorting } from './notificationSorting';
 /**
  * Provides sorting information about the active notifications among all the notifications that have been subscribed to
  *
- * @interface NotificationSortingMap
+ * @typedef NotificationSortingMap
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7

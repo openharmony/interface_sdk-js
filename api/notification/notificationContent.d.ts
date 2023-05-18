@@ -19,7 +19,7 @@ import image from '../@ohos.multimedia.image';
 /**
  * Describes a normal text notification.
  *
- * @interface NotificationBasicContent
+ * @typedef NotificationBasicContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
@@ -52,7 +52,7 @@ export interface NotificationBasicContent {
 /**
  * Describes a long text notification.
  *
- * @interface NotificationLongTextContent
+ * @typedef NotificationLongTextContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
@@ -85,7 +85,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
 /**
  * Describes a multi-line text notification.
  *
- * @interface NotificationMultiLineContent
+ * @typedef NotificationMultiLineContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
@@ -118,7 +118,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
 /**
  * Describes a picture-attached notification.
  *
- * @interface NotificationPictureContent
+ * @typedef NotificationPictureContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
@@ -151,7 +151,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
 /**
  * Describes notification types.
  *
- * @interface NotificationContent
+ * @typedef NotificationContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */

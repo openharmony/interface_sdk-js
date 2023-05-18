@@ -66,7 +66,7 @@ export interface NotificationSubscriber {
  * Provides methods that will be called back when the subscriber receives a new notification or
  * a notification is canceled.
  *
- * @interface SubscribeCallbackData
+ * @typedef SubscribeCallbackData
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7
@@ -82,7 +82,7 @@ export interface SubscribeCallbackData {
 /**
  * Describes the properties of the application that the permission to send notifications has changed.
  *
- * @interface EnabledNotificationCallbackData
+ * @typedef EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 8
@@ -96,7 +96,7 @@ export interface EnabledNotificationCallbackData {
 /**
  * Describes the badge number of the application has changed.
  *
- * @interface BadgeNumberCallbackData
+ * @typedef BadgeNumberCallbackData
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 10

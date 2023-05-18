@@ -16,7 +16,7 @@
 /**
  * Defines an AppVersionInfo object.
  *
- * @interface AppVersionInfo
+ * @typedef AppVersionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */

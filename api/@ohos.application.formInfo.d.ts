@@ -28,10 +28,11 @@ declare namespace formInfo {
   /**
    * Provides information about a form.
    *
-   * @interface FormInfo
+   * @typedef FormInfo
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formInfo#FormInfo
    */
   interface FormInfo {
     /**
@@ -40,6 +41,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#bundleName
      */
     bundleName: string;
 
@@ -49,6 +51,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#moduleName
      */
     moduleName: string;
 
@@ -58,6 +61,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#abilityName
      */
     abilityName: string;
 
@@ -67,6 +71,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#name
      */
     name: string;
 
@@ -76,6 +81,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#description
      */
     description: string;
 
@@ -85,6 +91,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#type
      */
     type: FormType;
 
@@ -94,6 +101,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#jsComponentName
      */
     jsComponentName: string;
 
@@ -103,6 +111,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#colorMode
      */
     colorMode: ColorMode;
 
@@ -112,6 +121,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#isDefault
      */
     isDefault: boolean;
 
@@ -121,6 +131,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#updateEnabled
      */
     updateEnabled: boolean;
 
@@ -130,6 +141,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#formVisibleNotify
      */
     formVisibleNotify: boolean;
 
@@ -148,6 +160,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#scheduledUpdateTime
      */
     scheduledUpdateTime: string;
 
@@ -157,6 +170,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#formConfigAbility
      */
     formConfigAbility: string;
 
@@ -166,6 +180,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#updateDuration
      */
     updateDuration: number;
 
@@ -175,6 +190,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#defaultDimension
      */
     defaultDimension: number;
 
@@ -184,6 +200,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#supportDimensions
      */
     supportDimensions: Array<number>;
 
@@ -193,6 +210,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#customizeData
      */
     customizeData: { [key: string]: [value: string] };
   }
@@ -204,6 +222,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formInfo#FormType
    */
   enum FormType {
     /**
@@ -212,6 +231,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#JS
      */
     JS = 1
   }
@@ -223,6 +243,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formInfo#ColorMode
    */
   enum ColorMode {
     /**
@@ -231,6 +252,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#MODE_AUTO
      */
     MODE_AUTO = -1,
 
@@ -240,6 +262,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#MODE_DARK
      */
     MODE_DARK = 0,
 
@@ -249,6 +272,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#MODE_LIGHT
      */
     MODE_LIGHT = 1
   }
@@ -256,10 +280,11 @@ declare namespace formInfo {
   /**
    * Provides state information about a form.
    *
-   * @interface FormStateInfo
+   * @typedef FormStateInfo
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formInfo#FormStateInfo
    */
   interface FormStateInfo {
     /**
@@ -268,6 +293,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#formState
      */
     formState: FormState;
 
@@ -277,6 +303,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#want
      */
     want: Want;
   }
@@ -288,6 +315,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formInfo#FormState
    */
   enum FormState {
     /**
@@ -296,6 +324,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#UNKNOWN
      */
     UNKNOWN = -1,
 
@@ -305,6 +334,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#DEFAULT
      */
     DEFAULT = 0,
 
@@ -314,6 +344,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#READY
      */
     READY = 1
   }
@@ -325,6 +356,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formInfo#FormParam
    */
   enum FormParam {
     /**
@@ -339,6 +371,7 @@ declare namespace formInfo {
      * @systemapi
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#IDENTITY_KEY
      */
     IDENTITY_KEY = 'ohos.extra.param.key.form_identity',
 
@@ -353,6 +386,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#DIMENSION_KEY
      */
     DIMENSION_KEY = 'ohos.extra.param.key.form_dimension',
 
@@ -367,6 +401,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#NAME_KEY
      */
     NAME_KEY = 'ohos.extra.param.key.form_name',
 
@@ -383,6 +418,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#MODULE_NAME_KEY
      */
     MODULE_NAME_KEY = 'ohos.extra.param.key.module_name',
 
@@ -397,6 +433,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#WIDTH_KEY
      */
     WIDTH_KEY = 'ohos.extra.param.key.form_width',
 
@@ -411,6 +448,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#HEIGHT_KEY
      */
     HEIGHT_KEY = 'ohos.extra.param.key.form_height',
 
@@ -425,6 +463,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.app.form.formInfo#TEMPORARY_KEY
      */
     TEMPORARY_KEY = 'ohos.extra.param.key.form_temporary'
   }

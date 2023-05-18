@@ -14,7 +14,7 @@
  */
 
 /**
- * @interface ProcessInfo
+ * @typedef ProcessInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */

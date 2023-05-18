@@ -19,7 +19,7 @@ import abilityManager from '../@ohos.app.ability.abilityManager';
 /**
  * The class of an ability running information.
  *
- * @interface AbilityRunningInfo
+ * @typedef AbilityRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 8
