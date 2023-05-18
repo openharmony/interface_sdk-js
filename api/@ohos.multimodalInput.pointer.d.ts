@@ -509,6 +509,7 @@ declare namespace pointer {
    * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary
    * button is left button, and the value RIGHT indicates that mouse primary button is right button.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -522,6 +523,7 @@ declare namespace pointer {
    * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary
    * button is left button, and the value RIGHT indicates that mouse primary button is right button.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -533,6 +535,7 @@ declare namespace pointer {
    * Gets mouse primary button.
    *
    * @param { AsyncCallback<PrimaryButton> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -544,6 +547,7 @@ declare namespace pointer {
    * Gets mouse primary button.
    *
    * @returns { Promise<PrimaryButton> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -557,6 +561,7 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -570,6 +575,7 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -581,6 +587,7 @@ declare namespace pointer {
    * Gets a status whether the mouse hover scroll is enabled in inactive window.
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -592,6 +599,7 @@ declare namespace pointer {
    * Gets a status whether mouse hover scroll is enabled in inactive window.
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -604,7 +612,8 @@ declare namespace pointer {
    *
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -616,7 +625,8 @@ declare namespace pointer {
    *
    * @param { number } rows - Indicates the number of mouse scrolling rows.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -627,7 +637,8 @@ declare namespace pointer {
    * Get the number of mouse scrolling rows.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -638,7 +649,8 @@ declare namespace pointer {
    * Get the number of mouse scrolling rows.
    *
    * @returns { Promise<number> } Returns the result through a promise.
-   * @throws { BusinessError } 401 - Parameter error. 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
