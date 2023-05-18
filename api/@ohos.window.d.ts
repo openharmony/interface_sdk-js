@@ -1196,8 +1196,8 @@ declare namespace window {
   /**
    * Register the callback of systemBarTintChange
    *
-   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the status bar and navigation bar.
-   * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the status bar and navigation bar.
+   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
+   * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
    * @throws { BusinessError } 401 - If param is invalid
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -1208,8 +1208,8 @@ declare namespace window {
   /**
    * Unregister the callback of systemBarTintChange
    *
-   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the status bar and navigation bar.
-   * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the status bar and navigation bar.
+   * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
+   * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
    * @throws { BusinessError } 401 - If param is invalid
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
