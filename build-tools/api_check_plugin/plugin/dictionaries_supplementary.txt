@@ -542,7 +542,7 @@ recovering
 recursions
 redirections
 refill
-Refusing
+refusing
 rejects
 relocation
 remidner
