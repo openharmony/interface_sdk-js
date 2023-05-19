@@ -26,7 +26,6 @@ export interface LowMemoryObserver {
     /**
      * Will be called when system low memory state is notified.
      *
-     * @returns -
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10
