@@ -34,7 +34,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800003 - Inner transact failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Idle
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @since 10
    */
   function isDeviceInStandby(callback: AsyncCallback<boolean>): void;
@@ -50,7 +50,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800003 - Inner transact failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Idle
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @since 10
    */
   function isDeviceInStandby(): Promise<boolean>;
@@ -69,7 +69,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800003 - Inner transact failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -89,7 +89,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800003 - Inner transact failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -108,7 +108,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800003 - Inner transact failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -127,7 +127,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 9800003 - Inner transact failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -137,7 +137,7 @@ declare namespace deviceStandby {
    * The type of exemption resources requested by the application.
    *
    * @enum { number }
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -145,7 +145,7 @@ declare namespace deviceStandby {
     /**
      * The resource for non-standby network access.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -154,7 +154,7 @@ declare namespace deviceStandby {
     /**
      * The resource for non-standby cpu running-lock.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -163,7 +163,7 @@ declare namespace deviceStandby {
     /**
      * The resource for non-standby timer.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -172,7 +172,7 @@ declare namespace deviceStandby {
     /**
      * The resource for non-standby workscheduler.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -181,7 +181,7 @@ declare namespace deviceStandby {
     /**
      * The resource for non-standby automatic synchronization.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -190,7 +190,7 @@ declare namespace deviceStandby {
     /**
      * The resource for non-standby push-kit.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -199,7 +199,7 @@ declare namespace deviceStandby {
     /**
      * The resource for non-standby freezing application.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -210,7 +210,7 @@ declare namespace deviceStandby {
    * Information about an exempted application.
    *
    * @interface ExemptedAppInfo
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -218,7 +218,7 @@ declare namespace deviceStandby {
     /**
      * The set of resource types that app wants to apply.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -227,7 +227,7 @@ declare namespace deviceStandby {
     /**
      *  The application name.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -236,7 +236,7 @@ declare namespace deviceStandby {
     /**
      *  The exemption duration.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -247,7 +247,7 @@ declare namespace deviceStandby {
    * The request of standby resources.
    *
    * @interface ResourceRequest
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -255,7 +255,7 @@ declare namespace deviceStandby {
     /**
      * The set of resource types that an application requests.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -264,7 +264,7 @@ declare namespace deviceStandby {
     /**
      *  The application uid.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -273,7 +273,7 @@ declare namespace deviceStandby {
     /**
      *  The application name.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -282,7 +282,7 @@ declare namespace deviceStandby {
     /**
      *  The exemption duration.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -291,7 +291,7 @@ declare namespace deviceStandby {
     /**
      *  The reason for the request.
      *
-     * @syscap SystemCapability.ResourceSchedule.DeviceStandby.Exemption
+     * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
      */
