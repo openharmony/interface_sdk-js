@@ -52,6 +52,7 @@ averr
 avoidareachange
 avrcp
 avsession
+backgrounding
 backs
 base64
 bassboost
@@ -234,6 +235,7 @@ fillets
 flac
 flg
 foldable
+foregrounding
 formatable
 forwardmail
 freesize
@@ -540,6 +542,7 @@ recovering
 recursions
 redirections
 refill
+Refusing
 rejects
 relocation
 remidner
