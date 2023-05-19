@@ -63,12 +63,13 @@ declare namespace logLibrary {
    * @param  { string } logType - Log type
    * @returns { LogEntry[] } Return LogEntry[]
    * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
    */
-  function listSync(logType: string): LogEntry[];
+  function list(logType: string): LogEntry[];
 
   /**
    * Copy log to dest path
@@ -79,6 +80,7 @@ declare namespace logLibrary {
    * @param { string } dest - Log path under hiview sandbox of HAP
    * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
@@ -97,6 +99,7 @@ declare namespace logLibrary {
    * @param { AsyncCallback} callback - After finish copy log will callback
    * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
@@ -114,6 +117,7 @@ declare namespace logLibrary {
    * @param { string } dest - Log path under hiview sandbox of HAP
    * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
@@ -132,6 +136,7 @@ declare namespace logLibrary {
    * @param {AsyncCallback} callback - After finish move log will callback
    * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
@@ -148,13 +153,14 @@ declare namespace logLibrary {
    * @param { string } logName - Log name
    * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10
    */
-  function removeSync(logType: string, logName: string): void;
+  function remove(logType: string, logName: string): void;
 }
 
 export default logLibrary;
