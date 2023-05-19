@@ -124,7 +124,8 @@ declare namespace dataShare {
    * Specifies the {@link Template} id structure.
    * A template is marked by the template id. Note that the template id is auto generated in {@link DataShareHelper#addTemplate}.
    * After {@link DataShareHelper#addTemplate}, can use the template id to direct a template.
-   *
+   * 
+   * @interface TemplateId
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -156,6 +157,7 @@ declare namespace dataShare {
   /**
    * Specifies the published item structure.
    *
+   * @interface PublishedItem
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -195,6 +197,7 @@ declare namespace dataShare {
   /**
    * Specifies the change node structure of rdb store data in callback.
    *
+   * @interface RdbDataChangeNode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -235,6 +238,7 @@ declare namespace dataShare {
   /**
    * Specifies the change node structure of published data in callback.
    *
+   * @interface PublishedDataChangeNode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -264,6 +268,7 @@ declare namespace dataShare {
   /**
    * Specifies the template structure in subscribe.
    *
+   * @interface Template
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
