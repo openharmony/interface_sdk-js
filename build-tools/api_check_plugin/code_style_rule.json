@@ -313,8 +313,7 @@
       "SystemCapability.MultimodalInput.Input.ShortKey",
       "SystemCapability.Msdp.DeviceStatus.Cooperate",
       "SystemCapability.Request.FileTransferAgent",
-      "SystemCapability.ResourceSchedule.DeviceStandby.Idle",
-      "SystemCapability.ResourceSchedule.DeviceStandby.Exemption"
+      "SystemCapability.ResourceSchedule.DeviceStandby"
     ]
   },
   "administrators": [
