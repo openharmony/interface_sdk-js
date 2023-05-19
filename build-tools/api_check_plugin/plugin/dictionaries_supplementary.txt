@@ -402,6 +402,7 @@ missions
 mkdtemp
 mmax
 mmi
+mmicode
 mnc
 moderately
 moitor
@@ -458,6 +459,8 @@ operatorconfigs
 opkey
 opl
 opname
+option
+originating
 osd
 ott
 ounted
@@ -582,6 +585,7 @@ sak
 satellites
 scdma
 sco
+scrambling
 screenlock
 screensaver
 scrolldown
