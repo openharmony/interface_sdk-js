@@ -15,6 +15,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const request = require("sync-request")
 const { checkSpelling } = require('./check_spelling');
 const { checkAPIDecorators } = require('./check_decorator');
 const { checkPermission } = require('./check_permission');
@@ -25,6 +26,7 @@ const { checkJSDoc } = require('./check_legality');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
+const rules = require('../code_style_rule.json')
 
 function checkAPICodeStyle(url) {
   if (fs.existsSync(url)) {
@@ -100,3 +102,40 @@ function scanEntry(url) {
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;
+
+function reqGitApi(scanResult, prId) {
+  const administrators = new Set();
+  rules.administrators.forEach((administrator) => {
+    administrators.add(administrator.user);
+  })
+  if (ApiCheckResult.format_check_result || !prId || prId === 'NA') {
+    return scanResult;
+  }
+  const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;
+  let res = request('GET', commentRequestPath, {
+    headers: {
+      'Content-Type': 'application/json;charset=UFT-8'
+    }
+  });
+  if (res.statusCode !== 200) {
+    throw `The giteeAPI access failed, StatusCode:${res.statusCode}`;
+  }
+  let resBody = new TextDecoder('utf-8').decode(res.body);
+  let comments = JSON.parse(`{"resultBody": ${resBody}}`);
+  let resultBody = comments.resultBody;
+  if (!resultBody || resultBody.length === 0 || !(resultBody instanceof Array)) {
+    throw "The format of data returned by giteeAPI is incorrect";
+  }
+  for (let i = 0; i < resultBody.length; i++) {
+    const comment = resultBody[i];
+    if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
+      comment.body && /^approve api check$/.test(comment.body)) {
+      ApiCheckResult.format_check_result = true;
+      scanResult = ['api_check: true'];
+      break;
+    }
+  }
+  return scanResult;
+
+}
+exports.reqGitApi = reqGitApi;
