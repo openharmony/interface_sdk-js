@@ -35,7 +35,7 @@ declare namespace usbManager {
      * @param device USB device on the device list returned by {@link getDevices()}.
      * @returns Returns the {@link USBDevicePipe} object for data transfer.
      * @throws {BusinessError} 401 - The parameter types do not match or parameter is not specified.
-     * @throws {BusinessError} 14400001 - USB Device access denied.
+     * @throws {BusinessError} 14400001 - Permission denied. Need call requestRight to get permission.
      * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
