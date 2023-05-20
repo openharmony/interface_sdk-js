@@ -392,6 +392,92 @@ declare namespace appManager {
   function off(type: 'lowMemory', observerId: number): Promise<void>;
 
   /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @returns { Promise<number> } Returns the memory usage of the process in KB.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number): Promise<number>;
+
+  /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @param { AsyncCallback<number> } - Indicates the callback of getting process memory by pid result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle of current user.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string, callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle and specific user ID.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @param { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle of current user.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @returns { Promise<Array<number>> } - Returns a list of pid numbers.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string): Promise<Array<number>>;
+
+  /**
+   * Obtains the pid list of running processes that belong to a specific bundle and specific user ID.
+   * 
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @returns { Promise<Array<number>> } - Returns a list of pid numbers.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getPidsByBundleName(bundleName: string, userId: number): Promise<Array<number>>;
+
+  /**
    * The ability or extension state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
