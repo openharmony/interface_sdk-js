@@ -33,6 +33,7 @@ declare namespace dataShare {
   /**
    * Manages create datashare helper options.
    *
+   * @interface DataShareHelperOptions
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -301,6 +302,7 @@ declare namespace dataShare {
   /**
    * Specifies the operation result structure.
    *
+   * @interface OperationResult
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -396,10 +398,10 @@ declare namespace dataShare {
     /**
      * Registers observers to observe rdb data specified by the given uri and template.
      *
-     * @param { string } type - type must be 'rdbDataChange'.
+     * @param { 'rdbDataChange' } type - type must be 'rdbDataChange'.
      * @param { Array<string> } uris - Indicates the paths of the data to operate.
      * @param { TemplateId } templateId - the template of on.
-     * @param { AsyncCallback<ChangeNode> } callback - the callback of on.
+     * @param { AsyncCallback<RdbDataChangeNode> } callback - the callback of on.
      * @returns { Array<OperationResult> } : the operation result.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -420,7 +422,7 @@ declare namespace dataShare {
      * @param { 'rdbDataChange' } type - type must be 'rdbDataChange'.
      * @param { Array<string> } uris - Indicates the paths of the data to operate.
      * @param { TemplateId } templateId - the template of off.
-     * @param { AsyncCallback<ChangeNode> } callback - the callback of off.
+     * @param { AsyncCallback<RdbDataChangeNode> } callback - the callback of off.
      * @returns { Array<OperationResult> } : the operation result.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -483,7 +485,7 @@ declare namespace dataShare {
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { number } version - Indicates the version of data to publish, larger is newer.
-     * @param { AsyncCallback<void> } callback
+     * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - the parameter check failed.
      * @throws { BusinessError } 15700012 - the data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -503,7 +505,7 @@ declare namespace dataShare {
      *
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
-     * @param { AsyncCallback<void> } callback
+     * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - the parameter check failed.
      * @throws { BusinessError } 15700012 - the data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -523,7 +525,7 @@ declare namespace dataShare {
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { number } version - Indicates the version of data to publish, larger is newer.
-     * @returns { Promise<void> }
+     * @returns { Promise<Array<OperationResult>> }
      * @throws { BusinessError } 401 - the parameter check failed.
      * @throws { BusinessError } 15700012 - the data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
