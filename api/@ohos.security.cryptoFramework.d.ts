@@ -1247,7 +1247,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides the Verify interface, which is used for verifing signatures.
+   * Provides the Verify interface, which is used for verifying signatures.
    *
    * @typedef Verify
    * @syscap SystemCapability.Security.CryptoFramework
@@ -1413,7 +1413,7 @@ declare namespace cryptoFramework {
    * @since 9
    */
   /**
-   * Create a verify object for verifing signatures.
+   * Create a verify object for verifying signatures.
    *
    * @param { string } algName - indicates the algorithm name and the parameters.
    * @returns { Verify } the verify class.
@@ -1634,7 +1634,7 @@ declare namespace cryptoFramework {
 
     /**
      * Indicates the field size in bits. 
-     * For Fp field (an elliptic curve prime finite field wtih prime p), the field size is the size of prime p.
+     * For Fp field (an elliptic curve prime finite field with prime p), the field size is the size of prime p.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -1716,7 +1716,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides a base interface for specifing asymmetric key parameters.
+   * Provides a base interface for specifying asymmetric key parameters.
    *
    * @typedef AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
