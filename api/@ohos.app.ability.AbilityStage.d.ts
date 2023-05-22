@@ -22,8 +22,14 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * The class of an ability stage.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @crossplatform
  * @since 9
+ */
+/**
+ * The class of an ability stage.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 export default class AbilityStage {
   /**
@@ -31,8 +37,15 @@ export default class AbilityStage {
    * @type { AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates configuration information about context.
+   * @type { AbilityStageContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   context: AbilityStageContext;
 
@@ -40,8 +53,14 @@ export default class AbilityStage {
    * Called back when an ability stage is started for initialization.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when an ability stage is started for initialization.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onCreate(): void;
 
@@ -62,8 +81,15 @@ export default class AbilityStage {
    * @param { Configuration } newConfig - Indicates the updated configuration.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called when the system configuration is updated.
+   * @param { Configuration } newConfig - Indicates the updated configuration.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
