@@ -757,7 +757,7 @@ declare namespace distributedKVStore {
      * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the specified long value.
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
-     * @param { number|string|boolean } value - Indicates the value to be compared.
+     * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -769,7 +769,7 @@ declare namespace distributedKVStore {
      * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
-     * @param { number|string|boolean } value - Indicates the value to be compared.
+     * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -782,7 +782,7 @@ declare namespace distributedKVStore {
      * specified int value.
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
-     * @param { number|string|boolean } value - Indicates the value to be compared.
+     * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -794,7 +794,7 @@ declare namespace distributedKVStore {
      * Constructs a {@code Query} object to query entries with the specified field whose value is less than the specified int value.
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
-     * @param { number|string } value - Indicates the value to be compared.
+     * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -807,7 +807,7 @@ declare namespace distributedKVStore {
      * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
-     * @param { number|string } value - Indicates the value to be compared.
+     * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -820,7 +820,7 @@ declare namespace distributedKVStore {
      * specified int value.
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
-     * @param { number|string } value - Indicates the value to be compared.
+     * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1063,7 +1063,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array|string|number|boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of put.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1077,7 +1077,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array|string|number|boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of put.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1094,7 +1094,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array|string|number|boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1108,7 +1108,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
-     * @param { Uint8Array|string|number|boolean } value - Indicates the value to be inserted.
+     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1429,7 +1429,7 @@ declare namespace distributedKVStore {
      * Obtains the value of a specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean|string|number|Uint8Array> } callback -
+     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {Uint8Array|string|boolean|number}: the returned value specified by the key.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1444,7 +1444,7 @@ declare namespace distributedKVStore {
      * Obtains the value of a specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean|string|number|Uint8Array> }
+     * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the key.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -1992,7 +1992,7 @@ declare namespace distributedKVStore {
      * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100004 - if the database not exist when sync data.
+     * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2009,7 +2009,7 @@ declare namespace distributedKVStore {
      * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100004 - if the database not exist when sync data.
+     * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2033,10 +2033,10 @@ declare namespace distributedKVStore {
      * Register a callback to the database and when data in the distributed database has changed,
      * the callback will be invoked.
      *
+     * @param { 'dataChange' } event - Subscribed event name, fixed as 'dataChange', indicates the data change event.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
-     * @param { Callback<ChangeNotification> } listener
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2124,7 +2124,7 @@ declare namespace distributedKVStore {
      * Obtains the value matching the local device ID and specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @param { AsyncCallback<boolean|string|number|Uint8Array> } callback -
+     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -2139,7 +2139,7 @@ declare namespace distributedKVStore {
      * Obtains the value matching the local device ID and specified key.
      *
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
-     * @returns { Promise<boolean|string|number|Uint8Array> }
+     * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -2155,8 +2155,8 @@ declare namespace distributedKVStore {
      *
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { string } key - Indicates the key of the value to be queried.
-     * @param { AsyncCallback<boolean|string|number|Uint8Array> } callback -
-     * {boolean|string|number|Uint8Array}: the returned value specified by the deviceId and key.
+     * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
+     * {boolean | string | number | Uint8Array}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
@@ -2171,7 +2171,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { string } key - Indicates the key of the value to be queried.
-     * @returns { Promise<boolean|string|number|Uint8Array> }
+     * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - if parameter check failed.
      * @throws { BusinessError } 15100003 - Database corrupted.
@@ -2639,7 +2639,7 @@ declare namespace distributedKVStore {
     /**
      * Obtains the KVStoreResultSet object matching a specified Device ID and Predicate object.
      *
-     * @param deviceId Indicates the ID of the device to which the results belong.
+     * @param { string } deviceId Indicates the ID of the device to which the results belong.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
@@ -2851,7 +2851,7 @@ declare namespace distributedKVStore {
      * @param { string } storeId - Identifies the KVStore database to delete.
      * @param { AsyncCallback<void> } callback - the callback of deleteKVStore.
      * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 15100004 - if the database not exist when delete database.
+     * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2867,7 +2867,7 @@ declare namespace distributedKVStore {
      * @param { string } storeId - Identifies the KVStore database to delete.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 15100004 - if the database not exist when delete database.
+     * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
