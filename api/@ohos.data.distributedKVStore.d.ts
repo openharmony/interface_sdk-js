@@ -2678,7 +2678,7 @@ declare namespace distributedKVStore {
     /**
      * Obtains the KVStoreResultSet object matching a specified Device ID and Predicate object.
      *
-     * @param deviceId Indicates the ID of the device to which the results belong.
+     * @param { string } deviceId Indicates the ID of the device to which the results belong.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
