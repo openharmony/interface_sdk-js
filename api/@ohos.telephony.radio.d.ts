@@ -1155,7 +1155,7 @@ declare namespace radio {
    * a monitored {@code slotId} updates.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { string } type - imsRegStateChange.
+   * @param { 'imsRegStateChange' } type - Event type. Indicates the imsRegStateChange event to be subscribed to.
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
@@ -1178,7 +1178,7 @@ declare namespace radio {
    * Unsubscribe from imsRegStateChange event.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { string } type - imsRegStateChange.
+   * @param { 'imsRegStateChange' } type - Event type. Indicates the imsRegStateChange event to unsubscribe from.
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
@@ -1302,7 +1302,7 @@ declare namespace radio {
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
-   * @returns { AsyncCallback<NROptionMode> } Returns the selection mode of NR.
+   * @returns { Promise<NROptionMode> } Returns the selection mode of NR.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.

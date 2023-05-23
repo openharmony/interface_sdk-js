@@ -1053,7 +1053,7 @@ declare namespace call {
    * Subscribe to the callDetailsChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDetailsChange.
+   * @param { 'callDetailsChange' } type - Event type. Indicates the callDetailsChange event to be subscribed to.
    * @param { Callback<CallAttributeOptions> } callback - Indicates the callback for getting the result of call details.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1072,7 +1072,7 @@ declare namespace call {
    * Unsubscribe from the callDetailsChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDetailsChange.
+   * @param { 'callDetailsChange' } type - Event type. Indicates the callDetailsChange event to unsubscribe from.
    * @param { Callback<CallAttributeOptions> } callback - Indicates the callback to unsubscribe from
    * the callDetailsChange event.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1092,7 +1092,7 @@ declare namespace call {
    * Subscribe to the callEventChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callEventChange.
+   * @param { 'callEventChange' } type - Event type. Indicates the callEventChange event to be subscribed to.
    * @param { Callback<CallEventOptions> } callback - Indicates the callback for getting the call event id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1111,7 +1111,7 @@ declare namespace call {
    * Unsubscribe from the callEventChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callEventChange.
+   * @param { 'callEventChange' } type - Event type. Indicates the callEventChange event to unsubscribe from.
    * @param { Callback<CallEventOptions> } callback - Indicates the callback to unsubscribe from the callEventChange event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1130,7 +1130,7 @@ declare namespace call {
    * Subscribe to the callDisconnectedCause event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDisconnectedCause.
+   * @param { 'callDisconnectedCause' } type - Event type. Indicates the callDisconnectedCause event to be subscribed to.
    * @param { Callback<DisconnectedDetails> } callback - Indicates the callback for getting the call disconnection reason.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1149,7 +1149,7 @@ declare namespace call {
    * Unsubscribe from the callDisconnectedCause event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDisconnectedCause.
+   * @param { 'callDisconnectedCause' } type - Event type. Indicates the callDisconnectedCause event to unsubscribe from.
    * @param { Callback<DisconnectedDetails> } callback - Indicates the callback used to cancel
    * the registration monitoring for obtaining the call end reason.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1169,7 +1169,7 @@ declare namespace call {
    * Subscribe to the mmiCodeResult event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - mmiCodeResult.
+   * @param { 'mmiCodeResult' } type - Event type. Indicates the mmiCodeResult event to be subscribed to.
    * @param { Callback<MmiCodeResults> } callback - Indicates the callback for getting the result of MMI code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1188,7 +1188,7 @@ declare namespace call {
    * Unsubscribe from the mmiCodeResult event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - mmiCodeResult.
+   * @param { 'mmiCodeResult' } type - Event type. Indicates the mmiCodeResult event to unsubscribe from.
    * @param { Callback<MmiCodeResults> } callback - Indicates the callback used to cancel getting mmicode registered listening.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1207,7 +1207,7 @@ declare namespace call {
    * Subscribe to the audioDeviceChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - audioDeviceChange.
+   * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to be subscribed to.
    * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1226,7 +1226,7 @@ declare namespace call {
    * Unsubscribe from the audioDeviceChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - audioDeviceChange.
+   * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to unsubscribe from.
    * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
