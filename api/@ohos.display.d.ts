@@ -39,7 +39,7 @@ declare namespace display {
 
   /**
    * Obtain the default display.
-   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @throws {BusinessError} 1400001 - Invalid display or screen.
    * @since 9
    */
   function getDefaultDisplaySync(): Display;
@@ -62,14 +62,14 @@ declare namespace display {
 
   /**
    * Obtain all displays.
-   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @throws {BusinessError} 1400001 - Invalid display or screen.
    * @since 9
    */
    function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
 
    /**
     * Obtain all displays.
-    * @throws {BusinessError} 1400001 - If display or screen is invalid
+    * @throws {BusinessError} 1400001 - Invalid display or screen.
     * @since 9
     */
    function getAllDisplays(): Promise<Array<Display>>;
@@ -77,8 +77,8 @@ declare namespace display {
   /**
    * Check whether there is a privacy window on the current display.
    * @param displayId Display id to query
-   * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 1400003 - If system works abnormally
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 1400003 - This display manager service works abnormally.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -88,7 +88,7 @@ declare namespace display {
    * Register the callback for display changes.
    * @param type: type of callback
    * @since 7
-   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
@@ -96,7 +96,7 @@ declare namespace display {
    * Unregister the callback for display changes.
    * @param type: type of callback
    * @since 7
-   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
@@ -290,14 +290,14 @@ declare namespace display {
 
     /**
      * Obtain the cutout info of the display.
-     * @throws {BusinessError} 1400001 - If display or screen is invalid
+     * @throws {BusinessError} 1400001 - Invalid display or screen.
      * @since 9
      */
     getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
 
     /**
      * Obtain the cutout info of the display.
-     * @throws {BusinessError} 1400001 - If display or screen is invalid
+     * @throws {BusinessError} 1400001 - Invalid display or screen.
      * @since 9
      */
     getCutoutInfo(): Promise<CutoutInfo>;
