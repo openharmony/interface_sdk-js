@@ -81,6 +81,8 @@ declare namespace relationalStore {
     size: string;
   }
 
+  type Assets = Asset[];
+
   /**
    * Indicates possible value types
    *
@@ -94,7 +96,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Asset[];
+  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -1747,6 +1749,36 @@ declare namespace relationalStore {
      * @since 10
      */
     getDouble(columnIndex: number): number;
+
+    /**
+     * Obtains the value of the specified column in the current row as an asset.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Asset type.
+     *
+     * @param { number } columnIndex - indicates the specified column index, which starts from 0.
+     * @returns { Asset } the value of the specified column as an asset.
+     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - the parameter check failed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 10
+     */
+    getAsset(columnIndex: number): Asset;
+
+    /**
+     * Obtains the value of the specified column in the current row as assets.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     *
+     * @param { number } columnIndex - indicates the specified column index, which starts from 0.
+     * @returns { Assets } the value of the specified column as assets.
+     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - the parameter check failed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 10
+     */
+    getAssets(columnIndex: number): Assets;
 
     /**
      * Checks whether the value of the specified column in the current row is null.
