@@ -7,6 +7,7 @@
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
+    "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
