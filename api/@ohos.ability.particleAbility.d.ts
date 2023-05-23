@@ -142,7 +142,8 @@ declare namespace particleAbility {
    * Connects an ability to a Service ability.
    *
    * @param { Want } request Indicates the Service ability to connect.
-   * @param { ConnectOptions } options Callback object for the client. If this parameter is null, an exception is thrown.
+   * @param { ConnectOptions } options Callback object for the client. If this parameter is null,
+   *                                   an exception is thrown.
    * @returns { number } unique identifier of the connection between the client and the service side.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -181,7 +182,6 @@ declare namespace particleAbility {
    * @since 7
    */
   export enum ErrorCode {
-
   /**
    * Invalid parameter.
    *

@@ -42,6 +42,13 @@ declare namespace formBindingData {
    * @since 9
    */
   interface FormBindingData {
+    /**
+     * Data for updating.
+     *
+     * @type { Object }
+     * @syscap SystemCapability.Ability.Form
+     * @since 9
+     */
     data: Object;
   }
 }

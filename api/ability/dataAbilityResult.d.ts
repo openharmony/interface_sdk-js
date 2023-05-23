@@ -14,6 +14,8 @@
  */
 
 /**
+ * Indicates the return result of the data to be manipulated.
+ *
  * @typedef DataAbilityResult
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 7
@@ -22,7 +24,7 @@ export interface DataAbilityResult {
   /**
    * Indicates the path of data to operate.
    *
-   * @default -
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -32,7 +34,7 @@ export interface DataAbilityResult {
   /**
    * Indicates the number of rows affected by the operation.
    *
-   * @default -
+   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7

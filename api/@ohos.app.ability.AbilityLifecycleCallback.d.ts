@@ -26,6 +26,7 @@ import window from './@ohos.window';
  */
 /**
  * The ability lifecycle callback.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @crossplatform
@@ -42,7 +43,8 @@ export default class AbilityLifecycleCallback {
    */
   /**
    * Called back when an ability is started for initialization.
-   * @param { Ability } ability - Indicates the ability to register for listening.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
@@ -61,7 +63,8 @@ export default class AbilityLifecycleCallback {
    */
   /**
    * Called back when a window stage is created.
-   * @param { Ability } ability - Indicates the ability to register for listening.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @param { window.WindowStage } windowStage - window stage to create
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -103,7 +106,8 @@ export default class AbilityLifecycleCallback {
    */
   /**
    * Called back when a window stage is destroyed.
-   * @param { Ability } ability - Indicates the ability to register for listening.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @param { window.WindowStage } windowStage - window stage to destroy
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -122,7 +126,8 @@ export default class AbilityLifecycleCallback {
    */
   /**
    * Called back when an ability is destroyed.
-   * @param { Ability } ability - Indicates the ability to register for listening.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
@@ -140,7 +145,8 @@ export default class AbilityLifecycleCallback {
    */
   /**
    * Called back when the state of an ability changes to foreground.
-   * @param { Ability } ability - Indicates the ability to register for listening.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
@@ -158,7 +164,8 @@ export default class AbilityLifecycleCallback {
    */
   /**
    * Called back when the state of an ability changes to background.
-   * @param { Ability } ability - Indicates the ability to register for listening.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform

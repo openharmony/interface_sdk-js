@@ -18,6 +18,8 @@ import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
 
 /**
+ * Indicates an array of data operations that can contain several different operations on the database.
+ *
  * @typedef DataAbilityOperation
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 7
@@ -26,7 +28,7 @@ export interface DataAbilityOperation {
   /**
    * Indicates the path of data to operate.
    *
-   * @default -
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -36,7 +38,7 @@ export interface DataAbilityOperation {
   /**
    * Indicates a operation type.
    *
-   * @default -
+   * @type { featureAbility.DataAbilityOperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -46,7 +48,7 @@ export interface DataAbilityOperation {
   /**
    * Indicates the data values to be set.
    *
-   * @default -
+   * @type { ?rdb.ValuesBucket }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -56,7 +58,7 @@ export interface DataAbilityOperation {
   /**
    * Indicates the valuesBucket object containing a set of key-value pairs.
    *
-   * @default -
+   * @type { ?rdb.ValuesBucket }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -67,7 +69,7 @@ export interface DataAbilityOperation {
    * Indicates the filter criteria to set. If this parameter is null, all data records
    * will be operated by default.
    *
-   * @default -
+   * @type { ?dataAbility.DataAbilityPredicates }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -77,7 +79,7 @@ export interface DataAbilityOperation {
   /**
    * Indicates the back reference to be used as a filter criterion in predicates.
    *
-   * @default -
+   * @type { ?Map<number, number> }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -87,7 +89,7 @@ export interface DataAbilityOperation {
   /**
    * Specifies whether a batch operation can be interrupted.
    *
-   * @default -
+   * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -97,7 +99,7 @@ export interface DataAbilityOperation {
   /**
    * Indicates the expected number of rows to update or delete.
    *
-   * @default -
+   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7

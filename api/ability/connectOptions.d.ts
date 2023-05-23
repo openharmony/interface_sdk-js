@@ -17,6 +17,9 @@ import { ElementName } from '../bundle/elementName';
 import rpc from './../@ohos.rpc';
 
 /**
+ * As an input parameter when connecting a specified background service, it is used to receive
+ * state changes during the connection.
+ *
  * @interface ConnectOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7

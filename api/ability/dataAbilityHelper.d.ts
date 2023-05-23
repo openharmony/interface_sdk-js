@@ -423,10 +423,6 @@ export interface DataAbilityHelper {
    * @param { AsyncCallback<PacMap> } callback A callback method that indicates a data operation and returns the
    *                                           result of the operation.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
-   * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
-   * If the PacMap object is to be transferred to a non-OHOS process,
-   * values of primitive types are supported, but not custom Sequenceable objects.
    * @FAModelOnly
    * @since 7
    */
@@ -441,10 +437,6 @@ export interface DataAbilityHelper {
    * @param { PacMap } extras Indicates the parameter of the PacMap type.
    * @returns { Promise<PacMap> } Returns the query result {@link PacMap}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
-   * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
-   * If the PacMap object is to be transferred to a non-OHOS process,
-   * values of primitive types are supported, but not custom Sequenceable objects.
    * @FAModelOnly
    * @since 7
    */
@@ -457,7 +449,8 @@ export interface DataAbilityHelper {
    * @param { Array<DataAbilityOperation> } operations Indicates the data operation list, which can contain multiple
    *                                                   operations on the database.
    * @param { AsyncCallback<Array<DataAbilityResult>> } callback Callback method indicating batch operations,
-   *                                                             returning the result of each operation in the DataAbilityResult array.
+   *                                                             returning the result of each operation in the
+   *                                                             DataAbilityResult array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @since 7
    */
@@ -473,7 +466,8 @@ export interface DataAbilityHelper {
    * @param { string } uri Indicates the path of data to query.
    * @param { Array<DataAbilityOperation> } operations Indicates the data operation list, which can contain multiple
    *                                                   operations on the database.
-   * @returns { Promise<Array<DataAbilityResult>> } Returns the result of each operation, in array {@link DataAbilityResult}.
+   * @returns { Promise<Array<DataAbilityResult>> } Returns the result of each operation,
+   *                                                in array {@link DataAbilityResult}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @since 7
    */
@@ -495,6 +489,8 @@ export interface PacMap {
    * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
    * If the PacMap object is to be transferred to a non-OHOS process,
    * values of primitive types are supported, but not custom Sequenceable objects.
+   *
+   * @type { number | string | boolean | Array<string | number | boolean> | null }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7

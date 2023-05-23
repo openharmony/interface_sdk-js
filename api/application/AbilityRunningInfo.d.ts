@@ -26,6 +26,9 @@ import abilityManager from '../@ohos.app.ability.abilityManager';
  */
 export interface AbilityRunningInfo {
   /**
+   * Ability matching information.
+   *
+   * @type { ElementName }
    * @default ability element name
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -34,6 +37,9 @@ export interface AbilityRunningInfo {
   ability: ElementName;
 
   /**
+   * Process ID.
+   *
+   * @type { number }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -42,6 +48,9 @@ export interface AbilityRunningInfo {
   pid: number;
 
   /**
+   * User ID.
+   *
+   * @type { number }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -50,6 +59,9 @@ export interface AbilityRunningInfo {
   uid: number;
 
   /**
+   * Process name.
+   *
+   * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -58,6 +70,9 @@ export interface AbilityRunningInfo {
   processName: string;
 
   /**
+   * Ability startup time.
+   *
+   * @type { number }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -66,6 +81,9 @@ export interface AbilityRunningInfo {
   startTime: number;
 
   /**
+   * Ability status.
+   *
+   * @type { abilityManager.AbilityState }
    * @default Enumerates state of the ability state info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

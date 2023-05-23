@@ -22,7 +22,7 @@ export interface ProcessInfo {
   /**
    * The id of the current process
    *
-   * @default -
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -31,7 +31,7 @@ export interface ProcessInfo {
   /**
    * The name of the current process
    *
-   * @default -
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */

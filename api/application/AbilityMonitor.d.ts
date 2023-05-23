@@ -27,6 +27,7 @@ export interface AbilityMonitor {
   /**
    * The name of the ability to monitor.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -35,6 +36,7 @@ export interface AbilityMonitor {
   /**
    * The name of the module to monitor.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */

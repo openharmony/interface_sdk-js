@@ -26,7 +26,7 @@ export declare interface Want {
   /**
    * device id
    *
-   * @default -
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -37,7 +37,7 @@ export declare interface Want {
   /**
    * bundle name
    *
-   * @default -
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -48,7 +48,7 @@ export declare interface Want {
   /**
    * ability name
    *
-   * @default -
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -59,7 +59,7 @@ export declare interface Want {
   /**
    * The description of a URI in a Want.
    *
-   * @default -
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -70,7 +70,7 @@ export declare interface Want {
   /**
    * The description of the type in this Want.
    *
-   * @default -
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -81,7 +81,7 @@ export declare interface Want {
   /**
    * The options of the flags in this Want.
    *
-   * @default -
+   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -92,7 +92,7 @@ export declare interface Want {
   /**
    * The description of an action in an want.
    *
-   * @default -
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -103,7 +103,7 @@ export declare interface Want {
   /**
    * The description of the WantParams object in an Want
    *
-   * @default -
+   * @type { ?[key: string]: any }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
@@ -114,7 +114,7 @@ export declare interface Want {
   /**
    * The description of a entities in a Want.
    *
-   * @default -
+   * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9

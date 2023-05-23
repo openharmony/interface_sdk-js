@@ -31,6 +31,7 @@ export default class DataShareExtensionAbility {
   /**
    * Indicates datashare extension ability context.
    *
+   * @type { ?ExtensionContext }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
@@ -152,11 +153,11 @@ export default class DataShareExtensionAbility {
    *
    * @param { string } uri Indicates the uri to denormalize.
    * @param { AsyncCallback<string> } callback Returns the denormalized {@code uri} object if the denormalization is
-   *                                           successful; returns the original
+   *                                           successful; returns the original {@code uri} passed to this method if
+   *                                           there is nothing to do; returns {@code null} if the data identified by
+   *                                           the original {@code uri} cannot be found in the current environment.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
-   * {@code uri} passed to this method if there is nothing to do; returns {@code null} if the data identified by
-   * the original {@code uri} cannot be found in the current environment.
    * @StageModelOnly
    * @since 9
    */

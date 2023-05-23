@@ -32,6 +32,8 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
 /**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
+ *
+ * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform

@@ -16,6 +16,8 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
+ * Define startup Ability parameters, which can be used as input parameters.
+ *
  * @typedef StartAbilityParameter
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @since 6
@@ -24,7 +26,7 @@ export interface StartAbilityParameter {
   /**
    * Indicates the Want containing information about the target ability to start.
    *
-   * @default -
+   * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 6
@@ -34,7 +36,7 @@ export interface StartAbilityParameter {
   /**
    * Indicates the special start setting used in starting ability.
    *
-   * @default -
+   * @type { ?[key: string]: any }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 6

@@ -24,6 +24,7 @@ export default class StartOptions {
   /**
    * The type of {@link ohos.app.ability.AbilityConstant#WindowMode}
    *
+   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -34,6 +35,7 @@ export default class StartOptions {
   /**
    * The type of displayId
    *
+   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9

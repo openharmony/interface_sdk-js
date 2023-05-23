@@ -177,7 +177,8 @@ declare namespace featureAbility {
   /**
    * Checks whether the main window of this ability has window focus.
    *
-   * @returns { Promise<boolean> } Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Returns {@code true} if this ability currently has window focus;
+   *                               returns {@code false} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -221,7 +222,8 @@ declare namespace featureAbility {
   /**
    * Obtains the window corresponding to the current ability.
    *
-   * @param { AsyncCallback<window.Window> } callback Returns the window corresponding to the current ability in the form of callback.
+   * @param { AsyncCallback<window.Window> } callback Returns the window corresponding to the current ability
+   *                                                  in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7

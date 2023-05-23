@@ -25,6 +25,7 @@ export interface AbilityStageMonitor {
   /**
    * The module name of the abilityStage to monitor.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -33,6 +34,7 @@ export interface AbilityStageMonitor {
   /**
    * The source path of the abilityStage to monitor.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */

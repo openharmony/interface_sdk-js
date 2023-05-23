@@ -36,6 +36,8 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  */
 /**
  * This module provides application context classes and common data structures.
+ *
+ * @namespace common
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform

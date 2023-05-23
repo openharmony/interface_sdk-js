@@ -25,6 +25,7 @@ export default class Want {
   /**
    * device id
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -35,6 +36,7 @@ export default class Want {
   /**
    * bundle name
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -45,6 +47,7 @@ export default class Want {
   /**
    * ability name
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -55,6 +58,7 @@ export default class Want {
   /**
    * The description of a URI in a Want.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -65,6 +69,7 @@ export default class Want {
   /**
    * The description of the type in this Want.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -75,6 +80,7 @@ export default class Want {
   /**
    * The options of the flags in this Want.
    *
+   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -85,6 +91,7 @@ export default class Want {
   /**
    * The description of an action in an want.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -95,6 +102,7 @@ export default class Want {
   /**
    * The description of the WantParams object in an Want
    *
+   * @type { ?[key: string]: any }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
@@ -105,6 +113,7 @@ export default class Want {
   /**
    * The description of a entities in a Want.
    *
+   * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9

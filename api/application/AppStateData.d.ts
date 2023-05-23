@@ -24,6 +24,7 @@ export default class AppStateData {
   /**
    * The bundle name.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -33,6 +34,7 @@ export default class AppStateData {
   /**
    * The uid.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -42,6 +44,7 @@ export default class AppStateData {
   /**
    * The application state.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8

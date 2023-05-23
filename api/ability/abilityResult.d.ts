@@ -25,7 +25,7 @@ export interface AbilityResult {
    * Indicates the result code returned after the ability is destroyed. You can define the result
    * code to identify an error.
    *
-   * @default -
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 7
    */
@@ -35,7 +35,7 @@ export interface AbilityResult {
    * Indicates the data returned after the ability is destroyed. You can define the data returned.
    * This parameter can be null.
    *
-   * @default -
+   * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 7
    */

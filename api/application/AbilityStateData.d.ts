@@ -24,6 +24,7 @@ export default class AbilityStateData {
   /**
    * The module name.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -33,6 +34,7 @@ export default class AbilityStateData {
   /**
    * The bundle name.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -42,6 +44,7 @@ export default class AbilityStateData {
   /**
    * The ability name.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -51,6 +54,7 @@ export default class AbilityStateData {
   /**
    * The pid.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -60,6 +64,7 @@ export default class AbilityStateData {
   /**
    * The uid.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -69,6 +74,7 @@ export default class AbilityStateData {
   /**
    * The application state.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -78,6 +84,7 @@ export default class AbilityStateData {
   /**
    * The ability type, page or service and so on.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8

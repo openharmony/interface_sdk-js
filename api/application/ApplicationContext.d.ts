@@ -29,6 +29,8 @@ import { ProcessInformation } from './ProcessInformation';
  */
 /**
  * The context of an application. It allows access to application-specific resources.
+ *
+ * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -38,7 +40,7 @@ export default class ApplicationContext extends Context {
   /**
    * Register ability lifecycle callback.
    *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
+   * @param { "abilityLifecycle" } type - abilityLifecycle.
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -48,7 +50,7 @@ export default class ApplicationContext extends Context {
    */
   /**
    * Register ability lifecycle callback.
-   * @param { string } type - abilityLifecycle.
+   * @param { "abilityLifecycle" } type - abilityLifecycle.
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -62,7 +64,7 @@ export default class ApplicationContext extends Context {
   /**
    * Unregister ability lifecycle callback.
    *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
+   * @param { "abilityLifecycle" } type - abilityLifecycle.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -72,7 +74,7 @@ export default class ApplicationContext extends Context {
    */
   /**
    * Unregister ability lifecycle callback.
-   * @param { string } type - abilityLifecycle.
+   * @param { "abilityLifecycle" } type - abilityLifecycle.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

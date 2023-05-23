@@ -110,6 +110,8 @@ export default class Want {
    */
   /**
    * The description of the WantParams object in an Want
+   *
+   * @type { ?[key: string]: Object }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @since 10

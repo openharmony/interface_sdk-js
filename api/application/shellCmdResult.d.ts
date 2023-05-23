@@ -24,6 +24,7 @@ export interface ShellCmdResult {
   /**
    * the cmd standard result.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
@@ -32,6 +33,7 @@ export interface ShellCmdResult {
   /**
    * shell cmd exec result.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */

@@ -216,6 +216,8 @@ export interface Callee {
  */
 /**
  * The class of a UI ability.
+ *
+ * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @crossplatform
@@ -344,6 +346,8 @@ export default class UIAbility extends Ability {
    */
   /**
    * Called back before an ability is destroyed.
+   *
+   * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform

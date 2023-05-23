@@ -34,11 +34,12 @@ export default abstract class BaseContext {
    * Indicates the context is FA Mode or Stage Mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   /**
    * Indicates the context is FA Mode or Stage Mode.
    *
-   * @since 10
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 8

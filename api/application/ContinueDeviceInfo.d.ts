@@ -25,6 +25,7 @@ export interface ContinueDeviceInfo {
   /**
    * Indicates the original deviceId to continue mission.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -33,6 +34,7 @@ export interface ContinueDeviceInfo {
   /**
    * Indicates the target deviceId to continue mission.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -41,6 +43,7 @@ export interface ContinueDeviceInfo {
   /**
    * Indicates the mission to continue.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -49,6 +52,7 @@ export interface ContinueDeviceInfo {
   /**
    * Indicates the extended param.
    *
+   * @type { [key: string]: any }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

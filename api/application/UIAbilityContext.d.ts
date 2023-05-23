@@ -55,6 +55,8 @@ export default class UIAbilityContext extends Context {
    */
   /**
    * Indicates configuration information about an ability.
+   *
+   * @extends Context
    * @type { AbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly

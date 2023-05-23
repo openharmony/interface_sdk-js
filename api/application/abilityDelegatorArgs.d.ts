@@ -24,6 +24,7 @@ export interface AbilityDelegatorArgs {
   /**
    * the bundle name of the application being tested.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
@@ -32,6 +33,7 @@ export interface AbilityDelegatorArgs {
   /**
    * the parameters used for unit testing.
    *
+   * @type { [key: string]: string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
@@ -40,6 +42,7 @@ export interface AbilityDelegatorArgs {
   /**
    * the class names of all test cases.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
@@ -48,6 +51,7 @@ export interface AbilityDelegatorArgs {
   /**
    * the class name of the test runner used to execute test cases.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
