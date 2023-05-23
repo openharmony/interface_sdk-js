@@ -17,16 +17,29 @@
  * The class of an process information.
  *
  * @typedef ProcessInformation
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
  * @since 9
+ * @crossplatform
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ */
+/**
+ * The class of an process information.
+ *
+ * @since 10
+ * @crossplatform
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
 export interface ProcessInformation {
   /**
    * @default process id
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 9
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * @default process id
+   * @since 10
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   pid: number;
 
@@ -39,17 +52,29 @@ export interface ProcessInformation {
 
   /**
    * @default the name of the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 9
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * @default the name of the process
+   * @since 10
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   processName: string;
 
   /**
    * @default an array of the bundleNames running in the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 9
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * @default an array of the bundleNames running in the process
+   * @since 10
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   bundleNames: Array<string>;
 }

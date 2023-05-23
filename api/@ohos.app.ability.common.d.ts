@@ -32,8 +32,14 @@ import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
  * @namespace common
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @crossplatform
  * @since 9
+ */
+/**
+ * This module provides application context classes and common data structures.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 declare namespace common {
   /**
@@ -41,39 +47,62 @@ declare namespace common {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
    */
-  export type UIAbilityContext = _UIAbilityContext.default;
+  /**
+   * The context of an ability. It allows access to ability-specific resources.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  export type UIAbilityContext = _UIAbilityContext.default
 
   /**
    * The context of an abilityStage. It allows access to abilityStage-specific resources.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
    */
-  export type AbilityStageContext = _AbilityStageContext.default;
+  /**
+   * The context of an abilityStage. It allows access to abilityStage-specific resources.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  export type AbilityStageContext = _AbilityStageContext.default
 
   /**
    * The context of an application. It allows access to application-specific resources.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
    */
-  export type ApplicationContext = _ApplicationContext.default;
+  /**
+   * The context of an application. It allows access to application-specific resources.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  export type ApplicationContext = _ApplicationContext.default
 
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 9
    */
-  export type BaseContext = _BaseContext.default;
+  /**
+   * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  export type BaseContext = _BaseContext.default
 
   /**
    * The base context of an ability or an application. It allows access to
@@ -81,10 +110,17 @@ declare namespace common {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
    */
-  export type Context = _Context.default;
+  /**
+   * The base context of an ability or an application. It allows access to
+   * application-specific resources.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  export type Context = _Context.default
 
   /**
    * The context of an extension. It allows access to extension-specific resources.

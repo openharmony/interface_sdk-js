@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager.d.ts';
 
 /**
  * @namespace image
@@ -1322,6 +1323,25 @@ declare namespace image {
      * @since 9
      */
     crop(region: Region): Promise<void>;
+
+    /**
+     * Get color space of pixel map.
+     *
+     * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    getColorSpace(): colorSpaceManager.ColorSpaceManager;
+
+    /**
+     * Set color space of pixel map.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @returns { void } If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
     /**
      * Releases this PixelMap object. This method uses a callback to return the result.

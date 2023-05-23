@@ -35,8 +35,14 @@ import dialogRequest from '../@ohos.app.ability.dialogRequest';
  * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @crossplatform
  * @since 9
+ */
+/**
+ * The context of an ability. It allows access to ability-specific resources.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 export default class UIAbilityContext extends Context {
   /**
@@ -45,8 +51,15 @@ export default class UIAbilityContext extends Context {
    * @type { AbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates configuration information about an ability.
+   * @type { AbilityInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   abilityInfo: AbilityInfo;
 
@@ -56,8 +69,15 @@ export default class UIAbilityContext extends Context {
    * @type { HapModuleInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates configuration information about the module.
+   * @type { HapModuleInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -92,7 +112,6 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
    */
   /**
@@ -1155,13 +1174,15 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
    */
   /**
    * Destroys this Page ability.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1184,12 +1205,14 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
    */
   /**
    * Destroys this Page ability.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.

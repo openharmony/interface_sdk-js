@@ -194,6 +194,56 @@ declare const Styles: MethodDecorator;
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
 /**
+ * Define AnimatableExtend MethodDecorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
+
+/**
+ * Define AnimatableArithmetic interface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface AnimatableArithmetic<T> {
+  /**
+   * Define plus method
+   * @param rhs { AnimatableArithmetic<T> } another value
+   * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  plus(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
+
+  /**
+   * Define subtract method
+   * @param rhs { AnimatableArithmetic<T> } another value
+   * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  subtract(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
+
+  /**
+   * Define multiply method
+   * @param scale { number } scale value
+   * @returns { AnimatableArithmetic<T> } new value which implements AnimatableArithmetic<T> interface
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  multiply(scale: number): AnimatableArithmetic<T>;
+
+  /**
+   * Define equals method
+   * @param rhs { AnimatableArithmetic<T> } another value
+   * @returns { boolean } is equals
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  equals(rhs: AnimatableArithmetic<T>): boolean;
+}
+
+/**
  * Defining Concurrent MethodDecorator
  * @since 9
  */
@@ -2919,14 +2969,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderStyle(value: BorderStyle): T;
-
   /**
    * Border style
+   * @param { BorderStyle | EdgeStyles } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderStyle(value: EdgeStyles): T;
+  borderStyle(value: BorderStyle | EdgeStyles): T;
 
   /**
    * Border width
@@ -2937,18 +2987,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderWidth(value: Length): T;
-
   /**
    * Border width
-   * @since 9
-   */
-  /**
-   * Border width
+   * @param { Length | EdgeWidths } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderWidth(value: EdgeWidths): T;
+  borderWidth(value: Length | EdgeWidths): T;
 
   /**
    * Border color
@@ -2959,14 +3005,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderColor(value: ResourceColor): T;
-
   /**
    * Border color
+   * @param { ResourceColor | EdgeColors } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderColor(value: EdgeColors): T;
+  borderColor(value: ResourceColor | EdgeColors): T;
 
   /**
    * Border radius
@@ -2977,14 +3023,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderRadius(value: Length): T;
-
   /**
    * Border radius
+   * @param { Length | BorderRadiuses } value
    * @form
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
-  borderRadius(value: BorderRadiuses): T;
+  borderRadius(value: Length | BorderRadiuses): T;
 
   /**
    * Border image

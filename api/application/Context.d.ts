@@ -27,8 +27,15 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @crossplatform
  * @since 9
+ */
+/**
+ * The base context of an ability or an application. It allows access to
+ * application-specific resources.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 export default class Context extends BaseContext {
   /**
@@ -37,8 +44,15 @@ export default class Context extends BaseContext {
    * @type { resmgr.ResourceManager }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates the capability of accessing application resources.
+   * @type { resmgr.ResourceManager }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   resourceManager: resmgr.ResourceManager;
 
@@ -48,8 +62,15 @@ export default class Context extends BaseContext {
    * @type { ApplicationInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates configuration information about an application.
+   * @type { ApplicationInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   applicationInfo: ApplicationInfo;
 
@@ -59,8 +80,15 @@ export default class Context extends BaseContext {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates app cache dir.
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   cacheDir: string;
 
@@ -70,8 +98,15 @@ export default class Context extends BaseContext {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates app temp dir.
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   tempDir: string;
 
@@ -81,8 +116,15 @@ export default class Context extends BaseContext {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates app files dir.
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   filesDir: string;
 
@@ -92,8 +134,15 @@ export default class Context extends BaseContext {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates app database dir.
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   databaseDir: string;
 
@@ -103,8 +152,15 @@ export default class Context extends BaseContext {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates app preferences dir.
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   preferencesDir: string;
 
@@ -114,8 +170,15 @@ export default class Context extends BaseContext {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Indicates app bundle code dir.
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   bundleCodeDir: string;
 
@@ -173,8 +236,17 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Create a module context
+   * @param { string } moduleName - Indicates the module name.
+   * @returns { Context } Returns the application context.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   createModuleContext(moduleName: string): Context;
 
@@ -199,8 +271,16 @@ export default class Context extends BaseContext {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Get application context
+   * @returns { ApplicationContext } Returns the application context.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   getApplicationContext(): ApplicationContext;
 }

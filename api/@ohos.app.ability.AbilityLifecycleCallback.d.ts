@@ -22,8 +22,14 @@ import window from './@ohos.window';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
- * @crossplatform
  * @since 9
+ */
+/**
+ * The ability lifecycle callback.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 export default class AbilityLifecycleCallback {
   /**
@@ -32,8 +38,15 @@ export default class AbilityLifecycleCallback {
    * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when an ability is started for initialization.
+   * @param { Ability } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onAbilityCreate(ability: UIAbility): void;
 
@@ -44,8 +57,16 @@ export default class AbilityLifecycleCallback {
    * @param { window.WindowStage } windowStage - window stage to create
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when a window stage is created.
+   * @param { Ability } ability - Indicates the ability to register for listening.
+   * @param { window.WindowStage } windowStage - window stage to create
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -78,8 +99,16 @@ export default class AbilityLifecycleCallback {
    * @param { window.WindowStage } windowStage - window stage to destroy
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when a window stage is destroyed.
+   * @param { Ability } ability - Indicates the ability to register for listening.
+   * @param { window.WindowStage } windowStage - window stage to destroy
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -89,8 +118,15 @@ export default class AbilityLifecycleCallback {
    * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when an ability is destroyed.
+   * @param { Ability } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onAbilityDestroy(ability: UIAbility): void;
 
@@ -100,8 +136,15 @@ export default class AbilityLifecycleCallback {
    * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when the state of an ability changes to foreground.
+   * @param { Ability } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onAbilityForeground(ability: UIAbility): void;
 
@@ -111,8 +154,15 @@ export default class AbilityLifecycleCallback {
    * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Called back when the state of an ability changes to background.
+   * @param { Ability } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   onAbilityBackground(ability: UIAbility): void;
 

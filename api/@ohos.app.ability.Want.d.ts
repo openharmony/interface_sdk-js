@@ -17,8 +17,13 @@
  * Want is the basic communication component of the system.
  *
  * @syscap SystemCapability.Ability.AbilityBase
- * @crossplatform
  * @since 9
+ */
+/**
+ * Want is the basic communication component of the system.
+ * @syscap SystemCapability.Ability.AbilityBase
+ * @crossplatform
+ * @since 10
  */
 export default class Want {
   /**
@@ -26,8 +31,13 @@ export default class Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * bundle name
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 10
    */
   bundleName?: string;
 
@@ -36,8 +46,13 @@ export default class Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * ability name
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 10
    */
   abilityName?: string;
 
@@ -91,8 +106,13 @@ export default class Want {
    *
    * @type { ?[key: string]: Object }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * The description of the WantParams object in an Want
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 10
    */
   parameters?: { [key: string]: Object };
 
@@ -110,8 +130,13 @@ export default class Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * The description of an module name in an want.
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @since 10
    */
   moduleName?: string;
 }
