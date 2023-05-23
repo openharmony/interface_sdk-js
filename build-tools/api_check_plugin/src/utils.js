@@ -174,7 +174,7 @@ exports.excelApiCheckResult = excelApiCheckResult;
 function getApiInfo(node) {
   const notesStr = getAPINote(node);
   let apiInfo = {};
-  let versionArr=[];
+  let versionArr = [];
   if (notesStr !== '') {
     if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
@@ -187,7 +187,7 @@ function getApiInfo(node) {
         versionArr.push(versionInfo)
         apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
-      apiInfo.humpVersion=versionArr[0].replace(/\@since/g, '').trim();
+      apiInfo.humpVersion = versionArr[0].replace(/\@since/g, '').trim();
     }
     if (/\@deprecated.*since\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@deprecated.*since\s*(\d+)/g,
@@ -255,35 +255,6 @@ const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'Sta
   'systemapi'];
 exports.inheritArr = inheritArr;
 
-const ErrorValueInfoCh = {
-  ERROR_INFO_VALUE_EXTENDS: '第[$$]段JSDoc中, extends标签值错误, 请检查标签值是否与继承类名保持一致.',
-  ERROR_INFO_VALUE_ENUM: '第[$$]段JSDoc中,enum标签类型错误, 请检查标签类型是否为string或number.',
-  ERROR_INFO_VALUE_SINCE: '第[$$]段JSDoc中,since标签值错误, 请检查标签值是否为数值.',
-  ERROR_INFO_RETURNS: '第[$$]段JSDoc中,returns标签使用错误, 返回类型为void时不应该使用returns标签.',
-  ERROR_INFO_VALUE_RETURNS: '第[$$]段JSDoc中,returns标签类型错误, 请检查标签类型是否与返回类型一致.',
-  ERROR_INFO_VALUE_USEINSTEAD: '第[$$]段JSDoc中,useinstead标签值错误, 请检查使用方法.',
-  ERROR_INFO_VALUE_TYPE: '第[$$]段JSDoc中,type标签类型错误, 请检查类型是否与属性类型一致.',
-  ERROR_INFO_VALUE_DEFAULT: '第[$$]段JSDoc中,default标签值错误, 请补充默认值.',
-  ERROR_INFO_VALUE_PERMISSION: '第[$$]段JSDoc中,permission标签值书写错误, 请检查权限字段是否已配置或者更新配置文件.',
-  ERROR_INFO_VALUE_DEPRECATED: '第[$$]段JSDoc中,deprecated标签值错误, 请检查使用方法.',
-  ERROR_INFO_VALUE_SYSCAP: '第[$$]段JSDoc中,syscap标签值错误, 请检查syscap字段是否已配置.',
-  ERROR_INFO_VALUE_NAMESPACE: '第[$$]段JSDoc中,namespace标签值错误, 请检查是否与namespace名称保持一致.',
-  ERROR_INFO_VALUE_INTERFACE: '第[$$]段JSDoc中,interface标签值错误, 请检查是否与interface名称保持一致.',
-  ERROR_INFO_VALUE_TYPEDEF: '第[$$]段JSDoc中,typedef标签值错误, 请检查是否与interface名称保持一致.',
-  ERROR_INFO_TYPE_PARAM: '第[$$]段JSDoc中,第[$$]个param标签类型错误, 请检查是否与第[$$]个参数类型保持一致.',
-  ERROR_INFO_VALUE_PARAM: '第[$$]段JSDoc中,第[$$}]个param标签值错误, 请检查是否与第[$$]个参数名保持一致.',
-  ERROR_INFO_VALUE1_THROWS: '第[$$]段JSDoc中,第[$$}]个throws标签类型错误, 请填写BusinessError.',
-  ERROR_INFO_VALUE2_THROWS: '第[$$]段JSDoc中,第[$$}]个throws标签类型错误, 请检查标签值是否为数值.',
-  ERROR_INFO_INHERIT: '第[$$]段JSDoc中,检测到当前文件中存在可继承标签[$$]，但存在子节点没有此标签.',
-  ERROR_ORDER: 'JSDoc标签顺序错误,请进行调整',
-  ERROR_LABELNAME: '第[$$]段JSDoc中,[$$]标签不存在, 请使用合法的JSDoc标签.',
-  ERROR_LOST_LABEL: 'JSDoc标签合法性校验失败,请确认是否遗失$$标签.',
-  ERROR_USE: 'JSDoc标签合法性校验失败,不允许使用[$$]标签, 请检查标签使用方法.',
-  ERROR_MORELABEL: 'JSDoc标签合法性校验失败,第[$$]个[$$]标签多余, 请检查是否应该删除标签',
-  ERROR_REPEATLABEL: '第[$$]段JSDoc中,JSDoc标签合法性校验失败,[$$]标签不允许重复使用, 请删除多余标签.',
-  ERROR_USE_INTERFACE: '第[$$]段JSDoc中,JSDoc标签合法性校验失败,interface标签与typedef标签不允许同时使用, 请确认接口类型.',
-};
-
 const ErrorValueInfo = {
   ERROR_INFO_VALUE_EXTENDS: 'In the JSDoc section [$$], the [extens] tag value is incorrect. Please check if the tag value matches the inherited class name.',
   ERROR_INFO_VALUE_ENUM: 'In the JSDoc section [$$], the [enum] tag type is incorrect. Please check if the tag type is { string } or { number }',
@@ -315,8 +286,8 @@ const ErrorValueInfo = {
 exports.ErrorValueInfo = ErrorValueInfo;
 
 /**
-   * 组装错误信息
-   */
+ * link error message
+ */
 function createErrorInfo(errorInfo, params) {
   params.forEach((param) => {
     errorInfo = errorInfo.replace('$$', param);
@@ -326,7 +297,7 @@ function createErrorInfo(errorInfo, params) {
 exports.createErrorInfo = createErrorInfo;
 
 /**
- * 判断是否为arkui的api文件
+ * judge if it is an API file for Arkui
  */
 function isArkUIApiFile(fileName) {
   if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
@@ -354,7 +325,7 @@ function getcheckApiVersion() {
     const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
     packageJson = JSON.parse(packageJsonContent);
     checkApiVersion = packageJson.checkApiVersion;
-  } catch(error) {
+  } catch (error) {
     console.error("Failed to read package.json or parse JSON content:", error);
   }
   if (!checkApiVersion) {
