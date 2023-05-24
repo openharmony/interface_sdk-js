@@ -288,7 +288,6 @@
       "SystemCapability.DistributedDataManager.DataShare.Provider",
       "SystemCapability.DistributedDataManager.UDMF.Core",
       "SystemCapability.DistributedDataManager.CloudSync.Config",
-      "SystemCapability.DistributedDataManager.CloudSync.Server",
       "SystemCapability.DistributedDataManager.CloudSync.Client",
       "SystemCapability.Ability.AbilityBase",
       "SystemCapability.Ability.AbilityRuntime.Core",
