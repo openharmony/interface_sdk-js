@@ -15,7 +15,7 @@
 const fs = require('fs');
 const rules = require('../../code_style_rule.json');
 const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption, ErrorValueInfo,
-  createErrorInfo } = require('../../src/utils');
+  createErrorInfo, OPTIONAL_SYMBOL } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
 function checkExtendsValue(tag, node, fileName, JSDocIndex) {
@@ -237,8 +237,18 @@ function checkTypeValue(tag, node, fileName, JSDocIndex) {
     errorInfo: '',
   };
   const tagTypeValue = tag.type;
+  let apiTypeValue = '';
   if (commentNodeWhiteList.includes(node.kind)) {
-    const apiTypeValue = node.type?.getText();
+    if (node.type) {
+      if (ts.isFunctionTypeNode(node.type)) {
+        apiTypeValue = 'function';
+      } else if (ts.isTypeLiteralNode(node.type)) {
+        apiTypeValue = 'object';
+      } else {
+        apiTypeValue = node.type?.getText();
+      }
+    }
+    apiTypeValue = node.questionToken ? OPTIONAL_SYMBOL.concat(apiTypeValue) : apiTypeValue;
     if (apiTypeValue !== tagTypeValue) {
       typeResult.checkResult = false;
       typeResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_TYPE, [JSDocIndex + 1]);

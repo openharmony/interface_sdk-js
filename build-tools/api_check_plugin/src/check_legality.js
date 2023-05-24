@@ -141,6 +141,8 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
   tagsName.forEach(tagName => {
     if (tagName === 'extends') {
       illegalKindSet = new Set(commentNodeWhiteList);
+    }else if(tagName === 'syscap'){
+      illegalKindSet = new Set([]);
     }
     comments.forEach((comment, index) => {
       if (!checkInfoMap[index]) {

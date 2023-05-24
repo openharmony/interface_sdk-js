@@ -271,13 +271,13 @@ const ErrorValueInfo = {
   ERROR_INFO_VALUE_INTERFACE: 'In the JSDoc section [$$], the [interface] label value is incorrect. Please check if it matches the interface name',
   ERROR_INFO_VALUE_TYPEDEF: 'In the JSDoc section [$$], the [typedef] tag value is incorrect. Please check if it matches the interface name',
   ERROR_INFO_TYPE_PARAM: 'In the JSDoc section [$$], the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter',
-  ERROR_INFO_VALUE_PARAM: 'In the JSDoc section [$$], the value of the [$$}] [param] tag is incorrect. Please check if it matches the [$$] parameter name',
-  ERROR_INFO_VALUE1_THROWS: 'In the JSDoc section [$$], the type of the [$$}] [throws] tag is incorrect. Please fill in [BusinessError]',
-  ERROR_INFO_VALUE2_THROWS: 'In the JSDoc section [$$], the type of the [$$}] [throws] tag is incorrect. Please check if the tag value is a numerical value',
+  ERROR_INFO_VALUE_PARAM: 'In the JSDoc section [$$], the value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name',
+  ERROR_INFO_VALUE1_THROWS: 'In the JSDoc section [$$], the type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError]',
+  ERROR_INFO_VALUE2_THROWS: 'In the JSDoc section [$$], the type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value',
   ERROR_INFO_INHERIT: 'In the JSDoc section [$$], it was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label',
   ERROR_ORDER: 'JSDoc label order error, please make adjustments',
   ERROR_LABELNAME: 'In the JSDoc section [$$], the [$$] tag does not exist. Please use a valid JSDoc tag',
-  ERROR_LOST_LABEL: 'JSDoc tag validity verification failed. Please confirm if the $$tag is missing',
+  ERROR_LOST_LABEL: 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing',
   ERROR_USE: 'JSDoc label validity verification failed. The [$$] label is not allowed. Please check the label usage method.',
   ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] tag is redundant. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL: 'In the JSDoc section [$$], the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
@@ -334,3 +334,6 @@ function getcheckApiVersion() {
   return checkApiVersion;
 }
 exports.getcheckApiVersion = getcheckApiVersion;
+
+const OPTIONAL_SYMBOL = '?';
+exports.OPTIONAL_SYMBOL = OPTIONAL_SYMBOL;
