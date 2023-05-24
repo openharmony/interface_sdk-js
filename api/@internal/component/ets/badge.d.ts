@@ -169,6 +169,7 @@ declare interface BadgeStyle {
    * Define the border color of the badge.
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   /**
@@ -184,6 +185,7 @@ declare interface BadgeStyle {
    * Define the border width of the badge.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   /**
@@ -199,6 +201,7 @@ declare interface BadgeStyle {
    * Define the font weight of the badge.
    * @type { number | FontWeight | string}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   /**
