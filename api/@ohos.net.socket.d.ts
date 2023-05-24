@@ -214,6 +214,7 @@ declare namespace socket {
     /**
      * Port number. The value ranges from 0 to 65535.
      * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -222,6 +223,7 @@ declare namespace socket {
     /**
      * Length of the server response message, in bytes.
      * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -1041,8 +1043,7 @@ declare namespace socket {
     /**
      * <p>The list of signature algorithms shared between the server and the client,
      * in descending order of priority.</p>
-     * @param { AsyncCallback<Array<string>> } callback - the callback of getSignatureAlgorithms.
-     * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     * @param { AsyncCallback<Array<string>> } callback - the callback of getSignatureAlgorithms.@see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -1054,8 +1055,7 @@ declare namespace socket {
     /**
      * <p>The list of signature algorithms shared between the server and the client,
      * in descending order of priority.</p>
-     * @returns { Promise<Array<string>> } The promise returned by the function.
-     * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     * @returns { Promise<Array<string>> } The promise returned by the function.@see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack

@@ -79,8 +79,8 @@ declare namespace webSocket {
    * <p>Defines a WebSocket object. Before invoking WebSocket APIs, 
    * you need to call webSocket.createWebSocket to create a WebSocket object.</p>
    * @interface WebSocket
-   * @crossplatform
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 6
    */
   export interface WebSocket {

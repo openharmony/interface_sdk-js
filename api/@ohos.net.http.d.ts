@@ -419,6 +419,7 @@ declare namespace http {
      * @param { string } type Indicates Event name.
      * @param { AsyncCallback<Object> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
+     * @since 6
      * @deprecated since 8
      * @useinstead on_headersReceive
      */

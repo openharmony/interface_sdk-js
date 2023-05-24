@@ -22,15 +22,15 @@
 export interface NetworkResponse {
   /**
    * Network type. The values can be 2G, 3G, 4G, WiFi, or none.
-   * @syscap SystemCapability.Communication.NetManager.Core
    * @type {string}
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
   type: string;
   /**
    * Whether the billing is based on the data volume.
-   * @syscap SystemCapability.Communication.NetManager.Core
    * @type {boolean}
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
   metered: boolean;
@@ -45,6 +45,7 @@ export default class Network {
    * Obtains the network type.
    * @param options
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
    */
   static getType(options?: {
     /**
@@ -71,6 +72,7 @@ export default class Network {
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
    * @param options
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
    */
   static subscribe(options?:{
     /**
@@ -91,6 +93,7 @@ export default class Network {
    * Cancels listening to the network connection state.
    * @param options
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
    */
   static unsubscribe(): void;
 }
