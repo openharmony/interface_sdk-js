@@ -181,6 +181,48 @@ declare namespace AbilityConstant {
      * @since 9
      */
     NORMAL = 2,
+
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    CPP_CRASH = 3,
+
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    JS_ERROR = 4,
+
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    APP_FREEZE = 5,
+
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    PERFORMANCE_CONTROL = 6,
+
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    RESOURCE_CONTROL = 7,
+
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    UPGRADE_OR_UNINSTALL = 8,
   }
 
   /**
