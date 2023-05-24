@@ -169,7 +169,7 @@ declare namespace ethernet {
   /**
    * Register a callback for the ethernet interface active state change.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } type Indicates Event name.
+   * @param { 'interfaceStateChange' } type Indicates Event name.
    * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
    * and active Indicates whether the interface is active. 
    * @throws { BusinessError } 201 Permission denied.
@@ -184,7 +184,7 @@ declare namespace ethernet {
   /**
    * Unregister a callback from the ethernet interface active state change.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } type Indicates Event name.
+   * @param { 'interfaceStateChange' } type Indicates Event name.
    * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
    * and active Indicates whether the interface is active.
    * @throws { BusinessError } 201 Permission denied.

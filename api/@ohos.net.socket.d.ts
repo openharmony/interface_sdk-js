@@ -204,7 +204,7 @@ declare namespace socket {
 
     /**
      * Network protocol type. The options are as follows: IPv4, IPv6.
-     * @type {string}
+     * @type {'IPv4' | 'IPv6'}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
@@ -362,7 +362,7 @@ declare namespace socket {
 
     /**
      * Listens for message receiving events of the UDPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback callback function that returns the message
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -372,7 +372,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for message receiving events of the UDPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback callback function that returns the message
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -382,7 +382,7 @@ declare namespace socket {
 
     /**
      * Listens for data packet message events or close events of the UDPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'listening' | 'close' } type Indicates Event name.
      * @param { Callback<void> } callback Returns the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -392,7 +392,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for data packet message events or close events of the UDPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'listening' | 'close' } type Indicates Event name.
      * @param { Callback<void> } callback Returns the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -402,7 +402,7 @@ declare namespace socket {
 
     /**
      * Listens for error events of the UDPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'error' } type Indicates Event name.
      * @param { ErrorCallback } callback Returns the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -412,7 +412,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for error events of the UDPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'error' } type Indicates Event name.
      * @param { ErrorCallback } callback Returns the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -512,7 +512,7 @@ declare namespace socket {
 
     /**
      * Socket linger.
-     * @type { ?on: boolean, linger: number }
+     * @type { ?object }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
@@ -544,7 +544,7 @@ declare namespace socket {
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
      * @permission ohos.permission.INTERNET
-     * @param address Destination address. {@link NetAddress}
+     * @param { NetAddress } address Destination address. {@link NetAddress}
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -700,7 +700,7 @@ declare namespace socket {
 
     /**
      * Listens for message receiving events of the TCPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback Returns the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -710,7 +710,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback callback function that returns the message
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -720,7 +720,7 @@ declare namespace socket {
 
     /**
      * Listens for connection or close events of the TCPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'connect' | 'close' } type Indicates Event name.
      * @param { Callback<void> } callback Returns the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -730,7 +730,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for connection or close events of the TCPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'connect' | 'close' } type Indicates Event name.
      * @param { Callback<void> } callback callback function that returns the message
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -740,7 +740,7 @@ declare namespace socket {
 
     /**
      * Listens for error events of the TCPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'error' } type Indicates Event name.
      * @param { ErrorCallback } callback Returns the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -750,7 +750,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for error events of the TCPSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'error' } type Indicates Event name.
      * @param { ErrorCallback } callback callback function that returns the message
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -870,7 +870,7 @@ declare namespace socket {
 
     /**
      * Listens for message receiving events of the TLSSocket connection. 
-     * @param { string } type Indicates Event name.
+     * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback Returns the callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
@@ -881,7 +881,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback callback function that returns the message
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
@@ -892,7 +892,7 @@ declare namespace socket {
 
     /**
      * Listens for connection or close events of the TLSSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'connect' | 'close' } type Indicates Event name.
      * @param {Callback<void> } callback Returns the callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
@@ -903,7 +903,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for connection or close events of the TLSSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'connect' | 'close' } type Indicates Event name.
      * @param {Callback<void> } callback callback function that returns the message
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
@@ -914,7 +914,7 @@ declare namespace socket {
 
     /**
      * Listens for error events of the TLSSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'error' } type Indicates Event name.
      * @param { ErrorCallback } callback Returns the callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
@@ -925,7 +925,7 @@ declare namespace socket {
 
     /**
      * Cancels listening for error events of the TLSSocket connection.
-     * @param { string } type Indicates Event name.
+     * @param { 'error' } type Indicates Event name.
      * @param { ErrorCallback } callback callback function that returns the message
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack

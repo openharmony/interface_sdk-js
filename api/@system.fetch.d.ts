@@ -50,7 +50,7 @@ export interface FetchResponse {
 export default class Fetch {
   /**
    * Obtains data through the network.
-   * @param options
+   * @param { object } options
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */

@@ -416,7 +416,7 @@ declare namespace http {
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { string } type Indicates Event name.
+     * @param { "headerReceive" } type Indicates Event name.
      * @param { AsyncCallback<Object> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -427,7 +427,7 @@ declare namespace http {
 
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { string } type Indicates Event name.
+     * @param { "headerReceive" } type Indicates Event name.
      * @param { AsyncCallback<Object> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -438,7 +438,7 @@ declare namespace http {
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { string } type Indicates Event name.
+     * @param { "headerReceive" } type Indicates Event name.
      * @param { Callback<Object> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -448,7 +448,7 @@ declare namespace http {
 
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { string } type Indicates Event name.
+     * @param { "headerReceive" } type Indicates Event name.
      * @param { Callback<Object> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -458,7 +458,7 @@ declare namespace http {
 
     /**
      * Registers a one-time observer for HTTP Response Header events.
-     * @param { string } type Indicates Event name.
+     * @param { "headerReceive" } type Indicates Event name.
      * @param { Callback<Object> } callback - the callback of once.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -468,7 +468,7 @@ declare namespace http {
 
     /**
      * Registers an observer for receiving HTTP Response data events continuously.
-     * @param { string } type Indicates Event name.
+     * @param { "dataReceive" } type Indicates Event name.
      * @param { Callback<ArrayBuffer> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -477,7 +477,7 @@ declare namespace http {
 
     /**
      * Unregisters an observer for receiving HTTP Response data events continuously.
-     * @param { string } type Indicates Event name.
+     * @param { "dataReceive" } type Indicates Event name.
      * @param { Callback<ArrayBuffer> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -486,7 +486,7 @@ declare namespace http {
 
     /**
      * Registers an observer for receiving HTTP Response data ends events.
-     * @param { string } type Indicates Event name.
+     * @param { "dataEnd" } type Indicates Event name.
      * @param { Callback<void> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -495,7 +495,7 @@ declare namespace http {
 
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
-     * @param { string } type Indicates Event name.
+     * @param { "dataEnd" } type Indicates Event name.
      * @param { Callback<void> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -504,7 +504,7 @@ declare namespace http {
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { string } type Indicates Event name.
+     * @param { "dataProgress" } type Indicates Event name.
      * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -513,7 +513,7 @@ declare namespace http {
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { string } type Indicates Event name.
+     * @param { "dataProgress" } type Indicates Event name.
      * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10

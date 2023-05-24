@@ -43,7 +43,7 @@ export interface NetworkResponse {
 export default class Network {
   /**
    * Obtains the network type.
-   * @param options
+   * @param { ?object } options
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
@@ -70,7 +70,7 @@ export default class Network {
 
   /**
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
-   * @param options
+   * @param { ?object } options
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
@@ -91,7 +91,7 @@ export default class Network {
 
   /**
    * Cancels listening to the network connection state.
-   * @param options
+   * @param { function } options
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */

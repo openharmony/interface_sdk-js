@@ -367,7 +367,7 @@ declare namespace sharing {
   /**
    * Register a callback for the global network sharing state change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } type Indicates Event name.
+   * @param { 'sharingStateChange' } type Indicates Event name.
    * @param { Callback<boolean> } callback callback function that returns the status
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -381,7 +381,7 @@ declare namespace sharing {
   /**
    * Unregister a callback for the global network sharing state change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } type Indicates Event name.
+   * @param { 'sharingStateChange' } type Indicates Event name.
    * @param { Callback<boolean> } callback callback function that returns the status
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -395,7 +395,7 @@ declare namespace sharing {
   /**
    * Register a callback for the interface network sharing state change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } type Indicates Event name.
+   * @param { 'interfaceSharingStateChange' } type Indicates Event name.
    * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback callback function that returns the message. 
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -409,7 +409,7 @@ declare namespace sharing {
   /**
    * Unregister a callback for the interface network sharing state change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } type Indicates Event name.
+   * @param { 'interfaceSharingStateChange' } type Indicates Event name.
    * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback callback function that returns the message.
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -423,7 +423,7 @@ declare namespace sharing {
   /**
    * Register a callback for the sharing upstream network change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } type Indicates Event name.
+   * @param { 'sharingUpstreamChange' } type Indicates Event name.
    * @param { Callback<NetHandle> } callback callback function that returns the network handle.
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -437,7 +437,7 @@ declare namespace sharing {
   /**
    * Unregister a callback for the sharing upstream network change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } type Indicates Event name.
+   * @param { 'sharingUpstreamChange' } type Indicates Event name.
    * @param { Callback<NetHandle> } callback callback function that returns the network handle.
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.

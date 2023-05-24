@@ -518,7 +518,7 @@ declare namespace connection {
 
     /**
      * Registers a listener for netBlockStatusChange events.
-     * @param { string } type Indicates Event name.
+     * @param { 'netBlockStatusChange' } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
@@ -527,7 +527,7 @@ declare namespace connection {
 
     /**
      * Registers a listener for **netCapabilitiesChange** events.
-     * @param { string } type Indicates Event name.
+     * @param { 'netCapabilitiesChange' } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -537,7 +537,7 @@ declare namespace connection {
 
     /**
      * Registers a listener for netConnectionPropertiesChange events.
-     * @param { string } type Indicates Event name.
+     * @param { 'netConnectionPropertiesChange' } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
@@ -546,7 +546,7 @@ declare namespace connection {
 
     /**
      * Registers a listener for **netLost** events.
-     * @param { string } type Indicates Event name.
+     * @param { 'netLost' } type Indicates Event name.
      * @param { Callback<NetHandle> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
@@ -556,7 +556,7 @@ declare namespace connection {
 
     /**
      * Registers a listener for netUnavailable events.
-     * @param { string } type Indicates Event name.
+     * @param { 'netUnavailable' } type Indicates Event name.
      * @param { Callback<void> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform 

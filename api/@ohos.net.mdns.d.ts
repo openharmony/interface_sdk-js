@@ -145,7 +145,7 @@ declare namespace mdns {
   export interface DiscoveryService {
     /**
      * Enables listening for discoveryStart events of mDNS services.
-     * @param { string } type Indicates Event name.
+     * @param { 'discoveryStart' } type Indicates Event name.
      * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
@@ -155,7 +155,7 @@ declare namespace mdns {
 
     /**
      * Enables listening for discoveryStop events of mDNS services.
-     * @param { string } type Indicates Event name.
+     * @param { 'discoveryStop' } type Indicates Event name.
      * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
@@ -165,7 +165,7 @@ declare namespace mdns {
 
     /**
      * Enables listening for serviceFound events of mDNS services.
-     * @param { string } type Indicates Event name.
+     * @param { 'serviceFound' } type Indicates Event name.
      * @param { Callback<LocalServiceInfo> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
@@ -174,7 +174,7 @@ declare namespace mdns {
 
     /**
      * Enables listening for serviceLost events of mDNS services.
-     * @param { string } type Indicates Event name.
+     * @param { 'serviceLost' } type Indicates Event name.
      * @param { Callback<LocalServiceInfo> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10

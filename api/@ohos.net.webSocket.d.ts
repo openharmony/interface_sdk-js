@@ -191,7 +191,7 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the open events of a WebSocket connection.
-     * @param { string } type event indicating that a WebSocket connection has been opened. 
+     * @param { 'open' } type event indicating that a WebSocket connection has been opened. 
      * @param { AsyncCallback<Object> } callback Returns callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -201,7 +201,7 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for the open events of a WebSocket connection.
-     * @param { string } type event indicating that a WebSocket connection has been opened. 
+     * @param { 'open' } type event indicating that a WebSocket connection has been opened. 
      * @param { AsyncCallback<Object> } callback Returns callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -212,7 +212,7 @@ declare namespace webSocket {
     /**
      * Enables listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { string } type event indicating that a message has been received from the server.
+     * @param { 'message' } type event indicating that a message has been received from the server.
      * @param { AsyncCallback<string | ArrayBuffer> } callback Returns callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -223,7 +223,7 @@ declare namespace webSocket {
     /**
      * Cancels listening for the message events of a WebSocket connection.
      * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
-     * @param { string } type event indicating that a message has been received from the server.
+     * @param { 'message' } type event indicating that a message has been received from the server.
      * @param { AsyncCallback<string | ArrayBuffer> } callback Returns callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -233,7 +233,7 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the close events of a WebSocket connection.
-     * @param { string } type event indicating that a WebSocket connection has been closed.
+     * @param { 'close' } type event indicating that a WebSocket connection has been closed.
      * @param { AsyncCallback<{ code: number, reason: string }> } callback Callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
@@ -244,7 +244,7 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for the close events of a WebSocket connection.
-     * @param { string } type event indicating that a WebSocket connection has been closed.
+     * @param { 'close' } type event indicating that a WebSocket connection has been closed.
      * @param { AsyncCallback<{ code: number, reason: string }> } callback Callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
@@ -255,7 +255,7 @@ declare namespace webSocket {
 
     /**
      * Enables listening for the error events of a WebSocket connection.
-     * @param { string } type event indicating the WebSocket connection has encountered an error.
+     * @param { 'error' } type event indicating the WebSocket connection has encountered an error.
      * @param { ErrorCallback } callback return callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -265,7 +265,7 @@ declare namespace webSocket {
 
     /**
      * Cancels listening for the error events of a WebSocket connection.
-     * @param { string } type event indicating the WebSocket connection has encountered an error.
+     * @param { 'error' } type event indicating the WebSocket connection has encountered an error.
      * @param { ErrorCallback } callback return callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
