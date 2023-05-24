@@ -89,7 +89,7 @@ function checkAllNode(node, sourcefile, fileName) {
     checkPermission(node, sourcefile, fileName);
 
     if (commentNodeWhiteList.includes(node.kind)) {
-      checkJSDoc(node, sourcefile, fileName);
+      checkJSDoc(node, sourcefile, fileName, true);
     }
   }
   checkAnyInAPI(node, sourcefile, fileName);
