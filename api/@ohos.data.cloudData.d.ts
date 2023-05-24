@@ -177,7 +177,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10
      */
@@ -194,7 +194,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10
      */

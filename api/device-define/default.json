@@ -156,6 +156,7 @@
     "SystemCapability.DistributedDataManager.DataShare.Provider",
     "SystemCapability.DistributedDataManager.CloudSync.Config",
     "SystemCapability.DistributedDataManager.CloudSync.Client",
+    "SystemCapability.DistributedDataManager.CloudSync.Server",
     "SystemCapability.Ability.AbilityBase",
     "SystemCapability.Ability.AbilityRuntime.Core",
     "SystemCapability.Ability.AbilityRuntime.FAModel",
