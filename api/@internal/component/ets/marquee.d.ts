@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Provides the interface for the marquee attributes.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface MarqueeInterface {
   /**
    * Create marquee.
@@ -31,6 +37,12 @@ interface MarqueeInterface {
    * Create marquee.
    * @form
    * @since 9
+   */
+  /**
+   * Create marquee.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): MarqueeAttribute;
 }
@@ -44,6 +56,12 @@ interface MarqueeInterface {
  * @form
  * @since 9
  */
+/**
+ * Declares marquee properties.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee font Color.
@@ -53,6 +71,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * Set marquee font Color.
    * @form
    * @since 9
+   */
+  /**
+   * Set marquee font Color.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fontColor(value: ResourceColor): MarqueeAttribute;
 
@@ -65,6 +89,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Set marquee font size.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontSize(value: Length): MarqueeAttribute;
 
   /**
@@ -75,6 +105,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * Set marquee allow scale.
    * @form
    * @since 9
+   */
+  /**
+   * Set marquee allow scale.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   allowScale(value: boolean): MarqueeAttribute;
 
@@ -87,6 +123,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Set marquee font weight.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontWeight(value: number | FontWeight | string): MarqueeAttribute;
 
   /**
@@ -97,6 +139,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * Set marquee font family.
    * @form
    * @since 9
+   */
+  /**
+   * Set marquee font family.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fontFamily(value: string | Resource): MarqueeAttribute;
 
@@ -109,6 +157,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when scrolling starts.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onStart(event: () => void): MarqueeAttribute;
 
   /**
@@ -120,6 +174,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when scrolling to the bottom.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onBounce(event: () => void): MarqueeAttribute;
 
   /**
@@ -130,6 +190,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * Called when scrolling is complete.
    * @form
    * @since 9
+   */
+  /**
+   * Called when scrolling is complete.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   onFinish(event: () => void): MarqueeAttribute;
 }
@@ -143,6 +209,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Marquee Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Marquee: MarqueeInterface;
 
 /**
@@ -153,5 +225,11 @@ declare const Marquee: MarqueeInterface;
  * Defines Marquee Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Marquee Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const MarqueeInstance: MarqueeAttribute;

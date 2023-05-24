@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Data Change Listener.
  * @since 7
  */
+/**
+ * Data Change Listener.
+ * @crossplatform
+ * @since 10
+ */
 declare interface DataChangeListener {
   /**
    * Data ready.
    * @since 7
+   */
+  /**
+   * Data ready.
+   * @crossplatform
+   * @since 10
    */
   onDataReloaded(): void;
 
@@ -36,6 +46,11 @@ declare interface DataChangeListener {
    * Data added.
    * @since 8
    */
+  /**
+   * Data added.
+   * @crossplatform
+   * @since 10
+   */
   onDataAdd(index: number): void;
 
   /**
@@ -49,6 +64,11 @@ declare interface DataChangeListener {
   /**
    * Data moved.
    * @since 8
+   */
+  /**
+   * Data moved.
+   * @crossplatform
+   * @since 10
    */
   onDataMove(from: number, to: number): void;
 
@@ -64,6 +84,11 @@ declare interface DataChangeListener {
    * Data deleted.
    * @since 8
    */
+  /**
+   * Data deleted.
+   * @crossplatform
+   * @since 10
+   */
   onDataDelete(index: number): void;
 
   /**
@@ -78,6 +103,11 @@ declare interface DataChangeListener {
    * Call when has data change.
    * @since 8
    */
+  /**
+   * Call when has data change.
+   * @crossplatform
+   * @since 10
+   */
   onDataChange(index: number): void;
 }
 
@@ -85,10 +115,20 @@ declare interface DataChangeListener {
  * Developers need to implement this interface to provide data to LazyForEach component.
  * @since 7
  */
+/**
+ * Developers need to implement this interface to provide data to LazyForEach component.
+ * @crossplatform
+ * @since 10
+ */
 declare interface IDataSource {
   /**
    * Total data count.
    * @since 7
+   */
+  /**
+   * Total data count.
+   * @crossplatform
+   * @since 10
    */
   totalCount(): number;
 
@@ -96,17 +136,32 @@ declare interface IDataSource {
    * Return the data of index.
    * @since 7
    */
+  /**
+   * Return the data of index.
+   * @crossplatform
+   * @since 10
+   */
   getData(index: number): any;
 
   /**
    * Register data change listener.
    * @since 7
    */
+  /**
+   * Register data change listener.
+   * @crossplatform
+   * @since 10
+   */
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
    * Unregister data change listener.
    * @since 7
+   */
+  /**
+   * Unregister data change listener.
+   * @crossplatform
+   * @since 10
    */
   unregisterDataChangeListener(listener: DataChangeListener): void;
 }
@@ -115,10 +170,20 @@ declare interface IDataSource {
  * Lazy loading.
  * @since 7
  */
+/**
+ * Lazy loading.
+ * @crossplatform
+ * @since 10
+ */
 interface LazyForEachInterface {
   /**
    * Enter the value to obtain the LazyForEach.
    * @since 7
+   */
+  /**
+   * Enter the value to obtain the LazyForEach.
+   * @crossplatform
+   * @since 10
    */
   (
     dataSource: IDataSource,
@@ -130,5 +195,10 @@ interface LazyForEachInterface {
 /**
  * Defines LazyForEach Component.
  * @since 7
+ */
+/**
+ * Defines LazyForEach Component.
+ * @crossplatform
+ * @since 10
  */
 declare const LazyForEach: LazyForEachInterface;

@@ -226,6 +226,7 @@
       "SystemCapability.HiviewDFX.HiLogLite",
       "SystemCapability.HiviewDFX.HiTrace",
       "SystemCapability.HiviewDFX.Hiview.FaultLogger",
+      "SystemCapability.HiviewDFX.Hiview.LogLibrary",
       "SystemCapability.HiviewDFX.HiviewLite",
       "SystemCapability.HiviewDFX.HiChecker",
       "SystemCapability.HiviewDFX.HiCollie",
@@ -311,7 +312,18 @@
       "SystemCapability.XTS.DeviceAttestLite",
       "SystemCapability.Base",
       "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
-      "SystemCapability.MultimodalInput.Input.ShortKey"
+      "SystemCapability.MultimodalInput.Input.ShortKey",
+      "SystemCapability.Msdp.DeviceStatus.Cooperate",
+      "SystemCapability.Request.FileTransferAgent",
+      "SystemCapability.ResourceSchedule.DeviceStandby"
     ]
-  }
+  },
+  "administrators": [
+    {
+      "user": "1505186"
+    },
+    {
+      "user": "8046261"
+    }
+  ]
 }

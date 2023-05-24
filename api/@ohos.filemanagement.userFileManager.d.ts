@@ -67,6 +67,40 @@ declare namespace userFileManager {
   }
 
   /**
+   * Enumeration types for different types of FileAsset
+   *
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  enum PhotoSubType {
+    /**
+     * Default Photo Type
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    DEFAULT,
+    /**
+     * Screenshot Photo Type
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    SCREENSHOT,
+    /**
+     * Camera Photo Type
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    CAMERA
+  }
+
+  /**
    * File position
    *
    * @enum File position, which indicates the file is in local device or cloud
@@ -156,7 +190,7 @@ declare namespace userFileManager {
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param member The name of the parameter. only TITLE can be changed
+     * @param member The name of the parameter
      * @param string The value of the parameter.
      * @example : Set(ImageVideoKey.TITLE, "newTitle"), call commitModify after set value
      */
@@ -179,7 +213,7 @@ declare namespace userFileManager {
      */
     commitModify(): Promise<void>;
     /**
-     * Open the file is located.
+     * Open local file.
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -189,7 +223,7 @@ declare namespace userFileManager {
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
-     * Open the file is located.
+     * Open local file.
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -261,6 +295,32 @@ declare namespace userFileManager {
      * @param isFavorite True is favorite file, false is not favorite file
      */
     favorite(isFavorite: boolean): Promise<void>;
+    /**
+     * Set file hidden state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } hiddenState - true: Put the asset into hidden album; false: Recover the asset from hidden album.
+     * @param { AsyncCallback<void> } callback - Return void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    setHidden(hiddenState: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set file hidden state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } hiddenState - true: Put the asset into hidden album; false: Recover the asset from hidden album.
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    setHidden(hiddenState: boolean): Promise<void>;
   }
 
   /**
@@ -271,7 +331,7 @@ declare namespace userFileManager {
    */
   enum AudioKey {
     /**
-     * File uri
+     * File uri, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -285,49 +345,49 @@ declare namespace userFileManager {
      */
     DISPLAY_NAME,
     /**
-     * Date of the file creation
+     * Date of the file creation, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     DATE_ADDED,
     /**
-     * Modify date of the file
+     * Modify date of the file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     DATE_MODIFIED,
     /**
-     * Title of the file
+     * Title of the file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     TITLE,
     /**
-     * Artist of the audio file
+     * Artist of the audio file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     ARTIST,
     /**
-     * Audio album of the audio file
+     * Audio album of the audio file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     AUDIOALBUM,
     /**
-     * Duration of the audio file
+     * Duration of the audio file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     DURATION,
     /**
-     * Favorite state of the file
+     * Favorite state of the file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -343,14 +403,14 @@ declare namespace userFileManager {
     */
   enum ImageVideoKey {
     /**
-     * File uri
+     * File uri, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     URI,
     /**
-     * File type of the Asset
+     * File type of the Asset, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -364,76 +424,92 @@ declare namespace userFileManager {
      */
     DISPLAY_NAME,
     /**
-     * Date of the file creation
+     * Date of the file creation, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     DATE_ADDED,
     /**
-     * Modify date of the file
+     * Modify date of the file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     DATE_MODIFIED,
     /**
-     * Title of the file
+     * Title of the file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     TITLE,
     /**
-     * Duration of the audio and video file
+     * Duration of the audio and video file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     DURATION,
     /**
-     * Width of the image file
+     * Width of the image file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     WIDTH,
     /**
-     * Height of the image file
+     * Height of the image file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     HEIGHT,
     /**
-     * Date taken of the file
+     * Date taken of the file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     DATE_TAKEN,
     /**
-     * Orientation of the image file
+     * Orientation of the image file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     ORIENTATION,
     /**
-     * Favorite state of the file
+     * Favorite state of the file, read only
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     FAVORITE,
     /**
-     * File position
+     * File position, read only
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 10
      */
-    POSITION
+    POSITION,
+    /**
+     * Trashed date of the file, read only
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    DATE_TRASHED,
+    /**
+     * Hidden state of the file, read only
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    HIDDEN
   }
 
   /**
@@ -520,6 +596,24 @@ declare namespace userFileManager {
      * @param predicates Indicates filter criteria.
      */
     predicates: dataSharePredicates.DataSharePredicates;
+  }
+
+  /**
+   * Describe additional operations for creating photo
+   *
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  interface PhotoCreateOptions {
+    /**
+     * SubType of the photo
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    subType?: PhotoSubType;
   }
 
   /**
@@ -630,6 +724,26 @@ declare namespace userFileManager {
      * @returns A Promise instance used to return the file in the format of a T instance.
      */
     getPositionObject(index: number): Promise<T>;
+    /**
+     * Obtains all T in the file retrieval result.
+     * This method uses a callback to return the result. After this method is called,
+     *
+     * @param callback Callback used to return a T array.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getAllObject(callback: AsyncCallback<Array<T>>): void;
+    /**
+     * Obtains all T in the file retrieval result.
+     * This method uses a promise to return the result. that store the selected media resources.
+     *
+     * @returns A Promise instance used to return a T array.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getAllObject(): Promise<Array<T>>;
   }
 
   /**
@@ -709,6 +823,22 @@ declare namespace userFileManager {
      */
     TRASH,
     /**
+     * Screenshot album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    SCREENSHOT,
+    /**
+     * Camera album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    CAMERA,
+    /**
      * Any album
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -782,7 +912,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param type Determined which kinds of asset to retrive.
+     * @param type Determined which kinds of PhotoAssets to retrive.
      * @param options Retrieval options.
      * @param callback Callback used to return the files in the format of a FetchResult instance.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
@@ -794,7 +924,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param type Determined which kinds of asset to retrive.
+     * @param type Determined which kinds of PhotoAssets to retrive.
      * @param options Retrieval options.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      * @returns A Promise instance used to return the files in the format of a FetchResult instance.
@@ -826,6 +956,102 @@ declare namespace userFileManager {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      */
     commitModify(): Promise<void>;
+    /**
+     * Add PhotoAssets to the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to add
+     * @param { AsyncCallback<void> } callback Returns void
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    addPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    /**
+     * Add PhotoAssets to the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to add
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    addPhotoAssets(assets: Array<FileAsset>): Promise<void>;
+    /**
+     * Remove PhotoAssets from the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to remove
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    removePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    /**
+     * Remove PhotoAssets from the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to remove
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    removePhotoAssets(assets: Array<FileAsset>): Promise<void>;
+    /**
+     * Recover PhotoAssets from the trash album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to recover
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    /**
+     * Recover PhotoAssets from the trash album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to recover
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    recoverPhotoAssets(assets: Array<FileAsset>): Promise<void>;
+    /**
+     * Delete PhotoAssets permanently from the trash album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to delete
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    deletePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    /**
+     * Delete PhotoAssets permanently from the trash album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<FileAsset> } assets - Assets to delete
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    deletePhotoAssets(assets: Array<FileAsset>): Promise<void>;
   }
 
   /**
@@ -852,7 +1078,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param type Determined which kinds of asset to retrive.
+     * @param type Determined which kinds of PhotoAssets to retrive.
      * @param options Retrieval options.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      * @returns A promise instance used to return the files in the format of a FetchResult instance
@@ -890,11 +1116,63 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName File name
-     * @param albumUri Album uri is optional, asset will put into the default album without albumUri
+     * @param albumUri Album uri is optional, PhotoAssets will put into the default album without albumUri
      * @throws {BusinessError} 13900020 - if type displayName or albumUri is not string
      * @returns A Promise instance used to return the FileAsset
      */
     createPhotoAsset(displayName: string, albumUri?: string): Promise<FileAsset>;
+    /**
+     * Create Photo Asset
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param displayName File name
+     * @param createOption Create operation
+     * @returns A Promise instance used to return the FileAsset
+     * @throws { BusinessError } 13900020 - if type displayName is not string
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 9
+     */
+    createPhotoAsset(displayName: string, createOption: PhotoCreateOptions): Promise<FileAsset>;
+    /**
+     * Create Photo Asset
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param displayName File name
+     * @param createOption Photo create operation
+     * @param callback Callback used to return the FileAsset
+     * @throws { BusinessError } 13900020 - if type displayName is not string
+     * @throws { BusinessError } 14000001 - if type displayName invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 9
+     */
+    createPhotoAsset(displayName: string, createOption: PhotoCreateOptions, callback: AsyncCallback<FileAsset>): void;
+    /**
+     * Create Audio Asset
+     *
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param displayName File name
+     * @param callback Callback used to return the FileAsset
+     * @throws { BusinessError } 13900020 - if type displayName is not string
+     * @throws { BusinessError } 14000001 - if type displayName invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    createAudioAsset(displayName: string, callback: AsyncCallback<FileAsset>): void;
+    /**
+     * Create Audio Asset
+     *
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param displayName File name
+     * @returns A Promise instance used to return the FileAsset
+     * @throws { BusinessError } 13900020 - if type displayName is not string
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    createAudioAsset(displayName: string): Promise<FileAsset>;
     /**
      * Obtains albums based on the retrieval options. This method uses an asynchronous callback to return.
      * @since 9
@@ -1046,7 +1324,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_AUDIO
-     * @param type Determined which kinds of asset to retrive.
+     * @param type Determined which kinds of AudioAssets to retrive.
      * @param options Retrieval options.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      * @returns A promise instance used to return the files in the format of a FetchResult instance
@@ -1058,7 +1336,7 @@ declare namespace userFileManager {
     * @systemapi
     * @syscap SystemCapability.FileManagement.UserFileManager.Core
     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
-    * @param uri Uri of asset
+    * @param uri Uri of FileAsset
     * @param callback No value returned
     * @throws {BusinessError} 13900020 - if type uri is not string
     */
@@ -1069,7 +1347,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
-     * @param uri Uri of asset
+     * @param uri Uri of FileAsset
      * @throws {BusinessError} 13900020 - if type uri is not string
      * @returns A Promise instance, no value returned
      */
@@ -1092,6 +1370,29 @@ declare namespace userFileManager {
      * @param callback No value returned
      */
     off(type: ChangeEvent, callback?: Callback<void>): void;
+    /**
+     * Turn on monitor for the specified uri.
+     *
+     * @param { string } uri - FileAsset's uri, album's uri or DefaultChangeUri
+     * @param { boolean } forSubUri - Monitor the sub uri.
+     * @param { Callback<ChangeData> } callback - callback function, return the ChangeData to be monitored
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    on(uri: string, forSubUri: boolean, callback: Callback<ChangeData>): void;
+    /**
+     * Turn off monitor for the specified uri.
+     *
+     * @param { string } uri - FileAsset's uri、 Album's uri or DefaultChangeUri value
+     * @param { Callback<ChangeData> } [callback] - Remove specified callback from monitoring to a specified uri
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    off(uri: string, callback?: Callback<ChangeData>): void;
     /**
      * Get Active Peer device information
      * @since 9
@@ -1139,6 +1440,126 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     release(): Promise<void>;
+  }
+
+  /**
+   * NotifyType subtype
+   *
+   * @enum NotifyType subtype
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  enum NotifyType {
+    /**
+     * Type for add notification of the FileAsset or Album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    NOTIFY_ADD,
+    /**
+     * Type for update notification of the FileAsset or Album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    NOTIFY_UPDATE,
+    /**
+     * Type for remove notification of the FileAsset or Album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    NOTIFY_REMOVE,
+    /**
+     * Type for notification of the FileAsset added at an Album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    NOTIFY_ALBUM_ADD_ASSET,
+    /**
+     * Type for notification of the FileAsset removed at an Album
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    NOTIFY_ALBUM_REMOVE_ASSET
+  }
+
+  /**
+   * DefaultChangeUri subtype
+   *
+   * @enum DefaultChangeUri subtype
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  enum DefaultChangeUri {
+    /**
+     * Uri for default PhotoAsset, use with forDescendant{true}, will recieve all PhotoAsset's change notifications
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    DEFAULT_PHOTO_URI,
+    /**
+     * Uri for default Album, use with forDescendant{true}, will recieve all Album's change notifications
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    DEFAULT_ALBUM_URI,
+    /**
+     * Uri for default AudioAsset, use with forDescendant{true}, will recieve all AudioAsset's change notifications
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    DEFAULT_AUDIO_URI
+  }
+
+  /**
+   * the value of the monitor callback function
+   *
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @systemapi
+   * @since 10
+   */
+  interface ChangeData {
+    /**
+     * the NotifyType of ChangeData
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    type: NotifyType;
+    /**
+     * all uris of the same NotifyType, could be FileAssets' or Albums'
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    uris: Array<string>;
+    /**
+     * change details of the Album's FileAssets when uris is the Album's uri type
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    subUris: Array<string>;
   }
 
   /**

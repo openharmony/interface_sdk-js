@@ -16,34 +16,35 @@
 /**
  * Class of the enterprise admin extension ability.
  *
- * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @StageModelOnly
+ * @since 9
  */
 export default class EnterpriseAdminExtensionAbility {
   /**
    * Called back when an application is enabled.
    *
-   * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
+   * @since 9
    */
   onAdminEnabled(): void;
 
   /**
    * Called back when an application is disabled.
    *
-   * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
+   * @since 9
    */
   onAdminDisabled(): void;
 
   /**
    * Called back when a bundle is installed.
+   *
    * @param { string } bundleName - bundleName indicates the name of the bundle installed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -54,6 +55,7 @@ export default class EnterpriseAdminExtensionAbility {
 
   /**
    * Called back when a bundle is uninstalled.
+   *
    * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -64,6 +66,7 @@ export default class EnterpriseAdminExtensionAbility {
 
   /**
    * Called back when an app is started.
+   *
    * @param { string } bundleName - bundleName indicates the name of the app started.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -74,6 +77,7 @@ export default class EnterpriseAdminExtensionAbility {
 
   /**
    * Called back when an app is stopped.
+   *
    * @param { string } bundleName - bundleName indicates the name of the app stopped.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi

@@ -18,8 +18,15 @@
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @crossplatform
  * @since 9
+ */
+/**
+ * The definition of AbilityConstant.
+ * @namespace AbilityConstant
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 declare namespace AbilityConstant {
   /**
@@ -27,16 +34,29 @@ declare namespace AbilityConstant {
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Interface of launch param.
+   * @typedef LaunchParam
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   export interface LaunchParam {
     /**
      * Indicates launch reason.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Indicates launch reason.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     launchReason: LaunchReason;
 
@@ -44,8 +64,14 @@ declare namespace AbilityConstant {
      * Indicates last exit reason.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Indicates last exit reason.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     lastExitReason: LastExitReason;
   }
@@ -55,15 +81,27 @@ declare namespace AbilityConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Type of launch reason.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   export enum LaunchReason {
     /**
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     UNKNOWN = 0,
 
@@ -106,15 +144,27 @@ declare namespace AbilityConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Type of last exit reason.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
    */
   export enum LastExitReason {
     /**
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     UNKNOWN = 0,
 

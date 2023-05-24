@@ -2880,6 +2880,26 @@ declare namespace osAccount {
      * @since 8
      */
     freezingTime?: number;
+
+    /**
+     * Indicates the enrollment progress.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    enrollmentProgress?: string;
+
+    /**
+     * Indicates the sensor information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    sensorInfo?: string;
   }
 
   /**
@@ -3066,7 +3086,25 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    FREEZING_TIME = 3
+    FREEZING_TIME = 3,
+
+    /**
+     * Indicates the enrollment progress.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    ENROLLMENT_PROGRESS = 4,
+
+    /**
+     * Indicates the sensor information.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    SENSOR_INFO = 5
   }
 
   /**
@@ -3187,6 +3225,33 @@ declare namespace osAccount {
      * @since 8
      */
     FACE_3D = 20001,
+
+    /**
+     * Indicates the capacitive fingerprint credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_CAPACITIVE = 30000,
+
+    /**
+     * Indicates the optical fingerprint credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_OPTICAL = 30001,
+
+    /**
+     * Indicates the ultrasonic fingerprint credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_ULTRASONIC = 30002,
 
     /**
      * Indicates the mixed domain credential.
@@ -3542,7 +3607,25 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    FINGERPRINT_TIP_TOO_SLOW = 5
+    FINGERPRINT_TIP_TOO_SLOW = 5,
+
+    /**
+     * Indicates that the finger is down.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_FINGER_DOWN = 6,
+
+    /**
+     * Indicates that the finger is up.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_FINGER_UP = 7
   }
 
   /**
