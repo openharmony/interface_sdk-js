@@ -354,4 +354,14 @@ export default class UIAbility extends Ability {
    */
   onShare(wantParam: { [key: string]: Object }): void;
 
+  /**
+   * Called back when an ability prepare to terminate.
+   * @permission ohos.permission.PREPARE_TERMINATE
+   * @returns Returns {@code true} if the ability need to terminate; returns {@code false} stop the terminate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  onPrepareTerminate(): boolean;
+
 }
