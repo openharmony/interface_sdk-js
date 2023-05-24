@@ -817,5 +817,6 @@ zoomreset
 zooms
 zpass
 commonevent
+clouddata
 unprepare
 unchained
