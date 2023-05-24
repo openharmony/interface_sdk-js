@@ -122,6 +122,7 @@
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
+    "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",

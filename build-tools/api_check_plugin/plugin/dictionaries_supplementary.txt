@@ -101,6 +101,7 @@ chrominance
 circled
 clamped
 clamps
+cloudfile
 coincides
 collaborated
 collapses
