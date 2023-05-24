@@ -589,7 +589,7 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2100207 - Remote is null.
+     * @throws { BusinessError } 2101007 - The callback is not exists.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform 
      * @since 8
@@ -982,7 +982,7 @@ declare namespace connection {
 
   /**
    * Network Global Proxy Configuration Information.
-   * @@interface HttpProxy
+   * @interface HttpProxy
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */

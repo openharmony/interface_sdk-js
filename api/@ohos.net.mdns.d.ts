@@ -287,4 +287,7 @@ declare namespace mdns {
   }
 }
 
+/**
+ * @since 10
+ */
 export default mdns;
