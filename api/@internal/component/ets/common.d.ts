@@ -5287,6 +5287,16 @@ declare class CommonMethod<T> {
    */
   backdropBlur(value: number): T;
 
+
+  /**
+   * Composite the contents of this view and its children into an offscreen cache before display in the screen.
+   * @param value if this view and its children need to composite into an offscreen cache.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  renderGroup(value: bool): T;
+
   /**
    * Sets the translation effect during page transition.
    * The value is the start point of entry and end point of exit.
