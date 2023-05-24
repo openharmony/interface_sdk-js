@@ -54,6 +54,7 @@ declare namespace cloudData {
     /**
      * opens the cloud sync function.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName:string]:boolean} } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
@@ -76,6 +77,7 @@ declare namespace cloudData {
     /**
      * opens the cloud sync function.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName:string]:boolean} } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
@@ -94,6 +96,7 @@ declare namespace cloudData {
     /**
      * closes the cloud sync function.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { AsyncCallback<void> } callback - the callback of disableCloud.
      * @throws { BusinessError } 201 - Permission verification failed.
@@ -109,6 +112,7 @@ declare namespace cloudData {
     /**
      * closes the cloud sync function.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed.
@@ -124,6 +128,7 @@ declare namespace cloudData {
     /**
      * Changes the cloud sync switch of a single application.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { string } bundleName -  Indicates the name of application.
      * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
@@ -146,6 +151,7 @@ declare namespace cloudData {
     /**
      * Changes the cloud sync switch of a single application.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { string } bundleName -  Indicates the name of application.
      * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
@@ -163,6 +169,7 @@ declare namespace cloudData {
     /**
      * deletes cloud information from local data.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
      * @param { AsyncCallback<void> } callback - the callback of clean.
@@ -179,6 +186,7 @@ declare namespace cloudData {
     /**
      * deletes cloud information from local data.
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
      * @returns { Promise<void> } the promise returned by the function.
@@ -195,6 +203,7 @@ declare namespace cloudData {
     /**
      * notifies changes of the cloud records
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { string } bundleName - Indicates the name of application.
      * @param { AsyncCallback<void> } callback - the callback of notifyDataChange.
@@ -211,6 +220,7 @@ declare namespace cloudData {
     /**
      * notifies changes of the cloud records
      *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { string } bundleName - Indicates the name of application.
      * @returns { Promise<void> } the promise returned by the function.
