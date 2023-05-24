@@ -32,8 +32,8 @@ declare namespace connection {
   /**
    * Create a network connection with optional netSpecifier and timeout.
    * @param { NetSpecifier } netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
-   * <p>@param { number } timeout The time in milliseconds to attempt looking for a suitable network before
-   * {@link NetConnection#netUnavailable} is called.</p>
+   * @param { number } timeout The time in milliseconds to attempt looking for a suitable network before
+   * {@link NetConnection#netUnavailable} is called.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @since 8
@@ -72,7 +72,7 @@ declare namespace connection {
   /**
    * Obtains the data network that is activated by default.
    * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
-   * @returns {@code null} if the default network is not activated.
+   * @returns { NetHandle } if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -177,8 +177,8 @@ declare namespace connection {
 
   /**
    * Checks whether data traffic usage on the current network is metered.
-   * <p>@param callback Returns {@code true} if data traffic usage on the current network is metered;
-   * returns {@code false} otherwise.</p>
+   * @param callback Returns {@code true} if data traffic usage on the current network is metered;
+   * returns {@code false} otherwise.
    * @param { AsyncCallback<boolean> } callback - the callback of isDefaultNetMetered.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
@@ -192,8 +192,8 @@ declare namespace connection {
 
   /**
    * Checks whether data traffic usage on the current network is metered.
-   * <p>@param callback Returns {@code true} if data traffic usage on the current network is metered;
-   * returns {@code false} otherwise.</p>
+   * @param callback Returns {@code true} if data traffic usage on the current network is metered;
+   * returns {@code false} otherwise.
    * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
@@ -207,8 +207,8 @@ declare namespace connection {
 
   /**
    * Checks whether the default data network is activated.
-   * <p>@param { AsyncCallback<boolean> } callback Returns {@code true} if the default data network is activated;
-   * returns {@code false} otherwise.</p>
+   * @param { AsyncCallback<boolean> } callback Returns {@code true} if the default data network is activated;
+   * returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -253,7 +253,7 @@ declare namespace connection {
   /**
    * Enables the airplane mode for a device.
    * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<void> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -285,7 +285,7 @@ declare namespace connection {
   /**
    * Disables the airplane mode for a device.</p>
    * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<void> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -316,7 +316,7 @@ declare namespace connection {
   /**
    * Reports the network state is connected.
    * @param { NetHandle } netHandle Indicates the network whose state is to be reported.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<void> } The promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -346,7 +346,7 @@ declare namespace connection {
   /**
    * Reports the network state is disconnected.
    * @param { NetHandle } netHandle Indicates the network whose state is to be reported.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<void> } The promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -390,8 +390,8 @@ declare namespace connection {
 
   /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
-   * <p>@param callback Returns the {@link NetHandle} bound to the process;
-   * returns {@code null} if no {@link NetHandle} is bound to the process.For details, see {@link NetHandle}.</p>
+   * @param callback Returns the {@link NetHandle} bound to the process;
+   * returns {@code null} if no {@link NetHandle} is bound to the process.For details, see {@link NetHandle}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -613,7 +613,7 @@ declare namespace connection {
 
     /**
      * Network identifier, the identifier for Wi Fi networks is "wifi", and the identifier for cellular networks is "simId1" (corresponding to SIM card 1).
-     * @type {string}
+     * @type {?string}
      * @since 8
      */
     bearerPrivateIdentifier?: string;
@@ -736,21 +736,21 @@ declare namespace connection {
   export interface NetCapabilities {
     /**
      * Uplink (device-to-network) bandwidth.
-     * @type {number}
+     * @type {?number}
      * @since 8
      */
     linkUpBandwidthKbps?: number;
 
     /**
      * Downstream (network-to-device) bandwidth.
-     * @type {number}
+     * @type {?number}
      * @since 8
      */
     linkDownBandwidthKbps?: number;
 
     /**
      * Network-specific capabilities.
-     * @type {Array<NetCap>}
+     * @type {?Array<NetCap>}
      * @since 8
      */
     networkCap?: Array<NetCap>;
@@ -967,14 +967,14 @@ declare namespace connection {
 
     /**
      * Address family identifier. The value is 1 for IPv4 and 2 for IPv6. The default value is 1.
-     * @type {number}
+     * @type {?number}
      * @since 8
      */
     family?: number; 
 
     /**
      * Port number. The value ranges from 0 to 65535.
-     * @type {number}
+     * @type {?number}
      * @since 8
      */
     port?: number; 
