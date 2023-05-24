@@ -30,7 +30,7 @@ declare namespace ConfigurationConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.ConfigurationConstant
+   * @useinstead ohos.app.ability.ConfigurationConstant#ColorMode
    */
   export enum ColorMode {
 
