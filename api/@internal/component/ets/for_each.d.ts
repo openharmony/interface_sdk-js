@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * looping function.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface ForEachInterface {
   /**
    * Set the value, array, and key.
@@ -31,6 +37,12 @@ interface ForEachInterface {
    * Set the value, array, and key.
    * @form
    * @since 9
+   */
+  /**
+   * Set the value, array, and key.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (
     arr: Array<any>,
@@ -47,5 +59,11 @@ interface ForEachInterface {
  * Defines ForEach Component.
  * @form
  * @since 9
+ */
+/**
+ * Defines ForEach Component.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const ForEach: ForEachInterface;
