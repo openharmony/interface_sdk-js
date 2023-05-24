@@ -17,6 +17,12 @@
  * The class of an process information.
  *
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ */
+/**
+ * The class of an process information.
+ *
+ * @since 10
  * @crossplatform
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
@@ -24,6 +30,11 @@ export interface ProcessInformation {
   /**
    * @default process id
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * @default process id
+   * @since 10
    * @crossplatform
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
@@ -39,6 +50,11 @@ export interface ProcessInformation {
   /**
    * @default the name of the process
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * @default the name of the process
+   * @since 10
    * @crossplatform
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
@@ -47,6 +63,11 @@ export interface ProcessInformation {
   /**
    * @default an array of the bundleNames running in the process
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * @default an array of the bundleNames running in the process
+   * @since 10
    * @crossplatform
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */

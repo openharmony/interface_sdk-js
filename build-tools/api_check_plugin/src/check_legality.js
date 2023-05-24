@@ -13,17 +13,20 @@
  * limitations under the License.
 */
 
-const path = require('path');
-const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo, createErrorInfo } = require('./utils');
+const whiteLists = require('../config/jsdocCheckWhiteList.json');
+const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo,
+  createErrorInfo, isWhiteListFile } = require('./utils');
 const { checkApiOrder, checkAPITagName, checkInheritTag } = require('./check_jsdoc_value/chek_order');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
 
 // 标签合法性校验
 function checkJsDocLegality(node, comments, checkInfoMap) {
-  // 必填校验
-  legalityCheck(node, comments, commentNodeWhiteList, ['since', 'syscap'], true, checkInfoMap);
+  // since
+  legalityCheck(node, comments, commentNodeWhiteList, ['since'], true, checkInfoMap);
+  // syscap
+  legalityCheck(node, comments, getIllegalKinds([ts.SyntaxKind.ModuleDeclaration, ts.SyntaxKind.ClassDeclaration]),
+    ['syscap'], true, checkInfoMap);
   // const定义语句必填
   legalityCheck(node, comments, [ts.SyntaxKind.VariableStatement], ['constant'], true, checkInfoMap,
     (currentNode, checkResult) => {
@@ -52,26 +55,26 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
   // 'param'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
     ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+    (currentNode, checkResult) => {
+      if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
-      return true;
+        return true;
+      }
+      return currentNode.parameters && currentNode.parameters.length > 0;
     }
-    return currentNode.parameters && currentNode.parameters.length > 0;
-  }
   );
   // 'returns'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
     ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['returns'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+    (currentNode, checkResult) => {
+      if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) {
-      return false;
-    }
-    return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) && (currentNode.type
+        return false;
+      }
+      return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+        ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) && (currentNode.type
         && currentNode.type.kind !== ts.SyntaxKind.VoidKeyword);
-  }
+    }
   );
   // 'useinstead'
   legalityCheck(node, comments, commentNodeWhiteList, ['useinstead'], true, checkInfoMap,
@@ -133,9 +136,14 @@ function dealSpecialTag(comment, tagName) {
 
 function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInfoMap, extraCheckCallback) {
   const illegalKinds = getIllegalKinds(legalKinds);
-  const illegalKindSet = new Set(illegalKinds);
+  let illegalKindSet = new Set(illegalKinds);
   const legalKindSet = new Set(legalKinds);
   tagsName.forEach(tagName => {
+    if (tagName === 'extends') {
+      illegalKindSet = new Set(commentNodeWhiteList);
+    }else if(tagName === 'syscap'){
+      illegalKindSet = new Set([]);
+    }
     comments.forEach((comment, index) => {
       if (!checkInfoMap[index]) {
         checkInfoMap[index] = {
@@ -239,11 +247,7 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
   }
 }
 
-function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName) {
-  let { permissionFile } = require('./utils');
-  if (permissionConfigPath && fs.existsSync(permissionConfigPath)) {
-    permissionFile = permissionConfigPath;
-  }
+function checkJsDocOfCurrentNode(node, sourcefile, fileName) {
   const checkInfoArray = [];
   const comments = parseJsDoc(node);
   const checkInfoMap = checkJsDocLegality(node, comments, {});
@@ -276,29 +280,36 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
 }
 exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
 
-function checkJSDoc(node, sourcefile, permissionConfigPath, fileName) {
-  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName);
+function checkJSDoc(node, sourcefile, fileName) {
+  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName);
+
+  let isMissingTagWhitetFile = true;
+  let isIllegalTagWhitetFile = true;
+  let isOrderTagWhitetFile = true;
+  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
+  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
+  isOrderTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkOrderResult);
 
   verificationResult.forEach(item => {
     let errorInfo = '';
-    if (item.missingTags.length > 0) {
+    if (item.missingTags.length > 0 && isMissingTagWhitetFile) {
       item.missingTags.forEach(lostLabel => {
         errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
-          ErrorLevel.LOW);
+          ErrorLevel.MIDDLE);
       });
     }
-    if (item.illegalTags.length > 0) {
+    if (item.illegalTags.length > 0 && isIllegalTagWhitetFile) {
       item.illegalTags.forEach(wrongValueLabel => {
         errorInfo = wrongValueLabel.errorInfo;
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_VALUE, errorInfo, FileType.JSDOC,
-          ErrorLevel.LOW);
+          ErrorLevel.MIDDLE);
       });
     }
-    if (!item.orderResult.checkResult) {
+    if (!item.orderResult.checkResult && isOrderTagWhitetFile) {
       errorInfo = item.orderResult.errorInfo;
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+        ErrorLevel.MIDDLE);
     }
   })
 

@@ -17,12 +17,14 @@ declare class Queue<T> {
   /**
    * A constructor used to create a Queue object.
    * @throws { BusinessError } 10200012 - The Queue's constructor cannot be directly invoked.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the Queue.This is a number one higher than the highest index in the queue.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -33,6 +35,7 @@ declare class Queue<T> {
    * @param element to be appended to this queue
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -41,6 +44,7 @@ declare class Queue<T> {
    * Obtains the header element of a queue.
    * @returns the T type
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -49,6 +53,7 @@ declare class Queue<T> {
    * Retrieves and removes the head of this queue
    * @returns the T type
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -64,6 +69,7 @@ declare class Queue<T> {
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -72,6 +78,7 @@ declare class Queue<T> {
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

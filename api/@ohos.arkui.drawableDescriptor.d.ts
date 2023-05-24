@@ -13,9 +13,6 @@
  * limitations under the License.
  */
 
-/// <reference path="../component/units.d.ts" />
-
-import { Resource } from 'GlobalResource';
 import image from './@ohos.multimedia.image';
 
 /**
