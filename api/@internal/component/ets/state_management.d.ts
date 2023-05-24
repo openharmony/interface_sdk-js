@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,16 +17,31 @@
  * Defines the ColorMode of device.
  * @since 7
  */
+/**
+ * Defines the ColorMode of device.
+ * @crossplatform
+ * @since 10
+ */
 declare enum ColorMode {
   /**
    * Light mode.
    * @since 7
+   */
+  /**
+   * Light mode.
+   * @crossplatform
+   * @since 10
    */
   LIGHT = 0,
 
   /**
    * Dark mode.
    * @since 7
+   */
+  /**
+   * Dark mode.
+   * @crossplatform
+   * @since 10
    */
   DARK,
 }
@@ -35,10 +50,20 @@ declare enum ColorMode {
  * Defines the LayoutDirection of device.
  * @since 7
  */
+/**
+ * Defines the LayoutDirection of device.
+ * @crossplatform
+ * @since 10
+ */
 declare enum LayoutDirection {
   /**
    * Elements are laid out from left to right.
    * @since 7
+   */
+  /**
+   * Elements are laid out from left to right.
+   * @crossplatform
+   * @since 10
    */
   LTR,
 
@@ -46,11 +71,21 @@ declare enum LayoutDirection {
    * Elements are laid out from right to left.
    * @since 7
    */
+  /**
+   * Elements are laid out from right to left.
+   * @crossplatform
+   * @since 10
+   */
   RTL,
 
   /**
    * Elements are laid out from auto.
    * @since 8
+   */
+  /**
+   * Elements are laid out from auto.
+   * @crossplatform
+   * @since 10
    */
   Auto,
 }
