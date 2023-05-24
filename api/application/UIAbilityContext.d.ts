@@ -84,6 +84,14 @@ export default class UIAbilityContext extends Context {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Indicates configuration information.
+   * @type { Configuration }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
   config: Configuration;
 
   /**
