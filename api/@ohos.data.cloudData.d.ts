@@ -167,40 +167,6 @@ declare namespace cloudData {
     static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
     /**
-     * deletes cloud information from local data.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
-     * @param { AsyncCallback<void> } callback - the callback of clean.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 10
-     */
-    static clean(accountId: string, appActions: { [bundleName: string]: Action }, callback: AsyncCallback<void>): void;
-
-    /**
-     * deletes cloud information from local data.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 10
-     */
-    static clean(accountId: string, appActions: { [bundleName: string]: Action }): Promise<void>;
-
-    /**
      * notifies changes of the cloud records
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
