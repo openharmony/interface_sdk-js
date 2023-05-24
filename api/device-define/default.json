@@ -7,6 +7,7 @@
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
+    "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
@@ -22,7 +23,10 @@
     "SystemCapability.Communication.IPC.Core",
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Communication.NetManager.Core",
-    "SystemCapability.Communication.NetManager.Extension",
+    "SystemCapability.Communication.NetManager.Ethernet",
+    "SystemCapability.Communication.NetManager.NetSharing",
+    "SystemCapability.Communication.NetManager.MDNS",
+    "SystemCapability.Communication.NetManager.Vpn",
     "SystemCapability.Communication.NetStack",
     "SystemCapability.Communication.WiFi.Core",
     "SystemCapability.Communication.WiFi.STA",
@@ -62,6 +66,8 @@
     "SystemCapability.Multimedia.Media.VideoEncoder",
     "SystemCapability.Multimedia.Media.Spliter",
     "SystemCapability.Multimedia.Media.Muxer",
+    "SystemCapability.Multimedia.Media.AVPlayer",
+    "SystemCapability.Multimedia.Media.AVRecorder",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.Audio.Core",
@@ -186,6 +192,7 @@
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
-    "SystemCapability.XTS.DeviceAttest"
+    "SystemCapability.XTS.DeviceAttest",
+    "SystemCapability.Request.FileTransferAgent"
   ]
 }

@@ -33,7 +33,7 @@ interface ShapeInterface {
    * Called when a component is drawn.
    * @since 7
    */
-  (value?: PixelMap): ShapeAttribute;
+  (value: PixelMap): ShapeAttribute;
 
   /**
    * Called when a component is drawn.

@@ -7,6 +7,7 @@
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
+    "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
@@ -61,6 +62,8 @@
     "SystemCapability.Multimedia.Media.VideoEncoder",
     "SystemCapability.Multimedia.Media.Spliter",
     "SystemCapability.Multimedia.Media.Muxer",
+    "SystemCapability.Multimedia.Media.AVPlayer",
+    "SystemCapability.Multimedia.Media.AVRecorder",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.Audio.Core",
@@ -184,6 +187,7 @@
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
-    "SystemCapability.Msdp.DeviceStatus.Stationary"
+    "SystemCapability.Msdp.DeviceStatus.Stationary",
+    "SystemCapability.Request.FileTransferAgent"
   ]
 }

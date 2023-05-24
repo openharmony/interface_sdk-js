@@ -48,7 +48,6 @@ export interface ShortcutWant {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.bundle.launcherBundleManager.ShortcutInfo
  */
 export interface ShortcutInfo {
   /**

@@ -93,7 +93,14 @@ declare class Scroller {
    * Called when sliding to the specified index.
    * @since 7
    */
-  scrollToIndex(value: number);
+  /**
+   * Called when sliding to the specified index.
+   * @param { number } value - Index to jump to.
+   * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollToIndex(value: number, smooth?:boolean);
 
   /**
    * Called when the setting slides by offset.

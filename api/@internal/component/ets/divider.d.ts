@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Provides a divider component to separate different content blocks/content elements.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface DividerInterface {
   /**
    * Return Divider.
@@ -31,6 +37,12 @@ interface DividerInterface {
    * Return Divider.
    * @form
    * @since 9
+   */
+  /**
+   * Return Divider.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (): DividerAttribute;
 }
@@ -44,6 +56,12 @@ interface DividerInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the Divider attribute functions.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
    * Indicates whether to use a horizontal splitter or a vertical splitter.
@@ -56,6 +74,13 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Indicates whether to use a horizontal splitter or a vertical splitter.
+   * The options are as follows: false: horizontal splitter; true: vertical splitter.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   vertical(value: boolean): DividerAttribute;
 
   /**
@@ -66,6 +91,12 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * Sets the color of the divider line.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the color of the divider line.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   color(value: ResourceColor): DividerAttribute;
 
@@ -78,6 +109,12 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the width of the dividing line.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeWidth(value: number | string): DividerAttribute;
 
   /**
@@ -88,6 +125,12 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * Sets the end style of the split line. The default value is Butt.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the end style of the split line. The default value is Butt.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   lineCap(value: LineCapStyle): DividerAttribute;
 }
@@ -101,6 +144,12 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Divider Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Divider: DividerInterface;
 
 /**
@@ -111,5 +160,11 @@ declare const Divider: DividerInterface;
  * Defines Divider Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Divider Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const DividerInstance: DividerAttribute;

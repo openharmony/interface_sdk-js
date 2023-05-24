@@ -17,51 +17,61 @@ const path = require('path');
 const fs = require('fs');
 
 function checkEntry(prId) {
-  let result = '';
-  let isOpenEscapeWay = false;
+  let result = ['api_check: false'];
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
+  let buffer = new Buffer.from("");
+  let i = 0, execute = false;
   try {
     const execSync = require('child_process').execSync;
-    execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
-    const rules = require(path.resolve(__dirname, './code_style_rule.json'));
-    const administrators = new Set();
-    rules.administrators.forEach((administrator) => {
-      administrators.add(administrator.id);
-    })
-    const request = require(path.resolve(__dirname, './node_modules/sync-request'));
-    if (prId && prId !== 'NA') {
-      // 默认搜寻100条评论
-      const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;
-      let res = request('GET', commentRequestPath, {
-        headers: {
-          'Content-Type': 'application/json;charset=UFT-8'
-        }
-      });
-      let resBody = new TextDecoder('utf-8').decode(res.body);
-      let comments = JSON.parse(`{"resultBody": "${resBody}"}`);
-      let resultBody = comments.resultBody;
-      if (resultBody && resultBody.length) {
-        for (let i = 0; i < resultBody.length; i++) {
-          const comment = resultBody[i];
-          if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
-            comment.body && /^approve api check$/.test(comment.body)) {
-            isOpenEscapeWay = true;
-            break;
-          }
-        }
+    do {
+      try {
+        buffer = execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install', {
+          timeout: 120000
+        });
+        execute = true;
+      } catch (error) {
       }
+    } while (++i < 3 && !execute);
+    if (!execute) {
+      throw "npm install timeout";
     }
-    const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath, isOpenEscapeWay);
-    const { removeDir } = require(path.resolve(__dirname, './src/utils'));
+    const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    result = scanEntry(mdFilesPath);
+    result = reqGitApi(result, prId);
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
-    result = `API_CHECK_ERROR : ${error}`;
+    result.push(`API_CHECK_ERROR : ${error}`);
+    result.push(`buffer : ${buffer.toString()}`);
+  } finally {
+    writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
   }
-  const { writeResultFile } = require('./src/utils');
-  writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
 }
+
+function removeDir(url) {
+  let statObj = fs.statSync(url);
+  if (statObj.isDirectory()) {
+    let dirs = fs.readdirSync(url);
+    dirs = dirs.map(dir => path.join(url, dir));
+    for (let i = 0; i < dirs.length; i++) {
+      removeDir(dirs[i]);
+    }
+    fs.rmdirSync(url);
+  } else {
+    fs.unlinkSync(url);
+  }
+}
+
+function writeResultFile(resultData, outputPath, option) {
+  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, 2), option, err => {
+    if (err) {
+      console.error(`ERROR FOR CREATE FILE:${err}`);
+    } else {
+      console.log('API CHECK FINISH!');
+    }
+  });
+}
+
 checkEntry(process.argv[2]);
