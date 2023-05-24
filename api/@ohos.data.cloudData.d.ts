@@ -60,10 +60,10 @@ declare namespace cloudData {
      * switches will overwrite the saved application switch information.If the specific application switch changes,
      * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @param { AsyncCallback<void> } callback - the callback of enableCloud.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -83,10 +83,10 @@ declare namespace cloudData {
      * switches will overwrite the saved application switch information.If the specific application switch changes,
      * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -99,10 +99,10 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { AsyncCallback<void> } callback - the callback of disableCloud.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -115,10 +115,10 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -133,10 +133,10 @@ declare namespace cloudData {
      * @param { string } bundleName -  Indicates the name of application.
      * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
      * @param { AsyncCallback<void> } callback - the callback of changeAppCloudSwitch.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -156,10 +156,10 @@ declare namespace cloudData {
      * @param { string } bundleName -  Indicates the name of application.
      * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -173,10 +173,10 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
      * @param { AsyncCallback<void> } callback - the callback of clean.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -190,10 +190,10 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10
@@ -207,10 +207,10 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { string } bundleName - Indicates the name of application.
      * @param { AsyncCallback<void> } callback - the callback of notifyDataChange.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10
@@ -224,10 +224,10 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
      * @param { string } bundleName - Indicates the name of application.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed.
-     * @throws { BusinessError } 401 - BusinessError 401: Parameter error.
-     * @throws { BusinessError } 801 - BusinessError 801: Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10
