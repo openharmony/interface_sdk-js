@@ -22,12 +22,14 @@
 export interface NetworkResponse {
   /**
    * Network type. The values can be 2G, 3G, 4G, WiFi, or none.
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @type {string}
    * @since 3
    */
   type: string;
   /**
    * Whether the billing is based on the data volume.
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @type {boolean}
    * @since 3
    */
@@ -47,16 +49,19 @@ export default class Network {
   static getType(options?: {
     /**
      * Called when the network type is obtained.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
     success?: (data: NetworkResponse) => void;
     /**
      * Called when the network type fails to be obtained.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
     fail?: (data: any, code: number) => void;
     /**
      * Called when the execution is completed.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
     complete?: () => void;
@@ -70,11 +75,13 @@ export default class Network {
   static subscribe(options?:{
     /**
      * Called when the network connection state changes.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
     success?: (data: NetworkResponse) => void;
     /**
      * Called when the listening fails.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
     fail?: (data: any, code: number) => void;

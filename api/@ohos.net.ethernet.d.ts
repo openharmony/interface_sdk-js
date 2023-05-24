@@ -24,9 +24,9 @@ import { AsyncCallback, Callback } from "./@ohos.base";
 declare namespace ethernet {
   /**
    * Get the specified network interface information.
+   * @permission ohos.permission.GET_NETWORK_INFO
    * @param { string } iface Indicates the network interface name.
    * @param { AsyncCallback<InterfaceConfiguration> } callback - the callback of getIfaceConfig.
-   * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -42,9 +42,9 @@ declare namespace ethernet {
 
   /**
    * Get the specified network interface information.
-   * @param { string } iface Indicates the network interface name.
-   * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { string } iface Indicates the network interface name.
+   * @returns { Promise<InterfaceConfiguration> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -60,10 +60,10 @@ declare namespace ethernet {
 
   /**
    * Set the specified network interface parameters.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { string } iface Indicates the network interface name of the network parameter.
    * @param { InterfaceConfiguration } ic Indicates the ic. See {@link InterfaceConfiguration}.
    * @param { AsyncCallback<void> } callback - the callback of setIfaceConfig.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -82,10 +82,10 @@ declare namespace ethernet {
 
   /**
    * Set the specified network interface parameters.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { string } iface Indicates the network interface name of the network parameter.
    * @param { InterfaceConfiguration } ic Indicates the ic. See {@link InterfaceConfiguration}.
    * @returns { Promise<void> } the promise returned by the function.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -104,9 +104,9 @@ declare namespace ethernet {
 
   /**
    * Check whether the specified network is active.
+   * @permission ohos.permission.GET_NETWORK_INFO
    * @param { string } iface Indicates the network interface name.
    * @param { AsyncCallback<number> } callback - the callback of isIfaceActive.
-   * @permission ohos.permission.GET_NETWORK_INFO
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -122,9 +122,9 @@ declare namespace ethernet {
 
   /**
    * Check whether the specified network is active.
-   * @param { string } iface Indicates the network interface name.
-   * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { string } iface Indicates the network interface name.
+   * @returns { Promise<number> } the promise returned by the function. 
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -140,8 +140,8 @@ declare namespace ethernet {
 
   /**
    * Gets the names of all active network interfaces.
-   * @param { AsyncCallback<Array<string>> } callback - the callback of getAllActiveIfaces.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<Array<string>> } callback - the callback of getAllActiveIfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -154,8 +154,8 @@ declare namespace ethernet {
 
   /**
    * Gets the names of all active network interfaces.
-   * @returns { Promise<Array<string>> } the promise returned by the function.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Promise<Array<string>> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -168,10 +168,10 @@ declare namespace ethernet {
 
   /**
    * Register a callback for the ethernet interface active state change.
-   * @param { string } type Indicates Event name.
-   * <p>@param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
-   * and active Indicates whether the interface is active.</p>
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { string } type Indicates Event name.
+   * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
+   * and active Indicates whether the interface is active. 
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -183,10 +183,10 @@ declare namespace ethernet {
 
   /**
    * Unregister a callback from the ethernet interface active state change.
-   * @param { string } type Indicates Event name.
-   * <p>@param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
-   * and active Indicates whether the interface is active.</p>
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { string } type Indicates Event name.
+   * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
+   * and active Indicates whether the interface is active.
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -207,6 +207,8 @@ declare namespace ethernet {
     /**
      * @type {IPSetMode}
      * See {@link IPSetMode}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     mode: IPSetMode;
@@ -215,6 +217,8 @@ declare namespace ethernet {
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     ipAddr: string;
@@ -224,6 +228,8 @@ declare namespace ethernet {
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     route: string;
@@ -233,6 +239,8 @@ declare namespace ethernet {
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     gateway: string;
@@ -242,6 +250,8 @@ declare namespace ethernet {
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     netMask: string;
@@ -251,6 +261,8 @@ declare namespace ethernet {
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured, Multiple addresses are separated by ",")
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     dnsServers: string;
@@ -267,6 +279,7 @@ declare namespace ethernet {
     /**
      * Static configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     STATIC = 0,
@@ -274,6 +287,7 @@ declare namespace ethernet {
     /**
      * Dynamic configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     DHCP = 1

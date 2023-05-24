@@ -27,6 +27,7 @@ declare namespace socket {
   export import NetAddress = connection.NetAddress;
   /**
    * Deposit certificate
+   * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 9
    */
@@ -34,6 +35,8 @@ declare namespace socket {
 
   /**
    * Creates a UDPSocket object.
+   * @returns { UDPSocket } the UDPSocket of the constructUDPSocketInstance.
+   * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 7
    */
@@ -41,6 +44,8 @@ declare namespace socket {
 
   /**
    * Creates a TCPSocket object.
+   * @returns { TCPSocket } the TCPSocket of the constructTCPSocketInstance.
+   * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 7
    */
@@ -48,6 +53,8 @@ declare namespace socket {
 
   /**
    * Creates a TLSSocket object.
+   * @returns { TLSSocket } the TLSSocket of the constructTLSSocketInstance.
+   * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 9
    */
@@ -64,6 +71,7 @@ declare namespace socket {
     /**
      * Data to send.
      * @type {string | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -72,6 +80,7 @@ declare namespace socket {
     /**
      * Destination address.
      * @type {NetAddress}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -87,7 +96,8 @@ declare namespace socket {
   export interface ExtraOptionsBase {
     /**
      * Size of the receive buffer, in MBS.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -95,7 +105,8 @@ declare namespace socket {
 
     /**
      * Size of the send buffer, in MBS.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -103,16 +114,18 @@ declare namespace socket {
 
     /**
      * Whether to reuse addresses. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @type {boolean}
      * @since 7
      */
     reuseAddress?: boolean;
 
     /**
      * Timeout duration of the UDPSocket connection, in milliseconds.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @type {number}
      * @since 7
      */
     socketTimeout?: number;
@@ -128,7 +141,8 @@ declare namespace socket {
   export interface UDPExtraOptions extends ExtraOptionsBase {
     /**
      * Whether to send broadcast messages. The default value is false.
-     * @type {boolean}
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -146,6 +160,7 @@ declare namespace socket {
     /**
      * Whether the connection is in the bound state.
      * @type {boolean}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -154,6 +169,7 @@ declare namespace socket {
     /**
      * Whether the connection is in the closed state.
      * @type {boolean}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -162,6 +178,7 @@ declare namespace socket {
     /**
      * Whether the connection is in the connected state.
      * @type {boolean}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -179,6 +196,7 @@ declare namespace socket {
     /**
      * Bound IP address.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -187,6 +205,7 @@ declare namespace socket {
     /**
      * Network protocol type. The options are as follows: IPv4, IPv6.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -219,9 +238,9 @@ declare namespace socket {
   export interface UDPSocket {
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * @permission ohos.permission.INTERNET
      * @param { NetAddress } address Destination address. {@link NetAddress}
      * @param { AsyncCallback<void> } callback Returns the callback of bind.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -232,9 +251,9 @@ declare namespace socket {
 
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * @permission ohos.permission.INTERNET
      * @param { NetAddress } address Destination address. {@link NetAddress}
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -245,9 +264,9 @@ declare namespace socket {
 
     /**
      * Sends data over a UDPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { UDPSendOptions } options Optional parameters {@link UDPSendOptions}.
      * @param { AsyncCallback<void> } callback Returns the callback of send.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -258,9 +277,9 @@ declare namespace socket {
 
     /**
      * Sends data over a UDPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { UDPSendOptions } options Optional parameters {@link UDPSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -271,8 +290,8 @@ declare namespace socket {
 
     /**
      * Closes a UDPSocket connection.
-     * @param { AsyncCallback<void> } callback Returns the callback of close.
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<void> } callback Returns the callback of close.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -282,8 +301,8 @@ declare namespace socket {
 
     /**
      * Closes a UDPSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -293,8 +312,8 @@ declare namespace socket {
 
     /**
      * Obtains the status of the UDPSocket connection.
-     * @param { AsyncCallback<SocketStateBase> } callback Callback used to return the result. {@link SocketStateBase}.
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<SocketStateBase> } callback Callback used to return the result. {@link SocketStateBase}.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -304,8 +323,8 @@ declare namespace socket {
 
     /**
      * Obtains the status of the UDPSocket connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -315,9 +334,9 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the UDPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { UDPExtraOptions } options Optional parameters {@link UDPExtraOptions}.
      * @param { AsyncCallback<void> }callback Returns the callback of setExtraOptions.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -328,9 +347,9 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the UDPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { UDPExtraOptions } options Optional parameters {@link UDPExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -411,6 +430,7 @@ declare namespace socket {
     /**
      * Bound IP address and port number.
      * @type { NetAddress }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -418,7 +438,8 @@ declare namespace socket {
 
     /**
      * Timeout duration of the TCPSocket connection, in milliseconds.
-     * @type { number }
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -436,6 +457,7 @@ declare namespace socket {
     /**
      * Data to send.
      * @type { string | ArrayBuffer }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -443,7 +465,8 @@ declare namespace socket {
 
     /**
      * Character encoding format.
-     * @type { string }
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -460,7 +483,8 @@ declare namespace socket {
   export interface TCPExtraOptions extends ExtraOptionsBase {
     /**
      * Whether to keep the connection alive. The default value is false.
-     * @type { boolean }
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -468,7 +492,8 @@ declare namespace socket {
 
     /**
      * Whether to enable OOBInline. The default value is false.
-     * @type { boolean }
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -476,7 +501,8 @@ declare namespace socket {
 
     /**
      * Whether to enable no-delay on the TCPSocket connection. The default value is false.
-     * @type { boolean }
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -484,7 +510,8 @@ declare namespace socket {
 
     /**
      * Socket linger.
-     * @type { on: boolean, linger: number }
+     * @type { ?on: boolean, linger: number }
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 7
      */
@@ -501,10 +528,9 @@ declare namespace socket {
   export interface TCPSocket {
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     *
+     * @permission ohos.permission.INTERNET
      * @param { NetAddress } address Destination address. {@link NetAddress}
      * @param { AsyncCallback<void> } callback Returns the callback of bind.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -515,10 +541,9 @@ declare namespace socket {
 
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     *
+     * @permission ohos.permission.INTERNET
      * @param address Destination address. {@link NetAddress}
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -529,9 +554,9 @@ declare namespace socket {
 
     /**
      * Sets up a connection to the specified IP address and port number.
+     * @permission ohos.permission.INTERNET
      * @param { TCPConnectOptions } options  Optional parameters {@link TCPConnectOptions}.
      * @param { AsyncCallback<void> } callback Returns the callback of connect.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -542,9 +567,9 @@ declare namespace socket {
 
     /**
      * Sets up a connection to the specified IP address and port number.
+     * @permission ohos.permission.INTERNET
      * @param { TCPConnectOptions } options Optional parameters {@link TCPConnectOptions}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -555,9 +580,9 @@ declare namespace socket {
 
     /**
      * Sends data over a TCPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { TCPSendOptions } options Optional parameters {@link TCPSendOptions}.
      * @param { AsyncCallback<void> } callback Returns the callback of send.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -568,9 +593,9 @@ declare namespace socket {
 
     /**
      * Sends data over a TCPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { TCPSendOptions } options Optional parameters {@link TCPSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -581,8 +606,8 @@ declare namespace socket {
 
     /**
      * Closes a TCPSocket connection.
-     * @param { AsyncCallback<void> } callback Returns the callback of close.
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<void> } callback Returns the callback of close.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -592,8 +617,8 @@ declare namespace socket {
 
     /**
      * Closes a TCPSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -603,8 +628,8 @@ declare namespace socket {
 
     /**
      * Obtains the peer address of a TCPSocket connection.
-     * @param { AsyncCallback<NetAddress> } callback Callback used to return the result. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<NetAddress> } callback Callback used to return the result. {@link NetAddress}
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -614,8 +639,8 @@ declare namespace socket {
 
     /**
      * Obtains the peer address of a TCPSocket connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<NetAddress> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -625,8 +650,8 @@ declare namespace socket {
 
     /**
      * Obtains the status of the TCPSocket connection.
-     * @param { AsyncCallback<SocketStateBase> } callback Callback used to return the result. {@link SocketStateBase}
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<SocketStateBase> } callback Callback used to return the result. {@link SocketStateBase}
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -636,8 +661,8 @@ declare namespace socket {
 
     /**
      * Obtains the status of the TCPSocket connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -647,9 +672,9 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -660,9 +685,9 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocket connection.
+     * @permission ohos.permission.INTERNET
      * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
@@ -743,9 +768,9 @@ declare namespace socket {
 
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * @permission ohos.permission.INTERNET
      * @param { NetAddress } address Destination address. {@link NetAddress}
      * @param { AsyncCallback<void> } callback - the callback of bind.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2303198 - Address already in use.
@@ -758,9 +783,9 @@ declare namespace socket {
 
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     * @permission ohos.permission.INTERNET
      * @param { NetAddress } address Destination address. {@link NetAddress}
      * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2303198 - Address already in use.
@@ -784,7 +809,7 @@ declare namespace socket {
 
     /**
      * Obtains the peer address of a TLSSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -806,7 +831,7 @@ declare namespace socket {
 
     /**
      * Obtains the status of the TLSSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -842,10 +867,10 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
-     * Listens for message receiving events of the TLSSocket connection.
-     * @throws { BusinessError } 401 - Parameter error.
+     * Listens for message receiving events of the TLSSocket connection. 
      * @param { string } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback Returns the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
@@ -865,9 +890,9 @@ declare namespace socket {
 
     /**
      * Listens for connection or close events of the TLSSocket connection.
-     * @throws { BusinessError } 401 - Parameter error.
      * @param { string } type Indicates Event name.
      * @param {Callback<void> } callback Returns the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
@@ -887,9 +912,9 @@ declare namespace socket {
 
     /**
      * Listens for error events of the TLSSocket connection.
-     * @throws { BusinessError } 401 - Parameter error.
      * @param { string } type Indicates Event name.
      * @param { ErrorCallback } callback Returns the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
@@ -1002,7 +1027,7 @@ declare namespace socket {
     /**
      * Returns a list containing the negotiated cipher suite information.
      * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @returns { Promise<string> } The promise returned by the function.
+     * @returns { Promise<Array<string>> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303502 - Error in tls reading.
      * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
@@ -1029,7 +1054,7 @@ declare namespace socket {
     /**
      * <p>The list of signature algorithms shared between the server and the client,
      * in descending order of priority.</p>
-     * @returns { Promise<string> } The promise returned by the function.
+     * @returns { Promise<Array<string>> } The promise returned by the function.
      * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -1042,7 +1067,7 @@ declare namespace socket {
     /**
      * Sets up a connection to the specified IP address and port number.
      * Only TCP is supported.
-     * @param options Optional parameters {@link TLSConnectOptions}.
+     * @param { TLSConnectOptions } options Optional parameters {@link TLSConnectOptions}.
      * @param { AsyncCallback<void> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
@@ -1068,7 +1093,7 @@ declare namespace socket {
     /**
      * Sets up a connection to the specified IP address and port number.
      * Only TCP is supported.
-     * @param options Optional parameters {@link TLSConnectOptions}.
+     * @param { TLSConnectOptions } options Optional parameters {@link TLSConnectOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303104 - Interrupted system call.
@@ -1125,6 +1150,7 @@ declare namespace socket {
 
     /**
      * Closes a TLSSocket connection
+     * @param { AsyncCallback<void> } callback - the callback of close.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2303501 - SSL is null.
      * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
@@ -1162,6 +1188,7 @@ declare namespace socket {
     /**
      * Certificate used to verify the identity of the server
      * @type {string | Array<string>}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1169,7 +1196,8 @@ declare namespace socket {
 
     /**
      * Certificate proving the identity of the client
-     * @type {string}
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1177,7 +1205,8 @@ declare namespace socket {
 
     /**
      * Private key of client certificate
-     * @type {string}
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1185,7 +1214,8 @@ declare namespace socket {
 
     /**
      * Password of the private key
-     * @type {string}
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1193,7 +1223,8 @@ declare namespace socket {
 
     /**
      * TLS protocol version
-     * @type {Protocol | Array<Protocol>}
+     * @type {?Protocol | Array<Protocol>}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1201,7 +1232,8 @@ declare namespace socket {
 
     /**
      * default is false, use local cipher.
-     * @type {boolean}
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1210,7 +1242,8 @@ declare namespace socket {
     /**
      * <P>Supported signature algorithms. This string can contain summary algorithms(SHA256,MD5,etc),Public key algorithm(RSA-PSS,ECDSA,etc),
      * Combination of the two(For example 'RSA+SHA384') or TLS v1.3 Scheme name(For example  rsa_pss_pss_sha512)</P>
-     * @type {string}
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1218,7 +1251,8 @@ declare namespace socket {
 
     /**
      * Crypto suite specification
-     * @type {string}
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1236,6 +1270,7 @@ declare namespace socket {
     /**
      * Gateway address.
      * @type {NetAddress}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1244,6 +1279,7 @@ declare namespace socket {
     /**
      * Protocol http2TLS security related operations.
      * @type {TLSSecureOptions}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -1251,7 +1287,8 @@ declare namespace socket {
 
     /**
      * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
-     * @type {Array<string>}
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */

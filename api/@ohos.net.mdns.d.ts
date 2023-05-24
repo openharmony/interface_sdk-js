@@ -206,30 +206,35 @@ declare namespace mdns {
     /**
      * Service type. Use an underscore (_) as the prefix, for example, _http._tcp.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     serviceType: string;
     /**
      * Service name.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     serviceName: string;
     /**
      * Port number.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     port?: number;
     /**
      * IP address of the host.
-     * @type {NetAddress}
+     * @type {?NetAddress}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     host?: NetAddress;
     /**
      * DNS-SD TXT record pairs.
-     * @type {Array<ServiceAttribute>}
+     * @type {?Array<ServiceAttribute>}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     serviceAttribute?: Array<ServiceAttribute>;
@@ -245,12 +250,14 @@ declare namespace mdns {
     /**
      * TXT record key.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     key: string;
     /**
      * TXT record value.
      * @type {Array<number>}
+     * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     value: Array<number>;

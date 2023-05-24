@@ -24,6 +24,7 @@ import connection from "./@ohos.net.connection";
  */
 declare namespace http {
   /**
+   * @syscap SystemCapability.Communication.NetStack
    * @since 10
    */
   type HttpProxy = connection.HttpProxy;
@@ -31,8 +32,8 @@ declare namespace http {
   /**
    * Creates an HTTP request task.
    * @returns { HttpRequest } the HttpRequest of the createHttp.
-   * @crossplatform
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 6
    */
   function createHttp(): HttpRequest;
@@ -46,7 +47,8 @@ declare namespace http {
   export interface HttpRequestOptions {
     /**
      * Request method,default is GET.
-     * @type {RequestMethod}
+     * @type {?RequestMethod}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -55,7 +57,8 @@ declare namespace http {
     /**
      * Additional data of the request.
      * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
-     * @type {string | Object | ArrayBuffer}
+     * @type {?string | Object | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -63,7 +66,8 @@ declare namespace http {
 
     /**
      * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
-     * @type {HttpDataType}
+     * @type {?HttpDataType}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -71,7 +75,8 @@ declare namespace http {
 
     /**
      * default is true
-     * @type {boolean}
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -79,7 +84,8 @@ declare namespace http {
 
     /**
      * [1, 1000], default is 1.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -87,7 +93,8 @@ declare namespace http {
 
     /**
      * HTTP request header. default is 'content-type': 'application/json'
-     * @type {Object}
+     * @type {?Object}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -95,7 +102,8 @@ declare namespace http {
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -103,7 +111,8 @@ declare namespace http {
 
     /**
      * Connection timeout interval. The default value is 60,000, in ms.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -111,7 +120,8 @@ declare namespace http {
 
     /**
      * default is automatically specified by the system.
-     * @type {HttpProtocol}
+     * @type {?HttpProtocol}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -119,14 +129,16 @@ declare namespace http {
     /**
      * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
      * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
-     * @type {boolean | HttpProxy}
+     * @type {?boolean | HttpProxy}
+     * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
     usingProxy?: boolean | HttpProxy;
 
     /**
      * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system. 
-     * @type {string}
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
     caPath?: string;
@@ -142,9 +154,9 @@ declare namespace http {
   export interface HttpRequest {
     /**
      * Initiates an HTTP request to a given URL.
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
      * @permission ohos.permission.INTERNET
+     * @param { string } url URL for initiating an HTTP request.
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request. 
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -184,10 +196,10 @@ declare namespace http {
 
     /**
      * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
      * @param { string } url URL for initiating an HTTP request.
      * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
      * @param { AsyncCallback<HttpResponse> } callback callback - the callback of request..
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -227,10 +239,10 @@ declare namespace http {
 
     /**
      * Initiates an HTTP request to a given URL.
+     * @permission ohos.permission.INTERNET
      * @param { string } url URL for initiating an HTTP request.
      * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
-     * @returns { Promise<HttpResponse> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
+     * @returns { Promise<HttpResponse> } The promise returned by the function. 
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -270,10 +282,10 @@ declare namespace http {
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
-     * @param { string } url URL for initiating an HTTP request.
-     * <p>@param { AsyncCallback<number> } callback Returns the callback of request2 {@link ResponseCode},
-     * should use on_headersReceive and on_dataReceive to get http response.</p>
      * @permission ohos.permission.INTERNET
+     * @param { string } url URL for initiating an HTTP request.
+     * @param { AsyncCallback<number> } callback Returns the callback of request2 {@link ResponseCode},
+     * should use on_headersReceive and on_dataReceive to get http response.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -312,10 +324,10 @@ declare namespace http {
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     * @permission ohos.permission.INTERNET
      * @param { string } url URL for initiating an HTTP request.
      * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
      * @param { AsyncCallback<number> } callback - the callback of request2.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -354,10 +366,10 @@ declare namespace http {
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     * @permission ohos.permission.INTERNET
      * @param { string } url URL for initiating an HTTP request.
      * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
      * @returns { Promise<number> } the promise returned by the function.
-     * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -398,6 +410,7 @@ declare namespace http {
      * Destroys an HTTP request.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
+     * @since 6
      */
     destroy(): void;
 
@@ -416,6 +429,7 @@ declare namespace http {
      * @param { string } type Indicates Event name.
      * @param { AsyncCallback<Object> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
+     * @since 6
      * @deprecated since 8
      * @useinstead off_headersReceive
      */
@@ -573,6 +587,7 @@ declare namespace http {
 
   /**
    * Enumerates the response codes for an HTTP request.
+   * @enum {number}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 6
@@ -828,6 +843,7 @@ declare namespace http {
 
   /**
    * Supported protocols.
+   * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 9
@@ -850,6 +866,7 @@ declare namespace http {
 
   /**
    * Indicates the type of the returned data.
+   * @enum {number}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 9
@@ -890,6 +907,7 @@ declare namespace http {
      * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
      * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
      * @type {string | Object | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -900,6 +918,7 @@ declare namespace http {
      * If the resultType is Object, you can get result such as this: result['key'].
      * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
      * @type {HttpDataType}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 9
      */
@@ -908,6 +927,7 @@ declare namespace http {
     /**
      * Server status code.
      * @type {ResponseCode | number}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -916,6 +936,7 @@ declare namespace http {
     /**
      * All headers in the response from the server.
      * @type {Object}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 6
      */
@@ -924,6 +945,7 @@ declare namespace http {
     /**
      * Cookies returned by the server.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 8
      */

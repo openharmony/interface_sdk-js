@@ -26,9 +26,9 @@ declare namespace sharing {
   type NetHandle = connection.NetHandle;
   /**
    * Checks whether this device allows for network sharing.
-   * <p>@param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is supported;
-   * returns {@code false} otherwise.</p>
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is supported;
+   * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -42,8 +42,8 @@ declare namespace sharing {
 
   /**
    * Checks whether this device allows for network sharing.
-   * @returns { Promise<boolean> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -57,9 +57,9 @@ declare namespace sharing {
 
   /**
    * Return the global network sharing state.
-   * <p>@param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is running;
-   * returns {@code false} otherwise.</p>
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { AsyncCallback<boolean> } callback Returns {@code true} indicating network sharing is running;
+   * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -73,8 +73,8 @@ declare namespace sharing {
 
   /**
    * Return the global network sharing state.
-   * @returns { Promise<boolean> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
@@ -88,9 +88,9 @@ declare namespace sharing {
 
   /**
    * Start network sharing for given type.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceType } type Enumeration of shareable interface types.
    * @param { AsyncCallback<void> } callback Returns the result.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -110,9 +110,9 @@ declare namespace sharing {
 
   /**
    * Start network sharing for given type.
-   * @param { SharingIfaceType } type Enumeration of shareable interface types.
-   * @returns { Promise<boolean> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { SharingIfaceType } type Enumeration of shareable interface types.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -132,9 +132,9 @@ declare namespace sharing {
 
   /**
    * Stop network sharing for given type.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceType } type Enumeration of shareable interface types.
    * @param { AsyncCallback<void> } callback Returns the result.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -153,9 +153,9 @@ declare namespace sharing {
 
   /**
    * Stop network sharing for given type.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceType } type Enumeration of shareable interface types.
    * @returns { Promise<void> } The promise returned by the function.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -174,8 +174,8 @@ declare namespace sharing {
 
   /**
    * Obtains the number of downlink data bytes of the sharing network interfaces.
-   * @param { AsyncCallback<number> } callback Returns the number of downlink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { AsyncCallback<number> } callback Returns the number of downlink data bytes of the sharing network interfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -189,8 +189,8 @@ declare namespace sharing {
 
   /**
    * Obtains the number of downlink data bytes of the sharing network interfaces.
-   * @returns { Promise<number> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -204,8 +204,8 @@ declare namespace sharing {
 
   /**
    * Obtains the number of uplink data bytes of the sharing network interfaces.
-   * @param { AsyncCallback<number> } callback Returns the number of uplink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { AsyncCallback<number> } callback Returns the number of uplink data bytes of the sharing network interfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -219,8 +219,8 @@ declare namespace sharing {
 
   /**
    * Obtains the number of uplink data bytes of the sharing network interfaces.
-   * @returns { Promise<number> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -234,8 +234,8 @@ declare namespace sharing {
 
   /**
    * Obtains the number of total data bytes of the sharing network interfaces.
-   * @param { AsyncCallback<number> } callback Returns the number of total data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { AsyncCallback<number> } callback Returns the number of total data bytes of the sharing network interfaces.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -249,8 +249,8 @@ declare namespace sharing {
 
   /**
    * Obtains the number of total data bytes of the sharing network interfaces.
-   * @returns { Promise<number> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -264,9 +264,9 @@ declare namespace sharing {
 
   /**
    * Obtains the names of interfaces in each sharing state.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceState } state Is the network sharing state.
    * @param { AsyncCallback<Array<string>> } callback Returns an array of interface names that meet this status.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -281,9 +281,9 @@ declare namespace sharing {
 
   /**
    * Obtains the names of interfaces in each sharing state.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceState } state Is the network sharing state.
    * @returns { Promise<Array<string>> } The promise returned by the function.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -298,9 +298,9 @@ declare namespace sharing {
 
   /**
    * Obtains the network sharing state for given type.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceType } type Is the enumeration of shareable interface types.
    * @param { AsyncCallback<SharingIfaceState> } callback Returns {@code SharingIfaceState}.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -315,9 +315,9 @@ declare namespace sharing {
 
   /**
    * Obtains the network sharing state for given type.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceType } type Is the enumeration of shareable interface types.
    * @returns { Promise<SharingIfaceState> } The promise returned by the function.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -332,9 +332,9 @@ declare namespace sharing {
 
   /**
    * Get a list regular expression that defines any interface that can support network sharing.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { SharingIfaceType } type Is the enumeration of shareable interface types.
    * @param { AsyncCallback<Array<string>> } callback - the callback of getSharableRegexes.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -349,9 +349,9 @@ declare namespace sharing {
 
   /**
    * Get a list regular expression that defines any interface that can support network sharing.
-   * @param { SharingIfaceType } type Is the enumeration of shareable interface types.
-   * @returns { Promise<Array<string>> } The promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { SharingIfaceType } type Is the enumeration of shareable interface types.
+   * @returns { Promise<Array<string>> } The promise returned by the function. 
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -366,9 +366,9 @@ declare namespace sharing {
 
   /**
    * Register a callback for the global network sharing state change.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { string } type Indicates Event name.
    * @param { Callback<boolean> } callback callback function that returns the status
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -380,9 +380,9 @@ declare namespace sharing {
 
   /**
    * Unregister a callback for the global network sharing state change.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { string } type Indicates Event name.
    * @param { Callback<boolean> } callback callback function that returns the status
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -394,9 +394,9 @@ declare namespace sharing {
 
   /**
    * Register a callback for the interface network sharing state change.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback callback function that returns the message.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } type Indicates Event name.
+   * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback callback function that returns the message. 
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -408,9 +408,9 @@ declare namespace sharing {
 
   /**
    * Unregister a callback for the interface network sharing state change.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { string } type Indicates Event name.
    * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback callback function that returns the message.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -422,9 +422,9 @@ declare namespace sharing {
 
   /**
    * Register a callback for the sharing upstream network change.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { string } type Indicates Event name.
    * @param { Callback<NetHandle> } callback callback function that returns the network handle.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -436,10 +436,9 @@ declare namespace sharing {
 
   /**
    * Unregister a callback for the sharing upstream network change.
-   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { string } type Indicates Event name.
    * @param { Callback<NetHandle> } callback callback function that returns the network handle.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws { BusinessError } 201 Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 Parameter error.
@@ -460,6 +459,7 @@ declare namespace sharing {
     /**
      * Indicates the names of the NICs that are serving as network sharing.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     SHARING_NIC_SERVING = 1,
@@ -467,6 +467,7 @@ declare namespace sharing {
     /**
      * Indicates the names of the NICs that can serve as network sharing.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     SHARING_NIC_CAN_SERVER = 2,
@@ -474,6 +475,7 @@ declare namespace sharing {
     /**
      * Indicates the names of the NICs that serving error.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     SHARING_NIC_ERROR = 3
@@ -490,6 +492,7 @@ declare namespace sharing {
     /**
      * Network sharing type for Wi-Fi.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     SHARING_WIFI = 0,
@@ -497,6 +500,7 @@ declare namespace sharing {
     /**
      * Network sharing type for USB.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     SHARING_USB = 1,
@@ -504,6 +508,7 @@ declare namespace sharing {
     /**
      * Network sharing type for BLUETOOTH.
      * @syscap SystemCapability.Communication.NetManager.NetSharing
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     SHARING_BLUETOOTH = 2
