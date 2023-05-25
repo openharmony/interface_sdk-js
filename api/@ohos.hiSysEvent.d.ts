@@ -390,6 +390,7 @@ declare namespace hiSysEvent {
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200101 - Count of watchers is over limit.
    * @throws {BusinessError} 11200102 - Count of watch rules is over limit.
@@ -405,6 +406,7 @@ declare namespace hiSysEvent {
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200201 - The watcher does not exist.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
@@ -421,6 +423,7 @@ declare namespace hiSysEvent {
    * @param {QueryRule[]} rules rule of query system event
    * @param {Querier} querier receive query result
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200301 - Count of query rules is over limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
