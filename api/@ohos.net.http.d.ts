@@ -438,7 +438,7 @@ declare namespace http {
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { "headerReceive" } type Indicates Event name.
+     * @param { "headersReceive" } type Indicates Event name.
      * @param { Callback<Object> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -448,7 +448,7 @@ declare namespace http {
 
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { "headerReceive" } type Indicates Event name.
+     * @param { "headersReceive" } type Indicates Event name.
      * @param { Callback<Object> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -458,7 +458,7 @@ declare namespace http {
 
     /**
      * Registers a one-time observer for HTTP Response Header events.
-     * @param { "headerReceive" } type Indicates Event name.
+     * @param { "headersReceive" } type Indicates Event name.
      * @param { Callback<Object> } callback - the callback of once.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
