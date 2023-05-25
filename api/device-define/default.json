@@ -196,6 +196,7 @@
     "SystemCapability.Msdp.DeviceStatus.Stationary",
     "SystemCapability.XTS.DeviceAttest",
     "SystemCapability.Request.FileTransferAgent",
-    "SystemCapability.ResourceSchedule.DeviceStandby"
+    "SystemCapability.ResourceSchedule.DeviceStandby",
+    "SystemCapability.DistributedDataManager.UDMF.Core"    
   ]
 }
