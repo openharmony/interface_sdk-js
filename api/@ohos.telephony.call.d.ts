@@ -2121,61 +2121,6 @@ declare namespace call {
   }
 
   /**
-   * Indicates the device of audio.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  export enum AudioDevice {
-    /**
-     * Indicates device earpiece.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_EARPIECE,
-
-    /**
-     * Indicator device speaker.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_SPEAKER,
-
-    /**
-     * Indicates a wired headset device.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_WIRED_HEADSET,
-
-    /**
-     * Indicates a Bluetooth device.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_BLUETOOTH_SCO,
-
-    /**
-     * Indicates a microphone device.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_MIC,
-  }
-
-  /**
    * Indicates the device type of the audio device.
    *
    * @enum { number }
@@ -2219,6 +2164,36 @@ declare namespace call {
      * @since 10
      */
     DEVICE_BLUETOOTH_SCO,
+  }
+
+  /**
+   * Indicates the audio device.
+   *
+   * @interface AudioDevice
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface AudioDevice {
+    /**
+     * Indicates the device type of the audio device.
+     *
+     * @type { AudioDeviceType }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    deviceType: AudioDeviceType;
+
+    /**
+     * Indicates the address of the audio device.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    address?: string;
   }
 
   /**
