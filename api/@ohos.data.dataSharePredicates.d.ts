@@ -315,7 +315,6 @@ declare namespace dataSharePredicates {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
