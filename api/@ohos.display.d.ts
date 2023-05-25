@@ -50,7 +50,7 @@ declare namespace display {
    * Obtain the default display.
    *
    * @returns { Display } the result of display
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 9
@@ -83,7 +83,7 @@ declare namespace display {
    * Obtain all displays.
    *
    * @param { AsyncCallback<Array<Display>> } callback the result of all displays
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
@@ -93,7 +93,7 @@ declare namespace display {
    * Obtain all displays.
    *
    * @returns { Promise<Array<Display>> } the result of all displays
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
@@ -104,8 +104,8 @@ declare namespace display {
    *
    * @param { number } displayId Display id to query
    * @returns { boolean } true means there is a privacy window on the current display
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400003 - If system works abnormally
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -117,7 +117,7 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -128,7 +128,7 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -139,7 +139,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -151,7 +151,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -504,7 +504,7 @@ declare namespace display {
      * Obtain the cutout info of the display.
      *
      * @param { AsyncCallback<CutoutInfo> } callback
-     * @throws { BusinessError } 1400001 - If display or screen is invalid
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -514,7 +514,7 @@ declare namespace display {
      * Obtain the cutout info of the display.
      *
      * @returns { Promise<CutoutInfo> }
-     * @throws { BusinessError } 1400001 - If display or screen is invalid
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
