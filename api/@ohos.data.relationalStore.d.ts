@@ -219,7 +219,16 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    SUBSCRIBE_TYPE_REMOTE = 0
+    SUBSCRIBE_TYPE_REMOTE = 0,
+
+    /**
+     * Subscription to cloud data changes
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SUBSCRIBE_TYPE_CLOUD
   }
 
   /**
