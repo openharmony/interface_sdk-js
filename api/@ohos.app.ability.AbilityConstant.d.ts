@@ -228,13 +228,13 @@ declare namespace AbilityConstant {
     RESOURCE_CONTROL = 7,
 
     /**
-     * Exit reason : upgrade or uninstall.
+     * Exit reason : upgrade.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
      */
-    UPGRADE_OR_UNINSTALL = 8
+    UPGRADE = 8
   }
 
   /**
