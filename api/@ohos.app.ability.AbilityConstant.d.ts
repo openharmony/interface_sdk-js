@@ -183,6 +183,8 @@ declare namespace AbilityConstant {
     NORMAL = 2,
 
     /**
+     * Exit reason : cpp crash.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
@@ -190,6 +192,8 @@ declare namespace AbilityConstant {
     CPP_CRASH = 3,
 
     /**
+     * Exit reason : js error.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
@@ -197,6 +201,8 @@ declare namespace AbilityConstant {
     JS_ERROR = 4,
 
     /**
+     * Exit reason : app freeze.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
@@ -204,6 +210,8 @@ declare namespace AbilityConstant {
     APP_FREEZE = 5,
 
     /**
+     * Exit reason : performance control.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
@@ -211,6 +219,8 @@ declare namespace AbilityConstant {
     PERFORMANCE_CONTROL = 6,
 
     /**
+     * Exit reason : resource control.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
@@ -218,11 +228,13 @@ declare namespace AbilityConstant {
     RESOURCE_CONTROL = 7,
 
     /**
+     * Exit reason : upgrade or uninstall.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
      */
-    UPGRADE_OR_UNINSTALL = 8,
+    UPGRADE_OR_UNINSTALL = 8
   }
 
   /**
