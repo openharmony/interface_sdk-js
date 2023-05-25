@@ -3573,6 +3573,15 @@ declare interface PopupOptions {
    * @since 10
    */
   targetSpace?: Length
+
+  /**
+   * whether show arrow
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
 }
 
 /**
