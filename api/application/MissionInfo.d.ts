@@ -94,4 +94,14 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   abilityState: number;
+
+  /**
+   * Indicates whether the mission is unclearable.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  unclearable: boolean;
 }
