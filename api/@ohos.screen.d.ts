@@ -24,7 +24,7 @@ import { AsyncCallback, Callback } from './basic';
 declare namespace screen {
   /**
    * Get all screen
-   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @throws {BusinessError} 1400001 - Invalid display or screen.
    * @since 9
    */
   function getAllScreens(callback: AsyncCallback<Array<Screen>>): void;
@@ -33,7 +33,7 @@ declare namespace screen {
   /**
    * Register the callback for screen changes.
    * @param eventType: type of callback
-   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 401 - Parameter error.
    * @since 9
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<number>): void;
@@ -41,15 +41,15 @@ declare namespace screen {
   /**
    * Unregister the callback for screen changes.
    * @param eventType: type of callback
-   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 401 - Parameter error.
    * @since 9
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<number>): void;
 
   /**
    * Make screens as expand-screen
-   * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 1400001 - Invalid display or screen.
    * @since 9
    */
   function makeExpand(options:Array<ExpandOption>, callback: AsyncCallback<number>): void;
@@ -57,8 +57,8 @@ declare namespace screen {
 
   /**
    * Make screens as mirror-screen
-   * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 1400001 - Invalid display or screen.
    * @since 9
    */
   function makeMirror(mainScreen:number, mirrorScreen:Array<number>, callback: AsyncCallback<number>): void;
@@ -68,9 +68,9 @@ declare namespace screen {
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
    * @param options Indicates the options of the virtual screen.
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @throws {BusinessError} 201 - If there is no permission
-   * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @throws {BusinessError} 201 - Permission verification failed.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 1400001 - Invalid display or screen.
    * @since 9
    */
   function createVirtualScreen(options:VirtualScreenOption, callback: AsyncCallback<Screen>): void;
@@ -79,8 +79,8 @@ declare namespace screen {
   /**
    * Destroy virtual screen.
    * @param screenId Indicates the screen id of the virtual screen.
-   * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 1400002 - If operation other screen
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 1400002 - Unauthorized operation.
    * @since 9
    */
   function destroyVirtualScreen(screenId:number, callback: AsyncCallback<void>): void;
@@ -91,9 +91,9 @@ declare namespace screen {
    * @param screenId Indicates the screen id of the virtual screen.
    * @param surfaceId Indicates the surface id.
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @throws {BusinessError} 201 - If there is no permission
-   * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @throws {BusinessError} 201 - Permission verification failed.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 1400001 - Invalid display or screen.
    * @since 9
    */
   function setVirtualScreenSurface(screenId:number, surfaceId: string, callback: AsyncCallback<void>): void;
@@ -109,7 +109,7 @@ declare namespace screen {
   /**
    * Set screen rotation lock status.
    * @param isLocked Indicates whether the screen rotation switch is locked.
-   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 401 - Parameter error.
    * @since 9
    */
   function setScreenRotationLocked(isLocked:boolean, callback: AsyncCallback<void>): void;
@@ -202,8 +202,8 @@ declare namespace screen {
 
     /**
      * Set the orientation of the screen
-     * @throws {BusinessError} 401 - If param is invalid
-     * @throws {BusinessError} 1400003 - If system state is abnormally
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1400003 - This display manager service works abnormally.
      * @since 9
      */
     setOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
@@ -211,16 +211,16 @@ declare namespace screen {
 
     /**
      * Active the mode
-     * @throws {BusinessError} 401 - If param is invalid
-     * @throws {BusinessError} 1400003 - If system state is abnormally
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1400003 - This display manager service works abnormally.
      */
     setScreenActiveMode(modeIndex: number, callback: AsyncCallback<void>): void;
     setScreenActiveMode(modeIndex: number): Promise<void>;
 
     /**
      * Set display density of the screen
-     * @throws {BusinessError} 401 - If param is invalid
-     * @throws {BusinessError} 1400003 - If system state is abnormally
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1400003 - This display manager service works abnormally.
      */
     setDensityDpi(densityDpi: number, callback: AsyncCallback<void>): void;
     setDensityDpi(densityDpi: number): Promise<void>;
