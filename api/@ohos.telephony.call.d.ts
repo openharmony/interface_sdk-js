@@ -1878,8 +1878,7 @@ declare namespace call {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { VoNRState } state - Indicates the VoNR state.
-   * @param { AsyncCallback<boolean> } callback - {@code true} if the device set VoNR succesfully;
-   * returns {@code false} otherwise.
+   * @param { AsyncCallback<void> } callback - The callback of setVoNRState.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1891,7 +1890,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<void>): void;
 
   /**
    * Set switch state for voice over NR.
@@ -1900,8 +1899,7 @@ declare namespace call {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { VoNRState } state - Indicates the VoNR state.
-   * @returns { Promise<boolean> } Returns {@code true} if the device set VoNR succesfully;
-   * returns {@code false} otherwise.
+   * @returns { Promise<void> } The promise returned by the setVoNRState.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1913,7 +1911,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: VoNRState): Promise<boolean>;
+  function setVoNRState(slotId: number, state: VoNRState): Promise<void>;
 
   /**
    * Get switch state for voice over NR.
