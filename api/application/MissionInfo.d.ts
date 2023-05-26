@@ -107,8 +107,9 @@ export interface MissionInfo {
   /**
    * Indicates the ability state of this mission.
    *
-   * @type { boolean }
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
    * @since 10
    */
   abilityState: number;
