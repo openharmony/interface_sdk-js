@@ -340,7 +340,7 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    family: "IPv4" | "IPv6";
+    family: 'IPv4' | 'IPv6';
 
     /**
      * Port number. The value ranges from 0 to 65535.
@@ -857,6 +857,7 @@ declare namespace socket {
      * Socket linger.
      * @type { ?object }
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 7
      */
     /**
@@ -866,7 +867,7 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    socketLinger?: { on: boolean; linger: number };
+    socketLinger?: { on: boolean, linger: number };
   }
 
   /**
