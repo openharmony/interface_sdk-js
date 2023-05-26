@@ -328,7 +328,7 @@ declare namespace hiSysEvent {
     /**
      * Begin sequence
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 10
@@ -338,7 +338,7 @@ declare namespace hiSysEvent {
     /**
      * End sequence
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 10
@@ -378,7 +378,7 @@ declare namespace hiSysEvent {
     /**
      * Extra parameter condition of event
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 10
