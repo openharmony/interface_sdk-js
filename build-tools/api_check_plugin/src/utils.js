@@ -361,10 +361,10 @@ function getCheckApiVersion() {
     packageJson = JSON.parse(packageJsonContent);
     checkApiVersion = packageJson.checkApiVersion;
   } catch (error) {
-    console.error("Failed to read package.json or parse JSON content:", error);
+    throw `Failed to read package.json or parse JSON content: ${error}`;
   }
   if (!checkApiVersion) {
-    console.error("Invalid checkApiVersion:", checkApiVersion);
+    throw `Please configure the correct API version to be verified`;
   }
   return checkApiVersion;
 }
@@ -386,4 +386,3 @@ function removeDuplicateObj(array) {
   return newArr;
 };
 exports.removeDuplicateObj = removeDuplicateObj;
-
