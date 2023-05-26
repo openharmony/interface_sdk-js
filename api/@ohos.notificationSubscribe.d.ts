@@ -36,7 +36,24 @@ declare namespace notificationSubscribe {
    * @since 9
    */
   export interface NotificationKey {
+    /**
+     * Notify ID.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
+     */
     id: number;
+
+    /**
+     * Notification label.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
+     */
     label?: string;
   }
 
@@ -116,7 +133,7 @@ declare namespace notificationSubscribe {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
-   * @param { NotificationSubscribeInfo } info - The notification subscribe info.
+   * @param { NotificationSubscribeInfo } [info] - The notification subscribe info.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -334,7 +351,7 @@ declare namespace notificationSubscribe {
    * RemoveAll all notifications.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - The bundle option.
+   * @param { BundleOption } [bundle] - The bundle option.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.

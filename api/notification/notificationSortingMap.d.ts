@@ -24,6 +24,25 @@ import { NotificationSorting } from './notificationSorting';
  * @since 7
  */
 interface NotificationSortingMap {
+  /**
+   * An array of notification sort information.
+   *
+   * @type { object }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sortings: { [key: string]: NotificationSorting };
+
+  /**
+   * Notification unique identification array.
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sortedHashCode: Array<string>;
 }

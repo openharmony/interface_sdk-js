@@ -16,7 +16,7 @@
 import Ability from './@ohos.app.ability.Ability';
 
 /**
- * class of extension.
+ * class of extension ability.
  *
  * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

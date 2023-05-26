@@ -26,7 +26,7 @@ import formInfo from './@ohos.app.form.formInfo';
  * @systemapi
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formHost
+ * @useinstead ohos.app.form.formHost/formHost
  */
 declare namespace formHost {
   /**
@@ -42,7 +42,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#deleteForm
+   * @useinstead ohos.app.form.formHost/formHost#deleteForm
    */
   function deleteForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -58,7 +58,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#deleteForm
+   * @useinstead ohos.app.form.formHost/formHost#deleteForm
    */
   function deleteForm(formId: string): Promise<void>;
 
@@ -76,7 +76,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#releaseForm
+   * @useinstead ohos.app.form.formHost/formHost#releaseForm
    */
   function releaseForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -95,7 +95,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#releaseForm
+   * @useinstead ohos.app.form.formHost/formHost#releaseForm
    */
   function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
 
@@ -107,13 +107,13 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId Indicates the form ID
-   * @param { boolean } isReleaseCache Indicates whether or not release cache
+   * @param { boolean } [isReleaseCache] Indicates whether or not release cache
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#releaseForm
+   * @useinstead ohos.app.form.formHost/formHost#releaseForm
    */
   function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
@@ -132,7 +132,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#requestForm
+   * @useinstead ohos.app.form.formHost/formHost#requestForm
    */
   function requestForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -150,7 +150,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#requestForm
+   * @useinstead ohos.app.form.formHost/formHost#requestForm
    */
   function requestForm(formId: string): Promise<void>;
 
@@ -166,7 +166,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#castTempForm
+   * @useinstead ohos.app.form.formHost/formHost#castTempForm
    */
   function castTempForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -180,7 +180,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#castTempForm
+   * @useinstead ohos.app.form.formHost/formHost#castTempForm
    */
   function castTempForm(formId: string): Promise<void>;
 
@@ -198,7 +198,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyVisibleForms
+   * @useinstead ohos.app.form.formHost/formHost#notifyVisibleForms
    */
   function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -214,7 +214,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyVisibleForms
+   * @useinstead ohos.app.form.formHost/formHost#notifyVisibleForms
    */
   function notifyVisibleForms(formIds: Array<string>): Promise<void>;
 
@@ -232,7 +232,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyInvisibleForms
+   * @useinstead ohos.app.form.formHost/formHost#notifyInvisibleForms
    */
   function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -248,7 +248,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyInvisibleForms
+   * @useinstead ohos.app.form.formHost/formHost#notifyInvisibleForms
    */
   function notifyInvisibleForms(formIds: Array<string>): Promise<void>;
 
@@ -266,7 +266,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#enableFormsUpdate
+   * @useinstead ohos.app.form.formHost/formHost#enableFormsUpdate
    */
   function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -282,7 +282,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#enableFormsUpdate
+   * @useinstead ohos.app.form.formHost/formHost#enableFormsUpdate
    */
   function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
@@ -300,7 +300,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#disableFormsUpdate
+   * @useinstead ohos.app.form.formHost/formHost#disableFormsUpdate
    */
   function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -316,7 +316,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#disableFormsUpdate
+   * @useinstead ohos.app.form.formHost/formHost#disableFormsUpdate
    */
   function disableFormsUpdate(formIds: Array<string>): Promise<void>;
 
@@ -330,7 +330,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#isSystemReady
+   * @useinstead ohos.app.form.formHost/formHost#isSystemReady
    */
   function isSystemReady(callback: AsyncCallback<void>): void;
 
@@ -343,7 +343,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#isSystemReady
+   * @useinstead ohos.app.form.formHost/formHost#isSystemReady
    */
   function isSystemReady(): Promise<void>;
 
@@ -359,7 +359,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#getAllFormsInfo
+   * @useinstead ohos.app.form.formHost/formHost#getAllFormsInfo
    */
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -372,7 +372,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#getAllFormsInfo
+   * @useinstead ohos.app.form.formHost/formHost#getAllFormsInfo
    */
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
@@ -389,7 +389,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#getFormsInfo
+   * @useinstead ohos.app.form.formHost/formHost#getFormsInfo
    */
   function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -407,7 +407,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#getFormsInfo
+   * @useinstead ohos.app.form.formHost/formHost#getFormsInfo
    */
   function getFormsInfo(
     bundleName: string,
@@ -420,13 +420,13 @@ declare namespace formHost {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName Indicates the bundle name of the application.
-   * @param { string } moduleName Indicates the module name of the application.
+   * @param { string } [moduleName] Indicates the module name of the application.
    * @returns { Promise<Array<formInfo.FormInfo>> } Returns the {@link FormInfo}
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#getFormsInfo
+   * @useinstead ohos.app.form.formHost/formHost#getFormsInfo
    */
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
@@ -444,7 +444,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#deleteInvalidForms
+   * @useinstead ohos.app.form.formHost/formHost#deleteInvalidForms
    */
   function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<number>): void;
 
@@ -459,7 +459,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#deleteInvalidForms
+   * @useinstead ohos.app.form.formHost/formHost#deleteInvalidForms
    */
   function deleteInvalidForms(formIds: Array<string>): Promise<number>;
 
@@ -477,7 +477,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#acquireFormState
+   * @useinstead ohos.app.form.formHost/formHost#acquireFormState
    */
   function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
 
@@ -492,7 +492,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#acquireFormState
+   * @useinstead ohos.app.form.formHost/formHost#acquireFormState
    */
   function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
 
@@ -507,7 +507,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#on
+   * @useinstead ohos.app.form.formHost/formHost#on
    */
   function on(type: 'formUninstall', callback: Callback<string>): void;
 
@@ -516,15 +516,15 @@ declare namespace formHost {
    * <p>You can use this method to cancel listening to the event of uninstall form.</p>
    *
    * @param { 'formUninstall' } type Indicates event type.
-   * @param { Callback<string> } callback Callback function that returns the card identifier. By default, it
-   *                                      indicates the cancellation of all registered event callbacks, which
-   *                                      must be consistent with the corresponding
-   *                                      callback for on('formUninstall').
+   * @param { Callback<string> } [callback] Callback function that returns the card identifier. By default, it
+   *                                        indicates the cancellation of all registered event callbacks, which
+   *                                        must be consistent with the corresponding
+   *                                        callback for on('formUninstall').
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#off
+   * @useinstead ohos.app.form.formHost/formHost#off
    */
   function off(type: 'formUninstall', callback?: Callback<string>): void;
 
@@ -541,7 +541,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyFormsVisible
+   * @useinstead ohos.app.form.formHost/formHost#notifyFormsVisible
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
@@ -557,7 +557,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyFormsVisible
+   * @useinstead ohos.app.form.formHost/formHost#notifyFormsVisible
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
@@ -574,7 +574,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyFormsEnableUpdate
+   * @useinstead ohos.app.form.formHost/formHost#notifyFormsEnableUpdate
    */
   function notifyFormsEnableUpdate(
     formIds: Array<string>,
@@ -594,7 +594,7 @@ declare namespace formHost {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formHost#notifyFormsEnableUpdate
+   * @useinstead ohos.app.form.formHost/formHost#notifyFormsEnableUpdate
    */
   function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
 }

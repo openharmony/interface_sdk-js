@@ -125,9 +125,9 @@ declare namespace appRecovery {
   /**
    * Enable appRecovery function.
    *
-   * @param { RestartFlag } restart The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
-   * @param { SaveOccasionFlag } saveOccasion The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
-   * @param { SaveModeFlag } saveMode The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
+   * @param { RestartFlag } [restart] The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
+   * @param { SaveOccasionFlag } [saveOccasion] The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
+   * @param { SaveModeFlag } [saveMode] The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -169,7 +169,7 @@ declare namespace appRecovery {
   /**
    * Save the ability state according to the context.
    *
-   * @param { UIAbilityContext } context - context indicates the ability context you want to save state.
+   * @param { UIAbilityContext } [context] - context indicates the ability context you want to save state.
    * If context is not specified, the onSaveState will be invoked on all the recoverable abilities in current process.
    * @returns { boolean } true if save data successfully, otherwise false.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

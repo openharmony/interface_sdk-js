@@ -30,6 +30,7 @@ export default class ServiceExtensionAbility {
   /**
    * Indicates service extension ability context.
    *
+   * @type { ServiceExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly

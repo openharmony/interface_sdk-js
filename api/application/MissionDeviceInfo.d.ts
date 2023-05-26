@@ -27,6 +27,7 @@ export interface MissionDeviceInfo {
    * Indicates the deviceId to start sync.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

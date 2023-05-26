@@ -20,7 +20,7 @@
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.ability.ConfigurationConstant
+ * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant
  */
 declare namespace ConfigurationConstant {
   /**
@@ -30,38 +30,37 @@ declare namespace ConfigurationConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.ConfigurationConstant#ColorMode
+   * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant#ColorMode
    */
   export enum ColorMode {
-
-  /**
-   * No color mode set.
-   *
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.ConfigurationConstant#COLOR_MODE_NOT_SET
-   */
+    /**
+     * No color mode set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_NOT_SET
+     */
     COLOR_MODE_NOT_SET = -1,
 
-  /**
-   * Dark mode.
-   *
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.ConfigurationConstant#COLOR_MODE_DARK
-   */
+    /**
+     * Dark mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_DARK
+     */
     COLOR_MODE_DARK = 0,
 
-  /**
-   * Light mode.
-   *
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.ConfigurationConstant#COLOR_MODE_LIGHT
-   */
+    /**
+     * Light mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_LIGHT
+     */
     COLOR_MODE_LIGHT = 1
   }
 }

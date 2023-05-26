@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CommonEventData } from "./commonEvent/commonEventData";
+import { CommonEventData } from './commonEvent/commonEventData';
 import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**

@@ -24,6 +24,7 @@ export interface ContinuationResult {
   /**
    * the information about the selected device id.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
@@ -32,6 +33,7 @@ export interface ContinuationResult {
   /**
    * the information about the selected device type.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
@@ -40,6 +42,7 @@ export interface ContinuationResult {
   /**
    * Indicates the name of the selected device.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */

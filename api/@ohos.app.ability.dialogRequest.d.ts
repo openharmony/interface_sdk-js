@@ -69,6 +69,7 @@ declare namespace dialogRequest {
     /**
      * The request result passed in by the user.
      *
+     * @type { ResultCode }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9

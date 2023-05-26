@@ -20,7 +20,7 @@
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 6
  * @deprecated since 9
- * @useinstead ohos.app.ability.wantConstant
+ * @useinstead ohos.app.ability.wantConstant/wantConstant
  */
 declare namespace wantConstant {
   /**

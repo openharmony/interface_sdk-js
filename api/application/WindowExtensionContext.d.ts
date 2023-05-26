@@ -47,7 +47,7 @@ export default class WindowExtensionContext extends ExtensionContext {
    * Window extension uses this method to start a specific ability.
    *
    * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
+   * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.WindowManager.WindowManager.Core

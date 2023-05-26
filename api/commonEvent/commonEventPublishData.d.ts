@@ -24,6 +24,7 @@ export interface CommonEventPublishData {
   /**
    * bundle name
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -32,6 +33,7 @@ export interface CommonEventPublishData {
   /**
    * The custom result code of the common event.
    *
+   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -41,6 +43,7 @@ export interface CommonEventPublishData {
   /**
    * The custom result data of the common event.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -49,6 +52,7 @@ export interface CommonEventPublishData {
   /**
    * The permissions for subscribers. Only subscribers with required permissions can receive published common events.
    *
+   * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -57,6 +61,7 @@ export interface CommonEventPublishData {
   /**
    * Whether the type of a common event is ordered or not.
    *
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -66,6 +71,7 @@ export interface CommonEventPublishData {
   /**
    * Whether the type of a common event is sticky or not.
    *
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -75,6 +81,7 @@ export interface CommonEventPublishData {
   /**
    * The description of the parameters in a common event.
    *
+   * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */

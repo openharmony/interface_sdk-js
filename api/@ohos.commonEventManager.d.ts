@@ -146,7 +146,7 @@ declare namespace commonEventManager {
    * Unsubscribe from an ordered, sticky, or standard common event.
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
+   * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
@@ -194,6 +194,7 @@ declare namespace commonEventManager {
 
   /**
    * Set static subscriber state.
+   *
    * @param { boolean } enable - static subscribe event enable/disable state.
    * @param { AsyncCallback<void> } callback - Specified callback method.
    * @throws { BusinessError } 202 - not system app
@@ -209,6 +210,7 @@ declare namespace commonEventManager {
 
   /**
    * Set static subscriber state.
+   *
    * @param { boolean } enable - static subscribe event enable/disable state.
    * @returns { Promise<void> }
    * @throws { BusinessError } 202 - not system app
@@ -1146,7 +1148,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 10
      */
-    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = "usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED",
+    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = 'usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED',
 
     /**
      * Sent when device's power save mode changed
@@ -1536,7 +1538,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
      */
-    COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = "usual.event.QUICK_FIX_REVOKE_RESULT",
+    COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = 'usual.event.QUICK_FIX_REVOKE_RESULT',
 
     /**
      * Indicate the action of a common event that the user information has been updated.
@@ -1773,7 +1775,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 10
      */
-    COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = "usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED",
+    COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = 'usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED',
 
     /**
      * This commonEvent means when the screen is unlocked.

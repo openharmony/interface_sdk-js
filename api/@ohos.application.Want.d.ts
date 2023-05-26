@@ -19,7 +19,7 @@
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.ability.Want
+ * @useinstead ohos.app.ability.Want/Want
  */
 export default class Want {
   /**
@@ -29,7 +29,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#deviceId
+   * @useinstead ohos.app.ability.Want/Want#deviceId
    */
   deviceId?: string;
 
@@ -40,7 +40,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#bundleName
+   * @useinstead ohos.app.ability.Want/Want#bundleName
    */
   bundleName?: string;
 
@@ -51,7 +51,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#abilityName
+   * @useinstead ohos.app.ability.Want/Want#abilityName
    */
   abilityName?: string;
 
@@ -62,7 +62,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#uri
+   * @useinstead ohos.app.ability.Want/Want#uri
    */
   uri?: string;
 
@@ -73,7 +73,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#type
+   * @useinstead ohos.app.ability.Want/Want#type
    */
   type?: string;
 
@@ -84,7 +84,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#flags
+   * @useinstead ohos.app.ability.Want/Want#flags
    */
   flags?: number;
 
@@ -95,18 +95,18 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#action
+   * @useinstead ohos.app.ability.Want/Want#action
    */
   action?: string;
 
   /**
    * The description of the WantParams object in an Want
    *
-   * @type { ?[key: string]: any }
+   * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#parameters
+   * @useinstead ohos.app.ability.Want/Want#parameters
    */
   parameters?: { [key: string]: any };
 
@@ -117,7 +117,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Want#entities
+   * @useinstead ohos.app.ability.Want/Want#entities
    */
   entities?: Array<string>;
 }

@@ -98,7 +98,7 @@ export interface Caller {
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
   /**
-   * Clear service records.
+   * Register the generic component server Stub (stub) disconnect listening notification.
    *
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
@@ -184,8 +184,8 @@ export interface Callee {
    * @param { string } method - A string registered to listen for notification events.
    * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200004 Method registered. The method has registered.
-   * @throws { BusinessError } 16000050 Internal error.
+   * @throws { BusinessError } 16200004 - Method registered. The method has registered.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
@@ -197,8 +197,8 @@ export interface Callee {
    *
    * @param { string } method - A string registered to listen for notification events.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200005 Method not registered. The method has not registered.
-   * @throws { BusinessError } 16000050 Internal error.
+   * @throws { BusinessError } 16200005 - Method not registered. The method has not registered.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
@@ -234,6 +234,7 @@ export default class UIAbility extends Ability {
    */
   /**
    * Indicates configuration information about an ability context.
+   *
    * @type { UIAbilityContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -283,6 +284,7 @@ export default class UIAbility extends Ability {
    */
   /**
    * Called back when an ability is started for initialization.
+   *
    * @param { Want } want - Indicates the want info of the created ability.
    * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -302,6 +304,7 @@ export default class UIAbility extends Ability {
    */
   /**
    * Called back when an ability window stage is created.
+   *
    * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -319,6 +322,7 @@ export default class UIAbility extends Ability {
    */
   /**
    * Called back when an ability window stage is destroyed.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
@@ -364,6 +368,7 @@ export default class UIAbility extends Ability {
    */
   /**
    * Called back when the state of an ability changes to foreground.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
@@ -380,6 +385,7 @@ export default class UIAbility extends Ability {
    */
   /**
    * Called back when the state of an ability changes to background.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @crossplatform
@@ -411,6 +417,7 @@ export default class UIAbility extends Ability {
   /**
    * Called when the launch mode of an ability is set to singleton.
    * This happens when you re-launch an ability that has been at the top of the ability stack.
+   *
    * @param { Want } want - Indicates the want info of ability.
    * @param { AbilityConstant.LaunchParam } launchParams - Indicates the launch parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

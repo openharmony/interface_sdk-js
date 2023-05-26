@@ -27,6 +27,7 @@ export interface MissionInfo {
   /**
    * Indicates mission id.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -36,6 +37,7 @@ export interface MissionInfo {
   /**
    * Indicates running state.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -45,6 +47,7 @@ export interface MissionInfo {
   /**
    * Indicates locked state.
    *
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -54,6 +57,7 @@ export interface MissionInfo {
   /**
    * Indicates the recent created or updated time of the mission.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -63,6 +67,7 @@ export interface MissionInfo {
   /**
    * Indicates want of the mission.
    *
+   * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -72,6 +77,7 @@ export interface MissionInfo {
   /**
    * Indicates label of the mission.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -81,6 +87,7 @@ export interface MissionInfo {
   /**
    * Indicates icon path of the mission.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -90,6 +97,7 @@ export interface MissionInfo {
   /**
    * Indicates whether the mission is continuable.
    *
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8

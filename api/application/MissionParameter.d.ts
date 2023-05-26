@@ -27,6 +27,7 @@ export interface MissionParameter {
    * Indicates the deviceId to start sync.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -37,6 +38,7 @@ export interface MissionParameter {
    * If needed to fix the versions conflict.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -47,6 +49,7 @@ export interface MissionParameter {
    * Tag used to be specified.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

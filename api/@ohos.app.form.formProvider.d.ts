@@ -139,7 +139,7 @@ declare namespace formProvider {
    * Get infos of all forms belonging to current bundle.
    * Client to communication with FormManagerService.
    *
-   * @param { formInfo.FormInfoFilter } filter - Indicates the requirements the forms that the formInfos belong to have to meet.
+   * @param { formInfo.FormInfoFilter } [filter] - Indicates the requirements the forms that the formInfos belong to have to meet.
    * @returns { Promise<Array<formInfo.FormInfo>> } Returns the formInfo.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
@@ -191,7 +191,7 @@ declare namespace formProvider {
    * Request to publish a form to the form host.
    *
    * @param { Want } want - The want of the form to publish.
-   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
+   * @param { formBindingData.FormBindingData } [formBindingData] - Indicates the form data.
    * @returns { Promise<string> } Returns the form id.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

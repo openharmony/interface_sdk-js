@@ -78,7 +78,7 @@ export interface DataAbilityHelper {
    *
    * @param { 'dataChange' } type dataChange.
    * @param { string } uri Indicates the path of the data to operate.
-   * @param { AsyncCallback<void> } callback Indicates the registered callback.
+   * @param { AsyncCallback<void> } [callback] Indicates the registered callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -272,7 +272,7 @@ export interface DataAbilityHelper {
    * Deletes one or more data records from the database.
    *
    * @param { string } uri Indicates the path of the data to delete.
-   * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. You should define the
+   * @param { dataAbility.DataAbilityPredicates } [predicates] Indicates filter criteria. You should define the
    *                                                         processing logic when this parameter is null.
    * @returns { Promise<number> } Returns the number of data records deleted.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -318,7 +318,7 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri Indicates the path of data to update.
    * @param { rdb.ValuesBucket } valuesBucket Indicates the data to update.
-   * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. You should define the
+   * @param { dataAbility.DataAbilityPredicates } [predicates] Indicates filter criteria. You should define the
    *                                                         processing logic when this parameter is null.
    * @returns { Promise<number> } Returns the number of data records updated.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -403,8 +403,8 @@ export interface DataAbilityHelper {
    * Queries data in the database.
    *
    * @param { string } uri Indicates the path of data to query.
-   * @param { Array<string> } columns Indicates columns to query. If this parameter is null, all columns are queried.
-   * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. You should define the
+   * @param { Array<string> } [columns] Indicates columns to query. If this parameter is null, all columns are queried.
+   * @param { dataAbility.DataAbilityPredicates } [predicates] Indicates filter criteria. You should define the
    *                                                         processing logic when this parameter is null.
    * @returns { Promise<ResultSet> } Returns the query result {@link ResultSet}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel

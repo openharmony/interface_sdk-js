@@ -26,7 +26,7 @@ import { ShellCmdResult } from './application/shellCmdResult';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.ability.abilityDelegatorRegistry
+ * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry
  */
 declare namespace abilityDelegatorRegistry {
   /**
@@ -36,7 +36,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityDelegatorRegistry#getAbilityDelegator
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#getAbilityDelegator
    */
   function getAbilityDelegator(): AbilityDelegator;
 
@@ -47,7 +47,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityDelegatorRegistry#getArguments
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#getArguments
    */
   function getArguments(): AbilityDelegatorArgs;
 
@@ -58,7 +58,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityDelegatorRegistry#AbilityLifecycleState
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#AbilityLifecycleState
    */
   export enum AbilityLifecycleState {
     /**
@@ -67,7 +67,8 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry#UNINITIALIZED
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState
+     *             #UNINITIALIZED
      */
     UNINITIALIZED,
 
@@ -77,7 +78,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry#CREATE
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#CREATE
      */
     CREATE,
 
@@ -87,7 +88,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry#FOREGROUND
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#FOREGROUND
      */
     FOREGROUND,
 
@@ -97,7 +98,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry#BACKGROUND
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#BACKGROUND
      */
     BACKGROUND,
 
@@ -107,7 +108,7 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry#DESTROY
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#DESTROY
      */
     DESTROY
   }

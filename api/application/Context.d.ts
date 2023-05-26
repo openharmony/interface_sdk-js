@@ -50,6 +50,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates the capability of accessing application resources.
+   *
    * @type { resmgr.ResourceManager }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -68,6 +69,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates configuration information about an application.
+   *
    * @type { ApplicationInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -86,6 +88,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates app cache dir.
+   *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -104,6 +107,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates app temp dir.
+   *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -122,6 +126,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates app files dir.
+   *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -140,6 +145,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates app database dir.
+   *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -158,6 +164,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates app preferences dir.
+   *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -176,6 +183,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Indicates app bundle code dir.
+   *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -242,6 +250,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Create a module context
+   *
    * @param { string } moduleName - Indicates the module name.
    * @returns { Context } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -277,6 +286,7 @@ export default class Context extends BaseContext {
    */
   /**
    * Get application context
+   *
    * @returns { ApplicationContext } Returns the application context.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

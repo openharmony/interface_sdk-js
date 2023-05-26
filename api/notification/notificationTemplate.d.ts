@@ -24,6 +24,7 @@ export interface NotificationTemplate {
   /**
    * Obtains the type of a notification template.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
@@ -32,6 +33,7 @@ export interface NotificationTemplate {
   /**
    * Obtains the data of a notification template.
    *
+   * @type { object }
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */

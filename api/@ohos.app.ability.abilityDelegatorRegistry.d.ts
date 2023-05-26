@@ -53,28 +53,28 @@ declare namespace abilityDelegatorRegistry {
    * @since 9
    */
   export enum AbilityLifecycleState {
-  /**
-   * Ability is in invalid state.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
+    /**
+     * Ability is in invalid state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     UNINITIALIZED,
 
-  /**
-   * Ability is in the created state.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
+    /**
+     * Ability is in the created state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     CREATE,
 
-  /**
-   * Ability is in the foreground state.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
+    /**
+     * Ability is in the foreground state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     FOREGROUND,
 
     /**

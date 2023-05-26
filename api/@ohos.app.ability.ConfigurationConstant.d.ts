@@ -29,7 +29,8 @@ declare namespace ConfigurationConstant {
    * @since 9
    */
   /**
-   * ColorMode
+   * Color mode
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
@@ -40,8 +41,14 @@ declare namespace ConfigurationConstant {
      * The color mode is not set.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The color mode is not set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @since 10
      */
     COLOR_MODE_NOT_SET = -1,
 
@@ -49,8 +56,14 @@ declare namespace ConfigurationConstant {
      * Dark mode.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Dark mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @since 10
      */
     COLOR_MODE_DARK = 0,
 
@@ -58,8 +71,14 @@ declare namespace ConfigurationConstant {
      * Light mode.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Light mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @since 10
      */
     COLOR_MODE_LIGHT = 1
   }
@@ -72,7 +91,8 @@ declare namespace ConfigurationConstant {
    * @since 9
    */
   /**
-   * Direction
+   * Screen direction.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
@@ -83,8 +103,14 @@ declare namespace ConfigurationConstant {
      * The direction is not set.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The direction is not set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @since 10
      */
     DIRECTION_NOT_SET = -1,
 
@@ -92,8 +118,14 @@ declare namespace ConfigurationConstant {
      * Vertical direction.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Vertical direction.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @since 10
      */
     DIRECTION_VERTICAL = 0,
 
@@ -101,8 +133,14 @@ declare namespace ConfigurationConstant {
      * Horizontal direction.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Horizontal direction.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @since 10
      */
     DIRECTION_HORIZONTAL = 1
   }

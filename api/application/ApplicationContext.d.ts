@@ -40,7 +40,7 @@ export default class ApplicationContext extends Context {
   /**
    * Register ability lifecycle callback.
    *
-   * @param { "abilityLifecycle" } type - abilityLifecycle.
+   * @param { 'abilityLifecycle' } type - abilityLifecycle.
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -50,7 +50,8 @@ export default class ApplicationContext extends Context {
    */
   /**
    * Register ability lifecycle callback.
-   * @param { "abilityLifecycle" } type - abilityLifecycle.
+   *
+   * @param { 'abilityLifecycle' } type - abilityLifecycle.
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -59,12 +60,12 @@ export default class ApplicationContext extends Context {
    * @crossplatform
    * @since 10
    */
-  on(type: "abilityLifecycle", callback: AbilityLifecycleCallback): number;
+  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
 
   /**
    * Unregister ability lifecycle callback.
    *
-   * @param { "abilityLifecycle" } type - abilityLifecycle.
+   * @param { 'abilityLifecycle' } type - abilityLifecycle.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -74,7 +75,8 @@ export default class ApplicationContext extends Context {
    */
   /**
    * Unregister ability lifecycle callback.
-   * @param { "abilityLifecycle" } type - abilityLifecycle.
+   *
+   * @param { 'abilityLifecycle' } type - abilityLifecycle.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -83,7 +85,7 @@ export default class ApplicationContext extends Context {
    * @crossplatform
    * @since 10
    */
-  off(type: "abilityLifecycle", callbackId: number, callback: AsyncCallback<void>): void;
+  off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -150,6 +152,7 @@ export default class ApplicationContext extends Context {
    */
   /**
    * Get information about running processes
+   *
    * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -174,6 +177,7 @@ export default class ApplicationContext extends Context {
    */
   /**
    * Get information about running processes
+   *
    * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.

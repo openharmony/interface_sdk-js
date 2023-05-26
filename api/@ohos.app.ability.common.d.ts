@@ -53,12 +53,13 @@ declare namespace common {
    */
   /**
    * The context of an ability. It allows access to ability-specific resources.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
    * @since 10
    */
-  export type UIAbilityContext = _UIAbilityContext.default
+  export type UIAbilityContext = _UIAbilityContext.default;
 
   /**
    * The context of an abilityStage. It allows access to abilityStage-specific resources.
@@ -69,12 +70,13 @@ declare namespace common {
    */
   /**
    * The context of an abilityStage. It allows access to abilityStage-specific resources.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
    * @since 10
    */
-  export type AbilityStageContext = _AbilityStageContext.default
+  export type AbilityStageContext = _AbilityStageContext.default;
 
   /**
    * The context of an application. It allows access to application-specific resources.
@@ -85,12 +87,13 @@ declare namespace common {
    */
   /**
    * The context of an application. It allows access to application-specific resources.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
    * @since 10
    */
-  export type ApplicationContext = _ApplicationContext.default
+  export type ApplicationContext = _ApplicationContext.default;
 
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
@@ -100,11 +103,12 @@ declare namespace common {
    */
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
    */
-  export type BaseContext = _BaseContext.default
+  export type BaseContext = _BaseContext.default;
 
   /**
    * The base context of an ability or an application. It allows access to
@@ -117,12 +121,13 @@ declare namespace common {
   /**
    * The base context of an ability or an application. It allows access to
    * application-specific resources.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
    * @since 10
    */
-  export type Context = _Context.default
+  export type Context = _Context.default;
 
   /**
    * The context of an extension. It allows access to extension-specific resources.

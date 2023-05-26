@@ -33,7 +33,7 @@ export interface AbilityDelegatorArgs {
   /**
    * the parameters used for unit testing.
    *
-   * @type { [key: string]: string }
+   * @type { object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */

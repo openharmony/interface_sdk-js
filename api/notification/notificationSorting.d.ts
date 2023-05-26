@@ -24,7 +24,36 @@ import { NotificationSlot } from './notificationSlot';
  * @since 7
  */
 export interface NotificationSorting {
+  /**
+   * Notify the channel content.
+   *
+   * @type { NotificationSlot }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly slot: NotificationSlot;
+
+  /**
+   * Notify the unique ID.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly hashCode: string;
+
+  /**
+   * Notify the sort number.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly ranking: number;
 }

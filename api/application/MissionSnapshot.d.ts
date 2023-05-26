@@ -28,6 +28,7 @@ export interface MissionSnapshot {
   /**
    * Indicates the ability elementName of the mission.
    *
+   * @type { ElementName }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -37,6 +38,7 @@ export interface MissionSnapshot {
   /**
    * Indicates mission snapshot.
    *
+   * @type { image.PixelMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8

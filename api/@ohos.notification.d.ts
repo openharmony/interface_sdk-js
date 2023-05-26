@@ -47,7 +47,7 @@ import { NotificationUserInput } from './notification/notificationUserInput';
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.notificationManager and ohos.notificationSubscribe
+ * @useinstead ohos.notificationManager/notificationManager and ohos.notificationSubscribe/notificationSubscribe
  */
 declare namespace notification {
   /**
@@ -60,7 +60,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#publish
+   * @useinstead ohos.notificationManager/notificationManager#publish
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -74,7 +74,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#publish
+   * @useinstead ohos.notificationManager/notificationManager#publish
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -89,7 +89,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#publish
+   * @useinstead ohos.notificationManager/notificationManager#publish
    */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
@@ -104,7 +104,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#publish
+   * @useinstead ohos.notificationManager/notificationManager#publish
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -116,7 +116,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#cancel
+   * @useinstead ohos.notificationManager/notificationManager#cancel
    */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
@@ -129,7 +129,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#cancel
+   * @useinstead ohos.notificationManager/notificationManager#cancel
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
 
@@ -137,12 +137,12 @@ declare namespace notification {
    * Cancel a notification with the specified label and ID.
    *
    * @param { number } id ID of the notification to cancel, which must be unique in the application.
-   * @param { string } label Label of the notification to cancel.
+   * @param { string } [label] Label of the notification to cancel.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#cancel
+   * @useinstead ohos.notificationManager/notificationManager#cancel
    */
   function cancel(id: number, label?: string): Promise<void>;
 
@@ -153,7 +153,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#cancelAll
+   * @useinstead ohos.notificationManager/notificationManager#cancelAll
    */
   function cancelAll(callback: AsyncCallback<void>): void;
 
@@ -164,7 +164,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#cancelAll
+   * @useinstead ohos.notificationManager/notificationManager#cancelAll
    */
   function cancelAll(): Promise<void>;
 
@@ -179,7 +179,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#addSlot
+   * @useinstead ohos.notificationManager/notificationManager#addSlot
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -194,7 +194,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#addSlot
+   * @useinstead ohos.notificationManager/notificationManager#addSlot
    */
   function addSlot(slot: NotificationSlot): Promise<void>;
 
@@ -207,7 +207,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#addSlot
+   * @useinstead ohos.notificationManager/notificationManager#addSlot
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
@@ -220,7 +220,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#addSlot
+   * @useinstead ohos.notificationManager/notificationManager#addSlot
    */
   function addSlot(type: SlotType): Promise<void>;
 
@@ -235,7 +235,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#addSlots
+   * @useinstead ohos.notificationManager/notificationManager#addSlots
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
@@ -250,7 +250,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#addSlots
+   * @useinstead ohos.notificationManager/notificationManager#addSlots
    */
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
@@ -262,7 +262,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlot
+   * @useinstead ohos.notificationManager/notificationManager#getSlot
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
@@ -274,7 +274,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlot
+   * @useinstead ohos.notificationManager/notificationManager#getSlot
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
@@ -286,7 +286,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlots
+   * @useinstead ohos.notificationManager/notificationManager#getSlots
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -297,7 +297,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlots
+   * @useinstead ohos.notificationManager/notificationManager#getSlots
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
 
@@ -309,7 +309,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#removeSlot
+   * @useinstead ohos.notificationManager/notificationManager#removeSlot
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
@@ -322,7 +322,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#removeSlot
+   * @useinstead ohos.notificationManager/notificationManager#removeSlot
    */
   function removeSlot(slotType: SlotType): Promise<void>;
 
@@ -333,7 +333,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#removeAllSlots
+   * @useinstead ohos.notificationManager/notificationManager#removeAllSlots
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
@@ -344,7 +344,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#removeAllSlots
+   * @useinstead ohos.notificationManager/notificationManager#removeAllSlots
    */
   function removeAllSlots(): Promise<void>;
 
@@ -355,7 +355,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#SlotType
+   * @useinstead ohos.notificationManager/notificationManager#SlotType
    */
   export enum SlotType {
     /**
@@ -364,7 +364,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#UNKNOWN_TYPE
+     * @useinstead ohos.notificationManager/notificationManager.SlotType#UNKNOWN_TYPE
      */
     UNKNOWN_TYPE = 0,
 
@@ -374,7 +374,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#SOCIAL_COMMUNICATION
+     * @useinstead ohos.notificationManager/notificationManager.SlotType#SOCIAL_COMMUNICATION
      */
     SOCIAL_COMMUNICATION = 1,
 
@@ -384,7 +384,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#SERVICE_INFORMATION
+     * @useinstead ohos.notificationManager/notificationManager.SlotType#SERVICE_INFORMATION
      */
     SERVICE_INFORMATION = 2,
 
@@ -394,7 +394,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#CONTENT_INFORMATION
+     * @useinstead ohos.notificationManager/notificationManager.SlotType#CONTENT_INFORMATION
      */
     CONTENT_INFORMATION = 3,
 
@@ -404,7 +404,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#OTHER_TYPES
+     * @useinstead ohos.notificationManager/notificationManager.SlotType#OTHER_TYPES
      */
     OTHER_TYPES = 0xFFFF
   }
@@ -416,7 +416,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#ContentType
+   * @useinstead ohos.notificationManager/notificationManager.SlotType#ContentType
    */
   export enum ContentType {
     /**
@@ -425,7 +425,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#NOTIFICATION_CONTENT_BASIC_TEXT
+     * @useinstead ohos.notificationManager/notificationManager.ContentType#NOTIFICATION_CONTENT_BASIC_TEXT
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
@@ -435,7 +435,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#NOTIFICATION_CONTENT_LONG_TEXT
+     * @useinstead ohos.notificationManager/notificationManager.ContentType#NOTIFICATION_CONTENT_LONG_TEXT
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
 
@@ -445,7 +445,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#NOTIFICATION_CONTENT_PICTURE
+     * @useinstead ohos.notificationManager/notificationManager.ContentType#NOTIFICATION_CONTENT_PICTURE
      */
     NOTIFICATION_CONTENT_PICTURE,
 
@@ -455,7 +455,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#NOTIFICATION_CONTENT_CONVERSATION
+     * @useinstead ohos.notificationManager/notificationManager.ContentType#NOTIFICATION_CONTENT_CONVERSATION
      */
     NOTIFICATION_CONTENT_CONVERSATION,
 
@@ -465,7 +465,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#NOTIFICATION_CONTENT_MULTILINE
+     * @useinstead ohos.notificationManager/notificationManager.ContentType#NOTIFICATION_CONTENT_MULTILINE
      */
     NOTIFICATION_CONTENT_MULTILINE
   }
@@ -477,7 +477,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#SlotLevel
+   * @useinstead ohos.notificationManager/notificationManager#SlotLevel
    */
   export enum SlotLevel {
     /**
@@ -486,7 +486,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#LEVEL_NONE
+     * @useinstead ohos.notificationManager/notificationManager.SlotLevel#LEVEL_NONE
      */
     LEVEL_NONE = 0,
 
@@ -497,7 +497,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#LEVEL_MIN
+     * @useinstead ohos.notificationManager/notificationManager.SlotLevel#LEVEL_MIN
      */
     LEVEL_MIN = 1,
 
@@ -508,7 +508,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#LEVEL_LOW
+     * @useinstead ohos.notificationManager/notificationManager.SlotLevel#LEVEL_LOW
      */
     LEVEL_LOW = 2,
 
@@ -519,7 +519,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#LEVEL_DEFAULT
+     * @useinstead ohos.notificationManager/notificationManager.SlotLevel#LEVEL_DEFAULT
      */
     LEVEL_DEFAULT = 3,
 
@@ -530,7 +530,7 @@ declare namespace notification {
      * @syscap SystemCapability.Notification.Notification
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#LEVEL_HIGH
+     * @useinstead ohos.notificationManager/notificationManager.SlotLevel#LEVEL_HIGH
      */
     LEVEL_HIGH = 4
   }
@@ -545,7 +545,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#subscribe
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#subscribe
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -560,7 +560,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#subscribe
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#subscribe
    */
   function subscribe(
     subscriber: NotificationSubscriber,
@@ -573,13 +573,13 @@ declare namespace notification {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSubscriber } subscriber Notification subscription object.
-   * @param { NotificationSubscribeInfo } info Notification subscription information.
+   * @param { NotificationSubscribeInfo } [info] Notification subscription information.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#subscribe
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#subscribe
    */
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
@@ -593,7 +593,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#unsubscribe
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#unsubscribe
    */
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -607,7 +607,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#unsubscribe
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#unsubscribe
    */
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -622,7 +622,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setNotificationEnable
+   * @useinstead ohos.notificationManager/notificationManager#setNotificationEnable
    */
   function enableNotification(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -637,7 +637,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setNotificationEnable
+   * @useinstead ohos.notificationManager/notificationManager#setNotificationEnable
    */
   function enableNotification(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -651,7 +651,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isNotificationEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isNotificationEnabled
    */
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -665,7 +665,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isNotificationEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isNotificationEnabled
    */
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
@@ -678,7 +678,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isNotificationEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isNotificationEnabled
    */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -691,7 +691,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isNotificationEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isNotificationEnabled
    */
   function isNotificationEnabled(): Promise<boolean>;
 
@@ -705,7 +705,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isNotificationEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isNotificationEnabled
    */
   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
 
@@ -719,7 +719,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isNotificationEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isNotificationEnabled
    */
   function isNotificationEnabled(userId: number): Promise<boolean>;
 
@@ -734,7 +734,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#displayBadge
+   * @useinstead ohos.notificationManager/notificationManager#displayBadge
    */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -749,7 +749,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#displayBadge
+   * @useinstead ohos.notificationManager/notificationManager#displayBadge
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -763,7 +763,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isBadgeDisplayed
+   * @useinstead ohos.notificationManager/notificationManager#isBadgeDisplayed
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -777,7 +777,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isBadgeDisplayed
+   * @useinstead ohos.notificationManager/notificationManager#isBadgeDisplayed
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -792,7 +792,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setSlotByBundle
+   * @useinstead ohos.notificationManager/notificationManager#setSlotByBundle
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -807,7 +807,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setSlotByBundle
+   * @useinstead ohos.notificationManager/notificationManager#setSlotByBundle
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
@@ -821,7 +821,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlotsByBundle
+   * @useinstead ohos.notificationManager/notificationManager#getSlotsByBundle
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -836,7 +836,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlotsByBundle
+   * @useinstead ohos.notificationManager/notificationManager#getSlotsByBundle
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -850,7 +850,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlotNumByBundle
+   * @useinstead ohos.notificationManager/notificationManager#getSlotNumByBundle
    */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
@@ -865,7 +865,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getSlotNumByBundle
+   * @useinstead ohos.notificationManager/notificationManager#getSlotNumByBundle
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
@@ -881,7 +881,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#remove
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#remove
    */
   function remove(
     bundle: BundleOption,
@@ -902,7 +902,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#remove
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#remove
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
@@ -918,7 +918,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#remove
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#remove
    */
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -933,7 +933,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#remove
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#remove
    */
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
@@ -947,7 +947,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#removeAll
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#removeAll
    */
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
@@ -960,7 +960,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#removeAll
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#removeAll
    */
   function removeAll(callback: AsyncCallback<void>): void;
 
@@ -974,7 +974,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#removeAll
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#removeAll
    */
   function removeAll(userId: number, callback: AsyncCallback<void>): void;
 
@@ -988,7 +988,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationSubscribe#removeAll
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#removeAll
    */
   function removeAll(userId: number): Promise<void>;
 
@@ -996,13 +996,13 @@ declare namespace notification {
    * removeAll
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
+   * @param { BundleOption } [bundle] Specify the package information for the application.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead notificationSubscribe#removeAll
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#removeAll
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 
@@ -1016,7 +1016,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getAllActiveNotifications
+   * @useinstead ohos.notificationManager/notificationManager#getAllActiveNotifications
    */
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1030,7 +1030,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getAllActiveNotifications
+   * @useinstead ohos.notificationManager/notificationManager#getAllActiveNotifications
    */
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -1041,7 +1041,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getActiveNotificationCount
+   * @useinstead ohos.notificationManager/notificationManager#getActiveNotificationCount
    */
   function getActiveNotificationCount(callback: AsyncCallback<number>): void;
 
@@ -1052,7 +1052,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getActiveNotificationCount
+   * @useinstead ohos.notificationManager/notificationManager#getActiveNotificationCount
    */
   function getActiveNotificationCount(): Promise<number>;
 
@@ -1064,7 +1064,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getActiveNotifications
+   * @useinstead ohos.notificationManager/notificationManager#getActiveNotifications
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1075,7 +1075,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getActiveNotifications
+   * @useinstead ohos.notificationManager/notificationManager#getActiveNotifications
    */
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -1089,7 +1089,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#cancelGroup
+   * @useinstead ohos.notificationManager/notificationManager#cancelGroup
    */
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
 
@@ -1101,7 +1101,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#cancelGroup
+   * @useinstead ohos.notificationManager/notificationManager#cancelGroup
    */
   function cancelGroup(groupName: string): Promise<void>;
 
@@ -1116,7 +1116,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#removeGroupByBundle
+   * @useinstead ohos.notificationManager/notificationManager#removeGroupByBundle
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
 
@@ -1131,7 +1131,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#removeGroupByBundle
+   * @useinstead ohos.notificationManager/notificationManager#removeGroupByBundle
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
 
@@ -1145,7 +1145,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#setDoNotDisturbDate
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
 
@@ -1159,7 +1159,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#setDoNotDisturbDate
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
@@ -1174,7 +1174,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#setDoNotDisturbDate
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
 
@@ -1189,7 +1189,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#setDoNotDisturbDate
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
 
@@ -1202,7 +1202,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#getDoNotDisturbDate
    */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
 
@@ -1215,7 +1215,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#getDoNotDisturbDate
    */
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
 
@@ -1229,7 +1229,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#getDoNotDisturbDate
    */
   function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
 
@@ -1243,7 +1243,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getDoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#getDoNotDisturbDate
    */
   function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
 
@@ -1256,7 +1256,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isSupportDoNotDisturbMode
+   * @useinstead ohos.notificationManager/notificationManager#isSupportDoNotDisturbMode
    */
   function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
 
@@ -1270,7 +1270,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isSupportDoNotDisturbMode
+   * @useinstead ohos.notificationManager/notificationManager#isSupportDoNotDisturbMode
    */
   function supportDoNotDisturbMode(): Promise<boolean>;
 
@@ -1282,7 +1282,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isSupportTemplate
+   * @useinstead ohos.notificationManager/notificationManager#isSupportTemplate
    */
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
 
@@ -1294,7 +1294,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isSupportTemplate
+   * @useinstead ohos.notificationManager/notificationManager#isSupportTemplate
    */
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
@@ -1305,7 +1305,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#requestEnableNotification
+   * @useinstead ohos.notificationManager/notificationManager#requestEnableNotification
    */
   function requestEnableNotification(callback: AsyncCallback<void>): void;
 
@@ -1316,7 +1316,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#requestEnableNotification
+   * @useinstead ohos.notificationManager/notificationManager#requestEnableNotification
    */
   function requestEnableNotification(): Promise<void>;
 
@@ -1330,7 +1330,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDistributedEnable
+   * @useinstead ohos.notificationManager/notificationManager#setDistributedEnable
    */
   function enableDistributed(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1344,7 +1344,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDistributedEnable
+   * @useinstead ohos.notificationManager/notificationManager#setDistributedEnable
    */
   function enableDistributed(enable: boolean): Promise<void>;
 
@@ -1356,7 +1356,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isDistributedEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isDistributedEnabled
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -1368,7 +1368,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isDistributedEnabled
+   * @useinstead ohos.notificationManager/notificationManager#isDistributedEnabled
    */
   function isDistributedEnabled(): Promise<boolean>;
 
@@ -1383,7 +1383,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDistributedEnableByBundle
+   * @useinstead ohos.notificationManager/notificationManager#setDistributedEnableByBundle
    */
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1398,7 +1398,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#setDistributedEnableByBundle
+   * @useinstead ohos.notificationManager/notificationManager#setDistributedEnableByBundle
    */
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -1413,7 +1413,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isDistributedEnabledByBundle
+   * @useinstead ohos.notificationManager/notificationManager#isDistributedEnabledByBundle
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1428,7 +1428,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#isDistributedEnabledByBundle
+   * @useinstead ohos.notificationManager/notificationManager#isDistributedEnabledByBundle
    */
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
@@ -1441,7 +1441,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getDeviceRemindType
+   * @useinstead ohos.notificationManager/notificationManager#getDeviceRemindType
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
@@ -1454,7 +1454,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#getDeviceRemindType
+   * @useinstead ohos.notificationManager/notificationManager#getDeviceRemindType
    */
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
@@ -1465,10 +1465,29 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#BundleOption
+   * @useinstead ohos.notificationManager/notificationManager#BundleOption
    */
   export interface BundleOption {
+    /**
+     * bundle name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.notificationManager/notificationManager#BundleOption
+     */
     bundle: string;
+
+    /**
+     * user id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.notificationManager/notificationManager#BundleOption
+     */
     uid?: number;
   }
 
@@ -1479,10 +1498,29 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#NotificationKey
+   * @useinstead ohos.notificationManager/notificationManager#NotificationKey
    */
   export interface NotificationKey {
+    /**
+     * Notify ID.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.notificationManager/notificationManager#NotificationKey
+     */
     id: number;
+
+    /**
+     * Notification label.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.notificationManager/notificationManager#NotificationKey
+     */
     label?: string;
   }
 
@@ -1494,7 +1532,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#DoNotDisturbType
+   * @useinstead ohos.notificationManager/notificationManager#DoNotDisturbType
    */
   export enum DoNotDisturbType {
     /**
@@ -1504,7 +1542,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#TYPE_NONE
+     * @useinstead ohos.notificationManager/notificationManager.DoNotDisturbType#TYPE_NONE
      */
     TYPE_NONE = 0,
 
@@ -1515,7 +1553,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#TYPE_ONCE
+     * @useinstead ohos.notificationManager/notificationManager.DoNotDisturbType#TYPE_ONCE
      */
     TYPE_ONCE = 1,
 
@@ -1526,7 +1564,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#TYPE_DAILY
+     * @useinstead ohos.notificationManager/notificationManager.DoNotDisturbType#TYPE_DAILY
      */
     TYPE_DAILY = 2,
 
@@ -1537,7 +1575,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#TYPE_CLEARLY
+     * @useinstead ohos.notificationManager/notificationManager.DoNotDisturbType#TYPE_CLEARLY
      */
     TYPE_CLEARLY = 3
   }
@@ -1550,7 +1588,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#DoNotDisturbDate
+   * @useinstead ohos.notificationManager/notificationManager#DoNotDisturbDate
    */
   export interface DoNotDisturbDate {
     /**
@@ -1560,7 +1598,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#type
+     * @useinstead ohos.notificationManager/notificationManager.DoNotDisturbDate#type
      */
     type: DoNotDisturbType;
 
@@ -1571,7 +1609,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#begin
+     * @useinstead ohos.notificationManager/notificationManager.DoNotDisturbDate#begin
      */
     begin: Date;
 
@@ -1582,7 +1620,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#end
+     * @useinstead ohos.notificationManager/notificationManager.DoNotDisturbDate#end
      */
     end: Date;
   }
@@ -1595,7 +1633,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#DeviceRemindType
+   * @useinstead ohos.notificationManager/notificationManager#DeviceRemindType
    */
   export enum DeviceRemindType {
     /**
@@ -1605,7 +1643,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#IDLE_DONOT_REMIND
+     * @useinstead ohos.notificationManager/notificationManager.DeviceRemindType#IDLE_DONOT_REMIND
      */
     IDLE_DONOT_REMIND = 0,
 
@@ -1616,7 +1654,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#IDLE_REMIND
+     * @useinstead ohos.notificationManager/notificationManager.DeviceRemindType#IDLE_REMIND
      */
     IDLE_REMIND = 1,
 
@@ -1627,7 +1665,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#ACTIVE_DONOT_REMIND
+     * @useinstead ohos.notificationManager/notificationManager.DeviceRemindType#ACTIVE_DONOT_REMIND
      */
     ACTIVE_DONOT_REMIND = 2,
 
@@ -1638,7 +1676,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#ACTIVE_REMIND
+     * @useinstead ohos.notificationManager/notificationManager.DeviceRemindType#ACTIVE_REMIND
      */
     ACTIVE_REMIND = 3
   }
@@ -1651,7 +1689,7 @@ declare namespace notification {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#SourceType
+   * @useinstead ohos.notificationManager/notificationManager#SourceType
    */
   export enum SourceType {
     /**
@@ -1661,7 +1699,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#TYPE_NORMAL
+     * @useinstead ohos.notificationManager/notificationManager.SourceType#TYPE_NORMAL
      */
     TYPE_NORMAL = 0,
 
@@ -1672,7 +1710,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#TYPE_CONTINUOUS
+     * @useinstead ohos.notificationManager/notificationManager.SourceType#TYPE_CONTINUOUS
      */
     TYPE_CONTINUOUS = 1,
 
@@ -1683,7 +1721,7 @@ declare namespace notification {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#TYPE_TIMER
+     * @useinstead ohos.notificationManager/notificationManager.SourceType#TYPE_TIMER
      */
     TYPE_TIMER = 2
   }
@@ -1696,7 +1734,7 @@ declare namespace notification {
    * @systemapi
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager#RemoveReason
+   * @useinstead ohos.notificationSubscribe/notificationSubscribe#RemoveReason
    */
   export enum RemoveReason {
     /**
@@ -1706,7 +1744,7 @@ declare namespace notification {
      * @systemapi
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#CLICK_REASON_REMOVE
+     * @useinstead ohos.notificationSubscribe/notificationSubscribe.RemoveReason#CLICK_REASON_REMOVE
      */
     CLICK_REASON_REMOVE = 1,
 
@@ -1717,7 +1755,7 @@ declare namespace notification {
      * @systemapi
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.notificationManager#CANCEL_REASON_REMOVE
+     * @useinstead ohos.notificationSubscribe/notificationSubscribe.RemoveReason#CANCEL_REASON_REMOVE
      */
     CANCEL_REASON_REMOVE = 2
   }

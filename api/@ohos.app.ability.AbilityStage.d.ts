@@ -27,6 +27,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  */
 /**
  * The class of an ability stage.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -43,6 +44,7 @@ export default class AbilityStage {
    */
   /**
    * Indicates configuration information about context.
+   *
    * @type { AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -60,6 +62,7 @@ export default class AbilityStage {
    */
   /**
    * Called back when an ability stage is started for initialization.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -90,6 +93,7 @@ export default class AbilityStage {
    */
   /**
    * Called when the system configuration is updated.
+   *
    * @param { Configuration } newConfig - Indicates the updated configuration.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly

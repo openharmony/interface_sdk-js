@@ -20,18 +20,18 @@
  * @syscap SystemCapability.Ability.Form
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formBindingData
+ * @useinstead ohos.app.form.formBindingData/formBindingData
  */
 declare namespace formBindingData {
   /**
    * Create an FormBindingData instance.
    *
-   * @param { Object | string } obj Indicates the FormBindingData instance data.
+   * @param { Object | string } [obj] Indicates the FormBindingData instance data.
    * @returns { FormBindingData } Returns the {@link FormBindingData} instance.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formBindingData#createFormBindingData
+   * @useinstead ohos.app.form.formBindingData/formBindingData#createFormBindingData
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
@@ -42,8 +42,19 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.app.form.formBindingData/formBindingData#FormBindingData
    */
   interface FormBindingData {
+    /**
+     * The data to be displayed on the js card. Can be a string in Object or json format that
+     * contains several key-value pairs.
+     *
+     * @type { Object }
+     * @syscap SystemCapability.Ability.Form
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.form.formBindingData/formBindingData#FormBindingData
+     */
     data: Object;
   }
 }

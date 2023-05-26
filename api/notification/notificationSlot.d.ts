@@ -26,6 +26,7 @@ export interface NotificationSlot {
   /**
    * Obtains the type of a notification slot.
    *
+   * @type { notification.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -34,6 +35,7 @@ export interface NotificationSlot {
   /**
    * Obtains the level of a notification slot
    *
+   * @type { ?notification.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -42,6 +44,7 @@ export interface NotificationSlot {
   /**
    * Obtains the description of a notification slot.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -50,6 +53,7 @@ export interface NotificationSlot {
   /**
    * Obtains the application icon badge status of a notification slot.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -58,6 +62,7 @@ export interface NotificationSlot {
   /**
    * Obtains whether DND mode is bypassed for a notification slot.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -66,6 +71,7 @@ export interface NotificationSlot {
   /**
    * Whether and how to display notifications on the lock screen.
    *
+   * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -74,6 +80,7 @@ export interface NotificationSlot {
   /**
    * Obtains the vibration status of the notification slot.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -82,6 +89,7 @@ export interface NotificationSlot {
   /**
    * Obtains the prompt tone of the notification slot.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -90,6 +98,7 @@ export interface NotificationSlot {
   /**
    * Obtains whether the notification light is enabled in a notification slot.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -98,6 +107,7 @@ export interface NotificationSlot {
   /**
    * Obtains the color of the notification light in a notification slot.
    *
+   * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -106,6 +116,7 @@ export interface NotificationSlot {
   /**
    * Obtains the vibration style of notifications in this notification slot.
    *
+   * @type { ?Array<number> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -114,6 +125,7 @@ export interface NotificationSlot {
   /**
    * Read-only enabled status in this notification slot.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */

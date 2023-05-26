@@ -26,6 +26,7 @@ import bundle from '../@ohos.bundle.bundleManager';
  */
 export interface ExtensionRunningInfo {
   /**
+   * @type { ElementName }
    * @default Indicates the extension of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -34,6 +35,7 @@ export interface ExtensionRunningInfo {
   extension: ElementName;
 
   /**
+   * @type { number }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -42,6 +44,7 @@ export interface ExtensionRunningInfo {
   pid: number;
 
   /**
+   * @type { number }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -50,6 +53,7 @@ export interface ExtensionRunningInfo {
   uid: number;
 
   /**
+   * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -58,6 +62,7 @@ export interface ExtensionRunningInfo {
   processName: string;
 
   /**
+   * @type { number }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -66,6 +71,7 @@ export interface ExtensionRunningInfo {
   startTime: number;
 
   /**
+   * @type { Array<String> }
    * @default All package names under the current process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -74,6 +80,7 @@ export interface ExtensionRunningInfo {
   clientPackage: Array<String>;
 
   /**
+   * @type { bundle.ExtensionAbilityType }
    * @default Enumerates types of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

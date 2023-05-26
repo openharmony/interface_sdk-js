@@ -28,7 +28,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @systemapi
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.ability.missionManager
+ * @useinstead ohos.app.ability.missionManager/missionManager
  */
 declare namespace missionManager {
   /**
@@ -41,7 +41,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#on
+   * @useinstead ohos.app.ability.missionManager/missionManager#on
    */
   function registerMissionListener(listener: MissionListener): number;
 
@@ -55,7 +55,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#off
+   * @useinstead ohos.app.ability.missionManager/missionManager#off
    */
   function unregisterMissionListener(listenerId: number, callback: AsyncCallback<void>): void;
 
@@ -69,7 +69,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#off
+   * @useinstead ohos.app.ability.missionManager/missionManager#off
    */
   function unregisterMissionListener(listenerId: number): Promise<void>;
 
@@ -84,7 +84,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#getMissionInfo
+   * @useinstead ohos.app.ability.missionManager/missionManager#getMissionInfo
    */
   function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
 
@@ -99,7 +99,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#getMissionInfo
+   * @useinstead ohos.app.ability.missionManager/missionManager#getMissionInfo
    */
   function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
 
@@ -115,7 +115,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#getMissionInfos
+   * @useinstead ohos.app.ability.missionManager/missionManager#getMissionInfos
    */
   function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
 
@@ -130,7 +130,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#getMissionInfos
+   * @useinstead ohos.app.ability.missionManager/missionManager#getMissionInfos
    */
   function getMissionInfos(deviceId: string, numMax: number): Promise<Array<MissionInfo>>;
 
@@ -146,7 +146,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#getMissionSnapShot
+   * @useinstead ohos.app.ability.missionManager/missionManager#getMissionSnapShot
    */
   function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
 
@@ -161,7 +161,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#getMissionSnapShot
+   * @useinstead ohos.app.ability.missionManager/missionManager#getMissionSnapShot
    */
   function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
@@ -175,7 +175,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#lockMission
+   * @useinstead ohos.app.ability.missionManager/missionManager#lockMission
    */
   function lockMission(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -189,7 +189,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#lockMission
+   * @useinstead ohos.app.ability.missionManager/missionManager#lockMission
    */
   function lockMission(missionId: number): Promise<void>;
 
@@ -203,7 +203,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#unlockMission
+   * @useinstead ohos.app.ability.missionManager/missionManager#unlockMission
    */
   function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -217,7 +217,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#unlockMission
+   * @useinstead ohos.app.ability.missionManager/missionManager#unlockMission
    */
   function unlockMission(missionId: number): Promise<void>;
 
@@ -231,7 +231,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#clearMission
+   * @useinstead ohos.app.ability.missionManager/missionManager#clearMission
    */
   function clearMission(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -245,7 +245,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#clearMission
+   * @useinstead ohos.app.ability.missionManager/missionManager#clearMission
    */
   function clearMission(missionId: number): Promise<void>;
 
@@ -258,7 +258,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#clearAllMissions
+   * @useinstead ohos.app.ability.missionManager/missionManager#clearAllMissions
    */
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
@@ -271,7 +271,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#clearAllMissions
+   * @useinstead ohos.app.ability.missionManager/missionManager#clearAllMissions
    */
   function clearAllMissions(): Promise<void>;
 
@@ -285,7 +285,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#moveMissionToFront
+   * @useinstead ohos.app.ability.missionManager/missionManager#moveMissionToFront
    */
   function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
 
@@ -300,7 +300,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#moveMissionToFront
+   * @useinstead ohos.app.ability.missionManager/missionManager#moveMissionToFront
    */
   function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -309,13 +309,13 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { number } missionId Indicates mission id to be moved to foreground.
-   * @param { StartOptions } options Indicates the start options.
+   * @param { StartOptions } [options] Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.missionManager#moveMissionToFront
+   * @useinstead ohos.app.ability.missionManager/missionManager#moveMissionToFront
    */
   function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
 }

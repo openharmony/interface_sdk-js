@@ -26,7 +26,7 @@ declare namespace formBindingData {
   /**
    * Create an FormBindingData instance.
    *
-   * @param { Object | string } obj - Indicates the FormBindingData instance data.
+   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
    * @returns { FormBindingData } Returns the FormBindingData.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.Form

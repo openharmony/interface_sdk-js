@@ -39,6 +39,7 @@ export default class AbilityStageContext extends Context {
   /**
    * Indicates configuration information about an module.
    *
+   * @type { HapModuleInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -47,6 +48,7 @@ export default class AbilityStageContext extends Context {
   /**
    * Indicates configuration information about an module.
    *
+   * @type { HapModuleInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -57,6 +59,7 @@ export default class AbilityStageContext extends Context {
   /**
    * Indicates configuration information.
    *
+   * @type { Configuration }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
@@ -65,6 +68,7 @@ export default class AbilityStageContext extends Context {
   /**
    * Indicates configuration information.
    *
+   * @type { Configuration }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform

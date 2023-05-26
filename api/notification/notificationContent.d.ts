@@ -27,6 +27,7 @@ export interface NotificationBasicContent {
   /**
    * Title of the normal text notification.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -35,6 +36,7 @@ export interface NotificationBasicContent {
   /**
    * Content of the normal text notification.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -43,6 +45,7 @@ export interface NotificationBasicContent {
   /**
    * Additional information of the normal text notification.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -60,6 +63,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
    * Long text content of the notification.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -68,6 +72,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
    * Brief text of the long text notification.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -76,6 +81,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
    * Title that will be displayed for the long text notification when it is expanded.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -93,6 +99,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
    * Brief text of the multi-line text notification.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -101,6 +108,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
    * Brief text of the multi-line text notification.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -109,6 +117,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
    * Multi-line content of the multi-line text notification.
    *
+   * @type { Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -126,6 +135,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   /**
    * Multi-line content of the multi-line text notification.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -134,6 +144,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   /**
    * Title that will be displayed for the picture-attached notification when it is expanded.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -142,6 +153,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   /**
    * Picture to be included in a notification.
    *
+   * @type { image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -159,6 +171,7 @@ export interface NotificationContent {
   /**
    * Notification content type.
    *
+   * @type { notification.ContentType }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -167,6 +180,7 @@ export interface NotificationContent {
   /**
    * Normal text notification.
    *
+   * @type { ?NotificationBasicContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -175,6 +189,7 @@ export interface NotificationContent {
   /**
    * Long text notification.
    *
+   * @type { ?NotificationLongTextContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -183,6 +198,7 @@ export interface NotificationContent {
   /**
    * Multi-line text notification.
    *
+   * @type { ?NotificationMultiLineContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -191,6 +207,7 @@ export interface NotificationContent {
   /**
    * Picture-attached notification.
    *
+   * @type { ?NotificationPictureContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */

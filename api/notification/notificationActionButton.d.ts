@@ -27,6 +27,7 @@ export interface NotificationActionButton {
   /**
    * Button title.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -35,6 +36,7 @@ export interface NotificationActionButton {
   /**
    * WantAgent of the button.
    *
+   * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -43,6 +45,7 @@ export interface NotificationActionButton {
   /**
    * Extra information of the button.
    *
+   * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
@@ -51,6 +54,7 @@ export interface NotificationActionButton {
   /**
    * User input
    *
+   * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */

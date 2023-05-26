@@ -69,7 +69,7 @@ export interface Context extends BaseContext {
    * it will check your own permission.
    *
    * @param { string } permission The name of the specified permission.
-   * @param { PermissionOptions } options Permission Options.
+   * @param { PermissionOptions } [options] Permission Options.
    * @returns { Promise<number> } asynchronous callback with {@code 0} if the PID
    *                              and UID have the permission; callback with {@code -1} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -246,7 +246,7 @@ export interface Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.window#setShowOnLockScreen
+   * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
    */
   setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void;
 
@@ -261,7 +261,7 @@ export interface Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.window#setShowOnLockScreen
+   * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
    */
   setShowOnLockScreen(show: boolean): Promise<void>;
 
@@ -569,6 +569,7 @@ export interface Context extends BaseContext {
  */
 interface PermissionRequestResult {
   /**
+   * @type { number }
    * @default The request code passed in by the user
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -577,6 +578,7 @@ interface PermissionRequestResult {
   requestCode: number;
 
   /**
+   * @type { Array<string> }
    * @default The permissions passed in by the user
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -585,6 +587,7 @@ interface PermissionRequestResult {
   permissions: Array<string>;
 
   /**
+   * @type { Array<number> }
    * @default The results for the corresponding request permissions
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -601,6 +604,7 @@ interface PermissionRequestResult {
  */
 interface PermissionOptions {
   /**
+   * @type { ?number }
    * @default The process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -609,6 +613,7 @@ interface PermissionOptions {
   pid?: number;
 
   /**
+   * @type { ?number }
    * @default The user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly

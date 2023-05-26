@@ -24,6 +24,7 @@ export interface CommonEventData {
   /**
    * event type
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -32,6 +33,7 @@ export interface CommonEventData {
   /**
    * bundle name
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -40,6 +42,7 @@ export interface CommonEventData {
   /**
    * The custom result code of the common event.
    *
+   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -49,6 +52,7 @@ export interface CommonEventData {
   /**
    * The custom result data of the common event.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -57,6 +61,7 @@ export interface CommonEventData {
   /**
    * The description of the parameters in a common event.
    *
+   * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */

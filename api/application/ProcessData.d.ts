@@ -24,6 +24,7 @@ export default class ProcessData {
   /**
    * The bundle name.
    *
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -33,6 +34,7 @@ export default class ProcessData {
   /**
    * The pid.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -42,6 +44,7 @@ export default class ProcessData {
   /**
    * The uid.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -51,6 +54,7 @@ export default class ProcessData {
   /**
    * The process state.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -60,6 +64,7 @@ export default class ProcessData {
   /**
    * Whether the process is continuous task.
    *
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
@@ -69,6 +74,7 @@ export default class ProcessData {
   /**
    * Whether the process is keep alive.
    *
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9

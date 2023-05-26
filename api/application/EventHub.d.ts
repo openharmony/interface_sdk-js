@@ -39,7 +39,7 @@ export default class EventHub {
    * Unsubscribe from an event.
    *
    * @param { string } event - Indicates the event.
-   * @param { Function } callback - Indicates the callback.
+   * @param { Function } [callback] - Indicates the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly

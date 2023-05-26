@@ -52,7 +52,7 @@ export interface ContinueDeviceInfo {
   /**
    * Indicates the extended param.
    *
-   * @type { [key: string]: any }
+   * @type { object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

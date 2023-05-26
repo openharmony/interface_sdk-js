@@ -22,6 +22,23 @@
  * @since 7
  */
 export interface NotificationSubscribeInfo {
+  /**
+   * Notifications from APP that specify which package names to subscribe to.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   bundleNames?: Array<string>;
+
+  /**
+   * Specify which user to subscribe to the notification from.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   userId?: number;
 }

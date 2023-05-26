@@ -30,6 +30,7 @@ export default class ExtensionContext extends Context {
   /**
    * Indicates configuration information about an module.
    *
+   * @type { HapModuleInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -39,6 +40,7 @@ export default class ExtensionContext extends Context {
   /**
    * Indicates configuration information.
    *
+   * @type { Configuration }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -48,6 +50,7 @@ export default class ExtensionContext extends Context {
   /**
    * Extension information.
    *
+   * @type { ExtensionAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */

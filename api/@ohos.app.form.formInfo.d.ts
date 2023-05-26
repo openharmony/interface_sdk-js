@@ -34,6 +34,7 @@ declare namespace formInfo {
     /**
      * Obtains the bundle name of the application to which this form belongs.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -42,6 +43,7 @@ declare namespace formInfo {
     /**
      * Obtains the name of the application module to which this form belongs.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -50,6 +52,7 @@ declare namespace formInfo {
     /**
      * Obtains the class name of the ability to which this form belongs.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -58,6 +61,7 @@ declare namespace formInfo {
     /**
      * Obtains the name of this form.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -65,6 +69,8 @@ declare namespace formInfo {
 
     /**
      * Obtains the description of this form.
+     *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -73,6 +79,7 @@ declare namespace formInfo {
     /**
      * Obtains the description id of this form.
      *
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
@@ -81,6 +88,7 @@ declare namespace formInfo {
     /**
      * Obtains the type of this form. Currently, JS forms are supported.
      *
+     * @type { FormType }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -89,6 +97,7 @@ declare namespace formInfo {
     /**
      * Obtains the JS component name of this JS form.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -97,6 +106,7 @@ declare namespace formInfo {
     /**
      * Obtains the color mode of this form.
      *
+     * @type { ColorMode }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -105,6 +115,7 @@ declare namespace formInfo {
     /**
      * Checks whether this form is a default form.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -113,6 +124,7 @@ declare namespace formInfo {
     /**
      * Obtains the updateEnabled.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -121,6 +133,7 @@ declare namespace formInfo {
     /**
      * Obtains whether notify visible of this form.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -129,6 +142,7 @@ declare namespace formInfo {
     /**
      * Obtains the scheduledUpdateTime.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -137,6 +151,7 @@ declare namespace formInfo {
     /**
      * Obtains the form config ability about this form.
      *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -145,6 +160,7 @@ declare namespace formInfo {
     /**
      * Obtains the updateDuration.
      *
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -153,6 +169,7 @@ declare namespace formInfo {
     /**
      * Obtains the default grid style of this form.
      *
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -161,6 +178,7 @@ declare namespace formInfo {
     /**
      * Obtains the grid styles supported by this form.
      *
+     * @type { Array<number> }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -169,6 +187,7 @@ declare namespace formInfo {
     /**
      * Obtains the custom data defined in this form.
      *
+     * @type { object }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -244,6 +263,7 @@ declare namespace formInfo {
     /**
      * Obtains the form state.
      *
+     * @type { FormState }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -252,6 +272,7 @@ declare namespace formInfo {
     /**
      * Obtains the want form .
      *
+     * @type { Want }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -474,6 +495,7 @@ declare namespace formInfo {
      * optional moduleName that used to ask getFormsInfo to return
      * form infos with the same moduleName.
      *
+     * @type { ?string }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
@@ -540,6 +562,7 @@ declare namespace formInfo {
      * Indicates the type of the form type is unknown.
      * Often used as a condition variable in function OnVisibilityChange to specify actions only on forms that are
      * changing to unknown.
+     *
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
@@ -590,6 +613,7 @@ declare namespace formInfo {
 
   /**
    * Information about a running form.
+   *
    * @typedef FormProviderFilter
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -599,6 +623,8 @@ declare namespace formInfo {
   interface FormProviderFilter {
     /**
      * Obtains the bundle name of the provider application.
+     *
+     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
@@ -608,30 +634,36 @@ declare namespace formInfo {
 
     /**
      * Obtains the form name of the provider application form.
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
      * @since 10
      */
-    formName ?: string;
+    formName?: string;
 
     /**
      * Obtains the module name of the provider application module.
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
      * @since 10
      */
-    moduleName ?: string;
+    moduleName?: string;
 
     /**
      * Obtains the ability name of the provider application module.
+     *
+     * @type { ?string }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
      * @since 10
      */
-    abilityName ?: string;
+    abilityName?: string;
   }
 
   /**
@@ -645,6 +677,7 @@ declare namespace formInfo {
   interface RunningFormInfo {
     /**
      * Obtains the id of the this form.
+     *
      * @type { string }
      * @default -
      * @syscap SystemCapability.Ability.Form
@@ -655,6 +688,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the bundle name of the application to which this form belongs.
+     *
      * @type { string }
      * @default -
      * @syscap SystemCapability.Ability.Form
@@ -665,6 +699,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the bundle name of the form host application.
+     *
      * @type { string }
      * @default -
      * @syscap SystemCapability.Ability.Form
@@ -675,6 +710,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the visibility of this form.
+     *
      * @type { VisibilityType }
      * @default -
      * @syscap SystemCapability.Ability.Form
@@ -685,6 +721,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the name of the application module to which this form belongs.
+     *
      * @type { string }
      * @default -
      * @syscap SystemCapability.Ability.Form
@@ -695,6 +732,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the class name of the ability to which this form belongs.
+     *
      * @type { string }
      * @default -
      * @syscap SystemCapability.Ability.Form
@@ -705,6 +743,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the name of this form.
+     *
      * @type { string }
      * @default -
      * @syscap SystemCapability.Ability.Form
@@ -715,6 +754,7 @@ declare namespace formInfo {
 
     /**
      * Obtains the grid style of this form.
+     *
      * @type { number }
      * @default -
      * @syscap SystemCapability.Ability.Form

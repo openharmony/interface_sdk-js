@@ -20,42 +20,46 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @since 8
  * @deprecated since 9
- * @useinstead ProcessInformation
+ * @useinstead ProcessInformation/ProcessInformation
  */
 export interface ProcessRunningInfo {
   /**
+   * @type { number }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation#pid
+   * @useinstead ProcessInformation/ProcessInformation#pid
    */
   pid: number;
 
   /**
+   * @type { number }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation#uid
+   * @useinstead ProcessInformation/ProcessInformation#uid
    */
   uid: number;
 
   /**
+   * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation#processName
+   * @useinstead ProcessInformation/ProcessInformation#processName
    */
   processName: string;
 
   /**
+   * @type { Array<string> }
    * @default an array of the bundleNames running in the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
    * @deprecated since 9
-   * @useinstead ProcessInformation#bundleNames
+   * @useinstead ProcessInformation/ProcessInformation#bundleNames
    */
   bundleNames: Array<string>;
 }

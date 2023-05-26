@@ -27,6 +27,7 @@ export interface WantAgentInfo {
   /**
    * An array of all Wants for starting abilities or sending common events. Only Wants can be displayed.
    *
+   * @type { Array<Want> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -35,6 +36,7 @@ export interface WantAgentInfo {
   /**
    * Type of the action specified in a Want.
    *
+   * @type { wantAgent.OperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -43,6 +45,7 @@ export interface WantAgentInfo {
   /**
    * Request code defined by the user.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -51,6 +54,7 @@ export interface WantAgentInfo {
   /**
    * An array of flags for using the WantAgent.
    *
+   * @type { ?Array<wantAgent.WantAgentFlags> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -60,6 +64,7 @@ export interface WantAgentInfo {
    * Extra information about how the Want starts an ability.
    * If there is no extra information to set, this constant can be left empty.
    *
+   * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */

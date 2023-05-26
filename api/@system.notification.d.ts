@@ -22,6 +22,7 @@ export interface ActionResult {
   /**
    * Bundle name of the application to be redirected to after the notification is clicked.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */
@@ -30,6 +31,7 @@ export interface ActionResult {
   /**
    * Ability name of the application to be redirected to after the notification is clicked.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */
@@ -42,6 +44,7 @@ export interface ActionResult {
    * pages/detail/detail
    * 2. Particular path. If the value is a slash (/), the home page is displayed.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */
@@ -57,6 +60,7 @@ export interface ShowNotificationOptions {
   /**
    * Notification title.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */
@@ -65,6 +69,7 @@ export interface ShowNotificationOptions {
   /**
    * Notification content.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */
@@ -73,6 +78,7 @@ export interface ShowNotificationOptions {
   /**
    * Action triggered after the notification is clicked.
    *
+   * @type { ?ActionResult }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */
@@ -87,7 +93,7 @@ export default class Notification {
   /**
    * Displays the notification.
    *
-   * @param { ShowNotificationOptions } options Options.
+   * @param { ShowNotificationOptions } [options] Options.
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */

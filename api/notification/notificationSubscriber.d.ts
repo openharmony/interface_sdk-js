@@ -27,11 +27,58 @@ import notification from '../@ohos.notification';
  * @since 7
  */
 export interface NotificationSubscriber {
+  /**
+   * The callback function that receives a new notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   onConsume?: (data: SubscribeCallbackData) => void;
+
+  /**
+   * The callback function that cancels the notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   onCancel?: (data: SubscribeCallbackData) => void;
+
+  /**
+   * The callback function that updates the sort of notifications.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   onUpdate?: (data: NotificationSortingMap) => void;
+
+  /**
+   * The callback function of the completed subscription.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   onConnect?: () => void;
+
+  /**
+   * The callback function to unsubscribe.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   onDisconnect?: () => void;
+
+  /**
+   * The callback function that ervice disconnected.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   onDestroy?: () => void;
 
   /**
@@ -72,10 +119,59 @@ export interface NotificationSubscriber {
  * @since 7
  */
 export interface SubscribeCallbackData {
+  /**
+   * Content of the notice.
+   *
+   * @type { NotificationRequest }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly request: NotificationRequest;
+
+  /**
+   * Notify sorting information.
+   *
+   * @type { ?NotificationSortingMap }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sortingMap?: NotificationSortingMap;
+
+  /**
+   * Delete the reason.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly reason?: number;
+
+  /**
+   * Notification sound.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sound?: string;
+
+  /**
+   * Notice the vibration.
+   *
+   * @type { ?Array<number> }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly vibrationValues?: Array<number>;
 }
 
@@ -88,8 +184,37 @@ export interface SubscribeCallbackData {
  * @since 8
  */
 export interface EnabledNotificationCallbackData {
+  /**
+   * The bundle name of the application.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   readonly bundle: string;
+
+  /**
+   * The uid of the application.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   readonly uid: number;
+
+  /**
+   * Apply notification enable status.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   readonly enable: boolean;
 }
 
@@ -102,7 +227,36 @@ export interface EnabledNotificationCallbackData {
  * @since 10
  */
 export interface BadgeNumberCallbackData {
+  /**
+   * bundle name
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
   readonly bundle: string;
+
+  /**
+   * The uid of the application.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
   readonly uid: number;
+
+  /**
+   * badge number
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
   readonly badgeNumber: number;
 }

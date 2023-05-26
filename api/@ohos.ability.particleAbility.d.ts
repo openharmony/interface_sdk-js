@@ -94,7 +94,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager#startBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#startBackgroundRunning
    */
   function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -110,7 +110,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager#startBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#startBackgroundRunning
    */
   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
 
@@ -122,7 +122,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager#stopBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#stopBackgroundRunning
    */
   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
 
@@ -134,7 +134,7 @@ declare namespace particleAbility {
    * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.backgroundTaskManager#stopBackgroundRunning
+   * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#stopBackgroundRunning
    */
   function cancelBackgroundRunning(): Promise<void>;
 
@@ -182,13 +182,13 @@ declare namespace particleAbility {
    * @since 7
    */
   export enum ErrorCode {
-  /**
-   * Invalid parameter.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   * @since 7
-   */
+    /**
+     * Invalid parameter.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
+     * @since 7
+     */
     INVALID_PARAMETER = -1
   }
 }

@@ -31,12 +31,14 @@
  */
 export interface ProcessInformation {
   /**
+   * @type { number }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 9
    */
   /**
+   * @type { number }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -45,6 +47,7 @@ export interface ProcessInformation {
   pid: number;
 
   /**
+   * @type { number }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -52,26 +55,30 @@ export interface ProcessInformation {
   uid: number;
 
   /**
+   * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 9
    */
   /**
+   * @type { string }
    * @default the name of the process
-   * @since 10
-   * @crossplatform
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   processName: string;
 
   /**
+   * @type { Array<string> }
    * @default an array of the bundleNames running in the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 9
    */
   /**
+   * @type { Array<string> }
    * @default an array of the bundleNames running in the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform

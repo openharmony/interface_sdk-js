@@ -25,7 +25,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.Form
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formProvider
+ * @useinstead ohos.app.form.formProvider/formProvider
  */
 declare namespace formProvider {
   /**
@@ -37,7 +37,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider#setFormNextRefreshTime
+   * @useinstead ohos.app.form.formProvider/formProvider#setFormNextRefreshTime
    */
   function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
 
@@ -50,7 +50,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider#setFormNextRefreshTime
+   * @useinstead ohos.app.form.formProvider/formProvider#setFormNextRefreshTime
    */
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
@@ -64,7 +64,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider#updateForm
+   * @useinstead ohos.app.form.formProvider/formProvider#updateForm
    */
   function updateForm(
     formId: string,
@@ -82,7 +82,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider#updateForm
+   * @useinstead ohos.app.form.formProvider/formProvider#updateForm
    */
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 }

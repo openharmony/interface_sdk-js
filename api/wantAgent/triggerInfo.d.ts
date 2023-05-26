@@ -26,6 +26,7 @@ export interface TriggerInfo {
   /**
    * Result code.
    *
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -39,6 +40,7 @@ export interface TriggerInfo {
    * will be used to replace the corresponding attributes in the original Want, respectively.
    * If this parameter is null, the original Want remains unchanged.
    *
+   * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -49,6 +51,7 @@ export interface TriggerInfo {
    * This parameter is valid only when the WantAgent is triggered to send common events.
    * If permission is null, no permission is required on the recipient.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -57,6 +60,7 @@ export interface TriggerInfo {
   /**
    * Custom extra data you want to add for triggering a WantAgent.
    *
+   * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */

@@ -27,7 +27,7 @@ import { ElementName } from './bundle/elementName';
  * @systemapi
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.ability.abilityManager
+ * @useinstead ohos.app.ability.abilityManager/abilityManager
  */
 declare namespace abilityManager {
   /**
@@ -38,7 +38,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityManager#AbilityState
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#AbilityState
    */
   export enum AbilityState {
     /**
@@ -48,7 +48,7 @@ declare namespace abilityManager {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityManager#INITIAL
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#INITIAL
      */
     INITIAL = 0,
 
@@ -59,7 +59,7 @@ declare namespace abilityManager {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityManager#FOREGROUND
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#FOREGROUND
      */
     FOREGROUND = 9,
 
@@ -70,7 +70,7 @@ declare namespace abilityManager {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityManager#BACKGROUND
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#BACKGROUND
      */
     BACKGROUND = 10,
 
@@ -81,7 +81,7 @@ declare namespace abilityManager {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityManager#FOREGROUNDING
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#FOREGROUNDING
      */
     FOREGROUNDING = 11,
 
@@ -92,7 +92,7 @@ declare namespace abilityManager {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityManager#BACKGROUNDING
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#BACKGROUNDING
      */
     BACKGROUNDING = 12
   }
@@ -107,7 +107,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityManager#updateConfiguration
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#updateConfiguration
    */
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
@@ -121,7 +121,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityManager#updateConfiguration
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#updateConfiguration
    */
   function updateConfiguration(config: Configuration): Promise<void>;
 
@@ -134,7 +134,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityManager#getAbilityRunningInfos
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#getAbilityRunningInfos
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
@@ -147,7 +147,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityManager#getAbilityRunningInfos
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#getAbilityRunningInfos
    */
   function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 }

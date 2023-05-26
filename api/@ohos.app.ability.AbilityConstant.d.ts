@@ -23,6 +23,7 @@
  */
 /**
  * The definition of AbilityConstant.
+ *
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
@@ -40,6 +41,7 @@ declare namespace AbilityConstant {
    */
   /**
    * Interface of launch param.
+   *
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -50,12 +52,15 @@ declare namespace AbilityConstant {
     /**
      * Indicates launch reason.
      *
+     * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
     /**
      * Indicates launch reason.
+     *
+     * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @crossplatform
@@ -66,12 +71,15 @@ declare namespace AbilityConstant {
     /**
      * Indicates last exit reason.
      *
+     * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
     /**
      * Indicates last exit reason.
+     *
+     * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @crossplatform
@@ -90,6 +98,7 @@ declare namespace AbilityConstant {
    */
   /**
    * Type of launch reason.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -131,7 +140,7 @@ declare namespace AbilityConstant {
     CALL = 2,
 
     /**
-     * Cross-end device migration starts ability.
+     * Start ability through cross-end device migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
@@ -152,6 +161,7 @@ declare namespace AbilityConstant {
      * Start ability through the acquireShareData interface.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      * @since 10
      */
     SHARE = 5
@@ -167,6 +177,7 @@ declare namespace AbilityConstant {
    */
   /**
    * Type of last exit reason.
+   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -313,8 +324,8 @@ declare namespace AbilityConstant {
     WINDOW_MODE_FULLSCREEN = 1,
 
     /**
-     * The horizontal direction of the screen indicates the left split screen, and the vertical direction of the
-     * screen indicates the upper split screen.
+     * If the screen is horizontal, it means the right split screen, and if the screen is vertical,
+     * it means the lower split screen.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -335,7 +346,7 @@ declare namespace AbilityConstant {
     WINDOW_MODE_SPLIT_SECONDARY = 101,
 
     /**
-     * Free floating form window mode.
+     * Free floating window mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -364,7 +375,7 @@ declare namespace AbilityConstant {
     ALL_AGREE = 0,
 
     /**
-     * Refuse to migrate save state.
+     * Refuse to migrate the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
@@ -373,7 +384,7 @@ declare namespace AbilityConstant {
     CONTINUATION_REJECT = 1,
 
     /**
-     * The migration does not match.
+     * Migration mismatch.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
@@ -391,7 +402,7 @@ declare namespace AbilityConstant {
     RECOVERY_AGREE = 3,
 
     /**
-     * Refusing to restore the saved state.
+     * Refuse to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
@@ -428,7 +439,7 @@ declare namespace AbilityConstant {
     CONTINUATION = 0,
 
     /**
-     * Apply to restore the saved state.
+     * App recovery to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly

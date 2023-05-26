@@ -26,6 +26,7 @@ export interface ContinuationExtraParams {
   /**
    * Indicates the type of devices to be matched.
    *
+   * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
@@ -34,6 +35,7 @@ export interface ContinuationExtraParams {
   /**
    * Indicates the bundle name of the target application where the ability will be hopped.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
@@ -42,6 +44,7 @@ export interface ContinuationExtraParams {
   /**
    * Indicates the description used for device filtering.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
@@ -50,6 +53,7 @@ export interface ContinuationExtraParams {
   /**
    * Parameters used for filtering devices, type must be { [key: string]: any }.
    *
+   * @type { ?any }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
@@ -58,6 +62,7 @@ export interface ContinuationExtraParams {
   /**
    * Mode of continuation.
    *
+   * @type { ?continuationManager.ContinuationMode }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
@@ -66,6 +71,7 @@ export interface ContinuationExtraParams {
   /**
    * Authentication extra infos.
    *
+   * @type { ?object }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */

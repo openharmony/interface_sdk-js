@@ -140,7 +140,7 @@ declare namespace wantAgent {
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
-   * @param { AsyncCallback<CompleteData> } callback - The callback is used to return the CompleteData.
+   * @param { AsyncCallback<CompleteData> } [callback] - The callback is used to return the CompleteData.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -414,7 +414,7 @@ declare namespace wantAgent {
     /**
      * Extra data collected by the common event.
      *
-     * @type { ?[key: string]: Object }
+     * @type { ?object }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */

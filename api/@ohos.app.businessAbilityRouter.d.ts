@@ -99,8 +99,8 @@ declare namespace businessAbilityRouter {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BusinessAbilityFilter } filter - Indicates the filter containing the business ability info to be queried.
-   * @param { AsyncCallback<Array<BusinessAbilityInfo>> } callback - The callback of querying business ability
-   *                                                                 info result.
+   * @param { AsyncCallback<Array<BusinessAbilityInfo>> } callback - The callback of querying business ability info
+   *                                                                 result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.

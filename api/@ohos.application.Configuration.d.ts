@@ -22,26 +22,28 @@ import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.ability.Configuration
+ * @useinstead ohos.app.ability.Configuration/Configuration
  */
 export interface Configuration {
   /**
    * Indicates the current language of the application.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Configuration#language
+   * @useinstead ohos.app.ability.Configuration/Configuration#language
    */
   language?: string;
 
   /**
    * Indicates the current colorMode of the application.
    *
+   * @type { ?ConfigurationConstant.ColorMode }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.ability.Configuration#colorMode
+   * @useinstead ohos.app.ability.Configuration/Configuration#colorMode
    */
   colorMode?: ConfigurationConstant.ColorMode;
 }

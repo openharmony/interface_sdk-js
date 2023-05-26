@@ -113,7 +113,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager#on
+   * @useinstead ohos.continuation.continuationManager/continuationManager#on
    */
   function on(type: 'deviceConnect', callback: Callback<ContinuationResult>): void;
 
@@ -122,13 +122,13 @@ declare namespace continuationManager {
    * You can implement your own processing logic in this callback to initiate the hop process.
    *
    * @param { 'deviceConnect' } type deviceConnect.
-   * @param { Callback<ContinuationResult> } callback Called when the user selects a device from the device selection
-   *                                                  module, returning the device ID,device type, and device name for
-   *                                                  developers to use.
+   * @param { Callback<ContinuationResult> } [callback] Called when the user selects a device from the device selection
+   *                                                    module, returning the device ID,device type, and device name for
+   *                                                    developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager#off
+   * @useinstead ohos.continuation.continuationManager/continuationManager#off
    */
   function off(type: 'deviceConnect', callback?: Callback<ContinuationResult>): void;
 
@@ -142,7 +142,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager#on
+   * @useinstead ohos.continuation.continuationManager/continuationManager#on
    */
   function on(type: 'deviceDisconnect', callback: Callback<string>): void;
 
@@ -151,12 +151,12 @@ declare namespace continuationManager {
    * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
    *
    * @param { 'deviceDisconnect' } type deviceDisconnect.
-   * @param { Callback<string> } callback Called when the user selects a device from the device selection module,
-   *                                      returning the device ID,device type, and device name for developers to use.
+   * @param { Callback<string> } [callback] Called when the user selects a device from the device selection module,
+   *                                        returning the device ID,device type, and device name for developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager#off
+   * @useinstead ohos.continuation.continuationManager/continuationManager#off
    */
   function off(type: 'deviceDisconnect', callback?: Callback<string>): void;
 
@@ -169,7 +169,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#registerContinuation
+   * @useinstead ohos.continuation.continuationManager/continuationManager#registerContinuation
    */
   function register(callback: AsyncCallback<number>): void;
 
@@ -184,7 +184,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#registerContinuation
+   * @useinstead ohos.continuation.continuationManager/continuationManager#registerContinuation
    */
   function register(options: ContinuationExtraParams, callback: AsyncCallback<number>): void;
 
@@ -192,14 +192,14 @@ declare namespace continuationManager {
    * Registers an ability to be hopped with the continuation manager service and obtains the registration token
    * assigned to the ability.
    *
-   * @param { ContinuationExtraParams } options Indicates the {@link ExtraParams} object containing the extra
-   *                                            parameters used to filter the list of available devices.
+   * @param { ContinuationExtraParams } [options] Indicates the {@link ExtraParams} object containing the extra
+   *                                              parameters used to filter the list of available devices.
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager service
    *                              is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#registerContinuation
+   * @useinstead ohos.continuation.continuationManager/continuationManager#registerContinuation
    */
   function register(options?: ContinuationExtraParams): Promise<number>;
 
@@ -212,7 +212,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#unregisterContinuation
+   * @useinstead ohos.continuation.continuationManager/continuationManager#unregisterContinuation
    */
   function unregister(token: number, callback: AsyncCallback<void>): void;
 
@@ -226,7 +226,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#unregisterContinuation
+   * @useinstead ohos.continuation.continuationManager/continuationManager#unregisterContinuation
    */
   function unregister(token: number): Promise<void>;
 
@@ -240,7 +240,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#updateContinuationState
+   * @useinstead ohos.continuation.continuationManager/continuationManager#updateContinuationState
    */
   function updateConnectStatus(
     token: number,
@@ -260,7 +260,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#updateContinuationState
+   * @useinstead ohos.continuation.continuationManager/continuationManager#updateContinuationState
    */
   function updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState): Promise<void>;
 
@@ -272,7 +272,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#startContinuationDeviceManager
+   * @useinstead ohos.continuation.continuationManager/continuationManager#startContinuationDeviceManager
    */
   function startDeviceManager(token: number, callback: AsyncCallback<void>): void;
 
@@ -286,7 +286,7 @@ declare namespace continuationManager {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#startContinuationDeviceManager
+   * @useinstead ohos.continuation.continuationManager/continuationManager#startContinuationDeviceManager
    */
   function startDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback<void>): void;
 
@@ -294,14 +294,14 @@ declare namespace continuationManager {
    * Start to manage the devices that can be selected for continuation.
    *
    * @param { number } token Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } options Indicates the extraParams object containing the extra parameters
-   *                                            used to filter the list of available devices. This parameter is null.
+   * @param { ContinuationExtraParams } [options] Indicates the extraParams object containing the extra parameters
+   *                                              used to filter the list of available devices. This parameter is null.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
    *                            is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.continuation.continuationManager.continuationManager#startContinuationDeviceManager
+   * @useinstead ohos.continuation.continuationManager/continuationManager#startContinuationDeviceManager
    */
   function startDeviceManager(token: number, options?: ContinuationExtraParams): Promise<void>;
 
@@ -344,7 +344,7 @@ declare namespace continuationManager {
    * assigned to the ability.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { ContinuationExtraParams } options Indicates the {@link ExtraParams} object containing the extra parameters
+   * @param { ContinuationExtraParams } [options] Indicates the {@link ExtraParams} object containing the extra parameters
    *                                            used to filter the list of available devices.
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager
    *                              service is connected.
@@ -471,7 +471,7 @@ declare namespace continuationManager {
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { number } token Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } options Indicates extraParams object containing extra parameters used to filter
+   * @param { ContinuationExtraParams } [options] Indicates extraParams object containing extra parameters used to filter
    *                                            the list of available devices. This parameter can be null.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when continuation manager service is connected.
    * @throws { BusinessError } 201 - Permission denied.
@@ -498,7 +498,7 @@ declare namespace continuationManager {
      * @since 8
      */
     IDLE = 0,
-    
+
     /**
      * Device connection status.
      *
@@ -506,7 +506,7 @@ declare namespace continuationManager {
      * @since 8
      */
     CONNECTING = 1,
-    
+
     /**
      * The device is connected.
      *
@@ -514,7 +514,7 @@ declare namespace continuationManager {
      * @since 8
      */
     CONNECTED = 2,
-    
+
     /**
      * The device is disconnected.
      *

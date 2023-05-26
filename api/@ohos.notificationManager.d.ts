@@ -223,7 +223,7 @@ declare namespace notificationManager {
    * Cancel a notification with the specified label and ID.
    *
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } label - Label of the notification to cancel.
+   * @param { string } [label] - Label of the notification to cancel.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1669,7 +1669,8 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } callback - callback - The callback of check notifications.
+   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } [callback] - callback - The callback
+   *                                                                                     of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1677,7 +1678,10 @@ declare namespace notificationManager {
    * @systemapi
    * @since 10
    */
-  function off(type: 'checkNotification', callback?: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
+  function off(
+    type: 'checkNotification',
+    callback?: (checkInfo: NotificationCheckInfo) => NotificationCheckResult
+  ): void;
 
   /**
    * Describes the parameters of check notifications.
@@ -1693,6 +1697,7 @@ declare namespace notificationManager {
      * The application bundle name for publishing notification.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10
@@ -1703,6 +1708,7 @@ declare namespace notificationManager {
      * The notification id.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10
@@ -1713,6 +1719,7 @@ declare namespace notificationManager {
      * The notification content type.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { ContentType }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10
@@ -1734,6 +1741,7 @@ declare namespace notificationManager {
      * The result code. 0-display, 1-no display
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10
@@ -1744,6 +1752,7 @@ declare namespace notificationManager {
      * The result message.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 10
@@ -1960,6 +1969,7 @@ declare namespace notificationManager {
     /**
      * the type of the Do Not Disturb.
      *
+     * @type { DoNotDisturbType }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9
@@ -1969,6 +1979,7 @@ declare namespace notificationManager {
     /**
      * The start time of the Do Not Disturb.
      *
+     * @type { Date }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9
@@ -1978,6 +1989,7 @@ declare namespace notificationManager {
     /**
      * The end time of the Do Not Disturb.
      *
+     * @type { Date }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 9

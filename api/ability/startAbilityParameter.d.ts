@@ -36,7 +36,7 @@ export interface StartAbilityParameter {
   /**
    * Indicates the special start setting used in starting ability.
    *
-   * @type { ?[key: string]: any }
+   * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 6

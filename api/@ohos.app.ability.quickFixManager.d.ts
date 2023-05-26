@@ -37,6 +37,7 @@ declare namespace quickFixManager {
      * Indicates hap module name.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -47,6 +48,7 @@ declare namespace quickFixManager {
      * Indicates hash value of a hap.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -57,6 +59,7 @@ declare namespace quickFixManager {
      * Indicates installed path of quick fix file.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -77,6 +80,7 @@ declare namespace quickFixManager {
      * Bundle name.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -87,6 +91,7 @@ declare namespace quickFixManager {
      * The version number of the bundle.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -97,6 +102,7 @@ declare namespace quickFixManager {
      * The version name of the bundle.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -107,6 +113,7 @@ declare namespace quickFixManager {
      * The version number of the quick fix.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -117,6 +124,7 @@ declare namespace quickFixManager {
      * The version name of the quick fix.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -127,6 +135,7 @@ declare namespace quickFixManager {
      * Hap module quick fix info.
      *
      * @type { Array<HapModuleQuickFixInfo> }
+     * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -172,6 +181,7 @@ declare namespace quickFixManager {
 
   /**
    * Revoke quick fix by bundle name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - Bundle name wish to revoke quick fix.
    * @param { AsyncCallback<void> } callback
@@ -188,6 +198,7 @@ declare namespace quickFixManager {
 
   /**
    * Revoke quick fix by bundle name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - Bundle name wish to revoke quick fix.
    * @returns { Promise<void> }

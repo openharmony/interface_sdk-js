@@ -24,6 +24,7 @@ export interface NotificationUserInput {
   /**
    * Obtains the key used to identify this input when the input is collected from the user.
    *
+   * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
