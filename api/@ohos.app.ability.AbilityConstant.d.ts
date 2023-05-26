@@ -172,6 +172,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
+     * @deprecated since 10
      */
     ABILITY_NOT_RESPONDING = 1,
 
