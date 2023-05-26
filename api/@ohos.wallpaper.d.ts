@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import {AsyncCallback} from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -608,6 +608,7 @@ declare namespace wallpaper {
    * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void } callback - wallpaperType indicates the wallpaper type.
    * resourceType indicates the resource type of the wallpaper.
    * uri indicates the wallpaper resource address.
+   * @throws { BusinessError } 401 - parameter error.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.

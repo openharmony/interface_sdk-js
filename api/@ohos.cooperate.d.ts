@@ -26,7 +26,7 @@ import { Callback } from './@ohos.base';
 declare namespace cooperate {
   /**
    * Enumerates screen hopping message notifications.
-   * 
+   *
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -38,7 +38,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_PREPARE,
+    COOPERATE_PREPARE = 0,
 
     /**
      * Canceling the preparation for screen hopping.
@@ -46,7 +46,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_UNPREPARE,
+    COOPERATE_UNPREPARE = 1,
 
     /**
      * Starting screen hopping.
@@ -54,7 +54,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_ACTIVATE,
+    COOPERATE_ACTIVATE = 2,
 
     /**
      * Success in starting screen hopping.
@@ -62,7 +62,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_ACTIVATE_SUCCESS,
+    COOPERATE_ACTIVATE_SUCCESS = 3,
 
     /**
      * Failure to start screen hopping.
@@ -70,7 +70,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_ACTIVATE_FAIL,
+    COOPERATE_ACTIVATE_FAIL = 4,
 
     /**
      * Success in stopping screen hopping.
@@ -78,7 +78,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_DEACTIVATE_SUCCESS,
+    COOPERATE_DEACTIVATE_SUCCESS = 5,
 
     /**
      * Failure to stop screen hopping.
@@ -86,7 +86,15 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_DEACTIVATE_FAIL,
+    COOPERATE_DEACTIVATE_FAIL = 6,
+
+    /**
+     * Inter-device session disconnected.
+     *
+     * @since 10
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     */
+    COOPERATE_SESSION_DISCONNECTED = 7,
   }
 
   /**
@@ -205,7 +213,7 @@ declare namespace cooperate {
 
   /**
    * Enables listening for screen hopping status change events.
-   * 
+   *
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
@@ -217,7 +225,7 @@ declare namespace cooperate {
 
   /**
    * Disables listening for screen hopping status change events.
-   * 
+   *
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.

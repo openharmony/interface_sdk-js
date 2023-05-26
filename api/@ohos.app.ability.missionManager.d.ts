@@ -312,6 +312,83 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
 
   /**
+   * Schedule the given missions to foreground.
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
+   * @param { AsyncCallback<void> } callback - The callback of moveMissionsToForeground.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  function moveMissionsToForeground(missionIds: Array<number>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Schedule the given missions to foreground.
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
+   * @param { number } topMission - Indicates mission id to be moved to top.
+   * @param { AsyncCallback<void> } callback - The callback of moveMissionsToForeground.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  function moveMissionsToForeground(missionIds: Array<number>, topMission: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Schedule the given missions to foreground.
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
+   * @param { number } topMission - Indicates mission id to be moved to top.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  function moveMissionsToForeground(missionIds: Array<number>, topMission?: number): Promise<void>;
+
+  /**
+   * Schedule the given missions to background.
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { Array<number> } missionIds - Indicates mission ids will be moved to background
+   * @param { AsyncCallback<Array<number>> } callback - The callback of moveMissionsToForeground.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  function moveMissionsToBackground(missionIds: Array<number>, callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Schedule the given missions to background.
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { Array<number> } missionIds - Indicates mission ids will be moved to background
+   * @returns { Promise<Array<number>> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  function moveMissionsToBackground(missionIds : Array<number>): Promise<Array<number>>;
+
+  /**
    * Mission information corresponding to ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi

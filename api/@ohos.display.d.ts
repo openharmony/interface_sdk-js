@@ -20,6 +20,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace display
  * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
  * @since 7
  */
 declare namespace display {
@@ -49,8 +50,9 @@ declare namespace display {
    * Obtain the default display.
    *
    * @returns { Display } the result of display
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 9
    */
   function getDefaultDisplaySync(): Display;
@@ -81,7 +83,7 @@ declare namespace display {
    * Obtain all displays.
    *
    * @param { AsyncCallback<Array<Display>> } callback the result of all displays
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
@@ -91,7 +93,7 @@ declare namespace display {
    * Obtain all displays.
    *
    * @returns { Promise<Array<Display>> } the result of all displays
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
@@ -102,8 +104,8 @@ declare namespace display {
    *
    * @param { number } displayId Display id to query
    * @returns { boolean } true means there is a privacy window on the current display
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400003 - If system works abnormally
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -115,7 +117,7 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -126,7 +128,7 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -137,7 +139,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -149,7 +151,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -220,6 +222,7 @@ declare namespace display {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 10
    */
   enum Orientation {
@@ -227,6 +230,7 @@ declare namespace display {
      * Indicate that the display content is in portrait mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     PORTRAIT = 0,
@@ -235,6 +239,7 @@ declare namespace display {
      * Indicate that the display content is in landscape mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     LANDSCAPE = 1,
@@ -243,6 +248,7 @@ declare namespace display {
      * Indicate that the display content is in the opposite direction of the portrait mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     PORTRAIT_INVERTED = 2,
@@ -251,6 +257,7 @@ declare namespace display {
      * Indicate that the display content is in the opposite direction of the landscape mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     LANDSCAPE_INVERTED = 3
@@ -261,6 +268,7 @@ declare namespace display {
    *
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 9
    */
   interface Rect {
@@ -268,6 +276,7 @@ declare namespace display {
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     left: number;
@@ -276,6 +285,7 @@ declare namespace display {
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     top: number;
@@ -284,6 +294,7 @@ declare namespace display {
      * Width of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     width: number;
@@ -292,6 +303,7 @@ declare namespace display {
      * Height of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     height: number;
@@ -368,6 +380,7 @@ declare namespace display {
    *
    * @interface Display
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @since 7
    */
   interface Display {
@@ -375,6 +388,7 @@ declare namespace display {
      * Display ID.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 7
      */
     id: number;
@@ -423,6 +437,7 @@ declare namespace display {
      * Display width, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 7
      */
     width: number;
@@ -431,6 +446,7 @@ declare namespace display {
      * Display height, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 7
      */
     height: number;
@@ -447,6 +463,7 @@ declare namespace display {
      * Display orientation.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     orientation: Orientation;
@@ -487,7 +504,7 @@ declare namespace display {
      * Obtain the cutout info of the display.
      *
      * @param { AsyncCallback<CutoutInfo> } callback
-     * @throws { BusinessError } 1400001 - If display or screen is invalid
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -497,7 +514,7 @@ declare namespace display {
      * Obtain the cutout info of the display.
      *
      * @returns { Promise<CutoutInfo> }
-     * @throws { BusinessError } 1400001 - If display or screen is invalid
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */

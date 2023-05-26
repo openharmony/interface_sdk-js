@@ -108,18 +108,50 @@ function overwriteIndexOf(item, array) {
 exports.overwriteIndexOf = overwriteIndexOf;
 
 const ErrorType = {
-  UNKNOW_DECORATOR: 'unknow decorator',
-  MISSPELL_WORDS: 'misspell words',
-  NAMING_ERRORS: 'naming errors',
-  UNKNOW_PERMISSION: 'unknow permission',
-  UNKNOW_SYSCAP: 'unknow syscap',
-  UNKNOW_DEPRECATED: 'unknow deprecated',
-  INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order',
-  WRONG_VALUE: 'wrong value',
-  WRONG_SCENE: 'wrong scene',
-  PARAMETER_ERRORS: 'wrong parameter',
-  API_PAIR_ERRORS: 'limited api pair errors',
+  UNKNOW_DECORATOR: {
+    id:0,
+    description:'unknow decorator'
+  },
+  MISSPELL_WORDS: {
+    id:1,
+    description:'misspell words'
+  },
+  NAMING_ERRORS: {
+    id:2,
+    description:'naming errors'
+  },
+  UNKNOW_PERMISSION: {
+    id:3,
+    description:'unknow permission'
+  },
+  UNKNOW_SYSCAP: {
+    id:4,
+    description:'unknow syscap'
+  },
+  UNKNOW_DEPRECATED: {
+    id:5,
+    description:'unknow deprecated'
+  },
+  WRONG_ORDER: {
+    id:6,
+    description:'wrong order'
+  },
+  WRONG_VALUE: {
+    id:7,
+    description:'wrong value'
+  },
+  WRONG_SCENE: {
+    id:8,
+    description:'wrong scene'
+  },
+  PARAMETER_ERRORS: {
+    id:9,
+    description:'wrong parameter'
+  },
+  API_PAIR_ERRORS: {
+    id:10,
+    description:'limited api pair errors'
+  }
 };
 exports.ErrorType = ErrorType;
 
@@ -145,6 +177,9 @@ exports.FileType = FileType;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
+
+let apiCheckInfoArr = [];
+exports.apiCheckInfoArr = apiCheckInfoArr;
 
 class ApiCheckResultClass {
   format_check_result = true;
@@ -256,7 +291,7 @@ const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'Sta
 exports.inheritArr = inheritArr;
 
 const ErrorValueInfo = {
-  ERROR_INFO_VALUE_EXTENDS: 'In the JSDoc section [$$], the [extens] tag value is incorrect. Please check if the tag value matches the inherited class name.',
+  ERROR_INFO_VALUE_EXTENDS: 'In the JSDoc section [$$], the [extends] tag value is incorrect. Please check if the tag value matches the inherited class name.',
   ERROR_INFO_VALUE_ENUM: 'In the JSDoc section [$$], the [enum] tag type is incorrect. Please check if the tag type is { string } or { number }',
   ERROR_INFO_VALUE_SINCE: 'In the JSDoc section [$$], the [since] tag value is incorrect. Please check if the tag value is a numerical value',
   ERROR_INFO_RETURNS: 'In the JSDoc section [$$], the [returns] tag was used incorrectly. The returns tag should not be used when the return type is void',
@@ -271,13 +306,13 @@ const ErrorValueInfo = {
   ERROR_INFO_VALUE_INTERFACE: 'In the JSDoc section [$$], the [interface] label value is incorrect. Please check if it matches the interface name',
   ERROR_INFO_VALUE_TYPEDEF: 'In the JSDoc section [$$], the [typedef] tag value is incorrect. Please check if it matches the interface name',
   ERROR_INFO_TYPE_PARAM: 'In the JSDoc section [$$], the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter',
-  ERROR_INFO_VALUE_PARAM: 'In the JSDoc section [$$], the value of the [$$}] [param] tag is incorrect. Please check if it matches the [$$] parameter name',
-  ERROR_INFO_VALUE1_THROWS: 'In the JSDoc section [$$], the type of the [$$}] [throws] tag is incorrect. Please fill in [BusinessError]',
-  ERROR_INFO_VALUE2_THROWS: 'In the JSDoc section [$$], the type of the [$$}] [throws] tag is incorrect. Please check if the tag value is a numerical value',
+  ERROR_INFO_VALUE_PARAM: 'In the JSDoc section [$$], the value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name',
+  ERROR_INFO_VALUE1_THROWS: 'In the JSDoc section [$$], the type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError]',
+  ERROR_INFO_VALUE2_THROWS: 'In the JSDoc section [$$], the type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value',
   ERROR_INFO_INHERIT: 'In the JSDoc section [$$], it was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label',
   ERROR_ORDER: 'JSDoc label order error, please make adjustments',
   ERROR_LABELNAME: 'In the JSDoc section [$$], the [$$] tag does not exist. Please use a valid JSDoc tag',
-  ERROR_LOST_LABEL: 'JSDoc tag validity verification failed. Please confirm if the $$tag is missing',
+  ERROR_LOST_LABEL: 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing',
   ERROR_USE: 'JSDoc label validity verification failed. The [$$] label is not allowed. Please check the label usage method.',
   ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] tag is redundant. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL: 'In the JSDoc section [$$], the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
@@ -317,7 +352,7 @@ function isWhiteListFile(fileName, whiteList) {
 }
 exports.isWhiteListFile = isWhiteListFile;
 
-function getcheckApiVersion() {
+function getCheckApiVersion() {
   const packageJsonPath = path.join(__dirname, "../package.json");
   let packageJson;
   let checkApiVersion;
@@ -333,4 +368,22 @@ function getcheckApiVersion() {
   }
   return checkApiVersion;
 }
-exports.getcheckApiVersion = getcheckApiVersion;
+exports.getCheckApiVersion = getCheckApiVersion;
+
+const OPTIONAL_SYMBOL = '?';
+exports.OPTIONAL_SYMBOL = OPTIONAL_SYMBOL;
+
+function removeDuplicateObj(array) {
+  let newArr = [];
+  let errorInfoSet = new Set();
+  
+  for (const errorInfo of array) {
+    if (!errorInfoSet.has(JSON.stringify(errorInfo))) {
+      errorInfoSet.add(JSON.stringify(errorInfo));
+      newArr.push(errorInfo);
+    }
+  }
+  return newArr;
+};
+exports.removeDuplicateObj = removeDuplicateObj;
+

@@ -101,6 +101,7 @@ chrominance
 circled
 clamped
 clamps
+cloudfile
 coincides
 collaborated
 collapses
@@ -817,5 +818,6 @@ zoomreset
 zooms
 zpass
 commonevent
+clouddata
 unprepare
 unchained
