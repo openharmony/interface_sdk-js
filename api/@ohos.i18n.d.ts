@@ -1625,7 +1625,7 @@ declare namespace i18n {
     normalize(text: string): string;
   }
 
-   /**
+  /**
    * Enumerates the locale suggestion type modes.
    *
    * @enum { number }
@@ -1656,7 +1656,7 @@ declare namespace i18n {
     SUGGESTION_TYPE_SIM = 2,
   }
 
-   /**
+  /**
    * Provides the options which is used to sort the locales.
    *
    * @interface SortedOptions
@@ -1737,49 +1737,49 @@ declare namespace i18n {
   }
 }
 
+/**
+ * Provide some functions for settings and oobe to select language or region.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @systemapi Hide this for inner system use.
+ * @since 10
+ */
+export class SystemLocaleManager {
   /**
-   * Provide some functions for settings and oobe to select language or region.
+   * A constructor used to create a SystemLocaleManager object.
    *
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export class SystemLocaleManager {
-    /**
-     * A constructor used to create a SystemLocaleManager object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    constructor();
+  constructor();
 
-    /**
-     * Obtains sorted language array to setting or oobe app.
-     *
-     * @param { Array<string> } langauges - The languages whose name will be sort and displayed.
-     * @param { SortedOptions } options - Specifies how to sort.
-     * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 890001 - param value not valid
-     * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    getLanguageInfoArray(langauges: Array<string>, options?: SortOptions): Array<LocaleItem>;
+  /**
+   * Obtains sorted language array to setting or oobe app.
+   *
+   * @param { Array<string> } langauges - The languages whose name will be sort and displayed.
+   * @param { SortedOptions } options - Specifies how to sort.
+   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
+   * @throws { BusinessError } 401 - check param failed
+   * @throws { BusinessError } 890001 - param value not valid
+   * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  getLanguageInfoArray(langauges: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
-    /**
-     * Obtains sorted region array to setting or oobe app.
-     *
-     * @param { Array<string>  } regions - The regions whose name will be sort and displayed.
-     * @param { SortedOptions } options - Specifies how to sort.
-     * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 890001 - param value not valid
-     * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
-  }
+  /**
+   * Obtains sorted region array to setting or oobe app.
+   *
+   * @param { Array<string>  } regions - The regions whose name will be sort and displayed.
+   * @param { SortedOptions } options - Specifies how to sort.
+   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
+   * @throws { BusinessError } 401 - check param failed
+   * @throws { BusinessError } 890001 - param value not valid
+   * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
+}
 export default i18n;
