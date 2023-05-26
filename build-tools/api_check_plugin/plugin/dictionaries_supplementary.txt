@@ -448,6 +448,7 @@ numpad
 nvalidates
 nweb
 oaep
+obscured
 ofb
 offhook
 offscreen

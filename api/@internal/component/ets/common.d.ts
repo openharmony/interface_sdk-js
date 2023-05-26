@@ -5655,6 +5655,15 @@ declare class CommonMethod<T> {
    * @since 10
    */
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
+
+  /**
+   * Sets obscured
+   * @param { Array<ObscuredReasons> } reasons , reasons of obscuration
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { T }
+   * @since 10
+   */
+  obscured(reasons: Array<ObscuredReasons>): T;
 }
 
 /**
