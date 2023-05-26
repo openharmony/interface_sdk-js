@@ -510,7 +510,7 @@ declare namespace commonEvent {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.commonEventManage/commonEventManager.Supportr#COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE
+     * @useinstead ohos.commonEventManage/commonEventManager.Support#COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE',
 

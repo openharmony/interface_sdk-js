@@ -73,7 +73,7 @@ export interface NotificationSubscriber {
   onDisconnect?: () => void;
 
   /**
-   * The callback function that ervice disconnected.
+   * The callback function that service disconnected.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
