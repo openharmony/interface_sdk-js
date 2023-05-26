@@ -398,8 +398,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @default value is 360vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @returns { SideBarContainerAttribute }
-   * @since 10
    * @crossplatform
+   * @since 10
    */
   minContentWidth(value: Dimension): SideBarContainerAttribute;
 }
