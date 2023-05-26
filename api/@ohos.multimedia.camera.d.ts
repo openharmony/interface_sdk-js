@@ -192,7 +192,7 @@ declare namespace camera {
      * Can not use camera cause of conflict.
      * @since 10
      */
-    CONFILICT_CAMERA = 7400107,
+    CONFLICT_CAMERA = 7400107,
     /**
      * Camera disabled cause of security reason.
      * @since 10
@@ -1036,7 +1036,7 @@ declare namespace camera {
 
     /**
      * Query the exposure compensation range.
-     * @returns The array of compenstation range.
+     * @returns The array of compensation range.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @throws { BusinessError } 7400103 - Session not config.
