@@ -13,8 +13,6 @@
  * limitations under the License.
 */
 
-const path = require('path');
-const fs = require('fs');
 const whiteLists = require('../config/jsdocCheckWhiteList.json');
 const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo,
   createErrorInfo, isWhiteListFile } = require('./utils');
@@ -24,8 +22,11 @@ const ts = requireTypescriptModule();
 
 // 标签合法性校验
 function checkJsDocLegality(node, comments, checkInfoMap) {
-  // 必填校验
-  legalityCheck(node, comments, commentNodeWhiteList, ['since', 'syscap'], true, checkInfoMap);
+  // since
+  legalityCheck(node, comments, commentNodeWhiteList, ['since'], true, checkInfoMap);
+  // syscap
+  legalityCheck(node, comments, getIllegalKinds([ts.SyntaxKind.ModuleDeclaration, ts.SyntaxKind.ClassDeclaration]),
+    ['syscap'], true, checkInfoMap);
   // const定义语句必填
   legalityCheck(node, comments, [ts.SyntaxKind.VariableStatement], ['constant'], true, checkInfoMap,
     (currentNode, checkResult) => {
@@ -140,6 +141,8 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
   tagsName.forEach(tagName => {
     if (tagName === 'extends') {
       illegalKindSet = new Set(commentNodeWhiteList);
+    }else if(tagName === 'syscap'){
+      illegalKindSet = new Set([]);
     }
     comments.forEach((comment, index) => {
       if (!checkInfoMap[index]) {

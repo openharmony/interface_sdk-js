@@ -18,11 +18,23 @@
  * @form
  * @since 9
  */
+/**
+ * Defines the option in number unit of grid-container child component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface GridColColumnOption {
   /**
    * Grid Col Column Option xs
    * @form
    * @since 9
+   */
+  /**
+   * Grid Col Column Option xs
+   * @form
+   * @crossplatform
+   * @since 10
    */
   xs?: number,
 
@@ -31,12 +43,24 @@ declare interface GridColColumnOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Col Column Option sm
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   sm?: number,
 
   /**
    * Grid Col Column Option md
    * @form
    * @since 9
+   */
+  /**
+   * Grid Col Column Option md
+   * @form
+   * @crossplatform
+   * @since 10
    */
   md?: number,
 
@@ -45,6 +69,12 @@ declare interface GridColColumnOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Col Column Option lg
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   lg?: number,
 
   /**
@@ -52,12 +82,24 @@ declare interface GridColColumnOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Col Column Option xl
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   xl?: number,
 
   /**
    * Grid Col Column Option xxl
    * @form
    * @since 9
+   */
+  /**
+   * Grid Col Column Option xxl
+   * @form
+   * @crossplatform
+   * @since 10
    */
   xxl?: number,
 }
@@ -67,11 +109,23 @@ declare interface GridColColumnOption {
  * @form
  * @since 9
  */
+/**
+ * Defines the options of grid-container child component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface GridColOptions {
   /**
    * Sets the span of current gird-container item.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the span of current gird-container item.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   span?: number | GridColColumnOption;
 
@@ -80,12 +134,24 @@ declare interface GridColOptions {
    * @form
    * @since 9
    */
+  /**
+   * Sets the offset of current gird-container item.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   offset?: number | GridColColumnOption;
 
   /**
    * Sets the order of current gird-container item.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the order of current gird-container item.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   order?: number | GridColColumnOption;
 }
@@ -95,11 +161,23 @@ declare interface GridColOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the the new version of grid-container child component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface GridColInterface {
   /**
    * Defines the constructor of GridContainer.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the constructor of GridContainer.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (option?: GridColOptions): GridColAttribute;
 }
@@ -110,6 +188,12 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the span of current gird-container item.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   span(value: number | GridColColumnOption): GridColAttribute;
 
   /**
@@ -117,12 +201,24 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the offset of current gird-container item.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
   /**
    * Sets the order of current gird-container item.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the order of current gird-container item.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   order(value: number | GridColColumnOption): GridColAttribute;
 }
@@ -132,11 +228,23 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines GridCol Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const GridCol: GridColInterface
 
 /**
  * Defines GridCol Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines GridCol Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const GridColInstance: GridColAttribute;

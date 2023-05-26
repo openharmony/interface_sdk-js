@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const { getApiInfo, ErrorType, ErrorLevel, LogType, requireTypescriptModule, getcheckApiVersion } = require('./utils');
+const { getApiInfo, ErrorType, ErrorLevel, LogType, requireTypescriptModule, getCheckApiVersion } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const { checkSmallHump } = require('./check_hump');
 const ts = requireTypescriptModule();
@@ -34,7 +34,7 @@ function areSetsEqual(set1, set2) {
 // check the api version
 function checkVersionNeedCheck(node) {
   const apiInfo = getApiInfo(node);
-  const apiCheckVersion = getcheckApiVersion();
+  const apiCheckVersion = getCheckApiVersion();
   if (parseInt(apiInfo.version) >= parseInt(apiCheckVersion)) {
     return true;
   }

@@ -103,4 +103,13 @@ export interface MissionInfo {
    * @since 8
    */
   continuable: boolean;
+
+  /**
+   * Indicates the ability state of this mission.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 10
+   */
+  abilityState: number;
 }

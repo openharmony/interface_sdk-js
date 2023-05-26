@@ -9,9 +9,7 @@
     "SystemCapability.BundleManager.BundleFramework",
     "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
-    "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
-    "SystemCapability.BundleManager.PackingTool",
     "SystemCapability.Graphic.Graphic2D.WebGL",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.WindowManager.WindowManager.MutiScreen",
@@ -144,6 +142,7 @@
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
+    "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
@@ -157,6 +156,9 @@
     "SystemCapability.DistributedDataManager.DataShare.Core",
     "SystemCapability.DistributedDataManager.DataShare.Consumer",
     "SystemCapability.DistributedDataManager.DataShare.Provider",
+    "SystemCapability.DistributedDataManager.CloudSync.Config",
+    "SystemCapability.DistributedDataManager.CloudSync.Client",
+    "SystemCapability.DistributedDataManager.CloudSync.Server",
     "SystemCapability.Ability.AbilityBase",
     "SystemCapability.Ability.AbilityRuntime.Core",
     "SystemCapability.Ability.AbilityRuntime.FAModel",
@@ -188,6 +190,7 @@
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
-    "SystemCapability.Request.FileTransferAgent"
+    "SystemCapability.Request.FileTransferAgent",
+    "SystemCapability.ResourceSchedule.DeviceStandby"
   ]
 }
