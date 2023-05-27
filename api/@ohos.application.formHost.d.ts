@@ -500,7 +500,6 @@ declare namespace formHost {
    * Listens to the event of uninstall form.
    * <p>You can use this method to listen to the event of uninstall form.</p>
    *
-   * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { 'formUninstall' } type Indicates event type.
    * @param { Callback<string> } callback Callback function that returns the card identifier.
    * @syscap SystemCapability.Ability.Form

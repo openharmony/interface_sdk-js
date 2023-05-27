@@ -280,10 +280,8 @@ export interface NotificationRequest {
    * Obtains the classification of this notification.
    *
    * @type { ?string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 8
+   * @since 7
    */
   classification?: string;
 

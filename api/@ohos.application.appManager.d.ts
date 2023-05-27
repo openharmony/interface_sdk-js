@@ -167,19 +167,6 @@ declare namespace appManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @param { AsyncCallback<Array<ProcessRunningInfo>> } callback Obtain information about running processes.
-   * @returns { Promise<Array<ProcessRunningInfo>> } Returns the array of {@link ProcessRunningInfo}.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.appManager/appManager#getRunningProcessInformation
-   */
-  function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
-
-  /**
-   * Get information about running processes
-   *
-   * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<ProcessRunningInfo>> } callback Obtain information about running processes.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9

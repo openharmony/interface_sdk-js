@@ -32,7 +32,7 @@ export interface NotificationSubscriber {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 7
    */
   onConsume?: (data: SubscribeCallbackData) => void;
 
@@ -41,7 +41,7 @@ export interface NotificationSubscriber {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 7
    */
   onCancel?: (data: SubscribeCallbackData) => void;
 
@@ -50,7 +50,7 @@ export interface NotificationSubscriber {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 7
    */
   onUpdate?: (data: NotificationSortingMap) => void;
 
@@ -59,7 +59,7 @@ export interface NotificationSubscriber {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 7
    */
   onConnect?: () => void;
 
@@ -68,7 +68,7 @@ export interface NotificationSubscriber {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 7
    */
   onDisconnect?: () => void;
 
@@ -77,7 +77,7 @@ export interface NotificationSubscriber {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 7
    */
   onDestroy?: () => void;
 

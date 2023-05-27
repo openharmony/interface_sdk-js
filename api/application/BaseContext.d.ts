@@ -35,8 +35,7 @@ export default abstract class BaseContext {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @since 10
+   * @since 8
    */
   /**
    * Indicates the context is FA Mode or Stage Mode.
@@ -44,7 +43,7 @@ export default abstract class BaseContext {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
-   * @since 8
+   * @since 10
    */
   stageMode: boolean;
 }
