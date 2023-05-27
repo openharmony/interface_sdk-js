@@ -281,7 +281,7 @@ export interface NotificationRequest {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 7
    */
   classification?: string;
