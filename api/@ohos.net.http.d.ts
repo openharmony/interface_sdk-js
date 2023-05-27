@@ -47,7 +47,7 @@ declare namespace http {
    * @returns { HttpRequest } the HttpRequest of the createHttp.
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since 6
+   * @since 10
    */
   function createHttp(): HttpRequest;
 
