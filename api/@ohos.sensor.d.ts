@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from "./@ohos.base";
 
 /**
  * This module provides the capability to subscribe to sensor data.
