@@ -216,7 +216,7 @@ declare namespace deviceStandby {
    */
   export interface ExemptedAppInfo {
     /**
-     * The set of resource types that app wants to apply.
+     * The set of resource types that an application requests.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
@@ -225,7 +225,7 @@ declare namespace deviceStandby {
     resourceTypes: number;
 
     /**
-     *  The application name.
+     * The application name.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
@@ -234,7 +234,7 @@ declare namespace deviceStandby {
     name: string;
 
     /**
-     *  The exemption duration.
+     * The exemption duration.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
@@ -262,7 +262,7 @@ declare namespace deviceStandby {
     resourceTypes: number;
 
     /**
-     *  The application uid.
+     * The application uid.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
@@ -271,7 +271,7 @@ declare namespace deviceStandby {
     uid: number;
 
     /**
-     *  The application name.
+     * The application name.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
@@ -280,7 +280,7 @@ declare namespace deviceStandby {
     name: string;
 
     /**
-     *  The exemption duration.
+     * The exemption duration.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
@@ -289,7 +289,7 @@ declare namespace deviceStandby {
     duration: number;
 
     /**
-     *  The reason for the request.
+     * The reason for the request.
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
