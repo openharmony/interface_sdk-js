@@ -201,7 +201,6 @@ declare namespace notification {
   /**
    * Adds a slot type.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { SlotType } type Slot type to add.
    * @param { AsyncCallback<void> } callback callback function
    * @syscap SystemCapability.Notification.Notification
@@ -214,7 +213,6 @@ declare namespace notification {
   /**
    * Adds a slot type.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { SlotType } type Slot type to add.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
