@@ -34,21 +34,25 @@ declare namespace appRecovery {
   enum RestartFlag {
     /**
      * No restart restrictions.
+     * @since 9
      */
     ALWAYS_RESTART = 0,
 
     /**
      * Restart if current app process encounter uncaught js/ts/ets exception.
+     * @since 9
      */
     RESTART_WHEN_JS_CRASH = 0x0001,
 
     /**
      * Restart if the main thread of current app process block more than 6 seconds.
+     * @since 9
      */
     RESTART_WHEN_APP_FREEZE = 0x0002,
 
     /**
      * Do not restart in any scenario.
+     * @since 9
      */
     NO_RESTART = 0xFFFF,
   }
@@ -66,11 +70,13 @@ declare namespace appRecovery {
      * Saving ability state when an error occurs.
      * The error in current situation has the same semantic with { errorManager } defines
      * which means the state that the application cannot continue to work but allows developer to handle.
+     * @since 9
      */
     SAVE_WHEN_ERROR = 0x0001,
 
     /**
      * Saving ability state when ability is in background.
+     * @since 9
      */
     SAVE_WHEN_BACKGROUND = 0x0002,
   }
@@ -84,20 +90,22 @@ declare namespace appRecovery {
   enum SaveModeFlag {
     /**
      * Save state to file immediately.
+     * @since 9
      */
     SAVE_WITH_FILE = 0x0001,
 
     /**
      * Keep state in memory and flush to file when error occurs or { restartApp } is invoked.
+     * @since 9
      */
     SAVE_WITH_SHARED_MEMORY = 0x0002,
   }
 
   /**
    * Enable appRecovery function.
-   * @param { RestartFlag } The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
-   * @param { SaveOccasionFlag } The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
-   * @param { SaveModeFlag } The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
+   * @param { RestartFlag } restart - The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
+   * @param { SaveOccasionFlag } saveOccasion - The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
+   * @param { SaveModeFlag } saveMode - The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -127,7 +135,7 @@ declare namespace appRecovery {
    * Actively save application state.
    * The ability framework will call { UIAbility.onSaveState } of first launched ability and
    * persist state as { saveOccasion } flag from { enableAppRecovery } interface.
-   * @returns true if save data successfully, otherwise false.
+   * @returns { boolean } true if save data successfully, otherwise false.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -135,9 +143,9 @@ declare namespace appRecovery {
   function saveAppState(): boolean;
   /**
    * Save the ability state according to the context.
-   * @param { UIAbilityContext } [context] - context indicates the ability context you want to save state.
+   * @param { UIAbilityContext } context - context indicates the ability context you want to save state.
    * If context is not specified, the onSaveState will be invoked on all the recoverable abilities in current process.
-   * @returns true if save data successfully, otherwise false.
+   * @returns { boolean } true if save data successfully, otherwise false.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 10
