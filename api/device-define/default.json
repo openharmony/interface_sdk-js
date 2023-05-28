@@ -192,6 +192,7 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
     "SystemCapability.XTS.DeviceAttest",
-    "SystemCapability.Request.FileTransferAgent"
+    "SystemCapability.Request.FileTransferAgent",
+    "SystemCapability.DistributedDataManager.UDMF.Core"    
   ]
 }
