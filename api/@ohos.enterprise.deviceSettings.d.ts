@@ -29,7 +29,7 @@ declare namespace deviceSettings {
    * Gets the device screen off time.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_SET_SCREENOFF_TIME
+   * @permission ohos.permission.ENTERPRISE_GET_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<number> } callback - the callback of getScreenOffTime.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
@@ -48,7 +48,7 @@ declare namespace deviceSettings {
    * Gets the device screen off time.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_SET_SCREENOFF_TIME
+   * @permission ohos.permission.ENTERPRISE_GET_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<number> } the promise returned by the getScreenOffTime.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
