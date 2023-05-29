@@ -1294,7 +1294,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.System.is24HourClock
+   * @useinstead ohos.i18n.System#is24HourClock
    */
   export function is24HourClock(): boolean;
 
@@ -1307,7 +1307,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.System.set24HourClock
+   * @useinstead ohos.i18n.System#set24HourClock
    */
   export function set24HourClock(option: boolean): boolean;
 
@@ -1321,7 +1321,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.addPreferredLanguage
+   * @useinstead ohos.i18n.System#addPreferredLanguage
    */
   export function addPreferredLanguage(language: string, index?: number): boolean;
 
@@ -1334,7 +1334,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.removePreferredLanguage
+   * @useinstead ohos.i18n.System#removePreferredLanguage
    */
   export function removePreferredLanguage(index: number): boolean;
 
@@ -1345,7 +1345,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.getPreferredLanguageList
+   * @useinstead ohos.i18n.System#getPreferredLanguageList
    */
   export function getPreferredLanguageList(): Array<string>;
 
@@ -1356,7 +1356,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.getFirstPreferredLanguage
+   * @useinstead ohos.i18n.System#getFirstPreferredLanguage
    */
   export function getFirstPreferredLanguage(): string;
 
@@ -1507,12 +1507,12 @@ declare namespace i18n {
     /**
      * Get the possible time zones from the specified longitude and latitude.
      *
+     * @param { number } longitude value
+     * @param { number } latitude value
+     * @returns Returns a TimeZone array from the specified longitude and latitude.
      * @throws {BusinessError} 401 - check param failed
      * @throws {BusinessError} 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
-     * @param longitude longitude value
-     * @param latitude latitude value
-     * @returns Returns a TimeZone array from the specified longitude and latitude.
      * @since 10
      */
     static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
@@ -1667,7 +1667,7 @@ declare namespace i18n {
     /**
      * Locale code.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1676,7 +1676,7 @@ declare namespace i18n {
     /**
      * Whether to use local names for sorting
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1685,7 +1685,7 @@ declare namespace i18n {
     /**
      * Whether to put the suggested item at the top
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1738,7 +1738,7 @@ declare namespace i18n {
 }
 
 /**
- * Provide some functions for settings and oobe to select language or region.
+ * Provide some functions for settings and startup guide to select language or region.
  *
  * @syscap SystemCapability.Global.I18n
  * @systemapi Hide this for inner system use.
@@ -1755,10 +1755,10 @@ export class SystemLocaleManager {
   constructor();
 
   /**
-   * Obtains sorted language array to setting or oobe app.
+   * Obtains sorted language array to setting or startup guide app.
    *
-   * @param { Array<string> } langauges - The languages whose name will be sort and displayed.
-   * @param { SortedOptions } options - Specifies how to sort.
+   * @param { Array<string> } languages - The languages whose name will be sort and displayed.
+   * @param { SortOptions } options - Specifies how to sort.
    * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
    * @throws { BusinessError } 401 - check param failed
    * @throws { BusinessError } 890001 - param value not valid
@@ -1766,13 +1766,13 @@ export class SystemLocaleManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  getLanguageInfoArray(langauges: Array<string>, options?: SortOptions): Array<LocaleItem>;
+  getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
   /**
-   * Obtains sorted region array to setting or oobe app.
+   * Obtains sorted region array to setting or startup guide app.
    *
    * @param { Array<string>  } regions - The regions whose name will be sort and displayed.
-   * @param { SortedOptions } options - Specifies how to sort.
+   * @param { SortOptions } options - Specifies how to sort.
    * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
    * @throws { BusinessError } 401 - check param failed
    * @throws { BusinessError } 890001 - param value not valid
