@@ -623,7 +623,7 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
-     * @returns { Array<DeviceInfo> } eturns a list of trusted devices.
+     * @returns { Array<DeviceInfo> } returns a list of trusted devices.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -937,7 +937,7 @@ declare namespace deviceManager {
      * UnRegister a device found callback so that the application can be notified when the device was found
      *
      * @param { 'deviceFound' } type Successfully discovered device.
-     * @param { Callback<{ subscribeId: number, device: DeviceInfo } callback Indicates the device found callback to register.
+     * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
