@@ -311,9 +311,11 @@
       "SystemCapability.XTS.DeviceAttestLite",
       "SystemCapability.Base",
       "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
+      "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
       "SystemCapability.MultimodalInput.Input.ShortKey",
       "SystemCapability.Msdp.DeviceStatus.Cooperate",
-      "SystemCapability.Request.FileTransferAgent"
+      "SystemCapability.Request.FileTransferAgent",
+      "SystemCapability.ResourceSchedule.DeviceStandby"
     ]
   },
   "administrators": [
