@@ -2262,7 +2262,7 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    TLSv13 = "TLSv1.3",
+    TLSv13 = "TLSv1.3"
   }
 }
 
