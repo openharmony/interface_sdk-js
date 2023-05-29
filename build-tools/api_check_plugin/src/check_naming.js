@@ -86,7 +86,7 @@ function checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier) {
 }
 
 function checkApiVerion(apiVersion) {
-  if (isNaN(apiVersion)) {
+  if (isNaN(parseInt(apiVersion))) {
     throw `Please configure the correct API version to be verified`;
   }
 }
