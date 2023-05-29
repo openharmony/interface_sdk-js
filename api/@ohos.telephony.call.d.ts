@@ -185,7 +185,7 @@ declare namespace call {
   /**
    * Obtains the call state.
    *
-   * <p>If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
+   * If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
    * If at least one call is in the active, hold, or dialing state, the system returns
    * {@code CallState#CALL_STATE_OFFHOOK}.
    * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
@@ -199,7 +199,7 @@ declare namespace call {
   /**
    * Obtains the call state.
    *
-   * <p>If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
+   * If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
    * If at least one call is in the active, hold, or dialing state, the system returns
    * {@code CallState#CALL_STATE_OFFHOOK}.
    * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
@@ -213,7 +213,7 @@ declare namespace call {
   /**
    * Stops the ringtone.
    *
-   * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
+   * If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AsyncCallback<void> } callback - The callback of muteRinger.
@@ -233,7 +233,7 @@ declare namespace call {
   /**
    * Stops the ringtone.
    *
-   * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
+   * If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @returns { Promise<void> } The promise returned by the muteRinger.
@@ -251,7 +251,7 @@ declare namespace call {
   /**
    * Checks whether a device supports voice calls.
    *
-   * <p>The system checks whether the device has the capability to initiate a circuit switching (CS) or IP multimedia
+   * The system checks whether the device has the capability to initiate a circuit switching (CS) or IP multimedia
    * subsystem domain (IMS) call on a telephone service network. If the device supports only packet switching
    * (even if the device supports OTT calls), {@code false} is returned.
    *
@@ -3105,7 +3105,7 @@ declare namespace call {
   /**
    * Indicates the scenarios of the call to be made.
    *
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -3142,7 +3142,7 @@ declare namespace call {
   /**
    * Indicates the types of the call to be made.
    *
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -3446,7 +3446,8 @@ declare namespace call {
    * @since 9
    */
   export enum MmiCodeResult {
-    /** Indicates the result of MMI code with successfully.
+    /**
+     * Indicates the result of MMI code with successfully.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3454,7 +3455,8 @@ declare namespace call {
      */
     MMI_CODE_SUCCESS = 0,
 
-    /** Indicates the result of MMI code with failed.
+    /**
+     * Indicates the result of MMI code with failed.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
