@@ -865,7 +865,7 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-    CONNECT = "CONNECT",
+    CONNECT = "CONNECT"
   }
 
   /**
@@ -1339,7 +1339,7 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-    VERSION,
+    VERSION
   }
 
   /**
@@ -1380,7 +1380,7 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-    HTTP2,
+    HTTP2
   }
 
   /**
@@ -1434,7 +1434,7 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-    ARRAY_BUFFER = 2,
+    ARRAY_BUFFER = 2
   }
 
   /**
