@@ -26,8 +26,10 @@ declare namespace deviceManager {
   /**
    * DeviceInfo
    *
+   * @interface DeviceInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   interface DeviceInfo {
     /**
@@ -35,6 +37,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     deviceId: string;
 
@@ -43,6 +46,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     deviceName: string;
 
@@ -51,6 +55,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     deviceType: DeviceType;
 
@@ -130,8 +135,10 @@ declare namespace deviceManager {
   /**
    * Device Type definitions
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   enum DeviceType {
     /**
@@ -139,6 +146,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     UNKNOWN_TYPE = 0,
 
@@ -147,6 +155,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     SPEAKER = 0x0A,
 
@@ -155,6 +164,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     PHONE = 0x0E,
 
@@ -163,6 +173,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     TABLET = 0x11,
 
@@ -171,6 +182,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     WEARABLE = 0x6D,
 
@@ -179,6 +191,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     CAR = 0x83,
 
@@ -187,6 +200,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     TV = 0x9C
   }
@@ -194,8 +208,10 @@ declare namespace deviceManager {
   /**
    * Device state change event definition
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   enum DeviceStateChangeAction {
     /**
@@ -203,6 +219,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     ONLINE = 0,
 
@@ -212,6 +229,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     READY = 1,
 
@@ -220,6 +238,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     OFFLINE = 2,
 
@@ -228,6 +247,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     CHANGE = 3
   }
@@ -235,8 +255,10 @@ declare namespace deviceManager {
   /**
    * Service subscribe info for device discover
    *
+   * @interface SubscribeInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   interface SubscribeInfo {
     /**
@@ -244,6 +266,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     subscribeId: number;
 
@@ -252,6 +275,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     mode: DiscoverMode;
 
@@ -260,6 +284,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     medium: ExchangeMedium;
 
@@ -268,6 +293,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     freq: ExchangeFreq;
 
@@ -276,6 +302,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     isSameAccount: boolean;
 
@@ -284,6 +311,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     isWakeRemote: boolean;
 
@@ -292,6 +320,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     capability: SubscribeCap;
   }
@@ -299,6 +328,7 @@ declare namespace deviceManager {
   /**
    * Service publish info for device discover
    *
+   * @interface PublishInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 9
@@ -309,6 +339,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     publishId: number;
 
@@ -317,6 +348,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     mode: DiscoverMode;
 
@@ -325,6 +357,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     freq: ExchangeFreq;
 
@@ -333,6 +366,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     ranging: boolean;
   }
@@ -340,8 +374,10 @@ declare namespace deviceManager {
   /**
    * device discover mode
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   enum DiscoverMode {
     /**
@@ -351,6 +387,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     DISCOVER_MODE_PASSIVE = 0x55,
 
@@ -361,6 +398,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     DISCOVER_MODE_ACTIVE = 0xAA
   }
@@ -368,8 +406,10 @@ declare namespace deviceManager {
   /**
    * device discover medium
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   enum ExchangeMedium {
     /**
@@ -377,6 +417,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     AUTO = 0,
 
@@ -385,6 +426,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     BLE = 1,
 
@@ -393,6 +435,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     COAP = 2,
 
@@ -401,6 +444,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     USB = 3
   }
@@ -408,8 +452,10 @@ declare namespace deviceManager {
   /**
    * device discover freq
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   enum ExchangeFreq {
     /**
@@ -417,6 +463,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     LOW = 0,
 
@@ -425,6 +472,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     MID = 1,
 
@@ -433,6 +481,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     HIGH = 2,
 
@@ -441,6 +490,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     SUPER_HIGH = 3
   }
@@ -448,8 +498,10 @@ declare namespace deviceManager {
   /**
    * device discover capability
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   enum SubscribeCap {
     /**
@@ -457,6 +509,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     SUBSCRIBE_CAPABILITY_DDMP = 0,
 
@@ -465,6 +518,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     SUBSCRIBE_CAPABILITY_OSD = 1
   }
@@ -472,8 +526,10 @@ declare namespace deviceManager {
   /**
    * Device Authentication param
    *
+   * @interface AuthParam
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications
+   * @since
    */
   interface AuthParam {
     /**
@@ -481,6 +537,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
+     * @since
      */
     authType: number;
 
@@ -489,6 +546,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
+     * @since
      */
     extraInfo: { [key: string]: any };
   }
@@ -496,8 +554,10 @@ declare namespace deviceManager {
   /**
    * Device auth info.
    *
+   * @interface AuthInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications
+   * @since
    */
   interface AuthInfo {
     /**
@@ -505,6 +565,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
+     * @since
      */
     authType: number;
 
@@ -513,6 +574,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
+     * @since
      */
     token: number;
 
@@ -521,6 +583,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
+     * @since
      */
     extraInfo: { [key: string]: any };
   }
@@ -530,18 +593,21 @@ declare namespace deviceManager {
    * <p>To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
    * use this instance to call other device management methods.
    *
-   * @param bundleName Indicates the bundle name of the application.
-   * @param callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
+   * @param { string } bundleName Indicates the bundle name of the application.
+   * @param { AsyncCallback<DeviceManager> } callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
+   * @since
    */
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
 
   /**
    * Provides methods for managing devices.
    *
+   * @interface DeviceManager
    * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since
    */
   interface DeviceManager {
     /**
@@ -550,24 +616,25 @@ declare namespace deviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     release(): void;
 
     /**
      * Obtains a list of trusted devices.
      *
-     * @returns Returns a list of trusted devices.
+     * @returns { Array<DeviceInfo> } eturns a list of trusted devices.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     getTrustedDeviceListSync(): Array<DeviceInfo>;
 
     /**
      * Obtains a list of trusted devices.
      *
-     * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
-     * @returns Returns a list of trusted devices.
+     * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -578,7 +645,7 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
-     * @returns Returns a list of trusted devices.
+     * @returns { Promise<Array<DeviceInfo>> } Returns a list of trusted devices.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -588,7 +655,7 @@ declare namespace deviceManager {
     /**
      * Obtains local device info
      *
-     * @returns Returns local device info.
+     * @returns { DeviceInfo } Returns local device info.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -599,8 +666,7 @@ declare namespace deviceManager {
     /**
      * Obtains local device info
      *
-     * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
-     * @returns Returns local device info.
+     * @param { AsyncCallback<DeviceInfo> } callback Indicates the callback to be invoked upon getLocalDeviceInfo
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -611,7 +677,7 @@ declare namespace deviceManager {
     /**
      * Obtains local device info
      *
-     * @returns Returns local device info.
+     * @returns { Promise<DeviceInfo> } Returns local device info.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -623,7 +689,6 @@ declare namespace deviceManager {
      *
      * @param { string } networkId - device network id.
      * @param { AsyncCallback<DeviceInfo> } callback - Indicates the callback to be invoked upon getDeviceInfo.
-     * @returns Returns device info.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -635,7 +700,7 @@ declare namespace deviceManager {
      * Obtains device info
      *
      * @param { string } networkId - device network id.
-     * @returns Returns device info.
+     * @returns { Promise<DeviceInfo> } Returns device info.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -646,7 +711,7 @@ declare namespace deviceManager {
     /**
      * Start to discover device.
      *
-     * @param subscribeInfo subscribe info to discovery device
+     * @param { SubscribeInfo } subscribeInfo subscribe info to discovery device
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
@@ -660,8 +725,8 @@ declare namespace deviceManager {
     /**
      * Start to discover device.
      *
-     * @param subscribeInfo subscribe info to discovery device
-     * @param filterOptions filterOptions to filter discovery device
+     * @param { SubscribeInfo } subscribeInfo subscribe info to discovery device
+     * @param { string } filterOptions filterOptions to filter discovery device
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
@@ -675,19 +740,20 @@ declare namespace deviceManager {
     /**
      * Stop to discover device.
      *
-     * @param subscribeId Service subscribe ID
+     * @param { number } subscribeId Service subscribe ID
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     stopDeviceDiscovery(subscribeId: number): void;
 
     /**
      * Publish discover device.
      *
-     * @param publishInfo publish info to Publish discovery device
+     * @param { PublishInfo } publishInfo publish info to Publish discovery device
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600105 - Publish invalid.
@@ -701,7 +767,7 @@ declare namespace deviceManager {
     /**
      * UnPublish discover device.
      *
-     * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
+     * @param { number } publishId Service publish ID, identify a publish operation, should be a unique id in package range
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -714,12 +780,13 @@ declare namespace deviceManager {
     /**
      * Authenticate the specified device.
      *
-     * @param deviceInfo deviceInfo of device to authenticate
-     * @param authParam authParam of device to authenticate
-     * @param callback Indicates the callback to be invoked upon authenticateDevice
+     * @param { DeviceInfo } deviceInfo deviceInfo of device to authenticate
+     * @param { AuthParam } authParam authParam of device to authenticate
+     * @param { AsyncCallback<{ deviceId: string, pinToken?: number }> } callback Indicates the callback to be invoked upon authenticateDevice
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     authenticateDevice(
       deviceInfo: DeviceInfo,
@@ -730,7 +797,7 @@ declare namespace deviceManager {
     /**
      * unAuthenticate the specified device.
      *
-     * @param deviceInfo deviceInfo of device to unAuthenticate
+     * @param { DeviceInfo } deviceInfo deviceInfo of device to unAuthenticate
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -743,19 +810,20 @@ declare namespace deviceManager {
     /**
      * verify auth info, such as pin code.
      *
-     * @param authInfo device auth info o verify
-     * @param callback Indicates the callback to be invoked upon verifyAuthInfo
+     * @param { AuthInfo } authInfo device auth info o verify
+     * @param { AsyncCallback<{ deviceId: string, level: number }> } callback Indicates the callback to be invoked upon verifyAuthInfo
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
-    verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{ deviceId: string; level: number }>): void;
+    verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{ deviceId: string, level: number }>): void;
 
     /**
      * Set user Operation from devicemanager Sea, this interface can only be used by devicemanager Sea.
      *
-     * @param operateAction User Operation Actions.
-     * @param params Indicates the input param of the user.
+     * @param { number } operateAction User Operation Actions.
+     * @param { string } params Indicates the input param of the user.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -767,8 +835,7 @@ declare namespace deviceManager {
      * Request credential information.
      *
      * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
-     * @param { AsyncCallback<{registerInfo: string}> } callback - Indicates the callback to be invoked upon requestCredential
-     * @returns Returns device credential registerInfo, it include deviceId, devicePk, useId and version.
+     * @param { AsyncCallback<{ registerInfo: string }> } callback Indicates the callback to be invoked upon requestCredential
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -782,8 +849,7 @@ declare namespace deviceManager {
      * @param { string } credentialInfo - Import credential params, the params is json string, it includes processType, authType,
      * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
      * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
-     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon importCredential.
-     * @returns Returns the groupId to which the device belongs.
+     * @param { AsyncCallback<{ resultInfo: string }> } callback Indicates the callback to be invoked upon importCredential.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -795,8 +861,7 @@ declare namespace deviceManager {
      * delete credential information.
      *
      * @param { string } queryInfo - delete credential params. the params is json string, it includes processType, authType, userId.
-     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon deleteCredential
-     * @returns Returns the groupId to which the device belongs.
+     * @param { AsyncCallback<{ resultInfo: string }> } callback Indicates the callback to be invoked upon deleteCredential
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -808,8 +873,8 @@ declare namespace deviceManager {
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
      * changes.
      *
-     * @param callback Indicates the devicemanager ui state to register.
-     * @param { Callback<{param: string;}> } callback
+     * @param { 'uiStateChange' } type Ui state to unregister.
+     * @param { Callback<{param: string;}> } callback Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -819,9 +884,10 @@ declare namespace deviceManager {
 
     /**
      * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
+     *ui state change
      *
-     * @param callback Indicates the devicemanager ui state to unregister.
-     * @param { Callback<{param: string;}> } callback
+     * @param { 'uiStateChange' } type Ui state to unregister.
+     * @param { Callback<{param: string;}> } callback Indicates the devicemanager ui state to unregister.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -833,74 +899,81 @@ declare namespace deviceManager {
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
      *
-     * @param bundleName Indicates the bundle name of the application.
-     * @param callback Indicates the device state callback to register.
+     * @param { 'deviceStateChange' } type Device status change.
+     * @param { Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }> } callback
+     *          Indicates the device state callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction; device: DeviceInfo }>): void;
 
     /**
      * UnRegister device state callback based on the application bundle name.
      *
-     * @param bundleName Indicates the bundle name of the application.
-     * @param callback Indicates the device state callback to register.
+     * @param { 'deviceStateChange' } type Device status change.
+     * @param { Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }> } callback Indicates the device state callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction; device: DeviceInfo }>): void;
 
     /**
      * Register a device found callback so that the application can be notified when the device was found
      *
-     * @param callback Indicates the device found callback to register.
-     * @param { Callback<{subscribeId: number;device: DeviceInfo;}> } callback
+     * @param { 'deviceFound' } type Successfully discovered device.
+     * @param { Callback<{subscribeId: number;device: DeviceInfo;}> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     on(type: 'deviceFound', callback: Callback<{ subscribeId: number; device: DeviceInfo }>): void;
 
     /**
      * UnRegister a device found callback so that the application can be notified when the device was found
      *
-     * @param callback Indicates the device found callback to register.
-     * @param { Callback<{subscribeId: number;device: DeviceInfo;}> } callback
+     * @param { 'deviceFound' } type Successfully discovered device.
+     * @param { Callback<{subscribeId: number;device: DeviceInfo;}> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     off(type: 'deviceFound', callback?: Callback<{ subscribeId: number; device: DeviceInfo }>): void;
 
     /**
      * Register a device found result callback so that the application can be notified when the device discover was failed
      *
-     * @param callback Indicates the device found result callback to register.
-     * @param { Callback<{subscribeId: number;reason: number;}> } callback
+     * @param { 'discoverFail' } type Discovery Device Failure.
+     * @param { Callback<{subscribeId: number;reason: number;}> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     on(type: 'discoverFail', callback: Callback<{ subscribeId: number; reason: number }>): void;
 
     /**
      * UnRegister a device found result callback so that the application can be notified when the device discover was failed
      *
-     * @param callback Indicates the device found result callback to register.
-     * @param { Callback<{subscribeId: number;reason: number;}> } callback
+     * @param { 'discoverFail' } type Discovery Device Failure.
+     * @param { Callback<{subscribeId: number;reason: number;}> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number; reason: number }>): void;
 
     /**
      * Register a device publish result callback so that the application can be notified when the device publish success
      *
-     * @param callback Indicates the device publish result callback to register.
-     * @param { Callback<{publishId: number;}> } callback
+     * @param { 'publishSuccess' } type Successfully published device.
+     * @param { Callback<{publishId: number;}> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -911,8 +984,8 @@ declare namespace deviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
-     * @param callback Indicates the device publish result callback to register.
-     * @param { Callback<{publishId: number;}> } callback
+     * @param { 'publishSuccess' } type Successfully published device.
+     * @param { Callback<{publishId: number;}> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -923,8 +996,8 @@ declare namespace deviceManager {
     /**
      * Register a device publish result callback so that the application can be notified when the device publish was failed
      *
-     * @param callback Indicates the device publish result callback to register.
-     * @param { Callback<{publishId: number;reason: number;}> } callback
+     * @param { 'publishFail' } type Failed to publish device.
+     * @param { Callback<{publishId: number;reason: number;}> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -935,8 +1008,8 @@ declare namespace deviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
-     * @param callback Indicates the device publish result callback to register.
-     * @param { Callback<{publishId: number;reason: number;}> } callback
+     * @param { 'publishFail' } type Failed to publish device.
+     * @param { Callback<{publishId: number;reason: number;}> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -947,22 +1020,24 @@ declare namespace deviceManager {
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
-     * @param callback Indicates the service error callback to register.
-     * @param { function } callback
+     * @param { 'serviceDie' } type Service death.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     on(type: 'serviceDie', callback: () => void): void;
 
     /**
      * UnRegister a serviceError callback so that the application can be notified when devicemanager service died
      *
-     * @param callback Indicates the service error callback to register.
-     * @param { function } callback
+     * @param { 'serviceDie' } type Service death.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
+     * @since
      */
     off(type: 'serviceDie', callback?: () => void): void;
   }
