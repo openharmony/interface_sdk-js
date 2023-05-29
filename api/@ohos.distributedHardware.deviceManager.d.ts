@@ -791,7 +791,7 @@ declare namespace deviceManager {
     authenticateDevice(
       deviceInfo: DeviceInfo,
       authParam: AuthParam,
-      callback: AsyncCallback<{ deviceId: string; pinToken?: number }>
+      callback: AsyncCallback<{ deviceId: string, pinToken?: number }>
     ): void;
 
     /**
@@ -874,7 +874,7 @@ declare namespace deviceManager {
      * changes.
      *
      * @param { 'uiStateChange' } type Ui state to unregister.
-     * @param { Callback<{param: string;}> } callback Indicates the devicemanager ui state to register.
+     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -887,7 +887,7 @@ declare namespace deviceManager {
      *ui state change
      *
      * @param { 'uiStateChange' } type Ui state to unregister.
-     * @param { Callback<{param: string;}> } callback Indicates the devicemanager ui state to unregister.
+     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -907,7 +907,7 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since
      */
-    on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction; device: DeviceInfo }>): void;
+    on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
     /**
      * UnRegister device state callback based on the application bundle name.
@@ -919,61 +919,61 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      * @since
      */
-    off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction; device: DeviceInfo }>): void;
+    off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
     /**
      * Register a device found callback so that the application can be notified when the device was found
      *
      * @param { 'deviceFound' } type Successfully discovered device.
-     * @param { Callback<{subscribeId: number;device: DeviceInfo;}> } callback Indicates the device found callback to register.
+     * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since
      */
-    on(type: 'deviceFound', callback: Callback<{ subscribeId: number; device: DeviceInfo }>): void;
+    on(type: 'deviceFound', callback: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
 
     /**
      * UnRegister a device found callback so that the application can be notified when the device was found
      *
      * @param { 'deviceFound' } type Successfully discovered device.
-     * @param { Callback<{subscribeId: number;device: DeviceInfo;}> } callback Indicates the device found callback to register.
+     * @param { Callback<{ subscribeId: number, device: DeviceInfo } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since
      */
-    off(type: 'deviceFound', callback?: Callback<{ subscribeId: number; device: DeviceInfo }>): void;
+    off(type: 'deviceFound', callback?: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
 
     /**
      * Register a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param { 'discoverFail' } type Discovery Device Failure.
-     * @param { Callback<{subscribeId: number;reason: number;}> } callback Indicates the device found result callback to register.
+     * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since
      */
-    on(type: 'discoverFail', callback: Callback<{ subscribeId: number; reason: number }>): void;
+    on(type: 'discoverFail', callback: Callback<{ subscribeId: number, reason: number }>): void;
 
     /**
      * UnRegister a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param { 'discoverFail' } type Discovery Device Failure.
-     * @param { Callback<{subscribeId: number;reason: number;}> } callback Indicates the device found result callback to register.
+     * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since
      */
-    off(type: 'discoverFail', callback?: Callback<{ subscribeId: number; reason: number }>): void;
+    off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
 
     /**
      * Register a device publish result callback so that the application can be notified when the device publish success
      *
      * @param { 'publishSuccess' } type Successfully published device.
-     * @param { Callback<{publishId: number;}> } callback Indicates the device publish result callback to register.
+     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -985,7 +985,7 @@ declare namespace deviceManager {
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
      * @param { 'publishSuccess' } type Successfully published device.
-     * @param { Callback<{publishId: number;}> } callback Indicates the device publish result callback to register.
+     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -997,7 +997,7 @@ declare namespace deviceManager {
      * Register a device publish result callback so that the application can be notified when the device publish was failed
      *
      * @param { 'publishFail' } type Failed to publish device.
-     * @param { Callback<{publishId: number;reason: number;}> } callback Indicates the device publish result callback to register.
+     * @param { Callback<{ publishId: number; reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1009,7 +1009,7 @@ declare namespace deviceManager {
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
      * @param { 'publishFail' } type Failed to publish device.
-     * @param { Callback<{publishId: number;reason: number;}> } callback Indicates the device publish result callback to register.
+     * @param { Callback<{ publishId: number; reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1021,7 +1021,7 @@ declare namespace deviceManager {
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param { 'serviceDie' } type Service death.
-     * @param { function } callback Indicates the service error callback to register.
+     * @param { () => void } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1033,7 +1033,7 @@ declare namespace deviceManager {
      * UnRegister a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param { 'serviceDie' } type Service death.
-     * @param { function } callback Indicates the service error callback to register.
+     * @param { () => void } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
