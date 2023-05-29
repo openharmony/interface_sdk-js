@@ -21,8 +21,14 @@ import socket from "./@ohos.net.socket";
  * Provides interfaces to manage and use data networks.
  * @namespace connection
  * @syscap SystemCapability.Communication.NetManager.Core
- * @crossplatform
  * @since 8
+ */
+/**
+ * Provides interfaces to manage and use data networks.
+ * @namespace connection
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @crossplatform
+ * @since 10
  */
 declare namespace connection {
   type HttpRequest = http.HttpRequest;
@@ -36,8 +42,17 @@ declare namespace connection {
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Create a network connection with optional netSpecifier and timeout.
+   * @param { NetSpecifier } netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } timeout The time in milliseconds to attempt looking for a suitable network before
+   * {@link NetConnection#netUnavailable} is called.
+   * @returns { NetConnection } the NetConnection of the NetSpecifier.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
    */
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: number): NetConnection;
 
@@ -213,8 +228,20 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Checks whether the default data network is activated.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<boolean> } callback Returns {@code true} if the default data network is activated;
+   * returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
 
@@ -227,8 +254,19 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Checks whether the default data network is activated.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
    */
   function hasDefaultNet(): Promise<boolean>;
 
@@ -505,14 +543,28 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Represents the network connection handle.
+   * @interface NetConnection
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
+   */
   export interface NetConnection {
     /**
      * Registers a listener for netAvailable events.
      * @param { 'netAvailable' } type Indicates Event name.
      * @param { Callback<NetHandle> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Registers a listener for netAvailable events.
+     * @param { 'netAvailable' } type Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
@@ -530,8 +582,15 @@ declare namespace connection {
      * @param { 'netCapabilitiesChange' } type Indicates Event name.
      * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Registers a listener for **netCapabilitiesChange** events.
+     * @param { 'netCapabilitiesChange' } type Indicates Event name.
+     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
 
@@ -549,8 +608,15 @@ declare namespace connection {
      * @param { 'netLost' } type Indicates Event name.
      * @param { Callback<NetHandle> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Registers a listener for **netLost** events.
+     * @param { 'netLost' } type Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
@@ -559,8 +625,15 @@ declare namespace connection {
      * @param { 'netUnavailable' } type Indicates Event name.
      * @param { Callback<void> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform 
      * @since 8
+     */
+    /**
+     * Registers a listener for netUnavailable events.
+     * @param { 'netUnavailable' } type Indicates Event name.
+     * @param { Callback<void> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
@@ -572,11 +645,24 @@ declare namespace connection {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2100003 - System internal error.
-     * @throws { BusinessError } 2101008 - The callback is not found.
+     * @throws { BusinessError } 2101008 - The same callback exists.
      * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform 
      * @since 8
+     */
+    /**
+     * Receives status change notifications of a specified network.
+     * @permission ohos.permission.GET_NETWORK_INFO
+     * @param { AsyncCallback<void> } callback - the callback of register.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @throws { BusinessError } 2101008 - The same callback exists.
+     * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     register(callback: AsyncCallback<void>): void;
 
@@ -589,8 +675,19 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @throws { BusinessError } 2101007 - The callback is not exists.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform 
      * @since 8
+     */
+    /**
+     * Cancels listening for network status changes.
+     * @param { AsyncCallback<void> } callback - the callback of unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @throws { BusinessError } 2101007 - The callback is not exists.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     unregister(callback: AsyncCallback<void>): void;
   }
@@ -623,16 +720,28 @@ declare namespace connection {
    * Defines the handle of the data network.
    * @interface NetHandle
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Defines the handle of the data network.
+   * @interface NetHandle
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
    */
   export interface NetHandle {
     /**
      * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     netId: number;
 
@@ -731,8 +840,14 @@ declare namespace connection {
    * Defines the network capability set.
    * @interface NetCapabilities
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Defines the network capability set.
+   * @interface NetCapabilities
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
    */
   export interface NetCapabilities {
     /**
@@ -763,8 +878,14 @@ declare namespace connection {
      * Network type.
      * @type {Array<NetBearType>}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Network type.
+     * @type {Array<NetBearType>}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     bearerTypes: Array<NetBearType>;
   }
@@ -816,23 +937,39 @@ declare namespace connection {
    * Enumerates network types.
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Enumerates network types.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
    */
   export enum NetBearType {
     /**
      * Indicates that the network is based on a cellular network.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Indicates that the network is based on a cellular network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     BEARER_CELLULAR = 0,
 
     /**
      * Indicates that the network is based on a Wi-Fi network.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Indicates that the network is based on a Wi-Fi network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
      */
     BEARER_WIFI = 1,
 
