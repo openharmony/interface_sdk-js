@@ -865,7 +865,7 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-    CONNECT = 'CONNECT',
+    CONNECT = "CONNECT",
   }
 
   /**
