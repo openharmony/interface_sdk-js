@@ -398,6 +398,8 @@ meid
 messageerror
 metered
 metering
+mgf
+mgf1
 mifare
 minibar
 minimizing
@@ -528,6 +530,7 @@ provisioned
 proxyed
 psc
 psk
+psrc
 pss
 puk
 pvr
@@ -616,6 +619,7 @@ slidable
 sliderstyle
 statvfs
 stk
+str
 sm3
 smil
 smsc
@@ -710,6 +714,7 @@ ubset
 ucs
 udid
 uint8
+uint8arr
 uitest
 umalqura
 unapply
