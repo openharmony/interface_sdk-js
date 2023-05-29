@@ -508,6 +508,19 @@ declare namespace wifiManager {
   function get5GChannelList(): Array<number>;
 
   /**
+   * Obtain the latest disconnect cause.
+   *
+   * @since 10
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
+   * @systemapi Hide this for inner system use.
+   */
+  function getLastDisconnectCause(discCause: DisconnectCause): void;
+
+  /**
    * Enable Wi-Fi hotspot function.
    *
    * <p>This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
@@ -1278,6 +1291,24 @@ declare namespace wifiManager {
     PHASE2_SIM,
     PHASE2_AKA,
     PHASE2_AKA_PRIME,
+  }
+
+  /**
+   * Wi-Fi disconnect reason.
+   *
+   * @since 10
+   * @systemapi Hide this for inner system use.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   */
+  enum DisconnectCause {
+    /** Default cause */
+    DISC_CAUSE_DEFAULT,
+
+    /** Password is wrong */
+    DISC_CAUSE_WRONG_PWD,
+	
+    /** The number of router's connection reachs the maximum number limit */
+    DISC_CAUSE_CONNECTION_FULL,
   }
 
   /**
