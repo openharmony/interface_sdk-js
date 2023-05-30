@@ -1943,4 +1943,16 @@ export default class UIAbilityContext extends Context {
    * @since 10
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
+
+  /**
+   * Report to system when the ability is drawn completed.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  reportDrawnCompleted(callback: AsyncCallback<void>): void;
 }
