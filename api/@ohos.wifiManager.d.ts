@@ -1932,8 +1932,9 @@ declare namespace wifiManager {
   /**
    * P2P config.
    *
-   * @since 9
+   * @interface WifiP2PConfig
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
    */
   interface WifiP2PConfig {
     /** Device mac address */
@@ -1958,8 +1959,9 @@ declare namespace wifiManager {
   /**
    * P2P group information.
    *
-   * @since 9
+   * @interface WifiP2pGroupInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
    */
   interface WifiP2pGroupInfo {
     /** Indicates whether it is group owner */
@@ -1993,19 +1995,24 @@ declare namespace wifiManager {
   /**
    * P2P connection status.
    *
-   * @since 9
+   * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
    */
   enum P2pConnectState {
+    /** p2p is disconnected */
     DISCONNECTED = 0,
+
+    /** p2p is connected */
     CONNECTED = 1,
   }
 
   /**
    * P2P linked information.
    *
-   * @since 9
+   * @interface WifiP2pLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
    */
   interface WifiP2pLinkedInfo {
     /** Connection status */
@@ -2021,14 +2028,24 @@ declare namespace wifiManager {
   /**
    * P2P device status.
    *
-   * @since 9
+   * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
    */
   enum P2pDeviceStatus {
+    /** Indicate p2p device is connected.  */
     CONNECTED = 0,
+
+    /** Indicate p2p device is invited.  */
     INVITED = 1,
+
+    /** Indicate p2p device is failed.  */
     FAILED = 2,
+
+    /** Indicate p2p device is available.  */
     AVAILABLE = 3,
+
+    /** Indicate p2p device is unavailable.  */
     UNAVAILABLE = 4,
   }
 
