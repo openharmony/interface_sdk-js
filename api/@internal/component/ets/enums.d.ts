@@ -3173,12 +3173,12 @@ declare enum TextAlign {
   End,
 
   /**
-   * Justify the text
+   * Justify the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
-   * Justify the text
+   * Justify the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
