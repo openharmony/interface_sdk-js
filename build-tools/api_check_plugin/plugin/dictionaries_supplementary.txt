@@ -220,6 +220,7 @@ evdo
 evenodd
 evicted
 excepted
+exempted
 extention
 f1
 faultlog
