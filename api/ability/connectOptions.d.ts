@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,39 +17,39 @@ import { ElementName } from '../bundle/elementName';
 import rpc from './../@ohos.rpc';
 
 /**
- * @since 7
+ * As an input parameter when connecting a specified background service, it is used to receive
+ * state changes during the connection.
+ *
+ * @interface ConnectOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 7
  */
 export interface ConnectOptions {
   /**
    * The callback interface was connect successfully.
    *
-   * @default -
-   * @since 7
+   * @param { ElementName } elementName The element name of the service ability
+   * @param { rpc.IRemoteObject } remote The remote object instance
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param elementName The element name of the service ability
-   * @param remote The remote object instance
+   * @since 7
    */
   onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
 
   /**
    * The callback interface was disconnect successfully.
    *
-   * @default -
-   * @since 7
+   * @param { ElementName } elementName The element name of the service ability
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param elementName The element name of the service ability
+   * @since 7
    */
   onDisconnect(elementName: ElementName): void;
 
   /**
    * The callback interface was connect failed.
    *
-   * @default -
-   * @since 7
+   * @param { number } code The error code of the failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param code The error code of the failed.
+   * @since 7
    */
   onFailed(code: number): void;
 }

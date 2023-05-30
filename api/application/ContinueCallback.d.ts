@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,15 +18,16 @@
  *
  * @interface ContinueCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @systemapi hide for inner use.
+ * @systemapi
  * @since 9
  */
 export interface ContinueCallback {
   /**
    * Called by system when continue mission done.
    *
-   * @param result The result code of continue mission.
+   * @param { number } result The result code of continue mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
    * @since 9
    */
   onContinueDone(result: number): void;
