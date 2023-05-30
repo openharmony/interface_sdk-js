@@ -339,7 +339,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 9
      */
     publishId: number;
 
@@ -348,7 +348,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 9
      */
     mode: DiscoverMode;
 
@@ -357,7 +357,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 9
      */
     freq: ExchangeFreq;
 
@@ -366,7 +366,7 @@ declare namespace deviceManager {
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 7
+     * @since 9
      */
     ranging: boolean;
   }
