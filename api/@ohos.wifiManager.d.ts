@@ -508,10 +508,10 @@ declare namespace wifiManager {
   function get5GChannelList(): Array<number>;
 
   /**
-   * Obtain the latest disconnect cause.
+   * Obtain the latest disconnected reason.
    *
    * @since 10
-   * @returns Returns the latest disconnect cause.
+   * @returns Returns the latest disconnected reason.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -519,7 +519,7 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
    * @systemapi Hide this for inner system use.
    */
-  function getLastDisconnectCause(): DisconnectCause;
+  function getDisconnectedReason(): DisconnectedReason;
 
   /**
    * Enable Wi-Fi hotspot function.
@@ -1295,21 +1295,21 @@ declare namespace wifiManager {
   }
 
   /**
-   * Wi-Fi disconnect reason.
+   * Wi-Fi disconnected reason.
    *
    * @since 10
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.STA
    */
-  enum DisconnectCause {
-    /** Default cause */
-    DISC_CAUSE_DEFAULT,
+  enum DisconnectedReason {
+    /** Default reason */
+    DISC_REASON_DEFAULT = 0,
 
     /** Password is wrong */
-    DISC_CAUSE_WRONG_PWD,
+    DISC_REASON_WRONG_PWD = 1,
 	
     /** The number of router's connection reachs the maximum number limit */
-    DISC_CAUSE_CONNECTION_FULL,
+    DISC_REASON_CONNECTION_FULL = 2,
   }
 
   /**
