@@ -511,6 +511,7 @@ declare namespace wifiManager {
    * Obtain the latest disconnect cause.
    *
    * @since 10
+   * @returns Returns the latest disconnect cause.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -518,7 +519,7 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
    * @systemapi Hide this for inner system use.
    */
-  function getLastDisconnectCause(discCause: DisconnectCause): void;
+  function getLastDisconnectCause(): DisconnectCause;
 
   /**
    * Enable Wi-Fi hotspot function.
@@ -1782,6 +1783,14 @@ declare namespace wifiManager {
 
     /** The maximum number of connections allowed by the Wi-Fi hotspot */
     maxConn: number;
+
+    /**
+     * IP address of the dhcp server, it's a string, For example 192.168.43.1
+     *
+     * @since 10
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     */
+    ipAddress: string;
   }
 
   /**
