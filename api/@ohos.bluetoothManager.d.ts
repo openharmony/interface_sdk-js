@@ -74,6 +74,48 @@ declare namespace bluetoothManager {
   function pairDevice(deviceId: string): void;
 
   /**
+   * Starts pairing with a credible remote Bluetooth device with transport.
+   * This interface does not trigger a dialog box and does not require user authorization.
+   * Only specific system application can use this function.
+   *
+   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @param { string } deviceId - the address of the remote device to pair.
+   * @param { BluetoothTransport } transport - the transport of the remote device to pair.
+   * @param { AsyncCallback<void> } callback - the callback of pairCredibleDevice.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 10
+   */
+  function pairCredibleDevice(deviceId: string, transport: BluetoothTransport, callback: AsyncCallback<void>): void;
+
+  /**
+   * Starts pairing with a credible remote Bluetooth device with transport.
+   * This interface does not trigger a dialog box and does not require user authorization.
+   * Only specific system application can use this function.
+   *
+   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @param { string } deviceId - the address of the remote device to pair.
+   * @param { BluetoothTransport } transport - the transport of the remote device to pair.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 10
+   */
+  function pairCredibleDevice(deviceId: string, transport: BluetoothTransport): Promise<void>;
+
+  /**
    * Remove a paired remote device.
    *
    * @permission ohos.permission.DISCOVER_BLUETOOTH
@@ -3588,6 +3630,29 @@ declare namespace bluetoothManager {
     PROFILE_PAN_NETWORK = 7
   }
 
+  /**
+   * Enum for the transport of a remote device
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   */
+  enum BluetoothTransport {
+    /**
+     * The value of bluetooth transport BR/EDR.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     */
+    TRANSPORT_BR_EDR = 0,
+    /**
+     * The value of bluetooth transport LE.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     */
+    TRANSPORT_LE = 1
+  }
   /**
    * Enum for the type of pairing to a remote device
    *
