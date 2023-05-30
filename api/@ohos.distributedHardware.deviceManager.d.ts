@@ -997,25 +997,25 @@ declare namespace deviceManager {
      * Register a device publish result callback so that the application can be notified when the device publish was failed
      *
      * @param { 'publishFail' } type Failed to publish device.
-     * @param { Callback<{ publishId: number; reason: number }> } callback Indicates the device publish result callback to register.
+     * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
      */
-    on(type: 'publishFail', callback: Callback<{ publishId: number; reason: number }>): void;
+    on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
 
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
      * @param { 'publishFail' } type Failed to publish device.
-     * @param { Callback<{ publishId: number; reason: number }> } callback Indicates the device publish result callback to register.
+     * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
      */
-    off(type: 'publishFail', callback?: Callback<{ publishId: number; reason: number }>): void;
+    off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
 
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
