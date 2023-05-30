@@ -2010,54 +2010,104 @@ declare namespace wifiManager {
   /**
    * P2P linked information.
    *
-   * @interface WifiP2pLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
   interface WifiP2pLinkedInfo {
-    /** Connection status */
+    /** Connection status 
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     connectState: P2pConnectState;
 
-    /** Indicates whether it is group owner */
+    /** Indicates whether it is group owner
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     isGroupOwner: boolean;
 
-    /** Group owner address */
+    /** Group owner address
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     groupOwnerAddr: string;
   }
 
   /**
    * P2P device status.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
   enum P2pDeviceStatus {
-    /** Indicate p2p device is connected.  */
+    /** Indicate p2p device is connected.  
+     * 
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     CONNECTED = 0,
 
-    /** Indicate p2p device is invited.  */
+    /** Indicate p2p device is invited.   
+     * 
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     INVITED = 1,
 
-    /** Indicate p2p device is failed.  */
+    /** Indicate p2p device is failed.   
+     * 
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     FAILED = 2,
 
-    /** Indicate p2p device is available.  */
+    /** Indicate p2p device is available.   
+     * 
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     AVAILABLE = 3,
 
-    /** Indicate p2p device is unavailable.  */
+    /** Indicate p2p device is unavailable.   
+     * 
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     UNAVAILABLE = 4,
   }
 
   /**
    * P2P group owner band.
    *
-   * @since 9
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
    */
   enum GroupOwnerBand {
+  /**
+   * default band.
+   *
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
+   */
     GO_BAND_AUTO = 0,
+
+  /**
+   * 2.4G band.
+   *
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
+   */
     GO_BAND_2GHZ = 1,
+
+  /**
+   * 5G band.
+   *
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
+   */
     GO_BAND_5GHZ = 2,
   }
 }
