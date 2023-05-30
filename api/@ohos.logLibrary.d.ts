@@ -35,6 +35,8 @@ declare namespace logLibrary {
      * Log file name
      *
      * @type { string }
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
      * @since 10
      */
     name: string;
@@ -43,6 +45,8 @@ declare namespace logLibrary {
      * File modification time, expressed by the number of seconds elapsed from 1970-01-01
      *
      * @type { number }
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
      * @since 10
      */
     mtime: number;
@@ -51,6 +55,8 @@ declare namespace logLibrary {
      * Log file size, byte
      *
      * @type { number }
+     * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
+     * @systemapi
      * @since 10
      */
     size: number;
@@ -60,7 +66,7 @@ declare namespace logLibrary {
    * List all log names of log type
    *
    * @permission ohos.permission.READ_HIVIEW_SYSTEM
-   * @param  { string } logType - Log type
+   * @param { string } logType - Log type
    * @returns { LogEntry[] } Return LogEntry[]
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
@@ -78,7 +84,7 @@ declare namespace logLibrary {
    * @param { string } logType - Log type
    * @param { string } logName - Log name
    * @param { string } dest - Log path under hiview sandbox of HAP
-   * @returns { void } Return void
+   * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
@@ -96,8 +102,7 @@ declare namespace logLibrary {
    * @param { string } logType - Log type
    * @param { string } logName - Log name
    * @param { string } dest - Log path under hiview sandbox of HAP
-   * @param { AsyncCallback} callback - After finish copy log will callback
-   * @returns { void } Return void
+   * @param { AsyncCallback<void> } callback - After finish copy log will callback
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
@@ -115,7 +120,7 @@ declare namespace logLibrary {
    * @param { string } logType - Log type
    * @param { string } logName - Log name
    * @param { string } dest - Log path under hiview sandbox of HAP
-   * @returns { void } Return void
+   * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
@@ -133,8 +138,7 @@ declare namespace logLibrary {
    * @param { string } logType - Log type
    * @param { string } logName - Log name
    * @param { string } dest - Log path under hiview sandbox of HAP
-   * @param {AsyncCallback} callback - After finish move log will callback
-   * @returns { void } Return void
+   * @param { AsyncCallback<void> } callback - After finish move log will callback
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument
@@ -151,7 +155,6 @@ declare namespace logLibrary {
    * @permission ohos.permission.WRITE_HIVIEW_SYSTEM
    * @param { string } logType - Log type
    * @param { string } logName - Log name
-   * @returns { void } Return void
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api
    * @throws { BusinessError } 401 - Invalid argument

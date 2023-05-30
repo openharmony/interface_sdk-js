@@ -31,8 +31,8 @@ declare namespace screenshot {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
    * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - If there is no permission
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -44,7 +44,7 @@ declare namespace screenshot {
    *
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - If there is no permission
+   * @throws { BusinessError } 201 - Permission verification failed.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -57,8 +57,8 @@ declare namespace screenshot {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - If there is no permission
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7

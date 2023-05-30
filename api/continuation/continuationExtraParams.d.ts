@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,60 +13,67 @@
  * limitations under the License.
  */
 
-import continuationManager from "../@ohos.continuation.continuationManager";
+import continuationManager from '../@ohos.continuation.continuationManager';
 
 /**
  * Indicates the description of additional parameters for continuation.
  *
- * @since 8
+ * @typedef ContinuationExtraParams
  * @syscap SystemCapability.Ability.DistributedAbilityManager
+ * @since 8
  */
 export interface ContinuationExtraParams {
   /**
    * Indicates the type of devices to be matched.
    *
-   * @since 8
+   * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
    */
   deviceType?: Array<string>;
 
   /**
    * Indicates the bundle name of the target application where the ability will be hopped.
    *
-   * @since 8
+   * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
    */
   targetBundle?: string;
 
   /**
    * Indicates the description used for device filtering.
    *
-   * @since 8
+   * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
    */
   description?: string;
 
   /**
    * Parameters used for filtering devices, type must be { [key: string]: any }.
    *
-   * @since 8
+   * @type { ?any }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
    */
   filter?: any;
 
   /**
    * Mode of continuation.
    *
-   * @since 8
+   * @type { ?continuationManager.ContinuationMode }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
    */
   continuationMode?: continuationManager.ContinuationMode;
 
   /**
    * Authentication extra infos.
    *
-   * @since 8
+   * @type { ?object }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
    */
-  authInfo?: { [key: string]: any }
+  authInfo?: { [key: string]: any };
 }

@@ -28,7 +28,7 @@ declare namespace screen {
    * Get all screen instances, then can get or set detail information.
    *
    * @param { AsyncCallback<Array<Screen>> } callback the callback of all screens info
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -39,7 +39,7 @@ declare namespace screen {
    * Get all screen instances, then can get or set detail information.
    *
    * @returns { Promise<Array<Screen>> } the result of all screens info
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -51,7 +51,7 @@ declare namespace screen {
    *
    * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes
    * @param { Callback<number> } callback Callback used to return the screen ID
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -63,7 +63,7 @@ declare namespace screen {
    *
    * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes
    * @param { Callback<number> } callback Callback used to return the screen ID
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -75,8 +75,8 @@ declare namespace screen {
    *
    * @param { Array<ExpandOption> } options Parameters for expanding the screen
    * @param { AsyncCallback<number> } callback callback used to return the group ID of the expanded screens
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -88,8 +88,8 @@ declare namespace screen {
    *
    * @param { Array<ExpandOption> } options Parameters for expanding the screen
    * @returns { Promise<number> } used to return the group ID of the expanded screens
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -101,8 +101,8 @@ declare namespace screen {
    *
    * @param { Array<number> } expandScreen IDs of expand screens to stop
    * @param { AsyncCallback<number> } callback used to return the result
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -114,8 +114,8 @@ declare namespace screen {
    *
    * @param { Array<number> } expandScreen IDs of expand screens to stop
    * @returns { Promise<void> } promise used to return the result
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -128,8 +128,8 @@ declare namespace screen {
    * @param { number } mainScreen ID of the primary screen
    * @param { Array<number> } mirrorScreen IDs of secondary screens
    * @param { AsyncCallback<number> } callback Callback used to return the group ID of the secondary screens
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -142,8 +142,8 @@ declare namespace screen {
    * @param { number } mainScreen ID of the primary screen
    * @param { Array<number> } mirrorScreen IDs of secondary screens
    * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -155,8 +155,8 @@ declare namespace screen {
    *
    * @param { Array<number> } mirrorScreen IDs of mirror screens to stop
    * @param { AsyncCallback<void> } callback used to return the result
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -168,8 +168,8 @@ declare namespace screen {
    *
    * @param { Array<number> } mirrorScreen IDs of mirror screens to stop
    * @returns { Promise<void> } promise used to return the result
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -182,9 +182,9 @@ declare namespace screen {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @param { AsyncCallback<Screen> } callback Callback used to return the created virtual screen
-   * @throws { BusinessError } 201 - If there is no permission
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -197,9 +197,9 @@ declare namespace screen {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @returns { Promise<Screen> } Promise used to return the created virtual screen
-   * @throws { BusinessError } 201 - If there is no permission
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -211,8 +211,8 @@ declare namespace screen {
    *
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400002 - If operation other screen
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -224,8 +224,8 @@ declare namespace screen {
    *
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400002 - If operation other screen
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -239,9 +239,9 @@ declare namespace screen {
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @param { AsyncCallback<void> } callback Callback used to return the result
-   * @throws { BusinessError } 201 - If there is no permission
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -255,9 +255,9 @@ declare namespace screen {
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 201 - If there is no permission
-   * @throws { BusinessError } 401 - If param is invalid
-   * @throws { BusinessError } 1400001 - If display or screen is invalid
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -289,7 +289,7 @@ declare namespace screen {
    *
    * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -301,7 +301,7 @@ declare namespace screen {
    *
    * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - If param is invalid
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -514,8 +514,8 @@ declare namespace screen {
      *
      * @param { Orientation } orientation Screen orientation.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1400003 - If system state is abnormally
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -527,8 +527,8 @@ declare namespace screen {
      *
      * @param { Orientation } orientation Screen orientation.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1400003 - If system state is abnormally
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -540,8 +540,8 @@ declare namespace screen {
      *
      * @param { number } modeIndex Index of the mode to set.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1400003 - If system state is abnormally
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -553,8 +553,8 @@ declare namespace screen {
      *
      * @param { number } modeIndex Index of the mode to set.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1400003 - If system state is abnormally
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -566,8 +566,8 @@ declare namespace screen {
      *
      * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1400003 - If system state is abnormally
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -579,8 +579,8 @@ declare namespace screen {
      *
      * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1400003 - If system state is abnormally
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
