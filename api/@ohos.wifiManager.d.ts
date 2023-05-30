@@ -2004,7 +2004,7 @@ declare namespace wifiManager {
     DISCONNECTED = 0,
 
     /** p2p is connected */
-    CONNECTED = 1,
+    CONNECTED = 1
   }
 
   /**
@@ -2076,7 +2076,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 9
      */
-    UNAVAILABLE = 4,
+    UNAVAILABLE = 4
   }
 
   /**
@@ -2108,7 +2108,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-    GO_BAND_5GHZ = 2,
+    GO_BAND_5GHZ = 2
   }
 }
 
