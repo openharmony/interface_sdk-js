@@ -194,6 +194,7 @@ ducking
 earfcn
 earphones
 earpiece
+edr
 efuse
 egid
 ehrpd
