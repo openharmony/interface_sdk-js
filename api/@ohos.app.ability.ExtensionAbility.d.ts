@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import Ability from "./@ohos.app.ability.Ability";
+import Ability from './@ohos.app.ability.Ability';
 
 /**
- * class of extension.
+ * class of extension ability.
+ *
+ * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @since 9
  */
-export default class ExtensionAbility extends Ability {
-}
+export default class ExtensionAbility extends Ability {}

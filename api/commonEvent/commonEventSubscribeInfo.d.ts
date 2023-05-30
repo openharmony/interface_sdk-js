@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,16 +15,17 @@
 
 /**
  * the information of the subscriber
- * @name CommonEventSubscribeInfo
- * @since 7
+ *
+ * @typedef CommonEventSubscribeInfo
  * @syscap SystemCapability.Notification.CommonEvent
- * @permission N/A
+ * @since 7
  */
 export interface CommonEventSubscribeInfo {
   /**
    * Indicates the subscribed events.
    *
-   * @default ""
+   * @type { Array<string> }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   events: Array<string>;
@@ -33,7 +34,8 @@ export interface CommonEventSubscribeInfo {
    * The permission that the publisher must have in order to send a common event to this subscriber.
    * This subscriber receives only common events sent by publishers granted with this permission.
    *
-   * @default ""
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   publisherPermission?: string;
@@ -41,16 +43,18 @@ export interface CommonEventSubscribeInfo {
   /**
    * deviceId Indicates the device ID. The value must be an existing device ID on the same ohos network.
    *
-   * @default ""
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   publisherDeviceId?: string;
 
   /**
    * Indicates the user ID. This parameter is optional, and the default value is the ID of the
-  * current user. If this parameter is specified, the value must be an existing user ID in the system.
+   * current user. If this parameter is specified, the value must be an existing user ID in the system.
    *
-   * @default ""
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   userId?: number;
@@ -58,7 +62,8 @@ export interface CommonEventSubscribeInfo {
   /**
    * Indicates the subscriber priority. The value ranges from -100 to 1000.
    *
-   * @default ""
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   priority?: number;
