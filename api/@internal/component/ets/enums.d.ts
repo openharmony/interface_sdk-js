@@ -3173,21 +3173,12 @@ declare enum TextAlign {
   End,
 
   /**
-   * Justify the text
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead TextAlign#JUSTIFY
-   */
-  Justify,
-
-  /**
-   * Justify the text
+   * Justify the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
-   * Justify the text
+   * Justify the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3261,15 +3252,6 @@ declare enum TextOverflow {
    * @since 10
    */
   Ellipsis,
-
-  /**
-   * When the text overflows its dimensions, the text will scroll for displaying.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead TextOverflow#MARQUEE
-   */
-  Marquee,
 
   /**
    * When the text overflows its dimensions, the text will scroll for displaying.
