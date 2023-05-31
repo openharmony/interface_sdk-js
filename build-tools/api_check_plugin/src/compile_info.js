@@ -39,7 +39,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
   const errorMessage = `API check error of [${errorType.description}]: ${errorInfo}`;
 
   apiCheckArr.push({
-    errorType: errorType,
+    errorType: errorType.description,
     fileName: `${baseFileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
     type: type,
     errorInfo: errorInfo,

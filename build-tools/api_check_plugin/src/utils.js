@@ -109,48 +109,52 @@ exports.overwriteIndexOf = overwriteIndexOf;
 
 const ErrorType = {
   UNKNOW_DECORATOR: {
-    id:0,
-    description:'unknow decorator'
+    id: 0,
+    description: 'unknow decorator'
   },
   MISSPELL_WORDS: {
-    id:1,
-    description:'misspell words'
+    id: 1,
+    description: 'misspell words'
   },
   NAMING_ERRORS: {
-    id:2,
-    description:'naming errors'
+    id: 2,
+    description: 'naming errors'
   },
   UNKNOW_PERMISSION: {
-    id:3,
-    description:'unknow permission'
+    id: 3,
+    description: 'unknow permission'
   },
   UNKNOW_SYSCAP: {
-    id:4,
-    description:'unknow syscap'
+    id: 4,
+    description: 'unknow syscap'
   },
   UNKNOW_DEPRECATED: {
-    id:5,
-    description:'unknow deprecated'
+    id: 5,
+    description: 'unknow deprecated'
   },
   WRONG_ORDER: {
-    id:6,
-    description:'wrong order'
+    id: 6,
+    description: 'wrong order'
   },
   WRONG_VALUE: {
-    id:7,
-    description:'wrong value'
+    id: 7,
+    description: 'wrong value'
   },
   WRONG_SCENE: {
-    id:8,
-    description:'wrong scene'
+    id: 8,
+    description: 'wrong scene'
   },
   PARAMETER_ERRORS: {
-    id:9,
-    description:'wrong parameter'
+    id: 9,
+    description: 'wrong parameter'
   },
   API_PAIR_ERRORS: {
-    id:10,
-    description:'limited api pair errors'
+    id: 10,
+    description: 'limited api pair errors'
+  },
+  ILLEGAL_ANY: {
+    id: 11,
+    description: 'illegal any'
   }
 };
 exports.ErrorType = ErrorType;
@@ -317,6 +321,7 @@ const ErrorValueInfo = {
   ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] tag is redundant. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL: 'In the JSDoc section [$$], the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
   ERROR_USE_INTERFACE: 'In paragraph [$$] of JSDoc, the validity verification of the JSDoc tag failed. The interface tag and typedef tag are not allowed to be used simultaneously. Please confirm the interface class.',
+  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API'
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
@@ -376,7 +381,6 @@ exports.OPTIONAL_SYMBOL = OPTIONAL_SYMBOL;
 function removeDuplicateObj(array) {
   let newArr = [];
   let errorInfoSet = new Set();
-  
   for (const errorInfo of array) {
     if (!errorInfoSet.has(JSON.stringify(errorInfo))) {
       errorInfoSet.add(JSON.stringify(errorInfo));
