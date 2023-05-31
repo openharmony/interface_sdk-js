@@ -1832,77 +1832,169 @@ declare namespace wifiManager {
   /**
    * The state of the supplicant enumeration.
    *
-   * @since 9
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
    */
   export enum SuppState {
-    /** The supplicant is not associated with or is disconnected from the AP. */
+    /** The supplicant is not associated with or is disconnected from the AP.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     DISCONNECTED,
 
-    /** The network interface is disabled. */
+    /** The network interface is disabled.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     INTERFACE_DISABLED,
 
-    /** The supplicant is disabled. */
+    /** The supplicant is disabled.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     INACTIVE,
 
-    /** The supplicant is scanning for a Wi-Fi connection. */
+    /** The supplicant is scanning for a Wi-Fi connection.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     SCANNING,
 
-    /** The supplicant is authenticating with a specified AP. */
+    /** The supplicant is authenticating with a specified AP.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     AUTHENTICATING,
 
-    /** The supplicant is associating with a specified AP. */
+    /** The supplicant is associating with a specified AP.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     ASSOCIATING,
 
-    /** The supplicant is associated with a specified AP. */
+    /** The supplicant is associated with a specified AP.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     ASSOCIATED,
 
-    /** The four-way handshake is ongoing. */
+    /** The four-way handshake is ongoing.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     FOUR_WAY_HANDSHAKE,
 
-    /** The group handshake is ongoing. */
+    /** The group handshake is ongoing.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     GROUP_HANDSHAKE,
 
-    /** All authentication is completed. */
+    /** All authentication is completed.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     COMPLETED,
 
-    /** Failed to establish a connection to the supplicant. */
+    /** Failed to establish a connection to the supplicant.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     UNINITIALIZED,
 
-    /** The supplicant is in an unknown or invalid state. */
+    /** The supplicant is in an unknown or invalid state.
+     *
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     INVALID
   }
 
   /**
    * The state of Wi-Fi connection enumeration.
    *
-   * @since 9
    * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
    */
   export enum ConnState {
-    /** The device is searching for an available AP. */
+    /** The device is searching for an available AP.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     SCANNING,
 
-    /** The Wi-Fi connection is being set up. */
+    /** The Wi-Fi connection is being set up.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     CONNECTING,
 
-    /** The Wi-Fi connection is being authenticated. */
+    /** The Wi-Fi connection is being authenticated.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     AUTHENTICATING,
 
-    /** The IP address of the Wi-Fi connection is being obtained. */
+    /** The IP address of the Wi-Fi connection is being obtained.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     OBTAINING_IPADDR,
 
-    /** The Wi-Fi connection has been set up. */
+    /** The Wi-Fi connection has been set up.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     CONNECTED,
 
-    /** The Wi-Fi connection is being torn down. */
+    /** The Wi-Fi connection is being torn down.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     DISCONNECTING,
 
-    /** The Wi-Fi connection has been torn down. */
+    /** The Wi-Fi connection has been torn down.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     DISCONNECTED,
 
-    /** Failed to set up the Wi-Fi connection. */
+    /** Failed to set up the Wi-Fi connection.
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
     UNKNOWN
   }
 
@@ -1910,23 +2002,43 @@ declare namespace wifiManager {
    * P2P device information.
    *
    * @interface WifiP2pDevice
-   * @since 9
    * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
    */
   interface WifiP2pDevice {
-    /** Device name */
+    /** Device name
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     deviceName: string;
 
-    /** Device mac address */
+    /** Device mac address
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     deviceAddress: string;
 
-    /** Primary device type */
+    /** Primary device type
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     primaryDeviceType: string;
 
-    /** Device status */
+    /** Device status
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     deviceStatus: P2pDeviceStatus;
 
-    /** Device group capabilities */
+    /** Device group capabilities
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     groupCapabilities: number;
   }
 
@@ -1938,22 +2050,41 @@ declare namespace wifiManager {
    * @since 9
    */
   interface WifiP2PConfig {
-    /** Device mac address */
+    /** Device mac address
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     deviceAddress: string;
 
     /**
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
      * -2: indicates creates a persistent group
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
      */
     netId: number;
 
-    /* The passphrase of this {@code WifiP2pConfig} instance */
+    /** The passphrase of this {@code WifiP2pConfig} instance 
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     passphrase: string;
 
-    /** Group name */
+    /** Group name 
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     groupName: string;
 
-    /** Group owner band */
+    /** Group owner band
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     goBand: GroupOwnerBand;
   }
 
@@ -1965,31 +2096,67 @@ declare namespace wifiManager {
    * @since 9
    */
   interface WifiP2pGroupInfo {
-    /** Indicates whether it is group owner */
+    /** Indicates whether it is group owner
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     isP2pGo: boolean;
 
-    /** Group owner information */
+    /** Group owner information
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     ownerInfo: WifiP2pDevice;
 
-    /** The group passphrase */
+    /** The group passphrase
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     passphrase: string;
 
-    /** Interface name */
+    /** Interface name
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     interface: string;
 
-    /** Group name */
+    /** Group name
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     groupName: string;
 
-    /** Network ID */
+    /** Network ID
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     networkId: number;
 
-    /** Frequency */
+    /** Frequency
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     frequency: number;
 
-    /** Client list */
+    /** Client list
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     clientDevices: WifiP2pDevice[];
 
-    /** Group owner IP address */
+    /** Group owner IP address
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     goIpAddress: string;
   }
 
