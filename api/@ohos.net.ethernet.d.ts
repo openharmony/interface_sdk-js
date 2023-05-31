@@ -270,7 +270,7 @@ declare namespace ethernet {
     dnsServers: string;
 
     /**
-     * Indicates the HttpProxy settings, Default does not use HttpProxy.
+     * Indicates the HttpProxy settings, no proxy is to be used as default.
      * @type {?HttpProxy}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.

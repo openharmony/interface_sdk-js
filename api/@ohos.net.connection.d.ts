@@ -492,8 +492,6 @@ declare namespace connection {
    * @param { AsyncCallback<HttpProxy> } callback Returns the default {@link HttpProxy} settings.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2101010 - No default network.
-   * @throws { BusinessError } 2101012 - No default HttpProxy.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -510,8 +508,6 @@ declare namespace connection {
    * @returns { Promise<HttpProxy> } the promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2101010 - No default network.
-   * @throws { BusinessError } 2101012 - No default HttpProxy.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
