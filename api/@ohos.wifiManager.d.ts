@@ -2047,6 +2047,7 @@ declare namespace wifiManager {
   /**
    * P2P device status.
    *
+   * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -2090,6 +2091,7 @@ declare namespace wifiManager {
   /**
    * P2P group owner band.
    *
+   * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
