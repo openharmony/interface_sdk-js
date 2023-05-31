@@ -1273,7 +1273,7 @@ declare namespace wifiManager {
     EAP_SIM,
     EAP_AKA,
     EAP_AKA_PRIME,
-    EAP_UNAUTH_TLS,
+    EAP_UNAUTH_TLS
   }
 
   /**
@@ -1291,7 +1291,7 @@ declare namespace wifiManager {
     PHASE2_GTC,
     PHASE2_SIM,
     PHASE2_AKA,
-    PHASE2_AKA_PRIME,
+    PHASE2_AKA_PRIME
   }
 
   /**
@@ -1309,7 +1309,7 @@ declare namespace wifiManager {
     DISC_REASON_WRONG_PWD = 1,
 	
     /** The number of router's connection reachs the maximum number limit */
-    DISC_REASON_CONNECTION_FULL = 2,
+    DISC_REASON_CONNECTION_FULL = 2
   }
 
   /**
@@ -1585,7 +1585,7 @@ declare namespace wifiManager {
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.Core
      */
-    WIFI_SEC_TYPE_WAPI_PSK = 9,
+    WIFI_SEC_TYPE_WAPI_PSK = 9
   }
 
   /**
@@ -1599,7 +1599,7 @@ declare namespace wifiManager {
     WIFI_BAND_2G,
     WIFI_BAND_5G,
     WIFI_BAND_6G,
-    WIFI_BAND_60G,
+    WIFI_BAND_60G
   }
 
   /**
@@ -1616,7 +1616,7 @@ declare namespace wifiManager {
     WIFI_STANDARD_11N,
     WIFI_STANDARD_11AC,
     WIFI_STANDARD_11AX,
-    WIFI_STANDARD_11AD,
+    WIFI_STANDARD_11AD
   }
 
   /**
@@ -1826,7 +1826,7 @@ declare namespace wifiManager {
     DHCP,
 
     /** No IP details are assigned */
-    UNKNOWN,
+    UNKNOWN
   }
 
   /**
@@ -2000,10 +2000,18 @@ declare namespace wifiManager {
    * @since 9
    */
   enum P2pConnectState {
-    /** p2p is disconnected */
+    /** p2p is disconnected 
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     DISCONNECTED = 0,
 
-    /** p2p is connected */
+    /** p2p is connected 
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 9
+     */
     CONNECTED = 1
   }
 
