@@ -1909,6 +1909,7 @@ declare namespace wifiManager {
   /**
    * P2P device information.
    *
+   * @interface WifiP2pDevice
    * @since 9
    * @syscap SystemCapability.Communication.WiFi.P2P
    */
@@ -2018,6 +2019,7 @@ declare namespace wifiManager {
   /**
    * P2P linked information.
    *
+   * @interface WifiP2pLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
