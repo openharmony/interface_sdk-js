@@ -321,6 +321,7 @@ declare namespace config {
   /**
    * Indicates the type of daltonization color filter.
    *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9
    */
