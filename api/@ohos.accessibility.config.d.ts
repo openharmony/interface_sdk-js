@@ -32,7 +32,7 @@ declare namespace config {
    * @systemapi
    * @since 10
    */
-  var audioMono: Config<boolean>;
+  let audioMono: Config<boolean>;
   /**
    * Indicates the configuration of audio balance.
    *
@@ -40,7 +40,7 @@ declare namespace config {
    * @systemapi
    * @since 10
    */
-  var audioBalance: Config<number>;
+  let audioBalance: Config<number>;
   /**
    * Indicates the configuration of high-contrast text.
    *
@@ -322,6 +322,7 @@ declare namespace config {
    * Indicates the type of daltonization color filter.
    *
    * @systemapi
+   * @since 9
    */
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
 }
