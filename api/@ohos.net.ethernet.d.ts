@@ -23,7 +23,11 @@ import { connection } from './@ohos.net.connection';
  * @since 9
  */
 declare namespace ethernet {
+  /**
+     * @since 10
+     */
   type HttpProxy = connection.HttpProxy;
+
   /**
    * Get the specified network interface information.
    * @permission ohos.permission.GET_NETWORK_INFO
