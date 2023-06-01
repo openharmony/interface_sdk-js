@@ -630,6 +630,7 @@ declare namespace wifiManager {
   /**
    * Obtain information about the P2P connection.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<WifiP2pGroupInfo> } Returns p2p lineked information.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -637,11 +638,23 @@ declare namespace wifiManager {
    * @since 9
    */
   function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
+  
+  /**
+   * Obtain information about the P2P connection.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiP2pLinkedInfo> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
+   */
   function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
 
   /**
    * Obtain information about the current p2p group.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Promise<WifiP2pGroupInfo> } Returns p2p group information.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -649,11 +662,23 @@ declare namespace wifiManager {
    * @since 9
    */
   function getCurrentP2pGroup(): Promise<WifiP2pGroupInfo>;
+
+  /**
+   * Obtain information about the current p2p group.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { AsyncCallback<WifiP2pGroupInfo> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
+   */
   function getCurrentP2pGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
   /**
    * Obtain the information about the found devices.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Promise<WifiP2pDevice[]> } Returns p2p device information.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -661,6 +686,17 @@ declare namespace wifiManager {
    * @since 9
    */
   function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
+  
+  /**
+   * Obtain the information about the found devices.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { AsyncCallback<WifiP2pDevice[]> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
+   */
   function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
   /**
@@ -668,7 +704,7 @@ declare namespace wifiManager {
    * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
    * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
-   * @returns Returns the information about own device info.
+   * @returns { Promise<WifiP2pDevice> } Returns the information about own device info.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -676,6 +712,19 @@ declare namespace wifiManager {
    * @since 9
    */
   function getP2pLocalDevice(): Promise<WifiP2pDevice>;
+  
+  /**
+   * Obtain the information about own device information. 
+   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
+   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
+   * @param { AsyncCallback<WifiP2pDevice> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 9
+   */
   function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 
   /**
@@ -766,6 +815,7 @@ declare namespace wifiManager {
   /**
    * Obtain information about the groups.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Promise<Array<WifiP2pGroupInfo>> } Returns the information about own device info.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -775,6 +825,19 @@ declare namespace wifiManager {
    * @since 9
    */
   function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
+  
+  /**
+   * Obtain information about the groups.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { AsyncCallback<Array<WifiP2pGroupInfo>> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
   /**
