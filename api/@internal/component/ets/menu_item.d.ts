@@ -17,10 +17,20 @@
  * Defines the option of MenuItem.
  * @since 9
  */
+/**
+ * Defines the option of MenuItem.
+ * @crossplatform
+ * @since 10
+ */
 declare interface MenuItemOptions {
   /**
    * Defines the start display image info.
    * @since 9
+   */
+  /**
+   * Defines the start display image info.
+   * @crossplatform
+   * @since 10
    */
   startIcon?: ResourceStr;
 
@@ -28,11 +38,21 @@ declare interface MenuItemOptions {
    * Defines the content string display info.
    * @since 9
    */
+  /**
+   * Defines the content string display info.
+   * @crossplatform
+   * @since 10
+   */
   content?: ResourceStr;
 
   /**
    * Defines the end display image info.
    * @since 9
+   */
+  /**
+   * Defines the end display image info.
+   * @crossplatform
+   * @since 10
    */
   endIcon?: ResourceStr;
 
@@ -40,11 +60,21 @@ declare interface MenuItemOptions {
    * Defines the end label info like shortcut.
    * @since 9
    */
+  /**
+   * Defines the end label info like shortcut.
+   * @crossplatform
+   * @since 10
+   */
   labelInfo?: ResourceStr;
 
   /**
    * Create the submenu.
    * @since 9
+   */
+  /**
+   * Create the submenu.
+   * @crossplatform
+   * @since 10
    */
   builder?: CustomBuilder;
 }
@@ -53,10 +83,20 @@ declare interface MenuItemOptions {
  * Defines the MenuItem Component.
  * @since 9
  */
+/**
+ * Defines the MenuItem Component.
+ * @crossplatform
+ * @since 10
+ */
 interface MenuItemInterface {
   /**
    * Creates the MenuItem component.
    * @since 9
+   */
+  /**
+   * Creates the MenuItem component.
+   * @crossplatform
+   * @since 10
    */
   (value?: MenuItemOptions | CustomBuilder): MenuItemAttribute;
 }
@@ -65,10 +105,20 @@ interface MenuItemInterface {
  * Defines the MenuItem component attribute functions.
  * @since 9
  */
+/**
+ * Defines the MenuItem component attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Setting whether menuItem is selected.
    * @since 9
+   */
+  /**
+   * Setting whether menuItem is selected.
+   * @crossplatform
+   * @since 10
    */
   selected(value: boolean): MenuItemAttribute;
 
@@ -86,6 +136,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    *                                          false: does not displays icon when selected.
    *                                          ResourceStr: displays the specified icon when selected.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectIcon(value: boolean | ResourceStr): MenuItemAttribute;
@@ -95,6 +146,12 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @param callback
    * @since 9
    */
+  /**
+   * Triggers a callback when a menu item is selected or unchecked.
+   * @param callback
+   * @crossplatform
+   * @since 10
+   */
   onChange(callback: (selected: boolean) => void): MenuItemAttribute;
 
   /**
@@ -102,6 +159,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Family and style are not supported currently and will be fixed in future.
    * @param { Font } value - Indicates the font style of content text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   contentFont(value: Font): MenuItemAttribute;
@@ -110,6 +168,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Sets the font color of content text.
    * @param { ResourceColor } value - Indicates the font color of content text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   contentFontColor(value: ResourceColor): MenuItemAttribute;
@@ -119,6 +178,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Family and style are not supported currently and will be fixed in future.
    * @param { Font } value - Indicates the font style of label info text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   labelFont(value: Font): MenuItemAttribute;
@@ -127,6 +187,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Sets the font color of label info text.
    * @param { ResourceColor } value - Indicates the font color of label info text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   labelFontColor(value: ResourceColor): MenuItemAttribute;
@@ -136,10 +197,20 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
  * Defines MenuItem Component.
  * @since 9
  */
+/**
+ * Defines MenuItem Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const MenuItem: MenuItemInterface;
 
 /**
  * Defines MenuItem Component instance.
  * @since 9
+ */
+/**
+ * Defines MenuItem Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const MenuItemInstance: MenuItemAttribute;

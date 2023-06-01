@@ -36,6 +36,7 @@ function checkLargeHump(word) {
 function checkSmallHump(word) {
   return /^[a-z]+[0-9]*([A-Z][a-z0-9]*)*$/g.test(word);
 }
+exports.checkSmallHump = checkSmallHump;
 
 // 全大写检查
 function checkAllUppercaseHump(word) {
