@@ -743,6 +743,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi status change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -758,6 +759,7 @@ declare namespace wifiManager {
    *
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -771,6 +773,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi connection change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -785,6 +788,7 @@ declare namespace wifiManager {
    * Unsubscribe Wi-Fi connection change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -798,6 +802,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi scan status change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -812,6 +817,7 @@ declare namespace wifiManager {
    * Unsubscribe Wi-Fi scan status change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -825,6 +831,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi rssi change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -839,6 +846,7 @@ declare namespace wifiManager {
    * Unsubscribe Wi-Fi rssi change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'wifiRssiChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -852,6 +860,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi stream change events.
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { 'streamChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -868,6 +877,7 @@ declare namespace wifiManager {
    * Unsubscribe Wi-Fi stream change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { 'streamChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -883,6 +893,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi device config change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'deviceConfigChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: config is added, 1: config is changed, 2: config is removed.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -898,6 +909,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi device config change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'deviceConfigChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off, 0: config is added, 1: config is changed, 2: config is removed.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -913,6 +925,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi hotspot state change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'hotspotStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -928,6 +941,7 @@ declare namespace wifiManager {
    * Unsubscribe Wi-Fi hotspot state change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'hotspotStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -942,6 +956,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi hotspot sta join events.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @param { 'hotspotStaJoin' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -958,6 +973,7 @@ declare namespace wifiManager {
    * Unsubscribe Wi-Fi hotspot sta join events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @param { 'hotspotStaJoin' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -973,6 +989,7 @@ declare namespace wifiManager {
   /**
    * Subscribe Wi-Fi hotspot sta leave events.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @param { 'hotspotStaLeave' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -989,6 +1006,7 @@ declare namespace wifiManager {
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @param { 'hotspotStaLeave' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -1004,6 +1022,7 @@ declare namespace wifiManager {
   /**
    * Subscribe P2P status change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1017,6 +1036,7 @@ declare namespace wifiManager {
   /**
    * Unsubscribe P2P status change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1030,6 +1050,7 @@ declare namespace wifiManager {
   /**
    * Subscribe P2P connection change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1043,6 +1064,7 @@ declare namespace wifiManager {
   /**
    * Unsubscribe P2P connection change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pConnectionChange' } type - event name.
    * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1056,6 +1078,7 @@ declare namespace wifiManager {
   /**
    * Subscribe P2P local device change events.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1069,6 +1092,7 @@ declare namespace wifiManager {
   /**
    * Unsubscribe P2P local device change events.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'p2pDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1082,6 +1106,7 @@ declare namespace wifiManager {
   /**
    * Subscribe P2P peer device change events.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1095,6 +1120,7 @@ declare namespace wifiManager {
   /**
    * Unsubscribe P2P peer device change events.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'p2pPeerDeviceChange' } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1108,6 +1134,7 @@ declare namespace wifiManager {
   /**
    * Subscribe P2P persistent group change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1121,6 +1148,7 @@ declare namespace wifiManager {
   /**
    * Unsubscribe P2P persistent group change events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pPersistentGroupChange' } type - event name.
    * @param { Callback<void> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1134,6 +1162,7 @@ declare namespace wifiManager {
   /**
    * Subscribe P2P discovery events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -1147,6 +1176,7 @@ declare namespace wifiManager {
   /**
    * Unsubscribe P2P discovery events.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { 'p2pDiscoveryChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -2108,8 +2138,8 @@ declare namespace wifiManager {
 
     /**
      * Type of macAddress: 0 - real mac, 1 - random mac.
-     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
      */
     macType: number;
 
