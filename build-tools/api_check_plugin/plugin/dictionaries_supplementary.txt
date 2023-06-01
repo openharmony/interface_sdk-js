@@ -814,3 +814,4 @@ zpass
 commonevent
 unprepare
 unchained
+sar
