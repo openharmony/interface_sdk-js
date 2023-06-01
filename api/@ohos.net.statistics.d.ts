@@ -26,6 +26,7 @@ declare namespace statistics {
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
    * @param { string } nic Indicates the NIC name.
    * @param { AsyncCallback<number> } callback Returns the data traffic received through the specified NIC.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -40,6 +41,7 @@ declare namespace statistics {
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
    * @param { string } nic Indicates the NIC name.
    * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -54,6 +56,7 @@ declare namespace statistics {
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified NIC.
    * @param { string } nic Indicates the NIC name.
    * @param { AsyncCallback<number> } callback Returns the data traffic sent through the specified NIC.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -68,6 +71,7 @@ declare namespace statistics {
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified NIC.
    * @param { string } nic Indicates the NIC name.
    * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -183,6 +187,7 @@ declare namespace statistics {
    * This method applies only to system applications and your own applications.
    * @param { number } uid Indicates the process ID of the application.
    * @param { AsyncCallback<number> } callback Returns the data traffic received by the specified application.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -197,6 +202,7 @@ declare namespace statistics {
    * This method applies only to system applications and your own applications.
    * @param { number } uid Indicates the process ID of the application.
    * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -211,6 +217,7 @@ declare namespace statistics {
    * This method applies only to system applications and your own applications.
    * @param { number } uid Indicates the process ID of the application.
    * @param { AsyncCallback<number> } callback Returns the data traffic sent by the specified application.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -225,6 +232,7 @@ declare namespace statistics {
    * This method applies only to system applications and your own applications.
    * @param { number } uid Indicates the process ID of the application.
    * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
@@ -250,6 +258,7 @@ declare namespace statistics {
 
   /**
    * Unregister notifications of network traffic updates.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'netStatsChange' } type Indicates Event name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
