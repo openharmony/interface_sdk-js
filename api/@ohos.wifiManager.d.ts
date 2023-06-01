@@ -487,6 +487,7 @@ declare namespace wifiManager {
   /**
    * Check whether the current device supports the specified band.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @param { WifiBandType } bandType - Indicates the band type.
    * @returns { boolean }Returns {@code true} if the specified band is supported, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
