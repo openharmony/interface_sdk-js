@@ -1998,13 +1998,6 @@ declare enum RepeatMode {
  */
 declare enum BlurStyle {
   /**
-   * Defines none material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  NONE = 0,    
-  
-  /**
    * Defines the thin card material.
    * @form
    * @since 9
@@ -2054,15 +2047,6 @@ declare enum BlurStyle {
   /**
    * Defines the thin regular material.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_REGULAR
-   */
-  BackgroundRegular,
-
-  /**
-   * Defines the thin regular material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -2083,6 +2067,15 @@ declare enum BlurStyle {
    * @since 10
    */
   BACKGROUND_ULTRA_THICK,
+
+  /**
+   * Defines none material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */  
+  NONE,    
 }
 
 /**
@@ -2173,6 +2166,7 @@ declare enum ModalTransition {
 
 /**
  * Defines the options of backgroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -2181,6 +2175,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
 /**
  * Defines the options of ForegroundBlurStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
@@ -2188,19 +2183,24 @@ declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
 /**
  * Defines the options of blurStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface BlurStyleOptions {
   /**
    * color mode
-   * @crossplatform
+   * @type { ThemeColorMode }
+   * @default ThemeColorMode.SYSTEM
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   colorMode?: ThemeColorMode;
 
   /**
    * adaptive color
-   * @crossplatform
+   * @type { AdaptiveColor }
+   * @default AdaptiveColor.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
