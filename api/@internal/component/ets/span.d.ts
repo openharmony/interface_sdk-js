@@ -194,6 +194,15 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 10
    */
   textCase(value: TextCase): SpanAttribute;
+
+  /**
+   * Called when the line height of the span is set.
+   * @param { Length } value - The line height of the span.
+   * @returns { SpanAttribute } The attribute of the span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  lineHeight(value: Length): SpanAttribute;
 }
 
 /**
