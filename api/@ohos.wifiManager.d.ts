@@ -87,8 +87,8 @@ declare namespace wifiManager {
   /**
    * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param config Indicates the device configuration for connection to the Wi-Fi network.
-   * @returns Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
+   * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
+   * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -99,6 +99,22 @@ declare namespace wifiManager {
    * @since 9
    */
   function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
+  
+  /**
+   * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
+   * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
+   * @param { AsyncCallback<number> } callback - Indicates call back of addDeviceConfig.
+   * @returns Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
   /**
@@ -107,7 +123,7 @@ declare namespace wifiManager {
   *     your device will determine whether to connect to the hotspot.
   * @permission ohos.permission.SET_WIFI_INFO
   * @param { WifiDeviceConfig } config - candidate config.
-  * @returns Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
+  * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
   * @throws {BusinessError} 201 - Permission denied.
   * @throws {BusinessError} 401 - Invalid parameters.
   * @throws {BusinessError} 801 - Capability not supported.
@@ -116,14 +132,28 @@ declare namespace wifiManager {
   * @since 9
   */
   function addCandidateConfig(config: WifiDeviceConfig): Promise<number>;
+  
+  /**
+  * Add a specified candidate hotspot configuration and returns the networkId.
+  * This method adds one configuration at a time. After this configuration is added,
+  *     your device will determine whether to connect to the hotspot.
+  * @permission ohos.permission.SET_WIFI_INFO
+  * @param { WifiDeviceConfig } config - candidate config.
+  * @param { AsyncCallback<number> } callback - Indicates call back of addCandidateConfig.
+  * @throws {BusinessError} 201 - Permission denied.
+  * @throws {BusinessError} 401 - Invalid parameters.
+  * @throws {BusinessError} 801 - Capability not supported.
+  * @throws {BusinessError} 2501000 - Operation failed.
+  * @syscap SystemCapability.Communication.WiFi.STA
+  * @since 9
+  */
   function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
   /**
    * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
    * to be removed.
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param networkId - Network ID which will be removed.
-   * @returns {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
+   * @param { number } networkId - Network ID which will be removed.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -132,6 +162,20 @@ declare namespace wifiManager {
    * @since 9
    */
   function removeCandidateConfig(networkId: number): Promise<void>;
+
+  /**
+   * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
+   * to be removed.
+   * @permission ohos.permission.SET_WIFI_INFO
+   * @param networkId - Network ID which will be removed.
+   * @param { AsyncCallback<void> } callback - Indicates call back of removeCandidateConfig.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
+   */
   function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -181,7 +225,7 @@ declare namespace wifiManager {
   /**
    * Connect to Wi-Fi hotspot by WifiDeviceConfig.
 
-   * @param config Indicates the device configuration for connection to the Wi-Fi hotspot.
+   * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG and
    * ohos.permission.MANAGE_WIFI_CONNECTION
    * @throws {BusinessError} 201 - Permission denied.
@@ -227,6 +271,7 @@ declare namespace wifiManager {
   /**
    * Obtain connection information about the Wi-Fi connection.
    * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<WifiLinkedInfo> } Returns Wi-Fi linked information.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -236,6 +281,19 @@ declare namespace wifiManager {
    * @since 9
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
+  
+  /**
+   * Obtain connection information about the Wi-Fi connection.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiLinkedInfo> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
+   */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
@@ -384,7 +442,7 @@ declare namespace wifiManager {
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param networkId Identifies the network to disable.
+   * @param { number } networkId Identifies the network to disable.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
