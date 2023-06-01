@@ -105,7 +105,6 @@ declare namespace wifiManager {
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
    * @param { AsyncCallback<number> } callback - Indicates call back of addDeviceConfig.
-   * @returns Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -154,6 +153,7 @@ declare namespace wifiManager {
    * to be removed.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be removed.
+   * @returns { Promise<void> } Return results.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -167,7 +167,7 @@ declare namespace wifiManager {
    * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
    * to be removed.
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param networkId - Network ID which will be removed.
+   * @param { number } networkId - Network ID which will be removed.
    * @param { AsyncCallback<void> } callback - Indicates call back of removeCandidateConfig.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -224,10 +224,9 @@ declare namespace wifiManager {
 
   /**
    * Connect to Wi-Fi hotspot by WifiDeviceConfig.
-
-   * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG and
    * ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi hotspot.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -473,8 +472,7 @@ declare namespace wifiManager {
    * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
    * The application can only delete Wi-Fi DeviceConfig it has created.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId - Indicate the ID of the Wi-Fi DeviceConfig,
-   *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
+   * @param { number } networkId - Indicate the ID of the Wi-Fi DeviceConfig.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -630,7 +628,7 @@ declare namespace wifiManager {
   /**
    * Obtain information about the P2P connection.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Promise<WifiP2pGroupInfo> } Returns p2p lineked information.
+   * @returns { Promise<WifiP2pLinkedInfo> } Returns p2p linked information.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
