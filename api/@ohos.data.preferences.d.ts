@@ -36,6 +36,15 @@ import Context from './application/BaseContext';
 declare namespace preferences {
   /**
    * Indicates possible value types
+   * 
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @since 9
+   */
+  /**
+   * Indicates possible value types
+   * 
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @since 10
    */
   type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean>;
 
@@ -80,9 +89,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @param { AsyncCallback<Preferences> } callback - the {@link Preferences} instance matching the specified
+   * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
    *        preferences file name.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -93,9 +102,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @param { AsyncCallback<Preferences> } callback - the {@link Preferences} instance matching the specified
+   * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
    *        preferences file name.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -109,8 +118,8 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<Preferences> } the {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -121,8 +130,8 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<Preferences> } the {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -140,8 +149,8 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 15500010 - if failed to delete preferences file.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -156,8 +165,8 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 15500010 - if failed to delete preferences file.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -174,9 +183,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<void> } a promise object.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 15500010 - if failed to delete preferences file.
+   * @returns { Promise<void> } A promise object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -190,9 +199,9 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<void> } a promise object.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 15500010 - if failed to delete preferences file.
+   * @returns { Promise<void> } A promise object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -209,7 +218,7 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -223,7 +232,7 @@ declare namespace preferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -239,8 +248,8 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<void> } a promise object.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @returns { Promise<void> } A promise object.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -253,8 +262,8 @@ declare namespace preferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<void> } a promise object.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @returns { Promise<void> } A promise object.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -291,9 +300,9 @@ declare namespace preferences {
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
-     * @param { AsyncCallback<ValueType> } callback - the value matching the specified key if it is found;
+     * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
      *        returns the default value otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -303,9 +312,9 @@ declare namespace preferences {
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
-     * @param { AsyncCallback<ValueType> } callback - the value matching the specified key if it is found;
+     * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
      *        returns the default value otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -318,9 +327,9 @@ declare namespace preferences {
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
-     * @returns { Promise<ValueType> } the value matching the specified key if it is found;
+     * @returns { Promise<ValueType> } The value matching the specified key if it is found;
      *          returns the default value otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -330,9 +339,9 @@ declare namespace preferences {
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
-     * @returns { Promise<ValueType> } the value matching the specified key if it is found;
+     * @returns { Promise<ValueType> } The value matching the specified key if it is found;
      *          returns the default value otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -342,16 +351,16 @@ declare namespace preferences {
     /**
      * Obtains all the keys and values of a preferences in an object.
      *
-     * @param { AsyncCallback<Object> } callback - the values and keys in an object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @param { AsyncCallback<Object> } callback - The values and keys in an object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
     /**
      * Obtains all the keys and values of a preferences in an object.
      *
-     * @param { AsyncCallback<Object> } callback - the values and keys in an object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @param { AsyncCallback<Object> } callback - The values and keys in an object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -361,16 +370,16 @@ declare namespace preferences {
     /**
      * Obtains all the keys and values of a preferences in an object.
      *
-     * @returns { Promise<Object> } the values and keys in an object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @returns { Promise<Object> } The values and keys in an object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
     /**
      * Obtains all the keys and values of a preferences in an object.
      *
-     * @returns { Promise<Object> } the values and keys in an object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @returns { Promise<Object> } The values and keys in an object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -383,7 +392,7 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
      *         with the specified key;returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -393,7 +402,7 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
      *         with the specified key;returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -406,7 +415,7 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -416,7 +425,7 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
      *         a preferences with the specified key; returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -432,7 +441,7 @@ declare namespace preferences {
      * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -445,7 +454,7 @@ declare namespace preferences {
      * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -460,8 +469,8 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
-     * @returns { Promise<void> } a promise object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -473,8 +482,8 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_KEY_LENGTH</tt>.
-     * @returns { Promise<void> } a promise object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -489,7 +498,7 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -501,7 +510,7 @@ declare namespace preferences {
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -515,8 +524,8 @@ declare namespace preferences {
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
-     * @returns { Promise<void> } a promise object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -527,8 +536,8 @@ declare namespace preferences {
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
-     * @returns { Promise<void> } a promise object.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -558,7 +567,7 @@ declare namespace preferences {
      * Clears all preferences from the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
-     * @returns { Promise<void> } a promise object.
+     * @returns { Promise<void> } A promise object.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
@@ -566,7 +575,7 @@ declare namespace preferences {
      * Clears all preferences from the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
-     * @returns { Promise<void> } a promise object.
+     * @returns { Promise<void> } A promise object.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -593,14 +602,14 @@ declare namespace preferences {
     /**
      * Asynchronously saves the {@link Preferences} object to the file.
      *
-     * @returns { Promise<void> } a promise object.
+     * @returns { Promise<void> } A promise object.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
     /**
      * Asynchronously saves the {@link Preferences} object to the file.
      *
-     * @returns { Promise<void> } a promise object.
+     * @returns { Promise<void> } A promise object.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -610,18 +619,18 @@ declare namespace preferences {
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
-     * @param { 'change' } type - indicates the callback when preferences changes.
+     * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
-     * @param { 'change' } type - indicates the callback when preferences changes.
+     * @param { 'change' } type - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
@@ -631,18 +640,18 @@ declare namespace preferences {
     /**
      * Unregisters an existing observer.
      *
-     * @param { 'change' } type - indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback? - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 9
      */
     /**
      * Unregisters an existing observer.
      *
-     * @param { 'change' } type - indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback? - Indicates the callback function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10

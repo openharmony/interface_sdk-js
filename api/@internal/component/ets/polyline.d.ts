@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Provides an interface for drawing polylines.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface PolylineInterface {
   /**
    * Uses new to create Polyline.
@@ -31,6 +37,12 @@ interface PolylineInterface {
    * Uses new to create Polyline.
    * @form
    * @since 9
+   */
+  /**
+   * Uses new to create Polyline.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   new (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 
@@ -43,6 +55,12 @@ interface PolylineInterface {
    * @form
    * @since 9
    */
+  /**
+   * Called when using the draw fold.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 }
 
@@ -53,6 +71,11 @@ interface PolylineInterface {
  * @form
  * @since 9
  */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
@@ -62,6 +85,12 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * Called when the polyline is set to pass through the coordinate point list.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the polyline is set to pass through the coordinate point list.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   points(value: Array<any>): PolylineAttribute;
 }
@@ -75,6 +104,12 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Polyline Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Polyline: PolylineInterface;
 
 /**
@@ -85,5 +120,11 @@ declare const Polyline: PolylineInterface;
  * Defines Polyline Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Polyline Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const PolylineInstance: PolylineAttribute;

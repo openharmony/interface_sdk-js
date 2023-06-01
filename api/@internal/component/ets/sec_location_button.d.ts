@@ -18,6 +18,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SecLocationButtonLayoutDirection {
@@ -25,13 +26,16 @@ declare enum SecLocationButtonLayoutDirection {
    * Horizontal layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   HORIZONTAL = 0,
+
   /**
    * Vertical layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   VERTICAL = 1
@@ -42,6 +46,7 @@ declare enum SecLocationButtonLayoutDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SecLocationButtonLayoutOrder {
@@ -49,13 +54,16 @@ declare enum SecLocationButtonLayoutOrder {
    * Icon will be placed on the left when horizontal layout is set. Icon will be placed on the top when Vertical layout is set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   ICON_FIRST = 0,
+
   /**
    * Text will be placed on the left when horizontal layout is set. Text will be placed on the top when Vertical layout is set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   TEXT_FIRST = 1
@@ -66,20 +74,25 @@ declare enum SecLocationButtonLayoutOrder {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum LocationIconStyle {
+
   /**
    * Icon filled with the specified color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   FULL_FILLED = 0,
+
   /**
    * Icon rendered as lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   LINES = 1
@@ -90,13 +103,16 @@ declare enum LocationIconStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum LocationDescription {
+
   /**
    * Current Location
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   CURRENT_LOCATION = 0,
@@ -105,6 +121,7 @@ declare enum LocationDescription {
    * Add Location
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   ADD_LOCATION = 1,
@@ -113,6 +130,7 @@ declare enum LocationDescription {
    * Select Location
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   SELECT_LOCATION = 2,
@@ -121,6 +139,7 @@ declare enum LocationDescription {
    * Share Location
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   SHARE_LOCATION = 3,
@@ -129,6 +148,7 @@ declare enum LocationDescription {
    * Send Location
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   SEND_LOCATION = 4,
@@ -137,6 +157,7 @@ declare enum LocationDescription {
    * Locating
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   LOCATING = 5,
@@ -145,6 +166,7 @@ declare enum LocationDescription {
    * Location
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   LOCATION = 6,
@@ -153,6 +175,7 @@ declare enum LocationDescription {
    * Send Current Location
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   SEND_CURRENT_LOCATION = 7,
@@ -161,6 +184,7 @@ declare enum LocationDescription {
    * Relocation
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   RELOCATION = 8,
@@ -169,6 +193,7 @@ declare enum LocationDescription {
    * Punch In
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   PUNCH_IN = 9,
@@ -177,6 +202,7 @@ declare enum LocationDescription {
    * Current Position
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   CURRENT_POSITION = 10
@@ -187,6 +213,7 @@ declare enum LocationDescription {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum BackgroundButtonType {
@@ -194,6 +221,7 @@ declare enum BackgroundButtonType {
    * Capsule type (rounded corners default to half the height).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   CAPSULE_BACKGROUND = 0,
@@ -202,6 +230,7 @@ declare enum BackgroundButtonType {
    * Round type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   CIRCLE_BACKGROUND = 1,
@@ -210,6 +239,7 @@ declare enum BackgroundButtonType {
    * Common type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   NORMAL_BACKGROUND = 2
@@ -220,6 +250,7 @@ declare enum BackgroundButtonType {
  *
  * @interface SecLocationButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface SecLocationButtonOptions {
@@ -228,6 +259,7 @@ declare interface SecLocationButtonOptions {
    *
    * @type { ?LocationIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   icon?: LocationIconStyle;
@@ -237,6 +269,7 @@ declare interface SecLocationButtonOptions {
    *
    * @type { ?LocationDescription }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   text?: LocationDescription;
@@ -246,6 +279,7 @@ declare interface SecLocationButtonOptions {
    *
    * @type { ?BackgroundButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   background?: BackgroundButtonType;
@@ -256,6 +290,7 @@ declare interface SecLocationButtonOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SecLocationButtonOnClickResult {
@@ -263,13 +298,16 @@ declare enum SecLocationButtonOnClickResult {
    * Location button click event success.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   LOCATION_BUTTON_CLICK_SUCCESS = 0,
+
   /**
    * Location button click event is failed because the app can not be granted with location permission.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   LOCATION_BUTTON_CLICK_GRANT_FAILED = 1
@@ -280,6 +318,7 @@ declare enum SecLocationButtonOnClickResult {
  *
  * @interface SecLocationButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface SecLocationButtonInterface {
@@ -288,6 +327,7 @@ interface SecLocationButtonInterface {
    *
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   (): SecLocationButtonAttribute;
@@ -298,6 +338,7 @@ interface SecLocationButtonInterface {
    * @param { SecLocationButtonOptions } option - options of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   (option: SecLocationButtonOptions): SecLocationButtonAttribute;
@@ -307,6 +348,7 @@ interface SecLocationButtonInterface {
  * Defines the attributes of the location button.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class SecLocationButtonAttribute {
@@ -316,6 +358,7 @@ declare class SecLocationButtonAttribute {
    * @param { Length } value - Indicates the size of the icon.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   iconSize(value: Length): SecLocationButtonAttribute;
@@ -326,6 +369,7 @@ declare class SecLocationButtonAttribute {
    * @param { SecLocationButtonLayoutDirection } value - Indicates the layout direction of the icon and the text.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   layoutDirection(value: SecLocationButtonLayoutDirection): SecLocationButtonAttribute;
@@ -336,6 +380,7 @@ declare class SecLocationButtonAttribute {
    * @param { SecLocationButtonLayoutOrder } value - Indicates the layout order of the icon and the text.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   layoutOrder(value: SecLocationButtonLayoutOrder): SecLocationButtonAttribute;
@@ -346,6 +391,7 @@ declare class SecLocationButtonAttribute {
    * @param { Position } value - Indicates the position of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   position(value: Position): SecLocationButtonAttribute;
@@ -356,6 +402,7 @@ declare class SecLocationButtonAttribute {
    * @param { Position } value - Indicates the anchor point of the element when it is positioned.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   markAnchor(value: Position): SecLocationButtonAttribute;
@@ -367,6 +414,7 @@ declare class SecLocationButtonAttribute {
    * @param { Position } value - Indicates the offset value.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   offset(value: Position): SecLocationButtonAttribute;
@@ -377,6 +425,7 @@ declare class SecLocationButtonAttribute {
    * @param { Length } value - Indicates the font size of the text in the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontSize(value: Length): SecLocationButtonAttribute;
@@ -387,6 +436,7 @@ declare class SecLocationButtonAttribute {
    * @param { FontStyle } value - Indicates the font style of the text in the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontStyle(value: FontStyle): SecLocationButtonAttribute;
@@ -397,6 +447,7 @@ declare class SecLocationButtonAttribute {
    * @param { number | FontWeight | string } value - Indicates the font weight of the text in the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontWeight(value: number | FontWeight | string): SecLocationButtonAttribute;
@@ -407,6 +458,7 @@ declare class SecLocationButtonAttribute {
    * @param { string | Resource } value - Indicates the font family of the text in the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontFamily(value: string | Resource): SecLocationButtonAttribute;
@@ -417,6 +469,7 @@ declare class SecLocationButtonAttribute {
    * @param { ResourceColor } value - Indicates the font color of the text in the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontColor(value: ResourceColor): SecLocationButtonAttribute;
@@ -427,6 +480,7 @@ declare class SecLocationButtonAttribute {
    * @param { ResourceColor } value - Indicates the icon color in the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   iconColor(value: ResourceColor): SecLocationButtonAttribute;
@@ -437,6 +491,7 @@ declare class SecLocationButtonAttribute {
    * @param { ResourceColor } value - Indicates the background color of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   backgroundColor(value: ResourceColor): SecLocationButtonAttribute;
@@ -447,6 +502,7 @@ declare class SecLocationButtonAttribute {
    * @param { BorderStyle } value - Indicates the border style of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderStyle(value: BorderStyle): SecLocationButtonAttribute;
@@ -457,6 +513,7 @@ declare class SecLocationButtonAttribute {
    * @param { Length } value - Indicates the border width of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderWidth(value: Length): SecLocationButtonAttribute;
@@ -467,6 +524,7 @@ declare class SecLocationButtonAttribute {
    * @param { ResourceColor } value - Indicates the border color of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderColor(value: ResourceColor): SecLocationButtonAttribute;
@@ -477,6 +535,7 @@ declare class SecLocationButtonAttribute {
    * @param { Length } value - Indicates the border radius of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderRadius(value: Length): SecLocationButtonAttribute;
@@ -487,6 +546,7 @@ declare class SecLocationButtonAttribute {
    * @param { Padding | Length } value - Indicates the background padding of the secure location button.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   backgroundPadding(value: Padding | Length): SecLocationButtonAttribute;
@@ -497,6 +557,7 @@ declare class SecLocationButtonAttribute {
    * @param { Length } value - Indicates the padding between the text and icon.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textIconPadding(value: Length): SecLocationButtonAttribute;
@@ -507,6 +568,7 @@ declare class SecLocationButtonAttribute {
    * @param { (result: SecLocationButtonOnClickResult, event?: ClickEvent) => void } event - Indicates the response of the click.
    * @returns { SecLocationButtonAttribute } The attribute of the secure location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onClick(event: (result: SecLocationButtonOnClickResult, event?: ClickEvent) => void): SecLocationButtonAttribute;
@@ -517,6 +579,7 @@ declare class SecLocationButtonAttribute {
  * It's a button added to the UI that allows users to grant the application one-time authorization to access the location information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const SecLocationButton: SecLocationButtonInterface;
@@ -525,6 +588,7 @@ declare const SecLocationButton: SecLocationButtonInterface;
  * Defines a location button instance for secure access.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const SecLocationButtonInstance: SecLocationButtonAttribute;

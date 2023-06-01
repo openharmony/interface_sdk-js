@@ -160,7 +160,6 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
   }
 
   private shouldForEachChildren(node: ts.Node): boolean {
-    //this.visitNodeChildrenWhilteList.includes(node.kind);
     return true;
   }
 
