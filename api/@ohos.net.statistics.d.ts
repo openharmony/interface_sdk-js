@@ -29,7 +29,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -43,7 +43,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -57,7 +57,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -71,7 +71,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -84,7 +84,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -97,7 +97,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -110,7 +110,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -122,7 +122,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @returns { Promise<number> } The promise returned by the function.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -136,7 +136,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -148,7 +148,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -160,7 +160,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -172,7 +172,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -186,7 +186,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -200,7 +200,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -214,7 +214,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
@@ -228,7 +228,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
+   * @throws { BusinessError } 2103011 - Failed to create map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
