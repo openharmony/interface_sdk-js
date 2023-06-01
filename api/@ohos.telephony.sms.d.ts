@@ -1490,16 +1490,6 @@ declare namespace sms {
     contentLocation: string;
 
     /**
-     * Indicates the content location for the attachment.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Telephony.SmsMms
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    contentLocation: string;
-
-    /**
      * Indicates the content disposition for the attachment.
      *
      * @type { DispositionType }
