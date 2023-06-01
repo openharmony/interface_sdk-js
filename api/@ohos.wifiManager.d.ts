@@ -1720,6 +1720,7 @@ declare namespace wifiManager {
     /**
      * IP address.
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     ipAddress: number;
