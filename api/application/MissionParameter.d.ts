@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,43 +16,33 @@
 /**
  * Parameters corresponding to mission.
  *
- * @typedef MissionParameter
- * @permission ohos.permission.MANAGE_MISSIONS
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @systemapi
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @permission ohos.permission.MANAGE_MISSIONS
+ * @systemapi hide for inner use.
  */
 export interface MissionParameter {
   /**
    * Indicates the deviceId to start sync.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   deviceId: string;
 
   /**
    * If needed to fix the versions conflict.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   fixConflict: boolean;
 
   /**
    * Tag used to be specified.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   tag: number;
 }

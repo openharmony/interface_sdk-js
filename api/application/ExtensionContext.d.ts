@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,46 +13,44 @@
  * limitations under the License.
  */
 
-import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
+import { HapModuleInfo } from "../bundleManager/HapModuleInfo";
 import { Configuration } from '../@ohos.app.ability.Configuration';
-import Context from './Context';
-import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
+import Context from "./Context";
+import { ExtensionAbilityInfo } from "../bundleManager/ExtensionAbilityInfo";
 
 /**
  * The context of an extension. It allows access to extension-specific resources.
  *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
+ * @StageModelOnly
  */
 export default class ExtensionContext extends Context {
+
   /**
    * Indicates configuration information about an module.
    *
-   * @type { HapModuleInfo }
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
    */
   currentHapModuleInfo: HapModuleInfo;
 
   /**
    * Indicates configuration information.
    *
-   * @type { Configuration }
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
    */
   config: Configuration;
 
   /**
    * Extension information.
    *
-   * @type { ExtensionAbilityInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   extensionAbilityInfo: ExtensionAbilityInfo;
 }

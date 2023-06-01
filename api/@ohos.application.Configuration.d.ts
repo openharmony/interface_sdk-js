@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,37 +13,32 @@
  * limitations under the License.
  */
 
-import ConfigurationConstant from './@ohos.application.ConfigurationConstant';
+import ConfigurationConstant from "./@ohos.application.ConfigurationConstant";
 
 /**
  * configuration item.
  *
- * @typedef Configuration
- * @syscap SystemCapability.Ability.AbilityBase
+ * @name Configuration
  * @since 8
+ * @syscap SystemCapability.Ability.AbilityBase
+ * @permission N/A
  * @deprecated since 9
- * @useinstead ohos.app.ability.Configuration/Configuration
+ * @useinstead ohos.app.ability.Configuration
  */
 export interface Configuration {
   /**
    * Indicates the current language of the application.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.Configuration/Configuration#language
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   language?: string;
 
   /**
    * Indicates the current colorMode of the application.
    *
-   * @type { ?ConfigurationConstant.ColorMode }
-   * @syscap SystemCapability.Ability.AbilityBase
    * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.Configuration/Configuration#colorMode
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   colorMode?: ConfigurationConstant.ColorMode;
 }

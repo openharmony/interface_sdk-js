@@ -15,27 +15,11 @@
 
 /**
  * Describes a BundleOption.
- *
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
  * @since 9
  */
 export interface BundleOption {
-  /**
-   * bundle name
-   *
-   * @type { string }
-   * @syscap SystemCapability.Notification.Notification
-   * @since 9
-   */
   bundle: string;
-
-  /**
-   * user id.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Notification.Notification
-   * @since 9
-   */
   uid?: number;
 }

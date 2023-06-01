@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,68 +16,63 @@
 /**
  * The process data.
  *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @since 8
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi hide for inner use.
+ * @permission N/A
  */
 export default class ProcessData {
   /**
    * The bundle name.
    *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
    */
   bundleName: string;
 
   /**
    * The pid.
    *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
    */
   pid: number;
 
   /**
    * The uid.
    *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
    */
   uid: number;
 
   /**
    * The process state.
    *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
    */
   state: number;
 
   /**
    * Whether the process is continuous task.
    *
-   * @type { boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
    */
   isContinuousTask: boolean;
 
   /**
    * Whether the process is keep alive.
    *
-   * @type { boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
    */
   isKeepAlive: boolean;
 }

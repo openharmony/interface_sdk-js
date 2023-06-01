@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,28 +16,26 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * @typedef AbilityResult
- * @syscap SystemCapability.Ability.AbilityBase
  * @since 7
+ * @syscap SystemCapability.Ability.AbilityBase
+ * @permission N/A
  */
 export interface AbilityResult {
   /**
    * Indicates the result code returned after the ability is destroyed. You can define the result
    * code to identify an error.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
    * @since 7
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   resultCode: number;
 
   /**
    * Indicates the data returned after the ability is destroyed. You can define the data returned.
    * This parameter can be null.
-   *
-   * @type { ?Want }
-   * @syscap SystemCapability.Ability.AbilityBase
+   * @default -
    * @since 7
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   want?: Want;
 }

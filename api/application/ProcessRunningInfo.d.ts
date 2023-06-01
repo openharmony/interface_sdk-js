@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,50 +16,46 @@
 /**
  * The class of an process running information.
  *
- * @typedef ProcessRunningInfo
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @since 8
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @permission N/A
  * @deprecated since 9
- * @useinstead ProcessInformation/ProcessInformation
+ * @useinstead ProcessInformation
  */
 export interface ProcessRunningInfo {
   /**
-   * @type { number }
    * @default process id
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#pid
+   * @useinstead ProcessInformation.pid
    */
   pid: number;
 
   /**
-   * @type { number }
    * @default user id
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#uid
+   * @useinstead ProcessInformation.uid
    */
   uid: number;
 
   /**
-   * @type { string }
    * @default the name of the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#processName
+   * @useinstead ProcessInformation.processName
    */
   processName: string;
 
   /**
-   * @type { Array<string> }
    * @default an array of the bundleNames running in the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @deprecated since 9
-   * @useinstead ProcessInformation/ProcessInformation#bundleNames
+   * @useinstead ProcessInformation.bundleNames
    */
   bundleNames: Array<string>;
 }

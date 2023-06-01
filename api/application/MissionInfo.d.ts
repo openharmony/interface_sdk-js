@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,104 +13,85 @@
  * limitations under the License.
  */
 
-import Want from '../@ohos.app.ability.Want';
+import Want from "../@ohos.app.ability.Want";
 
 /**
  * Mission information corresponding to ability.
  *
- * @typedef MissionInfo
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @systemapi
  * @since 8
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @systemapi hide for inner use.
  */
 export interface MissionInfo {
   /**
    * Indicates mission id.
    *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   missionId: number;
 
   /**
    * Indicates running state.
    *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   runningState: number;
 
   /**
    * Indicates locked state.
    *
-   * @type { boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   lockedState: boolean;
 
   /**
    * Indicates the recent created or updated time of the mission.
    *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   timestamp: string;
 
   /**
    * Indicates want of the mission.
    *
-   * @type { Want }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   want: Want;
 
   /**
    * Indicates label of the mission.
    *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   label: string;
 
   /**
    * Indicates icon path of the mission.
    *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   iconPath: string;
 
   /**
    * Indicates whether the mission is continuable.
    *
-   * @type { boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   continuable: boolean;
 
   /**
    * Indicates the ability state of this mission.
    *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   abilityState: number;
 }

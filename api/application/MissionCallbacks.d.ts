@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,45 +16,39 @@
 /**
  * MissionCallback registered by app.
  *
- * @interface MissionCallback
- * @permission ohos.permission.MANAGE_MISSIONS
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @systemapi
+ * @name MissionCallback
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @permission ohos.permission.MANAGE_MISSIONS
+ * @systemapi hide for inner use.
  */
 export interface MissionCallback {
   /**
    * Called by system when mission changed.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the deviceId mission changed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @param deviceId Indicates the deviceId mission changed.
    */
   notifyMissionsChanged(deviceId: string): void;
 
   /**
    * Called by system when snapshot changed.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the deviceId mission changed.
-   * @param { number } mission Indicates the id of destroyed mission.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @param deviceId Indicates the deviceId mission changed.
+   * @param mission Indicates the id of destroyed mission.
    */
   notifySnapshot(deviceId: string, mission: number): void;
 
   /**
    * Called by system when network disconnect.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the deviceId mission changed.
-   * @param { number } state Indicates the state of network
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @param deviceId Indicates the deviceId mission changed.
+   * @param state Indicates the state of network
    */
   notifyNetDisconnect(deviceId: string, state: number): void;
 }

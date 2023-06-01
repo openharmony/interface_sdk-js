@@ -13,16 +13,16 @@
  * limitations under the License.
  */
 
-import { CommonEventData } from './commonEvent/commonEventData';
+import { CommonEventData } from "./commonEvent/commonEventData";
 import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**
  * class of static subscriber extension ability.
  *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @StageModelOnly
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi hide for inner use.
+ * @StageModelOnly
  */
 export default class StaticSubscriberExtensionAbility {
   /**
@@ -39,11 +39,11 @@ export default class StaticSubscriberExtensionAbility {
   /**
    * Called back when a specific common event is published.
    *
-   * @param { CommonEventData } event Static subscriber universal event callback.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   * @returns -
+   * @StageModelOnly
    */
   onReceiveEvent(event: CommonEventData): void;
 }

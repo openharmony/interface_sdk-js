@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,18 +13,16 @@
  * limitations under the License.
  */
 
-import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
+import ConfigurationConstant from "./@ohos.app.ability.ConfigurationConstant";
 
 /**
  * configuration item.
- *
  * @typedef Configuration
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
  */
 /**
  * configuration item.
- *
  * @typedef Configuration
  * @syscap SystemCapability.Ability.AbilityBase
  * @crossplatform
@@ -33,8 +31,7 @@ import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 export interface Configuration {
   /**
    * Indicates the current language of the application.
-   *
-   * @type { ?string }
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -42,15 +39,13 @@ export interface Configuration {
 
   /**
    * Indicates the current colorMode of the application.
-   *
-   * @type { ?ConfigurationConstant.ColorMode }
+   * @type { ConfigurationConstant.ColorMode }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
   /**
    * Indicates the current colorMode of the application.
-   *
-   * @type { ?ConfigurationConstant.ColorMode }
+   * @type { ConfigurationConstant.ColorMode }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @since 10
@@ -59,15 +54,13 @@ export interface Configuration {
 
   /**
    * Indicates the screen direction of the current device.
-   *
-   * @type { ?ConfigurationConstant.Direction }
+   * @type { ConfigurationConstant.Direction }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
   /**
    * Indicates the screen direction of the current device.
-   *
-   * @type { ?ConfigurationConstant.Direction }
+   * @type { ConfigurationConstant.Direction }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @since 10
@@ -76,8 +69,7 @@ export interface Configuration {
 
   /**
    * Indicates the screen density of the current device.
-   *
-   * @type { ?ConfigurationConstant.ScreenDensity }
+   * @type { ConfigurationConstant.ScreenDensity }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -85,8 +77,7 @@ export interface Configuration {
 
   /**
    * Indicates the displayId of the current device.
-   *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
@@ -94,8 +85,7 @@ export interface Configuration {
 
   /**
    * Indicates whether a pointer type device has connected.
-   *
-   * @type { ?boolean }
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */

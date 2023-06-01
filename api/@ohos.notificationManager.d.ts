@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -39,7 +39,6 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
  * with this ID has been published and you need to use this ID to publish another notification,
  * the original notification will be updated. In addition, the notification ID can be used to cancel
  * a notification by calling the {@link #cancel(int)} method.
- *
  * @namespace notificationManager
  * @syscap SystemCapability.Notification.Notification
  * @since 9
@@ -49,7 +48,6 @@ declare namespace notificationManager {
    * Publishes a notification.
    * <p>If a notification with the same ID has been published by the current application and has not been deleted,
    * this method will update the notification.
-   *
    * @param { NotificationRequest } request - notification request
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -69,7 +67,6 @@ declare namespace notificationManager {
    * Publishes a notification.
    * <p>If a notification with the same ID has been published by the current application and has not been deleted,
    * this method will update the notification.
-   *
    * @param { NotificationRequest } request - notification request
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -87,7 +84,6 @@ declare namespace notificationManager {
 
   /**
    * Publishes a notification to the specified user.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationRequest } request - a notification.
    * @param { number } userId - of subscriber receiving the notification.
@@ -111,7 +107,6 @@ declare namespace notificationManager {
 
   /**
    * Publishes a notification to the specified user.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationRequest } request - a notification.
    * @param { number } userId - of subscriber receiving the notification.
@@ -135,7 +130,6 @@ declare namespace notificationManager {
 
   /**
    * Publishes a representative notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { NotificationRequest } request - a notification.
    * @param { string } representativeBundle - bundle name of the representative
@@ -156,16 +150,10 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function publishAsBundle(
-    request: NotificationRequest,
-    representativeBundle: string,
-    userId: number,
-    callback: AsyncCallback<void>
-  ): void;
+  function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes a representative notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { NotificationRequest } request - a notification.
    * @param { string } representativeBundle - bundle name of the representative
@@ -190,7 +178,6 @@ declare namespace notificationManager {
 
   /**
    * Cancel a notification with the specified ID.
-   *
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -205,9 +192,8 @@ declare namespace notificationManager {
 
   /**
    * Cancel a notification with the specified label and ID.
-   *
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } label - Label of the notification to cancel.
+   * @param { string }label - Label of the notification to cancel.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -221,9 +207,8 @@ declare namespace notificationManager {
 
   /**
    * Cancel a notification with the specified label and ID.
-   *
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } [label] - Label of the notification to cancel.
+   * @param { string }label - Label of the notification to cancel.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -237,7 +222,6 @@ declare namespace notificationManager {
 
   /**
    * Cancel a representative notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string } representativeBundle - bundle name of the representative.
@@ -255,16 +239,10 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function cancelAsBundle(
-    id: number,
-    representativeBundle: string,
-    userId: number,
-    callback: AsyncCallback<void>
-  ): void;
+  function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Cancel a representative notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string } representativeBundle - bundle name of the representative.
@@ -286,7 +264,6 @@ declare namespace notificationManager {
 
   /**
    * Cancel all notifications of the current application.
-   *
    * @param { AsyncCallback<void> } callback - The callback of cancelAll.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -299,7 +276,6 @@ declare namespace notificationManager {
 
   /**
    * Cancel all notifications of the current application.
-   *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -312,7 +288,6 @@ declare namespace notificationManager {
 
   /**
    * Creates a notification slot.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSlot } slot - Indicates the notification slot to be created, which is set by {@link NotificationSlot}.
    * @param { AsyncCallback<void> } callback - The callback of addSlot.
@@ -331,7 +306,6 @@ declare namespace notificationManager {
 
   /**
    * Creates a notification slot.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSlot } slot - Indicates the notification slot to be created, which is set by {@link NotificationSlot}.
    * @returns { Promise<void> } The promise returned by the function.
@@ -350,7 +324,6 @@ declare namespace notificationManager {
 
   /**
    * Adds a slot type.
-   *
    * @param { SlotType } type - Slot type to add.
    * @param { AsyncCallback<void> } callback - The callback of addSlot.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -365,7 +338,6 @@ declare namespace notificationManager {
 
   /**
    * Adds a slot type.
-   *
    * @param { SlotType } type - Slot type to add.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -380,7 +352,6 @@ declare namespace notificationManager {
 
   /**
    * Creates a notification slot.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
    * @param { AsyncCallback<void> } callback - The callback of addSlots.
@@ -399,7 +370,6 @@ declare namespace notificationManager {
 
   /**
    * Creates a notification slot.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
    * @returns { Promise<void> } The promise returned by the function.
@@ -418,7 +388,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains a notification slot of the specified slot type.
-   *
    * @param { SlotType } slotType - Type of the notification slot to obtain.
    * @param { AsyncCallback<NotificationSlot> } callback - The callback is used to return the NotificationSlot.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -432,7 +401,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains a notification slot of the specified slot type.
-   *
    * @param { SlotType } slotType - Type of the notification slot to obtain.
    * @returns { Promise<NotificationSlot> } Returns the NotificationSlot.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -446,9 +414,7 @@ declare namespace notificationManager {
 
   /**
    * Obtains all NotificationSlot objects created by the current application.
-   *
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback is used to return all notification slots
-   *                                                              of this application.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback is used to return all notification slots of this application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -460,7 +426,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains all NotificationSlot objects created by the current application.
-   *
    * @returns { Promise<Array<NotificationSlot>> } Returns all notification slots of this application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -473,7 +438,6 @@ declare namespace notificationManager {
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
-   *
    * @param { SlotType } slotType - Type of the NotificationSlot to remove.
    * @param { AsyncCallback<void> } callback - The callback of removeSlot.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -487,7 +451,6 @@ declare namespace notificationManager {
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
-   *
    * @param { SlotType } slotType - Type of the NotificationSlot to remove.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -501,7 +464,6 @@ declare namespace notificationManager {
 
   /**
    * Removes all NotificationSlot objects created by the current application.
-   *
    * @param { AsyncCallback<void> } callback - The callback of removeAllSlots.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -514,7 +476,6 @@ declare namespace notificationManager {
 
   /**
    * Removes all NotificationSlot objects created by the current application.
-   *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -527,7 +488,6 @@ declare namespace notificationManager {
 
   /**
    * Set whether the application can send notifications.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
@@ -547,7 +507,6 @@ declare namespace notificationManager {
 
   /**
    * Set whether the application can send notifications.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
@@ -567,7 +526,6 @@ declare namespace notificationManager {
 
   /**
    * Checks whether this application allows to publish notifications.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
@@ -586,7 +544,6 @@ declare namespace notificationManager {
 
   /**
    * Checks whether this application allows to publish notifications.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<boolean> } The promise returned by the function.
@@ -605,7 +562,6 @@ declare namespace notificationManager {
 
   /**
    * Checks whether this application allows to publish notifications.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
    * @throws { BusinessError } 201 - Permission denied.
@@ -622,7 +578,6 @@ declare namespace notificationManager {
 
   /**
    * Checks whether this application allows to publish notifications.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -639,7 +594,6 @@ declare namespace notificationManager {
 
   /**
    * Checks whether this application allows to publish notifications under the user.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userid of the representative.
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
@@ -658,7 +612,6 @@ declare namespace notificationManager {
 
   /**
    * Checks whether this application allows to publish notifications under the user.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userid of the representative.
    * @returns { Promise<boolean> } The promise returned by the function.
@@ -677,7 +630,6 @@ declare namespace notificationManager {
 
   /**
    * Sets whether to allow the specified application to show badge.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
@@ -697,7 +649,6 @@ declare namespace notificationManager {
 
   /**
    * Sets whether to allow the specified application to show badge.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
@@ -717,7 +668,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the flag that whether to allow the application to show badge.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<boolean> } callback - The callback of isBadgeDisplayed.
@@ -736,7 +686,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the flag that whether to allow the application to show badge.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<boolean> } The promise returned by the function.
@@ -755,7 +704,6 @@ declare namespace notificationManager {
 
   /**
    * Update all notification slots for the specified bundle.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { NotificationSlot } slot - Indicates the notification slot.
@@ -775,7 +723,6 @@ declare namespace notificationManager {
 
   /**
    * Update all notification slots for the specified bundle.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { NotificationSlot } slot - Indicates the notification slot.
@@ -795,7 +742,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains all notification slots belonging to the specified bundle.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback of getSlotsByBundle.
@@ -814,7 +760,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains all notification slots belonging to the specified bundle.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<Array<NotificationSlot>> } The promise returned by the function.
@@ -833,7 +778,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains number of slot.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
@@ -852,7 +796,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains number of slot.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<number> } The promise returned by the function.
@@ -872,7 +815,6 @@ declare namespace notificationManager {
   /**
    * Obtains all active notifications in the current system. The caller must have system permissions to
    * call this method.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<Array<NotificationRequest>> } callback - The callback of getAllActiveNotifications.
    * @throws { BusinessError } 201 - Permission denied.
@@ -890,7 +832,6 @@ declare namespace notificationManager {
   /**
    * Obtains all active notifications in the current system. The caller must have system permissions to
    * call this method.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -907,7 +848,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the number of all active notifications.
-   *
    * @param { AsyncCallback<number> } callback - The callback of getActiveNotificationCount.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -920,7 +860,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the number of all active notifications.
-   *
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -933,7 +872,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains an array of active notifications.
-   *
    * @param { AsyncCallback<Array<NotificationRequest>> } callback - The callback of getActiveNotifications.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -946,7 +884,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains an array of active notifications.
-   *
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -959,7 +896,6 @@ declare namespace notificationManager {
 
   /**
    * Cancel the notification of a specified group for this application.
-   *
    * @param { string } groupName - The name of the group.
    * @param { AsyncCallback<void> } callback - The callback of cancelGroup.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -973,7 +909,6 @@ declare namespace notificationManager {
 
   /**
    * Cancel the notification of a specified group for this application.
-   *
    * @param { string } groupName - The name of the group.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -987,7 +922,6 @@ declare namespace notificationManager {
 
   /**
    * Delete the notification of a specified group for this application.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { string } groupName - The name of the group.
@@ -1007,7 +941,6 @@ declare namespace notificationManager {
 
   /**
    * Delete the notification of a specified group for this application.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { string } groupName - The name of the group.
@@ -1027,7 +960,6 @@ declare namespace notificationManager {
 
   /**
    * Set the Do Not Disturb date.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @param { AsyncCallback<void> } callback - The callback of setDoNotDisturbDate.
@@ -1046,7 +978,6 @@ declare namespace notificationManager {
 
   /**
    * Set the Do Not Disturb date.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @returns { Promise<void> } The promise returned by the function.
@@ -1065,7 +996,6 @@ declare namespace notificationManager {
 
   /**
    * Set the Do Not Disturb date under the specified user.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @param { number } userId - The userId.
@@ -1086,7 +1016,6 @@ declare namespace notificationManager {
 
   /**
    * Set the Do Not Disturb date under the specified user.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @param { number } userId - The userId.
@@ -1107,7 +1036,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the Do Not Disturb date.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<DoNotDisturbDate> } callback - The callback is used to return the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1125,7 +1053,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the Do Not Disturb date.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1143,7 +1070,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the Do Not Disturb date.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @param { AsyncCallback<DoNotDisturbDate> } callback - The callback is used to return the Do Not Disturb date.
@@ -1163,7 +1089,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the Do Not Disturb date.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
@@ -1183,10 +1108,8 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether to support the Do Not Disturb mode.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether Do Not Disturb
-   *                                              mode is supported.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether Do Not Disturb mode is supported.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1201,7 +1124,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether to support the Do Not Disturb mode.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } Returns whether Do Not Disturb mode is supported.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1218,8 +1140,7 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the template is supported by the system.
-   *
-   * @param { string } templateName Name of template to be Obtained.
+   * @param templateName Name of template to be Obtained.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the template is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1232,8 +1153,7 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the template is supported by the system.
-   *
-   * @param { string } templateName Name of template to be Obtained.
+   * @param templateName Name of template to be Obtained.
    * @returns { Promise<boolean> } Returns whether the template is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1246,7 +1166,6 @@ declare namespace notificationManager {
 
   /**
    * Request permission to send notification.
-   *
    * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1259,7 +1178,6 @@ declare namespace notificationManager {
 
   /**
    * Request permission to send notification.
-   *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1272,7 +1190,6 @@ declare namespace notificationManager {
 
   /**
    * Sets whether the device supports distributed notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of setDistributedEnable.
@@ -1291,7 +1208,6 @@ declare namespace notificationManager {
 
   /**
    * Sets whether the device supports distributed notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
@@ -1310,9 +1226,7 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the device supports distributed notification.
-   *
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed
-   *                                              notification is supported.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed notification is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1325,7 +1239,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the device supports distributed notification.
-   *
    * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1339,7 +1252,6 @@ declare namespace notificationManager {
 
   /**
    * Sets whether an application supports distributed notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
@@ -1360,7 +1272,6 @@ declare namespace notificationManager {
 
   /**
    * Sets whether an application supports distributed notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
@@ -1381,11 +1292,9 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether an application supports distributed notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed
-   *                                              notification is supported.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed notification is supported.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1402,7 +1311,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether an application supports distributed notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
@@ -1422,7 +1330,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the remind modes of the notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<DeviceRemindType> } callback - The callback is used to return the RemindType.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1439,7 +1346,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains the remind modes of the notification.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<DeviceRemindType> } Returns the RemindType.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1456,7 +1362,6 @@ declare namespace notificationManager {
 
   /**
    * Set whether the application slot is enabled.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
@@ -1473,16 +1378,10 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function setNotificationEnableSlot(
-    bundle: BundleOption,
-    type: SlotType,
-    enable: boolean,
-    callback: AsyncCallback<void>
-  ): void;
+  function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set whether the application slot is enabled.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
@@ -1503,7 +1402,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the application slot is enabled.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
@@ -1523,7 +1421,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the application slot is enabled.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
@@ -1543,7 +1440,6 @@ declare namespace notificationManager {
 
   /**
    * Set whether to sync notifications to devices that do not have the app installed.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @param { boolean } enable - Set enable or not.
@@ -1563,7 +1459,6 @@ declare namespace notificationManager {
 
   /**
    * Set whether to sync notifications to devices that do not have the app installed.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @param { boolean } enable - Set enable or not.
@@ -1583,7 +1478,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether to sync notifications to devices that do not have the app installed.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether to sync notifications to devices.
@@ -1602,7 +1496,6 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether to sync notifications to devices that do not have the app installed.
-   *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @returns { Promise<boolean> } Returns whether to sync notifications to devices.
@@ -1621,7 +1514,6 @@ declare namespace notificationManager {
 
   /**
    * Set badge number.
-   *
    * @param { number } badgeNumber - Badge number.
    * @param { AsyncCallback<void> } callback - callback - The callback of setBadgeNumber..
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1636,7 +1528,6 @@ declare namespace notificationManager {
 
   /**
    * Set badge number.
-   *
    * @param { number } badgeNumber - Badge number.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1669,8 +1560,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } [callback] - callback - The callback
-   *                                                                                     of check notifications.
+   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } callback - callback - The callback of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1678,51 +1568,30 @@ declare namespace notificationManager {
    * @systemapi
    * @since 10
    */
-  function off(
-    type: 'checkNotification',
-    callback?: (checkInfo: NotificationCheckInfo) => NotificationCheckResult
-  ): void;
+  function off(type: 'checkNotification', callback?: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
   /**
    * Describes the parameters of check notifications.
    *
-   * @typedef NotificationCheckInfo
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @typedef NotificationCheckInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
    */
   export interface NotificationCheckInfo {
     /**
-     * The application bundle name for publishing notification.
-     *
-     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { string }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 10
+     * the application bundle name for publishing notification.
      */
     bundleName: string;
 
     /**
-     * The notification id.
-     *
-     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { number }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 10
+     * the notification id.
      */
     notificationId: number;
 
     /**
-     * The notification content type.
-     *
-     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { ContentType }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 10
+     * the notification content type.
      */
     contentType: ContentType;
   }
@@ -1730,39 +1599,26 @@ declare namespace notificationManager {
   /**
    * Describes the result of check notifications.
    *
-   * @typedef NotificationCheckResult
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @typedef NotificationCheckResult
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
    */
   export interface NotificationCheckResult {
     /**
-     * The result code. 0-display, 1-no display
-     *
-     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { number }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 10
+     * the result code. 0-display, 1-no display
      */
     code: number;
 
     /**
-     * The result message.
-     *
-     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { string }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 10
+     * the result message.
      */
     message: string;
   }
 
   /**
    * Describes NotificationSlot types.
-   *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -1770,48 +1626,32 @@ declare namespace notificationManager {
   export enum SlotType {
     /**
      * NotificationSlot of an unknown type.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     UNKNOWN_TYPE = 0,
 
     /**
      * NotificationSlot for social communication.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     SOCIAL_COMMUNICATION = 1,
 
     /**
      * NotificationSlot for service information.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     SERVICE_INFORMATION = 2,
 
     /**
      * NotificationSlot for content information.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     CONTENT_INFORMATION = 3,
 
     /**
      * NotificationSlot for other purposes.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
-    OTHER_TYPES = 0xFFFF
+    OTHER_TYPES = 0xFFFF,
   }
 
   /**
    * Describes notification content types.
-   *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -1819,48 +1659,32 @@ declare namespace notificationManager {
   export enum ContentType {
     /**
      * Normal text notification.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
     /**
      * Long text notification.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
 
     /**
      * Picture-attached notification.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
      * Conversation notification.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     NOTIFICATION_CONTENT_CONVERSATION,
 
     /**
      * Multi-line text notification.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
-    NOTIFICATION_CONTENT_MULTILINE
+    NOTIFICATION_CONTENT_MULTILINE,
   }
 
   /**
    * Indicates the level of the slot
-   *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -1868,52 +1692,36 @@ declare namespace notificationManager {
   export enum SlotLevel {
     /**
      * Indicates that the notification function is disabled.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     LEVEL_NONE = 0,
 
     /**
      * Indicates that the notification function is enabled but notification
      * icons are not displayed in the status bar, with no banner or prompt tone.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     LEVEL_MIN = 1,
 
     /**
      * Indicates that the notification function is enabled and notification
      * icons are displayed in the status bar, with no banner or prompt tone.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     LEVEL_LOW = 2,
 
     /**
      * Indicates that the notification function is enabled and notification
      * icons are displayed in the status bar, with no banner but with a prompt tone.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
     LEVEL_DEFAULT = 3,
 
     /**
      * Indicates that the notification function is enabled and notification
      * icons are displayed in the status bar, with a banner and a prompt tone.
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @since 9
      */
-    LEVEL_HIGH = 4
+    LEVEL_HIGH = 4,
   }
 
   /**
    * The type of the Do Not Disturb.
-   *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1922,44 +1730,27 @@ declare namespace notificationManager {
   export enum DoNotDisturbType {
     /**
      * Non do not disturb type notification
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     TYPE_NONE = 0,
 
     /**
      * Execute do not disturb once in the set time period (only watch hours and minutes)
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     TYPE_ONCE = 1,
 
     /**
      * Execute do not disturb every day with a set time period (only watch hours and minutes)
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     TYPE_DAILY = 2,
 
     /**
      * Execute in the set time period (specify the time, month, day and hour)
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
-    TYPE_CLEARLY = 3
+    TYPE_CLEARLY = 3,
   }
 
   /**
    * Describes a DoNotDisturbDate instance.
-   *
    * @typedef DoNotDisturbDate
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1969,37 +1760,24 @@ declare namespace notificationManager {
     /**
      * the type of the Do Not Disturb.
      *
-     * @type { DoNotDisturbType }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     type: DoNotDisturbType;
 
     /**
-     * The start time of the Do Not Disturb.
+     * the start time of the Do Not Disturb.
      *
-     * @type { Date }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     begin: Date;
 
     /**
-     * The end time of the Do Not Disturb.
+     * the end time of the Do Not Disturb.
      *
-     * @type { Date }
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     end: Date;
   }
 
   /**
    * The remind type of the notification.
-   *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2008,44 +1786,27 @@ declare namespace notificationManager {
   export enum DeviceRemindType {
     /**
      * The device is not in use, no reminder
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     IDLE_DONOT_REMIND = 0,
 
     /**
      * The device is not in use, remind
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     IDLE_REMIND = 1,
 
     /**
      * The device is in use, no reminder
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     ACTIVE_DONOT_REMIND = 2,
 
     /**
      * The device is in use, reminder
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
-    ACTIVE_REMIND = 3
+    ACTIVE_REMIND = 3,
   }
 
   /**
    * Notification source type
-   *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2054,154 +1815,127 @@ declare namespace notificationManager {
   export enum SourceType {
     /**
      * General notification
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     TYPE_NORMAL = 0,
 
     /**
      * Continuous notification
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
     TYPE_CONTINUOUS = 1,
 
     /**
      * Scheduled notification
-     *
-     * @syscap SystemCapability.Notification.Notification
-     * @systemapi
-     * @since 9
      */
-    TYPE_TIMER = 2
+    TYPE_TIMER = 2,
   }
 
   /**
    * Describes a bundleOption in a notification.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type BundleOption = _BundleOption;
+  export type BundleOption = _BundleOption
 
   /**
    * Describes an action button displayed in a notification.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationActionButton = _NotificationActionButton;
+  export type NotificationActionButton = _NotificationActionButton
 
   /**
    * Describes a normal text notification.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationBasicContent = _NotificationBasicContent;
+  export type NotificationBasicContent = _NotificationBasicContent
 
   /**
    * Describes notification types.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationContent = _NotificationContent;
+  export type NotificationContent = _NotificationContent
 
   /**
    * Describes a long text notification.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationLongTextContent = _NotificationLongTextContent;
+  export type NotificationLongTextContent = _NotificationLongTextContent
 
   /**
    * Describes a multi-line text notification.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationMultiLineContent = _NotificationMultiLineContent;
+  export type NotificationMultiLineContent = _NotificationMultiLineContent
 
   /**
    * Describes a picture-attached notification.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationPictureContent = _NotificationPictureContent;
+  export type NotificationPictureContent = _NotificationPictureContent
 
   /**
    * Describes a NotificationFlags instance.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
    */
-  export type NotificationFlags = _NotificationFlags;
+  export type NotificationFlags = _NotificationFlags
 
   /**
    * The status of the notification flag.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
    */
-  export type NotificationFlagStatus = _NotificationFlagStatus;
+  export type NotificationFlagStatus = _NotificationFlagStatus
 
   /**
    * Defines a NotificationRequest instance.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationRequest = _NotificationRequest;
+  export type NotificationRequest = _NotificationRequest
 
   /**
    * Describes distributed options.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type DistributedOptions = _DistributedOptions;
+  export type DistributedOptions = _DistributedOptions
 
   /**
    * Describes a NotificationSlot instance.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationSlot = _NotificationSlot;
+  export type NotificationSlot = _NotificationSlot
 
   /**
    * Provides sorting information about an active notification.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
    */
-  export type NotificationSorting = _NotificationSorting;
+  export type NotificationSorting = _NotificationSorting
 
   /**
    * Describes a NotificationTemplate instance.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationTemplate = _NotificationTemplate;
+  export type NotificationTemplate = _NotificationTemplate
 
   /**
    * Describes a NotificationUserInput instance.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  export type NotificationUserInput = _NotificationUserInput;
+  export type NotificationUserInput = _NotificationUserInput
 }
 
 export default notificationManager;

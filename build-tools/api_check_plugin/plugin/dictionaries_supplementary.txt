@@ -37,7 +37,6 @@ arrlist
 ashmem
 associating
 asy
-asyn
 asynchronized
 atime
 atio
@@ -53,7 +52,6 @@ averr
 avoidareachange
 avrcp
 avsession
-backgrounding
 backs
 base64
 bassboost
@@ -239,7 +237,6 @@ fillets
 flac
 flg
 foldable
-foregrounding
 formatable
 forwardmail
 freesize
@@ -552,7 +549,6 @@ recovering
 recursions
 redirections
 refill
-refusing
 rejects
 relocation
 remidner
@@ -728,7 +724,6 @@ uncalibrated
 uncategorized
 uncatergorized
 unconditional
-undisturbed
 unduck
 unducked
 unequal

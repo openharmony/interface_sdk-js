@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,73 +16,60 @@
 /**
  * The class of an process information.
  *
- * @typedef ProcessInformation
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
 /**
  * The class of an process information.
  *
- * @typedef ProcessInformation
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
  * @since 10
+ * @crossplatform
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
 export interface ProcessInformation {
   /**
-   * @type { number }
    * @default process id
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   /**
-   * @type { number }
    * @default process id
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 10
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   pid: number;
 
   /**
-   * @type { number }
    * @default user id
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   uid: number;
 
   /**
-   * @type { string }
    * @default the name of the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   /**
-   * @type { string }
    * @default the name of the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 10
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   processName: string;
 
   /**
-   * @type { Array<string> }
    * @default an array of the bundleNames running in the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   /**
-   * @type { Array<string> }
    * @default an array of the bundleNames running in the process
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
    * @since 10
+   * @crossplatform
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   bundleNames: Array<string>;
 }

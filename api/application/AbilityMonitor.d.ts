@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,82 +19,80 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * Provide methods for matching monitored Ability objects that meet specified conditions.
  * The most recently matched Ability objects will be saved in the AbilityMonitor object.
  *
- * @interface AbilityMonitor
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
  */
 export interface AbilityMonitor {
   /**
    * The name of the ability to monitor.
    *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   abilityName: string;
 
   /**
    * The name of the module to monitor.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   moduleName?: string;
 
   /**
    * Called back when the ability is created for initialization.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   onAbilityCreate?: (ability: UIAbility) => void;
 
   /**
    * Called back when the state of the ability changes to foreground.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   onAbilityForeground?: (ability: UIAbility) => void;
 
   /**
    * Called back when the state of the ability changes to background.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   onAbilityBackground?: (ability: UIAbility) => void;
 
   /**
    * Called back before the ability is destroyed.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   onAbilityDestroy?: (ability: UIAbility) => void;
 
   /**
    * Called back when an ability window stage is created.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   onWindowStageCreate?: (ability: UIAbility) => void;
 
   /**
    * Called back when an ability window stage is restored.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   onWindowStageRestore?: (ability: UIAbility) => void;
 
   /**
    * Called back when an ability window stage is destroyed.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   onWindowStageDestroy?: (ability: UIAbility) => void;
 }

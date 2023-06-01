@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,95 +22,43 @@ import { ShellCmdResult } from './application/shellCmdResult';
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
  *
- * @namespace abilityDelegatorRegistry
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
  * @deprecated since 9
- * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry
+ * @useinstead ohos.app.ability.abilityDelegatorRegistry
  */
 declare namespace abilityDelegatorRegistry {
   /**
    * Get the AbilityDelegator object of the application.
    *
-   * @returns { AbilityDelegator } the AbilityDelegator object initialized when the application is started.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#getAbilityDelegator
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @returns the AbilityDelegator object initialized when the application is started.
    */
   function getAbilityDelegator(): AbilityDelegator;
 
   /**
    * Get unit test parameters stored in the AbilityDelegatorArgs object.
    *
-   * @returns { AbilityDelegatorArgs } the previously registered AbilityDelegatorArgs object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#getArguments
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @returns the previously registered AbilityDelegatorArgs object.
    */
   function getArguments(): AbilityDelegatorArgs;
 
   /**
    * Describes all lifecycle states of an ability.
    *
-   * @enum { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#AbilityLifecycleState
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   export enum AbilityLifecycleState {
-    /**
-     * Indicates an invalid state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState
-     *             #UNINITIALIZED
-     */
     UNINITIALIZED,
-
-    /**
-     * Indicates that the Ability is in the created state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#CREATE
-     */
     CREATE,
-
-    /**
-     * Indicates that Ability is in the foreground state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#FOREGROUND
-     */
     FOREGROUND,
-
-    /**
-     * Indicates that the Ability is in the background state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#BACKGROUND
-     */
     BACKGROUND,
-
-    /**
-     * Indicates that the Ability is in a destroyed state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#DESTROY
-     */
-    DESTROY
+    DESTROY,
   }
 }
 

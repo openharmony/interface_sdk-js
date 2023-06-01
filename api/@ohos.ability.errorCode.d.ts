@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,41 +15,35 @@
 
 /**
  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
- *
- * @enum { number }
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 6
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
 export enum ErrorCode {
   /**
    * Permission denied.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   PERMISSION_DENY = -3,
 
   /**
    * Ability not found.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   ABILITY_NOT_FOUND = -2,
 
   /**
    * Invalid parameter.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   INVALID_PARAMETER = -1,
 
   /**
    * No error.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   NO_ERROR = 0
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,7 +21,6 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
- *
  * @namespace abilityDelegatorRegistry
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
@@ -29,7 +28,6 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
 declare namespace abilityDelegatorRegistry {
   /**
    * Get the AbilityDelegator object of the application.
-   *
    * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -38,8 +36,7 @@ declare namespace abilityDelegatorRegistry {
 
   /**
    * Get unit test arguments stored in the AbilityDelegatorArgs object.
-   *
-   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
+   * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -47,85 +44,46 @@ declare namespace abilityDelegatorRegistry {
 
   /**
    * Describes all lifecycle states of an ability.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   export enum AbilityLifecycleState {
-    /**
-     * Ability is in invalid state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
     UNINITIALIZED,
-
-    /**
-     * Ability is in the created state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
     CREATE,
-
-    /**
-     * Ability is in the foreground state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
     FOREGROUND,
-
-    /**
-     * Ability is in the background state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
     BACKGROUND,
-
-    /**
-     * Ability is in a destroyed state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    DESTROY
+    DESTROY,
   }
 
   /**
    * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
-   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  export type AbilityDelegator = _AbilityDelegator;
+  export type AbilityDelegator = _AbilityDelegator
 
   /**
    * Store unit testing-related parameters, including test case names, and test runner name.
-   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  export type AbilityDelegatorArgs = _AbilityDelegatorArgs;
+  export type AbilityDelegatorArgs = _AbilityDelegatorArgs
 
   /**
    * Provide methods for matching monitored Ability objects that meet specified conditions.
    * The most recently matched Ability objects will be saved in the AbilityMonitor object.
-   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  export type AbilityMonitor = _AbilityMonitor;
+  export type AbilityMonitor = _AbilityMonitor
 
   /**
    * A object that records the result of shell command executes.
-   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  export type ShellCmdResult = _ShellCmdResult;
+  export type ShellCmdResult = _ShellCmdResult
 }
 
 export default abilityDelegatorRegistry;

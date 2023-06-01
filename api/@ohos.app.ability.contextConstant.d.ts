@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,34 +16,29 @@
 /**
  * The context of an application. It allows access to application-specific resources.
  *
- * @namespace contextConstant
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @since 9
  */
 declare namespace contextConstant {
+
   /**
    * File area mode
    *
-   * @enum { number }
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
    */
   export enum AreaMode {
     /**
      * System level device encryption area
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
      */
     EL1 = 0,
 
     /**
      * User credential encryption area
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
      */
     EL2 = 1
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,66 +13,60 @@
  * limitations under the License.
  */
 
-import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
+import { HapModuleInfo } from "../bundleManager/HapModuleInfo";
 import { Configuration } from '../@ohos.app.ability.Configuration';
-import Context from './Context';
+import Context from "./Context";
 
 /**
  * The context of an abilityStage. It allows access to abilityStage-specific resources.
  *
- * @extends Context
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @crossplatform
  * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
+ * @StageModelOnly
  */
 /**
  * The context of an abilityStage. It allows access to abilityStage-specific resources.
  *
- * @extends Context
+ * @since 10
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
  * @StageModelOnly
  * @crossplatform
- * @since 10
  */
 export default class AbilityStageContext extends Context {
+
   /**
    * Indicates configuration information about an module.
    *
-   * @type { HapModuleInfo }
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
-   * @since 9
    */
   /**
    * Indicates configuration information about an module.
    *
-   * @type { HapModuleInfo }
+   * @since 10
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
-   * @since 10
    */
   currentHapModuleInfo: HapModuleInfo;
 
   /**
    * Indicates configuration information.
    *
-   * @type { Configuration }
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
-   * @since 9
    */
   /**
    * Indicates configuration information.
    *
-   * @type { Configuration }
+   * @since 10
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @crossplatform
-   * @since 10
    */
   config: Configuration;
 }

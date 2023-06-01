@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,7 +15,6 @@
 
 /**
  * The definition of AbilityConstant.
- *
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
@@ -23,7 +22,6 @@
  */
 /**
  * The definition of AbilityConstant.
- *
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
@@ -33,7 +31,6 @@
 declare namespace AbilityConstant {
   /**
    * Interface of launch param.
-   *
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -41,7 +38,6 @@ declare namespace AbilityConstant {
    */
   /**
    * Interface of launch param.
-   *
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -51,16 +47,12 @@ declare namespace AbilityConstant {
   export interface LaunchParam {
     /**
      * Indicates launch reason.
-     *
-     * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
     /**
      * Indicates launch reason.
-     *
-     * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @crossplatform
@@ -70,16 +62,12 @@ declare namespace AbilityConstant {
 
     /**
      * Indicates last exit reason.
-     *
-     * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
     /**
      * Indicates last exit reason.
-     *
-     * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @crossplatform
@@ -90,7 +78,6 @@ declare namespace AbilityConstant {
 
   /**
    * Type of launch reason.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -98,7 +85,6 @@ declare namespace AbilityConstant {
    */
   /**
    * Type of launch reason.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -107,8 +93,6 @@ declare namespace AbilityConstant {
    */
   export enum LaunchReason {
     /**
-     * Unknown reason.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -122,8 +106,6 @@ declare namespace AbilityConstant {
     UNKNOWN = 0,
 
     /**
-     * Start ability through the startAbility interface.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -131,8 +113,6 @@ declare namespace AbilityConstant {
     START_ABILITY = 1,
 
     /**
-     * Start ability through the startAbilityByCall interface.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -140,8 +120,6 @@ declare namespace AbilityConstant {
     CALL = 2,
 
     /**
-     * Start ability through cross-end device migration.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -149,8 +127,6 @@ declare namespace AbilityConstant {
     CONTINUATION = 3,
 
     /**
-     * After the application is restored, the ability is automatically restored and started when the application fails.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -158,18 +134,13 @@ declare namespace AbilityConstant {
     APP_RECOVERY = 4,
 
     /**
-     * Start ability through the acquireShareData interface.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
      * @since 10
      */
-    SHARE = 5
+    SHARE = 5,
   }
 
   /**
    * Type of last exit reason.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -177,7 +148,6 @@ declare namespace AbilityConstant {
    */
   /**
    * Type of last exit reason.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -186,8 +156,6 @@ declare namespace AbilityConstant {
    */
   export enum LastExitReason {
     /**
-     * Unknown reason.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -201,8 +169,6 @@ declare namespace AbilityConstant {
     UNKNOWN = 0,
 
     /**
-     * Ability is not responding.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -210,92 +176,41 @@ declare namespace AbilityConstant {
     ABILITY_NOT_RESPONDING = 1,
 
     /**
-     * Exit normally.
-     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    NORMAL = 2
+    NORMAL = 2,
   }
 
   /**
    * Type of onContinue result.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
    */
   export enum OnContinueResult {
-    /**
-     * Agree to the result of Ability migration.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     AGREE = 0,
-
-    /**
-     * Reject to the result of Ability migration.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     REJECT = 1,
-
-    /**
-     * Mismatch to the result of Ability migration.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    MISMATCH = 2
+    MISMATCH = 2,
   }
 
   /**
    * Type of memory level.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
    */
   export enum MemoryLevel {
-    /**
-     * Memory footprint is moderate.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     MEMORY_LEVEL_MODERATE = 0,
-
-    /**
-     * Low memory footprint.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     MEMORY_LEVEL_LOW = 1,
-
-    /**
-     * High memory footprint.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    MEMORY_LEVEL_CRITICAL = 2
+    MEMORY_LEVEL_CRITICAL = 2,
   }
 
   /**
    * Type of window mode.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -303,149 +218,39 @@ declare namespace AbilityConstant {
    * @since 9
    */
   export enum WindowMode {
-    /**
-     * The window mode is not defined.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
     WINDOW_MODE_UNDEFINED = 0,
-
-    /**
-     * Full screen mode.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
     WINDOW_MODE_FULLSCREEN = 1,
-
-    /**
-     * If the screen is horizontal, it means the right split screen, and if the screen is vertical,
-     * it means the lower split screen.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
-
-    /**
-     * If the screen is horizontal, it means the right split screen, and if the screen is vertical,
-     * it means the lower split screen.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
-
-    /**
-     * Free floating window mode.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    WINDOW_MODE_FLOATING = 102
+    WINDOW_MODE_FLOATING = 102,
   }
 
   /**
    * Type of onSave result.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
    */
   export enum OnSaveResult {
-    /**
-     * Always agree to save the state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     ALL_AGREE = 0,
-
-    /**
-     * Refuse to migrate the saved state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     CONTINUATION_REJECT = 1,
-
-    /**
-     * Migration mismatch.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     CONTINUATION_MISMATCH = 2,
-
-    /**
-     * Agree to restore the saved state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     RECOVERY_AGREE = 3,
-
-    /**
-     * Refuse to restore the saved state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     RECOVERY_REJECT = 4,
-
-    /**
-     * Always refuses to save the state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    ALL_REJECT
+    ALL_REJECT,
   }
 
   /**
    * Type of save state.
-   *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
    */
   export enum StateType {
-    /**
-     * Migrate and save the state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
     CONTINUATION = 0,
-
-    /**
-     * App recovery to restore the saved state.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    APP_RECOVERY = 1
+    APP_RECOVERY = 1,
   }
 }
 

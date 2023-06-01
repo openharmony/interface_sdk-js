@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,7 +17,6 @@ import { BusinessError } from './@ohos.base';
 
 /**
  * Interface of formBindingData.
- *
  * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
  * @since 9
@@ -25,8 +24,7 @@ import { BusinessError } from './@ohos.base';
 declare namespace formBindingData {
   /**
    * Create an FormBindingData instance.
-   *
-   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
+   * @param { Object | string } obj - Indicates the FormBindingData instance data.
    * @returns { FormBindingData } Returns the FormBindingData.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.Form
@@ -36,20 +34,12 @@ declare namespace formBindingData {
 
   /**
    * Defines the createFormBindingData result interface.
-   *
    * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
   interface FormBindingData {
-    /**
-     * Data for updating.
-     *
-     * @type { Object }
-     * @syscap SystemCapability.Ability.Form
-     * @since 9
-     */
-    data: Object;
+    data: Object
   }
 }
 export default formBindingData;
