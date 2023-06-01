@@ -28,7 +28,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic received through the specified NIC.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -42,7 +42,7 @@ declare namespace statistics {
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -56,7 +56,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic sent through the specified NIC.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -70,7 +70,7 @@ declare namespace statistics {
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -83,7 +83,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic received through the cellular network.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -96,7 +96,7 @@ declare namespace statistics {
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -109,7 +109,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic sent through the cellular network.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -121,7 +121,7 @@ declare namespace statistics {
    * Queries the data traffic (including all TCP and UDP data packets) sent through the cellular network.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @throws { BusinessError } 2103012 - Get iface name failed.
    * @returns { Promise<number> } The promise returned by the function.
@@ -135,7 +135,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic sent through all NICs.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -147,7 +147,7 @@ declare namespace statistics {
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -159,7 +159,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic received through all NICs.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -171,7 +171,7 @@ declare namespace statistics {
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -185,7 +185,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic received by the specified application.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -199,7 +199,7 @@ declare namespace statistics {
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -213,7 +213,7 @@ declare namespace statistics {
    * @param { AsyncCallback<number> } callback Returns the data traffic sent by the specified application.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -227,7 +227,7 @@ declare namespace statistics {
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Read bpf failed.
+   * @throws { BusinessError } 2103005 - Failed to read bpf.
    * @throws { BusinessError } 2103011 - The iface map in bpf is invalid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
