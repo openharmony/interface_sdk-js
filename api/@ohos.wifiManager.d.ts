@@ -1720,7 +1720,6 @@ declare namespace wifiManager {
     /**
      * IP address.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
      * @since 9
      */
     ipAddress: number;
@@ -2283,7 +2282,7 @@ declare namespace wifiManager {
     /**
      * The state of this Wi-Fi connection. 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since 9
      */
     connState: ConnState;
 
