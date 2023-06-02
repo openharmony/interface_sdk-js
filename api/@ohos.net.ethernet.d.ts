@@ -24,8 +24,9 @@ import { connection } from './@ohos.net.connection';
  */
 declare namespace ethernet {
   /**
-     * @since 10
-     */
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @since 10
+   */
   type HttpProxy = connection.HttpProxy;
 
   /**
