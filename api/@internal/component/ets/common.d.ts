@@ -2037,38 +2037,6 @@ declare enum BlurStyle {
 
   /**
    * Defines the thin background material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THIN
-   */
-  BackgroundThin,
-
-  /**
-   * Defines the thin regular material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_REGULAR
-   */
-  BackgroundRegular,
-
-  /**
-   * Defines the thin thick material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THICK
-   */
-  BackgroundThick,
-
-  /**
-   * Defines the thin ultra thick material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
-   */
-  BackgroundUltraThick,
-
-  /**
-   * Defines the thin background material.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2108,30 +2076,6 @@ declare enum BlurStyle {
 declare enum ThemeColorMode {
   /**
    * Defines the mode which is follow up with system.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#SYSTEM
-   */
-  System,
-
-  /**
-   * Defines the light mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#LIGHT
-   */
-  Light,
-
-  /**
-   * Defines the dark mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#DARK
-   */
-  Dark,
-
-  /**
-   * Defines the mode which is follow up with system.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2163,22 +2107,6 @@ declare enum ThemeColorMode {
 declare enum AdaptiveColor {
   /**
    * Defines the fixed value color adaptive mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#DEFAULT
-   */
-  Default,
-
-  /**
-   * Defines the background average color adaptive mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#AVERAGE
-   */
-  Average,
-
-  /**
-   * Defines the fixed value color adaptive mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2201,33 +2129,6 @@ declare enum AdaptiveColor {
  * @since 10
  */
 declare enum ModalTransition {
-  /**
-   * Use default animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#DEFAULT
-   */
-  Default,
-
-  /**
-   * Use none animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#NONE
-   */
-  None,
-
-  /**
-   * Use alpha animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#ALPHA
-   */
-  Alpha,
-
   /**
    * Use default animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2439,54 +2340,6 @@ declare interface ShadowOptions {
  * @since 10
  */
 declare enum ShadowStyle {
-  /**
-   * Defines the super small default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_XS
-   */
-  OuterDefaultXS,
-
-  /**
-   * Defines the small default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_SM
-   */
-  OuterDefaultSM,
-
-  /**
-   * Defines the medium default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_MD
-   */
-  OuterDefaultMD,
-
-  /**
-   * Defines the large default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_LG
-   */
-  OuterDefaultLG,
-
-  /**
-   * Defines the small floating shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_SM
-   */
-  OuterFloatingSM,
-
-  /**
-   * Defines the medium floating shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_MD
-   */
-  OuterFloatingMD,
-
   /**
    * Defines the super small default shadow style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4675,6 +4528,17 @@ declare class CommonMethod<T> {
   blur(value: number): T;
 
   /**
+   * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
+   * @param { number } value - the blurring radius. 
+   * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+   * @param { LinearGradientBlurOptions } options - the linear gradient blur options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
+
+  /**
    * Adds a highlight effect to the current component.
    * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
    * The component is displayed as all white (percentage).
@@ -5838,6 +5702,19 @@ declare const Common: CommonInterface;
 declare type CustomBuilder = (() => any) | void;
 
 /**
+ * Defines the segment of blur.
+ * The first element in the tuple means fraction. 
+ * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
+ * The second element means the stop position.
+ * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
+ * @type { [ number , number ] }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare type FractionStop = [ number, number ];
+
+/**
  * CommonShapeMethod
  * @since 7
  */
@@ -6078,6 +5955,31 @@ declare interface LinearGradient {
   direction?: GradientDirection;
   colors: Array<any>;
   repeating?: boolean;
+}
+
+/**
+ * Linear Gradient Blur Interface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare interface LinearGradientBlurOptions {
+  /**
+   * Percentage of blurring effect.
+   * @type { FractionStop[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */  
+  fractionStops: FractionStop[];
+  /**
+   * Direction of linear gradient blur.
+   * @type { GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */  
+  direction: GradientDirection;
 }
 
 /**

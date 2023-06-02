@@ -2,6 +2,6 @@
   {
     "badWord": "option",
     "suggestion": "options",
-    "ignore": ["options"]
+    "ignore": ["options", "optionMode", "_OPTION_"]
   }
 ]

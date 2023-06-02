@@ -2127,7 +2127,7 @@ declare namespace sms {
     /**
      * Indicates the new status for the updating SIM message options.
      *
-     * @type { number }
+     * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7

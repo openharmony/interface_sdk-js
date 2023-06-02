@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,27 +13,15 @@
  * limitations under the License.
  */
 
-/**
- * @typedef ProcessInfo
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 7
- */
-export interface ProcessInfo {
-  /**
-   * The id of the current process
-   *
-   * @type { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  pid: number;
 
-  /**
-   * The name of the current process
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
-   */
-  processName: string;
+const { requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo } = require('./utils');
+const { addAPICheckErrorLogs } = require('./compile_info');
+const ts = requireTypescriptModule();
+
+function checkAnyInAPI(node, sourcefile, fileName) {
+  if (node.kind === ts.SyntaxKind.AnyKeyword) {
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.ILLEGAL_ANY, ErrorValueInfo.ILLEGAL_USE_ANY, FileType.API,
+      ErrorLevel.LOW);
+  }
 }
+exports.checkAnyInAPI = checkAnyInAPI;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +13,16 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../@ohos.base";
-import ExtensionContext from "./ExtensionContext";
-import Want from "../@ohos.application.Want";
-import StartOptions from "../@ohos.app.ability.StartOptions";
+import { AsyncCallback } from '../@ohos.base';
+import ExtensionContext from './ExtensionContext';
+import Want from '../@ohos.application.Want';
+import StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
  * The context of window extension. It allows access to
  * windowExtension-specific resources.
+ *
+ * @extends ExtensionContext
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
  * @stagemodelonly
@@ -29,6 +31,7 @@ import StartOptions from "../@ohos.app.ability.StartOptions";
 export default class WindowExtensionContext extends ExtensionContext {
   /**
    * Window extension uses this method to start a specific ability.
+   *
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
@@ -42,8 +45,9 @@ export default class WindowExtensionContext extends ExtensionContext {
 
   /**
    * Window extension uses this method to start a specific ability.
+   *
    * @param { Want } want - Indicates the ability to start.
-   * @param { StartOptions } options - Indicates the start options.
+   * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.WindowManager.WindowManager.Core

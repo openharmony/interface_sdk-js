@@ -37,6 +37,7 @@ arrlist
 ashmem
 associating
 asy
+asyn
 asynchronized
 atime
 atio
@@ -52,6 +53,7 @@ averr
 avoidareachange
 avrcp
 avsession
+backgrounding
 backs
 base64
 bassboost
@@ -101,6 +103,7 @@ chrominance
 circled
 clamped
 clamps
+cloudfile
 coincides
 collaborated
 collapses
@@ -157,6 +160,7 @@ denormalized
 densitys
 deregistered
 deregisters
+deselected
 designative
 desynchronized
 developtools
@@ -194,6 +198,7 @@ ducking
 earfcn
 earphones
 earpiece
+edr
 efuse
 egid
 ehrpd
@@ -219,6 +224,7 @@ evdo
 evenodd
 evicted
 excepted
+exempted
 extention
 f1
 faultlog
@@ -234,6 +240,7 @@ fillets
 flac
 flg
 foldable
+foregrounding
 formatable
 forwardmail
 freesize
@@ -394,6 +401,8 @@ meid
 messageerror
 metered
 metering
+mgf
+mgf1
 mifare
 minibar
 minimizing
@@ -524,6 +533,7 @@ provisioned
 proxyed
 psc
 psk
+psrc
 pss
 puk
 pvr
@@ -543,6 +553,7 @@ recovering
 recursions
 redirections
 refill
+refusing
 rejects
 relocation
 remidner
@@ -611,6 +622,7 @@ slidable
 sliderstyle
 statvfs
 stk
+str
 sm3
 smil
 smsc
@@ -647,6 +659,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subtitles
 subtypes
 subwindow
 subwindows
@@ -687,6 +700,7 @@ tlsv13
 tnf
 totalsize
 touchpad
+trackinfo
 tranlisterated
 transcode
 transferable
@@ -705,6 +719,7 @@ ubset
 ucs
 udid
 uint8
+uint8arr
 uitest
 umalqura
 unapply
@@ -716,6 +731,7 @@ uncalibrated
 uncategorized
 uncatergorized
 unconditional
+undisturbed
 unduck
 unducked
 unequal
@@ -817,5 +833,6 @@ zoomreset
 zooms
 zpass
 commonevent
+clouddata
 unprepare
 unchained

@@ -125,6 +125,55 @@ declare interface Resource {
 declare type Length = string | number | Resource;
 
 /**
+ * Defines the length property with number in units of px.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type PX = `${number}px`;
+
+/**
+ * Defines the length property with number in units of vp.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type VP = `${number}vp`;
+
+/**
+ * Defines the length property with number in units of fp.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type FP = `${number}fp`;
+
+/**
+ * Defines the length property with number in units of lpx.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type LPX = `${number}lpx`;
+
+/**
+ * Defines the length property with number in units of Percentage.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Percentage = `${number}%`;
+
+/**
+ * Defines the angle property with number in units of deg.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Degree = `${number}deg`;
+
+/**
+ * Defines the dimension property with number with units(vp|px|fp|lpx|%), number and resource unit.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Dimension = PX | VP | FP | LPX | Percentage | number | Resource;
+
+/**
  * Defines the string which can use resource.
  * @since 7
  */
