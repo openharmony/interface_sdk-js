@@ -688,6 +688,35 @@
           "name": "false"
         }
       ]
+    },
+    {
+      "name": "card",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Whether the element is card style",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
+        }
+      ],
+      "version": [
+        {
+          "name": "v10.0"
+        }
+      ],
+      "type": "enum",
+      "options": [
+        {
+          "name": "true"
+        },
+        {
+          "name": "false"
+        }
+      ]
     }
   ],
   "events": [

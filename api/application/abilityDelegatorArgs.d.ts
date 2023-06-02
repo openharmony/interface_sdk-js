@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,44 +13,47 @@
  * limitations under the License.
  */
 
-
 /**
  * Store unit testing-related parameters, including test case names, and test runner name.
  *
- * @since 8
+ * @typedef AbilityDelegatorArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 8
  */
 export interface AbilityDelegatorArgs {
   /**
    * the bundle name of the application being tested.
    *
-   * @since 8
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
    */
   bundleName: string;
 
   /**
    * the parameters used for unit testing.
    *
-   * @since 8
+   * @type { object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
    */
   parameters: { [key: string]: string };
 
   /**
    * the class names of all test cases.
    *
-   * @since 8
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
    */
   testCaseNames: string;
 
   /**
    * the class name of the test runner used to execute test cases.
    *
-   * @since 8
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
    */
   testRunnerClassName: string;
 }

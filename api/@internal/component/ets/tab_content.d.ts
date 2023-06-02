@@ -12,31 +12,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * Enum for the mode of the tab bar when selected.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SelectedMode {
   /**
    * The value of indicator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   INDICATOR,
+
   /**
    * The value of board
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   BOARD
 }
+
 /**
  * Provide an interface for the style of an indicator including color, height, width, border radius
  * and margin top
  * @interface IndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface IndicatorStyle {
@@ -44,6 +51,7 @@ interface IndicatorStyle {
    * Define the color of the indicator
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   color?: ResourceColor;
@@ -52,6 +60,7 @@ interface IndicatorStyle {
    * Define the height of the indicator
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   height?: Length;
@@ -62,6 +71,7 @@ interface IndicatorStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   width?: Length;
@@ -71,6 +81,7 @@ interface IndicatorStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderRadius?: Length;
@@ -80,6 +91,7 @@ interface IndicatorStyle {
    * @type { Length }
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   marginTop?: Length;
@@ -89,6 +101,7 @@ interface IndicatorStyle {
  * Provide an interface for the style of an indicator including border radius
  * @interface BoardStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface BoardStyle {
@@ -96,6 +109,7 @@ interface BoardStyle {
    * Define the border radius of the board
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderRadius?: Length;
@@ -105,6 +119,7 @@ interface BoardStyle {
  * LabelStyle object.
  * @interface LabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface LabelStyle {
@@ -112,6 +127,7 @@ declare interface LabelStyle {
    * overflow mode.
    * @type { TextOverflow }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   overflow?: TextOverflow;
@@ -120,6 +136,7 @@ declare interface LabelStyle {
    * Label max lines.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   maxLines?: number;
@@ -128,6 +145,7 @@ declare interface LabelStyle {
    * Min font size for adapted height.
    * @type { number | ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   minFontSize?: number | ResourceStr;
@@ -136,6 +154,7 @@ declare interface LabelStyle {
    * Max font size for adapted height.
    * @type { number | ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   maxFontSize?: number | ResourceStr;
@@ -144,6 +163,7 @@ declare interface LabelStyle {
    * Adapt text height option.
    * @type { TextHeightAdaptivePolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
@@ -152,6 +172,7 @@ declare interface LabelStyle {
    * Font style.
    * @type { Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   font?: Font;
@@ -161,6 +182,12 @@ declare interface LabelStyle {
  * Define SubTabBarStyle, the style is text and underline.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ */
+/**
+ * Define SubTabBarStyle, the style is text and underline.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
  */
 declare class SubTabBarStyle {
   /**
@@ -173,6 +200,7 @@ declare class SubTabBarStyle {
    * constructor.
    * @param { ResourceStr } content - indicates the content of the sub tab bar 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor(content: ResourceStr);
@@ -183,6 +211,7 @@ declare class SubTabBarStyle {
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static of(content: ResourceStr): SubTabBarStyle;
@@ -192,6 +221,7 @@ declare class SubTabBarStyle {
    * @param { IndicatorStyle } value - indicates the indicator style of the sub tab bar 
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   indicator(value: IndicatorStyle): SubTabBarStyle;
@@ -201,6 +231,7 @@ declare class SubTabBarStyle {
    * @param { SelectedMode } value - indicates the selected mode of the sub tab bar 
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedMode(value: SelectedMode): SubTabBarStyle;
@@ -210,6 +241,7 @@ declare class SubTabBarStyle {
    * @param { BoardStyle } value - indicates the board style of the sub tab bar 
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   board(value: BoardStyle): SubTabBarStyle;
@@ -219,6 +251,7 @@ declare class SubTabBarStyle {
    * @param { LabelStyle } value - indicates the label style of the sub tab bar 
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   labelStyle(value: LabelStyle): SubTabBarStyle;
@@ -228,6 +261,12 @@ declare class SubTabBarStyle {
  * Define BottomTabBarStyle, the style is icon and text.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ */
+/**
+ * Define BottomTabBarStyle, the style is icon and text.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
  */
 declare class BottomTabBarStyle {
   /**
@@ -242,6 +281,7 @@ declare class BottomTabBarStyle {
   * @param { ResourceStr } content - indicates the content of the bottom tab bar 
   * @param { ResourceStr } text - indicates the text of the bottom tab bar 
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
   * @since 10
   */
   constructor(icon: ResourceStr, text: ResourceStr);
@@ -253,6 +293,7 @@ declare class BottomTabBarStyle {
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static of(icon: ResourceStr, text: ResourceStr): BottomTabBarStyle;
@@ -262,10 +303,20 @@ declare class BottomTabBarStyle {
  * Provides an interface for switching the content view on a tab page.
  * @since 7
  */
+/**
+ * Provides an interface for switching the content view on a tab page.
+ * @crossplatform
+ * @since 10
+ */
 interface TabContentInterface {
   /**
    * Called when the content view of the switch tab is set.
    * @since 7
+   */
+  /**
+   * Called when the content view of the switch tab is set.
+   * @crossplatform
+   * @since 10
    */
   (): TabContentAttribute;
 }
@@ -274,10 +325,20 @@ interface TabContentInterface {
  * Defines the attribute functions of TabContent.
  * @since 7
  */
+/**
+ * Defines the attribute functions of TabContent.
+ * @crossplatform
+ * @since 10
+ */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
    * Called when tabbar is entered.
    * @since 7
+   */
+  /**
+   * Called when tabbar is entered.
+   * @crossplatform
+   * @since 10
    */
   tabBar(value: string | Resource | CustomBuilder |
   { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
@@ -286,6 +347,11 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * Called when tabbar is entered.
    * @since 9
    */
+  /**
+   * Called when tabbar is entered.
+   * @crossplatform
+   * @since 10
+   */
   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 }
 
@@ -293,10 +359,20 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
  * Defines TabContent Component.
  * @since 7
  */
+/**
+ * Defines TabContent Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TabContent: TabContentInterface;
 
 /**
  * Defines TabContent Component instance.
  * @since 7
+ */
+/**
+ * Defines TabContent Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const TabContentInstance: TabContentAttribute;

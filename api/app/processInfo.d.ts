@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,28 +14,26 @@
  */
 
 /**
- * @name This class saves process information about an application
- * @since 7
+ * @typedef ProcessInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import ProcessInfo from 'app/processInfo'
- * @permission N/A
+ * @since 7
  */
 export interface ProcessInfo {
   /**
    * The id of the current process
    *
-   * @default -
-   * @since 7
+   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
    */
   pid: number;
 
   /**
    * The name of the current process
    *
-   * @default -
-   * @since 7
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
    */
   processName: string;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,13 +18,31 @@ import { NotificationSorting } from './notificationSorting';
 /**
  * Provides sorting information about the active notifications among all the notifications that have been subscribed to
  *
- * @name NotificationSortingMap
- * @since 7
+ * @typedef NotificationSortingMap
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
+ * @systemapi
+ * @since 7
  */
 interface NotificationSortingMap {
+  /**
+   * An array of notification sort information.
+   *
+   * @type { object }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sortings: { [key: string]: NotificationSorting };
+
+  /**
+   * Notification unique identification array.
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sortedHashCode: Array<string>;
 }

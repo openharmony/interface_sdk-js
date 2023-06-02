@@ -81,6 +81,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -110,6 +111,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -141,6 +143,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -161,6 +164,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -179,6 +183,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -199,6 +204,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
