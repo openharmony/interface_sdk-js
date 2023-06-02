@@ -48,6 +48,38 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
+   * Obtains the distribution type specified during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The specified distribution type.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSpecifiedDistributionType(bundleName: string): string;
+
+  /**
+   * Obtains the additional information during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The additional information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAdditionalInfo(bundleName: string): string;
+
+  /**
    * Bundle installer interface, include install uninstall recover.
    *
    * @interface BundleInstaller
@@ -81,6 +113,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -110,6 +143,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -141,6 +175,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -385,6 +420,24 @@ declare namespace installer {
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
+
+    /**
+     * Indicates the distribution type specified during bundle installation.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    specifiedDistributionType?: string;
+
+    /**
+     * Indicates the additional information during bundle installation.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    additionalInfo?: string;
   }
 
   /**

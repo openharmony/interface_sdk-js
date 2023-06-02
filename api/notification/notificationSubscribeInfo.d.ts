@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,13 +16,29 @@
 /**
  * Sets filter criteria of publishers for subscribing to desired notifications.
  *
- * @name NotificationSubscribeInfo
- * @since 7
+ * @typedef NotificationSubscribeInfo
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
+ * @systemapi
+ * @since 7
  */
 export interface NotificationSubscribeInfo {
+  /**
+   * Notifications from APP that specify which package names to subscribe to.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   bundleNames?: Array<string>;
+
+  /**
+   * Specify which user to subscribe to the notification from.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   userId?: number;
 }

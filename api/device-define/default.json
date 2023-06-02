@@ -7,10 +7,9 @@
     "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
+    "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
-    "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
-    "SystemCapability.BundleManager.PackingTool",
     "SystemCapability.Graphic.Graphic2D.WebGL",
     "SystemCapability.Graphic.Graphic2D.WebGL2",
     "SystemCapability.WindowManager.WindowManager.Core",
@@ -65,6 +64,8 @@
     "SystemCapability.Multimedia.Media.VideoEncoder",
     "SystemCapability.Multimedia.Media.Spliter",
     "SystemCapability.Multimedia.Media.Muxer",
+    "SystemCapability.Multimedia.Media.AVPlayer",
+    "SystemCapability.Multimedia.Media.AVRecorder",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.Audio.Core",
@@ -145,6 +146,7 @@
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
+    "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
@@ -158,6 +160,9 @@
     "SystemCapability.DistributedDataManager.DataShare.Core",
     "SystemCapability.DistributedDataManager.DataShare.Consumer",
     "SystemCapability.DistributedDataManager.DataShare.Provider",
+    "SystemCapability.DistributedDataManager.CloudSync.Config",
+    "SystemCapability.DistributedDataManager.CloudSync.Client",
+    "SystemCapability.DistributedDataManager.CloudSync.Server",
     "SystemCapability.Ability.AbilityBase",
     "SystemCapability.Ability.AbilityRuntime.Core",
     "SystemCapability.Ability.AbilityRuntime.FAModel",
@@ -190,6 +195,8 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
     "SystemCapability.XTS.DeviceAttest",
-    "SystemCapability.Request.FileTransferAgent"
+    "SystemCapability.Request.FileTransferAgent",
+    "SystemCapability.ResourceSchedule.DeviceStandby",
+    "SystemCapability.DistributedDataManager.UDMF.Core"    
   ]
 }
