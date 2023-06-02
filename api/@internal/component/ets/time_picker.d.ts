@@ -275,3 +275,10 @@ declare const TimePicker: TimePickerInterface;
  * @since 10
  */
 declare const TimePickerInstance: TimePickerAttribute;
+
+declare module "TimePickerDialogParam" {
+  module "TimePickerDialogParam" {
+    // @ts-ignore
+    export { TimePickerDialogOptions };
+  }
+}
