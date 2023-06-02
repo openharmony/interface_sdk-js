@@ -247,7 +247,7 @@ declare namespace statistics {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'netStatsChange' } type Indicates Event name.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -262,7 +262,7 @@ declare namespace statistics {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'netStatsChange' } type Indicates Event name.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -278,7 +278,7 @@ declare namespace statistics {
    * @param { IfaceInfo } ifaceInfo Indicates the handle. See {@link IfaceInfo}.
    * @param { AsyncCallback<NetStatsInfo> } callback Returns the {@link NetStatsInfo} object;
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -296,7 +296,7 @@ declare namespace statistics {
    * @param { IfaceInfo } ifaceInfo Indicates the handle. See {@link IfaceInfo}.
    * @returns { Promise<NetStatsInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -314,7 +314,7 @@ declare namespace statistics {
    * @param { UidStatsInfo } uidStatsInfo Indicates the handle. See {@link UidStatsInfo}.
    * @param { AsyncCallback<NetStatsInfo> } callback Returns the {@link NetStatsInfo} object;
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -332,7 +332,7 @@ declare namespace statistics {
    * @param { UidStatsInfo } uidStatsInfo Indicates the handle. See {@link UidStatsInfo}.
    * @returns { Promise<NetStatsInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
