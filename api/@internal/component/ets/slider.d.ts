@@ -497,11 +497,16 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    */
   /**
    * Called when the percentage of bubble prompt is set when sliding.
+   * @param { boolean } value - Whether to display the bubble.
+   * @param { ResourceStr } content - Text content in the bubble. If the content is not specified, the current
+   *                                  percentage is displayed by default.
+   * @default value false
    * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  showTips(value: boolean): SliderAttribute;
+  showTips(value: boolean, content?: ResourceStr): SliderAttribute;
 
   /**
    * Called when the thickness of track is set.
