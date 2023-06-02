@@ -457,7 +457,6 @@ declare namespace appManager {
    */
   function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
 
-<<<<<<< HEAD
   /**
    * Register system low memory state observer.
    * @param { 'lowMemory' } type - lowMemory.
@@ -583,8 +582,6 @@ declare namespace appManager {
    */
   function getPidsByBundleName(bundleName: string, userId: number): Promise<Array<number>>;
 
-=======
->>>>>>> master
   /**
    * The ability or extension state data.
    *
@@ -618,7 +615,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  export type ProcessInformation = _ProcessInformation
+  export type ProcessInformation = _ProcessInformation;
 
   /**
    * The system low memory state observer.
