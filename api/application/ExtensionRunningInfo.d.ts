@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,65 +19,72 @@ import bundle from '../@ohos.bundle.bundleManager';
 /**
  * The class of an extension running information.
  *
- * @since 9
+ * @typedef ExtensionRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide this for inner system use
- * @permission N/A
+ * @systemapi
+ * @since 9
  */
 export interface ExtensionRunningInfo {
   /**
-  * @default Indicates the extension of the extension info
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * @type { ElementName }
+   * @default Indicates the extension of the extension info
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
   extension: ElementName;
 
   /**
-  * @default process id
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * @type { number }
+   * @default process id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
   pid: number;
 
   /**
-  * @default user id
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * @type { number }
+   * @default user id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
   uid: number;
 
   /**
-  * @default the name of the process
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * @type { string }
+   * @default the name of the process
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
   processName: string;
 
   /**
-  * @default ability start time
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * @type { number }
+   * @default ability start time
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
   startTime: number;
 
   /**
-  * @default All package names under the current process
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * @type { Array<String> }
+   * @default All package names under the current process
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
   clientPackage: Array<String>;
 
   /**
-  * @default Enumerates types of the extension info
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * @type { bundle.ExtensionAbilityType }
+   * @default Enumerates types of the extension info
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
   type: bundle.ExtensionAbilityType;
 }

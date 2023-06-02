@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Defines the data type of the interface restriction.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface Resource {
   /**
    * Set id.
@@ -31,6 +37,12 @@ declare interface Resource {
    * Set id.
    * @form
    * @since 9
+   */
+  /**
+   * Set id.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   readonly id: number;
 
@@ -43,6 +55,12 @@ declare interface Resource {
    * @form
    * @since 9
    */
+  /**
+   * Set type.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   readonly type: number;
 
   /**
@@ -54,6 +72,12 @@ declare interface Resource {
    * @form
    * @since 9
    */
+  /**
+   * Set params.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   readonly params?: any[];
 
   /**
@@ -61,12 +85,24 @@ declare interface Resource {
    * @form
    * @since 9
    */
+  /**
+   * Set bundleName.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   readonly bundleName: string;
 
   /**
    * Set moduleName.
    * @form
    * @since 9
+   */
+  /**
+   * Set moduleName.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   readonly moduleName: string;
 }
@@ -80,7 +116,62 @@ declare interface Resource {
  * @form
  * @since 9
  */
+/**
+ * Defines the length property with string, number and resource unit.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type Length = string | number | Resource;
+
+/**
+ * Defines the length property with number in units of px.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type PX = `${number}px`;
+
+/**
+ * Defines the length property with number in units of vp.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type VP = `${number}vp`;
+
+/**
+ * Defines the length property with number in units of fp.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type FP = `${number}fp`;
+
+/**
+ * Defines the length property with number in units of lpx.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type LPX = `${number}lpx`;
+
+/**
+ * Defines the length property with number in units of Percentage.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Percentage = `${number}%`;
+
+/**
+ * Defines the angle property with number in units of deg.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Degree = `${number}deg`;
+
+/**
+ * Defines the dimension property with number with units(vp|px|fp|lpx|%), number and resource unit.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Dimension = PX | VP | FP | LPX | Percentage | number | Resource;
 
 /**
  * Defines the string which can use resource.
@@ -90,6 +181,12 @@ declare type Length = string | number | Resource;
  * Defines the string which can use resource.
  * @form
  * @since 9
+ */
+/**
+ * Defines the string which can use resource.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare type ResourceStr = string | Resource;
 
@@ -102,6 +199,12 @@ declare type ResourceStr = string | Resource;
  * @form
  * @since 9
  */
+/**
+ * Defines the padding property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type Padding = {
   /**
    * top property.
@@ -112,6 +215,12 @@ declare type Padding = {
    * @form
    * @since 9
    */
+  /**
+   * top property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   top?: Length;
 
   /**
@@ -122,6 +231,12 @@ declare type Padding = {
    * right property.
    * @form
    * @since 9
+   */
+  /**
+   * right property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   right?: Length;
 
@@ -134,6 +249,12 @@ declare type Padding = {
    * @form
    * @since 9
    */
+  /**
+   * bottom property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   bottom?: Length;
 
   /**
@@ -144,6 +265,12 @@ declare type Padding = {
    * left property.
    * @form
    * @since 9
+   */
+  /**
+   * left property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   left?: Length;
 };
@@ -157,6 +284,12 @@ declare type Padding = {
  * @form
  * @since 9
  */
+/**
+ * Defines the margin property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type Margin = Padding;
 
 /**
@@ -164,11 +297,23 @@ declare type Margin = Padding;
  * @form
  * @since 9
  */
+/**
+ * Defines the border width property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type EdgeWidths = {
   /**
    * top property.
    * @form
    * @since 9
+   */
+  /**
+   * top property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   top?: Length;
 
@@ -177,6 +322,12 @@ declare type EdgeWidths = {
    * @form
    * @since 9
    */
+  /**
+   * right property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   right?: Length;
 
   /**
@@ -184,12 +335,24 @@ declare type EdgeWidths = {
    * @form
    * @since 9
    */
+  /**
+   * bottom property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   bottom?: Length;
 
   /**
    * left property.
    * @form
    * @since 9
+   */
+  /**
+   * left property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   left?: Length;
 };
@@ -199,11 +362,23 @@ declare type EdgeWidths = {
  * @form
  * @since 9
  */
+/**
+ * Defines the border radius property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type BorderRadiuses = {
   /**
    * top-left property.
    * @form
    * @since 9
+   */
+  /**
+   * top-left property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   topLeft?: Length;
 
@@ -212,6 +387,12 @@ declare type BorderRadiuses = {
    * @form
    * @since 9
    */
+  /**
+   * top-right property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   topRight?: Length;
 
   /**
@@ -219,12 +400,24 @@ declare type BorderRadiuses = {
    * @form
    * @since 9
    */
+  /**
+   * bottom-left property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   bottomLeft?: Length;
 
   /**
    * bottom-right property.
    * @form
    * @since 9
+   */
+  /**
+   * bottom-right property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   bottomRight?: Length;
 };
@@ -234,11 +427,23 @@ declare type BorderRadiuses = {
  * @form
  * @since 9
  */
+/**
+ * Defines the border color property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type EdgeColors = {
   /**
    * top property.
    * @form
    * @since 9
+   */
+  /**
+   * top property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   top?: ResourceColor;
 
@@ -247,6 +452,12 @@ declare type EdgeColors = {
    * @form
    * @since 9
    */
+  /**
+   * right property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   right?: ResourceColor;
 
   /**
@@ -254,12 +465,24 @@ declare type EdgeColors = {
    * @form
    * @since 9
    */
+  /**
+   * bottom property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   bottom?: ResourceColor;
 
   /**
    * left property.
    * @form
    * @since 9
+   */
+  /**
+   * left property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   left?: ResourceColor;
 };
@@ -269,11 +492,23 @@ declare type EdgeColors = {
  * @form
  * @since 9
  */
+/**
+ * Defines the border style property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type EdgeStyles = {
   /**
    * top property.
    * @form
    * @since 9
+   */
+  /**
+   * top property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   top?: BorderStyle;
 
@@ -282,12 +517,24 @@ declare type EdgeStyles = {
    * @form
    * @since 9
    */
+  /**
+   * right property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   right?: BorderStyle;
 
   /**
    * bottom property.
    * @form
    * @since 9
+   */
+  /**
+   * bottom property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   bottom?: BorderStyle;
 
@@ -296,6 +543,12 @@ declare type EdgeStyles = {
    * @form
    * @since 9
    */
+  /**
+   * left property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   left?: BorderStyle;
 };
 
@@ -303,14 +556,29 @@ declare type EdgeStyles = {
  * Defines the offset property.
  * @since 7
  */
+/**
+ * Defines the offset property.
+ * @crossplatform
+ * @since 10
+ */
 declare type Offset = {
   /**
    * dx property.
    */
-  dx: Length;
+  /**
+   * dx property.
+   * @crossplatform
+   * @since 10
+   */
+   dx: Length;
 
   /**
    * dy property.
+   */
+  /**
+   * dy property.
+   * @crossplatform
+   * @since 10
    */
   dy: Length;
 };
@@ -324,6 +592,12 @@ declare type Offset = {
  * @form
  * @since 9
  */
+/**
+ * Defines the color which can use resource.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type ResourceColor = Color | number | string | Resource;
 
 /**
@@ -331,11 +605,23 @@ declare type ResourceColor = Color | number | string | Resource;
  * @form
  * @since 9
  */
+/**
+ * Defines the length constrain property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type LengthConstrain = {
   /**
    * minimum length.
    * @form
    * @since 9
+   */
+  /**
+   * minimum length.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   minLength: Length;
 
@@ -344,6 +630,12 @@ declare type LengthConstrain = {
    * @form
    * @since 9
    */
+  /**
+   * maximum length.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   maxLength: Length;
 };
 
@@ -351,24 +643,49 @@ declare type LengthConstrain = {
  * Defines the font used for text.
  * @since 7
  */
+/**
+ * Defines the font used for text.
+ * @crossplatform
+ * @since 10
+ */
 declare interface Font {
   /**
    * font size.
+   */
+  /**
+   * font size.
+   * @crossplatform
+   * @since 10
    */
   size?: Length;
 
   /**
    * font weight.
    */
+  /**
+   * font weight.
+   * @crossplatform
+   * @since 10
+   */
   weight?: FontWeight | number | string;
 
   /**
    * font family.
    */
+  /**
+   * font family.
+   * @crossplatform
+   * @since 10
+   */
   family?: string | Resource;
 
   /**
    * font style.
+   */
+  /**
+   * font style.
+   * @crossplatform
+   * @since 10
    */
   style?: FontStyle;
 }
@@ -382,6 +699,12 @@ declare interface Font {
  * @form
  * @since 9
  */
+/**
+ * Defines the area property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface Area {
   /**
    * Defines the width property.
@@ -391,6 +714,12 @@ declare interface Area {
    * Defines the width property.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the width property.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   width: Length;
 
@@ -403,6 +732,12 @@ declare interface Area {
    * @form
    * @since 9
    */
+  /**
+   * Defines the height property.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   height: Length;
 
   /**
@@ -414,6 +749,12 @@ declare interface Area {
    * @form
    * @since 9
    */
+  /**
+   * Defines the local position.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   position: Position;
 
   /**
@@ -424,6 +765,12 @@ declare interface Area {
    * Defines the global position.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the global position.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   globalPosition: Position;
 }
@@ -437,6 +784,12 @@ declare interface Area {
  * @form
  * @since 9
  */
+/**
+ * Defines the position.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface Position {
   /**
    * Coordinate x of the Position.
@@ -447,7 +800,14 @@ declare interface Position {
    * @form
    * @since 9
    */
+  /**
+   * Coordinate x of the Position.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   x?: Length;
+
   /**
    * Coordinate y of the Position.
    * @since 7
@@ -456,6 +816,12 @@ declare interface Position {
    * Coordinate y of the Position.
    * @form
    * @since 9
+   */
+  /**
+   * Coordinate y of the Position.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   y?: Length;
 }
@@ -469,6 +835,12 @@ declare interface Position {
  * @form
  * @since 9
  */
+/**
+ * Defines the constrain size options.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface ConstraintSizeOptions {
   /**
    * Defines the min width.
@@ -479,7 +851,14 @@ declare interface ConstraintSizeOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the min width.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   minWidth?: Length;
+
   /**
    * Defines the max width.
    * @since 7
@@ -488,8 +867,15 @@ declare interface ConstraintSizeOptions {
    * Defines the max width.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the max width.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   maxWidth?: Length;
+
   /**
    * Defines the min height.
    * @since 7
@@ -498,8 +884,15 @@ declare interface ConstraintSizeOptions {
    * Defines the min height.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the min height.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   minHeight?: Length;
+
   /**
    * Defines the max height.
    * @since 7
@@ -508,6 +901,12 @@ declare interface ConstraintSizeOptions {
    * Defines the max height.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the max height.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   maxHeight?: Length;
 }
@@ -521,6 +920,12 @@ declare interface ConstraintSizeOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the size options.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface SizeOptions {
   /**
    * Defines the width.
@@ -531,7 +936,14 @@ declare interface SizeOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the width.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   width?: Length;
+
   /**
    * Defines the height.
    * @since 7
@@ -540,6 +952,12 @@ declare interface SizeOptions {
    * Defines the height.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the height.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   height?: Length;
 }
@@ -553,6 +971,12 @@ declare interface SizeOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the options of border.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BorderOptions {
   /**
    * Defines the border width.
@@ -565,7 +989,15 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the border width.
+   * @type { EdgeWidths | Length }
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   width?: EdgeWidths | Length;
+
   /**
    * Defines the border color.
    * @type { ResourceColor }
@@ -577,7 +1009,15 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the border color.
+   * @type { EdgeColors | ResourceColor }
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   color?: EdgeColors | ResourceColor;
+
   /**
    * Defines the border radius.
    * @type { Length }
@@ -589,7 +1029,15 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the border radius.
+   * @type { BorderRadiuses | Length }
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   radius?: BorderRadiuses | Length;
+
   /**
    * Defines the border style.
    * @type { BorderStyle }
@@ -601,12 +1049,20 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the border style.
+   * @type { EdgeStyles | BorderStyle }
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   style?: EdgeStyles | BorderStyle;
 }
 
 /**
  * Define the style of checkbox mark.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface MarkStyle {
@@ -614,6 +1070,7 @@ declare interface MarkStyle {
    * Define the stroke color of checkbox mark.
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeColor?: ResourceColor;
@@ -622,6 +1079,7 @@ declare interface MarkStyle {
    * Define the size of checkbox mark.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   size?: Length;
@@ -630,6 +1088,7 @@ declare interface MarkStyle {
    * Define the stroke width of checkbox mark.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeWidth?: Length;
@@ -640,12 +1099,25 @@ declare interface MarkStyle {
  * @form
  * @since 9
  */
+/**
+ * Defines the ColorFilter object.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class ColorFilter {
   /**
    * Creates ColorFilter with 4*5 matrix.
    * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @form
    * @since 9
+   */
+  /**
+   * Creates ColorFilter with 4*5 matrix.
+   * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   constructor(value: number[]);
 }

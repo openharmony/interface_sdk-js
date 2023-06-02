@@ -13,17 +13,28 @@
  * limitations under the License.
  */
 
-
 /**
  * Defines the option in length unit of grid-row component.
  * @form
  * @since 9
+ */
+/**
+ * Defines the option in length unit of grid-row component.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare interface GridRowSizeOption {
   /**
    * Grid Row Size Option xs
    * @form
    * @since 9
+   */
+  /**
+   * Grid Row Size Option xs
+   * @form
+   * @crossplatform
+   * @since 10
    */
   xs?: Length,
 
@@ -32,12 +43,24 @@ declare interface GridRowSizeOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Row Size Option sm
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   sm?: Length,
 
   /**
    * Grid Row Size Option md
    * @form
    * @since 9
+   */
+  /**
+   * Grid Row Size Option md
+   * @form
+   * @crossplatform
+   * @since 10
    */
   md?: Length,
 
@@ -46,6 +69,12 @@ declare interface GridRowSizeOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Row Size Option lg
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   lg?: Length,
 
   /**
@@ -53,12 +82,24 @@ declare interface GridRowSizeOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Row Size Option xl
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   xl?: Length,
 
   /**
    * Grid Row Size Option xxl
    * @form
    * @since 9
+   */
+  /**
+   * Grid Row Size Option xxl
+   * @form
+   * @crossplatform
+   * @since 10
    */
   xxl?: Length,
 }
@@ -68,11 +109,23 @@ declare interface GridRowSizeOption {
  * @form
  * @since 9
  */
+/**
+ * Defines the option in number unit of grid-container component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface GridRowColumnOption {
   /**
    * Grid Row Column Option xs
    * @form
    * @since 9
+   */
+  /**
+   * Grid Row Column Option xs
+   * @form
+   * @crossplatform
+   * @since 10
    */
   xs?: number,
 
@@ -81,12 +134,24 @@ declare interface GridRowColumnOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Row Column Option sm
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   sm?: number,
 
   /**
    * Grid Row Column Option md
    * @form
    * @since 9
+   */
+  /**
+   * Grid Row Column Option md
+   * @form
+   * @crossplatform
+   * @since 10
    */
   md?: number,
 
@@ -95,6 +160,12 @@ declare interface GridRowColumnOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Row Column Option lg
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   lg?: number,
 
   /**
@@ -102,12 +173,24 @@ declare interface GridRowColumnOption {
    * @form
    * @since 9
    */
+  /**
+   * Grid Row Column Option xl
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   xl?: number,
 
   /**
    * Grid Row Column Option xxl
    * @form
    * @since 9
+   */
+  /**
+   * Grid Row Column Option xxl
+   * @form
+   * @crossplatform
+   * @since 10
    */
   xxl?: number,
 }
@@ -117,11 +200,23 @@ declare interface GridRowColumnOption {
  * @form
  * @since 9
  */
+/**
+ * Defines the gutter of grid-row component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface GutterOption {
   /**
    * Define x in GutterOption
    * @form
    * @since 9
+   */
+  /**
+   * Define x in GutterOption
+   * @form
+   * @crossplatform
+   * @since 10
    */
   x?: Length | GridRowSizeOption,
 
@@ -129,6 +224,12 @@ declare interface GutterOption {
    * Define y in GutterOption
    * @form
    * @since 9
+   */
+  /**
+   * Define y in GutterOption
+   * @form
+   * @crossplatform
+   * @since 10
    */
   y?: Length | GridRowSizeOption
 }
@@ -138,11 +239,23 @@ declare interface GutterOption {
  * @form
  * @since 9
  */
+/**
+ * Defines the breakpoint reference of grid-container component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum BreakpointsReference {
   /**
    * Respond to breakpoint changes according to window width
    * @form
    * @since 9
+   */
+  /**
+   * Respond to breakpoint changes according to window width
+   * @form
+   * @crossplatform
+   * @since 10
    */
   WindowSize,
 
@@ -150,6 +263,12 @@ declare enum BreakpointsReference {
    * Respond to breakpoint changes according to component width
    * @form
    * @since 9
+   */
+  /**
+   * Respond to breakpoint changes according to component width
+   * @form
+   * @crossplatform
+   * @since 10
    */
   ComponentSize,
 }
@@ -159,11 +278,23 @@ declare enum BreakpointsReference {
  * @form
  * @since 9
  */
+/**
+ * Defines the direction of grid-container component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum GridRowDirection {
   /**
    * The elements in the grid component are arranged in rows
    * @form
    * @since 9
+   */
+  /**
+   * The elements in the grid component are arranged in rows
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Row,
 
@@ -171,6 +302,12 @@ declare enum GridRowDirection {
    * The elements in the grid component are arranged in reverse order of rows
    * @form
    * @since 9
+   */
+  /**
+   * The elements in the grid component are arranged in reverse order of rows
+   * @form
+   * @crossplatform
+   * @since 10
    */
   RowReverse,
 }
@@ -180,11 +317,23 @@ declare enum GridRowDirection {
  * @form
  * @since 9
  */
+/**
+ * Defines the breakpoints of grid-row component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BreakPoints {
   /**
    * Breakpoint array
    * @form
    * @since 9
+   */
+  /**
+   * Breakpoint array
+   * @form
+   * @crossplatform
+   * @since 10
    */
   value?: Array<string>,
 
@@ -192,6 +341,12 @@ declare interface BreakPoints {
    * Set breakpoint reference
    * @form
    * @since 9
+   */
+  /**
+   * Set breakpoint reference
+   * @form
+   * @crossplatform
+   * @since 10
    */
   reference?: BreakpointsReference,
 }
@@ -201,11 +356,23 @@ declare interface BreakPoints {
  * @form
  * @since 9
  */
+/**
+ * Defines the options of grid-row component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface GridRowOptions {
   /**
    * layout spacing between sub-components
    * @form
    * @since 9
+   */
+  /**
+   * layout spacing between sub-components
+   * @form
+   * @crossplatform
+   * @since 10
    */
   gutter?: Length | GutterOption;
 
@@ -214,6 +381,12 @@ declare interface GridRowOptions {
    * @form
    * @since 9
    */
+  /**
+   * Sets the total number of columns in the current layout.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   columns?: number | GridRowColumnOption;
 
   /**
@@ -221,12 +394,24 @@ declare interface GridRowOptions {
    * @form
    * @since 9
    */
+  /**
+   * grid-row layout breakpoints.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   breakpoints?: BreakPoints;
 
   /**
    * grid-row layout direction.
    * @form
    * @since 9
+   */
+  /**
+   * grid-row layout direction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   direction?: GridRowDirection;
 }
@@ -236,11 +421,23 @@ declare interface GridRowOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the the new version of grid-container component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface GridRowInterface {
   /**
    * Defines the constructor of GridRow.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the constructor of GridRow.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (option?: GridRowOptions): GridRowAttribute;
 }
@@ -251,6 +448,12 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Callback triggered when the breakpoint changes
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 
   /**
@@ -259,6 +462,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @default ItemAlign.Start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @crossplatform
    * @since 10
    */
   alignItems(value: ItemAlign): GridRowAttribute;
@@ -269,11 +473,23 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines GridRow Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const GridRow: GridRowInterface;
 
 /**
  * Defines GridRow Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines GridRow Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const GridRowInstance: GridRowAttribute;

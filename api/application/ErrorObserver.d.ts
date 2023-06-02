@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,28 +16,25 @@
 /**
  * The observer will be called by system when an error occurs.
  *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 9
  */
 export default class ErrorObserver {
   /**
    * Will be called when the js runtime throws an exception which doesn't caught by user.
    *
-   * @since 9
+   * @param { string } errMsg the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param errMsg the message and error stacktrace about the exception.
-   * @returns -
+   * @since 9
    */
   onUnhandledException(errMsg: string): void;
 
   /**
    * Will be called when the native executions exception.
    *
-   * @since 10
+   * @param { Error } errObject the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param errObject the error object about the exception.
-   * @returns -
+   * @since 10
    */
   onException?(errObject: Error): void;
 }
