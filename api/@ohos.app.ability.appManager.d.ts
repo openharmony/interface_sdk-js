@@ -461,40 +461,25 @@ declare namespace appManager {
    * Register system low memory state observer.
    * @param { 'lowMemory' } type - lowMemory.
    * @param { LowMemoryObserver } observer - Indicates the LowMemoryObserver to be registered.
-   * @returns { number } Returns the index number of the LowMemoryObserver.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
-  function on(type: 'lowMemory', observer: LowMemoryObserver): number;
+  function on(type: 'lowMemory', observer: LowMemoryObserver): void;
 
   /**
    * Unregister system low memory state observer.
    * @param { 'lowMemory' } type - lowMemory.
-   * @param { number } observerId - Indicates the observer id to be unregistered.
-   * @param { AsyncCallback<void> } callback - the callback of off.
+   * @param { LowMemoryObserver } observer - Indicates the observer to be unregistered.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
-  function off(type: 'lowMemory', observerId: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Unregister system low memory state observer.
-   * @param { 'lowMemory' } type - lowMemory.
-   * @param { number } observerId - Indicates the observer id to be unregistered.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 10
-   */
-  function off(type: 'lowMemory', observerId: number): Promise<void>;
+  function off(type: 'lowMemory', observer: LowMemoryObserver): void;
 
   /**
    * Obtains memory usage of one process by its pid.
@@ -525,10 +510,10 @@ declare namespace appManager {
   function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the pid list of running processes that belong to a specific bundle of current user.
+   * Obtains the process information list of running processes that belong to a specific bundle of current user.
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
-   * @param { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
+   * @param { AsyncCallback<Array<ProcessInformation>> } - Indicates the callback of getting process information by bundleName result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -536,14 +521,14 @@ declare namespace appManager {
    * @systemapi
    * @since 10
    */
-  function getPidsByBundleName(bundleName: string, callback: AsyncCallback<Array<number>>): void;
+  function getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
-   * Obtains the pid list of running processes that belong to a specific bundle and specific user ID.
+   * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
    * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
-   * @param { AsyncCallback<Array<number>> } - Indicates the callback of getting pids by bundleName result.
+   * @param { AsyncCallback<Array<ProcessInformation>> } - Indicates the callback of getting process information by bundleName result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -551,13 +536,13 @@ declare namespace appManager {
    * @systemapi
    * @since 10
    */
-  function getPidsByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<number>>): void;
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
-   * Obtains the pid list of running processes that belong to a specific bundle of current user.
+   * Obtains the process information list of running processes that belong to a specific bundle of current user.
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
-   * @returns { Promise<Array<number>> } - Returns a list of pid numbers.
+   * @returns { Promise<Array<ProcessInformation>> } - Returns a list of process information.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -565,14 +550,14 @@ declare namespace appManager {
    * @systemapi
    * @since 10
    */
-  function getPidsByBundleName(bundleName: string): Promise<Array<number>>;
+  function getRunningProcessInfoByBundleName(bundleName: string): Promise<Array<ProcessInformation>>;
 
   /**
-   * Obtains the pid list of running processes that belong to a specific bundle and specific user ID.
+   * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
    * 
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
    * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
-   * @returns { Promise<Array<number>> } - Returns a list of pid numbers.
+   * @returns { Promise<Array<ProcessInformation>> } - Returns a list of process information.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -580,7 +565,7 @@ declare namespace appManager {
    * @systemapi
    * @since 10
    */
-  function getPidsByBundleName(bundleName: string, userId: number): Promise<Array<number>>;
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: number): Promise<Array<ProcessInformation>>;
 
   /**
    * The ability or extension state data.
