@@ -123,40 +123,16 @@ declare namespace statistics {
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through the cellular network.
+   * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @throws { BusinessError } 2103005 - Failed to read map.
    * @throws { BusinessError } 2103011 - Failed to create map.
    * @throws { BusinessError } 2103012 - Get iface name failed.
-   * @returns { Promise<number> } The promise returned by the function.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
   function getCellularTxBytes(): Promise<number>;
-
-  /**
-   * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
-   * @param { AsyncCallback<number> } callback Returns the data traffic sent through all NICs.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
-   */
-  function getAllTxBytes(callback: AsyncCallback<number>): void;
-
-  /**
-   * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
-   * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2103005 - Failed to read map.
-   * @throws { BusinessError } 2103011 - Failed to create map.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 10
-   */
-  function getAllTxBytes(): Promise<number>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
@@ -181,6 +157,30 @@ declare namespace statistics {
    * @since 10
    */
   function getAllRxBytes(): Promise<number>;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
+   * @param { AsyncCallback<number> } callback Returns the data traffic sent through all NICs.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read map.
+   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getAllTxBytes(callback: AsyncCallback<number>): void;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read map.
+   * @throws { BusinessError } 2103011 - Failed to create map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getAllTxBytes(): Promise<number>;
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received by a specified application.
