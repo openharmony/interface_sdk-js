@@ -471,5 +471,5 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @since 10
    */
-  onPrepareTerminate(): boolean;
+  onPrepareToTerminate(): boolean;
 }
