@@ -4092,3 +4092,32 @@ declare enum ClickEffectLevel {
      */
     HEAVY,
 }
+
+/**
+ * The type of XComponent
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum XComponentType {
+  /**
+   * Surface type. The default type is used.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SURFACE,
+
+  /**
+   * Component type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COMPONENT,
+
+  /**
+   * Texture type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TEXTURE,
+}
