@@ -3431,10 +3431,10 @@ declare interface PopupOptions {
   placementOnTop?: boolean;
 
   /**
-   * Placement of popup
-   * supports four positions: top, bottom, left and right
+   * The placement of popup.
+   * Supports all positions defined in Placement.
    * @type { Placement }
-   * @default bottom
+   * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3573,6 +3573,15 @@ declare interface PopupOptions {
    * @since 10
    */
   targetSpace?: Length
+
+  /**
+   * whether show arrow
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
 }
 
 /**
@@ -3858,6 +3867,31 @@ declare interface PixelStretchEffectOptions {
    * @since 10
    */
   right?: Length;
+}
+
+/**
+ * Defines the click effect.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ClickEffect {
+  /**
+   * Set the click effect level.
+   * @type { ClickEffectLevel }
+   * @default ClickEffectLevel.Light
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  level: ClickEffectLevel;
+
+  /**
+   * Set scale number.
+   * This default scale is same as the scale of click effect level.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scale?: number;
 }
 
 /**
@@ -5152,6 +5186,15 @@ declare class CommonMethod<T> {
    * @since 10
    */
   aspectRatio(value: number): T;
+
+  /**
+   * The click effect level and scale number.
+   * @param { ClickEffect | null } value.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  clickEffect(value: ClickEffect | null): T;
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
