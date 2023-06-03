@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Defines the Gauge component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface GaugeInterface {
   /**
    * value:Current data value.
@@ -36,6 +42,14 @@ interface GaugeInterface {
    * @form
    * @since 9
    */
+  /**
+   * value:Current data value.
+   * min: Current Segment Minimum Value
+   * max: Current Segment Maximum Value
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (options: { value: number; min?: number; max?: number }): GaugeAttribute;
 }
 
@@ -46,6 +60,11 @@ interface GaugeInterface {
  * @form
  * @since 9
  */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Sets the value for the current profile.
@@ -55,6 +74,12 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets the value for the current profile.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the value for the current profile.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   value(value: number): GaugeAttribute;
 
@@ -67,6 +92,12 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   startAngle(angle: number): GaugeAttribute;
 
   /**
@@ -77,6 +108,12 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   endAngle(angle: number): GaugeAttribute;
 
@@ -89,6 +126,12 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Set the color of the chart. You can set the solid color and segmented gradient color.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   colors(colors: Array<any>): GaugeAttribute;
 
   /**
@@ -99,6 +142,12 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets the thickness of the ring chart.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the thickness of the ring chart.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   strokeWidth(length: Length): GaugeAttribute;
 }
@@ -112,6 +161,12 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Gauge Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Gauge: GaugeInterface;
 
 /**
@@ -122,5 +177,11 @@ declare const Gauge: GaugeInterface;
  * Defines Gauge Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Gauge Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const GaugeInstance: GaugeAttribute;

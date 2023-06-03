@@ -25,6 +25,7 @@ declare namespace deviceInfo {
   * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
   * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
   * @syscap SystemCapability.Startup.SystemInfo
+  * @crossplatform
   * @since 6
   */
   const deviceType: string;
@@ -32,6 +33,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the device manufacturer represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const manufacture: string;
@@ -39,6 +41,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the device brand represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const brand: string;
@@ -46,6 +49,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the external product series represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const marketName: string;
@@ -53,6 +57,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the product series represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const productSeries: string;
@@ -60,6 +65,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the product model represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const productModel: string;
@@ -67,6 +73,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the software model represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const softwareModel: string;
@@ -74,6 +81,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the hardware model represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const hardwareModel: string;
@@ -97,6 +105,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the bootloader version number represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const bootloaderVersion: string;
@@ -104,6 +113,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the application binary interface (Abi) list represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const abiList: string;
@@ -111,6 +121,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the security patch level represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const securityPatchTag: string;
@@ -118,6 +129,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the product version represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const displayVersion: string;
@@ -125,6 +137,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the incremental version represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const incrementalVersion: string;
@@ -135,6 +148,7 @@ declare namespace deviceInfo {
    * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
    * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const osReleaseType: string;
@@ -142,6 +156,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the OS version represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const osFullName: string;
@@ -150,6 +165,7 @@ declare namespace deviceInfo {
    * Obtains the major (M) version number, which increases with any updates to the overall architecture.
    * <p>The M version number monotonically increases from 1 to 99.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const majorVersion: number;
@@ -159,6 +175,7 @@ declare namespace deviceInfo {
    * architecture or major features.
    * <p>The S version number monotonically increases from 0 to 99.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const seniorVersion: number;
@@ -167,6 +184,7 @@ declare namespace deviceInfo {
    * Obtains the feature (F) version number, which increases with any planned new features.
    * <p>The F version number monotonically increases from 0 or 1 to 99.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const featureVersion: number;
@@ -175,6 +193,7 @@ declare namespace deviceInfo {
    * Obtains the build (B) version number, which increases with each new development build.
    * <p>The B version number monotonically increases from 0 or 1 to 999.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const buildVersion: number;
@@ -182,6 +201,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the SDK API version number.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const sdkApiVersion: number;
@@ -189,6 +209,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the first API version number.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const firstApiVersion: number;
@@ -196,6 +217,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the version ID by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const versionId: string;
@@ -203,6 +225,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the build types of the same baseline code.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const buildType: string;
@@ -210,6 +233,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the different build user of the same baseline code.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const buildUser: string;
@@ -217,6 +241,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the different build host of the same baseline code.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const buildHost: string;
@@ -224,6 +249,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the build time.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const buildTime: string;
@@ -231,6 +257,7 @@ declare namespace deviceInfo {
   /**
    * Obtains the version hash.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 6
    */
   const buildRootHash: string;

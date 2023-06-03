@@ -2435,8 +2435,7 @@ declare namespace rpc {
     /**
      * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
      *
-     * @returns { number } Return {@code true} if the the SendRequest is called synchronously;
-     *                     return {@code false} if the the SendRequest is called asynchronously.
+     * @returns { number } Return whether the SendRequest is called synchronously or asynchronously.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
@@ -2454,8 +2453,8 @@ declare namespace rpc {
     /**
      * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
      *
-     * @returns { boolean } Return {@code true} if the synchronous call succeeds;       
-     *                      return {@code false} if the asynchronous call succeeds.     
+     * @returns { boolean } Return {@code true} if the asynchronous call succeeds;
+     *                      return {@code false} if the synchronous call succeeds.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
