@@ -3431,10 +3431,10 @@ declare interface PopupOptions {
   placementOnTop?: boolean;
 
   /**
-   * Placement of popup
-   * supports four positions: top, bottom, left and right
+   * The placement of popup.
+   * Supports all positions defined in Placement.
    * @type { Placement }
-   * @default bottom
+   * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
