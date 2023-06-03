@@ -4025,6 +4025,27 @@ declare enum ImageSpanAlignment {
 }
 
 /**
+ * Text content style.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TextContentStyle {
+  /**
+   * Text content default style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DEFAULT,
+
+  /**
+   * Text content inline style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  INLINE
+}
+
+/**
  * Enum of click effect level.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
