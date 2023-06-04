@@ -4025,6 +4025,21 @@ declare enum ImageSpanAlignment {
 }
 
 /**
+ * ObscuredReasons.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ObscuredReasons {
+  /**
+   * Displayed data should appear as generic placeholders.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PLACEHOLDER = 0,
+}
+
+/**
  * Text content style.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
