@@ -2711,6 +2711,23 @@ declare interface ClickEvent extends BaseEvent {
 }
 
 /**
+ * The hover action triggers this method invocation.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface HoverEvent extends BaseEvent {
+  /**
+   * The blocking hover event pops up.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  stopPropagation?: () => void;
+}
+
+/**
  * The mouse click action triggers this method invocation.
  * @since 8
  */
@@ -4331,15 +4348,18 @@ declare class CommonMethod<T> {
   onClick(event: (event?: ClickEvent) => void): T;
 
   /**
-   * Trigger a mouse hover event.
+   * Trigger a hover event.
    * @since 8
    */
   /**
-   * Trigger a mouse hover event.
+   * Trigger a hover event.
+   * @param {(isHover?: boolean, event?: HoverEvent} callback of onHover, isHover described entry or leave component, use HoverEvent to set up stopPropagation.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onHover(event: (isHover?: boolean) => void): T;
+  onHover(event: (isHover?: boolean, event?: HoverEvent) => void): T;
 
   /**
    * Set hover effect.
