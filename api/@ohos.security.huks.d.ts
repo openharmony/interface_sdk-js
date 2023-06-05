@@ -1589,9 +1589,7 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      */
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
-    /**
-     * @syscap SystemCapability.Security.Huks.Extension
-     */
+
     HUKS_TAG_IV = HuksTagType.HUKS_TAG_TYPE_BYTES | 10,
 
     /* Key derivation TAG */
