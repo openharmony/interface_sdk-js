@@ -340,6 +340,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 10
    */
   style(value: TextContentStyle): TextAreaAttribute;
+
+  /**
+   * Define bar state of the text area.
+   * @param { BarState }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  barState(value: BarState): TextAreaAttribute;
 }
 
 /**
