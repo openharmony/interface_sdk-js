@@ -398,7 +398,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     RUNNING_LOCK = 1 << 7,
 
@@ -407,7 +407,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     SENSOR = 1 << 8
   }
