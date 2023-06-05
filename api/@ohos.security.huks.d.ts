@@ -1585,9 +1585,7 @@ declare namespace huks {
     HUKS_TAG_BLOCK_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 6,
     HUKS_TAG_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 7,
     HUKS_TAG_ASSOCIATED_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 8,
-    /**
-     * @syscap SystemCapability.Security.Huks.Extension
-     */
+
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
 
     HUKS_TAG_IV = HuksTagType.HUKS_TAG_TYPE_BYTES | 10,
@@ -1940,9 +1938,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_PAYLOAD_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 10008,
-    /**
-     * @syscap SystemCapability.Security.Huks.Extension
-     */
+
     HUKS_TAG_AE_TAG = HuksTagType.HUKS_TAG_TYPE_BYTES | 10009,
     /**
      * @since 8
