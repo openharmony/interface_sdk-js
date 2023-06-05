@@ -436,6 +436,17 @@ declare namespace resourceManager {
   export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
   /**
+   * Obtains the System ResourceManager object of the current device.
+   *
+   * @returns { ResourceManager } The System ResourceManager object is returned.
+   * @throws { BusinessError } 9001009 - If application can't access system resource
+   *         which is not mapped to application sandbox, This error code will be thrown.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 10
+   */
+  export function getSystemResourceManager(): ResourceManager;
+
+  /**
    * Provides the capability of accessing application resources.
    *
    * @interface ResourceManager
