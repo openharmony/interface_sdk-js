@@ -359,6 +359,16 @@ export class UIContext {
   getPromptAction(): PromptAction;
 
   /**
+   * Create an animator object for custom animation.
+   * @param { AnimatorOptions } options - Options.
+   * @throws { BusinessError } 401 - if parameter error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  createAnimator(options: AnimatorOptions): AnimatorResult;
+
+  /**
    * Defining animation function
    * @param { AnimateParam } value - animateTo parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
