@@ -1190,9 +1190,7 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      */
     HUKS_PADDING_PKCS5 = 4,
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     */
+
     HUKS_PADDING_PKCS7 = 5
   }
 
@@ -1215,9 +1213,7 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      */
     HUKS_MODE_CCM = 31,
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     */
+
     HUKS_MODE_GCM = 32
   }
 
@@ -1391,7 +1387,7 @@ declare namespace huks {
    * Enum for huks key generate type.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks.Core
+   * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
    */
   export enum HuksKeyGenerateType {
@@ -1423,13 +1419,11 @@ declare namespace huks {
    */
   export enum HuksKeyStorageType {
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 10
      */
     HUKS_STORAGE_TEMP = 0,
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 10
      */
@@ -1573,7 +1567,6 @@ declare namespace huks {
     /**
      * Invalid TAG
      *
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1608,7 +1601,6 @@ declare namespace huks {
      */
     HUKS_TAG_SALT = HuksTagType.HUKS_TAG_TYPE_BYTES | 12,
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1701,7 +1693,6 @@ declare namespace huks {
     /**
      * Date when new "messages" should not be created.
      *
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1709,7 +1700,6 @@ declare namespace huks {
     /**
      * Date when existing "messages" should not be used.
      *
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1717,7 +1707,6 @@ declare namespace huks {
     /**
      * Key creation time.
      *
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1870,7 +1859,6 @@ declare namespace huks {
      * Extention TAG: 1001 - 9999
      */
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     HUKS_TAG_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1001,
@@ -1899,7 +1887,6 @@ declare namespace huks {
      */
     HUKS_TAG_IS_ASYNCHRONIZED = HuksTagType.HUKS_TAG_TYPE_UINT | 1008,
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1914,7 +1901,6 @@ declare namespace huks {
 
     /* Inner-use TAG: 10001 - 10999 */
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1961,7 +1947,6 @@ declare namespace huks {
      */
     HUKS_TAG_AE_TAG = HuksTagType.HUKS_TAG_TYPE_BYTES | 10009,
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
@@ -1969,13 +1954,11 @@ declare namespace huks {
 
     /* Os version related TAG */
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
     HUKS_TAG_OS_VERSION = HuksTagType.HUKS_TAG_TYPE_UINT | 10101,
     /**
-     * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 9
      */
