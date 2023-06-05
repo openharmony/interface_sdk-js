@@ -634,6 +634,19 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
+     * @param { boolean } isRefresh Refresh the online device list to quickly bring nearby trusted devices online.
+     * @returns { Array<DeviceInfo> } Returns a list of trusted devices.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+    getTrustedDeviceListSync(isRefresh: boolean): Array<DeviceInfo>;
+    
+    /**
+     * Obtains a list of trusted devices.
+     *
      * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
