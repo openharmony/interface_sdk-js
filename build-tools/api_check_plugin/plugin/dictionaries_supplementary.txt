@@ -552,6 +552,7 @@ reconfiguration
 recovered
 recovering
 recursions
+reclaimed
 redirections
 refill
 refusing
@@ -619,6 +620,7 @@ shortkey
 shuts
 sigalgs
 silenced
+singly
 slidable
 sliderstyle
 statvfs
@@ -710,6 +712,7 @@ transliterator
 transpilation
 trashed
 traversed
+traverses
 truncates
 tsbundle
 ttls
