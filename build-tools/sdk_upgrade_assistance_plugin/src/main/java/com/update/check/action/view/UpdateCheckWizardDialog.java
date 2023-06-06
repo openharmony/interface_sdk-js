@@ -23,7 +23,6 @@ import com.update.check.dto.ApiDiffResultDto;
 import com.update.check.dto.CollectApplicationApiDto;
 import com.update.check.log.Logger;
 import com.update.check.utils.FileUtils;
-import com.update.check.utils.MySystemUtils;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
@@ -178,7 +177,8 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
                 return;
             }
             String compileSdkVersion = FileUtils.getCompileSdkVersion(this.project.getBasePath());
-            if (compileSdkVersion == null) {
+            if ("null".equals(compileSdkVersion)) {
+                this.labelErrorNotice.setText(ConstString.get("check.unable.to.obtain.sdk"));
                 return;
             }
             File file = new File(sdkDir, compileSdkVersion + ConstString.get("check.ets"));
@@ -231,8 +231,7 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
                 resultPath.mkdirs();
             }
             String orders = FileUtils.getLastDir().split(":")[0] +
-                    ": && cd updateCheck && cd api-diff && " +
-                    MySystemUtils.guessNodeFile() + " api-diff.js --old " +
+                    ": && cd updateCheck && cd api-diff && node api-diff.js --old " +
                     this.textFieldOldSdkPath.getText() + " --new " +
                     this.newSdkFilePath + " --oldVersion " + this.oldSdkVersion + " --newVersion " +
                     this.newSdkVersion + " --output " + this.lastDir +
@@ -259,8 +258,7 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             File updateCheck = new File(this.project.getBasePath(), "updateCheck");
             this.reportPath = updateCheck.toString();
             String orders = FileUtils.getLastDir().split(":")[0] +
-                    ": && cd updateCheck && cd collect_application_api && " +
-                    MySystemUtils.guessNodeFile() + " api-collector.js --app " +
+                    ": && cd updateCheck && cd collect_application_api && node api-collector.js --app " +
                     this.project.getBasePath() + " --output " + updateCheck + " --sdk " +
                     this.textFieldOldSdkPath.getText() + " --format json";
             ProcessBuilder builder = new ProcessBuilder();
