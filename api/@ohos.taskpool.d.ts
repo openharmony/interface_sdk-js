@@ -270,7 +270,6 @@ declare namespace taskpool {
    * @param { Task } task - task task The task want to cancel.
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
-   * @throws { BusinessError } 10200016 - The task is executing when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
