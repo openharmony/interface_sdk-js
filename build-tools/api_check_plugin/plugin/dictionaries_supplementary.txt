@@ -782,6 +782,7 @@ ussd
 utilized
 uuids
 uwb
+uids
 v9
 varyings
 vibrates
