@@ -116,7 +116,7 @@ declare namespace font {
 
   /**
    * Get font details according to the font name.
-   * @param fontName font name
+   * @param { string } fontName font name
    * @returns { FontInfo } Returns the font info
    * @since 10
    */
