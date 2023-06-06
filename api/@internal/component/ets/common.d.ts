@@ -3981,12 +3981,12 @@ declare class CommonMethod<T> {
    * @since 7
    */
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @form
    * @since 9
    */
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @form
    * @crossplatform
    * @since 10
