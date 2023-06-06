@@ -88,6 +88,23 @@ declare namespace taskpool {
     constructor(func: Function, ...args: unknown[]);
 
     /**
+     * Check current running Task is canceled or not.
+     * @returns Returns {@code true} if current running task is canceled; returns {@code false} otherwise.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
+    static isCanceled(): boolean;
+
+    /**
+     * Set transfer list for this task.
+     * @param transfer Transfer list of this task, empty array is default.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
+    setTransferList(transfer?: ArrayBuffer[]): void;
+
+    /**
      * Concurrent function to execute in taskpool.
      *
      * @syscap SystemCapability.Utils.Lang
@@ -116,6 +133,41 @@ declare namespace taskpool {
      * @since 10
      */
     arguments?: unknown[];
+  }
+
+  /**
+   * The TaskGroup class provides an interface to create a task group.
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
+  class TaskGroup {
+    /**
+     * Create a TaskGroup instance.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
+    constructor();
+
+    /**
+     * Add a Concurrent function into task group.
+     * @param func Concurrent function to add in task group.
+     * @param args The concurrent function arguments.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200014 - if the function is not mark as concurrent.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
+    addTask(func: Function, ...args: unknown[]): void;
+
+    /**
+     * Add a Task into TaskGroup.
+     * @param task The task want to add in task group.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200014 - if the function is not mark as concurrent.
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
+    addTask(task: Task): void;
   }
 
   /**
@@ -177,6 +229,17 @@ declare namespace taskpool {
   function execute(task: Task, priority?: Priority): Promise<unknown>;
 
   /**
+   * Execute a concurrent task group.
+   * @param group The task group want to execute.
+   * @param priority Task group priority, MEDIUM is default.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
+  function execute(group: TaskGroup, priority?: Priority): Promise<unknown[]>;
+
+  /**
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
@@ -198,6 +261,16 @@ declare namespace taskpool {
    * @since 10
    */
   function cancel(task: Task): void;
+
+  /**
+   * Cancel a concurrent task group.
+   * @param group The task group want to cancel.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 10200018 - if the task group is not exist.
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
+  function cancel(group: TaskGroup): void;
 }
 
 export default taskpool;
