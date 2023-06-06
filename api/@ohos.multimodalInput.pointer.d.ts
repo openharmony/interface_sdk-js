@@ -661,6 +661,19 @@ declare namespace pointer {
    * Set touchpad scroll switch.
    *
    * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
+   * @returns { Promise<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchPadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad scroll switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
