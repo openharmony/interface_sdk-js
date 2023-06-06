@@ -485,6 +485,7 @@ declare namespace connection {
    * Obtains the network independent global {@link HttpProxy} proxy settings.
    * @param { AsyncCallback<HttpProxy> } callback Returns the proxy settings. For details, see {@link HttpProxy}.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -497,6 +498,7 @@ declare namespace connection {
    * Obtains the network independent global {@link HttpProxy} proxy settings.
    * @returns { Promise<HttpProxy> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -512,6 +514,7 @@ declare namespace connection {
    * @param { AsyncCallback<void> } callback Returns the callback of setGlobalHttpProxy.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -528,6 +531,7 @@ declare namespace connection {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.

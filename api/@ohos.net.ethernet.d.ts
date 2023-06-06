@@ -172,9 +172,9 @@ declare namespace ethernet {
    * @param { 'interfaceStateChange' } type Indicates Event name.
    * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
    * and active Indicates whether the interface is active. 
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -187,9 +187,9 @@ declare namespace ethernet {
    * @param { 'interfaceStateChange' } type Indicates Event name.
    * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
    * and active Indicates whether the interface is active.
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 10
