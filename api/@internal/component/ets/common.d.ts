@@ -2711,6 +2711,23 @@ declare interface ClickEvent extends BaseEvent {
 }
 
 /**
+ * The hover action triggers this method invocation.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface HoverEvent extends BaseEvent {
+  /**
+   * The blocking hover event pops up.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  stopPropagation?: () => void;
+}
+
+/**
  * The mouse click action triggers this method invocation.
  * @since 8
  */
@@ -3431,10 +3448,10 @@ declare interface PopupOptions {
   placementOnTop?: boolean;
 
   /**
-   * Placement of popup
-   * supports four positions: top, bottom, left and right
+   * The placement of popup.
+   * Supports all positions defined in Placement.
    * @type { Placement }
-   * @default bottom
+   * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3573,6 +3590,23 @@ declare interface PopupOptions {
    * @since 10
    */
   targetSpace?: Length
+
+  /**
+   * whether show arrow
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
+   /**
+   * Sets the position offset of the popup.
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Position
 }
 
 /**
@@ -3705,6 +3739,15 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   targetSpace?: Length
+
+  /**
+   * Sets the position offset of the popup.
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Position
 }
 
 /**
@@ -3858,6 +3901,31 @@ declare interface PixelStretchEffectOptions {
    * @since 10
    */
   right?: Length;
+}
+
+/**
+ * Defines the click effect.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ClickEffect {
+  /**
+   * Set the click effect level.
+   * @type { ClickEffectLevel }
+   * @default ClickEffectLevel.Light
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  level: ClickEffectLevel;
+
+  /**
+   * Set scale number.
+   * This default scale is same as the scale of click effect level.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scale?: number;
 }
 
 /**
@@ -4297,15 +4365,18 @@ declare class CommonMethod<T> {
   onClick(event: (event?: ClickEvent) => void): T;
 
   /**
-   * Trigger a mouse hover event.
+   * Trigger a hover event.
    * @since 8
    */
   /**
-   * Trigger a mouse hover event.
+   * Trigger a hover event.
+   * @param {(isHover?: boolean, event?: HoverEvent} callback of onHover, isHover described entry or leave component, use HoverEvent to set up stopPropagation.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onHover(event: (isHover?: boolean) => void): T;
+  onHover(event: (isHover?: boolean, event?: HoverEvent) => void): T;
 
   /**
    * Set hover effect.
@@ -5154,6 +5225,15 @@ declare class CommonMethod<T> {
   aspectRatio(value: number): T;
 
   /**
+   * The click effect level and scale number.
+   * @param { ClickEffect | null } value.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  clickEffect(value: ClickEffect | null): T;
+
+  /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
@@ -5612,6 +5692,15 @@ declare class CommonMethod<T> {
    * @since 10
    */
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
+
+  /**
+   * Sets obscured
+   * @param { Array<ObscuredReasons> } reasons , reasons of obscuration
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { T }
+   * @since 10
+   */
+  obscured(reasons: Array<ObscuredReasons>): T;
 }
 
 /**
@@ -6362,5 +6451,12 @@ declare module "SpecialEvent" {
   module "SpecialEvent" {
     // @ts-ignore
     export { TouchObject, KeyEvent, MouseEvent };
+  }
+}
+
+declare module "AnimateToParam" {
+  module "AnimateToParam" {
+    // @ts-ignore
+    export { AnimateParam };
   }
 }

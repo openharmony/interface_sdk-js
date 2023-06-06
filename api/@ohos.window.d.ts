@@ -21,6 +21,7 @@ import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';
+import { UIContext } from './@ohos.arkui.UIContext';
 
 /**
  * Window manager.
@@ -2494,6 +2495,16 @@ declare namespace window {
      * @useinstead ohos.window.Window#setUIContent
      */
     loadContent(path: string): Promise<void>;
+
+    /**
+     * Get the UIContext associate with the window content.
+     * @returns { UIContext } the object of UIContext.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @since 10
+     */
+    getUIContext() : UIContext;
 
     /**
      * Loads content
