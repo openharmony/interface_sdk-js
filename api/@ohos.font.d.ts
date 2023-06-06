@@ -38,17 +38,68 @@ declare namespace font {
   }
 
   interface FontInfo {
+    
+    /**
+     * The path of the font file.
+     * @since 10
+     */
     path: string;
+
+    /**
+     * The name of postscript.
+     * @since 10
+     */
     postScriptName: string;
+
+    /**
+     * The font name.
+     * @since 10
+     */
     fullName: string;
+
+    /**
+     * A set of fonts with a common design.
+     * @since 10
+     */
     fontFamily: string;
+
+    /**
+     * A subset of the font family.
+     * @since 10
+     */
     fontSubfamily: string;
+
+    /**
+     * The weight of the font.
+     * @since 10
+     */
     weight: number;
+
+    /**
+     * The width of the font.
+     * @since 10
+     */
     width: number;
+
+    /**
+     * Whether it is italic.
+     * @since 10
+     */
     italic: boolean;
+
+    /**
+     * Whether it is compact.
+     * @since 10
+     */
     monoSpace: boolean;
+
+    /**
+     * Whether symbol fonts are supported.
+     * @since 10
+     */
     symbolic: boolean;
   }
+
   /**
    * Register a customized font in the FontManager.
    * @param options FontOptions
@@ -58,16 +109,16 @@ declare namespace font {
 
   /**
    * Gets a list of fonts supported by system.
-   * @returns A list of font names
-   * @since 9
+   * @returns { Array<string> } A list of font names
+   * @since 10
    */
   function getSystemFontList(): Array<string>;
 
   /**
-   * Register a customized font in the FontManager.
+   * Get font details according to the font name.
    * @param fontName font name
    * @returns { FontInfo } Returns the font info
-   * @since 9
+   * @since 10
    */
   function getFontInfo(fontName: string): FontInfo;
 }
