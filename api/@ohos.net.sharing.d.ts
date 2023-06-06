@@ -383,9 +383,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'sharingStateChange' } type Indicates Event name.
    * @param { Callback<boolean> } callback callback function that returns the status
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -397,9 +397,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'interfaceSharingStateChange' } type Indicates Event name.
    * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback callback function that returns the message. 
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -411,9 +411,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'interfaceSharingStateChange' } type Indicates Event name.
    * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback callback function that returns the message.
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -425,9 +425,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'sharingUpstreamChange' } type Indicates Event name.
    * @param { Callback<NetHandle> } callback callback function that returns the network handle.
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -439,9 +439,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'sharingUpstreamChange' } type Indicates Event name.
    * @param { Callback<NetHandle> } callback callback function that returns the network handle.
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9
