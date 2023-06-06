@@ -16,7 +16,6 @@
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
- * @import font from '@ohos.font';
  */
 declare namespace font {
   /**
@@ -77,7 +76,7 @@ declare namespace font {
     family: string;
 
     /**
-     * A subset of the font family.f
+     * A subset of the font family.
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -123,7 +122,7 @@ declare namespace font {
      * @since 10
      */
     symbolic: boolean;
-}
+  }
 
   /**
    * Register a customized font in the FontManager.
