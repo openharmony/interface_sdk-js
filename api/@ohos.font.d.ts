@@ -36,6 +36,19 @@ declare namespace font {
      */
     familySrc: string;
   }
+
+  interface FontInfo {
+    path: string;
+    postScriptName: string;
+    fullName: string;
+    fontFamily: string;
+    fontSubfamily: string;
+    weight: number;
+    width: number;
+    italic: boolean;
+    monoSpace: boolean;
+    symbolic: boolean;
+  }
   /**
    * Register a customized font in the FontManager.
    * @param options FontOptions
@@ -43,6 +56,20 @@ declare namespace font {
    */
   function registerFont(options: FontOptions): void;
 
+  /**
+   * Gets a list of fonts supported by system.
+   * @returns A list of font names
+   * @since 9
+   */
+  function getSystemFontList(): Array<string>;
+
+  /**
+   * Register a customized font in the FontManager.
+   * @param fontName font name
+   * @returns { FontInfo } Returns the font info
+   * @since 9
+   */
+  function getFontInfo(fontName: string): FontInfo;
 }
 
 export default font;
