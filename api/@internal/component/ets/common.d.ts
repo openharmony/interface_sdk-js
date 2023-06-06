@@ -2447,6 +2447,69 @@ declare enum ShadowStyle {
 }
 
 /**
+ * Enumerates the safe area types.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum SafeAreaType {
+  /**
+   * Default area of the system, including the status bar and navigation bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SYSTEM,
+
+  /**
+   * Notch or punch hole.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CUTOUT,
+
+  /**
+   * Soft keyboard area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  KEYBOARD
+}
+
+/**
+ * Enumerates the safe area edges.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum SafeAreaEdge {
+  /**
+   * Top edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TOP,
+
+  /**
+   * Bottom edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BOTTOM,
+
+  /**
+   * Start edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  START,
+
+  /**
+   * End edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  END
+}
+
+/**
  * Defines sheet size type.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4101,6 +4164,16 @@ declare class CommonMethod<T> {
    * @since 10
    */
   height(value: Length): T;
+
+  /**
+   * Expands the safe area.
+   * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
+   * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
+   * @returns { T } The component instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
 
   /**
    * Sets the response region of the current component.
