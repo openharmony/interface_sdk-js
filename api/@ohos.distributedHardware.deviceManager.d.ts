@@ -658,6 +658,7 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter error.
