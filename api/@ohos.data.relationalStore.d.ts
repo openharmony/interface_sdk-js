@@ -79,6 +79,22 @@ declare namespace relationalStore {
      * @since 10
      */
     size: string;
+
+    /**
+     * The id of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    assetId: string;
+
+    /**
+     * The subPath of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    subPath: string;
   }
 
   type Assets = Asset[];
