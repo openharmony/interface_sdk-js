@@ -2274,7 +2274,7 @@ declare namespace socket {
   export interface NetConnection {
     /**
      * Sends data over a TCPSocketServer connection to client.
-     * @param { TCPSendOptions } options Optional parameters {@link TCPSendOptions}.
+     * @param { TCPSendOptions } options parameters {@link TCPSendOptions}.
      * @param { AsyncCallback<void> } callback Callback function for send.
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 201 - Permission denied.
@@ -2287,7 +2287,7 @@ declare namespace socket {
 
     /**
      * Sends data over a TCPSocketServer connection to client.
-     * @param { TCPSendOptions } options Optional parameters {@link TCPSendOptions}.
+     * @param { TCPSendOptions } options parameters {@link TCPSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 201 - Permission denied.
@@ -2374,7 +2374,7 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
+     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 201 - Permission denied.
@@ -2388,7 +2388,7 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
+     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 201 - Permission denied.
@@ -2460,12 +2460,6 @@ declare namespace socket {
    * @since 10
    */
   function constructTCPSocketServerInstance(): TCPSocketServer;
-
-  /**
-   * Creates a TLSSocketServer object.
-   * @since 10
-   */
-  function constructTLSSocketServerInstance(): TLSSocketServer;
 
   /**
    * Defines a TCPSocket server connection.
@@ -2546,7 +2540,7 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
+     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 201 - Permission denied.
@@ -2560,7 +2554,7 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
+     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
      * @throws { BusinessError } 201 - Permission denied.
@@ -2608,420 +2602,6 @@ declare namespace socket {
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
-
-  /**
-   * Defines a TLSSocket server connection.
-   * @interface TLSSocketServer
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 10
-   */
-  export interface TLSSocketServer {
-
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * Listens for a TLSSocket connection to be made to this socket and accepts it.
-     * @param options TLS connection options {@link TLSConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of listen.
-     * @permission ohos.permission.INTERNET
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303104 - Interrupted system call.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    listen(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * Listens for a TLSSocket connection to be made to this socket and accepts it.
-     * @param options Optional parameters {@link TLSConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303104 - Interrupted system call.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303503 - Error in tls writing
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    listen(options: TLSConnectOptions): Promise<void>;
-
-    /**
-     * Obtains the peer address of a TLSSocketServer connection.
-     * @param { client } A TCPSocket client instance. {@link TCPSocket}
-     * @param { AsyncCallback<NetAddress> } callback the callback of getRemoteAddress.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getRemoteAddress(client: TCPSocket, callback: AsyncCallback<NetAddress>): void;
-
-    /**
-     * Obtains the peer address of a TLSSocketServer connection.
-     * @param { client } A TCPSocket client instance. {@link TCPSocket}
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getRemoteAddress(client: TCPSocket): Promise<NetAddress>;
-
-    /**
-     * Obtains the status of the TLSSocketServer connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getState(callback: AsyncCallback<SocketStateBase>): void;
-
-    /**
-     * Obtains the status of the TLSSocketServer connection.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 9
-     */
-    getState(): Promise<SocketStateBase>;
-
-    /**
-     * Sets other attributes of the TLSSocketServer connection.
-     * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets other attributes of the TLSSocketServer connection.
-     * @param { TCPExtraOptions } options Optional parameters {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    setExtraOptions(options: TCPExtraOptions): Promise<void>;
-
-    /**
-     * Listens for message receiving events of the TLSSocketServer connection.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<{ clientFd: number, message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback Callback function for on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    on(type: 'message', callback: Callback<{ clientFd: number, message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
-
-    /**
-     * Cancels listening for message receiving events of the TLSSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<{ clientFd: number, message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback callback function that returns the message
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    off(type: 'message', callback?: Callback<{ clientFd: number, message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
-
-    /**
-     * Listens for connection or close events of the TLSSocketServer connection.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @param { string } type Indicates Event name.
-     * @param {Callback<{clientFd: number}> } callback Callback function for on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    on(type: 'connect' | 'close', callback: Callback<{ clientFd: number }>): void;  // TODO: 返回netconnection
-
-    /**
-     * Cancels listening for connection or close events of the TLSSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param {Callback<{clientFd: number}> } callback callback function that returns the message
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    off(type: 'connect' | 'close', callback?: Callback<{ clientFd: number }>): void;
-
-    /**
-     * Listens for error events of the TLSSocketServer connection.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @param { string } type Indicates Event name.
-     * @param { ErrorCallback } callback Callback function for on.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the TLSSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { ErrorCallback } callback callback function that returns the message
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Returns an object representing a local certificate.
-     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getCertificate.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getCertificate(callback: AsyncCallback<X509CertRawData>): void;
-
-    /**
-     * Returns an object representing a local certificate.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303504 - Error looking up x509
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getCertificate(): Promise<X509CertRawData>;
-
-    /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @param { clientFd } A client fd.
-     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getRemoteCertificate.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getRemoteCertificate(clientFd: number, callback: AsyncCallback<X509CertRawData>): void;
-
-    /**
-     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
-     * It only contains the peer's certificate.
-     * @param { clientFd } A client fd.
-     * @returns { Promise<X509CertRawData> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getRemoteCertificate(clientFd: number): Promise<X509CertRawData>;
-
-    /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @param { AsyncCallback<string> } callback - the callback of getProtocol.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getProtocol(callback: AsyncCallback<string>): void;
-
-    /**
-     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
-     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
-     * Server sockets or disconnected client sockets will return a value of null.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getProtocol(): Promise<string>;
-
-    /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @param { clientFd } A client fd.
-     * @param { AsyncCallback<Array<string>> } callback - the callback of getCipherSuite.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getCipherSuite(clientFd: number, callback: AsyncCallback<Array<string>>): void;
-
-    /**
-     * Returns a list containing the negotiated cipher suite information.
-     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
-     * @param { clientFd } A client fd.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303502 - Error in tls reading.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getCipherSuite(clientFd: number): Promise<Array<string>>;
-
-    /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @param { clientFd } A client fd.
-     * @param { AsyncCallback<Array<string>> } callback - the callback of getSignatureAlgorithms.
-     * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getSignatureAlgorithms(clientFd: number, callback: AsyncCallback<Array<string>>): void;
-
-    /**
-     * <p>The list of signature algorithms shared between the server and the client,
-     * in descending order of priority.</p>
-     * @param { clientFd } A client fd.
-     * @returns { Promise<string> } The promise returned by the function.
-     * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getSignatureAlgorithms(clientFd: number): Promise<Array<string>>;
-
-    /**
-     * Sends data over a TLSSocketServer connection.
-     * @param { TLSServerSendOptions } options Optional parameters {@link TLSServerSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    send(options: TLSServerSendOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sends data over a TLSSocketServer connection.
-     * @param { TLSServerSendOptions } options Optional parameters {@link TLSServerSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303503 - Error in tls writing.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    send(options: TLSServerSendOptions): Promise<void>;
-
-    /**
-     * Closes a TLSSocketServer connection with a client.
-     * @param { clientFd } A client fd.
-     * @param { AsyncCallback<void> } callback - the callback of close.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    close(clientFd: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Closes a TLSSocketServer connection with a client.
-     * @param { clientFd } A client fd.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2303501 - SSL is null.
-     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
-     * @throws { BusinessError } 2303506 - Error clearing tls connection.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    close(clientFd: number): Promise<void>;
-  }
-
-  /**
-   * Defines TLS server send options.
-   * @interface TLSServerSendOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 10
-   */
-  export interface TLSServerSendOptions {
-    /**
-     * A client fd.
-     * @type {number}
-     * @since 10
-     */
-    clientFd: number;
-
-    /**
-     * Data to send.
-     * @type {string}
-     * @since 10
-     */
-    data: string;
-  }
-
 }
 
 export default socket;
