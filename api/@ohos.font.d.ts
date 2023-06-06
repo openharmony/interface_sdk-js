@@ -93,7 +93,7 @@ declare namespace font {
     weight: number;
 
     /**
-     * The width of the font.
+     * The width of the font style.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
