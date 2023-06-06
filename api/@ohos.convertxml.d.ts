@@ -15,177 +15,201 @@
 
 /**
  * The convertxml module provides utilities for converting XML text to Javascript object.
+ *
+ * @namespace xml
+ * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 8
- * @syscap SystemCapability.Utils.Lang
  */
 declare namespace xml {
   interface ConvertOptions {
     /**
      * Whether to trim whitespace characters that may exist before and after the text, default false.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     trim: boolean;
     /**
      * Whether to ignore writing declaration directives of xml.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     ignoreDeclaration?: boolean;
     /**
      * Whether to ignore writing processing instruction of xml.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     ignoreInstruction?: boolean;
     /**
      * Whether to print attributes across multiple lines and indent them.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     ignoreAttributes?: boolean;
     /**
      * Whether to ignore writing comments of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     ignoreComment?: boolean;
     /**
      * Whether to ignore writing CDATA of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     ignoreCDATA?: boolean;
     /**
      * Whether to ignore writing Doctype of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     ignoreDoctype?: boolean;
     /**
      * Whether to ignore writing texts of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     ignoreText?: boolean;
     /**
      * Name of the property key which will be used for the declaration.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     declarationKey: string;
     /**
      * Name of the property key which will be used for the processing instruction.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     instructionKey: string;
     /**
      * Name of the property key which will be used for the attributes.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     attributesKey: string;
     /**
      * Name of the property key which will be used for the text.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     textKey: string;
     /**
      * Name of the property key which will be used for the cdata.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     cdataKey: string;
     /**
      * Name of the property key which will be used for the doctype.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     doctypeKey: string;
     /**
      * Name of the property key which will be used for the comment.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     commentKey: string;
     /**
      * Name of the property key which will be used for the parent.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     parentKey: string;
     /**
      * Name of the property key which will be used for the type.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     typeKey: string;
     /**
      * Name of the property key which will be used for the name.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     nameKey: string;
     /**
      * Name of the property key which will be used for the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 8
-     * @syscap SystemCapability.Utils.Lang
      */
     elementsKey: string;
   }
 
   /**
    * ConvertXML representation refers to extensible markup language.
-   * @name ConvertXML
+   *
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
+   * @name ConvertXML
    */
   class ConvertXML {
     /**
      * To convert XML text to JavaScript object.
+     *
+     * @param { string } xml - xml xml The xml text to be converted.
+     * @param { ConvertOptions } options - options option Option Inputted by user to set.
+     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @syscap SystemCapability.Utils.Lang
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.convertxml.ConvertXML.convertToJSObject
-     * @syscap SystemCapability.Utils.Lang
-     * @param xml The xml text to be converted.
-     * @param option Option Inputted by user to set.
-     * @returns Returns a JavaScript object converting from XML text.
      */
     convert(xml: string, options?: ConvertOptions): Object;
 
     /**
      * To convert XML text to JavaScript object.
+     *
+     * @param { string } xml - xml xml The xml text to be converted.
+     * @param { ConvertOptions } options - options option Option Inputted by user to set.
+     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200002 - Invalid xml string.
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 9
-     * @syscap SystemCapability.Utils.Lang
-     * @param xml The xml text to be converted.
-     * @param option Option Inputted by user to set.
-     * @returns Returns a JavaScript object converting from XML text.
-     * @throws {BusinessError} 401 - if the input parameters are invalid.
-     * @throws {BusinessError} 10200002 - Invalid xml string.
      */
     convertToJSObject(xml: string, options?: ConvertOptions): Object;
   }

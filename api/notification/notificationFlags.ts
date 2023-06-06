@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,43 +16,65 @@
 /**
  * The status of the notification flag.
  *
- * @since 8
- * @systemapi Hide this for inner system use.
+ * @enum { number }
  * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 8
  */
 export enum NotificationFlagStatus {
   /**
    * notification flag default value
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
    */
   TYPE_NONE = 0,
 
   /**
    * notification flag open
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
    */
   TYPE_OPEN = 1,
 
   /**
    * notification flag close
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
    */
-  TYPE_CLOSE = 2,
+  TYPE_CLOSE = 2
 }
 
 /**
  * Describes a NotificationFlags instance.
  *
- * @name NotificationFlags
- * @since 8
- * @permission N/A
+ * @typedef NotificationFlags
  * @syscap SystemCapability.Notification.Notification
+ * @since 8
  */
 export interface NotificationFlags {
   /**
    * Whether to enable sound reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @since 8
    */
   readonly soundEnabled?: NotificationFlagStatus;
 
   /**
    * Whether to enable vibration reminder.
+   *
+   * @type { ?NotificationFlagStatus }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @since 8
    */
   readonly vibrationEnabled?: NotificationFlagStatus;
 }

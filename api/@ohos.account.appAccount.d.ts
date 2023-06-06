@@ -78,7 +78,7 @@ declare namespace appAccount {
      * Only the owner of the application account has the permission to call this method.
      *
      * @param { string } name - Indicates the name of the application account to add.
-     * @param { string } extraInfo - Indicates the extra information of the application account to add.
+     * @param { string } [extraInfo] - Indicates the extra information of the application account to add.
      *        The extra information cannot be sensitive information of the application account.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Account.AppAccount
@@ -130,7 +130,7 @@ declare namespace appAccount {
      * Only the owner of the application account has the permission to call this method.
      *
      * @param { string } name - Indicates the name of the application account to add.
-     * @param { CreateAccountOptions } options - Indicates the extra information of the application account to add.
+     * @param { CreateAccountOptions } [options] - Indicates the extra information of the application account to add.
      *        The extra information cannot be sensitive information of the application account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -774,7 +774,8 @@ declare namespace appAccount {
      * <ul>
      * <li>Accounts of this application.</li>
      * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
+     * your application must have gained authorization from the third-party applications or
+     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
      * </ul>
      *
      * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
@@ -873,7 +874,8 @@ declare namespace appAccount {
      * <ul>
      * <li>Accounts of this application.</li>
      * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
+     * your application must have gained authorization from the third-party applications or
+     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
      * </ul>
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
@@ -1085,7 +1087,7 @@ declare namespace appAccount {
      * Unsubscribes from account events.
      *
      * @param { 'change' } type - Event type.
-     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @param { Callback<Array<AppAccountInfo>> } [callback] - Asynchronous callback interface.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7
      * @deprecated since 9
@@ -1097,7 +1099,7 @@ declare namespace appAccount {
      * Unsubscribes from account events.
      *
      * @param { 'accountChange' } type - Event type.
-     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @param { Callback<Array<AppAccountInfo>> } [callback] - Asynchronous callback interface.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type.
@@ -2581,8 +2583,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name.
      * @param { string } authType - Indicates the authentication type.
-     * @param { object } callback - options Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - callback Indicates the authenticator callback.
+     * @param { object } options - Indicates the authenticator-specific options for the request.
+     * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */

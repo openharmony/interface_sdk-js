@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,7 @@ import * as _ErrorObserver from './application/ErrorObserver';
 
 /**
  * This module provides the function of error manager.
+ *
  * @namespace errorManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
@@ -25,7 +26,8 @@ import * as _ErrorObserver from './application/ErrorObserver';
 declare namespace errorManager {
   /**
    * Register error observer.
-   * @param { string } type - error.
+   *
+   * @param { 'error' } type - error.
    * @param { ErrorObserver } observer - The error observer.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -33,11 +35,12 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  function on(type: "error", observer: ErrorObserver): number;
+  function on(type: 'error', observer: ErrorObserver): number;
 
   /**
    * Unregister error observer.
-   * @param { string } type - error.
+   *
+   * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -45,11 +48,12 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  function off(type: "error", observerId: number, callback: AsyncCallback<void>): void;
+  function off(type: 'error', observerId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister error observer.
-   * @param { string } type - error.
+   *
+   * @param { 'error' } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -57,14 +61,15 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  function off(type: "error", observerId: number): Promise<void>;
+  function off(type: 'error', observerId: number): Promise<void>;
 
   /**
    * The observer will be called by system when an error occurs.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  export type ErrorObserver = _ErrorObserver.default
+  export type ErrorObserver = _ErrorObserver.default;
 }
 
 export default errorManager;
