@@ -661,19 +661,6 @@ declare namespace pointer {
    * Set touchpad scroll switch.
    *
    * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use.
-   * @since 10
-   */
-  function setTpScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
-
-  /**
-   * Set touchpad scroll switch.
-   *
-   * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
@@ -681,7 +668,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTpScrollSwitch(state: boolean): Promise<void>;
+  function setTouchPadScrollSwitch(state: boolean): Promise<void>;
 
   /**
    * Get touchpad scroll switch state.
@@ -693,7 +680,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpScrollSwitch(callback: AsyncCallback<boolean>): void;
+  function getTouchPadScrollSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
    * Get touchpad scroll switch state.
@@ -705,10 +692,10 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpScrollSwitch(): Promise<boolean>;
+  function getTouchPadScrollSwitch(): Promise<boolean>;
 
   /**
-   * Set touchpad scroll direct switch.
+   * Set touchpad scroll direction switch.
    *
    * @param { boolean } state - Indicates whether the touchpad scroll direct switch is forward or reverse
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -718,10 +705,10 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTpScrollDirectSwitch(state: boolean, callback: AsyncCallback<void>): void;
+  function setTouchPadScrollDirectionSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad scroll direct switch.
+   * Set touchpad scroll direction switch.
    *
    * @param { boolean } state - Indicates whether the touchpad scroll direct switch is forward or reverse
    * @returns { Promise<void> } Returns the result through a promise.
@@ -731,10 +718,10 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTpScrollDirectSwitch(state: boolean): Promise<void>;
+  function setTouchPadScrollDirectionSwitch(state: boolean): Promise<void>;
 
   /**
-   * Get touchpad scroll direct switch state.
+   * Get touchpad scroll direction switch state.
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -743,10 +730,10 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpScrollDirectSwitch(callback: AsyncCallback<boolean>): void;
+  function getTouchPadScrollDirectionSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get touchpad scroll direct switch state.
+   * Get touchpad scroll direction switch state.
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -755,7 +742,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpScrollDirectSwitch(): Promise<boolean>;
+  function getTouchPadScrollDirectionSwitch(): Promise<boolean>;
 
   /**
    * Set touchpad tap switch.
@@ -768,7 +755,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTpTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
+  function setTouchPadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set touchpad tap switch.
@@ -781,7 +768,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTpTapSwitch(state: boolean): Promise<void>;
+  function setTouchPadTapSwitch(state: boolean): Promise<void>;
 
   /**
    * Get touchpad tap switch state.
@@ -793,7 +780,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpTapSwitch(callback: AsyncCallback<boolean>): void;
+  function getTouchPadTapSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
    * Get touchpad tap switch state.
@@ -805,7 +792,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpTapSwitch(): Promise<boolean>;
+  function getTouchPadTapSwitch(): Promise<boolean>;
 
   /**
    * Set touchpad pointer speed.
@@ -818,7 +805,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTpPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+  function setTouchPadPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
   /**
    * Set touchpad pointer speed.
@@ -831,7 +818,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTpPointerSpeed(speed: number): Promise<void>;
+  function setTouchPadPointerSpeed(speed: number): Promise<void>;
 
   /**
    * Get touchpad pointer speed.
@@ -843,7 +830,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpPointerSpeed(callback: AsyncCallback<number>): void;
+  function getTouchPadPointerSpeed(callback: AsyncCallback<number>): void;
 
   /**
    * Get touchpad pointer speed.
@@ -855,7 +842,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTpPointerSpeed(): Promise<number>;
+  function getTouchPadPointerSpeed(): Promise<number>;
 }
 
 export default pointer;
