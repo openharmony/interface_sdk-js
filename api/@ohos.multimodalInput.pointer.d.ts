@@ -661,7 +661,7 @@ declare namespace pointer {
    * Set touchpad scroll switch.
    *
    * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
-   * @returns { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
