@@ -244,7 +244,7 @@ declare namespace statistics {
 
   /**
    * Register notifications of network traffic updates.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type Indicates Event name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -259,7 +259,7 @@ declare namespace statistics {
 
   /**
    * Unregister notifications of network traffic updates.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type Indicates Event name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -274,7 +274,7 @@ declare namespace statistics {
 
   /**
    * Get the traffic usage details of the network interface in the specified time period.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @permission ohos.permission.GET_NETWORK_STATS
    * @param { IfaceInfo } ifaceInfo Indicates the handle. See {@link IfaceInfo}.
    * @param { AsyncCallback<NetStatsInfo> } callback Returns the {@link NetStatsInfo} object;
    * @throws { BusinessError } 201 - Permission denied.
@@ -292,7 +292,7 @@ declare namespace statistics {
   
   /**
    * Get the traffic usage details of the network interface in the specified time period.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @permission ohos.permission.GET_NETWORK_STATS
    * @param { IfaceInfo } ifaceInfo Indicates the handle. See {@link IfaceInfo}.
    * @returns { Promise<NetStatsInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -310,7 +310,7 @@ declare namespace statistics {
 
   /**
    * Get the traffic usage details of the specified time period of the application.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @permission ohos.permission.GET_NETWORK_STATS
    * @param { UidStatsInfo } uidStatsInfo Indicates the handle. See {@link UidStatsInfo}.
    * @param { AsyncCallback<NetStatsInfo> } callback Returns the {@link NetStatsInfo} object;
    * @throws { BusinessError } 201 - Permission denied.
@@ -328,7 +328,7 @@ declare namespace statistics {
   
   /**
    * Get the traffic usage details of the specified time period of the application.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @permission ohos.permission.GET_NETWORK_STATS
    * @param { UidStatsInfo } uidStatsInfo Indicates the handle. See {@link UidStatsInfo}.
    * @returns { Promise<NetStatsInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
