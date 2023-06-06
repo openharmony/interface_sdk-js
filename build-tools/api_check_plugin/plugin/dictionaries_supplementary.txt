@@ -160,6 +160,7 @@ denormalized
 densitys
 deregistered
 deregisters
+deselected
 designative
 desynchronized
 developtools
@@ -447,6 +448,7 @@ numpad
 nvalidates
 nweb
 oaep
+obscured
 ofb
 offhook
 offscreen
@@ -658,6 +660,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subtitles
 subtypes
 subwindow
 subwindows
@@ -698,6 +701,7 @@ tlsv13
 tnf
 totalsize
 touchpad
+trackinfo
 tranlisterated
 transcode
 transferable

@@ -721,6 +721,74 @@ declare namespace formHost {
   function off(type: 'formRemove', observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
 
   /**
+   * Listens to the event of notifyVisible type change.
+   * <p>You can use this method to listen to the event of notifyVisible type change.</p>
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { 'notifyVisible' } type - Indicates event type.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                         the running form info.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'notifyVisible',
+    observerCallback: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+
+  /**
+   * Listens to the event of notifyInvisible type change.
+   * <p>You can use this method to listen to the event of notifyInvisible type change.</p>
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { 'notifyInvisible' } type - Indicates event type.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                         the running form info.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'notifyInvisible',
+    observerCallback: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+
+ /**
+  * Cancels listening to the event of notifyVisible type change.
+  * <p>You can use this method to cancel listening to the event of notifyVisible type change.</p>
+  * @permission ohos.permission.REQUIRE_FORM
+  * @param { 'notifyVisible' } type - Indicates event type.
+  * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+  *                                                                  the running form info.
+  * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+  * @throws { BusinessError } 202 - The application is not a system application.
+  * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+  * @syscap SystemCapability.Ability.Form
+  * @systemapi
+  * @since 10
+  */
+  function off(type: 'notifyVisible',
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+
+  /**
+   * Cancels listening to the event of notifyInvisible type change.
+   * <p>You can use this method to cancel listening to the event of notifyInvisible type change.</p>
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { 'notifyInvisible' } type - Indicates event type.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                         the running form info.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'notifyInvisible',
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+
+  /**
    * Notify form is Visible
    * <p>You can use this method to notify form visible state.</p>
    *
@@ -939,6 +1007,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -959,6 +1028,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -980,6 +1050,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -998,6 +1069,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
