@@ -16,7 +16,8 @@
             "calendar.d.ts",
             "form_component.d.ts",
             "plugin_component.d.ts",
-            "remote_window.d.ts"
+            "remote_window.d.ts",
+            "ui_extension_component.d.ts"
         ]
     },
     "internal_lite": {

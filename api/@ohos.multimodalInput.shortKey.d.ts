@@ -27,6 +27,7 @@ declare namespace shortKey {
    * @param { string } businessKey - The key for business which should be applied to MMI.
    * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
@@ -39,6 +40,7 @@ declare namespace shortKey {
    * @param { string } businessKey - The key for business which should be applied to MMI.
    * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use

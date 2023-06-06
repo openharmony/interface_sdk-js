@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Defines the list item group options.
  * @since 9
  */
+/**
+ * Defines the list item group options.
+ * @crossplatform
+ * @since 10
+ */
 declare interface ListItemGroupOptions {
   /**
    * Describes the ListItemGroup header.
    * @since 9
+   */
+  /**
+   * Describes the ListItemGroup header.
+   * @crossplatform
+   * @since 10
    */
   header?: CustomBuilder;
 
@@ -28,11 +38,21 @@ declare interface ListItemGroupOptions {
    * Describes the ListItemGroup footer.
    * @since 9
    */
+  /**
+   * Describes the ListItemGroup footer.
+   * @crossplatform
+   * @since 10
+   */
   footer?: CustomBuilder;
 
   /**
    * Describes the ListItemGroup space.
    * @since 9
+   */
+  /**
+   * Describes the ListItemGroup space.
+   * @crossplatform
+   * @since 10
    */
   space?: number | string;
 }
@@ -41,10 +61,20 @@ declare interface ListItemGroupOptions {
  * Defines the ListItemGroup component
  * @since 9
  */
+/**
+ * Defines the ListItemGroup component
+ * @crossplatform
+ * @since 10
+ */
 interface ListItemGroupInterface {
   /**
    * Called when interface is called.
    * @since 9
+   */
+  /**
+   * Called when interface is called.
+   * @crossplatform
+   * @since 10
    */
   (options?: ListItemGroupOptions): ListItemGroupAttribute;
 }
@@ -53,10 +83,20 @@ interface ListItemGroupInterface {
  * Defines the item group attribute functions.
  * @since 9
  */
+/**
+ * Defines the item group attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
    * Called when the ListItemGroup split line style is set.
    * @since 9
+   */
+  /**
+   * Called when the ListItemGroup split line style is set.
+   * @crossplatform
+   * @since 10
    */
   divider(
     value: {
@@ -72,10 +112,20 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
  * Defines ListItemGroup Component instance.
  * @since 9
  */
+/**
+ * Defines ListItemGroup Component instance.
+ * @crossplatform
+ * @since 10
+ */
 declare const ListItemGroupInstance: ListItemGroupAttribute;
 
 /**
  * Defines ListItemGroup Component.
  * @since 9
+ */
+/**
+ * Defines ListItemGroup Component.
+ * @crossplatform
+ * @since 10
  */
 declare const ListItemGroup: ListItemGroupInterface;

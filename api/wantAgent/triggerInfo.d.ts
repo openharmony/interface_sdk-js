@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,14 +18,17 @@ import Want from '../@ohos.app.ability.Want';
 /**
  * Provides the information required for triggering a WantAgent.
  *
- * @name TriggerInfo
- * @since 7
+ * @typedef TriggerInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 7
  */
 export interface TriggerInfo {
   /**
    * Result code.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
    */
   code: number;
 
@@ -36,6 +39,10 @@ export interface TriggerInfo {
    * the element, action, uri, entities, and bundleName attributes of the Want specified in this parameter
    * will be used to replace the corresponding attributes in the original Want, respectively.
    * If this parameter is null, the original Want remains unchanged.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
    */
   want?: Want;
 
@@ -43,11 +50,19 @@ export interface TriggerInfo {
    * Permission required for a WantAgent recipient.
    * This parameter is valid only when the WantAgent is triggered to send common events.
    * If permission is null, no permission is required on the recipient.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
    */
   permission?: string;
 
   /**
    * Custom extra data you want to add for triggering a WantAgent.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
    */
   extraInfo?: { [key: string]: any };
 }
