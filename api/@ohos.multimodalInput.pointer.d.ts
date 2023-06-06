@@ -848,7 +848,7 @@ declare namespace pointer {
   /**
    * Get touchpad pointer speed.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
