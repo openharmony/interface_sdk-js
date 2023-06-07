@@ -708,9 +708,9 @@ declare namespace pointer {
   function getTouchPadScrollSwitch(): Promise<boolean>;
 
   /**
-   * Set touchpad scroll direction switch.
+   * Set touchpad scroll direction.
    *
-   * @param { boolean } state - Indicates whether the touchpad scroll direct switch is forward or reverse
+   * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
@@ -718,12 +718,12 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadScrollDirectionSwitch(state: boolean, callback: AsyncCallback<void>): void;
+  function setTouchPadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad scroll direction switch.
+   * Set touchpad scroll direction.
    *
-   * @param { boolean } state - Indicates whether the touchpad scroll direct switch is forward or reverse
+   * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
@@ -731,10 +731,10 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadScrollDirectionSwitch(state: boolean): Promise<void>;
+  function setTouchPadScrollDirection(state: boolean): Promise<void>;
 
   /**
-   * Get touchpad scroll direction switch state.
+   * Get touchpad scroll direction.
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -743,10 +743,10 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadScrollDirectionSwitch(callback: AsyncCallback<boolean>): void;
+  function getTouchPadScrollDirection(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get touchpad scroll direction switch state.
+   * Get touchpad scroll direction.
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -755,7 +755,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadScrollDirectionSwitch(): Promise<boolean>;
+  function getTouchPadScrollDirection(): Promise<boolean>;
 
   /**
    * Set touchpad tap switch.
