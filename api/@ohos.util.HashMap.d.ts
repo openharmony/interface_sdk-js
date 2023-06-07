@@ -19,8 +19,16 @@
  *
  * @namespace HashMap
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @since 8
+ */
+/**
+ * HashMap is a map implemented based on the array, linked list, and red-black tree. It provides efficient data query, insertion, 
+ * and removal. The elements in a HashMap instance are mappings of key-value pairs. Each key must be unique and have only one value. 
+ *
+ * @namespace HashMap
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @since 10
  */
 declare class HashMap<K, V> {
   /**
@@ -28,16 +36,29 @@ declare class HashMap<K, V> {
    *
    * @throws { BusinessError } 10200012 - The HashMap's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * A constructor used to create a HashMap object.
+   *
+   * @throws { BusinessError } 10200012 - The HashMap's constructor cannot be directly invoked.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   constructor();
   /**
    * Gets the element number of the hashmap.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Gets the element number of the hashmap.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   length: number;
   /**
@@ -46,8 +67,16 @@ declare class HashMap<K, V> {
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Returns whether the Map object contains elements
+   *
+   * @returns { boolean } the boolean type
+   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   isEmpty(): boolean;
   /**
@@ -57,8 +86,17 @@ declare class HashMap<K, V> {
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Returns whether a key is contained in this map
+   *
+   * @param { K } key - key key need to determine whether to include the key
+   * @returns { boolean } the boolean type
+   * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   hasKey(key: K): boolean;
   /**
@@ -68,8 +106,17 @@ declare class HashMap<K, V> {
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Returns whether a value is contained in this map
+   *
+   * @param { V } value - value value need to determine whether to include the value
+   * @returns { boolean } the boolean type
+   * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   hasValue(value: V): boolean;
   /**
@@ -79,8 +126,17 @@ declare class HashMap<K, V> {
    * @returns { V } value or null
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Returns a specified element in a Map object, or null if there is no corresponding element
+   *
+   * @param { K } key - key key the index in HashMap
+   * @returns { V } value or null
+   * @throws { BusinessError } 10200011 - The get method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   get(key: K): V;
   /**
@@ -90,8 +146,17 @@ declare class HashMap<K, V> {
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Adds all element groups in one map to another map
+   *
+   * @param { HashMap<K, V> } map - map map the Map object to add members
+   * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   setAll(map: HashMap<K, V>): void;
   /**
@@ -103,8 +168,19 @@ declare class HashMap<K, V> {
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Adds or updates a(new) key-value pair with a key and value specified for the Map object
+   *
+   * @param { K } key - key key Added or updated targets
+   * @param { V } value - value value Added or updated value
+   * @returns { Object } the map object after set
+   * @throws { BusinessError } 10200011 - The set method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   set(key: K, value: V): Object;
   /**
@@ -114,8 +190,17 @@ declare class HashMap<K, V> {
    * @returns { V } Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Remove a specified element from a Map object
+   *
+   * @param { K } key - key key Target to be deleted
+   * @returns { V } Target mapped value
+   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   remove(key: K): V;
   /**
@@ -123,8 +208,15 @@ declare class HashMap<K, V> {
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Clear all element groups in the map
+   *
+   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   clear(): void;
   /**
@@ -133,8 +225,16 @@ declare class HashMap<K, V> {
    * @returns { IterableIterator<K> }
    * @throws { BusinessError } 10200011 - The keys method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Returns a new Iterator object that contains the keys contained in this map
+   *
+   * @returns { IterableIterator<K> }
+   * @throws { BusinessError } 10200011 - The keys method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   keys(): IterableIterator<K>;
   /**
@@ -143,8 +243,16 @@ declare class HashMap<K, V> {
    * @returns { IterableIterator<V> }
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Returns a new Iterator object that contains the values contained in this map
+   *
+   * @returns { IterableIterator<V> }
+   * @throws { BusinessError } 10200011 - The values method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   values(): IterableIterator<V>;
   /**
@@ -155,8 +263,18 @@ declare class HashMap<K, V> {
    * @returns { boolean } the boolean type(Is there a target pointed to by the key)
    * @throws { BusinessError } 10200011 - The replace method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Replace the old value by new value corresponding to the specified key
+   *
+   * @param { K } key - key key Updated targets
+   * @param { V } newValue - newValue newValue Updated the target mapped value
+   * @returns { boolean } the boolean type(Is there a target pointed to by the key)
+   * @throws { BusinessError } 10200011 - The replace method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   replace(key: K, newValue: V): boolean;
   /**
@@ -168,8 +286,19 @@ declare class HashMap<K, V> {
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Executes the given callback function once for each real key in the map.
+   * It does not perform functions on deleted keys
+   *
+   * @param { (value?: V, key?: K, map?: HashMap<K, V>) => void } callbackFn - callbackFn callbackFn
+   * @param { Object } thisArg - thisArg thisArg
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?: Object): void;
   /**
@@ -178,8 +307,16 @@ declare class HashMap<K, V> {
    * @returns { IterableIterator<[K, V]> }
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
+   *
+   * @returns { IterableIterator<[K, V]> }
+   * @throws { BusinessError } 10200011 - The entries method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -188,8 +325,16 @@ declare class HashMap<K, V> {
    * @returns { IterableIterator<[K, V]> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * returns an iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<[K, V]> }
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
 }

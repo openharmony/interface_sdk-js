@@ -20,8 +20,17 @@
  *
  * @namespace Queue
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @since 8
+ */
+/**
+ * Queue follows the principle of First In First Out (FIFO). 
+ * It supports insertion of elements at the end and removal from the front of the queue. 
+ * Queue is implemented based on the queue data structure. 
+ *
+ * @namespace Queue
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @since 10
  */
 declare class Queue<T> {
   /**
@@ -29,16 +38,29 @@ declare class Queue<T> {
    *
    * @throws { BusinessError } 10200012 - The Queue's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * A constructor used to create a Queue object.
+   *
+   * @throws { BusinessError } 10200012 - The Queue's constructor cannot be directly invoked.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   constructor();
   /**
    * Gets the element number of the Queue.This is a number one higher than the highest index in the queue.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Gets the element number of the Queue.This is a number one higher than the highest index in the queue.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   length: number;
   /**
@@ -49,8 +71,18 @@ declare class Queue<T> {
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Inserting specified element at the end of a queue if it is possible to do
+   * so immediately without violating capacity restrictions.
+   *
+   * @param { T } element - element element to be appended to this queue
+   * @returns { boolean } the boolean type
+   * @throws { BusinessError } 10200011 - The add method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   add(element: T): boolean;
   /**
@@ -59,8 +91,16 @@ declare class Queue<T> {
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Obtains the header element of a queue.
+   *
+   * @returns { T } the T type
+   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   getFirst(): T;
   /**
@@ -69,8 +109,16 @@ declare class Queue<T> {
    * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Retrieves and removes the head of this queue
+   *
+   * @returns { T } the T type
+   * @throws { BusinessError } 10200011 - The pop method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   pop(): T;
   /**
@@ -84,8 +132,21 @@ declare class Queue<T> {
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * Executes a provided function once for each value in the queue object.
+   *
+   * @param { (value: T, index?: number, Queue?: Queue<T>) => void } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to four arguments.The function to
+   * be called for each element in the queue
+   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
+   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void, thisArg?: Object): void;
   /**
@@ -94,8 +155,16 @@ declare class Queue<T> {
    * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * returns an iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<T> }
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   [Symbol.iterator](): IterableIterator<T>;
 }
