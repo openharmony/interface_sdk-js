@@ -1854,9 +1854,6 @@ declare namespace huks {
      *
      * Extention TAG: 1001 - 9999
      */
-    /**
-     * @since 8
-     */
     HUKS_TAG_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1001,
     /* choose from enum HuksKeyStorageType */
     HUKS_TAG_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1002,
