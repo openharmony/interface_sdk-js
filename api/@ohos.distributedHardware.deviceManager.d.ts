@@ -593,12 +593,10 @@ declare namespace deviceManager {
    * <p>To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
    * use this instance to call other device management methods.
    *
-   * @permission ohos.permission.ACCESS_SERVICE_DM
    * @param { string } bundleName Indicates the bundle name of the application.
    * @param { AsyncCallback<DeviceManager> } callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
    * @throws { BusinessError } 401 - Input parameter error.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 201 - Permission verify failed.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
