@@ -654,7 +654,7 @@ declare namespace deviceManager {
      * @since 10
      */
     getTrustedDeviceListSync(isRefresh: boolean): Array<DeviceInfo>;
-    
+
     /**
      * Obtains a list of trusted devices.
      *
