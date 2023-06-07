@@ -23,6 +23,19 @@ import { Callback } from './@ohos.base';
  */
 declare namespace mindSporeLite {
   /**
+   * Create a Model instance from file path
+   * @param { string } model - model indicates model path to be loaded
+   * @param { Context } context - context indicates model context information
+   * @returns { Promise<Model> } the promise returned by the function.
+   * @syscap SystemCapability.AI.MindSporeLite
+   * @stagemodelonly
+   * @since 10
+   */
+  function loadModelFromFile(
+    model: string,
+    context?: Context): Promise<Model>;
+
+  /**
    * Create a Model instance from file path.
    * @param { string } model - model indicates model path to be loaded
    * @param { callback: Callback<Model> } callback - the callback of model
@@ -45,20 +58,20 @@ declare namespace mindSporeLite {
   function loadModelFromFile(
     model: string,
     context: Context, callback: Callback<Model>): void;
-
+  
   /**
-   * Create a Model instance from file path
-   * @param { string } model - model indicates model path to be loaded
+   * Create a Model instance from buffer
+   * @param { ArrayBuffer } model - model indicates model buffer to be loaded
    * @param { Context } context - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
    */
-  function loadModelFromFile(
-    model: string,
+  function loadModelFromBuffer(
+    model: ArrayBuffer,
     context?: Context): Promise<Model>;
-  
+
   /**
    * Create a Model instance from buffer
    * @param { ArrayBuffer } model - model indicates model buffer to be loaded
@@ -84,16 +97,16 @@ declare namespace mindSporeLite {
     context: Context, callback: Callback<Model>): void;
 
   /**
-   * Create a Model instance from buffer
-   * @param { ArrayBuffer } model - model indicates model buffer to be loaded
+   * Creates a Model instance file description
+   * @param { number } model - model indicates model file description to be loaded
    * @param { Context } context - context indicates model context information
    * @returns { Promise<Model> } the promise returned by the function.
    * @syscap SystemCapability.AI.MindSporeLite
    * @stagemodelonly
    * @since 10
    */
-  function loadModelFromBuffer(
-    model: ArrayBuffer,
+  function loadModelFromFd(
+    model: number,
     context?: Context): Promise<Model>;
 
   /**
@@ -119,19 +132,6 @@ declare namespace mindSporeLite {
   function loadModelFromFd(
     model: number,
     context: Context, callback: Callback<Model>): void;
-
-  /**
-   * Creates a Model instance file description
-   * @param { number } model - model indicates model file description to be loaded
-   * @param { Context } context - context indicates model context information
-   * @returns { Promise<Model> } the promise returned by the function.
-   * @syscap SystemCapability.AI.MindSporeLite
-   * @stagemodelonly
-   * @since 10
-   */
-  function loadModelFromFd(
-    model: number,
-    context?: Context): Promise<Model>;
 
   /**
    * Provides manages model function. Including get inputs, predict ,resize.
