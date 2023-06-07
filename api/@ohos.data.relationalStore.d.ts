@@ -315,14 +315,14 @@ declare namespace relationalStore {
    * Describes the status of {@code Progress}.
    *
    * @enum { number }
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
   enum ProgressCode {
     /**
      * SUCCESS: means the status of progress is success.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     SUCCESS,
@@ -330,7 +330,7 @@ declare namespace relationalStore {
     /**
      * UNKNOWN_ERROR: means the progress meets unknown error.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     UNKNOWN_ERROR,
@@ -338,7 +338,7 @@ declare namespace relationalStore {
     /**
      * NETWORK_ERROR: means the progress meets network error.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     NETWORK_ERROR,
@@ -346,7 +346,7 @@ declare namespace relationalStore {
     /**
      * CLOUD_UNOPENED: means cloud is not opened.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     CLOUD_UNOPENED,
@@ -354,7 +354,7 @@ declare namespace relationalStore {
     /**
      * LOCKED_BY_OTHERS: means the progress is locked by others.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     LOCKED_BY_OTHERS,
@@ -362,10 +362,18 @@ declare namespace relationalStore {
     /**
      * RECORD_LIMIT_EXCEEDED: means the record execeeds the limit.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    RECORD_LIMIT_EXCEEDED
+    RECORD_LIMIT_EXCEEDED,
+
+    /**
+     * NO_SPACE_FOR_ASSET: means the cloud has no space for the asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    NO_SPACE_FOR_ASSET,
 }
   /**
    * Describes detail of the cloud sync {@code Process}.
