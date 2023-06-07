@@ -34,6 +34,39 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
  */
 declare namespace relationalStore {
   /**
+   * Describes the status of asset
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  enum AssetStatus {
+    /**
+     * ASSET_NORMAL: means the status of asset is normal.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_NORMAL,
+
+    /**
+     * ASSET_ABNORMAL: means the status of asset is abnormal.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_ABNORMAL,
+
+    /**
+     * ASSET_DOWNLOADING: means the status of asset is downloading.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_DOWNLOADING
+  }
+
+  /**
    * Records information of the asset.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -55,6 +88,14 @@ declare namespace relationalStore {
      * @since 10
      */
     uri: string;
+
+    /**
+     * The path of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    path: string;
 
     /**
      * The create time of asset.
@@ -81,20 +122,12 @@ declare namespace relationalStore {
     size: string;
 
     /**
-     * The id of asset.
+     * The status of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    assetId: string;
-
-    /**
-     * The subPath of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    subPath: string;
+    status?: AssetStatus;
   }
 
   type Assets = Asset[];
@@ -279,6 +312,62 @@ declare namespace relationalStore {
   }
 
   /**
+   * Describes the status of {@code Progress}.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  enum ProgressCode {
+    /**
+     * SUCCESS: means the status of progress is success.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SUCCESS,
+
+    /**
+     * UNKNOWN_ERROR: means the progress meets unknown error.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    UNKNOWN_ERROR,
+
+    /**
+     * NETWORK_ERROR: means the progress meets network error.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    NETWORK_ERROR,
+
+    /**
+     * CLOUD_UNOPENED: means cloud is not opened.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    CLOUD_UNOPENED,
+
+    /**
+     * LOCKED_BY_OTHERS: means the progress is locked by others.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    LOCKED_BY_OTHERS,
+
+    /**
+     * RECORD_LIMIT_EXCEEDED: means the record execeeds the limit.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    RECORD_LIMIT_EXCEEDED
+}
+  /**
    * Describes detail of the cloud sync {@code Process}.
    *
    * @interface ProgressDetails
@@ -452,6 +541,34 @@ declare namespace relationalStore {
   }
 
   /**
+   * Describes the change type.
+   *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  enum ChangeType {
+    /**
+     * Means the change type is data change.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    DATA_CHANGE,
+
+    /**
+     * Means the change type is asset change.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_CHANGE
+  }
+
+  /**
    * Indicates the notify info
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -465,6 +582,14 @@ declare namespace relationalStore {
      * @since 10
      */
     table: string;
+
+    /**
+     * Indicates the changed type
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    type: ChangeType;
 
     /**
      * Indicates if there is a string primary key, the inserted will keep data's primary keys
