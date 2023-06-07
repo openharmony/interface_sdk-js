@@ -48,6 +48,38 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
+   * Obtains the distribution type specified during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The specified distribution type.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSpecifiedDistributionType(bundleName: string): string;
+
+  /**
+   * Obtains the additional information during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The additional information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAdditionalInfo(bundleName: string): string;
+
+  /**
    * Bundle installer interface, include install uninstall recover.
    *
    * @interface BundleInstaller
@@ -86,7 +118,6 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-
     /**
      * Install haps for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
@@ -95,7 +126,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @param { AsyncCallback<void> } callback - The callback of installing haps result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
@@ -149,7 +180,6 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-
     /**
      * Install haps for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
@@ -157,12 +187,10 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
-     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @param { AsyncCallback<void> } callback - The callback of installing haps result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
-     * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
      * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
      * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
@@ -214,7 +242,6 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-
     /**
      * Install haps for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
@@ -225,7 +252,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE'.
-     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -487,6 +514,24 @@ declare namespace installer {
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
+
+    /**
+     * Indicates the distribution type specified during bundle installation.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    specifiedDistributionType?: string;
+
+    /**
+     * Indicates the additional information during bundle installation.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    additionalInfo?: string;
   }
 
   /**

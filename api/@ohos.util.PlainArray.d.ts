@@ -13,195 +13,227 @@
  * limitations under the License.
  */
 
+/**
+ * PlainArray stores key-value (KV) pairs. Each key must be unique, be of the number type, and have only one value.
+ * PlainArray is based on generics and uses a lightweight structure. 
+ *
+ * @namespace PlainArray
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @since 8
+ */
 declare class PlainArray<T> {
   /**
    * A constructor used to create a PlainArray object.
+   *
    * @throws { BusinessError } 10200012 - The PlainArray's constructor cannot be directly invoked.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the PlainArray.
+   *
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   length: number;
   /**
    * Appends a key-value pair to PlainArray
-   * @param key Added the key of key-value
-   * @param value Added the value of key-value
+   *
+   * @param { number } key - key key Added the key of key-value
+   * @param { T } value - value value Added the value of key-value
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   add(key: number, value: T): void;
   /**
    * Clears the current PlainArray object
+   *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   clear(): void;
   /**
    * Obtains a clone of the current PlainArray object
+   *
+   * @returns { PlainArray<T> }
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   clone(): PlainArray<T>;
   /**
    * Checks whether the current PlainArray object contains the specified key
-   * @param key need to determine whether to include the key
-   * @returns the boolean type
+   *
+   * @param { number } key - key key need to determine whether to include the key
+   * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   has(key: number): boolean;
   /**
    * Queries the value associated with the specified key
-   * @param key Looking for goals
-   * @returns the value of key-value pairs
+   *
+   * @param { number } key - key key Looking for goals
+   * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   get(key: number): T;
   /**
    * Queries the index for a specified key
-   * @param key Looking for goals
-   * @returns Subscript corresponding to target
+   *
+   * @param { number } key - key key Looking for goals
+   * @returns { number } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   getIndexOfKey(key: number): number;
   /**
-    * Queries the index for a specified value
-    * @param value Looking for goals
-    * @returns Subscript corresponding to target
-    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
-    * @crossplatform
-    * @since 8
-    * @syscap SystemCapability.Utils.Lang
-    */
+   * Queries the index for a specified value
+   *
+   * @param { T } value - value value Looking for goals
+   * @returns { number } Subscript corresponding to target
+   * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 8
+   */
   getIndexOfValue(value: T): number;
   /**
    * Checks whether the current PlainArray object is empty
-   * @returns the boolean type
+   *
+   * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   isEmpty(): boolean;
   /**
    * Queries the key at a specified index
-   * @param index Target subscript for search
-   * @returns the key of key-value pairs
+   *
+   * @param { number } index - index index Target subscript for search
+   * @returns { number } the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   getKeyAt(index: number): number;
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
-   * @param key  Target to be deleted
-   * @returns Target mapped value
+   *
+   * @param { number } key - key key Target to be deleted
+   * @returns { T } Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   remove(key: number): T;
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
-   * @param index  Target subscript for search
-   * @returns the T type
+   *
+   * @param { number } index - index index Target subscript for search
+   * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   removeAt(index: number): T;
   /**
    * Remove a group of key-value pairs from a specified index
-   * @param index  remove start index
-   * @param size Expected deletion quantity
-   * @returns Actual deleted quantity
+   *
+   * @param { number } index - index index remove start index
+   * @param { number } size - size size Expected deletion quantity
+   * @returns { number } Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   removeRangeFrom(index: number, size: number): number;
   /**
    * Update value on specified index
-   * @param index Target subscript for search
-   * @param value Updated the target mapped value
+   *
+   * @param { number } index - index index Target subscript for search
+   * @param { T } value - value value Updated the target mapped value
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   setValueAt(index: number, value: T): void;
   /**
    * Obtains the string representation of the PlainArray object
+   *
+   * @returns { String }
    * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   toString(): String;
   /**
    * Queries the value at a specified index
-   * @param index Target subscript for search
-   * @returns the value of key-value pairs
+   *
+   * @param { number } index - index index Target subscript for search
+   * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   getValueAt(index: number): T;
   /**
    * Executes a provided function once for each value in the PlainArray object.
+   *
+   * @param { (value: T, index?: number, PlainArray?: PlainArray<T>) => void } callbackFn - callbackFn callbackFn
+   * @param { Object } thisArg - thisArg thisArg
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void,
-    thisArg?: Object): void;
+  forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void, thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<[number, T]> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   [Symbol.iterator](): IterableIterator<[number, T]>;
 }

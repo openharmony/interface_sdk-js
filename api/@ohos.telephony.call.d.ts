@@ -28,22 +28,6 @@ declare namespace call {
    *
    * @permission ohos.permission.PLACE_CALL
    * @param { string } phoneNumber - Indicates the called number.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call.
-   * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
-   * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
-   * that the call is or can be connected.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @since 6
-   * @deprecated since 9
-   * @useinstead telephony.call#dialCall
-   */
-  function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
-
-  /**
-   * Makes a call.
-   *
-   * @permission ohos.permission.PLACE_CALL
-   * @param { string } phoneNumber - Indicates the called number.
    * @param { DialOptions } options - Indicates additional information carried in the call.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call.
    * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
@@ -78,19 +62,16 @@ declare namespace call {
    *
    * @permission ohos.permission.PLACE_CALL
    * @param { string } phoneNumber - Indicates the called number.
-   * @param { AsyncCallback<void> } callback - The callback of dialCall.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call.
+   * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
+   * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
+   * that the call is or can be connected.
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 6
+   * @deprecated since 9
+   * @useinstead telephony.call#dialCall
    */
-  function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
   /**
    * Makes a call.
@@ -131,6 +112,25 @@ declare namespace call {
    * @since 9
    */
   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
+
+  /**
+   * Makes a call.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { AsyncCallback<void> } callback - The callback of dialCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
    * Go to the dial screen and the called number is displayed.
@@ -185,7 +185,7 @@ declare namespace call {
   /**
    * Obtains the call state.
    *
-   * <p>If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
+   * If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
    * If at least one call is in the active, hold, or dialing state, the system returns
    * {@code CallState#CALL_STATE_OFFHOOK}.
    * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
@@ -199,7 +199,7 @@ declare namespace call {
   /**
    * Obtains the call state.
    *
-   * <p>If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
+   * If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
    * If at least one call is in the active, hold, or dialing state, the system returns
    * {@code CallState#CALL_STATE_OFFHOOK}.
    * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
@@ -213,7 +213,7 @@ declare namespace call {
   /**
    * Stops the ringtone.
    *
-   * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
+   * If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AsyncCallback<void> } callback - The callback of muteRinger.
@@ -233,7 +233,7 @@ declare namespace call {
   /**
    * Stops the ringtone.
    *
-   * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
+   * If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @returns { Promise<void> } The promise returned by the muteRinger.
@@ -251,7 +251,7 @@ declare namespace call {
   /**
    * Checks whether a device supports voice calls.
    *
-   * <p>The system checks whether the device has the capability to initiate a circuit switching (CS) or IP multimedia
+   * The system checks whether the device has the capability to initiate a circuit switching (CS) or IP multimedia
    * subsystem domain (IMS) call on a telephone service network. If the device supports only packet switching
    * (even if the device supports OTT calls), {@code false} is returned.
    *
@@ -260,22 +260,6 @@ declare namespace call {
    * @since 7
    */
   function hasVoiceCapability(): boolean;
-
-  /**
-   * Checks whether a phone number is on the emergency number list.
-   *
-   * @param { string } phoneNumber - Indicates the phone number to check.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for isEmergencyPhoneNumber.
-   * Returns {@code true} if the phone number is on the emergency number list. Returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @since 7
-   */
-  function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether a phone number is on the emergency number list.
@@ -312,14 +296,11 @@ declare namespace call {
   function isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise<boolean>;
 
   /**
-   * Formats a phone number according to the Chinese Telephone Code Plan. Before the formatting,
-   * a phone number is in the format of country code (if any) + 3-digit service provider code
-   * + 4-digit area code + 4-digit subscriber number. After the formatting,
-   * each part is separated by a space.
+   * Checks whether a phone number is on the emergency number list.
    *
-   * @param { string } phoneNumber - Indicates the phone number to format.
-   * @param { AsyncCallback<string> } callback - Indicates the callback to obtain a formatted phone number.
-   * Returns an empty string if the input phone number is invalid.
+   * @param { string } phoneNumber - Indicates the phone number to check.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for isEmergencyPhoneNumber.
+   * Returns {@code true} if the phone number is on the emergency number list. Returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -328,7 +309,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @since 7
    */
-  function formatPhoneNumber(phoneNumber: string, callback: AsyncCallback<string>): void;
+  function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
   /**
    * Formats a phone number according to the Chinese Telephone Code Plan. Before the formatting,
@@ -368,6 +349,25 @@ declare namespace call {
    * @since 7
    */
   function formatPhoneNumber(phoneNumber: string, options?: NumberFormatOptions): Promise<string>;
+
+  /**
+   * Formats a phone number according to the Chinese Telephone Code Plan. Before the formatting,
+   * a phone number is in the format of country code (if any) + 3-digit service provider code
+   * + 4-digit area code + 4-digit subscriber number. After the formatting,
+   * each part is separated by a space.
+   *
+   * @param { string } phoneNumber - Indicates the phone number to format.
+   * @param { AsyncCallback<string> } callback - Indicates the callback to obtain a formatted phone number.
+   * Returns an empty string if the input phone number is invalid.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 7
+   */
+  function formatPhoneNumber(phoneNumber: string, callback: AsyncCallback<string>): void;
 
   /**
    * Formats a phone number into an E.164 representation.
@@ -520,25 +520,6 @@ declare namespace call {
    *
    * @permission ohos.permission.ANSWER_CALL
    * @param { number } callId - Indicates the identifier of the call to reject.
-   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function rejectCall(callId: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Reject the incoming call.
-   *
-   * @permission ohos.permission.ANSWER_CALL
-   * @param { number } callId - Indicates the identifier of the call to reject.
    * @param { RejectMessageOptions } options - Indicates the text message to reject.
    * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @throws { BusinessError } 201 - Permission denied.
@@ -573,6 +554,25 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
+
+  /**
+   * Reject the incoming call.
+   *
+   * @permission ohos.permission.ANSWER_CALL
+   * @param { number } callId - Indicates the identifier of the call to reject.
+   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function rejectCall(callId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Reject the incoming call without callId.
@@ -1053,7 +1053,7 @@ declare namespace call {
    * Subscribe to the callDetailsChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDetailsChange.
+   * @param { 'callDetailsChange' } type - Event type. Indicates the callDetailsChange event to be subscribed to.
    * @param { Callback<CallAttributeOptions> } callback - Indicates the callback for getting the result of call details.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1072,7 +1072,7 @@ declare namespace call {
    * Unsubscribe from the callDetailsChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDetailsChange.
+   * @param { 'callDetailsChange' } type - Event type. Indicates the callDetailsChange event to unsubscribe from.
    * @param { Callback<CallAttributeOptions> } callback - Indicates the callback to unsubscribe from
    * the callDetailsChange event.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1092,7 +1092,7 @@ declare namespace call {
    * Subscribe to the callEventChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callEventChange.
+   * @param { 'callEventChange' } type - Event type. Indicates the callEventChange event to be subscribed to.
    * @param { Callback<CallEventOptions> } callback - Indicates the callback for getting the call event id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1111,7 +1111,7 @@ declare namespace call {
    * Unsubscribe from the callEventChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callEventChange.
+   * @param { 'callEventChange' } type - Event type. Indicates the callEventChange event to unsubscribe from.
    * @param { Callback<CallEventOptions> } callback - Indicates the callback to unsubscribe from the callEventChange event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1130,7 +1130,7 @@ declare namespace call {
    * Subscribe to the callDisconnectedCause event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDisconnectedCause.
+   * @param { 'callDisconnectedCause' } type - Event type. Indicates the callDisconnectedCause event to be subscribed to.
    * @param { Callback<DisconnectedDetails> } callback - Indicates the callback for getting the call disconnection reason.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1149,7 +1149,7 @@ declare namespace call {
    * Unsubscribe from the callDisconnectedCause event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - callDisconnectedCause.
+   * @param { 'callDisconnectedCause' } type - Event type. Indicates the callDisconnectedCause event to unsubscribe from.
    * @param { Callback<DisconnectedDetails> } callback - Indicates the callback used to cancel
    * the registration monitoring for obtaining the call end reason.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1169,7 +1169,7 @@ declare namespace call {
    * Subscribe to the mmiCodeResult event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - mmiCodeResult.
+   * @param { 'mmiCodeResult' } type - Event type. Indicates the mmiCodeResult event to be subscribed to.
    * @param { Callback<MmiCodeResults> } callback - Indicates the callback for getting the result of MMI code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1188,7 +1188,7 @@ declare namespace call {
    * Unsubscribe from the mmiCodeResult event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - mmiCodeResult.
+   * @param { 'mmiCodeResult' } type - Event type. Indicates the mmiCodeResult event to unsubscribe from.
    * @param { Callback<MmiCodeResults> } callback - Indicates the callback used to cancel getting mmicode registered listening.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1207,7 +1207,7 @@ declare namespace call {
    * Subscribe to the audioDeviceChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - audioDeviceChange.
+   * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to be subscribed to.
    * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1226,7 +1226,7 @@ declare namespace call {
    * Unsubscribe from the audioDeviceChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { string } type - audioDeviceChange.
+   * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to unsubscribe from.
    * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1878,8 +1878,7 @@ declare namespace call {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { VoNRState } state - Indicates the VoNR state.
-   * @param { AsyncCallback<boolean> } callback - {@code true} if the device set VoNR succesfully;
-   * returns {@code false} otherwise.
+   * @param { AsyncCallback<void> } callback - The callback of setVoNRState.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1891,7 +1890,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<void>): void;
 
   /**
    * Set switch state for voice over NR.
@@ -1900,8 +1899,7 @@ declare namespace call {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { VoNRState } state - Indicates the VoNR state.
-   * @returns { Promise<boolean> } Returns {@code true} if the device set VoNR succesfully;
-   * returns {@code false} otherwise.
+   * @returns { Promise<void> } The promise returned by the setVoNRState.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1913,7 +1911,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: VoNRState): Promise<boolean>;
+  function setVoNRState(slotId: number, state: VoNRState): Promise<void>;
 
   /**
    * Get switch state for voice over NR.
@@ -2121,61 +2119,6 @@ declare namespace call {
   }
 
   /**
-   * Indicates the device of audio.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  export enum AudioDevice {
-    /**
-     * Indicates device earpiece.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_EARPIECE,
-
-    /**
-     * Indicator device speaker.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_SPEAKER,
-
-    /**
-     * Indicates a wired headset device.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_WIRED_HEADSET,
-
-    /**
-     * Indicates a Bluetooth device.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_BLUETOOTH_SCO,
-
-    /**
-     * Indicates a microphone device.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    DEVICE_MIC,
-  }
-
-  /**
    * Indicates the device type of the audio device.
    *
    * @enum { number }
@@ -2219,6 +2162,36 @@ declare namespace call {
      * @since 10
      */
     DEVICE_BLUETOOTH_SCO,
+  }
+
+  /**
+   * Indicates the audio device.
+   *
+   * @interface AudioDevice
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface AudioDevice {
+    /**
+     * Indicates the device type of the audio device.
+     *
+     * @type { AudioDeviceType }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    deviceType: AudioDeviceType;
+
+    /**
+     * Indicates the address of the audio device.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    address?: string;
   }
 
   /**
@@ -3105,7 +3078,7 @@ declare namespace call {
   /**
    * Indicates the scenarios of the call to be made.
    *
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -3142,7 +3115,7 @@ declare namespace call {
   /**
    * Indicates the types of the call to be made.
    *
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -3446,7 +3419,8 @@ declare namespace call {
    * @since 9
    */
   export enum MmiCodeResult {
-    /** Indicates the result of MMI code with successfully.
+    /**
+     * Indicates the result of MMI code with successfully.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3454,7 +3428,8 @@ declare namespace call {
      */
     MMI_CODE_SUCCESS = 0,
 
-    /** Indicates the result of MMI code with failed.
+    /**
+     * Indicates the result of MMI code with failed.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.

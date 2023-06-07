@@ -100,22 +100,6 @@ declare namespace radio {
    * Obtains the network state of the registered network.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
-   */
-  function getNetworkState(callback: AsyncCallback<NetworkState>): void;
-
-  /**
-   * Obtains the network state of the registered network.
-   *
-   * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
@@ -149,22 +133,20 @@ declare namespace radio {
   function getNetworkState(slotId?: number): Promise<NetworkState>;
 
   /**
-   * Actively requests to update location information.
+   * Obtains the network state of the registered network.
    *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { AsyncCallback<void> } callback - The callback of sendUpdateCellLocationRequest.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 6
    */
-  function sendUpdateCellLocationRequest(callback: AsyncCallback<void>): void;
+  function getNetworkState(callback: AsyncCallback<NetworkState>): void;
 
   /**
    * Actively requests to update location information.
@@ -207,10 +189,10 @@ declare namespace radio {
   function sendUpdateCellLocationRequest(slotId?: number): Promise<void>;
 
   /**
-   * Get the current cell information.
+   * Actively requests to update location information.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { AsyncCallback<Array<CellInformation>> } callback - Indicates the callback for getting cell information.
+   * @param { AsyncCallback<void> } callback - The callback of sendUpdateCellLocationRequest.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -222,7 +204,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function getCellInformation(callback: AsyncCallback<Array<CellInformation>>): void;
+  function sendUpdateCellLocationRequest(callback: AsyncCallback<void>): void;
 
   /**
    * Get the current cell information.
@@ -263,6 +245,24 @@ declare namespace radio {
    * @since 8
    */
   function getCellInformation(slotId?: number): Promise<Array<CellInformation>>;
+
+  /**
+   * Get the current cell information.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { AsyncCallback<Array<CellInformation>> } callback - Indicates the callback for getting cell information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function getCellInformation(callback: AsyncCallback<Array<CellInformation>>): void;
 
   /**
    * Obtains the network search mode of the SIM card in a specified slot.
@@ -424,24 +424,6 @@ declare namespace radio {
   /**
    * Get the option mode of NR.
    *
-   * @param { AsyncCallback<NrOptionMode> } callback - Indicates the callback for getting the selection mode of NR.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   * @deprecated since 10
-   * @useinstead telephony.radio#getNROptionMode
-   */
-  function getNrOptionMode(callback: AsyncCallback<NrOptionMode>): void;
-
-  /**
-   * Get the option mode of NR.
-   *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @param { AsyncCallback<NrOptionMode> } callback - Indicates the callback for getting the selection mode of NR.
@@ -480,12 +462,9 @@ declare namespace radio {
   function getNrOptionMode(slotId?: number): Promise<NrOptionMode>;
 
   /**
-   * Obtains the IMEI of a specified card slot of the device.
+   * Get the option mode of NR.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the IMEI.
-   * Returns an empty string if the IMEI does not exist.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { AsyncCallback<NrOptionMode> } callback - Indicates the callback for getting the selection mode of NR.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -495,8 +474,10 @@ declare namespace radio {
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
+   * @deprecated since 10
+   * @useinstead telephony.radio#getNROptionMode
    */
-  function getIMEI(callback: AsyncCallback<string>): void;
+  function getNrOptionMode(callback: AsyncCallback<NrOptionMode>): void;
 
   /**
    * Obtains the IMEI of a specified card slot of the device.
@@ -540,11 +521,11 @@ declare namespace radio {
   function getIMEI(slotId?: number): Promise<string>;
 
   /**
-   * Obtains the MEID of a specified card slot of the device.
+   * Obtains the IMEI of a specified card slot of the device.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the MEID.
-   * Returns an empty string if the MEID does not exist.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the IMEI.
+   * Returns an empty string if the IMEI does not exist.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -556,7 +537,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function getMEID(callback: AsyncCallback<string>): void;
+  function getIMEI(callback: AsyncCallback<string>): void;
 
   /**
    * Obtains the MEID of a specified card slot of the device.
@@ -600,15 +581,11 @@ declare namespace radio {
   function getMEID(slotId?: number): Promise<string>;
 
   /**
-   * Obtains the unique device ID of a specified card slot of the device.
-   *
-   * <p>If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
-   * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
-   * (MEID) is returned.
+   * Obtains the MEID of a specified card slot of the device.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the unique device ID.
-   * Returns an empty string if the unique device ID does not exist.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the MEID.
+   * Returns an empty string if the MEID does not exist.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -620,12 +597,12 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function getUniqueDeviceId(callback: AsyncCallback<string>): void;
+  function getMEID(callback: AsyncCallback<string>): void;
 
   /**
    * Obtains the unique device ID of a specified card slot of the device.
    *
-   * <p>If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
+   * If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
    * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
    * (MEID) is returned.
    *
@@ -650,7 +627,7 @@ declare namespace radio {
   /**
    * Obtains the unique device ID of a specified card slot of the device.
    *
-   * <p>If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
+   * If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
    * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
    * (MEID) is returned.
    *
@@ -673,9 +650,32 @@ declare namespace radio {
   function getUniqueDeviceId(slotId?: number): Promise<string>;
 
   /**
+   * Obtains the unique device ID of a specified card slot of the device.
+   *
+   * If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
+   * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
+   * (MEID) is returned.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the unique device ID.
+   * Returns an empty string if the unique device ID does not exist.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function getUniqueDeviceId(callback: AsyncCallback<string>): void;
+
+  /**
    * Obtains the index number of the card slot where the primary card is located if multiple SIM cards are inserted.
    *
-   * <p>The primary card is the SIM card inserted in the card slot that uses data services by default.
+   * The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
    * @param { AsyncCallback<number> } callback - Indicates the callback for getting the index number of
    * the primary card slot.
@@ -692,7 +692,7 @@ declare namespace radio {
   /**
    * Obtains the index number of the card slot where the primary card is located if multiple SIM cards are inserted.
    *
-   * <p>The primary card is the SIM card inserted in the card slot that uses data services by default.
+   * The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
    * @returns { Promise<number> } Returns the index number of the primary card slot.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -827,23 +827,6 @@ declare namespace radio {
    * Checks whether the radio service is enabled.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback - Returns {@code true} If the radio service is enabled.
-   * Returns {@code false} otherwise.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
-   */
-  function isRadioOn(callback: AsyncCallback<boolean>): void;
-
-  /**
-   * Checks whether the radio service is enabled.
-   *
-   * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<boolean> } callback - Returns {@code true} If the radio service is enabled.
@@ -878,22 +861,21 @@ declare namespace radio {
   function isRadioOn(slotId?: number): Promise<boolean>;
 
   /**
-   * Turn on the radio service.
+   * Checks whether the radio service is enabled.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AsyncCallback<void> } callback - The callback of turnOnRadio.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<boolean> } callback - Returns {@code true} If the radio service is enabled.
+   * Returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 7
    */
-  function turnOnRadio(callback: AsyncCallback<void>): void;
+  function isRadioOn(callback: AsyncCallback<boolean>): void;
 
   /**
    * Turn on the radio service.
@@ -936,10 +918,10 @@ declare namespace radio {
   function turnOnRadio(slotId?: number): Promise<void>;
 
   /**
-   * Turn off the radio service.
+   * Turn on the radio service.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { AsyncCallback<void> } callback - The callback of turnOffRadio.
+   * @param { AsyncCallback<void> } callback - The callback of turnOnRadio.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -951,7 +933,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
-  function turnOffRadio(callback: AsyncCallback<void>): void;
+  function turnOnRadio(callback: AsyncCallback<void>): void;
 
   /**
    * Turn off the radio service.
@@ -992,6 +974,24 @@ declare namespace radio {
    * @since 7
    */
   function turnOffRadio(slotId?: number): Promise<void>;
+
+  /**
+   * Turn off the radio service.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { AsyncCallback<void> } callback - The callback of turnOffRadio.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function turnOffRadio(callback: AsyncCallback<void>): void;
 
   /**
    * Get the operator name of the specified SIM card slot.
@@ -1155,7 +1155,7 @@ declare namespace radio {
    * a monitored {@code slotId} updates.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { string } type - imsRegStateChange.
+   * @param { 'imsRegStateChange' } type - Event type. Indicates the imsRegStateChange event to be subscribed to.
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
@@ -1178,7 +1178,7 @@ declare namespace radio {
    * Unsubscribe from imsRegStateChange event.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { string } type - imsRegStateChange.
+   * @param { 'imsRegStateChange' } type - Event type. Indicates the imsRegStateChange event to unsubscribe from.
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
@@ -1302,7 +1302,7 @@ declare namespace radio {
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
-   * @returns { AsyncCallback<NROptionMode> } Returns the selection mode of NR.
+   * @returns { Promise<NROptionMode> } Returns the selection mode of NR.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1859,7 +1859,7 @@ declare namespace radio {
   export interface NetworkState {
     /**
      * Obtains the operator name in the long alphanumeric format of the registered network.
-     * <p>
+     *
      * Returns the operator name in the long alphanumeric format as a string;
      * returns an empty string if no operator name is obtained.
      *
@@ -1871,7 +1871,7 @@ declare namespace radio {
 
     /**
      * Obtains the operator name in the short alphanumeric format of the registered network.
-     * <p>
+     *
      * Returns the operator name in the short alphanumeric format as a string;
      * returns an empty string if no operator name is obtained.
      *
@@ -1883,7 +1883,7 @@ declare namespace radio {
 
     /**
      * Obtains the PLMN code of the registered network.
-     * <p>
+     *
      * Returns the PLMN code as a string; returns an empty string if no operator name is obtained.
      *
      * @type { string }
@@ -1922,7 +1922,7 @@ declare namespace radio {
     /**
      * Obtains the NSA network registration status of the device.
      *
-     * <p>Returns the NSA network registration status {@code NsaState}.
+     * Returns the NSA network registration status {@code NsaState}.
      *
      * @type { NsaState }
      * @syscap SystemCapability.Telephony.CoreService
@@ -1933,7 +1933,7 @@ declare namespace radio {
     /**
      * Obtains the status of CA.
      *
-     * <p>Returns {@code true} if CA is actived; returns {@code false} otherwise.
+     * Returns {@code true} if CA is actived; returns {@code false} otherwise.
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
@@ -1944,7 +1944,7 @@ declare namespace radio {
     /**
      * Checks whether this device is allowed to make emergency calls only.
      *
-     * <p>Returns {@code true} if this device is allowed to make emergency calls only;
+     * Returns {@code true} if this device is allowed to make emergency calls only;
      * returns {@code false} otherwise.
      *
      * @type { boolean }
@@ -2064,7 +2064,7 @@ declare namespace radio {
   export interface CellInformation {
     /**
      * Obtains the network type of the serving cell.
-     * <p>
+     *
      * An application can call this method to determine the network type that the child class uses.
      *
      * @type { NetworkType }
@@ -2075,7 +2075,7 @@ declare namespace radio {
 
     /**
      * Obtains the camp-on status of the serving cell.
-     * <p>
+     *
      * Returns {@code true} if the user equipment (UE) is camped on the cell; returns {@code false} otherwise.
      *
      * @type { boolean }
@@ -2087,7 +2087,7 @@ declare namespace radio {
 
     /**
      * Obtains the timestamp when the cell information is obtained.
-     * <p>
+     *
      * Returns a timestamp since boot, in nanoseconds.
      *
      * @type { number }
@@ -2100,7 +2100,6 @@ declare namespace radio {
     /**
      * An abstract method of the parent class whose implementation depends on the child classes.
      * Returned child class objects vary according to the network type.
-     * <p>
      * Returns child class objects specific to the network type.
      *
      * @type { SignalInformation }

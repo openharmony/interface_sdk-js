@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,33 +15,42 @@
 
 /**
  * Defines an AppVersionInfo object.
- * @since 7
+ *
+ * @typedef AppVersionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 7
  */
 export interface AppVersionInfo {
-
   /**
-  * Application name.
-  * @default appName
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
+   * Application name.
+   *
+   * @type { string }
+   * @default appName
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
+   */
   readonly appName: string;
 
   /**
-  * Application version number.
-  * @default versionCode
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
+   * Application version number.
+   *
+   * @type { number }
+   * @default versionCode
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
+   */
   readonly versionCode: number;
 
   /**
-  * Application version name.
-  * @default versionName
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
+   * Application version name.
+   *
+   * @type { string }
+   * @default versionName
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
+   */
   readonly versionName: string;
 }

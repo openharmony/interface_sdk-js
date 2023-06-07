@@ -305,6 +305,29 @@ interface CaretStyle {
 }
 
 /**
+ * PasswordIcon object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface PasswordIcon {
+  /**
+   * Define the on icon source of PasswordIcon.
+   * @param { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onIconSrc?: string | Resource;
+
+  /**
+   * Define the off icon source of PasswordIcon.
+   * @param { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  offIconSrc?: string | Resource;
+}
+
+/**
  * Defines the TextInput attribute functions.
  * @since 7
  */
@@ -560,9 +583,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Text input style
    * @crossplatform
+   * @param { TextInputStyle | TextContentStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  style(value: TextInputStyle): TextInputAttribute;
+  style(value: TextInputStyle | TextContentStyle): TextInputAttribute;
 
   /**
    * Define the caret style of the text input
@@ -601,6 +626,38 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 10
    */
   enableKeyboardOnFocus(value: boolean): TextInputAttribute;
+
+  /**
+   * Define the password icon of the text input.
+   * @param { PasswordIcon }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  passwordIcon(value: PasswordIcon): TextInputAttribute;
+
+  /**
+   * Define the show error of the text input.
+   * @param { string | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showError(value?: string | undefined): TextInputAttribute;
+
+  /**
+   * Define the show unit of the text input.
+   * @param { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showUnit(value: CustomBuilder): TextInputAttribute;
+
+  /**
+   * Define the show underline of the text input.
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showUnderline(value: boolean): TextInputAttribute;
 }
 
 /**
