@@ -50,11 +50,11 @@ export interface FetchResponse {
 export default class Fetch {
   /**
    * Obtains data through the network.
-   * @param { object } options
+   * @param { object } options - Options.
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */
-  static fetch(options:{
+  static fetch(options: {
     /**
      * Resource URL.
      * @syscap SystemCapability.Communication.NetStack
@@ -110,5 +110,5 @@ export default class Fetch {
      * @since 3
      */
     complete?: () => void;
-  } ): void;
+  }): void;
 }
