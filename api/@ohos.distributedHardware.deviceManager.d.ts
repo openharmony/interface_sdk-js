@@ -598,6 +598,7 @@ declare namespace deviceManager {
    * @param { AsyncCallback<DeviceManager> } callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
    * @throws { BusinessError } 401 - Input parameter error.
    * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 201 - Permission verify failed.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
@@ -661,6 +662,7 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -674,6 +676,7 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<Array<DeviceInfo>> } Returns a list of trusted devices.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -701,6 +704,7 @@ declare namespace deviceManager {
      * @param { AsyncCallback<DeviceInfo> } callback Indicates the callback to be invoked upon getLocalDeviceInfo
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -713,6 +717,7 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<DeviceInfo> } Returns local device info.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -835,6 +840,7 @@ declare namespace deviceManager {
      * @param { AsyncCallback<{ deviceId: string, pinToken?: number }> } callback Indicates the callback to be invoked upon authenticateDevice
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -942,6 +948,7 @@ declare namespace deviceManager {
      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -957,6 +964,7 @@ declare namespace deviceManager {
      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -973,6 +981,7 @@ declare namespace deviceManager {
      *          Indicates the device state callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -987,6 +996,7 @@ declare namespace deviceManager {
      * @param { Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }> } callback Indicates the device state callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1001,6 +1011,7 @@ declare namespace deviceManager {
      * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1015,6 +1026,7 @@ declare namespace deviceManager {
      * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1029,6 +1041,7 @@ declare namespace deviceManager {
      * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1043,6 +1056,7 @@ declare namespace deviceManager {
      * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1057,6 +1071,7 @@ declare namespace deviceManager {
      * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1071,6 +1086,7 @@ declare namespace deviceManager {
      * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1085,6 +1101,7 @@ declare namespace deviceManager {
      * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1099,6 +1116,7 @@ declare namespace deviceManager {
      * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1113,6 +1131,7 @@ declare namespace deviceManager {
      * @param { () => void } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1127,6 +1146,7 @@ declare namespace deviceManager {
      * @param { () => void } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
