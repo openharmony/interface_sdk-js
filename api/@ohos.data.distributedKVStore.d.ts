@@ -542,7 +542,7 @@ declare namespace distributedKVStore {
      * name Indicates the field node name.
      *
      * @param { string } name
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -554,7 +554,7 @@ declare namespace distributedKVStore {
      *
      * @param { FieldNode } child - The field node to append.
      * @returns { boolean } Returns true if the child node is successfully added to this {@code FieldNode} and false otherwise.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -663,7 +663,7 @@ declare namespace distributedKVStore {
      * the destination position will be entry 1. The valid final position after moving forwards starts with 0. If the
      * final position is invalid, false will be returned.
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -674,7 +674,7 @@ declare namespace distributedKVStore {
      *
      * @param { number } position - Indicates the absolute position.
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -759,7 +759,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -771,7 +771,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -784,7 +784,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -796,7 +796,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -809,7 +809,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -822,7 +822,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -833,7 +833,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -845,7 +845,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -857,7 +857,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { string[] } valueList - Indicates the string value list.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -869,7 +869,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { number[] } valueList - Indicates the int value list.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -881,7 +881,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { string[] } valueList - Indicates the string value list.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -893,7 +893,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { string } value - Indicates the string value.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -905,7 +905,7 @@ declare namespace distributedKVStore {
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @param { string } value - Indicates the string value.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -936,7 +936,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -947,7 +947,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } field - Indicates the field, which must start with $. and cannot contain ^.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -959,7 +959,7 @@ declare namespace distributedKVStore {
      * @param { number } total - Indicates the number of results.
      * @param { number } offset - Indicates the start position.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -970,7 +970,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } field - Indicates the specified field.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1003,7 +1003,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } prefix - Indicates the specified key prefix.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1014,7 +1014,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } index - Indicates the index to set.
      * @returns { Query } Returns the {@coed Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1025,7 +1025,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } deviceId - Specify device id to query from.
      * @returns { Query } Returns the {@code Query} object with device ID prefix added.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1065,7 +1065,7 @@ declare namespace distributedKVStore {
      * Spaces before and after the key will be cleared.
      * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of put.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1079,10 +1079,10 @@ declare namespace distributedKVStore {
      * Spaces before and after the key will be cleared.
      * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of put.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1096,7 +1096,7 @@ declare namespace distributedKVStore {
      * Spaces before and after the key will be cleared.
      * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1110,10 +1110,10 @@ declare namespace distributedKVStore {
      * Spaces before and after the key will be cleared.
      * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1124,7 +1124,7 @@ declare namespace distributedKVStore {
      *
      * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1135,10 +1135,10 @@ declare namespace distributedKVStore {
      *
      * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1149,7 +1149,7 @@ declare namespace distributedKVStore {
      *
      * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1160,10 +1160,10 @@ declare namespace distributedKVStore {
      *
      * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1174,8 +1174,8 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1188,11 +1188,11 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1205,8 +1205,8 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1219,11 +1219,11 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1237,7 +1237,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
      * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1249,10 +1249,10 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
      * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1264,7 +1264,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1276,10 +1276,10 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1290,8 +1290,8 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1304,11 +1304,11 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @param { AsyncCallback<void> } callback - the callback of delete.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
@@ -1321,8 +1321,8 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1335,11 +1335,11 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
@@ -1352,7 +1352,7 @@ declare namespace distributedKVStore {
      *
      * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
      * @param { AsyncCallback<void> } callback - the callback of deleteBatch.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1363,10 +1363,10 @@ declare namespace distributedKVStore {
      *
      * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
      * @param { AsyncCallback<void> } callback - the callback of deleteBatch.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1377,7 +1377,7 @@ declare namespace distributedKVStore {
      *
      * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1388,10 +1388,10 @@ declare namespace distributedKVStore {
      *
      * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1404,7 +1404,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the current device ID.
      * @param { AsyncCallback<void> } callback - the callback of removeDeviceData.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
@@ -1418,7 +1418,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the current device ID.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
@@ -1431,7 +1431,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {Uint8Array|string|boolean|number}: the returned value specified by the key.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1446,7 +1446,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
      * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the key.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1461,7 +1461,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * that match the specified key prefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1475,7 +1475,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
      * specified key prefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1489,7 +1489,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * matching the specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1503,7 +1503,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the
      * specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1521,7 +1521,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1537,7 +1537,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1556,7 +1556,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1572,7 +1572,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1587,7 +1587,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1599,7 +1599,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1614,7 +1614,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1626,7 +1626,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1641,8 +1641,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1656,8 +1656,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1674,8 +1674,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1689,8 +1689,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1706,7 +1706,7 @@ declare namespace distributedKVStore {
      *
      * @param { KVStoreResultSet } resultSet - Indicates the {@code KVStoreResultSet} object to close.
      * @param { AsyncCallback<void> } callback - the callback of closeResultSet.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1717,7 +1717,7 @@ declare namespace distributedKVStore {
      *
      * @param { KVStoreResultSet } resultSet - Indicates the {@code KVStoreResultSet} object to close.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1729,7 +1729,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
      * specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1743,7 +1743,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<number> } {number}: the number of results matching the specified
      * {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1756,7 +1756,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - Indicates the database backup filename.
      * @param { AsyncCallback<void> } callback - the callback of backup.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -1768,7 +1768,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - Indicates the database backup filename.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -1780,7 +1780,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - Indicates the database backup filename.
      * @param { AsyncCallback<void> } callback - the callback of restore.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -1792,7 +1792,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - Indicates the database backup filename.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -1806,7 +1806,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<Array<[string, number]>> } callback - {Array<[string, number]>}:
      * the list of backup file and it's corresponding delete result which 0 means delete success
      * and otherwise failed.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1818,7 +1818,7 @@ declare namespace distributedKVStore {
      * @param { Array<string> } files - Indicates the backup filenames to be deleted.
      * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: the list of backup
      * file and it's corresponding delete result which 0 means delete success and otherwise failed.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1839,7 +1839,7 @@ declare namespace distributedKVStore {
      *
      * @param { AsyncCallback<void> } callback - the callback of startTransaction.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1860,7 +1860,7 @@ declare namespace distributedKVStore {
      *
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
@@ -1912,7 +1912,7 @@ declare namespace distributedKVStore {
      * @param { boolean } enabled - Specifies whether to enable synchronization. The value true
      * means to enable synchronization, and false means the opposite.
      * @param { AsyncCallback<void> } callback - the callback of enableSync.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1924,7 +1924,7 @@ declare namespace distributedKVStore {
      * @param { boolean } enabled - Specifies whether to enable synchronization. The value true
      * means to enable synchronization, and false means the opposite.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1938,7 +1938,7 @@ declare namespace distributedKVStore {
      * @param { string[] } remoteSupportLabels - Indicates the labels of the devices with which
      * data will be synchronized.
      * @param { AsyncCallback<void> } callback - the callback of setSyncRange.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1952,7 +1952,7 @@ declare namespace distributedKVStore {
      * @param { string[] } remoteSupportLabels - Indicates the labels of the devices with which
      * data will be synchronized.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1964,7 +1964,7 @@ declare namespace distributedKVStore {
      * @param { number } defaultAllowedDelayMs - Indicates the default delay allowed for the
      * database synchronization, in milliseconds.
      * @param { AsyncCallback<void> } callback - the callback of setSyncParam.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1976,7 +1976,7 @@ declare namespace distributedKVStore {
      * @param { number } defaultAllowedDelayMs - Indicates the default delay allowed for the
      * database synchronization, in milliseconds.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -1990,7 +1990,7 @@ declare namespace distributedKVStore {
      * @param { SyncMode } mode - Indicates the synchronization mode. The value can be {@code PUSH},
      * {@code PULL}, or {@code PUSH_PULL}.
      * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2007,7 +2007,7 @@ declare namespace distributedKVStore {
      * @param { SyncMode } mode - Indicates the synchronization mode. The value can be {@code PUSH},
      * {@code PULL}, or {@code PUSH_PULL}.
      * @param { number } delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2023,7 +2023,7 @@ declare namespace distributedKVStore {
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - if the database has been subscribed over the max subscription time limit.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2037,7 +2037,7 @@ declare namespace distributedKVStore {
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2053,7 +2053,7 @@ declare namespace distributedKVStore {
      * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2065,7 +2065,7 @@ declare namespace distributedKVStore {
      * @param { 'dataChange' } event - The unsubscribe event name, fixed as 'dataChange', indicates the data change event.
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -2079,7 +2079,7 @@ declare namespace distributedKVStore {
      * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2126,7 +2126,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2141,7 +2141,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
      * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the local device ID and specified key.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2157,7 +2157,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key of the value to be queried.
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {boolean | string | number | Uint8Array}: the returned value specified by the deviceId and key.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2173,7 +2173,7 @@ declare namespace distributedKVStore {
      * @param { string } key - Indicates the key of the value to be queried.
      * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2188,7 +2188,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * that match the local device ID and specified key prefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2202,7 +2202,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
      * local device ID and specified key prefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2217,7 +2217,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * that match the specified deviceId and key prefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2232,7 +2232,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs that match the
      * specified deviceId and key prefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2246,7 +2246,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * matching the local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2260,7 +2260,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the local device ID and
      * specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2275,7 +2275,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<Entry[]> } callback - {Entry[]}: the list of all key-value pairs
      * matching the specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2290,7 +2290,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<Entry[]> } {Entry[]}: the list of all key-value pairs matching the
      * specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2308,7 +2308,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2324,7 +2324,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2343,7 +2343,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2359,7 +2359,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2379,7 +2379,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2396,7 +2396,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2416,7 +2416,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2433,7 +2433,7 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - Indicates the key prefix to match.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and keyPrefix.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2448,7 +2448,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2460,7 +2460,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2475,7 +2475,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2487,7 +2487,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2503,7 +2503,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2516,7 +2516,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2532,7 +2532,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2545,7 +2545,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2560,8 +2560,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2575,8 +2575,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2593,8 +2593,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2608,8 +2608,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the datasharePredicates.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2627,8 +2627,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2643,8 +2643,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2666,8 +2666,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2682,8 +2682,8 @@ declare namespace distributedKVStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the dataSharePredicates.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
-     * @throws { BusinessError } 202 - if the caller is not a system app or FA model.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2700,7 +2700,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
      * local device ID and specified {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2714,7 +2714,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<number> } {number}: the number of results matching the local device ID and specified
      * {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2729,7 +2729,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<number> } callback - {number}: the number of results matching the
      * specified deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2744,7 +2744,7 @@ declare namespace distributedKVStore {
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<number> } {number}: the number of results matching the specified
      * deviceId and {@code Query} object.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -2761,7 +2761,7 @@ declare namespace distributedKVStore {
    * @param { KVManagerConfig } config - Indicates the KVStore configuration information,
    * including the package name and context.
    * @returns { KVManager } : the {@code KVManager} instance.
-   * @throws { BusinessError } 401 - if parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 9
    */
@@ -2779,11 +2779,12 @@ declare namespace distributedKVStore {
      * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
      *
      * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value.
+     * for the same application, and different applications can share the same value. The storeId can consist 
+     * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
      * @param { Options } options - Indicates the {@code Options} object used for creating and
      * obtaining the KVStore database.
      * @param { AsyncCallback<T> } callback - {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100002 - Open existed database with changed options.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2795,11 +2796,12 @@ declare namespace distributedKVStore {
      * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
      *
      * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value.
+     * for the same application, and different applications can share the same value. The storeId can consist 
+     * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
      * @param { Options } options - Indicates the {@code Options} object used for creating and
      * obtaining the KVStore database.
      * @returns { Promise<T> } {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100002 - Open existed database with changed options.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2816,9 +2818,10 @@ declare namespace distributedKVStore {
      * closing the database will fail.
      *
      * @param { string } appId - Identifies the application that the database belong to.
-     * @param { string } storeId - Identifies the KVStore database to close.
+     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters, digits,
+     * and underscores (_), and cannot exceed 128 characters.
      * @param { AsyncCallback<void> } callback - the callback of closeKVStore.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2833,9 +2836,10 @@ declare namespace distributedKVStore {
      * closing the database will fail.
      *
      * @param { string } appId - Identifies the application that the database belong to.
-     * @param { string } storeId - Identifies the KVStore database to close.
+     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters, digits,
+     * and underscores (_), and cannot exceed 128 characters.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2848,9 +2852,10 @@ declare namespace distributedKVStore {
      * lost.
      *
      * @param { string } appId - Identifies the application that the database belong to.
-     * @param { string } storeId - Identifies the KVStore database to delete.
+     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters, digits,
+     * and underscores (_), and cannot exceed 128 characters.
      * @param { AsyncCallback<void> } callback - the callback of deleteKVStore.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -2864,9 +2869,10 @@ declare namespace distributedKVStore {
      * lost.
      *
      * @param { string } appId - Identifies the application that the database belong to.
-     * @param { string } storeId - Identifies the KVStore database to delete.
+     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters, digits,
+     * and underscores (_), and cannot exceed 128 characters.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -2879,7 +2885,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } appId - Identifies the application that obtains the databases.
      * @param { AsyncCallback<string[]> } callback - {string[]}: the storeId of all created KVStore databases.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2891,7 +2897,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } appId - Identifies the application that obtains the databases.
      * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2904,7 +2910,7 @@ declare namespace distributedKVStore {
      *
      * @param { 'distributedDataServiceDie' } event - Subscribed event name, fixed as 'distributedDataServiceDie', as a service status change events.
      * @param { Callback<void> } deathCallback - callback to be invoked when the data manager service is terminated.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -2917,7 +2923,7 @@ declare namespace distributedKVStore {
      *
      * @param { 'distributedDataServiceDie' } event - Unsubscribe event name, fixed as 'distributedDataServiceDie', as a service status change events.
      * @param { Callback<void> } deathCallback - the data manager service is terminated callback which has been registered.
-     * @throws { BusinessError } 401 - if parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
