@@ -668,7 +668,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
+  function setTouchpadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set touchpad scroll switch.
@@ -681,7 +681,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadScrollSwitch(state: boolean): Promise<void>;
+  function setTouchpadScrollSwitch(state: boolean): Promise<void>;
 
   /**
    * Get touchpad scroll switch state.
@@ -693,7 +693,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadScrollSwitch(callback: AsyncCallback<boolean>): void;
+  function getTouchpadScrollSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
    * Get touchpad scroll switch state.
@@ -705,7 +705,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadScrollSwitch(): Promise<boolean>;
+  function getTouchpadScrollSwitch(): Promise<boolean>;
 
   /**
    * Set touchpad scroll direction.
@@ -718,7 +718,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
+  function setTouchpadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set touchpad scroll direction.
@@ -731,7 +731,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadScrollDirection(state: boolean): Promise<void>;
+  function setTouchpadScrollDirection(state: boolean): Promise<void>;
 
   /**
    * Get touchpad scroll direction.
@@ -743,7 +743,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadScrollDirection(callback: AsyncCallback<boolean>): void;
+  function getTouchpadScrollDirection(callback: AsyncCallback<boolean>): void;
 
   /**
    * Get touchpad scroll direction.
@@ -755,7 +755,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadScrollDirection(): Promise<boolean>;
+  function getTouchpadScrollDirection(): Promise<boolean>;
 
   /**
    * Set touchpad tap switch.
@@ -768,7 +768,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
+  function setTouchpadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set touchpad tap switch.
@@ -781,7 +781,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadTapSwitch(state: boolean): Promise<void>;
+  function setTouchpadTapSwitch(state: boolean): Promise<void>;
 
   /**
    * Get touchpad tap switch state.
@@ -793,7 +793,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadTapSwitch(callback: AsyncCallback<boolean>): void;
+  function getTouchpadTapSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
    * Get touchpad tap switch state.
@@ -805,7 +805,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadTapSwitch(): Promise<boolean>;
+  function getTouchpadTapSwitch(): Promise<boolean>;
 
   /**
    * Set touchpad pointer speed.
@@ -818,7 +818,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+  function setTouchpadPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
   /**
    * Set touchpad pointer speed.
@@ -831,7 +831,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchPadPointerSpeed(speed: number): Promise<void>;
+  function setTouchpadPointerSpeed(speed: number): Promise<void>;
 
   /**
    * Get touchpad pointer speed.
@@ -843,7 +843,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadPointerSpeed(callback: AsyncCallback<number>): void;
+  function getTouchpadPointerSpeed(callback: AsyncCallback<number>): void;
 
   /**
    * Get touchpad pointer speed.
@@ -855,7 +855,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchPadPointerSpeed(): Promise<number>;
+  function getTouchpadPointerSpeed(): Promise<number>;
 }
 
 export default pointer;
