@@ -18,8 +18,15 @@
  *
  * @namespace url
  * @syscap SystemCapability.Utils.Lang
- * @crossplatform
  * @since 7
+ */
+/**
+ * The url module provides utilities for URL resolution and parsing.
+ *
+ * @namespace url
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @since 10
  */
 declare namespace url {
   /**
@@ -206,8 +213,15 @@ declare namespace url {
    * The URLParams interface defines some practical methods to process URL query strings.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 9
+   * @name URLParams
+   */
+  /**
+   * The URLParams interface defines some practical methods to process URL query strings.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    * @name URLParams
    */
   class URLParams {
@@ -223,8 +237,22 @@ declare namespace url {
      * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
      * or string or URLParams object.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * A parameterized constructor used to create an URLParams instance.
+     * As the input parameter of the constructor function, init supports four types.
+     * The input parameter is a character string two-dimensional array.
+     * The input parameter is the object list.
+     * The input parameter is a character string.
+     * The input parameter is the URLParams object.
+     *
+     * @param { string[][] | Record<string, string> | string | URLParams } init - init init
+     * @throws { BusinessError } 401 - The type of init must be string two-dimensional array or object list
+     * or string or URLParams object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     constructor(init?: string[][] | Record<string, string> | string | URLParams);
 
@@ -235,8 +263,17 @@ declare namespace url {
      * @param { string } value - value value Values of search parameters to be inserted.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Appends a specified key/value pair as a new search parameter.
+     *
+     * @param { string } name - name name Key name of the search parameter to be inserted.
+     * @param { string } value - value value Values of search parameters to be inserted.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     append(name: string, value: string): void;
 
@@ -246,8 +283,16 @@ declare namespace url {
      * @param { string } name - name name Name of the key-value pair to be deleted.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Deletes the given search parameter and its associated value,from the list of all search parameters.
+     *
+     * @param { string } name - name name Name of the key-value pair to be deleted.
+     * @throws { BusinessError } 401 - The type of name must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     delete(name: string): void;
 
@@ -258,8 +303,17 @@ declare namespace url {
      * @returns { string[] } string[] Returns all key-value pairs with the specified name.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns all key-value pairs associated with a given search parameter as an array.
+     *
+     * @param { string } name - name name Specifies the name of a key value.
+     * @returns { string[] } string[] Returns all key-value pairs with the specified name.
+     * @throws { BusinessError } 401 - The type of name must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     getAll(name: string): string[];
 
@@ -269,8 +323,16 @@ declare namespace url {
      *
      * @returns { IterableIterator<[string, string]> } Returns an iterator for ES6.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns an ES6 iterator. Each item of the iterator is a JavaScript Array.
+     * The first item of Array is name, and the second item of Array is value.
+     *
+     * @returns { IterableIterator<[string, string]> } Returns an iterator for ES6.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     entries(): IterableIterator<[string, string]>;
 
@@ -282,8 +344,18 @@ declare namespace url {
      * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Callback functions are used to traverse key-value pairs on the URLParams instance object.
+     *
+     * @param { (value: string, key: string, searchParams: this) => void } callbackFn - callbackFn value Current traversal key value,
+	 * key Indicates the name of the key that is traversed.
+     * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
 
@@ -294,8 +366,17 @@ declare namespace url {
      * @returns { string | null } Returns the first value found by name. If no value is found, null is returned.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns the first value associated to the given search parameter.
+     *
+     * @param { string } name - name name Specifies the name of a key-value pair.
+     * @returns { string | null } Returns the first value found by name. If no value is found, null is returned.
+     * @throws { BusinessError } 401 - The type of name must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     get(name: string): string | null;
 
@@ -306,8 +387,17 @@ declare namespace url {
      * @returns { boolean } Returns a Boolean value that indicates whether a found
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns a Boolean that indicates whether a parameter with the specified name exists.
+     *
+     * @param { string } name - name name Specifies the name of a key-value pair.
+     * @returns { boolean } Returns a Boolean value that indicates whether a found
+     * @throws { BusinessError } 401 - The type of name must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     has(name: string): boolean;
 
@@ -321,8 +411,20 @@ declare namespace url {
      * @param { string } value - value value Indicates the parameter value to be set.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Sets the value associated with a given search parameter to the
+     * given value. If there were several matching values, this method
+     * deletes the others. If the search parameter doesn't exist, this
+     * method creates it.
+     *
+     * @param { string } name - name name Key name of the parameter to be set.
+     * @param { string } value - value value Indicates the parameter value to be set.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     set(name: string, value: string): void;
 
@@ -330,8 +432,14 @@ declare namespace url {
      * Sort all key/value pairs contained in this object in place and return undefined.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Sort all key/value pairs contained in this object in place and return undefined.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     sort(): void;
 
@@ -340,8 +448,15 @@ declare namespace url {
      *
      * @returns { IterableIterator<string> } Returns an ES6 Iterator over the names of each name-value pair.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns an iterator allowing to go through all keys contained in this object.
+     *
+     * @returns { IterableIterator<string> } Returns an ES6 Iterator over the names of each name-value pair.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     keys(): IterableIterator<string>;
 
@@ -350,8 +465,15 @@ declare namespace url {
      *
      * @returns { IterableIterator<string> } Returns an ES6 Iterator over the values of each name-value pair.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns an iterator allowing to go through all values contained in this object.
+     *
+     * @returns { IterableIterator<string> } Returns an ES6 Iterator over the values of each name-value pair.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     values(): IterableIterator<string>;
 
@@ -362,8 +484,17 @@ declare namespace url {
      * @returns { IterableIterator<[string, string]> } Returns an ES6 iterator. Each item of the iterator is a JavaScript Array.
      * The first item of Array is name, and the second item of Array is value.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns an iterator allowing to go through all key/value
+     * pairs contained in this object.
+     *
+     * @returns { IterableIterator<[string, string]> } Returns an ES6 iterator. Each item of the iterator is a JavaScript Array.
+     * The first item of Array is name, and the second item of Array is value.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     [Symbol.iterator](): IterableIterator<[string, string]>;
 
@@ -372,8 +503,15 @@ declare namespace url {
      *
      * @returns { string } Returns a search parameter serialized as a string, percent-encoded if necessary.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Returns a query string suitable for use in a URL.
+     *
+     * @returns { string } Returns a search parameter serialized as a string, percent-encoded if necessary.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     toString(): string;
   }
@@ -382,8 +520,15 @@ declare namespace url {
    * The interface of URL is used to parse, construct, normalize, and encode URLs.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @since 7
+   * @name URL
+   */
+  /**
+   * The interface of URL is used to parse, construct, normalize, and encode URLs.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    * @name URL
    */
   class URL {
@@ -406,8 +551,14 @@ declare namespace url {
      * URL constructor, which is used to instantiate a URL object.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * URL constructor, which is used to instantiate a URL object.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     constructor();
 
@@ -421,8 +572,20 @@ declare namespace url {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid url string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Replaces the original constructor to process arguments and return a url object.
+     *
+     * @param { string } url - url url Absolute or relative input URL to resolve. Base is required if input is relative.
+     * If input is an absolute value, base ignores the value.
+     * @param { string | URL } base - base base Base URL to parse if input is not absolute.
+     * @returns { URL }
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200002 - Invalid url string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     static parseURL(url: string, base?: string | URL): URL;
 
@@ -431,8 +594,15 @@ declare namespace url {
      *
      * @returns { string } Returns the serialized URL as a string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Returns the serialized URL as a string.
+     *
+     * @returns { string } Returns the serialized URL as a string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     toString(): string;
 
@@ -441,8 +611,15 @@ declare namespace url {
      *
      * @returns { string } Returns the serialized URL as a string.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Returns the serialized URL as a string.
+     *
+     * @returns { string } Returns the serialized URL as a string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     toJSON(): string;
 
@@ -450,8 +627,14 @@ declare namespace url {
      * Gets and sets the fragment portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the fragment portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     hash: string;
 
@@ -459,8 +642,14 @@ declare namespace url {
      * Gets and sets the host portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the host portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     host: string;
 
@@ -468,8 +657,14 @@ declare namespace url {
      * Gets and sets the host name portion of the URL，not include the port.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the host name portion of the URL，not include the port.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     hostname: string;
 
@@ -477,8 +672,14 @@ declare namespace url {
      * Gets and sets the serialized URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the serialized URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     href: string;
 
@@ -486,8 +687,14 @@ declare namespace url {
      * Gets the read-only serialization of the URL's origin.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets the read-only serialization of the URL's origin.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     readonly origin: string;
 
@@ -495,8 +702,14 @@ declare namespace url {
      * Gets and sets the password portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the password portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     password: string;
 
@@ -504,8 +717,14 @@ declare namespace url {
      * Gets and sets the path portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the path portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     pathname: string;
 
@@ -513,8 +732,14 @@ declare namespace url {
      * Gets and sets the port portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the port portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     port: string;
 
@@ -522,8 +747,14 @@ declare namespace url {
      * Gets and sets the protocol portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the protocol portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     protocol: string;
 
@@ -531,8 +762,14 @@ declare namespace url {
      * Gets and sets the serialized query portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the serialized query portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     search: string;
 
@@ -554,8 +791,16 @@ declare namespace url {
      * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Gets the URLParams object that represents the URL query parameter.
+     * This property is read-only, but URLParams provides an object that can be used to change
+     * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     readonly params: URLParams;
 
@@ -563,8 +808,14 @@ declare namespace url {
      * Gets and sets the username portion of the URL.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Gets and sets the username portion of the URL.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
      */
     username: string;
   }
