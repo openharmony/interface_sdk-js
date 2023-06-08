@@ -2267,7 +2267,6 @@ declare namespace wifiManager {
     /**
      * The IP address of this Wi-Fi connection. 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
      * @since 9
      */
     ipAddress: number;
