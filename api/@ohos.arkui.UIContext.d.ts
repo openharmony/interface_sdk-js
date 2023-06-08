@@ -25,6 +25,7 @@ import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
+import type componentUtils from './@ohos.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { AsyncCallback } from './@ohos.base';
 import { AnimateParam } from 'AnimateToParam';
@@ -491,6 +492,23 @@ export class PromptAction {
 }
 
 /**
+ * class ComponentUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+export class ComponentUtils {
+  /**
+   * Provide the ability to obtain the coordinates and size of component drawing areas.
+   * @param id ID of the component whose attributes are to be obtained.
+   * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getRectangleById(id: string): componentUtils.ComponentInfo;
+}
+
+/**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -546,6 +564,15 @@ export class UIContext {
    * @since 10
    */
   getPromptAction(): PromptAction;
+
+  /**
+   * get object ComponentUtils.
+   * @returns object ComponentUtils.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getComponentUtils(): ComponentUtils;
 
   /**
    * Create an animator object for custom animation.
