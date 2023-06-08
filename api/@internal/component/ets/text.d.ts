@@ -342,12 +342,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the text shadow is set.
    * @param { ShadowOptions } value - The shadow options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Called when the text shadow is set.
-   * @param { ShadowOptions } value - The shadow options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @crossplatform
    * @since 10
    */
