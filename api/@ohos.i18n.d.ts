@@ -1509,7 +1509,7 @@ declare namespace i18n {
      *
      * @param { number } longitude value
      * @param { number } latitude value
-     * @returns Returns a TimeZone array from the specified longitude and latitude.
+     * @returns { Array<TimeZone> } Returns a TimeZone array from the specified longitude and latitude.
      * @throws {BusinessError} 401 - check param failed
      * @throws {BusinessError} 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
@@ -1659,7 +1659,7 @@ declare namespace i18n {
   /**
    * Provides the options which is used to sort the locales.
    *
-   * @interface SortedOptions
+   * @interface SortOptions
    * @syscap SystemCapability.Global.I18n
    * @since 10
    */
@@ -1712,7 +1712,7 @@ declare namespace i18n {
     /**
      * The suggestion type of the language or region.
      *
-     * @type { string }
+     * @type { SuggestionType }
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
