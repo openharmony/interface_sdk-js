@@ -344,12 +344,12 @@ declare namespace relationalStore {
     NETWORK_ERROR,
 
     /**
-     * CLOUD_UNOPENED: means cloud is not opened.
+     * CLOUD_DISABLED: means cloud is disabled.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    CLOUD_UNOPENED,
+    CLOUD_DISABLED,
 
     /**
      * LOCKED_BY_OTHERS: means the progress is locked by others.
