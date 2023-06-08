@@ -1150,14 +1150,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      */
-    VOLUME_ADJUST_TURN_UP = 0,
+    VOLUME_ADJUST_UP = 0,
     /**
      * Adjust volume down
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      */
-    VOLUME_ADJUST_TURN_DOWN = 1,
+    VOLUME_ADJUST_DOWN = 1,
   }
 
   /**
