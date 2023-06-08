@@ -248,14 +248,14 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type AutoFill = {
+declare type SwiperAutoFill = {
   /**
-   * Set idealSize size.
+   * Set minSize size.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  idealSize: VP;
+  minSize: VP;
 }
 
 /**
@@ -688,7 +688,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @since 10
    */
-  displayCount(value: number | string | AutoFill): SwiperAttribute;
+  displayCount(value: number | string | SwiperAutoFill): SwiperAttribute;
 
   /**
    * Invoked when setting the sliding effect
