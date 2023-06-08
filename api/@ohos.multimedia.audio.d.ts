@@ -3153,38 +3153,6 @@ declare namespace audio {
     getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
 
     /**
-     * Sets the playback sampling rate. This method uses an asynchronous callback to return the result.
-     * @param rate Sampling rate number in Hz.
-     * @param callback Callback used to return the result.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    setRendererSamplingRate(rate: number, callback: AsyncCallback<void>): void;
-    /**
-     * Sets the playback sampling rate. This method uses a promise to return the result.
-     * @param rate Sampling rate number in Hz.
-     * @returns Promise used to return the result.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    setRendererSamplingRate(rate: number): Promise<void>;
-
-    /**
-     * Gets the playback sampling rate. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the sampling rate number in Hz.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    getRendererSamplingRate(callback: AsyncCallback<number>): void;
-    /**
-     * Gets the playback sampling rate. This method uses a promise to return the result.
-     * @returns Promise used to return the sampling rate number in Hz.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    getRendererSamplingRate(): Promise<number>;
-
-    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
