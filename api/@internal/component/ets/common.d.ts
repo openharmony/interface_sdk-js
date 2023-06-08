@@ -31,6 +31,32 @@
 declare const Component: ClassDecorator;
 
 /**
+ * Defines the options of Entry ClassDecorator.
+ * @form
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface EntryOptions {
+  /**
+   * Named route name.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { ?string }
+   * @since 10
+   */
+  routeName? : string,
+
+  /**
+   * LocalStorage to be passed.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { ?LocalStorage }
+   * @since 10
+   */
+  storage? : LocalStorage,
+}
+
+/**
  * Defines Entry ClassDecorator.
  * @returns { ClassDecorator } Entry is a ClassDecorator.
  * @since 7
@@ -44,13 +70,13 @@ declare const Component: ClassDecorator;
  */
 /**
  * Defines Entry ClassDecorator.
- * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
- * Entry is a ClassDecorator and it supports LocalStorage as parameters.
+ * @returns { ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator) }
+ * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
  * @form
  * @crossplatform
  * @since 10
  */
-declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
+declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
