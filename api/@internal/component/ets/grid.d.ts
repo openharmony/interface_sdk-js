@@ -347,6 +347,17 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @since 10
    */
   edgeEffect(value: EdgeEffect): GridAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { GridAttribute } The attribute of the grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  scrollEnabled(value: boolean): GridAttribute;
 }
 
 /**

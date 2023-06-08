@@ -491,6 +491,17 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   sticky(value: StickyStyle): ListAttribute;
 
   /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { ListAttribute } The attribute of the list
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  scrollEnabled(value: boolean): ListAttribute;
+
+  /**
    * Called when the offset and status callback of the slide are set.
    * @since 7
    */
