@@ -39,13 +39,14 @@ export default class UIExtensionAbility extends ExtensionAbility {
     /**
      * Called back when an UI extension need load content.
      *
+     * @param { number } sessionId - Session ID of the ui extension component.
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 10
      */
-    onLoadContent(path: string, storage: LocalStorage): void;
+    onLoadContent(sessionId: number, path: string, storage: LocalStorage): void;
 
     /**
      * Called back when the state of an UI extension changes to foreground.
@@ -75,4 +76,16 @@ export default class UIExtensionAbility extends ExtensionAbility {
      * @since 10
      */
     onDestroy(): void | Promise<void>;
+
+    /**
+     * Called back when the ui extension receive data from an ui extension component.
+     *
+     * @param { number } sessionId - Session ID of the ui extension component.
+     * @param { object } data - Indicates the data received from ui extension.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    onReceiveData(sessionId: number, data: { [key: string]: Object }): void;
 }
