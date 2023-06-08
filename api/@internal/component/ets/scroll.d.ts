@@ -65,6 +65,47 @@ declare enum ScrollDirection {
 }
 
 /**
+ * ScrollAlign.
+ * @enum { number } ScrollAlign
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum ScrollAlign {
+  /**
+   * Start position alignment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  START,
+
+  /**
+   * Center alignment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  CENTER,
+
+  /**
+   * End position alignment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  END,
+
+  /**
+   * Scroll the minimum distance to fully display the specified item.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  AUTO,
+}
+
+/**
  * @since 7
  */
 /**
@@ -163,11 +204,12 @@ declare class Scroller {
    * Called when sliding to the specified index.
    * @param { number } value - Index to jump to.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  scrollToIndex(value: number, smooth?:boolean);
+  scrollToIndex(value: number, smooth?:boolean, align?: ScrollAlign);
 
   /**
    * Called when the setting slides by offset.
