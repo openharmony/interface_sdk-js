@@ -14,6 +14,7 @@
  */
 
 /**
+ * @interface VibrateOptions
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice
  * @since 3
@@ -25,6 +26,7 @@ export interface VibrateOptions {
    * Vibration mode. The value long  indicates long vibration, and short indicates short vibration.
    * The default value is long.
    *
+   * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 3
    * @deprecated since 8
@@ -34,6 +36,7 @@ export interface VibrateOptions {
   /**
    * Called when success to trigger vibration.
    *
+   * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 3
    * @deprecated since 8
@@ -43,6 +46,7 @@ export interface VibrateOptions {
   /**
    * Called when fail to trigger vibration.
    *
+   * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 3
    * @deprecated since 8
@@ -52,6 +56,7 @@ export interface VibrateOptions {
   /**
    * Called when the execution is completed.
    *
+   * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 3
    * @deprecated since 8
@@ -71,7 +76,7 @@ export default class Vibrator {
    * Triggers vibration.
    *
    * @permission ohos.permission.VIBRATE
-   * @param options Options.
+   * @param { VibrateOptions } options Options.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 3
    * @deprecated since 8

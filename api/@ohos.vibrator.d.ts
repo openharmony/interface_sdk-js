@@ -27,7 +27,7 @@ declare namespace vibrator {
    * The trigger motor vibrates for a specified length of time.
    *
    * @permission ohos.permission.VIBRATE
-   * @param duration Indicate the duration of the motor vibration.
+   * @param { number } duration Indicate the duration of the motor vibration.
    * @param { AsyncCallback<void> } callback The callback of vibrate.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
@@ -40,7 +40,7 @@ declare namespace vibrator {
    * The trigger motor vibrates for a specified length of time.
    *
    * @permission ohos.permission.VIBRATE
-   * @param duration Indicate the duration of the motor vibration.
+   * @param { number } duration Indicate the duration of the motor vibration.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
@@ -53,7 +53,7 @@ declare namespace vibrator {
    * The trigger motor vibrates for the specified effect of the preset.
    *
    * @permission ohos.permission.VIBRATE
-   * @param effectId Indicate the specified effect of the preset, {@code EffectId}.
+   * @param { EffectId } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
@@ -66,7 +66,7 @@ declare namespace vibrator {
    * The trigger motor vibrates for the specified effect of the preset.
    *
    * @permission ohos.permission.VIBRATE
-   * @param effectId Indicate the specified effect of the preset, {@code EffectId}.
+   * @param { EffectId } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @param { AsyncCallback<void> } callback The callback of vibrate.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
@@ -183,7 +183,7 @@ declare namespace vibrator {
    * Stop the motor from vibrating.
    *
    * @permission ohos.permission.VIBRATE
-   * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
+   * @param { VibratorStopMode } stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
@@ -196,7 +196,7 @@ declare namespace vibrator {
    * Stop the motor from vibrating.
    *
    * @permission ohos.permission.VIBRATE
-   * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
+   * @param { VibratorStopMode } stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
    * @param { AsyncCallback<void> } callback The callback of stop.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
@@ -207,7 +207,8 @@ declare namespace vibrator {
 
   /**
    * Preset vibration effect string.
-   *
+   * 
+   * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
    */
@@ -219,6 +220,7 @@ declare namespace vibrator {
   /**
    * Vibrator vibration stop mode.
    *
+   * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 8
    */
@@ -240,7 +242,8 @@ declare namespace vibrator {
 
   /**
    * The attribute of vibration.
-   *
+   * 
+   * @interface VibrateAttribute
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
@@ -268,6 +271,7 @@ declare namespace vibrator {
   /**
    * Vibrate continuously for a period of time at the default intensity of the system.
    *
+   * @interface VibrateTime
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
@@ -279,6 +283,7 @@ declare namespace vibrator {
   /**
    * Preset vibration type vibration effect.
    *
+   * @interface VibratePreset
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
@@ -291,6 +296,7 @@ declare namespace vibrator {
   /**
    * Custom vibration, vibrate the effect from a haptic file.
    *
+   * @interface VibrateFromFile
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
@@ -303,6 +309,7 @@ declare namespace vibrator {
    * Haptic file descriptor. The caller needs to ensure that the fd is valid and
    * the offset and length are correct.
    *
+   * @interface HapticFileDescriptor
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
