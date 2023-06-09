@@ -19,7 +19,7 @@
  * @syscap SystemCapability.MiscServices.Wallpaper
  * @systemapi Hide this for inner system use.
  * @StageModelOnly
- * @since 9
+ * @since 10
  */
 declare class WallpaperExtensionAbility {
   /**
@@ -29,7 +29,7 @@ declare class WallpaperExtensionAbility {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   onCreated(want: object): void;
 
@@ -40,7 +40,7 @@ declare class WallpaperExtensionAbility {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   onWallpaperChanged(wallpaperType: number): void;
 
@@ -50,7 +50,7 @@ declare class WallpaperExtensionAbility {
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   onDestroy(): void;
 }
