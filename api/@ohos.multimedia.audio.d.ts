@@ -3149,8 +3149,8 @@ declare namespace audio {
      * Gets the output device or devices for this stream.
      * This method uses a promise to return the result.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @since 10
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
      */
     getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
 
@@ -3214,20 +3214,22 @@ declare namespace audio {
     /**
      * Subscribes output device change event callback.
      * The event is triggered when output device change for this stream.
-     * @param callback Callback used to listen device change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch
-     * @throws { BusinessError } 6800101 - if input parameter value error
-     * @since 10
+     * @param { string } type - Type of the event to listen for. Only the outputDeviceChange event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
      */
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
     /**
      * Unsubscribes output device change event callback.
-     * @param callback Callback used in subscribe.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch
-     * @throws { BusinessError } 6800101 - if input parameter value error
-     * @since 10
+     * @param { string } type - Type of the event to listen for. Only the outputDeviceChange event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
      */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
   }
