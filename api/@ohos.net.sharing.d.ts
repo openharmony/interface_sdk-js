@@ -396,7 +396,7 @@ declare namespace sharing {
    * Register a callback for the interface network sharing state change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'interfaceSharingStateChange' } type - Indicates Event name.
-   * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback- the callback function that returns the message. 
+   * @param { Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }> } callback - the callback function that returns the message. 
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
