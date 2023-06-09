@@ -341,7 +341,31 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9
      */
-    MIDDLE_BTN_NORTH_SOUTH_WEST_EAST
+    MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
+
+    /**
+     * Horizontal text selection
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    HORIZONTAL_TEXT_CURSOR,
+
+    /**
+     * Precise selection
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    CURSOR_CROSS,
+
+    /**
+     * Cursor with circle style
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    CURSOR_CIRCLE
   }
 
   /**
