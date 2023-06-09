@@ -3094,59 +3094,61 @@ declare namespace audio {
 
     /**
      * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
-     * @since 10
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
      */
     getMinStreamVolume(callback: AsyncCallback<number>): void;
     /**
      * Gets the min volume this stream can set. This method uses a promise to return the result.
-     * @returns Promise used to return the result.
-     * @since 10
+     * @returns { Promise<number> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
      */
     getMinStreamVolume(): Promise<number>;
 
     /**
      * Gets the max volume this stream can set. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
-     * @since 10
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
      */
     getMaxStreamVolume(callback: AsyncCallback<number>): void;
     /**
      * Gets the max volume this stream can set. This method uses a promise to return the result.
-     * @returns Promise used to return the result.
-     * @since 10
+     * @returns { Promise<number> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
      */
     getMaxStreamVolume(): Promise<number>;
 
     /**
      * Gets buffer underflow count. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
-     * @since 10
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
      */
     getUnderflowCount(callback: AsyncCallback<number>): void;
     /**
      * Gets buffer underflow count. This method uses a promise to return the result.
-     * @returns Promise used to return the result.
-     * @since 10
+     * @returns { Promise<number> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
      */
     getUnderflowCount(): Promise<number>;
 
     /**
-     * Gets the output device or devices for this stream. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
-     * @since 10
+     * Gets the output device or devices for this stream.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
      */
     getCurrentOutputDevices(callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
-     * Gets the output device or devices for this stream. This method uses a promise to return the result.
-     * @returns Promise used to return the result.
+     * Gets the output device or devices for this stream.
+     * This method uses a promise to return the result.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
      * @since 10
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
