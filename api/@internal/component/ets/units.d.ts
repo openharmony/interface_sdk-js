@@ -132,11 +132,11 @@ declare type Length = string | number | Resource;
 declare type PX = `${number}px`;
 
 /**
- * Defines the length property with number in units of vp.
+ * Defines the length property with number or number in units of vp.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type VP = `${number}vp | number`;
+declare type VP = `${number}vp` | number;
 
 /**
  * Defines the length property with number in units of fp.
@@ -167,7 +167,7 @@ declare type Percentage = `${number}%`;
 declare type Degree = `${number}deg`;
 
 /**
- * Defines the dimension property with number with units(vp|px|fp|lpx|%), number and resource unit.
+ * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

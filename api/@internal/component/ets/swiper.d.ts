@@ -256,7 +256,7 @@ declare type SwiperAutoFill = {
    * @since 10
    */
   minSize: VP;
-}
+};
 
 /**
  * Define DigitIndicator, the indicator type is digit.
