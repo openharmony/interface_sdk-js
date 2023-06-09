@@ -656,6 +656,22 @@ declare namespace relationalStore {
   }
 
   /**
+   * Manages the distributed configuration of the table.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface DistributedConfig {
+    /**
+     * Specifies whether the database auto syncs.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    autoSync: boolean,
+  }
+
+  /**
    * Describes the conflict resolutions to insert data into the table.
    *
    * @enum { number }
@@ -2828,11 +2844,27 @@ declare namespace relationalStore {
     setDistributedTables(tables: Array<string>): Promise<void>;
 
     /**
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - indicates the tables name you want to set.
+     * @param { number } type - indicates the tables distributed type {@link DistributedType}.
+     * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
+     * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    setDistributedTables(tables: Array<string>, type: number, config: DistributedConfig, callback: AsyncCallback<void>): void;
+
+    /**
      * Set table to be a distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } mode - indicates the distribution type of the tables. {@link DistributedType}.
+     * @param { number } type - indicates the distribution type of the tables. {@link DistributedType}.
+     * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
@@ -2840,7 +2872,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type?: number): Promise<void>;
+    setDistributedTables(tables: Array<string>, type?: number, config?: DistributedConfig): Promise<void>;
 
     /**
      * Obtain distributed table name of specified remote device according to local table name.
