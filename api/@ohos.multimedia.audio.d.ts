@@ -1139,23 +1139,24 @@ declare namespace audio {
 
   /**
    * Enumerates volume adjustment types.
-   * @since 10
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
+   * @since 10
    */
   enum VolumeAdjustType {
     /**
-     * Adjust volume up
-     * @since 10
+     * Adjust volume up.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
+     * @since 10
      */
     VOLUME_ADJUST_UP = 0,
     /**
-     * Adjust volume down
-     * @since 10
+     * Adjust volume down.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
+     * @since 10
      */
     VOLUME_ADJUST_DOWN = 1,
   }
@@ -2259,79 +2260,102 @@ declare namespace audio {
 
     /**
      * Gets if this volume group is volume unadjustable.
-     * @returns Whether it is volume unadjustable.
-     * @since 10
+     * @returns { boolean } Whether it is volume unadjustable.
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
      */
     isVolumeUnadjustable(): boolean;
 
     /**
      * Adjusts system volume by step, volume type is decided by system.
      * This method uses an asynchronous callback to return the result.
-     * @param adjustType Volume adjustment type.
-     * @param callback Callback used to return the result.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
+     * @since 10
      */
     adjustVolumeByStep(adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
     /**
      * Adjusts system volume by step, volume type is decided by system.
-     * @param adjustType Volume adjustment type.
-     * @returns Promise used to return the result.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * This method uses a promise to return the result.
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
+     * @since 10
      */
     adjustVolumeByStep(adjustType: VolumeAdjustType): Promise<void>;
 
     /**
      * Adjusts system volume by step for target volume type.
      * This method uses an asynchronous callback to return the result.
-     * @param volumeType Audio volume type.
-     * @param adjustType Volume adjustment type.
-     * @param callback Callback used to return the result.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
+     * @since 10
      */
     adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
     /**
      * Adjusts system volume by step for target volume type.
      * This method uses a promise to return the result.
-     * @param volumeType Audio volume type.
-     * @param adjustType Volume adjustment type.
-     * @returns Promise used to return the result.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
+     * @since 10
      */
     adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType): Promise<void>;
 
     /**
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * This method uses an asynchronous callback to return the result.
-     * @param volumeType Audio volume type.
-     * @param volumeLevel Volume level to set.
-     * @param device Output device type.
-     * @param callback Callback used to return the result.
-     * @since 10
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType, callback: AsyncCallback<number>): void;
     /**
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * This method uses a promise to return the result.
-     * @param volumeType Audio volume type.
-     * @param volumeLevel Volume level to set.
-     * @param device Output device type.
-     * @returns Promise used to return the result.
-     * @since 10
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise<number>;
   }
