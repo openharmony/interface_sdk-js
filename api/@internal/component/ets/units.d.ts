@@ -136,7 +136,7 @@ declare type PX = `${number}px`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type VP = `${number}vp`;
+declare type VP = `${number}vp | number`;
 
 /**
  * Defines the length property with number in units of fp.
@@ -171,7 +171,7 @@ declare type Degree = `${number}deg`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type Dimension = PX | VP | FP | LPX | Percentage | number | Resource;
+declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
 /**
  * Defines the string which can use resource.
