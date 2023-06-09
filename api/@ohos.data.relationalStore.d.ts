@@ -551,7 +551,6 @@ declare namespace relationalStore {
   /**
    * Describes the change type.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
@@ -560,7 +559,6 @@ declare namespace relationalStore {
     /**
      * Means the change type is data change.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -569,7 +567,6 @@ declare namespace relationalStore {
     /**
      * Means the change type is asset change.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
