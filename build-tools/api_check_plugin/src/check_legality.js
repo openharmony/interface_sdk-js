@@ -249,7 +249,8 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
 
 function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard) {
   const checkInfoArray = [];
-  const comments = isGuard ? [parseJsDoc(node).pop()] : parseJsDoc(node);
+  const lastComment = parseJsDoc(node).length > 0 ? [parseJsDoc(node).pop()] : [];
+  const comments = isGuard ? lastComment : parseJsDoc(node);
   const checkInfoMap = checkJsDocLegality(node, comments, {});
   const checkOrderResult = checkApiOrder(comments);
   checkOrderResult.forEach((result, index) => {
