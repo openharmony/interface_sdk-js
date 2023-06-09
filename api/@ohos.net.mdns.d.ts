@@ -146,12 +146,22 @@ declare namespace mdns {
     /**
      * Enables listening for discoveryStart events of mDNS services.
      * @param { 'discoveryStart' } type - Indicates Event name.
-     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback of on.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     on(type: 'discoveryStart',
       callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+
+    /**
+     * Cancels listening for discoveryStart events of mDNS services.
+     * @param { 'discoveryStart' } type - Indicates Event name.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'discoveryStart',
+    callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
      * Enables listening for discoveryStop events of mDNS services.
@@ -164,6 +174,16 @@ declare namespace mdns {
       callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
+     * Cancels listening for discoveryStop events of mDNS services.
+     * @param { 'discoveryStop' } type - Indicates Event name.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'discoveryStop',
+    callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+
+    /**
      * Enables listening for serviceFound events of mDNS services.
      * @param { 'serviceFound' } type - Indicates Event name.
      * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
@@ -173,6 +193,15 @@ declare namespace mdns {
     on(type: 'serviceFound', callback: Callback<LocalServiceInfo>): void;
 
     /**
+     * Cancels listening for serviceFound events of mDNS services.
+     * @param { 'serviceFound' } type - Indicates Event name.
+     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'serviceFound', callback: Callback<LocalServiceInfo>): void;
+
+    /**
      * Enables listening for serviceLost events of mDNS services.
      * @param { 'serviceLost' } type - Indicates Event name.
      * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
@@ -180,6 +209,15 @@ declare namespace mdns {
      * @since 10
      */
     on(type: 'serviceLost', callback: Callback<LocalServiceInfo>): void;
+
+    /**
+     * Cancels listening for serviceLost events of mDNS services.
+     * @param { 'serviceLost' } type - Indicates Event name.
+     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'serviceLost', callback: Callback<LocalServiceInfo>): void;
 
     /**
      * Starts searching for mDNS services on the LAN.
