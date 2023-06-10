@@ -660,7 +660,6 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -674,7 +673,6 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<Array<DeviceInfo>> } Returns a list of trusted devices.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -702,7 +700,6 @@ declare namespace deviceManager {
      * @param { AsyncCallback<DeviceInfo> } callback Indicates the callback to be invoked upon getLocalDeviceInfo
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -715,7 +712,6 @@ declare namespace deviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<DeviceInfo> } Returns local device info.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -856,7 +852,6 @@ declare namespace deviceManager {
      * @param { DeviceInfo } deviceInfo deviceInfo of device to unAuthenticate
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
