@@ -885,36 +885,36 @@ declare namespace audio {
     rendererInfo: AudioRendererInfo;
     /**
      * Privacy configuration.
-     * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
      */
     privacyType?: AudioPrivacyType;
   }
 
   /**
    * Enumerates audio stream privacy type for playback capture.
-   * @since 10
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
    */
   enum AudioPrivacyType {
     /**
      * Privacy type that stream can be captured by third party applications.
-     * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
      */
     PRIVACY_TYPE_PUBLIC = 0,
 
     /**
      * Privacy type that stream can be only captured by system.
-     * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
      */
     PRIVACY_TYPE_PROTECTED = 1,
 
     /**
      * Privacy type that stream can not be captured.
-     * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
      */
     PRIVACY_TYPE_PRIVATE = 2,
   }
@@ -3291,9 +3291,9 @@ declare namespace audio {
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
      * Playback capture source type.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @permission ohos.permission.CAPTURE_INTERNAL_AUDIO
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
      */
     SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
     /**
@@ -3346,53 +3346,39 @@ declare namespace audio {
     capturerInfo: AudioCapturerInfo;
     /**
      * Playback capture config.
-     * @since 10
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
      */
     playbackCaptureConfig?: AudioPlaybackCaptureConfig;
   }
 
   /**
    * Describe playback capture filtering options
-   * @since 10
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
    */
   interface CaptureFilterOptions {
     /**
-     * Filter by stream usage.
-     * @since 10
+     * Filter by stream usages. If you want to capture voice streams, additional permission is needed.
+     * @permission ohos.permission.CAPTURE_VOICE_AUDIO
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
-     */
-    usage: StreamUsage;
-    /**
-     * Filter by content type.
      * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      */
-    content: ContentType;
+    usages: Array<StreamUsage>;
   }
 
   /**
    * Describe playback capture config object.
-   * @since 10
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
    */
   interface AudioPlaybackCaptureConfig {
     /**
-     * Add matching audio renderer info to decide which streams to be captured.
-     * @since 10
+     * Add filter options to decide which streams to be captured.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
-     * @permission ohos.permission.CAPTURE_VOICE_AUDIO
-     */
-    filterOptions: Array<CaptureFilterOptions>;
-
-    /**
-     * Enable or disable external recording at the same time, default value is false.
      * @since 10
-     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
-     * @permission ohos.permission.MICROPHONE
      */
-    enableMicrophone?: boolean;
+    filterOptions: CaptureFilterOptions;
   }
 
   /**
