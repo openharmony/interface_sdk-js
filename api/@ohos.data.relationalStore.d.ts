@@ -131,13 +131,6 @@ declare namespace relationalStore {
     status?: AssetStatus;
   }
 
-  /**
-   * Indicates array of assets.
-   *
-   * typedef Assets
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 10
-   */
   type Assets = Asset[];
 
   /**
@@ -168,7 +161,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType };
+  type ValuesBucket = { [key: string]: ValueType; };
 
   /**
    * Manages relational database configurations.
@@ -303,6 +296,7 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the upload process.
      *
+     * @enum { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -311,6 +305,7 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the download process.
      *
+     * @enum { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
@@ -565,18 +560,20 @@ declare namespace relationalStore {
     /**
      * Means the change type is data change.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    DATA_CHANGE,
+    DATA_CHANGE = 0,
 
     /**
      * Means the change type is asset change.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    ASSET_CHANGE
+    ASSET_CHANGE = 1
   }
 
   /**
@@ -2874,7 +2871,6 @@ declare namespace relationalStore {
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
