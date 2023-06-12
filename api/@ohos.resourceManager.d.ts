@@ -436,7 +436,8 @@ declare namespace resourceManager {
   export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
   /**
-   * Obtains the System ResourceManager object of the current device.
+   * Obtains a global shared system ResourceManager object that provides access to only system resource, in which the
+   * resConfig is default value(contains resLocale, screenDensityDpi, direction, etc).
    *
    * @returns { ResourceManager } The System ResourceManager object is returned.
    * @throws { BusinessError } 9001009 - If application can't access system resource
