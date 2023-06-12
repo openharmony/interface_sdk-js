@@ -46,7 +46,7 @@ declare namespace picker {
     /**
      * The Type of the file in the picker window.
      *
-     * @type { PhotoViewMIMETypes }
+     * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -55,7 +55,7 @@ declare namespace picker {
     /**
      * Maximum number of images for a single selection.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -98,7 +98,7 @@ declare namespace picker {
     /**
      * The names of the files to be saved.
      *
-     * @type { Array<string> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -125,7 +125,7 @@ declare namespace picker {
     /**
      * Pull up the photo picker based on the selection mode.
      *
-     * @param { PhotoSelectResult } option - represents the options provided in select mode.
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
      * @param { AsyncCallback<PhotoSelectResult> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
@@ -190,7 +190,7 @@ declare namespace picker {
      * The names of the files to be saved.
      * Currently, only single file is supported.
      *
-     * @type { Array<string> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -288,7 +288,7 @@ declare namespace picker {
      * The names of the files to be saved.
      * Currently, only single file is supported.
      *
-     * @type { Array<string> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
