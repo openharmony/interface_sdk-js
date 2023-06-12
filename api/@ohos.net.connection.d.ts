@@ -502,7 +502,7 @@ declare namespace connection {
    * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
    *
-   * @returns { Promise<HttpProxy> } The promise returned by the function.
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
