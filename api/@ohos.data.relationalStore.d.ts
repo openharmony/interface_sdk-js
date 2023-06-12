@@ -166,7 +166,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType; }
+  type ValuesBucket = { [key: string]: ValueType };
 
   /**
    * Manages relational database configurations.
@@ -366,7 +366,7 @@ declare namespace relationalStore {
     LOCKED_BY_OTHERS,
 
     /**
-     * RECORD_LIMIT_EXCEEDED: means the record execeeds the limit.
+     * RECORD_LIMIT_EXCEEDED: means the record exceeds the limit.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -379,8 +379,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    NO_SPACE_FOR_ASSET,
-}
+    NO_SPACE_FOR_ASSET
+  }
   /**
    * Describes detail of the cloud sync {@code Process}.
    *
@@ -671,7 +671,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    autoSync: boolean,
+    autoSync: boolean;
   }
 
   /**
@@ -2380,7 +2380,7 @@ declare namespace relationalStore {
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
      * @param { string } table - Indicates the target table.
-     * @param { dataSharePredicates.DataSharePredicates } predicates - The specified delete condition by the instance object 
+     * @param { dataSharePredicates.DataSharePredicates } predicates - The specified delete condition by the instance object
      *                                                    of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -3216,7 +3216,6 @@ declare namespace relationalStore {
    * @since 10
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
-
 }
 
 export default relationalStore;
