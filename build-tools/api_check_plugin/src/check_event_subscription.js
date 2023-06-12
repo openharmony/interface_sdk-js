@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const { getApiVersion, ErrorType, ErrorLevel, LogType, requireTypescriptModule, getCheckApiVersion } = require('./utils');
+const { ErrorType, ErrorLevel, LogType, requireTypescriptModule, checkVersionNeedCheck } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const { checkSmallHump } = require('./check_hump');
 const ts = requireTypescriptModule();
@@ -34,28 +34,18 @@ function checkOnAndOffAppearInPair(node, sourcefile, fileName, onEventAllNames, 
         ErrorLevel.MIDDLE);
     }
   }
-}  
-
-// check the api version
-function checkVersionNeedCheck(node) {
-  const apiVersion = getApiVersion(node);
-  const apiCheckVersion = getCheckApiVersion();
-  if (parseInt(apiVersion) >= parseInt(apiCheckVersion)) {
-    return true;
-  }
-  return false;
 }
 
 function checkTheFirstParameter(node, sourcefile, fileName) {
   // check the type of first parameter
-  if ((node.parameters[0].type.kind === ts.SyntaxKind.LiteralType && node.parameters[0].type.literal.kind === 
+  if ((node.parameters[0].type.kind === ts.SyntaxKind.LiteralType && node.parameters[0].type.literal.kind ===
     ts.SyntaxKind.StringLiteral)) {
     // if the first parameter is string
     const parameterName = node.parameters[0].type.literal.text;
     if (!checkSmallHump(parameterName)) {
-    const checkErrorResult = 'The event name [${parameterName}] should be named by small hump.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
-      ErrorLevel.MIDDLE);
+      const checkErrorResult = 'The event name [${parameterName}] should be named by small hump.';
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
+        ErrorLevel.MIDDLE);
       return;
     }
   } else if (node.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
@@ -76,7 +66,7 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
     if (node.parameters.length > 1) {
       const lastParameter = node.parameters[node.parameters.length - 1];
       if (lastParameter.name.escapedText !== 'callback' || lastParameter.name.escapedText !== 'observerCallback' ||
-      lastParameter.name.escapedText !== 'listener') {
+        lastParameter.name.escapedText !== 'listener') {
         hasOffWithoutCallbackParameter = true;
       } else if (lastParameter.questionToken === undefined) {
         hasOffCallbackParameterNotOptional = true;
@@ -88,9 +78,9 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
   // has off fucntion with callback parameter which is not optional, and doesn't have off function without callback parameter
   if (hasOffCallbackParameterNotOptional && !hasOffWithoutCallbackParameter) {
     const checkErrorResult = 'The callback parameter of off function should be optional.';
-    addAPICheckErrorLogs(nodes[0], sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API, 
+    addAPICheckErrorLogs(nodes[0], sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
-  } 
+  }
 }
 
 // handle event subscription node
@@ -148,10 +138,10 @@ function handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile,
   }
 }
 
-function checkEventSubscription(node, sourcefile, fileName) { 
+function checkEventSubscription(node, sourcefile, fileName) {
   // if the node is namespace or interface
   if ((ts.isInterfaceDeclaration(node)) || ts.isModuleBlock(node) || ts.isModuleDeclaration(node) ||
-   ts.isClassDeclaration(node) || node === sourcefile) {
+    ts.isClassDeclaration(node) || node === sourcefile) {
     const onEventAllNames = new Set();
     const onEventCheckNames = new Set();
     const offEventAllNames = new Set();
@@ -159,10 +149,10 @@ function checkEventSubscription(node, sourcefile, fileName) {
     const offEventNodes = new Map();
     let childNodes = node.members;
     if (ts.isModuleDeclaration(node)) {
-        childNodes = node.body.statements;
+      childNodes = node.body.statements;
     }
     if (childNodes === undefined) {
-        return;
+      return;
     }
     childNodes.forEach((childNode) => {
       // if the node is method or function
