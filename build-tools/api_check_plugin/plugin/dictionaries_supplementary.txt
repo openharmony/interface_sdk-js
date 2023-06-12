@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+affinities
 agrees
 alerting
 algrithom
@@ -160,6 +161,7 @@ denormalized
 densitys
 deregistered
 deregisters
+deselected
 designative
 desynchronized
 developtools
@@ -439,6 +441,7 @@ nets
 nextgroup
 nlink
 nmea
+nnrt
 nopadding
 normalizer
 notifies
@@ -447,6 +450,7 @@ numpad
 nvalidates
 nweb
 oaep
+obscured
 ofb
 offhook
 offscreen
@@ -550,6 +554,7 @@ reconfiguration
 recovered
 recovering
 recursions
+reclaimed
 redirections
 refill
 refusing
@@ -617,6 +622,7 @@ shortkey
 shuts
 sigalgs
 silenced
+singly
 slidable
 sliderstyle
 statvfs
@@ -658,6 +664,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subtitles
 subtypes
 subwindow
 subwindows
@@ -698,6 +705,7 @@ tlsv13
 tnf
 totalsize
 touchpad
+trackinfo
 tranlisterated
 transcode
 transferable
@@ -706,6 +714,7 @@ transliterator
 transpilation
 trashed
 traversed
+traverses
 truncates
 tsbundle
 ttls
@@ -727,6 +736,7 @@ unblocking
 uncalibrated
 uncategorized
 uncatergorized
+unclearable
 unconditional
 undisturbed
 unduck
@@ -775,6 +785,7 @@ ussd
 utilized
 uuids
 uwb
+uids
 v9
 varyings
 vibrates

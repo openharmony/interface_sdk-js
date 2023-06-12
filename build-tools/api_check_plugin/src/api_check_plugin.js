@@ -24,7 +24,8 @@ const { checkDeprecated } = require('./check_deprecated');
 const { checkAPINameOfHump, checkAPIFileName } = require('./check_hump');
 const { checkJSDoc } = require('./check_legality');
 const { checkNaming } = require('./check_naming');
-const { checkEventSubscription } = require('./check_eventSubscription');
+const { checkEventSubscription } = require('./check_event_subscription');
+const { checkAnyInAPI } = require('./check_any');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
@@ -86,17 +87,19 @@ function checkAllNode(node, sourcefile, fileName) {
     checkDeprecated(node, sourcefile, fileName);
     // check permission
     checkPermission(node, sourcefile, fileName);
+    // check event subscription
+    checkEventSubscription(node, sourcefile, fileName);
 
     if (commentNodeWhiteList.includes(node.kind)) {
-      checkJSDoc(node, sourcefile, fileName);
+      checkJSDoc(node, sourcefile, fileName, true);
     }
-
   }
+  checkAnyInAPI(node, sourcefile, fileName);
   if (ts.isIdentifier(node)) {
     // check variable spelling
     checkSpelling(node, sourcefile, fileName);
     // check naming
-    if(node.parent.parent.kind !== ts.SyntaxKind.JSDoc){
+    if (node.parent.parent.kind !== ts.SyntaxKind.JSDoc) {
       checkNaming(node, sourcefile, fileName);
     }
   }

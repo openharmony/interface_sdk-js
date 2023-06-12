@@ -316,6 +316,30 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 10
    */
   enableKeyboardOnFocus(value: boolean): TextAreaInterface;
+
+  /**
+   * Define the max length content of the text area.
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxLength(value: number): TextAreaAttribute;
+
+  /**
+   * Define show counter of the text area.
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showCounter(value: boolean): TextAreaAttribute;
+
+  /**
+   * Define style of the text area.
+   * @param { TextContentStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  style(value: TextContentStyle): TextAreaAttribute;
 }
 
 /**

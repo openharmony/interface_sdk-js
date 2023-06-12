@@ -50,6 +50,45 @@ declare namespace formBindingData {
      * @since 9
      */
     data: Object;
+
+    /**
+     * proxies for updating.
+     *
+     * @type { ?Array<ProxyData> }
+     * @syscap SystemCapability.Ability.Form
+     * @StageModelOnly
+     * @since 10
+     */
+    proxies?: Array<ProxyData>;
+  }
+
+  /**
+   * Defines the form proxy data.
+   * @typedef ProxyData
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @since 10
+   */
+  interface ProxyData {
+    /**
+     * Key for proxy. The value depend data publisher.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @StageModelOnly
+     * @since 10
+     */
+    key: string;
+
+    /**
+     * SubscriberId. The value depend data publisher. The default value is current formId.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.Form
+     * @StageModelOnly
+     * @since 10
+     */
+    subscriberId?: string;
   }
 }
 export default formBindingData;

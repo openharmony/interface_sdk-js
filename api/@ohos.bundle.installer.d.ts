@@ -48,6 +48,38 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
+   * Obtains the distribution type specified during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The specified distribution type.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSpecifiedDistributionType(bundleName: string): string;
+
+  /**
+   * Obtains the additional information during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The additional information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAdditionalInfo(bundleName: string): string;
+
+  /**
    * Bundle installer interface, include install uninstall recover.
    *
    * @interface BundleInstaller
@@ -86,6 +118,38 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
+    /**
+     * Install haps for an application.
+     * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
+     * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
+     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
+     * @param { AsyncCallback<void> } callback - The callback of installing haps result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
     install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
     /**
@@ -115,6 +179,36 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Install haps for an application.
+     * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
+     * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
+     * @param { AsyncCallback<void> } callback - The callback of installing haps result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
      */
     install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -147,6 +241,38 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Install haps for an application.
+     * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
+     * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
+     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE'.
+      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the HAP because the HAP signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the HAP because the HAP path is invalid or the HAP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
+     * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
+     * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
+     * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
      */
     install(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
@@ -388,6 +514,24 @@ declare namespace installer {
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
+
+    /**
+     * Indicates the distribution type specified during bundle installation.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    specifiedDistributionType?: string;
+
+    /**
+     * Indicates the additional information during bundle installation.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    additionalInfo?: string;
   }
 
   /**

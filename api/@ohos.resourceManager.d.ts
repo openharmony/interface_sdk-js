@@ -436,6 +436,17 @@ declare namespace resourceManager {
   export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
   /**
+   * Obtains the System ResourceManager object of the current device.
+   *
+   * @returns { ResourceManager } The System ResourceManager object is returned.
+   * @throws { BusinessError } 9001009 - If application can't access system resource
+   *         which is not mapped to application sandbox, This error code will be thrown.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 10
+   */
+  export function getSystemResourceManager(): ResourceManager;
+
+  /**
    * Provides the capability of accessing application resources.
    *
    * @interface ResourceManager
@@ -2255,6 +2266,138 @@ declare namespace resourceManager {
      * @since 10
      */
     getRawFileList(path: string): Promise<Array<string>>;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource ID in callback mode.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
+     *     return the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getColor(resId: number, callback: _AsyncCallback<number>): void;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource ID in promise mode.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getColor(resId: number): Promise<number>;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource object in callback mode.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
+     *     return the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getColor(resource: Resource, callback: _AsyncCallback<number>): void;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource object in promise mode.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getColor(resource: Resource): Promise<number>;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource object in callback mode.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
+     *     return the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getColorByName(resName: string, callback: _AsyncCallback<number>): void;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource object in promise mode.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getColorByName(resName: string): Promise<number>;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { number } Indicates the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getColorSync(resId: number) : number;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { number } Indicates the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getColorSync(resource: Resource) : number;
+
+    /**
+     * Obtains the color resource corresponding to the specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @returns { number } Indicates the integer reference value representing the color data.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getColorByNameSync(resName: string) : number;
   }
 
   /**

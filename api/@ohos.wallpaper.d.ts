@@ -530,6 +530,38 @@ declare namespace wallpaper {
   function setVideo(source: string, wallpaperType: WallpaperType): Promise<void>;
 
   /**
+   * Sets wallpaper of the specified type based on the uri path of the custom wallpaper.
+   *
+   * @permission ohos.permission.SET_WALLPAPER
+   * @param { string } source - indicates the uri path of the custom wallpaper.
+   * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+   * @param { AsyncCallback<void> } callback - the callback of setCustomWallpaper.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setCustomWallpaper(source: string, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets wallpaper of the specified type based on the uri path of the custom wallpaper.
+   *
+   * @permission ohos.permission.SET_WALLPAPER
+   * @param { string } source - indicates the uri path of the custom wallpaper.
+   * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setCustomWallpaper(source: string, wallpaperType: WallpaperType): Promise<void>;
+
+  /**
    * Registers a listener for wallpaper color changes to receive notifications about the changes.
    *
    * @param { 'colorChange' } type - the incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes.
@@ -544,8 +576,9 @@ declare namespace wallpaper {
    * Registers a listener for wallpaper changes to receive notifications about the changes.
    *
    * @param { 'wallpaperChange' } type - the incoming wallpaperChange table open receiver when the user modifies the wallpaper settings.
-   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void } callback - wallpaperType indicates the wallpaper type.
+   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void } callback - wallpaperType indicates the wallpaper type.
    * resourceType indicates the resource type of the wallpaper.
+   * uri indicates the wallpaper resource address.
    * @throws { BusinessError } 401 - parameter error.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -554,7 +587,7 @@ declare namespace wallpaper {
    */
   function on(
     type: 'wallpaperChange',
-    callback: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void
+    callback: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void
   ): void;
 
   /**
@@ -572,8 +605,9 @@ declare namespace wallpaper {
    * Unregisters a listener for wallpaper changes.
    *
    * @param { 'wallpaperChange' } type - the incoming wallpaperChange table delete receiver when the user modifies the wallpaper settings.
-   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void } callback - wallpaperType indicates the wallpaper type.
+   * @param { (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void } callback - wallpaperType indicates the wallpaper type.
    * resourceType indicates the resource type of the wallpaper.
+   * uri indicates the wallpaper resource address.
    * @throws { BusinessError } 401 - parameter error.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -582,7 +616,7 @@ declare namespace wallpaper {
    */
   function off(
     type: 'wallpaperChange',
-    callback?: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType) => void
+    callback?: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void
   ): void;
 }
 

@@ -301,12 +301,11 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @default true
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 10
    */
-  readonly isRemoveAllowed?: boolean;
+  isRemoveAllowed?: boolean;
 
   /**
    * Notification source. enum SourceType

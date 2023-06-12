@@ -253,8 +253,8 @@ declare namespace image {
    * Enumerates exchangeable image file format (Exif) information types of an image.
    *
    * @enum { string }
-   * @crossplatform
    * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
    * @since 10
    */
   enum PropertyKey {
@@ -2179,7 +2179,6 @@ declare namespace image {
      * Set color space of pixel map.
      *
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
-     * @returns { void } If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
