@@ -484,11 +484,10 @@ declare namespace connection {
    * Obtains the default {@link HttpProxy} proxy settings.
    *
    * If a global proxy is set, the global proxy parameters are returned.
-   * If the process is bound to a {@link NetHandle} using {@link setAppNet},
-   * the {@link NetHandle} proxy settings are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
    *
-   * @param { AsyncCallback<HttpProxy> } callback Returns the default {@link HttpProxy} settings.
+   * @param { AsyncCallback<HttpProxy> } callback - Returns the default {@link HttpProxy} settings.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -500,11 +499,10 @@ declare namespace connection {
    * Obtains the default {@link HttpProxy} proxy settings.
    *
    * If a global proxy is set, the global proxy parameters are returned.
-   * If the process is bound to a {@link NetHandle} using {@link setAppNet},
-   * the {@link NetHandle} proxy settings are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
    *
-   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @returns { Promise<HttpProxy> } The promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
