@@ -130,6 +130,12 @@ declare namespace relationalStore {
     status?: AssetStatus;
   }
 
+  /**
+   * Indicates array of assets.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
   type Assets = Asset[];
 
   /**
@@ -2846,6 +2852,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
      * @param { number } type - indicates the tables distributed type {@link DistributedType}.
+     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
@@ -2861,6 +2868,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
      * @param { number } type - indicates the distribution type of the tables. {@link DistributedType}.
+     * This method only works when type equals DistributedType.DISTRIBUTED_CLOUD
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
