@@ -367,6 +367,15 @@ declare namespace data {
   function disableCellularDataRoaming(slotId: number): Promise<void>;
 
   /**
+   * Obtains the default cellular data SIM ID.
+   *
+   * @returns Returns the SIM ID of the default cellular data sim and SIM ID will increase from 1.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 10
+   */
+  function getDefaultCellularDataSimId(): number;
+
+  /**
    * Describes the cellular data flow type.
    *
    * @enum { number }
