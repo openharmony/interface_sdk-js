@@ -1696,36 +1696,6 @@ declare namespace relationalStore {
     getDouble(columnIndex: number): number;
 
     /**
-     * Obtains the value of the specified column in the current row as an asset.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Asset type.
-     *
-     * @param { number } columnIndex - indicates the specified column index, which starts from 0.
-     * @returns { Asset } the value of the specified column as an asset.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    getAsset(columnIndex: number): Asset;
-
-    /**
-     * Obtains the value of the specified column in the current row as assets.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
-     *
-     * @param { number } columnIndex - indicates the specified column index, which starts from 0.
-     * @returns { Assets } the value of the specified column as assets.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    getAssets(columnIndex: number): Assets;
-
-    /**
      * Checks whether the value of the specified column in the current row is null.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
