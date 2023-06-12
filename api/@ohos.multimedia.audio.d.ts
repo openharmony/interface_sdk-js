@@ -3214,7 +3214,7 @@ declare namespace audio {
     /**
      * Subscribes output device change event callback.
      * The event is triggered when output device change for this stream.
-     * @param { string } type - Type of the event to listen for. Only the outputDeviceChange event is supported.
+     * @param { 'outputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - if input parameter value error.
@@ -3224,7 +3224,7 @@ declare namespace audio {
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
     /**
      * Unsubscribes output device change event callback.
-     * @param { string } type - Type of the event to listen for. Only the outputDeviceChange event is supported.
+     * @param { 'outputDeviceChange' } type - Type of the event to listen for.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - if input parameter value error.
