@@ -582,6 +582,7 @@ declare namespace relationalStore {
   /**
    * Indicates the notify info
    *
+   * @interface ChangeInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 10
    */
