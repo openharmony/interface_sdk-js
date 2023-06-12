@@ -1109,7 +1109,7 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'serviceDie' } type Service death.
-     * @param { () => void } callback Indicates the service error callback to register.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -1123,7 +1123,7 @@ declare namespace deviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'serviceDie' } type Service death.
-     * @param { () => void } callback Indicates the service error callback to register.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
