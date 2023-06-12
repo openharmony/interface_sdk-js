@@ -243,58 +243,6 @@ declare namespace relationalStore {
   }
 
   /**
-   * Indicates the notify info
-   *
-   * @interface ChangeInfo
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 10
-   */
-  interface ChangeInfo {
-    /**
-     * Indicates the changed table
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    table: string;
-
-    /**
-     * Indicates the changed type
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    type: ChangeType;
-
-    /**
-     * Indicates if there is a string primary key, the inserted will keep data's primary keys
-     * otherwise it will keep the data's rowid.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    inserted: Array<string> | Array<number>;
-
-    /**
-     * Indicates if there is a string primary key, the updated will keep data's primary keys
-     * otherwise it will keep the data's rowid.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    updated: Array<string> | Array<number>;
-
-    /**
-     * Indicates if there is a string primary key, the deleted will keep data's primary keys
-     * otherwise it will keep the data's rowid.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    deleted: Array<string> | Array<number>;
-  }
-
-  /**
    * Describes the distribution type of the tables.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
