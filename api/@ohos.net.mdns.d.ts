@@ -150,7 +150,7 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
-    on(type: 'discoveryStart',callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    on(type: 'discoveryStart', callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
      * Cancels listening for discoveryStart events of mDNS services.
@@ -159,7 +159,7 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
-    off(type: 'discoveryStart',callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    off(type: 'discoveryStart', callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
      * Enables listening for discoveryStop events of mDNS services.
@@ -168,7 +168,7 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
-    on(type: 'discoveryStop',callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    on(type: 'discoveryStop', callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
      * Cancels listening for discoveryStop events of mDNS services.
@@ -177,7 +177,7 @@ declare namespace mdns {
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
-    off(type: 'discoveryStop',callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    off(type: 'discoveryStop', callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
      * Enables listening for serviceFound events of mDNS services.
