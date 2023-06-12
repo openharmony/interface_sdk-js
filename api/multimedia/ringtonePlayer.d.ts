@@ -173,7 +173,7 @@ export interface RingtonePlayer {
 
   /**
    * UnSubscribes to audio interrupt events.
-   * @param { string } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+   * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
    * @throws { BusinessError } 401 - if input parameter type or number mismatch
    * @throws { BusinessError } 6800101 - if input parameter value error
    * @syscap SystemCapability.Multimedia.SystemSound.Core
