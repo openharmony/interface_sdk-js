@@ -53,6 +53,7 @@
         "PageTransitionEnter",
         "PageTransitionExit",
         "Panel",
+        "Particle",        
         "Path",
         "PatternLock",
         "Piece",
@@ -333,6 +334,11 @@
             "type": "PanelAttribute",
             "instance": "PanelInstance"
           },
+          {
+            "name": "Particle",
+            "type": "ParticleAttribute",
+            "instance": "ParticleInstance"
+          },          
           {
             "name": "Path",
             "type": "PathAttribute",

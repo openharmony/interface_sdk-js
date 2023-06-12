@@ -61,6 +61,7 @@ const etsComponentSet = new Set([
   "PageTransitionEnter",
   "PageTransitionExit",
   "Panel",
+  "Particle",  
   "Path",
   "PatternLock",
   "Piece",
