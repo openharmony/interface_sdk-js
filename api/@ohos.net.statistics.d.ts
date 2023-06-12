@@ -246,6 +246,7 @@ declare namespace statistics {
    * Register notifications of network traffic updates.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type - Indicates Event name.
+   * @param { Callback<{ iface: string, uid?: number }> } callback - the callback of on.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -261,6 +262,7 @@ declare namespace statistics {
    * Unregister notifications of network traffic updates.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type - Indicates Event name.
+   * @param { Callback<{ iface: string, uid?: number }> } callback - the callback of off.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
