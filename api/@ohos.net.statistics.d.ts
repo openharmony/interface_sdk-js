@@ -246,7 +246,7 @@ declare namespace statistics {
    * Register notifications of network traffic updates.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type - Indicates Event name.
-   * @param { Callback<{ iface: string, uid?: number }> } callback - the callback of on.
+   * @param { Callback<{ iface: string, uid?: number }> } callback - The callback of on.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -262,7 +262,7 @@ declare namespace statistics {
    * Unregister notifications of network traffic updates.
    * @permission ohos.permission.GET_NETWORK_STATS
    * @param { 'netStatsChange' } type - Indicates Event name.
-   * @param { Callback<{ iface: string, uid?: number }> } callback - the callback of off.
+   * @param { Callback<{ iface: string, uid?: number }> } callback - The callback of off.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -347,7 +347,7 @@ declare namespace statistics {
   function getIfaceUidStats(uidStatsInfo: UidStatsInfo): Promise<NetStatsInfo>;
 
   /**
-   * query parameters for network interfaces.
+   * Parameters for obtaining detailed information on network interface traffic usage.
    * @interface IfaceInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -355,7 +355,7 @@ declare namespace statistics {
    */
   export interface IfaceInfo {
     /**
-     * network interface.
+     * Network interface for querying traffic.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
@@ -363,7 +363,7 @@ declare namespace statistics {
     iface: string;
 
     /**
-     * start Time.
+     * Start time for querying traffic.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
@@ -371,7 +371,7 @@ declare namespace statistics {
     startTime: number;
 
     /**
-     * end Time.
+     * End time for querying traffic.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
@@ -380,7 +380,7 @@ declare namespace statistics {
   }
 
   /**
-   * query parameters for uid.
+   * Parameters for obtaining detailed information on application traffic usage.
    * @interface UidStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -396,7 +396,7 @@ declare namespace statistics {
     ifaceInfo: IfaceInfo;
 
     /**
-     * id of app.
+     * Uid of app for querying traffic.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
@@ -405,7 +405,7 @@ declare namespace statistics {
   }
 
   /**
-   * detailed information of statistics.
+   * Detailed information of statistics.
    * @interface NetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -413,7 +413,7 @@ declare namespace statistics {
    */
   export interface NetStatsInfo {
     /**
-     * bytes of received.
+     * Bytes of received.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
@@ -421,7 +421,7 @@ declare namespace statistics {
     rxBytes: number;
 
     /**
-     * bytes of send.
+     * Bytes of send.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
@@ -429,7 +429,7 @@ declare namespace statistics {
     txBytes: number;
 
     /**
-     * packets of received.
+     * Packets of received.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
@@ -437,7 +437,7 @@ declare namespace statistics {
     rxPackets: number;
 
     /**
-     * packets of send.
+     * Packets of send.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
