@@ -278,13 +278,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    /**
-     * Indicates the data is pulled from remote device to local device.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
     SYNC_MODE_PULL = 1,
 
     /**
