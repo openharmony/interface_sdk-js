@@ -46,7 +46,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+  type ValueType = null | number | string | boolean | Uint8Array;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -61,7 +61,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType; };
+  type ValuesBucket = { [key: string]: ValueType; }
 
   /**
    * Manages relational database configurations.
