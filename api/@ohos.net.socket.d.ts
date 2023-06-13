@@ -2266,17 +2266,25 @@ declare namespace socket {
   }
 
   /**
-   * Defines a TCPSocket server client connection.
+   * Defines the connection of the TCPSocket client and server.
    * @interface NetConnection
    * @syscap SystemCapability.Communication.NetStack
    * @since 10
    */
   export interface NetConnection {
     /**
+     * The id of a client connects to the server.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    clientId: number;
+
+    /**
      * Sends data over a TCPSocketServer connection to client.
-     * @param { TCPSendOptions } options parameters {@link TCPSendOptions}.
-     * @param { AsyncCallback<void> } callback Callback function for send.
      * @permission ohos.permission.INTERNET
+     * @param { TCPSendOptions } options - parameters {@link TCPSendOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2287,9 +2295,9 @@ declare namespace socket {
 
     /**
      * Sends data over a TCPSocketServer connection to client.
-     * @param { TCPSendOptions } options parameters {@link TCPSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @param { TCPSendOptions } options - parameters {@link TCPSendOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2300,8 +2308,8 @@ declare namespace socket {
 
     /**
      * Closes a TCPSocket client connection.
-     * @param { AsyncCallback<void> } callback Callback function for close.
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<void> } callback - the callback of close.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2312,10 +2320,9 @@ declare namespace socket {
 
     /**
      * Closes a TCPSocket client connection.
-     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -2324,8 +2331,8 @@ declare namespace socket {
 
     /**
      * Obtains the peer address of a TCPSocketServer connection.
-     * @param { AsyncCallback<NetAddress> } callback The callback function is used to handle the returned result.
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<NetAddress> } callback - the callback of getRemoteAddress.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2337,10 +2344,9 @@ declare namespace socket {
 
     /**
      * Obtains the peer address of a TCPSocketServer connection.
-     * @returns { Promise<NetAddress> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<NetAddress> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -2349,106 +2355,54 @@ declare namespace socket {
     getRemoteAddress(): Promise<NetAddress>;
 
     /**
-     * Obtains the status of the TCPSocketServer connection.
-     * @param { AsyncCallback<SocketStateBase> } callback The callback function is used to handle the returned result.
-     * @permission ohos.permission.INTERNET
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getState(callback: AsyncCallback<SocketStateBase>): void;
-
-    /**
-     * Obtains the status of the TCPSocketServer connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    getState(): Promise<SocketStateBase>;
-
-    /**
-     * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @permission ohos.permission.INTERNET
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @permission ohos.permission.INTERNET
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    setExtraOptions(options: TCPExtraOptions): Promise<void>;
-
-    /**
-     * Listens for message receiving events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback Callback function for on.
+     * Listens for message receiving events of the NetConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
     on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
-     * Cancels listening for message receiving events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback callback function that returns the message
+     * Cancels listening for message receiving events of the NetConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
     off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
-     * Listens for close events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<void> } callback Callback function for on.
+     * Listens for close events of the NetConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<void> } callback callback function for on.
+     * Cancels listening for close events of the NetConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { ErrorCallback } callback Callback function for on.
+     * Listens for error events of the NetConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { ErrorCallback } callback callback function that returns the message
+     * Cancels listening for error events of the NetConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2457,24 +2411,26 @@ declare namespace socket {
 
   /**
    * Creates a TCPSocketServer object.
+   * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
+   * @syscap SystemCapability.Communication.NetStack
    * @since 10
    */
   function constructTCPSocketServerInstance(): TCPSocketServer;
 
   /**
    * Defines a TCPSocket server connection.
-   * @interface NetConnection
+   * @interface TCPSocketServer
    * @syscap SystemCapability.Communication.NetStack
    * @since 10
    */
   export interface TCPSocketServer {
     /**
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * Listens for a TCPSocket connection to be made to this socket and accepts it.This interface uses multiple threads
-     * for accept processing and uses poll multiplexing to process client connections.
-     * @param { NetAddress } address Destination address. {@link NetAddress}
-     * @param { AsyncCallback<void> } callback Callback function for listen.
+     * Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.
      * @permission ohos.permission.INTERNET
+     * @param { NetAddress } address - Destination address. {@link NetAddress}
+     * @param { AsyncCallback<void> } callback - the callback of listen.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2494,10 +2450,10 @@ declare namespace socket {
     /** 
      * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
      * Listens for a TCPSocket connection to be made to this socket and accepts it.This interface uses multiple threads
-     * for accept processing and uses poll multiplexing to process client connections.
-     * @param address Destination address. {@link NetAddress}
-     * @returns { Promise<void> } The promise returned by the function.
+     * for accept processing and uses poll multiplex to process client connections.
      * @permission ohos.permission.INTERNET
+     * @param { NetAddress } address - Destination address. {@link NetAddress}
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2516,8 +2472,8 @@ declare namespace socket {
 
     /**
      * Obtains the status of the TCPSocketServer connection.
-     * @param { AsyncCallback<SocketStateBase> } callback The callback function is used to handle the returned result.
      * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -2528,8 +2484,8 @@ declare namespace socket {
 
     /**
      * Obtains the status of the TCPSocketServer connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -2540,9 +2496,9 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
-     * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @permission ohos.permission.INTERNET
+     * @param { TCPExtraOptions } options - parameters {@link TCPExtraOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2554,9 +2510,9 @@ declare namespace socket {
 
     /**
      * Sets other attributes of the TCPSocketServer connection.
-     * @param { TCPExtraOptions } options parameters {@link TCPExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
      * @permission ohos.permission.INTERNET
+     * @param { TCPExtraOptions } options - parameters {@link TCPExtraOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -2568,26 +2524,26 @@ declare namespace socket {
 
     /**
      * Listens for connection events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<{client: NetConnection}> } callback Callback function for on.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<NetConnection> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: 'connect', callback: Callback<{ client: NetConnection }>): void;
+    on(type: 'connect', callback: Callback<NetConnection>): void;
 
     /**
      * Cancels listening for connection events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { Callback<{client: NetConnection}> } callback callback function that returns the message
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<NetConnection> } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: 'connect', callback?: Callback<{ client: NetConnection }>): void;
+    off(type: 'connect', callback?: Callback<NetConnection>): void;
 
     /**
      * Listens for error events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { ErrorCallback } callback Callback function for on.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2595,8 +2551,8 @@ declare namespace socket {
 
     /**
      * Cancels listening for error events of the TCPSocketServer connection.
-     * @param { string } type Indicates Event name.
-     * @param { ErrorCallback } callback callback function that returns the message
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
