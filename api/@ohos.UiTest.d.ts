@@ -103,7 +103,7 @@ declare enum MatchPattern {
  * @syscap SystemCapability.Test.UiTest
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.uitest.On
+ * @useinstead ohos.UiTest.On
  */
 declare class By {
   /**
@@ -115,7 +115,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#text
+   * @useinstead ohos.UiTest.On#text
    * @test
    */
   text(txt: string, pattern?: MatchPattern): By;
@@ -128,7 +128,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#id
+   * @useinstead ohos.UiTest.On#id
    * @test
    */
   key(key: string): By;
@@ -153,7 +153,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#type
+   * @useinstead ohos.UiTest.On#type
    * @test
    */
   type(tp: string): By;
@@ -166,7 +166,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#clickable
+   * @useinstead ohos.UiTest.On#clickable
    * @test
    */
   clickable(b?: boolean): By;
@@ -179,7 +179,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#scrollable
+   * @useinstead ohos.UiTest.On#scrollable
    * @test
    */
   scrollable(b?: boolean): By;
@@ -192,7 +192,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#enabled
+   * @useinstead ohos.UiTest.On#enabled
    * @test
    */
   enabled(b?: boolean): By;
@@ -205,7 +205,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#focused
+   * @useinstead ohos.UiTest.On#focused
    * @test
    */
   focused(b?: boolean): By;
@@ -218,7 +218,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.On#selected
+   * @useinstead ohos.UiTest.On#selected
    * @test
    */
   selected(b?: boolean): By;
@@ -232,7 +232,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link On.isBefore }
+   * @useinstead ohos.UiTest.On#isBefore
    * @test
    */
   isBefore(by: By): By;
@@ -246,7 +246,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link On.isAfter }
+   * @useinstead ohos.UiTest.On#isAfter
    * @test
    */
   isAfter(by: By): By;
@@ -269,7 +269,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.Component#click
+   * @useinstead ohos.UiTest.Component#click
    * @test
    */
   click(): Promise<void>;
@@ -281,7 +281,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.doubleClick }
+   * @useinstead ohos.UiTest.Component#doubleClick
    * @test
    */
   doubleClick(): Promise<void>;
@@ -293,7 +293,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.longClick }
+   * @useinstead ohos.UiTest.Component#longClick
    * @test
    */
   longClick(): Promise<void>;
@@ -316,7 +316,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.getId }
+   * @useinstead ohos.UiTest.Component#getId
    * @test
    */
   getKey(): Promise<string>;
@@ -328,7 +328,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.getText }
+   * @useinstead ohos.UiTest.Component#getText
    * @test
    */
   getText(): Promise<string>;
@@ -340,7 +340,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.getType }
+   * @useinstead ohos.UiTest.Component#getType
    * @test
    */
   getType(): Promise<string>;
@@ -352,7 +352,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.isClickable }
+   * @useinstead ohos.UiTest.Component#isClickable
    * @test
    */
   isClickable(): Promise<boolean>;
@@ -364,7 +364,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.isScrollable }
+   * @useinstead ohos.UiTest.Component#isScrollable
    * @test
    */
   isScrollable(): Promise<boolean>;
@@ -376,7 +376,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.isEnabled }
+   * @useinstead ohos.UiTest.Component#isEnabled
    * @test
    */
   isEnabled(): Promise<boolean>;
@@ -388,7 +388,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.isFocused }
+   * @useinstead ohos.UiTest.Component#isFocused
    * @test
    */
   isFocused(): Promise<boolean>;
@@ -400,7 +400,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.isSelected }
+   * @useinstead ohos.UiTest.Component#isSelected
    * @test
    */
   isSelected(): Promise<boolean>;
@@ -413,7 +413,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.inputText }
+   * @useinstead ohos.UiTest.Component#inputText
    * @test
    */
   inputText(text: string): Promise<void>;
@@ -426,7 +426,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Component.scrollSearch }
+   * @useinstead ohos.UiTest.Component#scrollSearch
    * @test
    */
   scrollSearch(by: By): Promise<UiComponent>;
@@ -450,7 +450,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.Driver#create
+   * @useinstead ohos.UiTest.Driver#create
    * @test
    */
   static create(): UiDriver;
@@ -463,7 +463,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.delayMs }
+   * @useinstead ohos.UiTest.Driver#delayMs
    * @test
    */
   delayMs(duration: number): Promise<void>;
@@ -476,7 +476,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.findComponent }
+   * @useinstead ohos.UiTest.Driver#findComponent
    * @test
    */
   findComponent(by: By): Promise<UiComponent>;
@@ -489,7 +489,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.findComponents }
+   * @useinstead ohos.UiTest.Driver#findComponents
    * @test
    */
   findComponents(by: By): Promise<Array<UiComponent>>;
@@ -505,7 +505,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.assertComponentExist }
+   * @useinstead ohos.UiTest.Driver#assertComponentExist
    * @test
    */
   assertComponentExist(by: By): Promise<void>;
@@ -517,7 +517,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.pressBack }
+   * @useinstead ohos.UiTest.Driver#pressBack
    * @test
    */
   pressBack(): Promise<void>;
@@ -530,7 +530,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.pressHome }
+   * @useinstead ohos.UiTest.Driver#pressHome
    * @test
    */
   triggerKey(keyCode: number): Promise<void>;
@@ -544,7 +544,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.Driver#click
+   * @useinstead ohos.UiTest.Driver#click
    * @test
    */
   click(x: number, y: number): Promise<void>;
@@ -558,7 +558,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.doubleClick }
+   * @useinstead ohos.UiTest.Driver#doubleClick
    * @test
    */
   doubleClick(x: number, y: number): Promise<void>;
@@ -572,7 +572,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.longClick }
+   * @useinstead ohos.UiTest.Driver#longClick
    * @test
    */
   longClick(x: number, y: number): Promise<void>;
@@ -588,7 +588,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.uitest.Driver#swipe
+   * @useinstead ohos.UiTest.Driver#swipe
    * @test
    */
   swipe(startx: number, starty: number, endx: number, endy: number): Promise<void>;
@@ -601,7 +601,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link Driver.screenCap }
+   * @useinstead ohos.uitest.Driver#screenCap
    * @test
    */
   screenCap(savePath: string): Promise<boolean>;
@@ -791,7 +791,7 @@ declare interface Point {
   /**
    * The x-coordinate of the coordinate point.
    *
-   * @type number
+   * @type { number }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -807,7 +807,7 @@ declare interface Point {
   /**
    * The y-coordinate of the coordinate point.
    *
-   * @type number
+   * @type { number }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -868,7 +868,7 @@ declare interface WindowFilter {
   /**
    * The package name of the application which the window belongs to.
    *
-   * @type { string? }
+   * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -876,7 +876,7 @@ declare interface WindowFilter {
   /**
    * The title of the window.
    *
-   * @type { string? }
+   * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -884,7 +884,7 @@ declare interface WindowFilter {
   /**
    * The focal state of the window.
    *
-   * @type { boolean? }
+   * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -892,7 +892,7 @@ declare interface WindowFilter {
   /**
    * The active state of the window.
    *
-   * @type { boolean? }
+   * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -946,7 +946,7 @@ declare interface UIEventObserver {
   /**
    * Listen for toast show once
    * 
-   * @param { string } type 'toastShow'.
+   * @param { toastShow } type 'toastShow'.
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -958,7 +958,7 @@ declare interface UIEventObserver {
   /**
    * Listen for dialog show once
    * 
-   * @param { string } type 'dialogShow'.
+   * @param { dialogShow } type 'dialogShow'.
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
