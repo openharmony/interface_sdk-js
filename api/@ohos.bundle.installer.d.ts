@@ -574,7 +574,7 @@ declare namespace installer {
      * @systemapi
      * @since 10
      */
-    verifyCodeParam?: Array<VerifyCodeParam>;
+    verifyCodeParams?: Array<VerifyCodeParam>;
   }
 
   /**
