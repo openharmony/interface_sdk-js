@@ -541,13 +541,13 @@ function resolveCallback(url) {
             let name = '';
             if (isSystemapi(externalStatement)) {
               if (ts.isVariableStatement(externalStatement)) {
-                name = externalStatement?.declarationList?.declarations[0]?.name?.escapedText?.toString();
+                name = externalStatement.declarationList.declarations[0].name.escapedText.toString();
               } else if (ts.isInterfaceDeclaration(externalStatement)) {
-                name = externalStatement.name?.escapedText?.toString();
+                name = externalStatement.name.escapedText.toString();
               } else if (ts.isClassDeclaration(externalStatement)) {
-                name = externalStatement.name?.escapedText?.toString();
+                name = externalStatement.name.escapedText.toString();
               } else if (ts.isEnumDeclaration(externalStatement)) {
-                name = externalStatement.name?.escapedText?.toString();
+                name = externalStatement.name.escapedText.toString();
               }
               allReferencesIdentifierSet.delete(name);
             }
