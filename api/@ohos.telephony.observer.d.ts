@@ -414,7 +414,7 @@ declare namespace observer {
    * Receives an ICC account change. This callback is invoked when the ICC account updates
    * and the observer is added to monitor the updates.
    *
-   * @param { iccAccountInfoChange } type - iccAccountInfoChange
+   * @param { 'iccAccountInfoChange' } type - iccAccountInfoChange
    * @param { Callback<void> } callback - including state Indicates the ICC account information,
    * and reason Indicates the cause of the change.
    * @throws { BusinessError } 401 - Parameter error.
@@ -430,7 +430,7 @@ declare namespace observer {
   /**
    * Cancel to receive an ICC account change.
    *
-   * @param { iccAccountInfoChange } type - iccAccountInfoChange
+   * @param { 'iccAccountInfoChange' } type - iccAccountInfoChange
    * @param { Callback<void> } callback - including state Indicates the ICC account information,
    * and reason Indicates the cause of the change.
    * @throws { BusinessError } 401 - Parameter error.
