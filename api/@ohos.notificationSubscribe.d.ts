@@ -253,6 +253,26 @@ declare namespace notificationSubscribe {
    */
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
+
+  /**
+   * Remove notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<String> } hashCodes - The hashCode array.
+   * @param { RemoveReason } reason - The remove reason.
+   * @param { AsyncCallback<void> } callback - The callback of remove.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
+  function remove(hashCodes: Array<String>, reason: RemoveReason, callback: AsyncCallback<void>): void;
+
   /**
    * Remove notification.
    *
@@ -272,6 +292,25 @@ declare namespace notificationSubscribe {
    * @since 9
    */
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
+
+  /**
+   * Remove notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<String> } hashCodes - The hashCode array.
+   * @param { RemoveReason } reason - The remove reason.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
+  function remove(hashCodes: Array<String>, reason: RemoveReason): Promise<void>;
 
   /**
    * RemoveAll all notifications.
