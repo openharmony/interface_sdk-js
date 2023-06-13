@@ -25,7 +25,7 @@ declare namespace ethernet {
   /**
    * Get the specified network interface information.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface Indicates the network interface name.
+   * @param { string } iface - Indicates the network interface name.
    * @param { AsyncCallback<InterfaceConfiguration> } callback - the callback of getIfaceConfig.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -43,7 +43,7 @@ declare namespace ethernet {
   /**
    * Get the specified network interface information.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface Indicates the network interface name.
+   * @param { string } iface - Indicates the network interface name.
    * @returns { Promise<InterfaceConfiguration> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -61,8 +61,8 @@ declare namespace ethernet {
   /**
    * Set the specified network interface parameters.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } iface Indicates the network interface name of the network parameter.
-   * @param { InterfaceConfiguration } ic Indicates the ic. See {@link InterfaceConfiguration}.
+   * @param { string } iface - Indicates the network interface name of the network parameter.
+   * @param { InterfaceConfiguration } ic - Indicates the ic. See {@link InterfaceConfiguration}.
    * @param { AsyncCallback<void> } callback - the callback of setIfaceConfig.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -83,8 +83,8 @@ declare namespace ethernet {
   /**
    * Set the specified network interface parameters.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } iface Indicates the network interface name of the network parameter.
-   * @param { InterfaceConfiguration } ic Indicates the ic. See {@link InterfaceConfiguration}.
+   * @param { string } iface - Indicates the network interface name of the network parameter.
+   * @param { InterfaceConfiguration } ic - Indicates the ic. See {@link InterfaceConfiguration}.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -105,7 +105,7 @@ declare namespace ethernet {
   /**
    * Check whether the specified network is active.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface Indicates the network interface name.
+   * @param { string } iface - Indicates the network interface name.
    * @param { AsyncCallback<number> } callback - the callback of isIfaceActive.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -123,7 +123,7 @@ declare namespace ethernet {
   /**
    * Check whether the specified network is active.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface Indicates the network interface name.
+   * @param { string } iface - Indicates the network interface name.
    * @returns { Promise<number> } the promise returned by the function. 
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -169,12 +169,12 @@ declare namespace ethernet {
   /**
    * Register a callback for the ethernet interface active state change.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type Indicates Event name.
-   * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
+   * @param { 'interfaceStateChange' } type - Indicates Event name.
+   * @param { Callback<{ iface: string, active: boolean }> } callback - Including iface Indicates the ethernet interface,
    * and active Indicates whether the interface is active. 
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -184,12 +184,12 @@ declare namespace ethernet {
   /**
    * Unregister a callback from the ethernet interface active state change.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type Indicates Event name.
-   * @param { Callback<{ iface: string, active: boolean }> } callback including iface Indicates the ethernet interface,
+   * @param { 'interfaceStateChange' } type - Indicates Event name.
+   * @param { Callback<{ iface: string, active: boolean }> } callback - Including iface Indicates the ethernet interface,
    * and active Indicates whether the interface is active.
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 10

@@ -31,6 +31,32 @@
 declare const Component: ClassDecorator;
 
 /**
+ * Defines the options of Entry ClassDecorator.
+ * @form
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface EntryOptions {
+  /**
+   * Named route name.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { ?string }
+   * @since 10
+   */
+  routeName? : string,
+
+  /**
+   * LocalStorage to be passed.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { ?LocalStorage }
+   * @since 10
+   */
+  storage? : LocalStorage,
+}
+
+/**
  * Defines Entry ClassDecorator.
  * @returns { ClassDecorator } Entry is a ClassDecorator.
  * @since 7
@@ -44,13 +70,13 @@ declare const Component: ClassDecorator;
  */
 /**
  * Defines Entry ClassDecorator.
- * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
- * Entry is a ClassDecorator and it supports LocalStorage as parameters.
+ * @returns { ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator) }
+ * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
  * @form
  * @crossplatform
  * @since 10
  */
-declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
+declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -1984,6 +2010,7 @@ declare enum RepeatMode {
    */
   Space,
 }
+
 /**
  * enum Blur style
  * @form
@@ -2066,6 +2093,15 @@ declare enum BlurStyle {
    * @since 10
    */
   BACKGROUND_ULTRA_THICK,
+
+  /**
+   * Defines none material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */  
+  NONE,    
 }
 
 /**
@@ -2156,26 +2192,47 @@ declare enum ModalTransition {
 
 /**
  * Defines the options of backgroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare interface BackgroundBlurStyleOptions {
+declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of ForegroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of blurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface BlurStyleOptions {
   /**
    * color mode
-   * @crossplatform
+   * @type { ThemeColorMode }
+   * @default ThemeColorMode.SYSTEM
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   colorMode?: ThemeColorMode;
 
   /**
    * adaptive color
-   * @crossplatform
+   * @type { AdaptiveColor }
+   * @default AdaptiveColor.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
 
   /**
-   * Define the scale of background blur effect. 
+   * Define the scale of blur effect. 
    * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
    * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
    * @type { number }
@@ -3778,6 +3835,24 @@ declare interface ContextMenuOptions {
   placement?: Placement;
 
   /**
+   * whether show arrow belong to the menu, default: false, not show arrow
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
+
+  /**
+    * The horizontal offset to the left of menu or vertical offset to the top of menu
+    * @type { ?Length }
+    * @default 0
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  arrowOffset?: Length; 
+
+  /**
    * Callback function when the context menu appears.
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3981,12 +4056,12 @@ declare class CommonMethod<T> {
    * @since 7
    */
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @form
    * @since 9
    */
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @form
    * @crossplatform
    * @since 10
@@ -4210,6 +4285,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
+  /**
+   * Foreground blur style.
+   * blurStyle:Blur style type.
+   * @param { BlurStyle } value
+   * @param { ForegroundBlurStyleOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
+   * @since 10
+   */
+  foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
   /**
    * Opacity

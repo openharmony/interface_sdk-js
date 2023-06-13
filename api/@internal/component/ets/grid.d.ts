@@ -91,6 +91,32 @@ declare enum GridDirection {
 }
 
 /**
+ * The attribute of scrollbar to compute scrollbar position and height.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface ComputedBarAttribute {
+  /**
+   * The offset of the grid.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  totalOffset: number;
+
+  /**
+   * The range of the grid.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  totalLength: number;
+}
+
+/**
  * Defines the grid attribute functions.
  * @since 7
  */
@@ -176,6 +202,18 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @since 10
    */
   scrollBar(value: BarState): GridAttribute;
+
+  /**
+   * Set scrollbar position.
+   * @param {(index: number, offset: number) => ComputedBarAttribute} callback of grid scroll,
+   * index is the current first displayed item, offset is the grid offset,
+   * return ComputedBarAttribute to update scrollbar position and height.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onScrollBarUpdate(event: (index: number, offset: number) => ComputedBarAttribute): GridAttribute;
 
   /**
    * Sets the status of the scroll bar.

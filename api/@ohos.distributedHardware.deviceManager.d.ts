@@ -596,6 +596,7 @@ declare namespace deviceManager {
    * @param { string } bundleName Indicates the bundle name of the application.
    * @param { AsyncCallback<DeviceManager> } callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
    * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
@@ -613,6 +614,9 @@ declare namespace deviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -623,7 +627,10 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Array<DeviceInfo> } returns a list of trusted devices.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -634,8 +641,11 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { boolean } isRefresh Refresh the online device list to quickly bring nearby trusted devices online.
      * @returns { Array<DeviceInfo> } Returns a list of trusted devices.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -643,11 +653,13 @@ declare namespace deviceManager {
      * @since 10
      */
     getTrustedDeviceListSync(isRefresh: boolean): Array<DeviceInfo>;
-    
+
     /**
      * Obtains a list of trusted devices.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<Array<DeviceInfo>> } callback Indicates the callback to be invoked upon getTrustedDeviceList
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -658,7 +670,9 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<Array<DeviceInfo>> } Returns a list of trusted devices.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -668,7 +682,10 @@ declare namespace deviceManager {
     /**
      * Obtains local device info
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { DeviceInfo } Returns local device info.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -679,8 +696,10 @@ declare namespace deviceManager {
     /**
      * Obtains local device info
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AsyncCallback<DeviceInfo> } callback Indicates the callback to be invoked upon getLocalDeviceInfo
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -690,7 +709,9 @@ declare namespace deviceManager {
     /**
      * Obtains local device info
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @returns { Promise<DeviceInfo> } Returns local device info.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
@@ -700,9 +721,11 @@ declare namespace deviceManager {
     /**
      * Obtains device info
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } networkId - device network id.
      * @param { AsyncCallback<DeviceInfo> } callback - Indicates the callback to be invoked upon getDeviceInfo.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -712,9 +735,11 @@ declare namespace deviceManager {
     /**
      * Obtains device info
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } networkId - device network id.
      * @returns { Promise<DeviceInfo> } Returns device info.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -724,8 +749,10 @@ declare namespace deviceManager {
     /**
      * Start to discover device.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { SubscribeInfo } subscribeInfo subscribe info to discovery device
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -738,9 +765,11 @@ declare namespace deviceManager {
     /**
      * Start to discover device.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { SubscribeInfo } subscribeInfo subscribe info to discovery device
      * @param { string } filterOptions filterOptions to filter discovery device
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -753,8 +782,10 @@ declare namespace deviceManager {
     /**
      * Stop to discover device.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } subscribeId Service subscribe ID
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -766,8 +797,10 @@ declare namespace deviceManager {
     /**
      * Publish discover device.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { PublishInfo } publishInfo publish info to Publish discovery device
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600105 - Publish invalid.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -780,8 +813,10 @@ declare namespace deviceManager {
     /**
      * UnPublish discover device.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } publishId Service publish ID, identify a publish operation, should be a unique id in package range
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -793,10 +828,12 @@ declare namespace deviceManager {
     /**
      * Authenticate the specified device.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { DeviceInfo } deviceInfo deviceInfo of device to authenticate
      * @param { AuthParam } authParam authParam of device to authenticate
      * @param { AsyncCallback<{ deviceId: string, pinToken?: number }> } callback Indicates the callback to be invoked upon authenticateDevice
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -810,8 +847,10 @@ declare namespace deviceManager {
     /**
      * unAuthenticate the specified device.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { DeviceInfo } deviceInfo deviceInfo of device to unAuthenticate
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -823,9 +862,11 @@ declare namespace deviceManager {
     /**
      * verify auth info, such as pin code.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { AuthInfo } authInfo device auth info o verify
      * @param { AsyncCallback<{ deviceId: string, level: number }> } callback Indicates the callback to be invoked upon verifyAuthInfo
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -835,9 +876,12 @@ declare namespace deviceManager {
     /**
      * Set user Operation from devicemanager Sea, this interface can only be used by devicemanager Sea.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } operateAction User Operation Actions.
      * @param { string } params Indicates the input param of the user.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -847,9 +891,11 @@ declare namespace deviceManager {
     /**
      * Request credential information.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
      * @param { AsyncCallback<{ registerInfo: string }> } callback Indicates the callback to be invoked upon requestCredential
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -859,11 +905,13 @@ declare namespace deviceManager {
     /**
      * Import credential information.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } credentialInfo - Import credential params, the params is json string, it includes processType, authType,
      * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
      * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
      * @param { AsyncCallback<{ resultInfo: string }> } callback Indicates the callback to be invoked upon importCredential.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -873,9 +921,11 @@ declare namespace deviceManager {
     /**
      * delete credential information.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } queryInfo - delete credential params. the params is json string, it includes processType, authType, userId.
      * @param { AsyncCallback<{ resultInfo: string }> } callback Indicates the callback to be invoked upon deleteCredential
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
@@ -886,9 +936,11 @@ declare namespace deviceManager {
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
      * changes.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'uiStateChange' } type Ui state to unregister.
      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -899,9 +951,11 @@ declare namespace deviceManager {
      * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
      *ui state change
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'uiStateChange' } type Ui state to unregister.
      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -912,10 +966,12 @@ declare namespace deviceManager {
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'deviceStateChange' } type Device status change.
      * @param { Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }> } callback
      *          Indicates the device state callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -925,9 +981,11 @@ declare namespace deviceManager {
     /**
      * UnRegister device state callback based on the application bundle name.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'deviceStateChange' } type Device status change.
      * @param { Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }> } callback Indicates the device state callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -937,9 +995,11 @@ declare namespace deviceManager {
     /**
      * Register a device found callback so that the application can be notified when the device was found
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'deviceFound' } type Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -949,9 +1009,11 @@ declare namespace deviceManager {
     /**
      * UnRegister a device found callback so that the application can be notified when the device was found
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'deviceFound' } type Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceInfo }> } callback Indicates the device found callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -961,9 +1023,11 @@ declare namespace deviceManager {
     /**
      * Register a device found result callback so that the application can be notified when the device discover was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'discoverFail' } type Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -973,9 +1037,11 @@ declare namespace deviceManager {
     /**
      * UnRegister a device found result callback so that the application can be notified when the device discover was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'discoverFail' } type Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback Indicates the device found result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -985,9 +1051,11 @@ declare namespace deviceManager {
     /**
      * Register a device publish result callback so that the application can be notified when the device publish success
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishSuccess' } type Successfully published device.
      * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -997,9 +1065,11 @@ declare namespace deviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishSuccess' } type Successfully published device.
      * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1009,9 +1079,11 @@ declare namespace deviceManager {
     /**
      * Register a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishFail' } type Failed to publish device.
      * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1021,9 +1093,11 @@ declare namespace deviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'publishFail' } type Failed to publish device.
      * @param { Callback<{ publishId: number, reason: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
@@ -1033,9 +1107,11 @@ declare namespace deviceManager {
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'serviceDie' } type Service death.
-     * @param { () => void } callback Indicates the service error callback to register.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
@@ -1045,9 +1121,11 @@ declare namespace deviceManager {
     /**
      * UnRegister a serviceError callback so that the application can be notified when devicemanager service died
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'serviceDie' } type Service death.
-     * @param { () => void } callback Indicates the service error callback to register.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7

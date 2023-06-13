@@ -86,6 +86,8 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300005 - Airplane mode is on.
+   * @throws { BusinessError } 8300006 - Network not in service.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -106,6 +108,8 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300005 - Airplane mode is on.
+   * @throws { BusinessError } 8300006 - Network not in service.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
@@ -125,6 +129,8 @@ declare namespace call {
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300005 - Airplane mode is on.
+   * @throws { BusinessError } 8300006 - Network not in service.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.

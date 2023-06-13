@@ -20,7 +20,7 @@ const urlSuffix = '/systemres/main/config.json';
 
 exports.checkJSDoc = function (node, sourceFile, fileName) {
   const checkLegality = require('./src/check_legality');
-  return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, fileName);
+  return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, fileName, false);
 };
 
 exports.initEnv = function (version) {

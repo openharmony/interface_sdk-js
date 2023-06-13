@@ -2499,6 +2499,8 @@ declare namespace window {
     /**
      * Get the UIContext associate with the window content.
      * @returns { UIContext } the object of UIContext.
+     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 1300002 - If window state is abnormally
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
@@ -2622,7 +2624,7 @@ declare namespace window {
     /**
      * Register the callback of systemAvoidAreaChange
      *
-     * @param { 'systemAvoidAreaChange' } type - The value is fixed at 'systemAvoidAreaChange', indicating the event of changes to the area where the window cannot be displayed.
+     * @param { 'systemAvoidAreaChange' } type - The value is fixed at 'systemAvoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<AvoidArea> } callback - Callback used to return the area.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
@@ -2634,7 +2636,7 @@ declare namespace window {
     /**
      * Unregister the callback of systemAvoidAreaChange
      *
-     * @param { 'systemAvoidAreaChange' } type - The value is fixed at 'systemAvoidAreaChange', indicating the event of changes to the area where the window cannot be displayed.
+     * @param { 'systemAvoidAreaChange' } type - The value is fixed at 'systemAvoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<AvoidArea> } callback - Callback used to return the area.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
@@ -2645,8 +2647,10 @@ declare namespace window {
 
     /**
      * Register the callback of avoidAreaChange
-     * @param type: 'avoidAreaChange'
-     * @throws {BusinessError} 401 - Parameter error.
+     *
+     * @param { 'avoidAreaChange' } type: - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -2654,8 +2658,10 @@ declare namespace window {
 
     /**
      * Unregister the callback of avoidAreaChange
-     * @param type: 'avoidAreaChange'
-     * @throws {BusinessError} 401 - Parameter error.
+     *
+     * @param { 'avoidAreaChange' } type: - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -3901,7 +3907,7 @@ declare namespace window {
      * @StageModelOnly
      * @since 9
      */
-     /**
+    /**
      * Loads content
      *
      * @param { string } path of the page to which the content will be loaded

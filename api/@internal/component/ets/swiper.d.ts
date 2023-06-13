@@ -419,10 +419,6 @@ declare enum SwiperDisplayMode {
 
   /**
    * The rotation chart is self linear.
-   * @since 7
-   */
-  /**
-   * The rotation chart is self linear.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

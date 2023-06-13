@@ -24,16 +24,17 @@ import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.utils.IOUtils;
+
 import java.io.File;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.FileInputStream;
-import java.io.OutputStreamWriter;
-import java.io.FileOutputStream;
-import java.io.Reader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.OutputStreamWriter;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedWriter;
+import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.List;
@@ -140,19 +141,16 @@ public class FileUtils {
             if (childParse instanceof JSONObject) {
                 parse = (JSONObject) childParse;
             }
-            assert parse != null;
             Object childModel = parse.get("modules");
             JSONArray modules = null;
             if (childModel instanceof JSONArray) {
                 modules = (JSONArray) childModel;
             }
-            assert modules != null;
             Object childObject = modules.get(0);
             JSONObject model = null;
             if (childObject instanceof JSONObject) {
                 model = (JSONObject) childObject;
             }
-            assert model != null;
             String modelName = String.valueOf(model.get("name"));
             File file = new File(projectBasePath, modelName + "\\build-profile.json5");
             String modelJson = getJsonString(file);
@@ -322,13 +320,25 @@ public class FileUtils {
         if (childParse instanceof JSONObject) {
             parse = (JSONObject) childParse;
         }
-        assert parse != null;
         Object parseApp = parse.get("app");
         JSONObject appJson = null;
         if (parseApp instanceof JSONObject) {
             appJson = (JSONObject) parseApp;
         }
-        return String.valueOf(appJson.get("compileSdkVersion"));
+        if (appJson.get("compileSdkVersion") != null) {
+            return String.valueOf(appJson.get("compileSdkVersion"));
+        }
+        Object products = appJson.get("products");
+        JSONArray modules = null;
+        if (products instanceof JSONArray) {
+            modules = (JSONArray) products;
+        }
+        Object childObject = modules.get(0);
+        JSONObject product = null;
+        if (childObject instanceof JSONObject) {
+            product = (JSONObject) childObject;
+        }
+        return String.valueOf(product.get("compileSdkVersion"));
     }
 
     /**
