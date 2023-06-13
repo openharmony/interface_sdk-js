@@ -946,7 +946,7 @@ declare interface UIEventObserver {
   /**
    * Listen for toast show once
    * 
-   * @param { toastShow } type 'toastShow'.
+   * @param { 'toastShow' } type 'toastShow'.
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -958,7 +958,7 @@ declare interface UIEventObserver {
   /**
    * Listen for dialog show once
    * 
-   * @param { dialogShow } type 'dialogShow'.
+   * @param { 'dialogShow' } type 'dialogShow'.
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
