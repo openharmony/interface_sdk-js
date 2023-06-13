@@ -3521,6 +3521,15 @@ declare interface StateStyles {
    * @since 10
    */
   clicked?: any;
+
+  /**
+   * Defines selected state styles.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  selected?: object;
 }
 
 /**

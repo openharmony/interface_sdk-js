@@ -106,6 +106,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   selectable(value: boolean): GridItemAttribute;
 
   /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   * @param {boolean} value if the gridItem is selected.
+   * @returns {GridItemAttribute} the attribute of the gridItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  selected(value: boolean): GridItemAttribute;
+
+  /**
    * Called when the gridItem is selected.
    * @since 8
    */
