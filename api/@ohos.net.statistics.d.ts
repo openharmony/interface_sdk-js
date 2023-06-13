@@ -24,7 +24,7 @@ import { AsyncCallback, Callback } from './basic';
 declare namespace statistics {
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
-   * @param { string } nic - Indicates the NIC name.
+   * @param { string } nic - Network interface card.
    * @param { AsyncCallback<number> } callback - Returns the data traffic received through the specified NIC.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -39,7 +39,7 @@ declare namespace statistics {
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received through a specified NIC.
-   * @param { string } nic - Indicates the NIC name.
+   * @param { string } nic - Network interface card.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -54,7 +54,7 @@ declare namespace statistics {
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified NIC.
-   * @param { string } nic - Indicates the NIC name.
+   * @param { string } nic - Network interface card.
    * @param { AsyncCallback<number> } callback - Returns the data traffic sent through the specified NIC.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -69,7 +69,7 @@ declare namespace statistics {
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent through a specified NIC.
-   * @param { string } nic - Indicates the NIC name.
+   * @param { string } nic - Network interface card.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -184,7 +184,6 @@ declare namespace statistics {
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received by a specified application.
-   * This method applies only to system applications and your own applications.
    * @param { number } uid - Indicates the process ID of the application.
    * @param { AsyncCallback<number> } callback - Returns the data traffic received by the specified application.
    * @throws { BusinessError } 401 - Parameter error.
@@ -199,7 +198,6 @@ declare namespace statistics {
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) received by a specified application.
-   * This method applies only to system applications and your own applications.
    * @param { number } uid - Indicates the process ID of the application.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
@@ -214,7 +212,6 @@ declare namespace statistics {
 
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent by a specified application.
-   * This method applies only to system applications and your own applications.
    * @param { number } uid - Indicates the process ID of the application.
    * @param { AsyncCallback<number> } callback - Returns the data traffic sent by the specified application.
    * @throws { BusinessError } 401 - Parameter error.
@@ -229,7 +226,6 @@ declare namespace statistics {
   
   /**
    * Queries the data traffic (including all TCP and UDP data packets) sent by a specified application.
-   * This method applies only to system applications and your own applications.
    * @param { number } uid - Indicates the process ID of the application.
    * @returns { Promise<number> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
@@ -277,7 +273,7 @@ declare namespace statistics {
   /**
    * Get the traffic usage details of the network interface in the specified time period.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { IfaceInfo } ifaceInfo - Indicates the handle. See {@link IfaceInfo}.
+   * @param { IfaceInfo } ifaceInfo - Detailed query content. See {@link IfaceInfo}.
    * @param { AsyncCallback<NetStatsInfo> } callback - Returns the {@link NetStatsInfo} object;
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -295,7 +291,7 @@ declare namespace statistics {
   /**
    * Get the traffic usage details of the network interface in the specified time period.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { IfaceInfo } ifaceInfo - Indicates the handle. See {@link IfaceInfo}.
+   * @param { IfaceInfo } ifaceInfo - Detailed query content. See {@link IfaceInfo}.
    * @returns { Promise<NetStatsInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -313,7 +309,7 @@ declare namespace statistics {
   /**
    * Get the traffic usage details of the specified time period of the application.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { UidStatsInfo } uidStatsInfo - Indicates the handle. See {@link UidStatsInfo}.
+   * @param { UidStatsInfo } uidStatsInfo - Detailed query content. See {@link UidStatsInfo}.
    * @param { AsyncCallback<NetStatsInfo> } callback - Returns the {@link NetStatsInfo} object;
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -331,7 +327,7 @@ declare namespace statistics {
   /**
    * Get the traffic usage details of the specified time period of the application.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { UidStatsInfo } uidStatsInfo - Indicates the handle. See {@link UidStatsInfo}.
+   * @param { UidStatsInfo } uidStatsInfo - Detailed query content. See {@link UidStatsInfo}.
    * @returns { Promise<NetStatsInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -358,6 +354,7 @@ declare namespace statistics {
      * Network interface for querying traffic.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     iface: string;
@@ -366,6 +363,7 @@ declare namespace statistics {
      * Start time for querying traffic.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     startTime: number;
@@ -374,6 +372,7 @@ declare namespace statistics {
      * End time for querying traffic.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     endTime: number;
@@ -391,6 +390,7 @@ declare namespace statistics {
      * See {@link IfaceInfo}
      * @type {IfaceInfo}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     ifaceInfo: IfaceInfo;
@@ -399,6 +399,7 @@ declare namespace statistics {
      * Uid of app for querying traffic.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     uid: number;
@@ -416,6 +417,7 @@ declare namespace statistics {
      * Bytes of received.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     rxBytes: number;
@@ -424,6 +426,7 @@ declare namespace statistics {
      * Bytes of send.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     txBytes: number;
@@ -432,6 +435,7 @@ declare namespace statistics {
      * Packets of received.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     rxPackets: number;
@@ -440,6 +444,7 @@ declare namespace statistics {
      * Packets of send.
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     txPackets: number;
