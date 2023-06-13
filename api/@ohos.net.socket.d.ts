@@ -744,7 +744,7 @@ declare namespace socket {
      * @type { ?number }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 100
+     * @since 10
      */
     timeout?: number;
   }
