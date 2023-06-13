@@ -4003,6 +4003,29 @@ declare interface ClickEffect {
   scale?: number;
 }
 
+/*
+ * Define nested scroll options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface NestedScrollOptions {
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls forward
+   * @type { NestedScrollMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollForward: NestedScrollMode;
+
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls backward
+   * @type { NestedScrollMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollBackward: NestedScrollMode;
+}
+
 /**
  * CommonMethod.
  * @since 7

@@ -4121,3 +4121,39 @@ declare enum XComponentType {
    */
   TEXTURE,
 }
+
+/*
+ * Nested scroll nested mode
+ * @enum { number } NestedScrollMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum NestedScrollMode {
+  /**
+   * Only Self response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SELF_ONLY,
+
+  /**
+   * Self priority response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SELF_FIRST,
+
+  /**
+   * Parent scrollable component priority response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PARENT_FIRST,
+
+  /**
+   * Both self and parent scrollable component response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PARALLEL,
+}

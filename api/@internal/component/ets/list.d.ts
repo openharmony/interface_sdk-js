@@ -491,6 +491,15 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   sticky(value: StickyStyle): ListAttribute;
 
   /**
+   * Called to setting the nested scroll options.
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nestedScroll(value: NestedScrollOptions): ListAttribute
+
+  /**
    * Called when the offset and status callback of the slide are set.
    * @since 7
    */
