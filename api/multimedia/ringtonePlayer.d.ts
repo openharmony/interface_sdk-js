@@ -172,7 +172,7 @@ export interface RingtonePlayer {
   on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
 
   /**
-   * UnSubscribes to audio interrupt events.
+   * Unsubscribes to audio interrupt events.
    * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
    * @throws { BusinessError } 401 - if input parameter type or number mismatch
    * @throws { BusinessError } 6800101 - if input parameter value error
