@@ -2425,9 +2425,9 @@ declare namespace socket {
    */
   export interface TCPSocketServer {
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
      * @permission ohos.permission.INTERNET
      * @param { NetAddress } address - Destination address. {@link NetAddress}
      * @param { AsyncCallback<void> } callback - the callback of listen.
@@ -2448,9 +2448,9 @@ declare namespace socket {
     listen(address: NetAddress, callback: AsyncCallback<void>): void;
 
     /** 
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * Listens for a TCPSocket connection to be made to this socket and accepts it.This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
      * @permission ohos.permission.INTERNET
      * @param { NetAddress } address - Destination address. {@link NetAddress}
      * @returns { Promise<void> } The promise returned by the function.
