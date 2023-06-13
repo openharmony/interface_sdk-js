@@ -410,6 +410,15 @@ declare namespace relationalStore {
      * @since 10
      */
     updated: Array<string> | Array<number>;
+
+    /**
+     * Indicates if there is a string primary key, the deleted will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    deleted: Array<string> | Array<number>;
   }
 
   /**
