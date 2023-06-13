@@ -376,7 +376,23 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 10
    */
-  interface ChangeInfo {}
+  interface ChangeInfo {
+    /**
+     * Indicates the changed table
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    table: string;
+
+    /**
+     * Indicates the changed type
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    type: ChangeType;
+  }
 
   /**
    * Describes the distribution type of the tables.
