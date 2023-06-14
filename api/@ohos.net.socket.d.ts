@@ -2273,7 +2273,7 @@ declare namespace socket {
    */
   export interface NetConnection {
     /**
-     * The id of a client connects to the server.
+     * The id of a client connects to the TCPSocketServer.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -2283,7 +2283,7 @@ declare namespace socket {
     /**
      * Sends data over a TCPSocketServer connection to client.
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - parameters {@link TCPSendOptions}.
+     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2296,7 +2296,7 @@ declare namespace socket {
     /**
      * Sends data over a TCPSocketServer connection to client.
      * @permission ohos.permission.INTERNET
-     * @param { TCPSendOptions } options - parameters {@link TCPSendOptions}.
+     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2358,6 +2358,7 @@ declare namespace socket {
      * Listens for message receiving events of the NetConnection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2367,6 +2368,7 @@ declare namespace socket {
      * Cancels listening for message receiving events of the NetConnection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2376,6 +2378,7 @@ declare namespace socket {
      * Listens for close events of the NetConnection.
      * @param { 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2385,6 +2388,7 @@ declare namespace socket {
      * Cancels listening for close events of the NetConnection.
      * @param { 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2394,6 +2398,7 @@ declare namespace socket {
      * Listens for error events of the NetConnection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2403,6 +2408,7 @@ declare namespace socket {
      * Cancels listening for error events of the NetConnection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2429,7 +2435,7 @@ declare namespace socket {
      * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
+     * @param { NetAddress } address - Destination address {@link NetAddress}.
      * @param { AsyncCallback<void> } callback - the callback of listen.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2441,7 +2447,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2452,7 +2457,7 @@ declare namespace socket {
      * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
      * @permission ohos.permission.INTERNET
-     * @param { NetAddress } address - Destination address. {@link NetAddress}
+     * @param { NetAddress } address - Destination address {@link NetAddress}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2464,7 +2469,6 @@ declare namespace socket {
      * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
      * @throws { BusinessError } 2303198 - Address already in use.
      * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @throws { BusinessError } 2303210 - Connection timed out.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2475,6 +2479,7 @@ declare namespace socket {
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -2497,7 +2502,7 @@ declare namespace socket {
     /**
      * Sets other attributes of the TCPSocketServer connection.
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - parameters {@link TCPExtraOptions}.
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
      * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2511,7 +2516,7 @@ declare namespace socket {
     /**
      * Sets other attributes of the TCPSocketServer connection.
      * @permission ohos.permission.INTERNET
-     * @param { TCPExtraOptions } options - parameters {@link TCPExtraOptions}.
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2526,6 +2531,7 @@ declare namespace socket {
      * Listens for connection events of the TCPSocketServer connection.
      * @param { 'connect' } type - Indicates Event name.
      * @param { Callback<NetConnection> } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2535,6 +2541,7 @@ declare namespace socket {
      * Cancels listening for connection events of the TCPSocketServer connection.
      * @param { 'connect' } type - Indicates Event name.
      * @param { Callback<NetConnection> } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2544,6 +2551,7 @@ declare namespace socket {
      * Listens for error events of the TCPSocketServer connection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -2553,6 +2561,439 @@ declare namespace socket {
      * Cancels listening for error events of the TCPSocketServer connection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+  }
+  
+  /**
+   * Defines the connection of the TLSSocket client and server.
+   * @interface TLSNetConnection
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 10
+   */
+  export interface TLSNetConnection {
+    /**
+     * The id of a client connects to the TLSSocketServer.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    clientId: number;
+
+    /**
+     * Sends data over a TLSSocketServer connection to client.
+     * @param { string } data - Parameters for sending data.
+     * @param { AsyncCallback<void> } callback - the callback of send.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - Error in tls writing.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    send(data: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sends data over a TLSSocketServer connection to client.
+     * @param { string } data - Parameters for sending data.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303503 - Error in tls writing.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    send(data: string): Promise<void>;
+
+    /**
+     * Closes a TLSSocket client connection.
+     * @param { AsyncCallback<void> } callback - the callback of close.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    close(callback: AsyncCallback<void>): void;
+
+    /**
+     * Closes a TLSSocket client connection.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    close(): Promise<void>;
+
+    /**
+     * Obtains the peer address of a TLSSocketServer connection.
+     * @param { AsyncCallback<NetAddress> } callback - the callback of getRemoteAddress.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
+
+    /**
+     * Obtains the peer address of a TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getRemoteAddress(): Promise<NetAddress>;
+
+    /**
+     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
+     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
+     * It only contains the peer's certificate.
+     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getRemoteCertificate.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
+
+    /**
+     * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
+     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
+     * It only contains the peer's certificate.
+     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getRemoteCertificate(): Promise<X509CertRawData>;
+
+    /**
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
+     * @param { AsyncCallback<Array<string>> } callback - the callback of getCipherSuite.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - Error in tls reading.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getCipherSuite(callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
+     * @returns { Promise<Array<string>> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - Error in tls reading.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getCipherSuite(): Promise<Array<string>>;
+
+    /**
+     * <p>The list of signature algorithms shared between the server and the client,
+     * in descending order of priority.</p>
+     * @param { AsyncCallback<Array<string>> } callback - the callback of getSignatureAlgorithms.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * <p>The list of signature algorithms shared between the server and the client,
+     * in descending order of priority.</p>
+     * @returns { Promise<Array<string>> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getSignatureAlgorithms(): Promise<Array<string>>;
+
+    /**
+     * Listens for message receiving events of the TLSNetConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+
+    /**
+     * Cancels listening for message receiving events of the TLSNetConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+
+    /**
+     * Listens for close events of the TLSNetConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'close', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for close events of the TLSNetConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'close', callback?: Callback<void>): void;
+
+    /**
+     * Listens for error events of the TLSNetConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the TLSNetConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Creates a TLSSocketServer object.
+   * @returns { TLSSocketServer } the TLSSocketServer of the constructTLSSocketServerInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 10
+   */
+  function constructTLSSocketServerInstance(): TLSSocketServer;
+
+  /**
+   * Defines a TLSSocketServer server connection.
+   * @interface TLSSocketServer
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 10
+   */
+  export interface TLSSocketServer {
+    /**
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of listen.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2303104 - Interrupted system call.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - Error in tls reading.
+     * @throws { BusinessError } 2303503 - Error in tls writing
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    listen(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
+
+    /** 
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { TLSConnectOptions } options - TLS connection options {@link TLSConnectOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2303104 - Interrupted system call.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2303191 - Protocol wrong type for socket.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - Error in tls reading.
+     * @throws { BusinessError } 2303503 - Error in tls writing
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2303506 - Error clearing tls connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    listen(options: TLSConnectOptions): Promise<void>;
+
+    /**
+     * Obtains the status of the TLSSocketServer connection.
+     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getState(callback: AsyncCallback<SocketStateBase>): void;
+
+    /**
+     * Obtains the status of the TLSSocketServer connection.
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getState(): Promise<SocketStateBase>;
+
+    /**
+     * Sets other attributes of the TLSSocketServer connection.
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets other attributes of the TLSSocketServer connection.
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    setExtraOptions(options: TCPExtraOptions): Promise<void>;
+
+    /**
+     * Returns an object representing a local certificate.
+     * @param { AsyncCallback<X509CertRawData> } callback - the callback of getCertificate.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getCertificate(callback: AsyncCallback<X509CertRawData>): void;
+
+    /**
+     * Returns an object representing a local certificate.
+     * @returns { Promise<X509CertRawData> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303504 - Error looking up x509
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getCertificate(): Promise<X509CertRawData>;
+
+    /**
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
+     * @param { AsyncCallback<string> } callback - the callback of getProtocol.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getProtocol(callback: AsyncCallback<string>): void;
+
+    /**
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
+     * @returns { Promise<string> } The promise returned by the function.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getProtocol(): Promise<string>;
+
+    /**
+     * Listens for connection events of the TLSSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TLSNetConnection> } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'connect', callback: Callback<TLSNetConnection>): void;
+
+    /**
+     * Cancels listening for connection events of the TLSSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TLSNetConnection> } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'connect', callback?: Callback<TLSNetConnection>): void;
+
+    /**
+     * Listens for error events of the TLSSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the TLSSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - the callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
