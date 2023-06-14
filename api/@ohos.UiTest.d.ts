@@ -530,7 +530,7 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.UiTest.Driver#pressHome
+   * @useinstead ohos.UiTest.Driver#triggerKey
    * @test
    */
   triggerKey(keyCode: number): Promise<void>;
