@@ -1881,18 +1881,18 @@ declare namespace audio {
 
     /**
      * Gets information of audio effects.
-     * @param content Content type.
-     * @param usage Stream usage.
-     * @param callback Callback used to return the information of audio effects.
+     * @param { ContentType } content - Content type.
+     * @param { StreamUsage } usage - Stream usage.
+     * @param { AsyncCallback<AudioEffectInfoArray> } callback - Callback used to return the information of audio effects.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     getAudioEffectInfoArray(content: ContentType, usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void;
     /**
      * Gets information of audio effects.
-     * @param content Content type.
-     * @param usage Stream usage.
-     * @returns Promise used to return the information of audio effects.
+     * @param { ContentType } content - Content type.
+     * @param { StreamUsage } usage - Stream usage.
+     * @returns { Promise<AudioEffectInfoArray> } Promise used to return the information of audio effects.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -2743,15 +2743,15 @@ declare namespace audio {
     getAudioStreamId(): Promise<number>;
 
     /**
-     * Gets the current audio effect mode. This method uses an asynchronous callback to return the query result.
-     * @param callback Callback used to return the current audio effect mode.
+     * Obtains the current audio effect mode. This method uses an asynchronous callback to return the query result.
+     * @param { AsyncCallback<AudioEffectMode> } callback - Callback used to return the current audio effect mode.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     getAudioEffectMode(callback: AsyncCallback<AudioEffectMode>): void;
     /**
-     * Gets the current audio effect mode. This method uses a promise to return the query result.
-     * @returns Promise used to return the current audio effect mode.
+     * Obtains the current audio effect mode. This method uses a promise to return the query result.
+     * @returns { Promise<AudioEffectMode> } Promise used to return the current audio effect mode.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -2759,16 +2759,16 @@ declare namespace audio {
 
     /**
      * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
-     * @param mode Audio effect mode.
-     * @param callback Callback used to return the result.
+     * @param { AudioEffectMode } mode - Audio effect mode.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     setAudioEffectMode(mode: AudioEffectMode, callback: AsyncCallback<void>): void;
     /**
      * Sets the current audio effect mode. This method uses a promise to return the result.
-     * @param mode Audio effect mode.
-     * @returns Promise used to return the result.
+     * @param { AudioEffectMode } mode - Audio effect mode.
+     * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -3603,7 +3603,8 @@ declare namespace audio {
   type AudioEffectInfoArray = Array<Readonly<AudioEffectMode>>;
 
   /**
-   * Enumerates audio effect modes.
+   * Describes an audio effect mode group.
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 10
    */
