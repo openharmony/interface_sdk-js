@@ -3322,6 +3322,7 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 10
+     * @systemapi
      */
     lightIntensity: number;
     /**
@@ -3329,6 +3330,7 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 10
+     * @systemapi
      */
     colorTemperature: number;
   }
@@ -3345,6 +3347,7 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 10
+     * @systemapi
      */
     absorptionRatio: number;
   }
