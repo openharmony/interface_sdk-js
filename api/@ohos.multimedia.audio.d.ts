@@ -3291,7 +3291,7 @@ declare namespace audio {
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
      * Playback capture source type.
-     * @permission ohos.permission.CAPTURE_INTERNAL_AUDIO
+     * @permission ohos.permission.CAPTURE_PROTECTED_AUDIO
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
      */
