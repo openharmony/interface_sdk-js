@@ -71,7 +71,6 @@ declare namespace distributedKVStore {
     /**
      * Max key length is 1024.
      *
-     * @constant
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -80,7 +79,6 @@ declare namespace distributedKVStore {
     /**
      * Max value length is 4194303.
      *
-     * @constant
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -89,7 +87,6 @@ declare namespace distributedKVStore {
     /**
      * Max device coordinate key length is 896.
      *
-     * @constant
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -98,7 +95,6 @@ declare namespace distributedKVStore {
     /**
      * Max store id length is 128.
      *
-     * @constant
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -107,7 +103,6 @@ declare namespace distributedKVStore {
     /**
      * Max query length is 512000.
      *
-     * @constant
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -116,7 +111,6 @@ declare namespace distributedKVStore {
     /**
      * Max batch operation size is 128.
      *
-     * @constant
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2024,7 +2018,7 @@ declare namespace distributedKVStore {
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 15100001 - if the database has been subscribed over the max subscription time limit.
+     * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
