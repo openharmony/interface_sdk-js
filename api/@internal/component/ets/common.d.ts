@@ -4891,6 +4891,19 @@ declare class CommonMethod<T> {
   hueRotate(value: number | string): T;
 
   /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
+   * @param { boolean } value - true means the component should apply the effects template.
+   * @default false
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  useEffect(value: boolean): T;
+
+  /**
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    * @since 7
