@@ -2661,7 +2661,7 @@ declare namespace socket {
 
     /**
      * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
+     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
      * It only contains the peer's certificate.
      * @param { AsyncCallback<X509CertRawData> } callback - the callback of getRemoteCertificate.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2674,7 +2674,7 @@ declare namespace socket {
 
     /**
      * <p>Returns an object representing the peer certificate. If the peer does not provide a certificate,
-     * <p>an empty object will be returned. If the socket is destroyed, null is returned.</p>
+     * an empty object will be returned. If the socket is destroyed, null is returned.</p>
      * It only contains the peer's certificate.
      * @returns { Promise<X509CertRawData> } The promise returned by the function.
      * @throws { BusinessError } 2303501 - SSL is null.
