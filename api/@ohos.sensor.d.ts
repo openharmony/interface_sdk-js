@@ -3317,8 +3317,20 @@ declare namespace sensor {
    * @since 10
    */
   interface ColorResponse extends Response {
-    lightIntensity: number; /**< Indicates the intensity of light, in lux */
-    colorTemperature: number; /**< Indicates the color temperature, in kelvin */
+    /**
+     * Indicates the intensity of light, in lux.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     */
+    lightIntensity: number;
+    /**
+     * Indicates the color temperature, in kelvin.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     */
+    colorTemperature: number;
   }
 
   /**
@@ -3328,7 +3340,13 @@ declare namespace sensor {
    * @since 10
    */
   interface SarResponse extends Response {
-    value: number; /**< Indicates the specific absorption rate, in W/kg */
+    /**
+     * Indicates the specific absorption rate, in W/kg.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     */
+    absorptionRatio: number;
   }
 }
 
