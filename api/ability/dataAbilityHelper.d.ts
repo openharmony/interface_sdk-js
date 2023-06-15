@@ -32,13 +32,13 @@ export interface DataAbilityHelper {
   /**
    * Opens a file in a specified remote path.
    *
-   * @param { string } uri Indicates the path of the file to open.
-   * @param { string } mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only
+   * @param { string } uri - Indicates the path of the file to open.
+   * @param { string } mode - Indicates the file open mode, which can be "r" for read-only access, "w" for write-only
    *                   access (erasing whatever data is currently in the file), "wt" for write access that truncates
    *                   any existing file, "wa" for write-only access to append to any existing data, "rw" for read
    *                   and write access on any existing data, or "rwt" for read and write access that truncates any
    *                   existing file.
-   * @param { AsyncCallback<number> } callback Indicates the callback when openfile success
+   * @param { AsyncCallback<number> } callback - Indicates the callback when openfile success
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -48,8 +48,8 @@ export interface DataAbilityHelper {
   /**
    * Opens a file in a specified remote path.
    *
-   * @param { string } uri Indicates the path of the file to open.
-   * @param { string } mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only
+   * @param { string } uri - Indicates the path of the file to open.
+   * @param { string } mode - Indicates the file open mode, which can be "r" for read-only access, "w" for write-only
    *                   access (erasing whatever data is currently in the file), "wt" for write access that truncates
    *                   any existing file, "wa" for write-only access to append to any existing data, "rw" for read and
    *                   write access on any existing data, or "rwt" for read and write access that truncates any
@@ -64,9 +64,9 @@ export interface DataAbilityHelper {
   /**
    * Registers an observer to observe data specified by the given uri.
    *
-   * @param { 'dataChange' } type dataChange.
-   * @param { string } uri Indicates the path of the data to operate.
-   * @param { AsyncCallback<void> } callback Indicates the callback when dataChange.
+   * @param { 'dataChange' } type - dataChange.
+   * @param { string } uri - Indicates the path of the data to operate.
+   * @param { AsyncCallback<void> } callback - Indicates the callback when dataChange.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -76,9 +76,9 @@ export interface DataAbilityHelper {
   /**
    * Deregisters all observers used for monitoring data specified by the given uri.
    *
-   * @param { 'dataChange' } type dataChange.
-   * @param { string } uri Indicates the path of the data to operate.
-   * @param { AsyncCallback<void> } [callback] Indicates the registered callback.
+   * @param { 'dataChange' } type - dataChange.
+   * @param { string } uri - Indicates the path of the data to operate.
+   * @param { AsyncCallback<void> } [callback] - Indicates the registered callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -88,9 +88,9 @@ export interface DataAbilityHelper {
   /**
    * Obtains the MIME type of the date specified by the given URI.
    *
-   * @param { string } uri Indicates the path of the data to operate.
-   * @param { AsyncCallback<string> } callback Indicates the callback method for obtaining the type of media resource,
-   *                                           returning the media resource type that matches the uri pointing data.
+   * @param { string } uri - Indicates the path of the data to operate.
+   * @param { AsyncCallback<string> } callback - Indicates the callback method for obtaining the type of media resource,
+   *                                             returning the media resource type that matches the uri pointing data.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -100,7 +100,7 @@ export interface DataAbilityHelper {
   /**
    * Obtains the MIME type of the date specified by the given URI.
    *
-   * @param { string } uri Indicates the path of the data to operate.
+   * @param { string } uri - Indicates the path of the data to operate.
    * @returns { Promise<string> } Returns the MIME type that matches the data specified by uri.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -111,10 +111,10 @@ export interface DataAbilityHelper {
   /**
    * Obtains the MIME types of files supported.
    *
-   * @param { string } uri Indicates the path of the files to obtain.
-   * @param { string } mimeTypeFilter Indicates the MIME types of the files to obtain.
-   * @param { AsyncCallback<Array<string>> } callback Indicates the callback method for obtaining media resource types,
-   *                                                  returning an array of matching media resource types.
+   * @param { string } uri - Indicates the path of the files to obtain.
+   * @param { string } mimeTypeFilter - Indicates the MIME types of the files to obtain.
+   * @param { AsyncCallback<Array<string>> } callback - Indicates the callback method for obtaining media resource
+   *                                                    types, returning an array of matching media resource types.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -124,8 +124,8 @@ export interface DataAbilityHelper {
   /**
    * Obtains the MIME types of files supported.
    *
-   * @param { string } uri Indicates the path of the files to obtain.
-   * @param { string } mimeTypeFilter Indicates the MIME types of the files to obtain.
+   * @param { string } uri - Indicates the path of the files to obtain.
+   * @param { string } mimeTypeFilter - Indicates the MIME types of the files to obtain.
    * @returns { Promise<Array<string>> } Returns the matched MIME types Array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -136,10 +136,10 @@ export interface DataAbilityHelper {
   /**
    * Converts the given uri that refers to the Data ability into a normalized uri.
    *
-   * @param { string } uri Indicates the uri object to normalize.
-   * @param { AsyncCallback<string> } callback Indicates the callback method for uri normalization, and if the data
-   *                                           function supports uri normalization, returns the normalized uri object;
-   *                                           Otherwise return null.
+   * @param { string } uri - Indicates the uri object to normalize.
+   * @param { AsyncCallback<string> } callback - Indicates the callback method for uri normalization, and if the data
+   *                                             function supports uri normalization, returns the normalized uri object;
+   *                                             Otherwise return null.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -149,7 +149,7 @@ export interface DataAbilityHelper {
   /**
    * Converts the given uri that refers to the Data ability into a normalized uri.
    *
-   * @param { string } uri Indicates the uri object to normalize.
+   * @param { string } uri - Indicates the uri object to normalize.
    * @returns { Promise<string> } Returns normalized uri object if Data ability supports URI normalization or null.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -160,9 +160,9 @@ export interface DataAbilityHelper {
   /**
    * Converts the given normalized uri generated by normalizeUri(uri) into a denormalized one.
    *
-   * @param { string } uri Indicates the uri object to normalize.
-   * @param { AsyncCallback<string> } callback Indicates the callback method of denormalization uri.If
-   *                                           denormalization succeeds,the denormalization uri object is returned.
+   * @param { string } uri - Indicates the uri object to normalize.
+   * @param { AsyncCallback<string> } callback - Indicates the callback method of denormalization uri.If
+   *                                             denormalization succeeds,the denormalization uri object is returned.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -172,7 +172,7 @@ export interface DataAbilityHelper {
   /**
    * Converts the given normalized uri generated by normalizeUri(uri) into a denormalized one.
    *
-   * @param { string } uri Indicates the uri object to normalize.
+   * @param { string } uri - Indicates the uri object to normalize.
    * @returns { Promise<string> } Returns the denormalized uri object if the denormalization is successful.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -183,8 +183,8 @@ export interface DataAbilityHelper {
   /**
    * Notifies the registered observers of a change to the data resource specified by uri.
    *
-   * @param { string } uri Indicates the path of the data to operate.
-   * @param { AsyncCallback<void> } callback callback method.
+   * @param { string } uri - Indicates the path of the data to operate.
+   * @param { AsyncCallback<void> } callback - callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -194,7 +194,7 @@ export interface DataAbilityHelper {
   /**
    * Notifies the registered observers of a change to the data resource specified by uri.
    *
-   * @param { string } uri Indicates the path of the data to operate.
+   * @param { string } uri - Indicates the path of the data to operate.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -205,11 +205,11 @@ export interface DataAbilityHelper {
   /**
    * Inserts a single data record into the database.
    *
-   * @param { string } uri Indicates the path of the data to insert.
-   * @param { rdb.ValuesBucket } valuesBucket Indicates the data record to insert. If this parameter is null, a blank
-   *                                          row will be inserted.
-   * @param { AsyncCallback<number> } callback Indicates the callback method for data insertion, returning the index
-   *                                           of the inserted data record.
+   * @param { string } uri - Indicates the path of the data to insert.
+   * @param { rdb.ValuesBucket } valuesBucket - Indicates the data record to insert. If this parameter is null, a blank
+   *                                            row will be inserted.
+   * @param { AsyncCallback<number> } callback - Indicates the callback method for data insertion, returning the index
+   *                                             of the inserted data record.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -219,9 +219,9 @@ export interface DataAbilityHelper {
   /**
    * Inserts a single data record into the database.
    *
-   * @param { string } uri Indicates the path of the data to insert.
-   * @param { rdb.ValuesBucket } valuesBucket Indicates the data record to insert. If this parameter is null,
-   *                                          a blank row will be inserted.
+   * @param { string } uri - Indicates the path of the data to insert.
+   * @param { rdb.ValuesBucket } valuesBucket - Indicates the data record to insert. If this parameter is null,
+   *                                            a blank row will be inserted.
    * @returns { Promise<number> } Returns the index of the inserted data record.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -232,10 +232,10 @@ export interface DataAbilityHelper {
   /**
    * Inserts multiple data records into the database.
    *
-   * @param { string } uri Indicates the path of the data to batchInsert.
-   * @param { Array<rdb.ValuesBucket> } valuesBuckets Indicates the data records to insert.
-   * @param { AsyncCallback<number> } callback Callback method indicating batch data insertion, returning the number
-   *                                           of inserted data records.
+   * @param { string } uri - Indicates the path of the data to batchInsert.
+   * @param { Array<rdb.ValuesBucket> } valuesBuckets - Indicates the data records to insert.
+   * @param { AsyncCallback<number> } callback - Callback method indicating batch data insertion, returning the number
+   *                                             of inserted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -245,8 +245,8 @@ export interface DataAbilityHelper {
   /**
    * Inserts multiple data records into the database.
    *
-   * @param { string } uri Indicates the path of the data to batchInsert.
-   * @param { Array<rdb.ValuesBucket> } valuesBuckets Indicates the data records to insert.
+   * @param { string } uri - Indicates the path of the data to batchInsert.
+   * @param { Array<rdb.ValuesBucket> } valuesBuckets - Indicates the data records to insert.
    * @returns { Promise<number> } Returns the number of data records inserted.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -257,11 +257,11 @@ export interface DataAbilityHelper {
   /**
    * Deletes one or more data records from the database.
    *
-   * @param { string } uri Indicates the path of the data to delete.
-   * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. You should define the
-   *                                                         processing logic when this parameter is null.
-   * @param { AsyncCallback<number> } callback A callback method that indicates data deletion, returning the number of
-   *                                          deleted data records.
+   * @param { string } uri - Indicates the path of the data to delete.
+   * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define the
+   *                                                           processing logic when this parameter is null.
+   * @param { AsyncCallback<number> } callback - A callback method that indicates data deletion, returning the number of
+   *                                             deleted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -271,9 +271,9 @@ export interface DataAbilityHelper {
   /**
    * Deletes one or more data records from the database.
    *
-   * @param { string } uri Indicates the path of the data to delete.
-   * @param { dataAbility.DataAbilityPredicates } [predicates] Indicates filter criteria. You should define the
-   *                                                         processing logic when this parameter is null.
+   * @param { string } uri - Indicates the path of the data to delete.
+   * @param { dataAbility.DataAbilityPredicates } [predicates] - Indicates filter criteria. You should define the
+   *                                                             processing logic when this parameter is null.
    * @returns { Promise<number> } Returns the number of data records deleted.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -284,9 +284,9 @@ export interface DataAbilityHelper {
   /**
    * Deletes one or more data records from the database.
    *
-   * @param { string } uri Indicates the path of the data to delete.
-   * @param { AsyncCallback<number> } callback A callback method that indicates data deletion, returning
-   *                                           the number of deleted data records.
+   * @param { string } uri - Indicates the path of the data to delete.
+   * @param { AsyncCallback<number> } callback - A callback method that indicates data deletion, returning
+   *                                             the number of deleted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -296,12 +296,12 @@ export interface DataAbilityHelper {
   /**
    * Updates data records in the database.
    *
-   * @param { string } uri Indicates the path of data to update.
-   * @param { rdb.ValuesBucket } valuesBucket Indicates the data to update.
-   * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. You should define the
-   *                                                         processing logic when this parameter is null.
-   * @param { AsyncCallback<number> } callback A callback method that indicates data updates, returning the number of
-   *                                           updated data records.
+   * @param { string } uri - Indicates the path of data to update.
+   * @param { rdb.ValuesBucket } valuesBucket - Indicates the data to update.
+   * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define the
+   *                                                           processing logic when this parameter is null.
+   * @param { AsyncCallback<number> } callback - A callback method that indicates data updates, returning the number of
+   *                                             updated data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -316,10 +316,10 @@ export interface DataAbilityHelper {
   /**
    * Updates data records in the database.
    *
-   * @param { string } uri Indicates the path of data to update.
-   * @param { rdb.ValuesBucket } valuesBucket Indicates the data to update.
-   * @param { dataAbility.DataAbilityPredicates } [predicates] Indicates filter criteria. You should define the
-   *                                                         processing logic when this parameter is null.
+   * @param { string } uri - Indicates the path of data to update.
+   * @param { rdb.ValuesBucket } valuesBucket - Indicates the data to update.
+   * @param { dataAbility.DataAbilityPredicates } [predicates] - Indicates filter criteria. You should define the
+   *                                                             processing logic when this parameter is null.
    * @returns { Promise<number> } Returns the number of data records updated.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -330,10 +330,10 @@ export interface DataAbilityHelper {
   /**
    * Updates data records in the database.
    *
-   * @param { string } uri Indicates the path of data to update.
-   * @param { rdb.ValuesBucket } valuesBucket Indicates the data to update.
-   * @param { AsyncCallback<number> } callback A callback method that indicates data updates, returning the number of
-   *                                           updated data records.
+   * @param { string } uri - Indicates the path of data to update.
+   * @param { rdb.ValuesBucket } valuesBucket - Indicates the data to update.
+   * @param { AsyncCallback<number> } callback - A callback method that indicates data updates, returning the number of
+   *                                             updated data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -343,12 +343,12 @@ export interface DataAbilityHelper {
   /**
    * Queries data in the database.
    *
-   * @param { string } uri Indicates the path of data to query.
-   * @param { Array<string> } columns Indicates columns to query. If this parameter is null, all columns are queried.
-   * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. You should define the
-   *                                                         processing logic when this parameter is null.
-   * @param { AsyncCallback<ResultSet> } callback Indicates the callback method for data queries, returning the
-   *                                              number of queried data records.
+   * @param { string } uri - Indicates the path of data to query.
+   * @param { Array<string> } columns - Indicates columns to query. If this parameter is null, all columns are queried.
+   * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define the
+   *                                                           processing logic when this parameter is null.
+   * @param { AsyncCallback<ResultSet> } callback - Indicates the callback method for data queries, returning the
+   *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -363,9 +363,9 @@ export interface DataAbilityHelper {
   /**
    * Queries data in the database.
    *
-   * @param { string } uri Indicates the path of data to query.
-   * @param { AsyncCallback<ResultSet> } callback Indicates the callback method for data queries, returning the
-   *                                              number of queried data records.
+   * @param { string } uri - Indicates the path of data to query.
+   * @param { AsyncCallback<ResultSet> } callback - Indicates the callback method for data queries, returning the
+   *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -375,10 +375,10 @@ export interface DataAbilityHelper {
   /**
    * Queries data in the database.
    *
-   * @param { string } uri Indicates the path of data to query.
-   * @param { Array<string> } columns Indicates columns to query. If this parameter is null, all columns are queried.
-   * @param { AsyncCallback<ResultSet> } callback Indicates the callback method for data queries, returning the
-   *                                              number of queried data records.
+   * @param { string } uri - Indicates the path of data to query.
+   * @param { Array<string> } columns - Indicates columns to query. If this parameter is null, all columns are queried.
+   * @param { AsyncCallback<ResultSet> } callback - Indicates the callback method for data queries, returning the
+   *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -388,11 +388,11 @@ export interface DataAbilityHelper {
   /**
    * Queries data in the database.
    *
-   * @param { string } uri Indicates the path of data to query.
-   * @param { dataAbility.DataAbilityPredicates } predicates Indicates filter criteria. You should define the
-   *                                                         processing logic when this parameter is null.
-   * @param { AsyncCallback<ResultSet> } callback Indicates the callback method for data queries, returning the
-   *                                              number of queried data records.
+   * @param { string } uri - Indicates the path of data to query.
+   * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define the
+   *                                                           processing logic when this parameter is null.
+   * @param { AsyncCallback<ResultSet> } callback - Indicates the callback method for data queries, returning the
+   *                                                number of queried data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -402,10 +402,10 @@ export interface DataAbilityHelper {
   /**
    * Queries data in the database.
    *
-   * @param { string } uri Indicates the path of data to query.
-   * @param { Array<string> } [columns] Indicates columns to query. If this parameter is null, all columns are queried.
-   * @param { dataAbility.DataAbilityPredicates } [predicates] Indicates filter criteria. You should define the
-   *                                                         processing logic when this parameter is null.
+   * @param { string } uri - Indicates the path of data to query.
+   * @param { Array<string> } [columns] - Indicates columns to query. If this parameter is null, all columns are queried.
+   * @param { dataAbility.DataAbilityPredicates } [predicates] - Indicates filter criteria. You should define the
+   *                                                             processing logic when this parameter is null.
    * @returns { Promise<ResultSet> } Returns the query result {@link ResultSet}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -416,12 +416,12 @@ export interface DataAbilityHelper {
   /**
    * Calls the extended API of the DataAbility. This method uses a promise to return the result.
    *
-   * @param { string } uri URI of the Data ability. Example: "dataability:///com.example.xxx.xxxx"
-   * @param { string } method Indicates the method to call.
-   * @param { string } arg Indicates the parameter of the String type.
-   * @param { PacMap } extras Indicates the parameter of the PacMap type.
-   * @param { AsyncCallback<PacMap> } callback A callback method that indicates a data operation and returns the
-   *                                           result of the operation.
+   * @param { string } uri - URI of the Data ability. Example: "dataability:///com.example.xxx.xxxx"
+   * @param { string } method - Indicates the method to call.
+   * @param { string } arg - Indicates the parameter of the String type.
+   * @param { PacMap } extras - Indicates the parameter of the PacMap type.
+   * @param { AsyncCallback<PacMap> } callback - A callback method that indicates a data operation and returns the
+   *                                             result of the operation.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -431,10 +431,10 @@ export interface DataAbilityHelper {
   /**
    * Calls the extended API of the DataAbility. This method uses a promise to return the result.
    *
-   * @param { string } uri URI of the Data ability. Example: "dataability:///com.example.xxx.xxxx"
-   * @param { string } method Indicates the method to call.
-   * @param { string } arg Indicates the parameter of the String type.
-   * @param { PacMap } extras Indicates the parameter of the PacMap type.
+   * @param { string } uri - URI of the Data ability. Example: "dataability:///com.example.xxx.xxxx"
+   * @param { string } method - Indicates the method to call.
+   * @param { string } arg - Indicates the parameter of the String type.
+   * @param { PacMap } extras - Indicates the parameter of the PacMap type.
    * @returns { Promise<PacMap> } Returns the query result {@link PacMap}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -445,12 +445,12 @@ export interface DataAbilityHelper {
   /**
    * Queries data in the database.
    *
-   * @param { string } uri Indicates the path of data to query.
-   * @param { Array<DataAbilityOperation> } operations Indicates the data operation list, which can contain multiple
-   *                                                   operations on the database.
-   * @param { AsyncCallback<Array<DataAbilityResult>> } callback Callback method indicating batch operations,
-   *                                                             returning the result of each operation in the
-   *                                                             DataAbilityResult array.
+   * @param { string } uri - Indicates the path of data to query.
+   * @param { Array<DataAbilityOperation> } operations - Indicates the data operation list, which can contain multiple
+   *                                                     operations on the database.
+   * @param { AsyncCallback<Array<DataAbilityResult>> } callback - Callback method indicating batch operations,
+   *                                                               returning the result of each operation in the
+   *                                                               DataAbilityResult array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @since 7
    */
@@ -463,9 +463,9 @@ export interface DataAbilityHelper {
   /**
    * Queries data in the database.
    *
-   * @param { string } uri Indicates the path of data to query.
-   * @param { Array<DataAbilityOperation> } operations Indicates the data operation list, which can contain multiple
-   *                                                   operations on the database.
+   * @param { string } uri - Indicates the path of data to query.
+   * @param { Array<DataAbilityOperation> } operations - Indicates the data operation list, which can contain multiple
+   *                                                     operations on the database.
    * @returns { Promise<Array<DataAbilityResult>> } Returns the result of each operation,
    *                                                in array {@link DataAbilityResult}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel

@@ -217,7 +217,7 @@ declare namespace abilityManager {
    *
    * @param { number } missionId - The missionId of target ability.
    * @param { AsyncCallback<{ object }> } callback - The callback is used to return the params of sharing
-   *                                                              data and result code.
+   *                                                 data and result code.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.

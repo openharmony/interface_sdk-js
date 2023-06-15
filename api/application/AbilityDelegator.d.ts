@@ -632,7 +632,7 @@ export interface AbilityDelegator {
    * Prints log information to the unit testing console.
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
-   * @param { string } msg Log information
+   * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -641,7 +641,7 @@ export interface AbilityDelegator {
    * Prints log information to the unit testing console.
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
-   * @param { string } msg Log information
+   * @param { string } msg - Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -653,7 +653,7 @@ export interface AbilityDelegator {
    * Prints log information to the unit testing console.
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
-   * @param { string } msg Log information
+   * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -662,7 +662,7 @@ export interface AbilityDelegator {
    * Prints log information to the unit testing console.
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
-   * @param { string } msg Log information
+   * @param { string } msg - Log information
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -694,7 +694,7 @@ export interface AbilityDelegator {
   /**
    * Execute the given command in the aa tools side.
    *
-   * @param { string } cmd Shell command
+   * @param { string } cmd - Shell command
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -704,8 +704,8 @@ export interface AbilityDelegator {
   /**
    * Execute the given command in the aa tools side.
    *
-   * @param { string } cmd Shell command
-   * @param { number } timeoutSecs Timeout, in seconds
+   * @param { string } cmd - Shell command
+   * @param { number } timeoutSecs - Timeout, in seconds
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -715,8 +715,8 @@ export interface AbilityDelegator {
   /**
    * Execute the given command in the aa tools side.
    *
-   * @param { string } cmd Shell command
-   * @param { number } [timeoutSecs] Timeout, in seconds
+   * @param { string } cmd - Shell command
+   * @param { number } [timeoutSecs] - Timeout, in seconds
    * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8

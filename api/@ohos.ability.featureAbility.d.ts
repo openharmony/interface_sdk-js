@@ -37,7 +37,7 @@ declare namespace featureAbility {
   /**
    * Obtain the want sent from the source ability.
    *
-   * @param { AsyncCallback<Want> } callback Indicates the ability to start.
+   * @param { AsyncCallback<Want> } callback - Indicates the ability to start.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 6
@@ -57,8 +57,8 @@ declare namespace featureAbility {
   /**
    * Starts a new ability.
    *
-   * @param { StartAbilityParameter } parameter Indicates the ability to start.
-   * @param { AsyncCallback<number> } callback Returns the result of starting Ability in the form of callback.
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
+   * @param { AsyncCallback<number> } callback - Returns the result of starting Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 6
@@ -68,7 +68,7 @@ declare namespace featureAbility {
   /**
    * Starts a new ability.
    *
-   * @param { StartAbilityParameter } parameter Indicates the ability to start.
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
    * @returns { Promise<number> } The promise form returns the Ability result
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -89,8 +89,8 @@ declare namespace featureAbility {
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
    *
-   * @param { StartAbilityParameter } parameter Indicates the ability to start.
-   * @param { AsyncCallback<AbilityResult> } callback Returns the result of starting Ability in the form of callback.
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
+   * @param { AsyncCallback<AbilityResult> } callback - Returns the result of starting Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -100,7 +100,7 @@ declare namespace featureAbility {
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
    *
-   * @param { StartAbilityParameter } parameter Indicates the ability to start.
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
    * @returns { Promise<AbilityResult> } Returns the {@link AbilityResult}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -112,8 +112,8 @@ declare namespace featureAbility {
    * Sets the result code and data to be returned by this Page ability to the caller
    * and destroys this Page ability.
    *
-   * @param { AbilityResult } parameter Indicates the result to return.
-   * @param { AsyncCallback<void> } callback Return the result of stopping Ability in the form of callback.
+   * @param { AbilityResult } parameter - Indicates the result to return.
+   * @param { AsyncCallback<void> } callback - Return the result of stopping Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -124,7 +124,7 @@ declare namespace featureAbility {
    * Sets the result code and data to be returned by this Page ability to the caller
    * and destroys this Page ability.
    *
-   * @param { AbilityResult } parameter Indicates the result to return.
+   * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -135,7 +135,7 @@ declare namespace featureAbility {
   /**
    * Destroys this Page ability.
    *
-   * @param { AsyncCallback<void> } callback Returns the stop ability result in the form of a callback.
+   * @param { AsyncCallback<void> } callback - Returns the stop ability result in the form of a callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -155,7 +155,7 @@ declare namespace featureAbility {
   /**
    * Obtains the dataAbilityHelper.
    *
-   * @param { string } uri Indicates the path of the file to open.
+   * @param { string } uri - Indicates the path of the file to open.
    * @returns { DataAbilityHelper } Returns the dataAbilityHelper.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -166,8 +166,8 @@ declare namespace featureAbility {
   /**
    * Checks whether the main window of this ability has window focus.
    *
-   * @param { AsyncCallback<boolean> } callback Returns the result in the form of callback.If this ability currently
-   *                                            has window focus,return true otherwise,return false.
+   * @param { AsyncCallback<boolean> } callback - Returns the result in the form of callback.If this ability currently
+   *                                              has window focus,return true otherwise,return false.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -188,8 +188,8 @@ declare namespace featureAbility {
   /**
    * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
    *
-   * @param { Want } request The element name of the service ability
-   * @param { ConnectOptions } options The remote object instance
+   * @param { Want } request - The element name of the service ability
+   * @param { ConnectOptions } options - The remote object instance
    * @returns { number } Returns the number code of the ability connected
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -200,8 +200,8 @@ declare namespace featureAbility {
   /**
    * The callback interface was connect successfully.
    *
-   * @param { number } connection The number code of the ability connected
-   * @param { AsyncCallback<void> } callback Returns the disconnection result in the form of callback.
+   * @param { number } connection - The number code of the ability connected
+   * @param { AsyncCallback<void> } callback - Returns the disconnection result in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -211,7 +211,7 @@ declare namespace featureAbility {
   /**
    * The callback interface was connect successfully.
    *
-   * @param { number } connection The number code of the ability connected
+   * @param { number } connection - The number code of the ability connected
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -222,8 +222,8 @@ declare namespace featureAbility {
   /**
    * Obtains the window corresponding to the current ability.
    *
-   * @param { AsyncCallback<window.Window> } callback Returns the window corresponding to the current ability
-   *                                                  in the form of callback.
+   * @param { AsyncCallback<window.Window> } callback - Returns the window corresponding to the current ability
+   *                                                    in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7

@@ -521,7 +521,8 @@ declare namespace formHost {
    * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the RunningFormInfo.
+   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the
+   *                                                                      RunningFormInfo.
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -533,6 +534,7 @@ declare namespace formHost {
    * @since 10
    */
   function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+
   /**
    * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
    *
@@ -663,7 +665,8 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'formAdd' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
    * @param { string } [bundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -672,13 +675,15 @@ declare namespace formHost {
    * @since 10
    */
   function on(type: 'formAdd', observerCallback: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+
   /**
    * Cancels listening to the event of add form.
    * <p>You can use this method to cancel listening to the event of add form.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'formAdd' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running form info.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
    * @param { string } [bundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -694,7 +699,8 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'formRemove' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
    * @param { string } [bundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -710,7 +716,8 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'formRemove' } type - Indicates event type.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running form info.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
    * @param { string } [bundleName] - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -723,6 +730,7 @@ declare namespace formHost {
   /**
    * Listens to the event of notifyVisible type change.
    * <p>You can use this method to listen to the event of notifyVisible type change.</p>
+   *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'notifyVisible' } type - Indicates event type.
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
@@ -734,12 +742,16 @@ declare namespace formHost {
    * @systemapi
    * @since 10
    */
-  function on(type: 'notifyVisible',
-    observerCallback: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+  function on(
+    type: 'notifyVisible',
+    observerCallback: Callback<Array<formInfo.RunningFormInfo>>,
+    hostBundleName?: string
+  ): void;
 
   /**
    * Listens to the event of notifyInvisible type change.
    * <p>You can use this method to listen to the event of notifyInvisible type change.</p>
+   *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'notifyInvisible' } type - Indicates event type.
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
@@ -751,29 +763,37 @@ declare namespace formHost {
    * @systemapi
    * @since 10
    */
-  function on(type: 'notifyInvisible',
-    observerCallback: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+  function on(
+    type: 'notifyInvisible',
+    observerCallback: Callback<Array<formInfo.RunningFormInfo>>,
+    hostBundleName?: string
+  ): void;
 
- /**
-  * Cancels listening to the event of notifyVisible type change.
-  * <p>You can use this method to cancel listening to the event of notifyVisible type change.</p>
-  * @permission ohos.permission.REQUIRE_FORM
-  * @param { 'notifyVisible' } type - Indicates event type.
-  * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
-  *                                                                  the running form info.
-  * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-  * @throws { BusinessError } 202 - The application is not a system application.
-  * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-  * @syscap SystemCapability.Ability.Form
-  * @systemapi
-  * @since 10
-  */
-  function off(type: 'notifyVisible',
-    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+  /**
+   * Cancels listening to the event of notifyVisible type change.
+   * <p>You can use this method to cancel listening to the event of notifyVisible type change.</p>
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { 'notifyVisible' } type - Indicates event type.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                  the running form info.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 10
+   */
+  function off(
+    type: 'notifyVisible',
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>,
+    hostBundleName?: string
+  ): void;
 
   /**
    * Cancels listening to the event of notifyInvisible type change.
    * <p>You can use this method to cancel listening to the event of notifyInvisible type change.</p>
+   *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'notifyInvisible' } type - Indicates event type.
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
@@ -785,8 +805,11 @@ declare namespace formHost {
    * @systemapi
    * @since 10
    */
-  function off(type: 'notifyInvisible',
-    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
+  function off(
+    type: 'notifyInvisible',
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>,
+    hostBundleName?: string
+  ): void;
 
   /**
    * Notify form is Visible
@@ -997,6 +1020,7 @@ declare namespace formHost {
    * @since 10
    */
   function acquireFormData(formId: string): Promise<{ [key: string]: Object }>;
+
   /**
    * Obtains the RunningFormInfo objects by FormProviderFilter.
    *

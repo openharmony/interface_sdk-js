@@ -442,8 +442,8 @@ export default class UIAbility extends Ability {
   /**
    * Called back when an ability prepares to save.
    *
-   * @param { AbilityConstant.StateType } reason state type when save.
-   * @param { object } wantParam Indicates the want parameter.
+   * @param { AbilityConstant.StateType } reason - state type when save.
+   * @param { object } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnSaveResult } agree with the current UIAbility status or not.return 0 if ability
    *                                           agrees to save data successfully, otherwise errcode.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -464,8 +464,9 @@ export default class UIAbility extends Ability {
 
   /**
    * Called back when an ability prepare to terminate.
+   *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
-   * @returns Returns {@code true} if the ability need to top terminating; returns {@code false} if the
+   * @returns { boolean } Returns {@code true} if the ability need to top terminating; returns {@code false} if the
    *          ability need to terminate.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
