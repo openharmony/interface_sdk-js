@@ -905,18 +905,11 @@ declare namespace audio {
     PRIVACY_TYPE_PUBLIC = 0,
 
     /**
-     * Privacy type that stream can be only captured by system.
-     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
-     * @since 10
-     */
-    PRIVACY_TYPE_PROTECTED = 1,
-
-    /**
      * Privacy type that stream can not be captured.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
      */
-    PRIVACY_TYPE_PRIVATE = 2,
+    PRIVACY_TYPE_PRIVATE = 1,
   }
 
   /**
