@@ -44,6 +44,14 @@ declare class SearchController {
    * @since 10
    */
   caretPosition(value: number): void;
+
+  /**
+   * Exit edit state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  stopEditing(): void;
 }
 
 /**
@@ -192,7 +200,7 @@ interface CaretStyle {
  * @crossplatform
  * @since 10
  */
-interface SearchButtonOption {
+interface SearchButtonOptions {
   /**
    * Set the SearchButton fontSize
    * @type { Length }
@@ -330,6 +338,26 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onChange(callback: (value: string) => void): SearchAttribute;
 
   /**
+   * Called when the text selection changes.
+   * @param { (selectionStart: number, selectionEnd: number) => void } callback - callback of the listened event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): SearchAttribute;
+
+  /**
+   * Called when the content scrolls.
+   * @param { (totalOffsetX: number, totalOffsetY: number) => void } callback - callback of the listened event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): SearchAttribute;
+
+  /**
    * Called when using the Clipboard menu
    * @since 8
    */
@@ -394,6 +422,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 10
    */
   enableKeyboardOnFocus(value: boolean): SearchAttribute;
+
+  /**
+   * Controls whether the selection menu pops up.
+   * @param { boolean } value
+   * @default false
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  selectionMenuHidden(value: boolean): SearchAttribute;
 }
 
 /**
