@@ -488,7 +488,7 @@ declare namespace inputDevice {
   /**
    * Setting the Keyboard Key Repetition Rate.
    *
-   * @param { number } rate - Key repetition rate, the unit is ms.
+   * @param { number } rate - Repetition rate, the unit is ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -499,7 +499,7 @@ declare namespace inputDevice {
   /**
    * Setting the Keyboard Key Repetition Rate.
    *
-   * @param { number } rate - Key repetition rate, the unit is ms.
+   * @param { number } rate - Repetition rate, the unit is ms.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
