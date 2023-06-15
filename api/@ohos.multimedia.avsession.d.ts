@@ -33,7 +33,7 @@ declare namespace avSession {
    * @param { AVSessionType } type - The type of session {@link AVSessionType}
    * @param { AsyncCallback<AVSession> } callback - async callback for AVSession.
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
@@ -46,7 +46,7 @@ declare namespace avSession {
    * @param { AVSessionType } type - The type of session {@link AVSessionType}
    * @returns { Promise<AVSession> } Promise for AVSession
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
    */
@@ -57,7 +57,7 @@ declare namespace avSession {
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -69,7 +69,7 @@ declare namespace avSession {
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
    * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -83,7 +83,7 @@ declare namespace avSession {
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
    * @since 10
@@ -97,7 +97,7 @@ declare namespace avSession {
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
    * @since 10
@@ -112,8 +112,8 @@ declare namespace avSession {
    * If provided 'default', the system will create a default controller, Used to control the system default session
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -128,8 +128,8 @@ declare namespace avSession {
    * @returns { Promise<AVSessionController> } Promise for AVSessionController
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -145,9 +145,9 @@ declare namespace avSession {
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-   * @throws { BusinessError } 6600104 - {@link #ERR_CODE_REMOTE_CONNECTION_ERR} - remote connection error
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @throws { BusinessError } 6600104 - The remote session connection failed.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -163,9 +163,9 @@ declare namespace avSession {
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-   * @throws { BusinessError } 6600104 - {@link #ERR_CODE_REMOTE_CONNECTION_ERR} - remote connection error
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @throws { BusinessError } 6600104 - The remote session  connection failed.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -211,40 +211,96 @@ declare namespace avSession {
   }
 
   /**
-   * Register system session changed callback
+   * Register session create callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { string } type - Registration Type, session creation, deletion or top priority session change
-   * @param { function } callback - Used to handle ('sessionCreate' | 'sessionDestroy' | 'topSessionChange' command)
+   * @param { 'sessionCreate' } type - Registration Type, session creation
+   * @param { function } callback - Used to handle ('sessionCreate' command)
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
    */
-  function on(type: 'sessionCreate' | 'sessionDestroy' | 'topSessionChange', callback: (session: AVSessionDescriptor) => void): void;
+  function on(type: 'sessionCreate', callback: (session: AVSessionDescriptor) => void): void;
 
   /**
-   * Unregister system session changed callback
+   * Register session destroy callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { string } type - Registration Type, session creation, deletion or top priority session change
-   * @param { function } callback - Used to unregister listener for ('sessionCreate' | 'sessionDestroy' | 'topSessionChange') command
+   * @param { 'sessionDestroy' } type - Registration Type, session deletion
+   * @param { function } callback - Used to handle ('sessionDestroy' command)
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
    */
-  function off(type: 'sessionCreate' | 'sessionDestroy' | 'topSessionChange', callback?: (session: AVSessionDescriptor) => void): void;
+  function on(type: 'sessionDestroy', callback: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Register top session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'topSessionChange' } type - Registration Type, top priority session change
+   * @param { function } callback - Used to handle ('topSessionChange' command)
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function on(type: 'topSessionChange', callback: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Unregister session create callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'sessionCreate' } type - Registration Type, session creation
+   * @param { function } callback - Used to unregister listener for ('sessionCreate') command
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function off(type: 'sessionCreate', callback?: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Unregister session destroy callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'sessionDestroy' } type - Registration Type, session deletion
+   * @param { function } callback - Used to unregister listener for ('sessionDestroy') command
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function off(type: 'sessionDestroy', callback?: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Unregister top session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'topSessionChange' } type - Registration Type, top priority session change
+   * @param { function } callback - Used to unregister listener for ('topSessionChange') command
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function off(type: 'topSessionChange', callback?: (session: AVSessionDescriptor) => void): void;
 
   /**
    * Register Session service death callback, notifying the application to clean up resources.
-   * @param { string } type - Registration Type
+   * @param { 'sessionServiceDie' } type - Registration Type
    * @param { function } callback - Used to handle ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
    * @since 9
@@ -253,11 +309,11 @@ declare namespace avSession {
 
   /**
    * Unregister Session service death callback, notifying the application to clean up resources.
-   * @param { string } type - Registration Type
+   * @param { 'sessionServiceDie' } type - Registration Type
    * @param { function } callback -  Used to unregister listener for ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
    * @since 9
@@ -271,8 +327,8 @@ declare namespace avSession {
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -286,8 +342,8 @@ declare namespace avSession {
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -301,9 +357,9 @@ declare namespace avSession {
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
-   * @throws { BusinessError } 6600107 - {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600105 - Invalid session command.
+   * @throws { BusinessError } 6600107 - Too many commands or events.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -317,9 +373,9 @@ declare namespace avSession {
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
-   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @throws { BusinessError } 6600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
-   * @throws { BusinessError } 6600107 - {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600105 - Invalid session command.
+   * @throws { BusinessError } 6600107 - Too many commands or events.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -352,8 +408,8 @@ declare namespace avSession {
      * @param { AVMetadata } data {@link AVMetadata}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -365,8 +421,8 @@ declare namespace avSession {
      * @param { AVMetadata } data {@link AVMetadata}
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -377,8 +433,8 @@ declare namespace avSession {
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -389,8 +445,8 @@ declare namespace avSession {
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -401,8 +457,8 @@ declare namespace avSession {
      * @param { WantAgent } ability - The WantAgent for launch the ability
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -413,8 +469,8 @@ declare namespace avSession {
      * @param { WantAgent } ability - The WantAgent for launch the ability
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -423,11 +479,11 @@ declare namespace avSession {
     /**
      * Dispatch the session event of this session.
      * @param { string } event - Session event name to dispatch
-     * @param { {[key: string]: Object} } args - The parameters of session event
+     * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void>} callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -436,11 +492,11 @@ declare namespace avSession {
     /**
      * Dispatch the session event of this session.
      * @param { string } event - Session event name to dispatch
-     * @param { {[key: string]: Object} } args - The parameters of session event
+     * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -451,8 +507,8 @@ declare namespace avSession {
      * @param { Array<AVQueueItem> } items - An array of the AVQueueItem
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -463,8 +519,8 @@ declare namespace avSession {
      * @param { Array<AVQueueItem> } items - An array of the AVQueueItem
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -475,8 +531,8 @@ declare namespace avSession {
      * @param { string } title - The name of the playlist
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -487,8 +543,8 @@ declare namespace avSession {
      * @param { string } title - The name of the playlist
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -496,11 +552,11 @@ declare namespace avSession {
 
     /**
      * Set the custom media packets for this session.
-     * @param { {[key: string]: Object} } extras - The custom media packets
+     * @param { object } extras - The custom media packets
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -508,11 +564,11 @@ declare namespace avSession {
 
     /**
      * Set the custom media packets for this session.
-     * @param { {[key: string]: Object} } extras - The custom media packets
+     * @param { object } extras - The custom media packets
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -521,8 +577,8 @@ declare namespace avSession {
     /**
      * Get the current session's own controller
      * @param { AsyncCallback<AVSessionController> } callback - async callback for the AVSessionController.
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -531,8 +587,8 @@ declare namespace avSession {
     /**
      * Get the current session's own controller
      * @returns { Promise<AVSessionController> } Promise for the AVSessionController
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -541,8 +597,8 @@ declare namespace avSession {
     /**
      * Get output device information
      * @param { AsyncCallback<OutputDeviceInfo> } callback - async callback for the OutputDeviceInfo.
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -551,50 +607,230 @@ declare namespace avSession {
     /**
      * Get output device information
      * @returns { Promise<OutputDeviceInfo> } Promise for the OutputDeviceInfo
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     getOutputDevice(): Promise<OutputDeviceInfo>;
 
     /**
-     * Register or unregister playback command callback.
+     * Register play command callback.
      * As long as it is registered, it means that the ability supports this command.
      * If you cancel the callback, you need to call off {@link off}
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { string } type - Command to register.
-     * @param { function } callback - Used to handle ('play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind') command
+     * @param { 'play' } type - Command to register.
+     * @param { function } callback - Used to handle ('play') command
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    on(type: 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind', callback: () => void): void;
+    on(type: 'play', callback: () => void): void;
 
     /**
-     * Unregister playback command callback.
+     * Register pause command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
      * When canceling the callback, need to update the supported commands list.
-     * @param { string } type - Command to register.
-     * @param { function } callback - Used to handle ('play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind') command
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'pause' } type - Command to register.
+     * @param { function } callback - Used to handle ('pause') command
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    off(type: 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind', callback?: () => void): void;
+    on(type: 'pause', callback: () => void): void;
+
+    /**
+     * Register stop command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'stop' } type - Command to register.
+     * @param { function } callback - Used to handle ('stop') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'stop', callback: () => void): void;
+
+    /**
+     * Register playNext command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'playNext' } type - Command to register.
+     * @param { function } callback - Used to handle ('playNext') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'playNext', callback: () => void): void;
+
+    /**
+     * Register playPrevious command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'playPrevious' } type - Command to register.
+     * @param { function } callback - Used to handle ('playPrevious') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'playPrevious', callback: () => void): void;
+
+    /**
+     * Register fastForward command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'fastForward' } type - Command to register.
+     * @param { function } callback - Used to handle ('fastForward') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'fastForward', callback: () => void): void;
+
+    /**
+     * Register rewind command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'rewind' } type - Command to register.
+     * @param { function } callback - Used to handle ('rewind') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'rewind', callback: () => void): void;
+
+    /**
+     * Unregister play command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'play' } type - Command to register.
+     * @param { function } callback - Used to handle ('play') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'play', callback?: () => void): void;
+
+    /**
+     * Unregister pause command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'pause' } type - Command to register.
+     * @param { function } callback - Used to handle ('pause') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'pause', callback?: () => void): void;
+
+    /**
+     * Unregister stop command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'stop' } type - Command to register.
+     * @param { function } callback - Used to handle ('stop') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'stop', callback?: () => void): void;
+
+    /**
+     * Unregister playNext command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playNext' } type - Command to register.
+     * @param { function } callback - Used to handle ('playNext') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'playNext', callback?: () => void): void;
+
+    /**
+     * Unregister playPrevious command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playPrevious' } type - Command to register.
+     * @param { function } callback - Used to handle ('playPrevious') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'playPrevious', callback?: () => void): void;
+
+    /**
+     * Unregister fastForward command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'fastForward' } type - Command to register.
+     * @param { function } callback - Used to handle ('fastForward') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'fastForward', callback?: () => void): void;
+
+    /**
+     * Unregister rewind command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'rewind' } type - Command to register.
+     * @param { function } callback - Used to handle ('rewind') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'rewind', callback?: () => void): void;
 
     /**
      * Register seek command callback
-     * @param { string } type - Registration Type 'seek'
+     * @param { 'seek' } type - Registration Type 'seek'
      * @param { function } callback - Used to handle seek command.The callback provides the seek time(ms)
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -602,11 +838,11 @@ declare namespace avSession {
 
     /**
      * Unregister seek command callback
-     * @param { string } type - Registration Type 'seek'
+     * @param { 'seek' } type - Registration Type 'seek'
      * @param { function } callback - Used to handle seek command.The callback provides the seek time(ms)
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -614,11 +850,11 @@ declare namespace avSession {
 
     /**
      * Register setSpeed command callback
-     * @param { string } type - Registration Type 'setSpeed'
+     * @param { 'setSpeed' } type - Registration Type 'setSpeed'
      * @param { function } callback - Used to handle setSpeed command.The callback provides the speed value
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -626,11 +862,11 @@ declare namespace avSession {
 
     /**
      * Unregister setSpeed command callback
-     * @param { string } type - Registration Type 'setSpeed'
+     * @param { 'setSpeed' } type - Registration Type 'setSpeed'
      * @param { function } callback - Used to handle setSpeed command.The callback provides the speed value
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -638,11 +874,11 @@ declare namespace avSession {
 
     /**
      * Register setLoopMode command callback
-     * @param { string } type - Registration Type 'setLoopMode'
+     * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
      * @param { function } callback - Used to handle setLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -650,11 +886,11 @@ declare namespace avSession {
 
     /**
      * Unregister setLoopMode command callback
-     * @param { string } type - Registration Type 'setLoopMode'
+     * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
      * @param { function } callback - Used to handle setLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -662,12 +898,12 @@ declare namespace avSession {
 
     /**
      * Register toggle favorite command callback
-     * @param { string } type - Registration Type 'toggleFavorite'
+     * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
      * the assetId for which the favorite status needs to be switched.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -675,12 +911,12 @@ declare namespace avSession {
 
     /**
      * Unregister toggle favorite command callback
-     * @param { string } type - Registration Type 'toggleFavorite'
+     * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
      * the assetId for which the favorite status needs to be switched.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -688,11 +924,11 @@ declare namespace avSession {
 
     /**
      * Register media key handling callback
-     * @param { string } type - Registration Type
+     * @param { 'handleKeyEvent' } type - Registration Type
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -700,11 +936,11 @@ declare namespace avSession {
 
     /**
      * Unregister media key handling callback
-     * @param { string } type - Registration Type
+     * @param { 'handleKeyEvent' } type - Registration Type
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -712,7 +948,7 @@ declare namespace avSession {
 
     /**
      * Register session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -725,7 +961,7 @@ declare namespace avSession {
 
     /**
      * Unregister session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -738,12 +974,12 @@ declare namespace avSession {
 
     /**
      * Register session custom command change callback
-     * @param { string } type - Registration Type
+     * @param { 'commonCommand' } type - Registration Type
      * @param { function } callback - Used to handle event when the common command is received
      * The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -751,12 +987,12 @@ declare namespace avSession {
 
     /**
      * Unregister session custom command change callback
-     * @param { string } type - Registration Type
+     * @param { 'commonCommand' } type - Registration Type
      * @param { function } callback - Used to cancel a specific listener
      * The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -764,12 +1000,12 @@ declare namespace avSession {
 
     /**
      * Register the item to play from the playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'skipToQueueItem' } type - Registration Type
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -777,12 +1013,12 @@ declare namespace avSession {
 
     /**
      * Unregister the item to play from the playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'skipToQueueItem' } type - Registration Type
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -791,8 +1027,8 @@ declare namespace avSession {
     /**
      * Activate the session, indicating that the session can accept control commands
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the session is activated.
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -801,8 +1037,8 @@ declare namespace avSession {
     /**
      * Activate the session, indicating that the session can accept control commands
      * @returns { Promise<void> } void result promise when executed successfully 
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -811,8 +1047,8 @@ declare namespace avSession {
     /**
      * Deactivate the session, indicating that the session not ready to accept control commands
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the session is deactivated.
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -821,8 +1057,8 @@ declare namespace avSession {
     /**
      * Deactivate the session, indicating that the session not ready to accept control commands
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -831,8 +1067,8 @@ declare namespace avSession {
     /**
      * Destroy this session, the server will clean up the session resources
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -841,8 +1077,8 @@ declare namespace avSession {
     /**
      * Destroy this session, the server will clean up the session resources
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1339,9 +1575,9 @@ declare namespace avSession {
     /**
      * Get the playback status of the current session
      * @param { AsyncCallback<AVPlaybackState> } callback - The triggered asyncCallback when (getAVPlaybackState).
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1350,9 +1586,9 @@ declare namespace avSession {
     /**
      * Get the playback status of the current session
      * @returns { Promise<AVPlaybackState> } (AVPlaybackState) returned through promise
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1361,9 +1597,9 @@ declare namespace avSession {
     /**
      * Get the metadata of the current session
      * @param { AsyncCallback<AVMetadata> } callback - The triggered asyncCallback when (getAVMetadata).
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1372,9 +1608,9 @@ declare namespace avSession {
     /**
      * Get the metadata of the current session
      * @returns { Promise<AVMetadata> } (AVMetadata) returned through promise
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1383,9 +1619,9 @@ declare namespace avSession {
     /**
      * Get the name of the playlist of the current session
      * @param { AsyncCallback<string> } callback - The triggered asyncCallback when (getAVQueueTitle).
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1394,9 +1630,9 @@ declare namespace avSession {
     /**
      * Get the name of the playlist of the current session
      * @returns { Promise<string> } (string) returned through promise
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1405,9 +1641,9 @@ declare namespace avSession {
     /**
      * Get the playlist of the current session
      * @param { AsyncCallback<Array<AVQueueItem>> } callback - The triggered asyncCallback when (getAVQueueItems).
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1416,9 +1652,9 @@ declare namespace avSession {
     /**
      * Get the playlist of the current session
      * @returns { Promise<Array<AVQueueItem>> } (Array<AVQueueItem>) returned through promise
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1428,9 +1664,9 @@ declare namespace avSession {
      * Set the item in the playlist to be played
      * @param { number } itemId - The serial number of the item to be played
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1440,9 +1676,9 @@ declare namespace avSession {
      * Set the item in the playlist to be played
      * @param { number } itemId - The serial number of the item to be played
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1451,8 +1687,8 @@ declare namespace avSession {
     /**
      * Get output device information
      * @param { AsyncCallback<OutputDeviceInfo> } callback - The triggered asyncCallback when (getOutputDevice).
-     * @throws { BusinessError } 600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 600101 - Session service exception.
+     * @throws { BusinessError } 600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1461,8 +1697,8 @@ declare namespace avSession {
     /**
      * Get output device information
      * @returns { Promise<OutputDeviceInfo> } (OutputDeviceInfo) returned through promise
-     * @throws { BusinessError } 600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 600101 - Session service exception.
+     * @throws { BusinessError } 600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1473,11 +1709,11 @@ declare namespace avSession {
      * @param { KeyEvent } event - The KeyEvent
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @throws { BusinessError } 600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
-     * @throws { BusinessError } 600106 - {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
+     * @throws { BusinessError } 600101 - Session service exception.
+     * @throws { BusinessError } 600102 - The session does not exist.
+     * @throws { BusinessError } 600103 - The session controller does not exist.
+     * @throws { BusinessError } 600105 - Invalid session command.
+     * @throws { BusinessError } 600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1488,11 +1724,11 @@ declare namespace avSession {
      * @param { KeyEvent } event - The KeyEvent
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @throws { BusinessError } 600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
-     * @throws { BusinessError } 600106 - {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
+     * @throws { BusinessError } 600101 - Session service exception.
+     * @throws { BusinessError } 600102 - The session does not exist.
+     * @throws { BusinessError } 600103 - The session controller does not exist.
+     * @throws { BusinessError } 600105 - Invalid session command.
+     * @throws { BusinessError } 600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1501,9 +1737,9 @@ declare namespace avSession {
     /**
      * Get the {@link WantAgent} of this session that can launch the session ability
      * @param { AsyncCallback<WantAgent> } callback - The asyncCallback triggered when getting the WantAgent.
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1512,9 +1748,9 @@ declare namespace avSession {
     /**
      * Get the {@link WantAgent} of this session that can launch the session ability
      * @returns { Promise<WantAgent> } WantAgent promise
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1524,8 +1760,8 @@ declare namespace avSession {
      * Get the adjusted playback position. The time automatically calculated by the system
      * taking into account factors such as playback status, playback speed, and application update time.
      * @returns { number } current playback position in ms.Note that the returns value of each call will be different.
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1534,9 +1770,9 @@ declare namespace avSession {
     /**
      * Check if the current session is active
      * @param { AsyncCallback<boolean> } callback - The triggered asyncCallback when (isActive).
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1545,9 +1781,9 @@ declare namespace avSession {
     /**
      * Check if the current session is active
      * @returns { Promise<boolean> } boolean promise
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1556,8 +1792,8 @@ declare namespace avSession {
     /**
      * Destroy the server controller
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1566,8 +1802,8 @@ declare namespace avSession {
     /**
      * Destroy the server controller
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1576,9 +1812,9 @@ declare namespace avSession {
     /**
      * Get commands supported by the current session
      * @param { AsyncCallback<Array<AVControlCommandType>> } callback - The triggered asyncCallback when (getValidCommands).
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1587,9 +1823,9 @@ declare namespace avSession {
     /**
      * Get commands supported by the current session
      * @returns { Promise<Array<AVControlCommandType>> } array of AVControlCommandType promise
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1600,12 +1836,12 @@ declare namespace avSession {
      * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @throws { BusinessError } 6600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
-     * @throws { BusinessError } 6600106 - {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
-     * @throws { BusinessError } 6600107 - {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1616,12 +1852,12 @@ declare namespace avSession {
      * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @throws { BusinessError } 6600105 - {@link #ERR_CODE_COMMAND_INVALID} - command not supported
-     * @throws { BusinessError } 6600106 - {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
-     * @throws { BusinessError } 6600107 - {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1630,15 +1866,15 @@ declare namespace avSession {
     /**
      * Send common commands to this session
      * @param { string } command - The command name to be sent.
-     * @param { {[key: string]: Object} } args - The parameters of session event
+     * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
-     * @throws { BusinessError } 6600105 - command not supported
-     * @throws { BusinessError } 6600106 - session inactive
-     * @throws { BusinessError } 6600107 - command or event overload
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1647,15 +1883,15 @@ declare namespace avSession {
     /**
      * Send common commands to this session
      * @param { string } command - The command name to be sent.
-     * @param { {[key: string]: Object} } args - The parameters of session event
+     * @param { object } args - The parameters of session event
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
-     * @throws { BusinessError } 6600105 - command not supported
-     * @throws { BusinessError } 6600106 - session inactive
-     * @throws { BusinessError } 6600107 - command or event overload
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1665,11 +1901,11 @@ declare namespace avSession {
      * Get custom media packets provided by the corresponding session
      * @param { AsyncCallback<{[key: string]: Object}> } callback - The triggered asyncCallback when (getExtras).
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
-     * @throws { BusinessError } 6600105 - command not supported
-     * @throws { BusinessError } 6600107 - command or event overload
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1679,11 +1915,11 @@ declare namespace avSession {
      * Get custom media packets provided by the corresponding session
      * @returns { Promise<{[key: string]: Object}> } the parameters of extras
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600102 - session does not exist
-     * @throws { BusinessError } 6600103 - controller does not exist
-     * @throws { BusinessError } 6600105 - command not supported
-     * @throws { BusinessError } 6600107 - command or event overload
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600107 - Too many commands or events.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1691,14 +1927,14 @@ declare namespace avSession {
 
     /**
      * Register metadata changed callback
-     * @param { string } type 
+     * @param { 'metadataChange' } type 
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
      * @param { function } callback - The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
      * It only contains the properties set in the filter.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1706,13 +1942,13 @@ declare namespace avSession {
 
     /**
      * Unregister metadata changed callback
-     * @param { string } type
+     * @param { 'metadataChange' } type
      * @param { function } callback - The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
      * It only contains the properties set in the filter.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1720,13 +1956,13 @@ declare namespace avSession {
 
     /**
      * Register playback state changed callback
-     * @param { string } type
+     * @param { 'playbackStateChange' } type
      * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1734,12 +1970,12 @@ declare namespace avSession {
 
     /**
      * Unregister playback state changed callback
-     * @param { string } type
+     * @param { 'playbackStateChange' } type
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1747,11 +1983,11 @@ declare namespace avSession {
 
     /**
      * Register current session destroyed callback
-     * @param { string } type
+     * @param { 'sessionDestroy' } type
      * @param { function } callback - The callback used to handle current session destroyed event.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1759,11 +1995,11 @@ declare namespace avSession {
 
     /**
      * Unregister current session destroyed callback
-     * @param { string } type - 'sessionDestroy'
+     * @param { 'sessionDestroy' } type - 'sessionDestroy'
      * @param { function } callback - The callback used to handle current session destroyed event.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1771,12 +2007,12 @@ declare namespace avSession {
 
     /**
      * Register the active state of this session changed callback
-     * @param { string } type - 'activeStateChange'
+     * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1784,12 +2020,12 @@ declare namespace avSession {
 
     /**
      * Unregister the active state of this session changed callback
-     * @param { string } type - 'activeStateChange'
+     * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1797,12 +2033,12 @@ declare namespace avSession {
 
     /**
      * Register the valid commands of the session changed callback
-     * @param { string } type - 'validCommandChange'
+     * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1810,12 +2046,12 @@ declare namespace avSession {
 
     /**
      * Unregister the valid commands of the session changed callback
-     * @param { string } type - 'validCommandChange'
+     * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1823,7 +2059,7 @@ declare namespace avSession {
 
     /**
      * Register session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provides the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1836,7 +2072,7 @@ declare namespace avSession {
 
     /**
      * Unregister session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provides the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1849,12 +2085,12 @@ declare namespace avSession {
 
     /**
      * Register session event callback
-     * @param { string } type - 'sessionEvent'
+     * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - The callback used to handle session event changed event.
      * The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1862,12 +2098,12 @@ declare namespace avSession {
 
     /**
      * Unregister session event callback
-     * @param { string } type - 'sessionEvent'
+     * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - Used to cancel a specific listener
      * The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1875,12 +2111,12 @@ declare namespace avSession {
 
     /**
      * Register session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueItemsChange' } type - Registration Type
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1888,12 +2124,12 @@ declare namespace avSession {
 
     /**
      * Unregister session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueItemsChange' } type - Registration Type
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1901,12 +2137,12 @@ declare namespace avSession {
 
     /**
      * Register the name of session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueTitleChange' } type - Registration Type
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1914,12 +2150,12 @@ declare namespace avSession {
 
     /**
      * Unregister the name of session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueTitleChange' } type - Registration Type
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600103 - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1927,12 +2163,12 @@ declare namespace avSession {
 
     /**
      * Register the custom media packets change callback
-     * @param { string } type - Registration Type
+     * @param { 'extrasChange' } type - Registration Type
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1940,12 +2176,12 @@ declare namespace avSession {
 
     /**
      * Unregister the custom media packets change callback
-     * @param { string } type - Registration Type
+     * @param { 'extrasChange' } type - Registration Type
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
