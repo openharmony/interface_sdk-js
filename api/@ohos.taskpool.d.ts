@@ -69,8 +69,8 @@ declare namespace taskpool {
      *
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { unknown[] } args - args args The concurrent function arguments.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
-     * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -79,8 +79,8 @@ declare namespace taskpool {
      *
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { unknown[] } args - args args The concurrent function arguments.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
-     * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -101,7 +101,7 @@ declare namespace taskpool {
      * Set transfer list for this task.
      *
      * @param { ArrayBuffer[] } transfer - transfer Transfer list of this task, empty array is default.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -161,8 +161,8 @@ declare namespace taskpool {
      *
      * @param { Function } func - func func Concurrent function to add in task group.
      * @param { unknown[] } args - args args The concurrent function arguments.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
-     * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -173,8 +173,8 @@ declare namespace taskpool {
      * Add a Task into TaskGroup.
      *
      * @param { Task } task - task task The task want to add in task group.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
-     * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -188,10 +188,10 @@ declare namespace taskpool {
    * @param { Function } func - func func Concurrent function want to execute.
    * @param { unknown[] } args - args args The concurrent function arguments.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
-   * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -201,10 +201,10 @@ declare namespace taskpool {
    * @param { Function } func - func func Concurrent function want to execute.
    * @param { unknown[] } args - args args The concurrent function arguments.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
-   * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -217,9 +217,9 @@ declare namespace taskpool {
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - if the function in task is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
@@ -230,9 +230,9 @@ declare namespace taskpool {
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<unknown> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - if the function in task is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -246,8 +246,8 @@ declare namespace taskpool {
    * @param { TaskGroup } group - group group The task group want to execute.
    * @param { Priority } priority - priority priority Task group priority, MEDIUM is default.
    * @returns { Promise<unknown[]> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -258,9 +258,9 @@ declare namespace taskpool {
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 10200015 - if the task is not exist.
-   * @throws { BusinessError } 10200016 - if the task is running.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
+   * @throws { BusinessError } 10200016 - The task is executing when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -268,9 +268,9 @@ declare namespace taskpool {
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 10200015 - if the task is not exist.
-   * @throws { BusinessError } 10200016 - if the task is running.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
+   * @throws { BusinessError } 10200016 - The task is executing when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -281,8 +281,8 @@ declare namespace taskpool {
    * Cancel a concurrent task group.
    *
    * @param { TaskGroup } group - group group The task group want to cancel.
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 10200018 - if the task group is not exist.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200018 - The task group does not exist when it is canceled.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
