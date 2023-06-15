@@ -13,22 +13,22 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
-import Want from "./@ohos.app.ability.Want";
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to control the enterprise devices.
+ *
  * @namespace deviceControl
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 10
  */
-
 declare namespace deviceControl {
-
   /**
    * Allow the administrator to reset the enterprise devices.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_RESET_DEVICE
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<void> } callback - the callback of resetFactory.
@@ -47,6 +47,7 @@ declare namespace deviceControl {
   /**
    * Allow the administrator to reset the enterprise devices.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_RESET_DEVICE
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<void> } the promise returned by the resetFactory.
@@ -63,4 +64,4 @@ declare namespace deviceControl {
   function resetFactory(admin: Want): Promise<void>;
 }
 
- export default deviceControl;
+export default deviceControl;

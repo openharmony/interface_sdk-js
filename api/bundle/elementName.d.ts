@@ -18,11 +18,13 @@
  * You can use this class to obtain values of the fields set in an element,
  * such as the device ID, bundle name, and ability name.
  *
+ * Contains basic Ability information, which uniquely identifies an ability
+ *
+ * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ElementName
- * @name Contains basic Ability information, which uniquely identifies an ability
  */
 export interface ElementName {
   /**

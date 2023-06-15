@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,84 +21,242 @@ import notification from '../@ohos.notification';
  * Provides methods that will be called back when the subscriber receives a new notification or
  * a notification is canceled.
  *
- * @name NotificationSubscriber
+ * @interface NotificationSubscriber
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 7
  */
 export interface NotificationSubscriber {
-  onConsume?:(data: SubscribeCallbackData) => void;
-  onCancel?:(data: SubscribeCallbackData) => void;
-  onUpdate?:(data: NotificationSortingMap) => void;
-  onConnect?:() => void;
-  onDisconnect?:() => void;
-  onDestroy?:() => void;
+  /**
+   * The callback function that receives a new notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
+  onConsume?: (data: SubscribeCallbackData) => void;
+
+  /**
+   * The callback function that cancels the notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
+  onCancel?: (data: SubscribeCallbackData) => void;
+
+  /**
+   * The callback function that updates the sort of notifications.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
+  onUpdate?: (data: NotificationSortingMap) => void;
+
+  /**
+   * The callback function of the completed subscription.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
+  onConnect?: () => void;
+
+  /**
+   * The callback function to unsubscribe.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
+  onDisconnect?: () => void;
+
+  /**
+   * The callback function that service disconnected.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
+  onDestroy?: () => void;
 
   /**
    * Callback when the Do Not Disturb setting changed.
+   *
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 8
    */
-  onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
+  onDoNotDisturbDateChange?: (mode: notification.DoNotDisturbDate) => void;
 
   /**
    * Callback when the notification permission is changed.
+   *
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 8
    */
-  onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
+  onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 
   /**
    * Callback when badge number changed.
+   *
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 10
    */
-  onBadgeChanged?:(data: BadgeNumberCallbackData) => void;
+  onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
 }
 
 /**
  * Provides methods that will be called back when the subscriber receives a new notification or
  * a notification is canceled.
  *
- * @name SubscribeCallbackData
+ * @typedef SubscribeCallbackData
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 7
  */
 export interface SubscribeCallbackData {
+  /**
+   * Content of the notice.
+   *
+   * @type { NotificationRequest }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly request: NotificationRequest;
+
+  /**
+   * Notify sorting information.
+   *
+   * @type { ?NotificationSortingMap }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sortingMap?: NotificationSortingMap;
+
+  /**
+   * Delete the reason.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly reason?: number;
+
+  /**
+   * Notification sound.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly sound?: string;
+
+  /**
+   * Notice the vibration.
+   *
+   * @type { ?Array<number> }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 7
+   */
   readonly vibrationValues?: Array<number>;
 }
 
 /**
  * Describes the properties of the application that the permission to send notifications has changed.
  *
- * @name EnabledNotificationCallbackData
+ * @typedef EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 8
  */
 export interface EnabledNotificationCallbackData {
+  /**
+   * The bundle name of the application.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   readonly bundle: string;
+
+  /**
+   * The uid of the application.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   readonly uid: number;
+
+  /**
+   * Apply notification enable status.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   readonly enable: boolean;
 }
 
 /**
  * Describes the badge number of the application has changed.
  *
- * @name BadgeNumberCallbackData
+ * @typedef BadgeNumberCallbackData
  * @syscap SystemCapability.Notification.Notification
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 10
  */
 export interface BadgeNumberCallbackData {
+  /**
+   * bundle name
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
   readonly bundle: string;
+
+  /**
+   * The uid of the application.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
   readonly uid: number;
+
+  /**
+   * badge number
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 10
+   */
   readonly badgeNumber: number;
 }

@@ -12,71 +12,130 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const parse = require('comment-parser');
-const { getAPINote, ErrorLevel, FileType, ErrorType, tagsArrayOfOrder, commentNodeWhiteList } = require('../utils');
+const { requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
+  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
+const whiteLists = require('../../config/jsdocCheckWhiteList.json');
+const ts = requireTypescriptModule();
+
+/**
+ * 判断标签是否为官方标签
+ */
+function isOfficialTag(tagName) {
+  return tagsArrayOfOrder.indexOf(tagName) === -1;
+}
 
 /**
  * 判断标签排列是否为升序
  */
 function isAscendingOrder(tags) {
   let checkResult = true;
-  tags.forEach((tag, index) => {
-    if (index + 1 < tags.length) {
+  for (let tagIndex = 0; tagIndex < tags.length; tagIndex++) {
+    if (tagIndex + 1 < tags.length) {
       // 获取前后两个tag下标
-      const firstIndex = tagsArrayOfOrder.indexOf(tag.tag);
-      const secondIndex = tagsArrayOfOrder.indexOf(tags[index + 1].tag);
-
+      const firstIndex = tagsArrayOfOrder.indexOf(tags[tagIndex].tag);
+      const secondIndex = tagsArrayOfOrder.indexOf(tags[tagIndex + 1].tag);
+      // 判断标签是否为官方标签
+      const firstTag = isOfficialTag(tags[tagIndex].tag);
       // 非自定义标签在前或数组降序时报错
-      if ((firstIndex === -1 && secondIndex !== -1) || firstIndex > secondIndex) {
+      if ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1)) {
         checkResult = false;
-        return;
+        break;
       }
     }
-  });
+  };
   return checkResult;
 }
 
 // check jsdoc order
-function checkApiOrder(node, sourcefile, fileName) {
+function checkApiOrder(comments) {
   let checkOrderRusult = [];
-  const apiNote = getAPINote(node);
-  const JSDocInfos = parse.parse(apiNote);
-  JSDocInfos.forEach(docInfo => {
+  comments.forEach(docInfo => {
     if (isAscendingOrder(docInfo.tags)) {
       checkOrderRusult.push({
         checkResult: true,
         errorInfo: "",
       });
     } else {
-      let errorInfo = 'jsDoc标签顺序错误,请进行调整';
+      let errorInfo = ErrorValueInfo.ERROR_ORDER;
       checkOrderRusult.push({
         checkResult: false,
         errorInfo: errorInfo,
       });
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
     }
   });
   return checkOrderRusult;
 }
 exports.checkApiOrder = checkApiOrder;
 
-function checkAPIDecorators(tag, node, sourcefile, fileName) {
-  let APIDecoratorResult = {
+function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
+  let isIllegalTagWhitetFile = true;
+  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
+  let APITagNameResult = {
     checkResult: true,
     errorInfo: '',
   };
   const tagName = tag.tag;
   const docTags = [...rules.decorators['customDoc'], ...rules.decorators['jsDoc']];
   const decoratorRuleSet = new Set(docTags);
-  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
-    APIDecoratorResult.checkResult = false;
-    APIDecoratorResult.errorInfo = `@${tagName}标签不存在, 请使用合法的JSDoc标签.`;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APIDecoratorResult.errorInfo,
-      FileType.JSDOC, ErrorLevel.LOW);
+  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind) && isIllegalTagWhitetFile) {
+    APITagNameResult.checkResult = false;
+    APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [tagName]);
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, APITagNameResult.errorInfo,
+      FileType.JSDOC, ErrorLevel.MIDDLE);
   }
-  return APIDecoratorResult;
+  return APITagNameResult;
 }
-exports.checkAPIDecorators = checkAPIDecorators;
+exports.checkAPITagName = checkAPITagName;
+
+function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
+  let parentTagArr = [];
+  if (ts.isSourceFile(node)) {
+    return inheritResult;
+  }
+  if (!ts.isModuleBlock(node.parent)) {
+    const comments = parseJsDoc(node.parent);
+    if (comments.length > 0 && Array.isArray(comments[comments.length - 1].tags)) {
+      comments[comments.length - 1].tags.forEach(tag => {
+        parentTagArr.push(tag.tag);
+      })
+      if (parentTagArr.includes(inheritTag)) {
+        inheritResult.checkResult = false;
+        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [inheritTag])
+      } else {
+        checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
+      }
+    }
+  } else if (ts.isModuleBlock(node.parent)) {
+    checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
+  }
+
+  return inheritResult;
+}
+
+function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
+  let isMissingTagWhitetFile = true;
+  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
+  let inheritResult = {
+    checkResult: true,
+    errorInfo: '',
+  };
+  let tagArr = [];
+  if (commentNodeWhiteList.includes(node.kind)) {
+    comment.tags.forEach(tag => {
+      tagArr.push(tag.tag)
+    })
+    inheritArr.forEach((inheritTag, index) => {
+      if (!tagArr.includes(inheritTag)) {
+        checkParentInheritTag(node, inheritArr[index], inheritResult, JSocIndex);
+      }
+    })
+    if (!inheritResult.checkResult && isMissingTagWhitetFile) {
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.API,
+        ErrorLevel.MIDDLE);
+    }
+  }
+  return inheritResult;
+}
+exports.checkInheritTag = checkInheritTag;

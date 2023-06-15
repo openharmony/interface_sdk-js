@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,25 +19,29 @@ import image from '../@ohos.multimedia.image';
 /**
  * Mission snapshot corresponding to mission.
  *
- * @since 8
+ * @typedef MissionSnapshot
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
- * @systemapi hide for inner use.
+ * @systemapi
+ * @since 8
  */
 export interface MissionSnapshot {
-    /**
-     * Indicates the ability elementName of the mission.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    ability: ElementName;
+  /**
+   * Indicates the ability elementName of the mission.
+   *
+   * @type { ElementName }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 8
+   */
+  ability: ElementName;
 
-    /**
-     * Indicates mission snapshot.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    snapshot: image.PixelMap;
+  /**
+   * Indicates mission snapshot.
+   *
+   * @type { image.PixelMap }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 8
+   */
+  snapshot: image.PixelMap;
 }

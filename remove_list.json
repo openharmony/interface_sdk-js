@@ -16,7 +16,11 @@
             "calendar.d.ts",
             "form_component.d.ts",
             "plugin_component.d.ts",
-            "remote_window.d.ts"
+            "remote_window.d.ts",
+            "root_scene.d.ts",
+            "screen.d.ts",
+            "ui_extension_component.d.ts",
+            "window_scene.d.ts"
         ]
     },
     "internal_lite": {

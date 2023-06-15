@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+affinities
 agrees
 alerting
 algrithom
@@ -23,6 +24,7 @@ alterase
 alternating
 altitudes
 amr
+animatable
 annually
 antialias
 apdu
@@ -36,6 +38,7 @@ arrlist
 ashmem
 associating
 asy
+asyn
 asynchronized
 atime
 atio
@@ -51,6 +54,7 @@ averr
 avoidareachange
 avrcp
 avsession
+backgrounding
 backs
 base64
 bassboost
@@ -100,6 +104,7 @@ chrominance
 circled
 clamped
 clamps
+cloudfile
 coincides
 collaborated
 collapses
@@ -156,6 +161,7 @@ denormalized
 densitys
 deregistered
 deregisters
+deselected
 designative
 desynchronized
 developtools
@@ -165,7 +171,9 @@ dfx
 dialling
 dimbehind
 dirent
+dirxml
 disables
+disallowed
 discharging
 disconnecting
 disconnection
@@ -191,6 +199,7 @@ ducking
 earfcn
 earphones
 earpiece
+edr
 efuse
 egid
 ehrpd
@@ -216,6 +225,7 @@ evdo
 evenodd
 evicted
 excepted
+exempted
 extention
 f1
 faultlog
@@ -229,7 +239,9 @@ fileio
 fileshare
 fillets
 flac
+flg
 foldable
+foregrounding
 formatable
 forwardmail
 freesize
@@ -384,12 +396,14 @@ mah
 mcc
 md5
 mdns
-mdns_err
+mdnserror
 mediaquery
 meid
 messageerror
 metered
 metering
+mgf
+mgf1
 mifare
 minibar
 minimizing
@@ -398,6 +412,7 @@ missions
 mkdtemp
 mmax
 mmi
+mmicode
 mnc
 moderately
 moitor
@@ -426,6 +441,7 @@ nets
 nextgroup
 nlink
 nmea
+nnrt
 nopadding
 normalizer
 notifies
@@ -434,6 +450,7 @@ numpad
 nvalidates
 nweb
 oaep
+obscured
 ofb
 offhook
 offscreen
@@ -446,6 +463,7 @@ onfinish
 onframe
 onmessageerror
 onrepeat
+oob
 oobinline
 oper
 operated
@@ -453,6 +471,8 @@ operatorconfigs
 opkey
 opl
 opname
+option
+originating
 osd
 ott
 ounted
@@ -516,6 +536,7 @@ provisioned
 proxyed
 psc
 psk
+psrc
 pss
 puk
 pvr
@@ -533,9 +554,12 @@ reconfiguration
 recovered
 recovering
 recursions
+reclaimed
 redirections
 refill
+refusing
 rejects
+relocation
 remidner
 remotedevice
 removable
@@ -576,6 +600,7 @@ sak
 satellites
 scdma
 sco
+scrambling
 screenlock
 screensaver
 scrolldown
@@ -597,10 +622,12 @@ shortkey
 shuts
 sigalgs
 silenced
+singly
 slidable
 sliderstyle
 statvfs
 stk
+str
 sm3
 smil
 smsc
@@ -637,7 +664,10 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subtitles
 subtypes
+subwindow
+subwindows
 superimposed
 suscriber
 suscribes
@@ -675,6 +705,7 @@ tlsv13
 tnf
 totalsize
 touchpad
+trackinfo
 tranlisterated
 transcode
 transferable
@@ -683,15 +714,18 @@ transliterator
 transpilation
 trashed
 traversed
+traverses
 truncates
 tsbundle
 ttls
+tunneled
 txpower
 uarfcn
 ubset
 ucs
 udid
 uint8
+uint8arr
 uitest
 umalqura
 unapply
@@ -702,7 +736,9 @@ unblocking
 uncalibrated
 uncategorized
 uncatergorized
+unclearable
 unconditional
+undisturbed
 unduck
 unducked
 unequal
@@ -714,6 +750,8 @@ unicon
 uniform1ui
 uniforms
 uninit
+uninitialize
+uninitializes
 uninstallation
 unlinked
 unlocking
@@ -747,6 +785,7 @@ ussd
 utilized
 uuids
 uwb
+uids
 v9
 varyings
 vibrates
@@ -760,6 +799,7 @@ vsync
 wakes
 waking
 wallpapers
+wantagent
 wapi
 wappush
 watchers
@@ -800,3 +840,7 @@ zoomout
 zoomreset
 zooms
 zpass
+commonevent
+clouddata
+unprepare
+unchained

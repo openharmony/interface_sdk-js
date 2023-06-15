@@ -13,85 +13,196 @@
  * limitations under the License.
  */
 
+/**
+ * Stack is implemented based on the array data structure. 
+ * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ *
+ * @namespace Stack
+ * @syscap SystemCapability.Utils.Lang
+ * @since 8
+ */
+/**
+ * Stack is implemented based on the array data structure. 
+ * It follows the principle Last Out First In (LOFI) and supports data insertion and removal at one end.
+ *
+ * @namespace Stack
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @since 10
+ */
 declare class Stack<T> {
   /**
    * A constructor used to create a Stack object.
+   *
    * @throws { BusinessError } 10200012 - The Stack's constructor cannot be directly invoked.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * A constructor used to create a Stack object.
+   *
+   * @throws { BusinessError } 10200012 - The Stack's constructor cannot be directly invoked.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   constructor();
   /**
    * Gets the element number of the Stack. This is a number one higher than the highest index in the Stack.
-   * @since 8
+   *
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * Gets the element number of the Stack. This is a number one higher than the highest index in the Stack.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   length: number;
   /**
    * Tests if this stack is empty
-   * @returns the boolean type
+   *
+   * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * Tests if this stack is empty
+   *
+   * @returns { boolean } the boolean type
+   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   isEmpty(): boolean;
   /**
    * Looks at the object at the top of this stack without removing it from the stack
    * Return undefined if this stack is empty
-   * @returns the top value or undefined
+   *
+   * @returns { T } the top value or undefined
    * @throws { BusinessError } 10200011 - The peek method cannot be bound.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * Looks at the object at the top of this stack without removing it from the stack
+   * Return undefined if this stack is empty
+   *
+   * @returns { T } the top value or undefined
+   * @throws { BusinessError } 10200011 - The peek method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   peek(): T;
   /**
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
-   * @returns Stack top value or undefined
+   *
+   * @returns { T } Stack top value or undefined
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * Removes the object at the top of this stack and returns that object as the value of this function
+   * an exception if the stack is empty
+   *
+   * @returns { T } Stack top value or undefined
+   * @throws { BusinessError } 10200011 - The pop method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   pop(): T;
   /**
    * Pushes an item onto the top of this stack
-   * @param item to be appended to this Stack
-   * @returns the T type
+   *
+   * @param { T } item - item item to be appended to this Stack
+   * @returns { T } the T type
    * @throws { BusinessError } 10200011 - The push method cannot be bound.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * Pushes an item onto the top of this stack
+   *
+   * @param { T } item - item item to be appended to this Stack
+   * @returns { T } the T type
+   * @throws { BusinessError } 10200011 - The push method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   push(item: T): T;
   /**
    * Returns the 1-based position where an object is on this stack
-   * @param element Target to be deleted
-   * @returns the T type,If there is no such element, return -1
+   *
+   * @param { T } element - element element Target to be deleted
+   * @returns { number } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * Returns the 1-based position where an object is on this stack
+   *
+   * @param { T } element - element element Target to be deleted
+   * @returns { number } the T type,If there is no such element, return -1
+   * @throws { BusinessError } 10200011 - The locate method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   locate(element: T): number;
   /**
    * Executes a provided function once for each value in the Stack object.
-   * @param callbackFn (required) A function that accepts up to four arguments.The function 
+   *
+   * @param { (value: T, index?: number, stack?: Stack<T>) => void } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to four arguments.The function
    * to be called for each element in the Stack
-   * @param Value (required) current element
-   * @param Index (Optional) The index value of the current element.
-   * @param stack (Optional) The Stack object to which the current element belongs.
-   * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
+   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
    */
-  forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void,
-  thisArg?: Object): void;
+  /**
+   * Executes a provided function once for each value in the Stack object.
+   *
+   * @param { (value: T, index?: number, stack?: Stack<T>) => void } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to four arguments.The function
+   * to be called for each element in the Stack
+   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
+   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void, thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
-   * @since 8
    * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<T> }
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
    */
   [Symbol.iterator](): IterableIterator<T>;
 }

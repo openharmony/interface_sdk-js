@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic'
+import { AsyncCallback } from './@ohos.base'
 
 export default document;
 
@@ -23,8 +23,8 @@ export default document;
  * @permission N/A
  */
 declare namespace document {
-    export { choose };
-    export { show };
+  export { choose };
+  export { show };
 }
 
 /**

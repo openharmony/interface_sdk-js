@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './basic';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * User authentication
@@ -325,7 +325,7 @@ declare namespace userAuth {
     /**
      * The authentication result if the authentication is passed.
      *
-     * @type { Uint8Array }
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -335,7 +335,7 @@ declare namespace userAuth {
     /**
      * The remaining authentication times if the authentication fails.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -345,7 +345,7 @@ declare namespace userAuth {
     /**
      * The freezing time if the authentication executor is locked.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -736,7 +736,7 @@ declare namespace userAuth {
     /**
      * The authentication token if the authentication is passed.
      *
-     * @type { Uint8Array }
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
@@ -745,7 +745,7 @@ declare namespace userAuth {
     /**
      * The remaining authentication attempts if the authentication fails.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
@@ -754,7 +754,7 @@ declare namespace userAuth {
     /**
      * The lockout duration if the authentication executor is locked.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */

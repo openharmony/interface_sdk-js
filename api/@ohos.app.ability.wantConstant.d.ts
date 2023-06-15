@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,6 +15,7 @@
 
 /**
  * the constant for action and entity in the want
+ *
  * @namespace wantConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
@@ -22,64 +23,110 @@
 declare namespace wantConstant {
   /**
    * The constant for params of the want
-   * @name Params
-   * @since 9
+   *
+   * @enum { string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @permission N/A
+   * @since 9
    */
   export enum Params {
     /**
      * Indicates the param of sandbox flag.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9
      */
-    DLP_PARAMS_SANDBOX = "ohos.dlp.params.sandbox",
+    DLP_PARAMS_SANDBOX = 'ohos.dlp.params.sandbox',
 
     /**
      * Indicates the param of dlp bundle name.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9
      */
-    DLP_PARAMS_BUNDLE_NAME = "ohos.dlp.params.bundleName",
+    DLP_PARAMS_BUNDLE_NAME = 'ohos.dlp.params.bundleName',
 
     /**
      * Indicates the param of dlp module name.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9
      */
-    DLP_PARAMS_MODULE_NAME = "ohos.dlp.params.moduleName",
+    DLP_PARAMS_MODULE_NAME = 'ohos.dlp.params.moduleName',
 
     /**
      * Indicates the param of dlp ability name.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9
      */
-    DLP_PARAMS_ABILITY_NAME = "ohos.dlp.params.abilityName",
+    DLP_PARAMS_ABILITY_NAME = 'ohos.dlp.params.abilityName',
 
     /**
      * Indicates the param of dlp bundle index.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
      * @since 9
      */
-    DLP_PARAMS_INDEX = "ohos.dlp.params.index",
+    DLP_PARAMS_INDEX = 'ohos.dlp.params.index',
 
     /**
      * Indicates the ability in this want can back to the current top ability even though they are not in the same
      * mission stack.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    ABILITY_BACK_TO_OTHER_MISSION_STACK = "ability.params.backToOtherMissionStack"
+    ABILITY_BACK_TO_OTHER_MISSION_STACK = 'ability.params.backToOtherMissionStack',
+
+    /**
+     * Indicates the param of ability failure restart recovery identification
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    ABILITY_RECOVERY_RESTART = 'ohos.ability.params.abilityRecoveryRestart',
+
+    /**
+     * Indicates the param of extra content title
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    CONTENT_TITLE_KEY = 'ohos.extra.param.key.contentTitle',
+
+    /**
+     * Indicates the param of extra shared abstract
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SHARE_ABSTRACT_KEY = 'ohos.extra.param.key.shareAbstract',
+
+    /**
+     * Indicates the param of extra shareURL
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl'
   }
 
+  /**
+   * Used to indicate how Want is handled.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
   export enum Flags {
     /**
      * Indicates the grant to perform read operations on the URI.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
@@ -87,6 +134,7 @@ declare namespace wantConstant {
 
     /**
      * Indicates the grant to perform write operations on the URI.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
@@ -94,10 +142,11 @@ declare namespace wantConstant {
 
     /**
      * Install the specified ability if it's not installed.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    FLAG_INSTALL_ON_DEMAND = 0x00000800,
+    FLAG_INSTALL_ON_DEMAND = 0x00000800
   }
 }
 

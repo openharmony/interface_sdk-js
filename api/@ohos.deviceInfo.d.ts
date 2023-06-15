@@ -20,227 +20,399 @@
  * @syscap SystemCapability.Startup.SystemInfo
  */
 declare namespace deviceInfo {
-     /**
-     * Obtains the device type represented by a string,
-     * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
-     * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const deviceType: string;
+  /**
+  * Obtains the device type represented by a string,
+  * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
+  * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
+  * @syscap SystemCapability.Startup.SystemInfo
+  * @since 6
+  */
+  /**
+  * Obtains the device type represented by a string,
+  * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
+  * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
+  * @syscap SystemCapability.Startup.SystemInfo
+  * @crossplatform
+  * @since 10
+  */
+  const deviceType: string;
 
+  /**
+   * Obtains the device manufacturer represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
     /**
-     * Obtains the device manufacturer represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const manufacture: string;
+   * Obtains the device manufacturer represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const manufacture: string;
 
-    /**
-     * Obtains the device brand represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const brand: string;
+  /**
+   * Obtains the device brand represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the device brand represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const brand: string;
 
-    /**
-     * Obtains the external product series represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const marketName: string;
+  /**
+   * Obtains the external product series represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the external product series represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const marketName: string;
 
-    /**
-     * Obtains the product series represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const productSeries: string;
+  /**
+   * Obtains the product series represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the product series represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const productSeries: string;
 
-    /**
-     * Obtains the product model represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const productModel: string;
+  /**
+   * Obtains the product model represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the product model represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const productModel: string;
 
-    /**
-     * Obtains the software model represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const softwareModel: string;
+  /**
+   * Obtains the software model represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 6
+   */
+  /**
+   * Obtains the software model represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 10
+   */
+  const softwareModel: string;
 
-    /**
-     * Obtains the hardware model represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const hardwareModel: string;
+  /**
+   * Obtains the hardware model represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the hardware model represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const hardwareModel: string;
 
-    /**
-     * Obtains the hardware profile represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     * @deprecated since 9
-     */
-    const hardwareProfile: string;
+  /**
+   * Obtains the hardware profile represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   * @deprecated since 9
+   */
+  const hardwareProfile: string;
 
-    /**
-     * Obtains the device serial number represented by a string.
-     * @permission ohos.permission.sec.ACCESS_UDID
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const serial: string;
+  /**
+   * Obtains the device serial number represented by a string.
+   * @permission ohos.permission.sec.ACCESS_UDID
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  const serial: string;
 
-    /**
-     * Obtains the bootloader version number represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const bootloaderVersion: string;
+  /**
+   * Obtains the bootloader version number represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the bootloader version number represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const bootloaderVersion: string;
 
-    /**
-     * Obtains the application binary interface (Abi) list represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const abiList: string;
+  /**
+   * Obtains the application binary interface (Abi) list represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the application binary interface (Abi) list represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const abiList: string;
 
-    /**
-     * Obtains the security patch level represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const securityPatchTag: string;
+  /**
+   * Obtains the security patch level represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the security patch level represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const securityPatchTag: string;
 
-    /**
-     * Obtains the product version represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const displayVersion: string;
+  /**
+   * Obtains the product version represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the product version represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const displayVersion: string;
 
-    /**
-     * Obtains the incremental version represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const incrementalVersion: string;
+  /**
+   * Obtains the incremental version represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the incremental version represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const incrementalVersion: string;
 
-    /**
-     * Obtains the OS release type represented by a string.
-     *
-     * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
-     * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const osReleaseType: string;
+  /**
+   * Obtains the OS release type represented by a string.
+   *
+   * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
+   * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the OS release type represented by a string.
+   *
+   * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
+   * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const osReleaseType: string;
 
-    /**
-     * Obtains the OS version represented by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const osFullName: string;
+  /**
+   * Obtains the OS version represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the OS version represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const osFullName: string;
 
-    /**
-     * Obtains the major (M) version number, which increases with any updates to the overall architecture.
-     * <p>The M version number monotonically increases from 1 to 99.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const majorVersion: number;
+  /**
+   * Obtains the major (M) version number, which increases with any updates to the overall architecture.
+   * <p>The M version number monotonically increases from 1 to 99.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the major (M) version number, which increases with any updates to the overall architecture.
+   * <p>The M version number monotonically increases from 1 to 99.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const majorVersion: number;
 
-    /**
-     * Obtains the senior (S) version number, which increases with any updates to the partial
-     * architecture or major features.
-     * <p>The S version number monotonically increases from 0 to 99.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const seniorVersion: number;
+  /**
+   * Obtains the senior (S) version number, which increases with any updates to the partial
+   * architecture or major features.
+   * <p>The S version number monotonically increases from 0 to 99.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the senior (S) version number, which increases with any updates to the partial
+   * architecture or major features.
+   * <p>The S version number monotonically increases from 0 to 99.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const seniorVersion: number;
 
-    /**
-     * Obtains the feature (F) version number, which increases with any planned new features.
-     * <p>The F version number monotonically increases from 0 or 1 to 99.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const featureVersion: number;
+  /**
+   * Obtains the feature (F) version number, which increases with any planned new features.
+   * <p>The F version number monotonically increases from 0 or 1 to 99.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the feature (F) version number, which increases with any planned new features.
+   * <p>The F version number monotonically increases from 0 or 1 to 99.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const featureVersion: number;
 
-    /**
-     * Obtains the build (B) version number, which increases with each new development build.
-     * <p>The B version number monotonically increases from 0 or 1 to 999.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const buildVersion: number;
+  /**
+   * Obtains the build (B) version number, which increases with each new development build.
+   * <p>The B version number monotonically increases from 0 or 1 to 999.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the build (B) version number, which increases with each new development build.
+   * <p>The B version number monotonically increases from 0 or 1 to 999.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const buildVersion: number;
 
-    /**
-     * Obtains the SDK API version number.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const sdkApiVersion: number;
+  /**
+   * Obtains the SDK API version number.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the SDK API version number.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const sdkApiVersion: number;
 
-    /**
-     * Obtains the first API version number.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const firstApiVersion: number;
+  /**
+   * Obtains the first API version number.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the first API version number.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const firstApiVersion: number;
 
-    /**
-     * Obtains the version ID by a string.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const versionId: string;
+  /**
+   * Obtains the version ID by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the version ID by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const versionId: string;
 
-    /**
-     * Obtains the build types of the same baseline code.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const buildType: string;
+  /**
+   * Obtains the build types of the same baseline code.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the build types of the same baseline code.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const buildType: string;
 
-    /**
-     * Obtains the different build user of the same baseline code.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const buildUser: string;
+  /**
+   * Obtains the different build user of the same baseline code.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the different build user of the same baseline code.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const buildUser: string;
 
-    /**
-     * Obtains the different build host of the same baseline code.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const buildHost: string;
+  /**
+   * Obtains the different build host of the same baseline code.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the different build host of the same baseline code.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const buildHost: string;
 
-    /**
-     * Obtains the build time.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const buildTime: string;
+  /**
+   * Obtains the build time.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the build time.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const buildTime: string;
 
-    /**
-     * Obtains the version hash.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 6
-     */
-    const buildRootHash: string;
-    /**
-     * Obtains the device udid.
-     * @permission ohos.permission.sec.ACCESS_UDID
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @since 7
-     */
-    const udid: string;
+  /**
+   * Obtains the version hash.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
+  /**
+   * Obtains the version hash.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
+  const buildRootHash: string;
+  /**
+   * Obtains the device udid.
+   * @permission ohos.permission.sec.ACCESS_UDID
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 7
+   */
+  const udid: string;
 
 }
 

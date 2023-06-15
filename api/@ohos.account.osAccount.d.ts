@@ -14,7 +14,7 @@
  */
 
 import distributedAccount from './@ohos.account.distributedAccount';
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to manage os accounts.
@@ -2075,6 +2075,56 @@ declare namespace osAccount {
   }
 
   /**
+   * Provides the GetDomainAccessTokenOptions type.
+   *
+   * @typedef GetDomainAccessTokenOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface GetDomainAccessTokenOptions {
+    /**
+     * Indicates the domain account information.
+     *
+     * @type { DomainAccountInfo }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    domainAccountInfo: DomainAccountInfo;
+
+    /**
+     * Indicates the domain account token.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    domainAccountToken: Uint8Array;
+
+    /**
+     * Indicates the business parameters.
+     *
+     * @type { object }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    businessParams: { [key: string]: object };
+
+    /**
+     * Indicates caller UID.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    callerUid: number;
+  }
+
+  /**
    * Provides the definition of domain plugin.
    *
    * @interface DomainPlugin
@@ -2163,6 +2213,33 @@ declare namespace osAccount {
      * @since 10
      */
     unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
+
+    /**
+     * Checks whether the token of specified domain account is valid.
+     *
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @param { Uint8Array } token - Indicates the account token.
+     * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    isAccountTokenValid(
+      domainAccountInfo: DomainAccountInfo,
+      token: Uint8Array,
+      callback: AsyncCallback<boolean>
+    ): void;
+
+    /**
+     * Gets the access token based on the specified options.
+     *
+     * @param { GetDomainAccessTokenOptions } options - Indicates the options for getting th access token.
+     * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getAccessToken(options: GetDomainAccessTokenOptions, callback: AsyncCallback<Uint8Array>): void;
   }
 
   /**
@@ -2318,6 +2395,54 @@ declare namespace osAccount {
      * @since 10
      */
     static hasAccount(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
+
+    /**
+     * Updates the token for the specified domain account.
+     * <p>Only the registered domain plugin has the permission to call this function.<br/>
+     * An empty token indicates the token of the target domain account is invalid.</p>
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @param { Uint8Array } token - Indicates the domain account token.
+     * @param { AsyncCallback<void> } callback - Indicates the result callback.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid token.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static updateAccountToken(
+      domainAccountInfo: DomainAccountInfo,
+      token: Uint8Array,
+      callback: AsyncCallback<void>
+    ): void;
+
+    /**
+     * Updates the token for the specified domain account.
+     * <p>Only the registered domain plugin has the permission to call this function.<br/>
+     * An empty token indicates the token of the target domain account is invalid.</p>
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @param { Uint8Array } token - Indicates the domain account token.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid token.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
   }
 
   /**
@@ -2755,6 +2880,26 @@ declare namespace osAccount {
      * @since 8
      */
     freezingTime?: number;
+
+    /**
+     * Indicates the enrollment progress.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    enrollmentProgress?: string;
+
+    /**
+     * Indicates the sensor information.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    sensorInfo?: string;
   }
 
   /**
@@ -2941,7 +3086,25 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    FREEZING_TIME = 3
+    FREEZING_TIME = 3,
+
+    /**
+     * Indicates the enrollment progress.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    ENROLLMENT_PROGRESS = 4,
+
+    /**
+     * Indicates the sensor information.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    SENSOR_INFO = 5
   }
 
   /**
@@ -3062,6 +3225,33 @@ declare namespace osAccount {
      * @since 8
      */
     FACE_3D = 20001,
+
+    /**
+     * Indicates the capacitive fingerprint credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_CAPACITIVE = 30000,
+
+    /**
+     * Indicates the optical fingerprint credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_OPTICAL = 30001,
+
+    /**
+     * Indicates the ultrasonic fingerprint credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_ULTRASONIC = 30002,
 
     /**
      * Indicates the mixed domain credential.
@@ -3417,7 +3607,25 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    FINGERPRINT_TIP_TOO_SLOW = 5
+    FINGERPRINT_TIP_TOO_SLOW = 5,
+
+    /**
+     * Indicates that the finger is down.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_FINGER_DOWN = 6,
+
+    /**
+     * Indicates that the finger is up.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_FINGER_UP = 7
   }
 
   /**

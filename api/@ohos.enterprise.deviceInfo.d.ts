@@ -13,21 +13,22 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./basic";
-import Want from "./@ohos.app.ability.Want";
+import type { AsyncCallback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the device info of the enterprise devices.
- * @namespace deviceInfo.
+ *
+ * @namespace deviceInfo
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 10
  */
 declare namespace deviceInfo {
-
   /**
    * Gets the device serial.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<string> } callback - the callback of getDeviceSerial.
@@ -46,6 +47,7 @@ declare namespace deviceInfo {
   /**
    * Gets the device serial.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<string> } the promise returned by the getDeviceSerial.
@@ -64,6 +66,7 @@ declare namespace deviceInfo {
   /**
    * Gets the display version.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<string> } callback - the callback of getDisplayVersion.
@@ -82,6 +85,7 @@ declare namespace deviceInfo {
   /**
    * Gets the display version.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<string> } the promise returned by the getDisplayVersion.
@@ -100,6 +104,7 @@ declare namespace deviceInfo {
   /**
    * Gets the device name.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<string> } callback - the callback of getDeviceName.
@@ -118,6 +123,7 @@ declare namespace deviceInfo {
   /**
    * Gets the device name.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<string> } the promise returned by the getDeviceName.

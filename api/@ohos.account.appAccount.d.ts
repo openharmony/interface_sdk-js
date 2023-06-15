@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import rpc from './@ohos.rpc';
 
@@ -78,7 +78,7 @@ declare namespace appAccount {
      * Only the owner of the application account has the permission to call this method.
      *
      * @param { string } name - Indicates the name of the application account to add.
-     * @param { string } extraInfo - Indicates the extra information of the application account to add.
+     * @param { string } [extraInfo] - Indicates the extra information of the application account to add.
      *        The extra information cannot be sensitive information of the application account.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Account.AppAccount
@@ -130,7 +130,7 @@ declare namespace appAccount {
      * Only the owner of the application account has the permission to call this method.
      *
      * @param { string } name - Indicates the name of the application account to add.
-     * @param { CreateAccountOptions } options - Indicates the extra information of the application account to add.
+     * @param { CreateAccountOptions } [options] - Indicates the extra information of the application account to add.
      *        The extra information cannot be sensitive information of the application account.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -774,7 +774,8 @@ declare namespace appAccount {
      * <ul>
      * <li>Accounts of this application.</li>
      * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
+     * your application must have gained authorization from the third-party applications or
+     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
      * </ul>
      *
      * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
@@ -873,7 +874,8 @@ declare namespace appAccount {
      * <ul>
      * <li>Accounts of this application.</li>
      * <li>Accounts of third-party applications. To obtain such information,
-     * your application must have gained authorization from the third-party applications.</li>
+     * your application must have gained authorization from the third-party applications or
+     * have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.</li>
      * </ul>
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
@@ -1085,7 +1087,7 @@ declare namespace appAccount {
      * Unsubscribes from account events.
      *
      * @param { 'change' } type - Event type.
-     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @param { Callback<Array<AppAccountInfo>> } [callback] - Asynchronous callback interface.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7
      * @deprecated since 9
@@ -1097,7 +1099,7 @@ declare namespace appAccount {
      * Unsubscribes from account events.
      *
      * @param { 'accountChange' } type - Event type.
-     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @param { Callback<Array<AppAccountInfo>> } [callback] - Asynchronous callback interface.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type.
@@ -2581,8 +2583,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name.
      * @param { string } authType - Indicates the authentication type.
-     * @param { object } callback - options Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - callback Indicates the authenticator callback.
+     * @param { object } options - Indicates the authenticator-specific options for the request.
+     * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -2641,6 +2643,178 @@ declare namespace appAccount {
      * @since 9
      */
     getRemoteObject(): rpc.RemoteObject;
+  }
+
+  /**
+   * Enum for account capability type.
+   *
+   * @enum { number } AccountCapabilityType
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  enum AccountCapabilityType {
+    /**
+     * Indicates the type of account authorization capability.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    AUTHORIZATION = 1
+  }
+
+  /**
+   * The class of the account capability provider.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityProvider {
+    /**
+     * Indicates the type of account capability provided.
+     *
+     * @type { AccountCapabilityType }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly capabilityType: AccountCapabilityType;
+
+    /**
+     * A constructor used to create a AccountCapabilityProvider object.
+     *
+     * @param { AccountCapabilityType } capabilityType - Indicates the type of account capability provided.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(capabilityType: AccountCapabilityType);
+  }
+
+  /**
+   * The class of an authorization provider.
+   *
+   * @extends AccountCapabilityProvider
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AuthorizationProvider extends AccountCapabilityProvider {
+    /**
+     * A constructor used to create a AuthorizationProvider object.
+     *
+     * @param { AuthorizationProviderInfo } info - Indicates the provider information.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(info: AuthorizationProviderInfo);
+  }
+
+  /**
+   * The definition of the authorization provider information.
+   *
+   * @interface AuthorizationProviderInfo
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  interface AuthorizationProviderInfo {
+    /**
+     * Indicates the bundle name of the provider.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly bundleName: string;
+
+    /**
+     * Indicates the ability name of the provider.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly abilityName: string;
+  }
+
+  /**
+   * The class of an account capability request.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityRequest {
+    /**
+     * A constructor used to create a AccountCapabilityRequest object.
+     *
+     * @param { AccountCapabilityProvider } provider - Indicates the account capability provider for handling the request.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(provider: AccountCapabilityProvider);
+  }
+
+  /**
+   * The class of an account capability response.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityResponse {
+    /**
+     * Indicates the request corresponding to the current response.
+     *
+     * @type { AccountCapabilityRequest }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly request: AccountCapabilityRequest;
+
+    /**
+     * A constructor used to create a AccountCapabilityResponse object.
+     *
+     * @param { AccountCapabilityRequest } request - Indicates the request corresponding to the current response.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(request: AccountCapabilityRequest);
+  }
+
+  /**
+   * The class of an account capability scheduler.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityScheduler {
+    /**
+     * Executes the specified account capability request.
+     *
+     * @param { AccountCapabilityRequest } request - Indicates the account capability request.
+     * @param { AsyncCallback<AccountCapabilityResponse, { [key: string]: object }> } callback - Indicates the callback for getting the response.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    executeRequest(
+      request: AccountCapabilityRequest,
+      callback: AsyncCallback<AccountCapabilityResponse, { [key: string]: object }>
+    ): void;
+
+    /**
+     * Executes the specified account capability request.
+     *
+     * @param { AccountCapabilityRequest } request - Indicates the account capability request.
+     * @returns { Promise<AccountCapabilityResponse> } The promise returned by the function.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    executeRequest(request: AccountCapabilityRequest): Promise<AccountCapabilityResponse>;
   }
 }
 

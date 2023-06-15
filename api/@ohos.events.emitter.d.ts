@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 
 /**
  * Provides methods for sending and processing in-process events.
@@ -71,7 +71,7 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      */
-    data?: {[key: string]: any};
+    data?: { [key: string]: any };
   }
 
   /**

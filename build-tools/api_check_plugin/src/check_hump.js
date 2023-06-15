@@ -36,6 +36,7 @@ function checkLargeHump(word) {
 function checkSmallHump(word) {
   return /^[a-z]+[0-9]*([A-Z][a-z0-9]*)*$/g.test(word);
 }
+exports.checkSmallHump = checkSmallHump;
 
 // 全大写检查
 function checkAllUppercaseHump(word) {
@@ -86,7 +87,7 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
     }
   }
 
-  if (checkResult !== "" && filterApiVersion(node, '10')) {
+  if (checkResult !== "" && filterApiVersion(node, '10') && (!apiInfo.deprecated || apiInfo.deprecated === '')) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }

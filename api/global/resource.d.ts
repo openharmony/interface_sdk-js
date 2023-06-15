@@ -15,15 +15,16 @@
 
 /**
  * Contains resource descriptor information.
- * @name Contains resource descriptor information
- * @since 9
- * @syscap SystemCapability.Global.ResourceManager
  *
+ * @interface Resource
+ * @syscap SystemCapability.Global.ResourceManager
+ * @since 9
  */
- export interface Resource {
+export interface Resource {
   /**
    * bundle name in hap
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 9
    */
   bundleName: string;
@@ -31,6 +32,7 @@
   /**
    * module name in hap
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 9
    */
   moduleName: string;
@@ -38,6 +40,7 @@
   /**
    * resource id in hap
    *
+   * @syscap SystemCapability.Global.ResourceManager
    * @since 9
    */
   id: number;

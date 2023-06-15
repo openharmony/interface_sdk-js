@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import notification from './@ohos.notification';
 import { NotificationSlot } from './notification/notificationSlot';
 
@@ -33,13 +33,24 @@ declare namespace reminderAgent {
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
-   * @param reminderReq Indicates the reminder instance to publish.
-   * @param callback Indicates the callback function.
-   * @returns reminder id.
+   * @param { ReminderRequest } reminderReq Indicates the reminder instance to publish.
+   * @param { AsyncCallback<number> } callback Indicates the callback function.
    * @deprecated since 9
    * @useinstead reminderAgentManager.publishReminder
    */
   function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void;
+
+  /**
+   * Publishes a scheduled reminder.
+   *
+   * @since 7
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @permission ohos.permission.PUBLISH_AGENT_REMINDER
+   * @param { ReminderRequest } reminderReq Indicates the reminder instance to publish.
+   * @returns { Promise<number> } reminder id.
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.publishReminder
+   */
   function publishReminder(reminderReq: ReminderRequest): Promise<number>;
 
   /**
@@ -47,12 +58,22 @@ declare namespace reminderAgent {
    *
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @param reminderId Indicates the reminder id.
-   * @param callback Indicates the callback function.
+   * @param { number } reminderId Indicates the reminder id.
+   * @param { AsyncCallback<void> } callback Indicates the callback function.
    * @deprecated since 9
    * @useinstead reminderAgentManager.cancelReminder
    */
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Cancels a reminder.
+   *
+   * @since 7
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @param { number } reminderId Indicates the reminder id.
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.cancelReminder
+   */
   function cancelReminder(reminderId: number): Promise<void>;
 
   /**
@@ -60,11 +81,20 @@ declare namespace reminderAgent {
    *
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @param callback Indicates the callback function.
+   * @param { AsyncCallback<Array<ReminderRequest>> } callback Indicates the callback function.
    * @deprecated since 9
    * @useinstead reminderAgentManager.getValidReminders
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
+
+  /**
+   * Obtains all the valid reminders of current application.
+   *
+   * @since 7
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.getValidReminders
+   */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
   /**
@@ -72,11 +102,20 @@ declare namespace reminderAgent {
    *
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @param callback Indicates the callback function.
+   * @param { AsyncCallback<void> } callback Indicates the callback function.
    * @deprecated since 9
    * @useinstead reminderAgentManager.cancelAllReminders
    */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
+
+  /**
+   * Cancels all the reminders of current application.
+   *
+   * @since 7
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.cancelAllReminders
+   */
   function cancelAllReminders(): Promise<void>;
 
   /**
@@ -84,12 +123,22 @@ declare namespace reminderAgent {
    *
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @param slot Indicates the slot.
-   * @param callback Indicates the callback function.
+   * @param { NotificationSlot } slot Indicates the slot.
+   * @param { AsyncCallback<void> } callback Indicates the callback function.
    * @deprecated since 9
    * @useinstead reminderAgentManager.addNotificationSlot
    */
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
+
+  /**
+   * Add notification slot.
+   *
+   * @since 7
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @param { NotificationSlot } slot Indicates the slot.
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.addNotificationSlot
+   */
   function addNotificationSlot(slot: NotificationSlot): Promise<void>;
 
   /**
@@ -97,17 +146,28 @@ declare namespace reminderAgent {
    *
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @param slotType Indicates the type of the slot.
-   * @param callback Indicates the callback function.
+   * @param { notification.SlotType } slotType Indicates the type of the slot.
+   * @param { AsyncCallback<void> } callback Indicates the callback function.
    * @deprecated since 9
    * @useinstead reminderAgentManager.removeNotificationSlot
    */
   function removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void;
+
+  /**
+   * Deletes a created notification slot based on the slot type.
+   *
+   * @since 7
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @param { notification.SlotType } slotType Indicates the type of the slot.
+   * @deprecated since 9
+   * @useinstead reminderAgentManager.removeNotificationSlot
+   */
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
 
   /**
    * Declares action button type.
    *
+   * @enum { number }
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9
@@ -136,6 +196,7 @@ declare namespace reminderAgent {
   /**
    * Declares reminder type.
    *
+   * @enum { number }
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9
@@ -173,6 +234,7 @@ declare namespace reminderAgent {
   /**
    * Action button information. The button will show on displayed reminder.
    *
+   * @interface ActionButton
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9
@@ -202,6 +264,7 @@ declare namespace reminderAgent {
    * Want agent information.
    * It will switch to target ability when you click the displayed reminder.
    *
+   * @interface WantAgent
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9
@@ -230,6 +293,7 @@ declare namespace reminderAgent {
   /**
    * Max screen want agent information.
    *
+   * @interface MaxScreenWantAgent
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9
@@ -258,6 +322,7 @@ declare namespace reminderAgent {
   /**
    * Reminder Common information.
    *
+   * @interface ReminderRequest
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9
@@ -385,6 +450,8 @@ declare namespace reminderAgent {
   }
 
   /**
+   * @interface ReminderRequestCalendar
+   * @since 7
    * @deprecated since 9
    * @useinstead reminderAgentManager.ReminderRequestCalendar
    */
@@ -420,6 +487,7 @@ declare namespace reminderAgent {
   /**
    * Alarm reminder information.
    *
+   * @interface ReminderRequestAlarm
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9
@@ -457,6 +525,7 @@ declare namespace reminderAgent {
   /**
    * CountDown reminder information.
    *
+   * @interface ReminderRequestTimer
    * @since 7
    * @syscap SystemCapability.Notification.ReminderAgent
    * @deprecated since 9

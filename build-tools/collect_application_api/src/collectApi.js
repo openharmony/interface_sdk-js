@@ -594,8 +594,8 @@ async function getExcelBuffer(api) {
   for (let i = 1; i <= api.length; i++) {
     const apiData = api[i - 1];
     sheet.getRow(i + 1).values = [apiData.packageName, apiData.className, apiData.methodName,
-    apiData.methodText, apiData.pos, apiData.apiType, apiData.sysCap, apiData.permission,
-    apiData.version, apiData.isSystemApi]
+      apiData.methodText, apiData.pos, apiData.apiType, apiData.sysCap, apiData.permission,
+      apiData.version, apiData.isSystemApi]
   }
   const buffer = await workbook.xlsx.writeBuffer();
   return buffer;

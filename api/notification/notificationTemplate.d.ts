@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,19 +16,26 @@
 /**
  * Describes a NotificationTemplate instance.
  *
- * @name NotificationTemplate
- * @since 8
- * @permission N/A
+ * @typedef NotificationTemplate
  * @syscap SystemCapability.Notification.Notification
+ * @since 8
  */
 export interface NotificationTemplate {
   /**
    * Obtains the type of a notification template.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 8
    */
   name: string;
 
   /**
    * Obtains the data of a notification template.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 8
    */
-  data: {[key: string]: Object};
+  data: { [key: string]: Object };
 }

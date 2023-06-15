@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteAbilityInfo';
 
@@ -84,8 +84,8 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
-      callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>,
+    callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
    * Obtains information about the abilities info of the remote device.
@@ -126,8 +126,8 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-   function getRemoteAbilityInfo(elementName: ElementName,
-      locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
+  function getRemoteAbilityInfo(elementName: ElementName,
+    locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
 
   /**
    * Obtains information about the ability info of the remote device.
@@ -135,7 +135,7 @@ declare namespace distributedBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - Indicates the elementName.
    * @param { string } locale - Indicates the locale info
-   * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the ability info of the remote device.
+   * @returns { Promise<RemoteAbilityInfo> } The result of getting the ability info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -156,7 +156,7 @@ declare namespace distributedBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { string } locale - Indicates the locale info
-   * @param { AsyncCallback } callback - Returns the abilities info of the remote device.
+   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - Returns the abilities info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -169,8 +169,8 @@ declare namespace distributedBundleManager {
    * @systemapi
    * @since 9
    */
-   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
-      locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>,
+    locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
    * Obtains information about the abilities info of the remote device.

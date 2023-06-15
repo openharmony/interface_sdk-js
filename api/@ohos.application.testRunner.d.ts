@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,26 +17,26 @@
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
  *
- * @since 8
+ * @interface TestRunner
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 8
  */
 export interface TestRunner {
-    /**
-     * Prepare the unit testing environment for running test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onPrepare(): void;
+  /**
+   * Prepare the unit testing environment for running test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  onPrepare(): void;
 
-    /**
-     * Run all test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    onRun(): void;
+  /**
+   * Run all test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  onRun(): void;
 }
 
 export default TestRunner;

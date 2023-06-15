@@ -1,7 +1,7 @@
 {
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Lite",
-    "SystemCapability.BundleManager.PackingTool",
+    "SystemCapability.Base",
     "SystemCapability.Communication.IPC.Core",
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.PowerManager.PowerManager.Lite",

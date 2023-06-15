@@ -22,10 +22,21 @@
  * @form
  * @since 9
  */
+/**
+ * Provides interfaces for drawing components.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface ShapeInterface {
   /**
    * Use the new function to create Shape.
    * @since 7
+   */
+  /**
+   * Use the new function to create Shape.
+   * @crossplatform
+   * @since 10
    */
   new (value?: PixelMap): ShapeAttribute;
 
@@ -33,12 +44,27 @@ interface ShapeInterface {
    * Called when a component is drawn.
    * @since 7
    */
-  (value?: PixelMap): ShapeAttribute;
+  /**
+   * Called when a component is drawn.
+   * @crossplatform
+   * @since 10
+   */
+  (value: PixelMap): ShapeAttribute;
 
+  /**
+   * Called when a component is drawn.
+   * @since 7
+   */
   /**
    * Called when a component is drawn.
    * @form
    * @since 9
+   */
+  /**
+   * Called when a component is drawn.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (): ShapeAttribute;
 }
@@ -50,6 +76,11 @@ interface ShapeInterface {
  * @form
  * @since 9
  */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Viewport of shape
@@ -59,6 +90,11 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Viewport of shape
    * @form
    * @since 9
+   */
+  /**
+   * Viewport of shape
+   * @crossplatform
+   * @since 10
    */
   viewPort(value: { x?: number | string; y?: number | string; width?: number | string; height?: number | string }): ShapeAttribute;
 
@@ -71,6 +107,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the border color is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   stroke(value: ResourceColor): ShapeAttribute;
 
   /**
@@ -81,6 +123,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Called when the fill color is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the fill color is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fill(value: ResourceColor): ShapeAttribute;
 
@@ -93,6 +141,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the offset of the starting point of border drawing is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeDashOffset(value: number | string): ShapeAttribute;
 
   /**
@@ -103,6 +157,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Called when the gap of the border is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the gap of the border is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   strokeDashArray(value: Array<any>): ShapeAttribute;
 
@@ -115,6 +175,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the path endpoint drawing style is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeLineCap(value: LineCapStyle): ShapeAttribute;
 
   /**
@@ -125,6 +191,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Called when the border corner drawing style is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the border corner drawing style is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   strokeLineJoin(value: LineJoinStyle): ShapeAttribute;
 
@@ -137,6 +209,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the limit value for drawing acute angles as oblique angles is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeMiterLimit(value: number | string): ShapeAttribute;
 
   /**
@@ -147,6 +225,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Called when the opacity of the border is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the opacity of the border is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   strokeOpacity(value: number | string | Resource): ShapeAttribute;
 
@@ -159,6 +243,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the transparency of the border is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fillOpacity(value: number | string | Resource): ShapeAttribute;
 
   /**
@@ -169,6 +259,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Called when the width of the border is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the width of the border is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   strokeWidth(value: number | string): ShapeAttribute;
 
@@ -181,8 +277,14 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when setting whether anti aliasing is on.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   antiAlias(value: boolean): ShapeAttribute;
-  
+
   /**
    * Called when shape mesh.
    * @since 8
@@ -191,6 +293,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Called when shape mesh.
    * @form
    * @since 9
+   */
+  /**
+   * Called when shape mesh.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   mesh(value: Array<any>, column: number, row: number): ShapeAttribute;
 }
@@ -204,6 +312,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Shape Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Shape: ShapeInterface;
 
 /**
@@ -214,5 +328,11 @@ declare const Shape: ShapeInterface;
  * Defines Shape Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Shape Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const ShapeInstance: ShapeAttribute;

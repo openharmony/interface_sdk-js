@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 
@@ -274,7 +274,7 @@ declare namespace pasteboard {
      * @since 9
      */
     data: {
-        [mimeType: string]: ArrayBuffer
+      [mimeType: string]: ArrayBuffer
     }
 
     /**
@@ -526,7 +526,8 @@ declare namespace pasteboard {
     /**
      * Remove a callback invoked when pasteboard content changes.
      * @param { string } type - indicates pasteboard content changed.
-     * @param { () => void } [callback] - the callback to remove.
+     * @param { () => void } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
+     * callbacks for this application will be cleared. Otherwise, it indicates that the specified callback will be cleared.
      * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @since 7
      */

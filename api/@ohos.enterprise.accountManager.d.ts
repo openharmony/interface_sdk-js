@@ -13,21 +13,22 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./basic";
-import Want from "./@ohos.app.ability.Want";
+import type { AsyncCallback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the accounts of the enterprise devices.
- * @namespace accountManager.
+ *
+ * @namespace accountManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 10
  */
 declare namespace accountManager {
-
   /**
    * Disallow the user of device add local account.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { boolean } disallow - true if the user is not allowed to add local account.
@@ -47,6 +48,7 @@ declare namespace accountManager {
   /**
    * Disallow the user of device add local account.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { boolean } disallow - true if the user is not allowed to add local account.

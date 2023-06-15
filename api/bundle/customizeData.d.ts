@@ -14,11 +14,13 @@
  */
 
 /**
+ * Indicates the custom metadata
+ *
+ * @typedef CustomizeData
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.Metadata
- * @name Indicates the custom metadata
  */
 export interface CustomizeData {
   /**

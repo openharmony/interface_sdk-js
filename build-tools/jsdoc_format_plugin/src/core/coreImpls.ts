@@ -160,7 +160,6 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
   }
 
   private shouldForEachChildren(node: ts.Node): boolean {
-    //this.visitNodeChildrenWhilteList.includes(node.kind);
     return true;
   }
 
@@ -946,7 +945,7 @@ export class LogReporterImpl implements LogReporter {
     ['moduleName', '模块名称']
   ]);
 
-  constructor() { }
+  constructor() {}
 
   setWriter(writer: LogWriter): void {
     this.writer = writer;

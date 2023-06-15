@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides a set of encryption and decryption algorithm library framework, shields the underlying differences,
@@ -172,7 +172,7 @@ declare namespace cryptoFramework {
    */
   interface CcmParamsSpec extends ParamsSpec {
     /**
-     * Indicates the GCM algorithm parameters such as iv.
+     * Indicates the GCM algorithm parameters such as IV.
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
@@ -239,6 +239,16 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    /**
+     * Encode the key object to binary data.
+     *
+     * @returns { DataBlob } the binary data of the key object.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
     getEncoded(): DataBlob;
 
     /**
@@ -294,19 +304,45 @@ declare namespace cryptoFramework {
      * @since 9
      */
     clearMem(): void;
+
+    /**
+     * Get the specified parameter of the private key.
+     *
+     * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
+     * @returns { bigint | string | number } the specified parameters value.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
   }
 
   /**
-   * The public key class of asymmetric key.
+   * Provides the public key interface for asymmetric keys.
    *
    * @typedef PubKey
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
-  interface PubKey extends Key {}
+  interface PubKey extends Key {
+    /**
+     * Get the specified parameter of the public key.
+     *
+     * @param { AsyKeySpecItem } itemType - indicates the specified parameters type.
+     * @returns { bigint | string | number } the specified parameters value.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
+  }
 
   /**
-   * The keyPair class of asymmetric key. Include privateKey and publickey.
+   * Provides the keypair interface for asymmetric keys. A keyPair object contains both private key and public key.
    *
    * @typedef KeyPair
    * @syscap SystemCapability.Security.CryptoFramework
@@ -369,6 +405,19 @@ declare namespace cryptoFramework {
     generateRandom(len: number): Promise<DataBlob>;
 
     /**
+     * Generate random DataBlob by given length synchronously.
+     *
+     * @param { number } len - indicates the length of random DataBlob.
+     * @returns { DataBlob } return the generated random blob.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generateRandomSync(len: number): DataBlob;
+
+    /**
      * Set seed by given DataBlob.
      *
      * @param { DataBlob } seed - indicates the seed DataBlob.
@@ -377,10 +426,20 @@ declare namespace cryptoFramework {
      * @since 9
      */
     setSeed(seed: DataBlob): void;
+
+    /**
+     * Indicates the random generation algorithm name.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    readonly algName: string;
   }
 
   /**
-   * Provides the rand create func.
+   * Create a random generator instance.
    *
    * @returns { Random } returns the created rand instance.
    * @throws { BusinessError } 17620001 - memory error.
@@ -398,18 +457,28 @@ declare namespace cryptoFramework {
    */
   interface AsyKeyGenerator {
     /**
-     * Used to generate asymmetric key pair.
+     * Used to generate asymmetric keypair.
      *
      * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Used to generate asymmetric keypair.
+     *
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
     /**
-     * Used to generate asymmetric key pair.
+     * Used to generate asymmetric keypair.
      *
      * @returns { Promise<KeyPair> } the promise used to return keypair.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -417,10 +486,20 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    /**
+     * Used to generate asymmetric keypair.
+     *
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
     generateKeyPair(): Promise<KeyPair>;
 
     /**
-     * Used to convert asymmetric key data to key pair object.
+     * Used to convert asymmetric key data to keypair object.
      *
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
@@ -430,10 +509,22 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob } pubKey - the public key data blob.
+     * @param { DataBlob } priKey - the private key data blob.
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
     convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
 
     /**
-     * Used to convert asymmetric key data to key pair object.
+     * Used to convert asymmetric key data to keypair object.
      *
      * @param { DataBlob } pubKey - the public key data blob.
      * @param { DataBlob } priKey - the private key data blob.
@@ -442,6 +533,18 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
+     */
+    /**
+     * Used to convert asymmetric key data to keypair object.
+     *
+     * @param { DataBlob } pubKey - the public key data blob.
+     * @param { DataBlob } priKey - the private key data blob.
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
 
@@ -527,6 +630,17 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
+   */
+  /**
+   * Create the asymmetric key generator instance according to the given algorithm name.
+   *
+   * @param { string } algName - indicates the algorithm name.
+   * @returns { AsyKeyGenerator } the asymmetric key generator instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
    */
   function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
 
@@ -741,6 +855,97 @@ declare namespace cryptoFramework {
   function createMd(algName: string): Md;
 
   /**
+   * Enum for encryption specified parameters.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  enum CipherSpecItem {
+    /**
+     * Indicates the algorithm name of the message digest function. It is used during RSA encryption.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    OAEP_MD_NAME_STR = 100,
+
+    /**
+     * Indicates the algorithm name for the mask generation function. It is used during RSA encryption.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    OAEP_MGF_NAME_STR = 101,
+
+    /**
+     * Indicates the message digest parameter for the MGF1 mask generation function. It is used during RSA encryption.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    OAEP_MGF1_MD_STR = 102,
+
+    /**
+     * Indicates the source of the encoding input P. It is used during RSA encryption.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    OAEP_MGF1_PSRC_UINT8ARR = 103
+  }
+
+  /**
+   * Enum for signature specified parameters, also used for verification.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  enum SignSpecItem {
+    /**
+     * Indicates the algorithm name of the message digest function. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PSS_MD_NAME_STR = 100,
+
+    /**
+     * Indicates the algorithm name of the mask generation function. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PSS_MGF_NAME_STR = 101,
+
+    /**
+     * Indicates the message digest parameter for the MGF1 mask generation function.
+     * It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PSS_MGF1_MD_STR = 102,
+
+    /**
+     * Indicates the salt length in bits. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PSS_SALT_LEN_NUM = 103,
+
+    /**
+     * Indicates the value for the trailer field. It is used in RSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PSS_TRAILER_FIELD_NUM = 104
+  }
+
+  /**
    * Provides the Cipher type, which is used for encryption and decryption operations.
    *
    * @typedef Cipher
@@ -841,7 +1046,37 @@ declare namespace cryptoFramework {
     doFinal(data: DataBlob): Promise<DataBlob>;
 
     /**
-     * Indicates the algorithm name of the Cipher object.
+     * Set the specified parameter to the cipher object.
+     * Currently, only the OAEP_MGF1_PSRC_UINT8ARR parameter in RSA is supported.
+     *
+     * @param { CipherSpecItem } itemType - indicates the specified parameter type.
+     * @param { Uint8Array } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    setCipherSpec(itemType: CipherSpecItem, itemValue: Uint8Array): void;
+
+    /**
+     * Get the specified parameter from the cipher object.
+     * Currently, only OAEP parameters in RSA is supported.
+     *
+     * @param { CipherSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | Uint8Array } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    getCipherSpec(itemType: CipherSpecItem): string | Uint8Array;
+
+    /**
+     * Indicates the algorithm name of the cipher object.
      *
      * @type { string }
      * @readonly
@@ -863,10 +1098,23 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
+  /**
+   * Create a cipher object for encryption and decryption operations according to the given specifications.
+   * Two different Cipher objects should be created when using RSA encryption and decryption,
+   * even with the same specifications.
+   *
+   * @param { string } transformation - indicates the description to be transformed to cipher specifications.
+   * @returns { Cipher } the cipher object returned by the function.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
   function createCipher(transformation: string): Cipher;
 
   /**
-   * Provides sign function.
+   * Provides the Sign type, which is used for generating signatures.
    *
    * @typedef Sign
    * @syscap SystemCapability.Security.CryptoFramework
@@ -958,7 +1206,37 @@ declare namespace cryptoFramework {
     sign(data: DataBlob): Promise<DataBlob>;
 
     /**
-     * The sign algName.
+     * Set the specified parameter to the sign object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    setSignSpec(itemType: SignSpecItem, itemValue: number): void;
+
+    /**
+     * Get the specified parameter from the sign object.
+     * Currently, only PSS parameters in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | number } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    getSignSpec(itemType: SignSpecItem): string | number;
+
+    /**
+     * Indicates the algorithm name of the sign object.
      *
      * @type { string }
      * @readonly
@@ -969,7 +1247,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides verify function.
+   * Provides the Verify interface, which is used for verifying signatures.
    *
    * @typedef Verify
    * @syscap SystemCapability.Security.CryptoFramework
@@ -1063,7 +1341,37 @@ declare namespace cryptoFramework {
     verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
 
     /**
-     * Indicates the verify algorithm name.
+     * Set the specified parameter to the verify object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    setVerifySpec(itemType: SignSpecItem, itemValue: number): void;
+
+    /**
+     * Get the specified parameter from the verify object.
+     * Currently, only PSS parameters in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @returns { string | number } the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    getVerifySpec(itemType: SignSpecItem): string | number;
+
+    /**
+     * Indicates the algorithm name of the verify object.
      *
      * @type { string }
      * @readonly
@@ -1082,6 +1390,17 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
+  /**
+   * Create a sign object for generating signatures.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { Sign } the sign class.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
   function createSign(algName: string): Sign;
 
   /**
@@ -1092,6 +1411,17 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters.
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
+   */
+  /**
+   * Create a verify object for verifying signatures.
+   *
+   * @param { string } algName - indicates the algorithm name and the parameters.
+   * @returns { Verify } the verify class.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
    */
   function createVerify(algName: string): Verify;
 
@@ -1153,7 +1483,765 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 9
    */
+  /**
+   * Create a key agreement object.
+   *
+   * @param { string } algName - indicates the algorithm name and params.
+   * @returns { KeyAgreement } the key agreement object.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
   function createKeyAgreement(algName: string): KeyAgreement;
+
+  /**
+   * Enum for algorithm specified parameters.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  enum AsyKeySpecItem {
+    /**
+     * Indicates the DSA prime p.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_P_BN = 101,
+
+    /**
+     * Indicates the DSA sub-prime q.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_Q_BN = 102,
+
+    /**
+     * Indicates the DSA base g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_G_BN = 103,
+
+    /**
+     * Indicates the DSA private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_SK_BN = 104,
+
+    /**
+     * Indicates the DSA public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    DSA_PK_BN = 105,
+
+    /**
+     * Indicates the prime p of an elliptic curve (EC) prime finite field.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_FP_P_BN = 201,
+
+    /**
+     * Indicates the first coefficient a of this elliptic curve.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_A_BN = 202,
+
+    /**
+     * Indicates the second coefficient b of this elliptic curve.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_B_BN = 203,
+
+    /**
+     * Indicates the affine x-coordinate of base point g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_G_X_BN = 204,
+
+    /**
+     * Indicates the affine y-coordinate of base point g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_G_Y_BN = 205,
+
+    /**
+     * Indicates the order of the base point g.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_N_BN = 206,
+
+    /**
+     * Indicates the cofactor of the elliptic curve.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_H_NUM = 207,
+
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_SK_BN = 208,
+
+    /**
+     * Indicates the affine x-coordinate of a point, which is the public point of an ECC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_PK_X_BN = 209,
+
+    /**
+     * Indicates the affine y-coordinate of a point, which is the public point of an ECC public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_PK_Y_BN = 210,
+
+    /**
+     * Indicates an elliptic curve finite field type.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_FIELD_TYPE_STR = 211,
+
+    /**
+     * Indicates the field size in bits. 
+     * For Fp field (an elliptic curve prime finite field with prime p), the field size is the size of prime p.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_FIELD_SIZE_NUM = 212,
+
+    /**
+     * Indicates the curve name according to SECG (Standards for Efficient Cryptography Group).
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    ECC_CURVE_NAME_STR = 213,
+
+    /**
+     * Indicates the modulus n of RSA algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    RSA_N_BN = 301,
+
+    /**
+     * Indicates the private exponent d of RSA algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    RSA_SK_BN = 302,
+
+    /**
+     * Indicates the public exponent e of RSA algorithm.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    RSA_PK_BN = 303
+  }
+
+  /**
+   * Enum for algorithm specified parameters type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  enum AsyKeySpecType {
+    /**
+     * Indicates the common specified parameters.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    COMMON_PARAMS_SPEC = 0,
+
+    /**
+     * Indicates the specified parameters of private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PRIVATE_KEY_SPEC = 1,
+
+    /**
+     * Indicates the specified parameters of public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    PUBLIC_KEY_SPEC = 2,
+
+    /**
+     * Indicates the specified parameters of keypair.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    KEY_PAIR_SPEC = 3
+  }
+
+  /**
+   * Provides a base interface for specifying asymmetric key parameters.
+   *
+   * @typedef AsyKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface AsyKeySpec {
+    /**
+     * Indicates the algorithm name of the asymmetric key object.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    algName: string;
+
+    /**
+     * Indicates the type of the specified parameters.
+     *
+     * @type { AsyKeySpecType }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    specType: AsyKeySpecType;
+  }
+
+  /**
+   * Specifies the set of parameters used in the DSA algorithm.
+   *
+   * @typedef DSACommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface DSACommonParamsSpec extends AsyKeySpec {
+    /**
+     * Indicates the DSA prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    p: bigint;
+
+    /**
+     * Indicates the DSA sub-prime q.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    q: bigint;
+
+    /**
+     * Indicates the DSA base g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    g: bigint;
+  }
+
+  /**
+   * Specifies the DSA public key with its associated parameters.
+   *
+   * @typedef DSAPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface DSAPubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the DSA common parameters.
+     *
+     * @type { DSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: DSACommonParamsSpec;
+
+    /**
+     * Indicates the DSA public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the DSA keypair with its associated parameters.
+   *
+   * @typedef DSAKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface DSAKeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the DSA common parameters.
+     *
+     * @type { DSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: DSACommonParamsSpec;
+
+    /**
+     * Indicates the DSA private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the DSA public key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies an elliptic curve finite field.
+   *
+   * @typedef ECField
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECField {
+    /**
+     * Indicates the type of an elliptic curve finite field.
+     * Currently, only Fp (elliptic curve prime finite field) is supported.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    fieldType: string;
+  }
+
+  /**
+   * Specifies an elliptic curve finite field with the prime p.
+   *
+   * @typedef ECFieldFp
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECFieldFp extends ECField {
+    /**
+     * Indicates the prime p.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    p: bigint;
+  }
+
+  /**
+   * Represents a point on an elliptic curve in affine coordinates.
+   *
+   * @typedef Point
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface Point {
+    /**
+     * Indicates the affine x-coordinate.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    x: bigint;
+
+    /**
+     * Indicates the affine y-coordinate.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    y: bigint;
+  }
+
+  /**
+   * Specifies the set of common parameters used in the ECC algorithm.
+   *
+   * @typedef ECCCommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCCommonParamsSpec extends AsyKeySpec {
+    /**
+     * Indicates an elliptic curve finite field.
+     *
+     * @type { ECField }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    field: ECField;
+
+    /**
+     * Indicates the first coefficient a of the elliptic curve.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    a: bigint;
+
+    /**
+     * Indicates the second coefficient b of the elliptic curve.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    b: bigint;
+
+    /**
+     * Indicates the base point g.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    g: Point;
+
+    /**
+     * Indicates the order of the base point g.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    n: bigint;
+
+    /**
+     * Indicates the cofactor h.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    h: number;
+  }
+
+  /**
+   * Specifies the ECC private key with its associated parameters.
+   *
+   * @typedef ECCPriKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCPriKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: ECCCommonParamsSpec;
+
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+  }
+
+  /**
+   * Specifies the ECC public key with its associated parameters.
+   *
+   * @typedef ECCPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCPubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: ECCCommonParamsSpec;
+
+    /**
+     * Indicates the public point of the ECC public key.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: Point;
+  }
+
+  /**
+   * Specifies the ECC keypair with its associated parameters.
+   *
+   * @typedef ECCKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface ECCKeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the ECC common parameters.
+     *
+     * @type { ECCCommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: ECCCommonParamsSpec;
+
+    /**
+     * Indicates the private value of the ECC private key.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the public point of the ECC public key.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: Point;
+  }
+
+  /**
+   * Specifies the set of common parameters used in the RSA algorithm.
+   *
+   * @typedef RSACommonParamsSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface RSACommonParamsSpec extends AsyKeySpec {
+    /**
+     * Indicates the modulus n.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    n: bigint;
+  }
+
+  /**
+   * Specifies the RSA public key with its associated parameters.
+   *
+   * @typedef RSAPubKeySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface RSAPubKeySpec extends AsyKeySpec {
+    /**
+     * Indicates the RSA common parameters.
+     *
+     * @type { RSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: RSACommonParamsSpec;
+
+    /**
+     * Indicates the public exponent e.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * Specifies the RSA keypair with its associated parameters.
+   *
+   * @typedef RSAKeyPairSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface RSAKeyPairSpec extends AsyKeySpec {
+    /**
+     * Indicates the RSA common parameters.
+     *
+     * @type { RSACommonParamsSpec }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    params: RSACommonParamsSpec;
+
+    /**
+     * Indicates the private exponent d.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    sk: bigint;
+
+    /**
+     * Indicates the public exponent e.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    pk: bigint;
+  }
+
+  /**
+   * The AsyKeyGeneratorBySpec provides the ability to generate key with its associated parameters.
+   *
+   * @typedef AsyKeyGeneratorBySpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  interface AsyKeyGeneratorBySpec {
+    /**
+     * Generate an asymmetric keypair.
+     *
+     * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generateKeyPair(callback: AsyncCallback<KeyPair>): void;
+
+    /**
+     * Generate an asymmetric keypair.
+     *
+     * @returns { Promise<KeyPair> } the promise used to return keypair.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generateKeyPair(): Promise<KeyPair>;
+
+    /**
+     * Generate a private key instance.
+     *
+     * @param { AsyncCallback<PriKey> } callback - the callback used to return PriKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePriKey(callback: AsyncCallback<PriKey>): void;
+
+    /**
+     * Generate a private key instance.
+     *
+     * @returns { Promise<PriKey> } the promise used to return PriKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePriKey(): Promise<PriKey>;
+
+    /**
+     * Generate a public key instance.
+     *
+     * @param { AsyncCallback<PubKey> } callback - the callback used to return PubKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePubKey(callback: AsyncCallback<PubKey>): void;
+
+    /**
+     * Generate a public key instance.
+     *
+     * @returns { Promise<PubKey> } the promise used to return PubKey.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    generatePubKey(): Promise<PubKey>;
+
+    /**
+     * Indicates the algorithm name of the generator.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    readonly algName: string;
+  }
+
+  /**
+   * Create an asymmetric key generator with the specified parameters.
+   *
+   * @param { AsyKeySpec } asyKeySpec - indicates the associated parameters of algorithm.
+   * @returns { AsyKeyGeneratorBySpec } the generator obj create by asyKeySpec.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
 }
 
 export default cryptoFramework;

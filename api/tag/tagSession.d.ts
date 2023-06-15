@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import tag from '../@ohos.nfc.tag';
-import { AsyncCallback } from '../basic';
+import { AsyncCallback } from '../@ohos.base';
 
 /**
  * Controls tag read and write.
@@ -99,7 +99,7 @@ export interface TagSession {
    * @throws { BusinessError } 801 - Capability not supported.
    * @since 9
    */
-   isConnected(): boolean;
+  isConnected(): boolean;
 
   /**
    * Sets the timeout duration (ms) for sending data to a tag.
@@ -126,7 +126,7 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @since 9
    */
-   setTimeout(timeout: number): void;
+  setTimeout(timeout: number): void;
 
   /**
    * Queries the timeout duration (ms) for sending data to a tag.
@@ -204,5 +204,5 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @since 9
    */
-   getMaxTransmitSize(): number;
+  getMaxTransmitSize(): number;
 }

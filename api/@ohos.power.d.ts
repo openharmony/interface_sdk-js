@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, BusinessError } from './basic';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
  * Provides interfaces to manage power.
@@ -44,12 +44,12 @@ declare namespace power {
    * <p>This method requires the ohos.permission.REBOOT permission.
    *
    * @permission ohos.permission.REBOOT
-   * @param reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
+   * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead { @link power#reboot }
+   * @useinstead power#reboot
    */
   function rebootDevice(reason: string): void;
 
@@ -73,23 +73,22 @@ declare namespace power {
   /**
    * Checks whether the screen of a device is on or off.
    *
-   * @param { AsyncCallback<boolean> } callback
-   * @returns Returns true if the screen is on; returns false otherwise.
+   * @param { AsyncCallback<boolean> } callback Returns true if the screen is on; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead { @link power#isActive }
+   * @useinstead power#isActive
    */
   function isScreenOn(callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether the screen of a device is on or off.
    *
-   * @returns Returns true if the screen is on; returns false otherwise.
+   * @returns { Promise<boolean> } Returns true if the screen is on; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead { @link power#isActive }
+   * @useinstead power#isActive
    */
   function isScreenOn(): Promise<boolean>;
 
@@ -98,7 +97,7 @@ declare namespace power {
    * <p>
    * The screen will be on if device is active, screen will be off otherwise.
    *
-   * @returns Returns true if the device is active; returns false otherwise.
+   * @returns { boolean } Returns true if the device is active; returns false otherwise.
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
@@ -127,12 +126,22 @@ declare namespace power {
    * @systemapi
    * @since 9
    */
-  function suspend(): void;
+  /**
+   * Suspends the device to turn off the screen.
+   *
+   * @param { boolean } isImmediate Indicates whether suspend the device immediately.
+   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 10
+   */
+  function suspend(isImmediate?: boolean): void;
 
   /**
    * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
    *
-   * @returns The power mode {@link DevicePowerMode} of current device .
+   * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9

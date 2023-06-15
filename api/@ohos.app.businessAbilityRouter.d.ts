@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './basic';
+import type { AsyncCallback } from './@ohos.base';
 import type * as _BusinessAbilityInfo from './bundleManager/BusinessAbilityInfo';
 
 /**
@@ -50,13 +50,13 @@ declare namespace businessAbilityRouter {
      * @systemapi
      * @since 10
      */
-    UNSPECIFIED = 255,
+    UNSPECIFIED = 255
   }
 
   /**
    * This filter value is used to filter business ability info
    *
-   * @name BusinessAbilityFilter
+   * @typedef BusinessAbilityFilter
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -65,12 +65,12 @@ declare namespace businessAbilityRouter {
     /**
      * Indicates the type of business ability info
      *
-     * @type { businessAbilityRouter.BusinessType }
+     * @type { BusinessType }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
      */
-    businessType: BusinessType,
+    businessType: BusinessType;
 
     /**
      * Indicates the supported mime type of business ability info
@@ -80,7 +80,7 @@ declare namespace businessAbilityRouter {
      * @systemapi
      * @since 10
      */
-    mimeType?: string,
+    mimeType?: string;
 
     /**
      * Indicates the supported uri of business ability info
@@ -90,32 +90,38 @@ declare namespace businessAbilityRouter {
      * @systemapi
      * @since 10
      */
-    uri?: string,
+    uri?: string;
   }
 
   /**
-   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required
+   * for cross user access.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BusinessAbilityFilter } filter - Indicates the filter containing the business ability info to be queried.
-   * @param { AsyncCallback<Array<BusinessAbilityInfo>> } callback - The callback of querying business ability info result.
+   * @param { AsyncCallback<Array<BusinessAbilityInfo>> } callback - The callback of querying business ability info
+   *                                                                 result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
    */
-  function queryBusinessAbilityInfo(filter: BusinessAbilityFilter, callback: AsyncCallback<Array<BusinessAbilityInfo>>): void;
+  function queryBusinessAbilityInfo(
+    filter: BusinessAbilityFilter,
+    callback: AsyncCallback<Array<BusinessAbilityInfo>>
+  ): void;
 
   /**
-   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required
+   * for cross user access.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BusinessAbilityFilter } filter - Indicates the filter containing the business ability info to be queried.
    * @returns { Promise<Array<BusinessAbilityInfo>> } Returns a list of business ability info objects.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi

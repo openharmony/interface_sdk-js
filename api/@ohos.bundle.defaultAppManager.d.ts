@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { BundleInfo } from './bundleManager/BundleInfo';
 import { ElementName } from './bundleManager/ElementName';
 
@@ -133,8 +133,25 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>) : void;
-  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>) : void;
+  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>): void;
+
+  /**
+   * Get default application based on type.
+   *
+   * @permission ohos.permission.GET_DEFAULT_APPLICATION
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @param { AsyncCallback<BundleInfo> } callback - The callback of the BundleInfo object result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700023 - The specified default app does not exist.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 9
+   */
+  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Get default application based on type.
@@ -176,8 +193,26 @@ declare namespace defaultAppManager {
    * @since 9
    */
   function setDefaultApplication(type: string,
-      elementName: ElementName, userId: number, callback: AsyncCallback<void>) : void;
-  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>) : void;
+    elementName: ElementName, userId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set default application based on type.
+   *
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
+   * @param { AsyncCallback<void> } callback - The callback of setting default application result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @throws { BusinessError } 17700028 - The specified ability does not match the type.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 9
+   */
+  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>): void;
 
   /**
    * Set default application based on type.
@@ -217,8 +252,24 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>) : void;
-  function resetDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
+  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Reset default application based on type.
+   *
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION
+   * @param { string } type - Application type or a file type that conforms to media type format.
+   * @param { AsyncCallback<void> } callback - The callback of resetting default application result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 9
+   */
+  function resetDefaultApplication(type: string, callback: AsyncCallback<void>): void;
 
   /**
    * Reset default application based on type.

@@ -13,33 +13,35 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic';
+import { AsyncCallback } from './@ohos.base';
 import ExtensionContext from './application/ExtensionContext';
 
 /**
  * The extension context class of input method.
  *
- * @since 9
+ * @extends ExtensionContext
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
+ * @since 9
  */
 export default class InputMethodExtensionContext extends ExtensionContext {
-    /**
-     * Destroy the input method extension.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    destroy(callback: AsyncCallback<void>): void;
+  /**
+   * Destroy the input method extension.
+   *
+   * @param { AsyncCallback<void> } callback - the callback of destroy.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @StageModelOnly
+   * @since 9
+   */
+  destroy(callback: AsyncCallback<void>): void;
 
-    /**
-     * Destroy the input method extension.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @returns { Promise<void> } the promise returned by the function.
-     * @StageModelOnly
-     */
-    destroy(): Promise<void>;
+  /**
+   * Destroy the input method extension.
+   *
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @StageModelOnly
+   * @since 9
+   */
+  destroy(): Promise<void>;
 }

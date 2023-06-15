@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import type { AsyncCallback } from './@ohos.base';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
+import type { Ashmem } from './@ohos.rpc';
 
 /**
  * This module provides the dataShare capability for consumer.
@@ -30,38 +31,309 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
  */
 declare namespace dataShare {
   /**
+   * Manages create datashare helper options.
+   *
+   * @interface DataShareHelperOptions
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface DataShareHelperOptions {
+    /**
+     * Specifies whether the {@link DataShareHelper} in proxy mode.
+     * If value is true, the {@link DataShareHelper} to be created is in proxy mode, and all operations will not open provider APP as possible
+     *
+     * @default false
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    isProxy?: boolean;
+  }
+
+  /**
    * Obtains the dataShareHelper.
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
-   * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: the dataShareHelper for consumer.
-   * @throws { BusinessError } 401 - the parameter check failed.
-   * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
+   * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
    * @since 9
    */
   function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
+  /**
+   * Obtains the dataShareHelper.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the path of the file to open.
+   * @param { DataShareHelperOptions } options - Indicates the optional config.
+   * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function createDataShareHelper(
+    context: Context,
+    uri: string,
+    options: DataShareHelperOptions,
+    callback: AsyncCallback<DataShareHelper>
+  ): void;
 
   /**
    * Obtains the dataShareHelper.
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
-   * @returns { Promise<DataShareHelper> } {DataShareHelper}: the dataShareHelper for consumer.
-   * @throws { BusinessError } 401 - the parameter check failed.
-   * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
+   * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
    * @since 9
    */
-  function createDataShareHelper(context: Context, uri: string): Promise<DataShareHelper>;
+  /**
+   * Obtains the dataShareHelper.
+   *
+   * @param { Context } context - Indicates the application context.
+   * @param { string } uri - Indicates the path of the file to open.
+   * @param { DataShareHelperOptions } options - Indicates the optional config.
+   * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function createDataShareHelper(
+    context: Context,
+    uri: string,
+    options?: DataShareHelperOptions
+  ): Promise<DataShareHelper>;
+
+  /**
+   * Specifies the {@link Template} id structure.
+   * A template is marked by the template id. Note that the template id is auto generated in {@link DataShareHelper#addTemplate}.
+   * After {@link DataShareHelper#addTemplate}, can use the template id to direct a template.
+   * 
+   * @interface TemplateId
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface TemplateId {
+    /**
+     * Specifies the id of subscriber, who process the callback
+     * Same as subscriberId in {@link DataShareHelper#addTemplate}
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    subscriberId: string;
+    /**
+     * Specifies the bundleName of template owner, who create the template
+     * Same as the caller's bundleName of {@link DataShareHelper#addTemplate}
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    bundleNameOfOwner: string;
+  }
+
+  /**
+   * Specifies the published item structure.
+   *
+   * @interface PublishedItem
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface PublishedItem {
+    /**
+     * Specifies the key of the published data
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    key: string;
+    /**
+     * Specifies the published data
+     * If the data is large, use Ashmem.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    data: string | Ashmem;
+    /**
+     * Specifies the subscriber id
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    subscriberId: string;
+  }
+
+  /**
+   * Specifies the change node structure of rdb store data in callback.
+   *
+   * @interface RdbDataChangeNode
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface RdbDataChangeNode {
+    /**
+     * Specifies the uri of the callback.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    uri: string;
+    /**
+     * Specifies the templateId of the callback.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    templateId: TemplateId;
+    /**
+     * Specifies the datas of the callback.
+     * every node is a json, json's key is [key of {@link Template#predicates}
+     * and value is the query result from rdb store query by value of{@link Template#predicates}].
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    data: Array<string>;
+  }
+
+  /**
+   * Specifies the change node structure of published data in callback.
+   *
+   * @interface PublishedDataChangeNode
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface PublishedDataChangeNode {
+    /**
+     * Specifies the bundleName of the callback.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    bundleName: string;
+    /**
+     * Specifies the datas of the callback.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    data: Array<PublishedItem>;
+  }
+
+  /**
+   * Specifies the template structure in subscribe.
+   *
+   * @interface Template
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface Template {
+    /**
+     * Specifies the predicates of the template.
+     * When the callback in {@link DataShareHelper#on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}
+     * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    predicates: { [key: string]: string };
+
+    /**
+     * Specifies the scheduler sql of the template.
+     * When modify the subscribed uri's data, scheduler is auto called.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    scheduler: string;
+  }
+  /**
+   * Specifies the operation result structure.
+   *
+   * @interface OperationResult
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface OperationResult {
+    /**
+     * Specifies the key of the operation result.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    key: string;
+
+    /**
+     * Specifies the operation result.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    result: number;
+  }
 
   /**
    * DataShareHelper
    *
+   * @interface DataShareHelper
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -71,9 +343,9 @@ declare namespace dataShare {
     /**
      * Registers an observer to observe data specified by the given uri.
      *
-     * @param { string } type - type must be 'dataChange'.
+     * @param { 'dataChange' } type - Type must be 'dataChange'.
      * @param { string } uri - Indicates the path of the data to operate.
-     * @param { AsyncCallback<void> } callback - the callback of on.
+     * @param { AsyncCallback<void> } callback - The callback of on.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -84,9 +356,9 @@ declare namespace dataShare {
     /**
      * Deregisters an observer used for monitoring data specified by the given uri.
      *
-     * @param { string } type - type must be 'dataChange'.
+     * @param { 'dataChange' } type - Type must be 'dataChange'.
      * @param { string } uri - Indicates the path of the data to operate.
-     * @param { AsyncCallback<void> } callback - the callback of off.
+     * @param { AsyncCallback<void> } callback - The callback of off.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -95,13 +367,210 @@ declare namespace dataShare {
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
     /**
+     * Adds a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
+     *
+     * @param { string } uri - Indicates the uri to add.
+     * @param { string } subscriberId - The subscribe id to add..
+     * @param { Template } template - The template to add.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    addTemplate(uri: string, subscriberId: string, template: Template): void;
+
+    /**
+     * Deletes a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
+     *
+     * @param { string } uri - Indicates the uri to delete.
+     * @param { string } subscriberId - The subscribe id.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700011 - The uri is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    delTemplate(uri: string, subscriberId: string): void;
+
+    /**
+     * Registers observers to observe rdb data specified by the given uri and template.
+     *
+     * @param { 'rdbDataChange' } type - Type must be 'rdbDataChange'.
+     * @param { Array<string> } uris - Indicates the paths of the data to operate.
+     * @param { TemplateId } templateId - The template of on.
+     * @param { AsyncCallback<RdbDataChangeNode> } callback - The callback of on.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    on(
+      type: 'rdbDataChange',
+      uris: Array<string>,
+      templateId: TemplateId,
+      callback: AsyncCallback<RdbDataChangeNode>
+    ): Array<OperationResult>;
+
+    /**
+     * Deregisters observers used for monitoring data specified by the given uri and template.
+     *
+     * @param { 'rdbDataChange' } type - Type must be 'rdbDataChange'.
+     * @param { Array<string> } uris - Indicates the paths of the data to operate.
+     * @param { TemplateId } templateId - The template of off.
+     * @param { AsyncCallback<RdbDataChangeNode> } callback - The callback of off.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    off(
+      type: 'rdbDataChange',
+      uris: Array<string>,
+      templateId: TemplateId,
+      callback?: AsyncCallback<RdbDataChangeNode>
+    ): Array<OperationResult>;
+
+    /**
+     * Registers observers to observe published data specified by the given key and subscriberId.
+     *
+     * @param { 'publishedDataChange' } type - Type must be 'publishedDataChange'.
+     * @param { Array<string> } uris - Indicates the uris of the data to operate.
+     * @param { string } subscriberId - The subscriberId of on.
+     * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of on.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    on(
+      type: 'publishedDataChange',
+      uris: Array<string>,
+      subscriberId: string,
+      callback: AsyncCallback<PublishedDataChangeNode>
+    ): Array<OperationResult>;
+
+    /**
+     * Deregisters observers used for monitoring data specified by the given key and subscriberId.
+     *
+     * @param { 'publishedDataChange' } type - Type must be 'publishedDataChange'.
+     * @param { Array<string> } uris - Indicates the uris of the data to operate.
+     * @param { string } subscriberId - The template of off.
+     * @param { AsyncCallback<PublishedDataChangeNode> } callback - The callback of off.
+     * @returns { Array<OperationResult> } : The operation result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    off(
+      type: 'publishedDataChange',
+      uris: Array<string>,
+      subscriberId: string,
+      callback?: AsyncCallback<PublishedDataChangeNode>
+    ): Array<OperationResult>;
+
+    /**
+     * Update a single data into host data area.
+     *
+     * @param { Array<PublishedItem> } data - Indicates the data to publish.
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @param { AsyncCallback<Array<OperationResult>> } callback
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    publish(
+      data: Array<PublishedItem>,
+      bundleName: string,
+      version: number,
+      callback: AsyncCallback<Array<OperationResult>>
+    ): void;
+
+    /**
+     * Update a single data into host data area.
+     *
+     * @param { Array<PublishedItem> } data - Indicates the data to publish.
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { AsyncCallback<Array<OperationResult>> } callback
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    publish(
+      data: Array<PublishedItem>,
+      bundleName: string,
+      callback: AsyncCallback<Array<OperationResult>>
+    ): void;
+
+    /**
+     * Update a single data into host data area.
+     *
+     * @param { Array<PublishedItem> } data - Indicates the data to publish.
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @returns { Promise<Array<OperationResult>> }
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    publish(data: Array<PublishedItem>, bundleName: string, version?: number): Promise<Array<OperationResult>>;
+
+    /**
+     * Registers a one-time observer to observe data specified by the given uri and template.
+     *
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { AsyncCallback<Array<PublishedItem>> } callback
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    getPublishedData(bundleName: string, callback: AsyncCallback<Array<PublishedItem>>): void;
+
+    /**
+     * Registers a one-time observer to observe data specified by the given uri and template.
+     *
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @returns { Promise<Array<PublishedItem>> }
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    getPublishedData(bundleName: string): Promise<Array<PublishedItem>>;
+
+    /**
      * Inserts a single data record into the database.
      *
      * @param { string } uri - Indicates the path of the data to operate.
-     * @param { ValueBucket } value - Indicates the data record to insert. If this parameter is null,
+     * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
      * @param { AsyncCallback<number> } callback - {number}: the index of the inserted data record.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -113,10 +582,10 @@ declare namespace dataShare {
      * Inserts a single data record into the database.
      *
      * @param { string } uri - Indicates the path of the data to operate.
-     * @param { ValueBucket } value - Indicates the data record to insert. If this parameter is null,
+     * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
      * @returns { Promise<number> } {number}: the index of the inserted data record.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -131,7 +600,7 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records deleted.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -146,7 +615,7 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @returns { Promise<number> } {number}: the number of data records deleted.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -163,7 +632,7 @@ declare namespace dataShare {
      * @param { Array<string> } columns - Indicates the columns to query.
      * If this parameter is null, all columns are queried.
      * @param { AsyncCallback<DataShareResultSet> } callback - {DataShareResultSet}: the query result.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -185,7 +654,7 @@ declare namespace dataShare {
      * @param { Array<string> } columns - Indicates the columns to query.
      * If this parameter is null, all columns are queried.
      * @returns { Promise<DataShareResultSet> } {DataShareResultSet}: the query result.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -203,9 +672,9 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of data to update.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @param { ValueBucket } value - Indicates the data to update. This parameter can be null.
+     * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records updated.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -224,9 +693,9 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of data to update.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @param { ValueBucket } value - Indicates the data to update. This parameter can be null.
+     * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
      * @returns { Promise<number> } {number}: the number of data records updated.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -240,7 +709,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
      * @param { AsyncCallback<number> } callback - {number}: the number of data records inserted.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -254,7 +723,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
      * @returns { Promise<number> } {number}: the number of data records inserted.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -329,7 +798,7 @@ declare namespace dataShare {
      * Notifies the registered observers of a change to the data resource specified by Uri.
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
-     * @param { AsyncCallback<void> } callback - the callback of notifyChange.
+     * @param { AsyncCallback<void> } callback - The callback of notifyChange.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -341,7 +810,7 @@ declare namespace dataShare {
      * Notifies the registered observers of a change to the data resource specified by Uri.
      *
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly

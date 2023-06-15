@@ -14,13 +14,15 @@
  */
 
 /**
+ * Provides methods for obtaining information about the ability that a shortcut will start, including the target
+ * bundle name, target module name and ability class name.
+ *
+ * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
- * @name Provides methods for obtaining information about the ability that a shortcut will start, including the target
- *        bundle name, target module name and ability class name.
  */
 export interface ShortcutWant {
   /**
@@ -40,11 +42,12 @@ export interface ShortcutWant {
 }
 
 /**
+ * Provides information about a shortcut, including the shortcut ID and label.
+ *
+ * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.bundle.launcherBundleManager.ShortcutInfo
- * @name Provides information about a shortcut, including the shortcut ID and label.
  */
 export interface ShortcutInfo {
   /**
