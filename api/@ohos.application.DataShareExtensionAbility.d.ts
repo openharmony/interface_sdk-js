@@ -35,7 +35,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   context: ExtensionContext;
 
