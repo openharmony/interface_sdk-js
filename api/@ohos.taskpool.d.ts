@@ -92,6 +92,7 @@ declare namespace taskpool {
      *
      * @returns { boolean } Returns {@code true} if current running task is canceled; returns {@code false} otherwise.
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     static isCanceled(): boolean;
@@ -102,6 +103,7 @@ declare namespace taskpool {
      * @param { ArrayBuffer[] } transfer - transfer Transfer list of this task, empty array is default.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     setTransferList(transfer?: ArrayBuffer[]): void;
@@ -141,6 +143,7 @@ declare namespace taskpool {
    * The TaskGroup class provides an interface to create a task group.
    *
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @since 10
    */
   class TaskGroup {
@@ -148,6 +151,7 @@ declare namespace taskpool {
      * Create a TaskGroup instance.
      *
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     constructor();
@@ -160,6 +164,7 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     addTask(func: Function, ...args: unknown[]): void;
@@ -171,6 +176,7 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200014 - if the function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     addTask(task: Task): void;
@@ -243,6 +249,7 @@ declare namespace taskpool {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @since 10
    */
   function execute(group: TaskGroup, priority?: Priority): Promise<unknown[]>;
@@ -277,6 +284,7 @@ declare namespace taskpool {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200018 - if the task group is not exist.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @since 10
    */
   function cancel(group: TaskGroup): void;
