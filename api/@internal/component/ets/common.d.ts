@@ -4218,6 +4218,17 @@ declare class CommonMethod<T> {
   margin(value: Margin | Length): T;
 
   /**
+   * Background.
+   * @param { CustomBuilder } value
+   * @param { ?{ align?: Alignment } } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  background(builder:CustomBuilder, options?: { align?: Alignment }): T;
+
+  /**
    * Background color
    * @since 7
    */
