@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { AsyncCallback } from './@ohos.base';
+
 /**
  * UDMF - Unified Data Management Framework
  *
@@ -76,6 +78,13 @@ declare namespace UDMF {
      * @since 10
      */
     VIDEO = 'File.Media.Video',
+    /**
+     * indicate the data type is audio
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    AUDIO = 'File.Media.Audio',
     /**
      * indicate the data type is Folder
      *
@@ -348,6 +357,23 @@ declare namespace UDMF {
   }
 
   /**
+   * describe the unified audio data
+   *
+   * @extends File
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  class Audio extends File {
+    /**
+     * indicates the uri of audio
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    audioUri: string;
+  }
+
+  /**
    * describe the unified folder data
    *
    * @extends File
@@ -524,6 +550,146 @@ declare namespace UDMF {
      */
     rawData: Uint8Array;
   }
+
+  /**
+   * describe the sharing channel that UDMF support
+   *
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  enum Intention {
+    /**
+     * indicates the intention of super hub
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    SUPER_HUB = 'SuperHub'
+  }
+
+  /**
+   * describe the optional arguments of data operation
+   *
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  type Options = {
+    /**
+     * indicates the target Intention
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    intention?: Intention;
+
+    /**
+     * indicates the unique identifier of target UnifiedData
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    key?: string;
+  };
+
+  /**
+   * Insert data into UDMF by Intention
+   *
+   * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
+   * @param { AsyncCallback<string> } callback - {string}: the unique identifier.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function insertData(options: Options, data: UnifiedData, callback: AsyncCallback<string>): void;
+
+  /**
+   * Insert data into UDMF by Intention
+   *
+   * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
+   * @returns { Promise<string> } {string}: the unique identifier.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function insertData(options: Options, data: UnifiedData): Promise<string>;
+
+  /**
+   * Update data to UDMF by Unique Identifier
+   *
+   * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
+   * @param { AsyncCallback<void> } callback - the callback of updateData.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function updateData(options: Options, data: UnifiedData, callback: AsyncCallback<void>): void;
+
+  /**
+   * Update data to UDMF by Unique Identifier
+   *
+   * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function updateData(options: Options, data: UnifiedData): Promise<void>;
+
+  /**
+   * Query data of UDMF by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function queryData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
+
+  /**
+   * Query data of UDMF by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function queryData(options: Options): Promise<Array<UnifiedData>>;
+
+  /**
+   * Delete data of UDMF by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function deleteData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
+
+  /**
+   * Delete data of UDMF by Intention or Unique Identifier
+   *
+   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
+   * @throws { BusinessError } 201 - Permission denied..
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function deleteData(options: Options): Promise<Array<UnifiedData>>;
 }
 
 export default UDMF;

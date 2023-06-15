@@ -117,7 +117,7 @@ declare enum NavigationMode {
    * @since 9
    */
   /**
-   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+   * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
    * Otherwise it's displayed in stack mode.
    * @crossplatform
    * @since 10
@@ -468,6 +468,27 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 10
    */
   navBarPosition(value: NavBarPosition): NavigationAttribute;
+
+  /**
+   * Sets the minimum width and the maximum width of navigation bar.
+   * @param { [Dimension, Dimension] } value The minimum and the maximum width of navigation bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavigationAttribute }
+   * @since 10
+   * @crossplatform
+   */
+  navBarWidthRange(value: [Dimension, Dimension]): NavigationAttribute;
+
+  /**
+   * Sets the minimum width of content.
+   * @default value is 360vp.
+   * @param { Dimension } value The minimum width of content.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavigationAttribute }
+   * @since 10
+   * @crossplatform
+   */
+  minContentWidth(value: Dimension): NavigationAttribute;
 
   /**
    * Sets the mode of navigation.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -655,6 +655,7 @@ declare namespace fileAccess {
   /**
    * CopyResult describe the return information of the copy operation.
    *
+   * @interface CopyResult
    * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
@@ -670,7 +671,7 @@ declare namespace fileAccess {
   /**
    * OPENFLAGS represents the way to open the file.
    *
-   * @enum { number }
+   * @enum { number } OPENFLAGS
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
@@ -708,7 +709,7 @@ declare namespace fileAccess {
   /**
    * Property elements that support the file queries.
    *
-   * @enum { string }
+   * @enum { string } FileKey
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly

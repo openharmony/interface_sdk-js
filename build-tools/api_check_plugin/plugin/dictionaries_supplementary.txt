@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+affinities
 agrees
 alerting
 algrithom
@@ -37,6 +38,7 @@ arrlist
 ashmem
 associating
 asy
+asyn
 asynchronized
 atime
 atio
@@ -52,6 +54,7 @@ averr
 avoidareachange
 avrcp
 avsession
+backgrounding
 backs
 base64
 bassboost
@@ -158,6 +161,7 @@ denormalized
 densitys
 deregistered
 deregisters
+deselected
 designative
 desynchronized
 developtools
@@ -195,6 +199,7 @@ ducking
 earfcn
 earphones
 earpiece
+edr
 efuse
 egid
 ehrpd
@@ -220,6 +225,7 @@ evdo
 evenodd
 evicted
 excepted
+exempted
 extention
 f1
 faultlog
@@ -235,6 +241,7 @@ fillets
 flac
 flg
 foldable
+foregrounding
 formatable
 forwardmail
 freesize
@@ -395,6 +402,8 @@ meid
 messageerror
 metered
 metering
+mgf
+mgf1
 mifare
 minibar
 minimizing
@@ -432,6 +441,7 @@ nets
 nextgroup
 nlink
 nmea
+nnrt
 nopadding
 normalizer
 notifies
@@ -440,6 +450,7 @@ numpad
 nvalidates
 nweb
 oaep
+obscured
 ofb
 offhook
 offscreen
@@ -525,6 +536,7 @@ provisioned
 proxyed
 psc
 psk
+psrc
 pss
 puk
 pvr
@@ -542,8 +554,10 @@ reconfiguration
 recovered
 recovering
 recursions
+reclaimed
 redirections
 refill
+refusing
 rejects
 relocation
 remidner
@@ -608,10 +622,12 @@ shortkey
 shuts
 sigalgs
 silenced
+singly
 slidable
 sliderstyle
 statvfs
 stk
+str
 sm3
 smil
 smsc
@@ -648,6 +664,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subtitles
 subtypes
 subwindow
 subwindows
@@ -688,6 +705,7 @@ tlsv13
 tnf
 totalsize
 touchpad
+trackinfo
 tranlisterated
 transcode
 transferable
@@ -696,6 +714,7 @@ transliterator
 transpilation
 trashed
 traversed
+traverses
 truncates
 tsbundle
 ttls
@@ -706,6 +725,7 @@ ubset
 ucs
 udid
 uint8
+uint8arr
 uitest
 umalqura
 unapply
@@ -716,7 +736,9 @@ unblocking
 uncalibrated
 uncategorized
 uncatergorized
+unclearable
 unconditional
+undisturbed
 unduck
 unducked
 unequal
@@ -763,6 +785,7 @@ ussd
 utilized
 uuids
 uwb
+uids
 v9
 varyings
 vibrates

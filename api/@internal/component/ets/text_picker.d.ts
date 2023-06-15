@@ -41,6 +41,31 @@ declare interface TextPickerRangeContent {
 }
 
 /**
+ * Define the contents of text cascade picker.
+ * @interface TextCascadePickerRangeContent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextCascadePickerRangeContent {
+
+  /**
+   * Specifies the text content.
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  text: string | Resource;
+
+  /**
+   * Defines the text cascade picker children.
+   * @type { TextCascadePickerRangeContent[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  children?: TextCascadePickerRangeContent[];
+}
+
+/**
  * Defines the options of TextPicker.
  * @since 8
  */
@@ -58,13 +83,13 @@ declare interface TextPickerOptions {
    */
   /**
    * Specifies the range of the selector.
-   * Support the display of pictures, text and pictures plus text
-   * @type { string[] | Resource | TextPickerRangeContent[] }
+   * Support the display of pictures, text and pictures plus text, or multi column plain text.
+   * @type { string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  range: string[] | Resource | TextPickerRangeContent[];
+  range: string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[];
 
   /**
    * Value of the current selection.
@@ -75,22 +100,27 @@ declare interface TextPickerOptions {
   /**
    * Value of the current selection.
    * Only valid when only text is displayed.
-   * @type { string }
+   * @type { string | string[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  value?: string;
+  value?: string | string[];
 
   /**
    * Current selected subscript.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
    */
   /**
    * Current selected subscript.
+   * @type { number | number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  selected?: number;
+  selected?: number | number[];
 }
 
 /**
@@ -133,6 +163,14 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 10
    */
   defaultPickerItemHeight(value: number | string): TextPickerAttribute;
+
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  canLoop(value: boolean): TextPickerAttribute;
 
   /**
    * Sets the text style of disappearing items
@@ -184,12 +222,22 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * This event is triggered when a TextPicker item is selected.
    * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
-   * @param { (value: string, index: number) => void } callback - the callback of onChange.
+   * @param { (value: string | string[], index: number | number[]) => void } callback - the callback of onChange.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
+  onChange(callback: (value: string | string[], index: number | number[]) => void): TextPickerAttribute;
+
+  /**
+   * Set the selected indices.
+   * The array size is the total number of columns.
+   * @param { number | number[] } value - the selected indices.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  selectedIndex(value: number | number[]): TextPickerAttribute;
 }
 
 /**
@@ -211,22 +259,25 @@ declare interface TextPickerResult {
   /**
    * The currently selected value.
    * Only valid when only text is displayed.When picture or picture plus text is displayed, the value of value is "".
-   * @type { string }
+   * @type { string | string[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  value: string;
+  value: string | string[];
+
   /**
    * The subscript of the current selection.
    * @since 8
    */
   /**
    * The subscript of the current selection.
+   * @type { number | number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  index: number;
+  index: number | number[];
 }
 
 /**
@@ -249,6 +300,14 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 10
    */
   defaultPickerItemHeight?: number | string;
+
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  canLoop?: boolean;
 
   /**
    * Text style of disappearing items
@@ -353,3 +412,10 @@ declare const TextPicker: TextPickerInterface;
  * @since 10
  */
 declare const TextPickerInstance: TextPickerAttribute;
+
+declare module "textPickerDialogParam" {
+  module "textPickerDialogParam" {
+    // @ts-ignore
+    export { TextPickerDialogOptions };
+  }
+}
