@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Obtains traffic statistics.
@@ -286,7 +286,7 @@ declare namespace statistics {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getIfaceStats(ifaceInfo: IfaceInfo, callback: AsyncCallback<NetStatsInfo>): void;
+  function getTrafficStatsByIface(ifaceInfo: IfaceInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
   /**
    * Get the traffic usage details of the network interface in the specified time period.
@@ -304,12 +304,12 @@ declare namespace statistics {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getIfaceStats(ifaceInfo: IfaceInfo): Promise<NetStatsInfo>;
+  function getTrafficStatsByIface(ifaceInfo: IfaceInfo): Promise<NetStatsInfo>;
 
   /**
    * Get the traffic usage details of the specified time period of the application.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { UidStatsInfo } uidStatsInfo - Detailed query content. See {@link UidStatsInfo}.
+   * @param { UidInfo } uidInfo - Detailed query content. See {@link UidInfo}.
    * @param { AsyncCallback<NetStatsInfo> } callback - Returns the {@link NetStatsInfo} object;
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -322,12 +322,12 @@ declare namespace statistics {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getIfaceUidStats(uidStatsInfo: UidStatsInfo, callback: AsyncCallback<NetStatsInfo>): void;
+  function getTrafficStatsByUid(uidInfo: UidInfo, callback: AsyncCallback<NetStatsInfo>): void;
   
   /**
    * Get the traffic usage details of the specified time period of the application.
    * @permission ohos.permission.GET_NETWORK_STATS
-   * @param { UidStatsInfo } uidStatsInfo - Detailed query content. See {@link UidStatsInfo}.
+   * @param { UidInfo } uidInfo - Detailed query content. See {@link UidInfo}.
    * @returns { Promise<NetStatsInfo> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -340,7 +340,7 @@ declare namespace statistics {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getIfaceUidStats(uidStatsInfo: UidStatsInfo): Promise<NetStatsInfo>;
+  function getTrafficStatsByUid(uidInfo: UidInfo): Promise<NetStatsInfo>;
 
   /**
    * Parameters for obtaining detailed information on network interface traffic usage.
@@ -380,12 +380,12 @@ declare namespace statistics {
 
   /**
    * Parameters for obtaining detailed information on application traffic usage.
-   * @interface UidStatsInfo
+   * @interface UidInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export interface UidStatsInfo {
+  export interface UidInfo {
     /**
      * See {@link IfaceInfo}
      * @type {IfaceInfo}
