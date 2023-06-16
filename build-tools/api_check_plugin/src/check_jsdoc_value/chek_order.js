@@ -81,7 +81,7 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
   const decoratorRuleSet = new Set(docTags);
   if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind) && isIllegalTagWhitetFile) {
     APITagNameResult.checkResult = false;
-    APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [JSDocIndec + 1, tagName]);
+    APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [tagName]);
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, APITagNameResult.errorInfo,
       FileType.JSDOC, ErrorLevel.MIDDLE);
   }
@@ -102,7 +102,7 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
       })
       if (parentTagArr.includes(inheritTag)) {
         inheritResult.checkResult = false;
-        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [JSocIndex + 1, inheritTag])
+        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [inheritTag])
       } else {
         checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
       }

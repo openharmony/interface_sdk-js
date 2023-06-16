@@ -405,6 +405,14 @@ declare namespace bundleManager {
     DRIVER = 18,
 
     /**
+     * Indicates extension info with type of appAccountAuthorization
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    APP_ACCOUNT_AUTHORIZATION = 19,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -474,16 +482,29 @@ declare namespace bundleManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Launch type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
    */
   export enum LaunchType {
     /**
      * Indicates that the ability has only one instance
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Indicates that the ability has only one instance
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @since 10
      */
     SINGLETON = 0,
 
@@ -491,8 +512,14 @@ declare namespace bundleManager {
      * Indicates that the ability can have multiple instances
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Indicates that the ability can have multiple instances
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @since 10
      */
     MULTITON = 1,
 
@@ -518,6 +545,7 @@ declare namespace bundleManager {
      * Indicates that the ability has a UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @FAModelOnly
      * @since 9
      */
     PAGE = 1,
@@ -526,6 +554,7 @@ declare namespace bundleManager {
      * Indicates that the ability does not have a UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @FAModelOnly
      * @since 9
      */
     SERVICE = 2,
@@ -534,6 +563,7 @@ declare namespace bundleManager {
      * Indicates that the ability is used to provide data access services
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @FAModelOnly
      * @since 9
      */
     DATA = 3

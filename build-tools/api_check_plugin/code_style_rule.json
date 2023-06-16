@@ -99,9 +99,7 @@
       "SystemCapability.ArkUI.UiAppearance",
       "SystemCapability.BundleManager.BundleFramework",
       "SystemCapability.BundleManager.DistributedBundleFramework",
-      "SystemCapability.BundleManager.BundleTool",
       "SystemCapability.BundleManager.Zlib",
-      "SystemCapability.BundleManager.PackingTool",
       "SystemCapability.BundleManager.BundleFramework.Core",
       "SystemCapability.BundleManager.BundleFramework.FreeInstall",
       "SystemCapability.BundleManager.BundleFramework.Resource",
@@ -240,7 +238,8 @@
       "SystemCapability.Security.DeviceAuth",
       "SystemCapability.Security.DataTransitManager",
       "SystemCapability.Security.DeviceSecurityLevel",
-      "SystemCapability.Security.Huks",
+      "SystemCapability.Security.Huks.Core",
+      "SystemCapability.Security.Huks.Extension",
       "SystemCapability.Security.AccessToken",
       "SystemCapability.Security.Cipher",
       "SystemCapability.Security.CertificateManager",
@@ -288,6 +287,9 @@
       "SystemCapability.DistributedDataManager.DataShare.Consumer",
       "SystemCapability.DistributedDataManager.DataShare.Provider",
       "SystemCapability.DistributedDataManager.UDMF.Core",
+      "SystemCapability.DistributedDataManager.CloudSync.Config",
+      "SystemCapability.DistributedDataManager.CloudSync.Client",
+      "SystemCapability.DistributedDataManager.CloudSync.Server",
       "SystemCapability.Ability.AbilityBase",
       "SystemCapability.Ability.AbilityRuntime.Core",
       "SystemCapability.Ability.AbilityRuntime.FAModel",
@@ -310,9 +312,12 @@
       "SystemCapability.XTS.DeviceAttestLite",
       "SystemCapability.Base",
       "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
+      "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
       "SystemCapability.MultimodalInput.Input.ShortKey",
       "SystemCapability.Msdp.DeviceStatus.Cooperate",
-      "SystemCapability.Request.FileTransferAgent"
+      "SystemCapability.Request.FileTransferAgent",
+      "SystemCapability.ResourceSchedule.DeviceStandby",
+      "SystemCapability.AI.MindSporeLite"
     ]
   },
   "administrators": [

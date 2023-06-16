@@ -36,7 +36,7 @@ declare namespace usbManager {
    * @param { USBDevice } device - USB device on the device list returned by getDevices().
    * @returns { Readonly<USBDevicePipe> } object for data transfer.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 14400001 - USB Device access denied.
+   * @throws { BusinessError } 14400001 - Permission denied. Need call requestRight to get permission.
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -118,6 +118,7 @@ declare namespace usbManager {
    * @param { FunctionType } funcs - numeric mask combination of the supported function list.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws {BusinessError} 14400002 - Permission denied.The HDC is disabled by the system.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9

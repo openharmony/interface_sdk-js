@@ -8,9 +8,7 @@
     "SystemCapability.Base",
     "SystemCapability.BundleManager.BundleFramework",
     "SystemCapability.BundleManager.DistributedBundleFramework",
-    "SystemCapability.BundleManager.BundleTool",
     "SystemCapability.BundleManager.Zlib",
-    "SystemCapability.BundleManager.PackingTool",
     "SystemCapability.Graphic.Graphic2D.WebGL",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.WindowManager.WindowManager.MutiScreen",
@@ -56,6 +54,8 @@
     "SystemCapability.Multimedia.Media.VideoEncoder",
     "SystemCapability.Multimedia.Media.Spliter",
     "SystemCapability.Multimedia.Media.Muxer",
+    "SystemCapability.Multimedia.Media.AVPlayer",
+    "SystemCapability.Multimedia.Media.AVRecorder",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.Audio.Core",
@@ -115,6 +115,7 @@
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
+    "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
@@ -154,6 +155,7 @@
     "SystemCapability.BundleManager.BundleFramework.QuickFix",
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
-    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply"
+    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
+    "SystemCapability.ResourceSchedule.DeviceStandby"
   ]
 }

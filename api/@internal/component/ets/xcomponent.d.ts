@@ -56,6 +56,15 @@ interface XComponentInterface {
    * @since 8
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
+
+  /**
+   * Constructor parameters
+   * @param { { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController } } value - Indicates the options of the xcomponent.
+   * @returns { XComponentAttribute } The attribute of the xcomponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  (value: { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 }
 
 /**

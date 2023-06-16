@@ -341,7 +341,31 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 9
      */
-    MIDDLE_BTN_NORTH_SOUTH_WEST_EAST
+    MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
+
+    /**
+     * Horizontal text selection
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    HORIZONTAL_TEXT_CURSOR,
+
+    /**
+     * Precise selection
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    CURSOR_CROSS,
+
+    /**
+     * Cursor with circle style
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    CURSOR_CIRCLE
   }
 
   /**
@@ -509,6 +533,7 @@ declare namespace pointer {
    * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary
    * button is left button, and the value RIGHT indicates that mouse primary button is right button.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -522,6 +547,7 @@ declare namespace pointer {
    * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary
    * button is left button, and the value RIGHT indicates that mouse primary button is right button.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -533,6 +559,7 @@ declare namespace pointer {
    * Gets mouse primary button.
    *
    * @param { AsyncCallback<PrimaryButton> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -544,6 +571,7 @@ declare namespace pointer {
    * Gets mouse primary button.
    *
    * @returns { Promise<PrimaryButton> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -557,6 +585,7 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -570,6 +599,7 @@ declare namespace pointer {
    * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
    * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -581,6 +611,7 @@ declare namespace pointer {
    * Gets a status whether the mouse hover scroll is enabled in inactive window.
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -592,12 +623,263 @@ declare namespace pointer {
    * Gets a status whether mouse hover scroll is enabled in inactive window.
    *
    * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
    */
   function getHoverScrollState(): Promise<boolean>;
+
+  /**
+   * Set the number of mouse scrolling rows.
+   *
+   * @param { number } rows - Indicates the number of mouse scrolling rows.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setMouseScrollRows(rows: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the number of mouse scrolling rows.
+   *
+   * @param { number } rows - Indicates the number of mouse scrolling rows.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setMouseScrollRows(rows: number): Promise<void>;
+
+  /**
+   * Get the number of mouse scrolling rows.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getMouseScrollRows(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the number of mouse scrolling rows.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getMouseScrollRows(): Promise<number>;
+
+  /**
+   * Set touchpad scroll switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad scroll switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadScrollSwitch(state: boolean): Promise<void>;
+
+  /**
+   * Get touchpad scroll switch state.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadScrollSwitch(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Get touchpad scroll switch state.
+   *
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadScrollSwitch(): Promise<boolean>;
+
+  /**
+   * Set touchpad scroll direction.
+   *
+   * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad scroll direction.
+   *
+   * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadScrollDirection(state: boolean): Promise<void>;
+
+  /**
+   * Get touchpad scroll direction.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadScrollDirection(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Get touchpad scroll direction.
+   *
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadScrollDirection(): Promise<boolean>;
+
+  /**
+   * Set touchpad tap switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad tap switch is enabled
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad tap switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad tap switch is enabled
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadTapSwitch(state: boolean): Promise<void>;
+
+  /**
+   * Get touchpad tap switch state.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadTapSwitch(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Get touchpad tap switch state.
+   *
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadTapSwitch(): Promise<boolean>;
+
+  /**
+   * Set touchpad pointer speed.
+   *
+   * @param { number } speed - Indicates the number of touchpad pointer speed.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad pointer speed.
+   *
+   * @param { number } speed - Indicates the number of touchpad pointer speed.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadPointerSpeed(speed: number): Promise<void>;
+
+  /**
+   * Get touchpad pointer speed.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadPointerSpeed(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get touchpad pointer speed.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadPointerSpeed(): Promise<number>;
 }
 
 export default pointer;

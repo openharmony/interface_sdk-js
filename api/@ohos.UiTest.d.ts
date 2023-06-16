@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Callback } from './@ohos.base';
+
 /**
  * Enumerates the string value match pattern.
  *
@@ -831,6 +833,75 @@ declare interface WindowFilter {
    * @since 9
    */
   actived?: boolean;
+}
+
+/**
+ * Represents the information of an UI element, can be a component or window.
+ * 
+ * @typedef UIElementInfo
+ * @syscap SystemCapability.Test.UiTest
+ * @since 10
+ * @test
+ */
+declare interface UIElementInfo {
+  /**
+   * The bundle name of the host application.
+   * @type { string }
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  readonly bundleName: string;
+  /**
+   * The component type, set it as 'window' if it's a window.
+   * @type { string }
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  readonly type: string;
+  /**
+   * The text of component, set it as window's title if it's a window.
+   * @type { string }
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  readonly text: string;
+}
+
+/**
+ * Observer to monitor UI events.
+ * 
+ * @typedef UIEventObserver
+ * @syscap SystemCapability.Test.UiTest
+ * @since 10
+ * @test
+ */
+declare interface UIEventObserver {
+  /**
+   * Listen for toast show once
+   * 
+   * @param { string } type 'toastShow'.
+   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
+
+  /**
+   * Listen for dialog show once
+   * 
+   * @param { string } type 'dialogShow'.
+   * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - if the input parameters are invalid.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
 }
 
 /**
@@ -1838,6 +1909,17 @@ declare class Driver {
    * @test
    */
   screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
+  
+  /**
+   * Create an {@link UIEventObserver} object.
+   *
+   * @returns { UIEventObserver } the {@link UIEventObserver} object.
+   * @throws { BusinessError } 17000002 - if the async function was not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 10
+   * @test
+   */
+  createUIEventObserver(): UIEventObserver;
 }
 
 /**
@@ -2098,5 +2180,7 @@ export {
   WindowMode,
   PointerMatrix,
   UiDirection,
-  MouseButton
+  MouseButton,
+  UIElementInfo,
+  UIEventObserver
 };

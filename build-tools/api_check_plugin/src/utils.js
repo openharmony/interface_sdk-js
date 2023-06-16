@@ -108,16 +108,54 @@ function overwriteIndexOf(item, array) {
 exports.overwriteIndexOf = overwriteIndexOf;
 
 const ErrorType = {
-  UNKNOW_DECORATOR: 'unknow decorator',
-  MISSPELL_WORDS: 'misspell words',
-  NAMING_ERRORS: 'naming errors',
-  UNKNOW_PERMISSION: 'unknow permission',
-  UNKNOW_SYSCAP: 'unknow syscap',
-  UNKNOW_DEPRECATED: 'unknow deprecated',
-  INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order',
-  WRONG_VALUE: 'wrong value',
-  WRONG_SCENE: 'wrong scene',
+  UNKNOW_DECORATOR: {
+    id: 0,
+    description: 'unknow decorator'
+  },
+  MISSPELL_WORDS: {
+    id: 1,
+    description: 'misspell words'
+  },
+  NAMING_ERRORS: {
+    id: 2,
+    description: 'naming errors'
+  },
+  UNKNOW_PERMISSION: {
+    id: 3,
+    description: 'unknow permission'
+  },
+  UNKNOW_SYSCAP: {
+    id: 4,
+    description: 'unknow syscap'
+  },
+  UNKNOW_DEPRECATED: {
+    id: 5,
+    description: 'unknow deprecated'
+  },
+  WRONG_ORDER: {
+    id: 6,
+    description: 'wrong order'
+  },
+  WRONG_VALUE: {
+    id: 7,
+    description: 'wrong value'
+  },
+  WRONG_SCENE: {
+    id: 8,
+    description: 'wrong scene'
+  },
+  PARAMETER_ERRORS: {
+    id: 9,
+    description: 'wrong parameter'
+  },
+  API_PAIR_ERRORS: {
+    id: 10,
+    description: 'limited api pair errors'
+  },
+  ILLEGAL_ANY: {
+    id: 11,
+    description: 'illegal any'
+  }
 };
 exports.ErrorType = ErrorType;
 
@@ -143,6 +181,9 @@ exports.FileType = FileType;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
+
+let apiCheckInfoArr = [];
+exports.apiCheckInfoArr = apiCheckInfoArr;
 
 class ApiCheckResultClass {
   format_check_result = true;
@@ -172,7 +213,7 @@ exports.excelApiCheckResult = excelApiCheckResult;
 function getApiInfo(node) {
   const notesStr = getAPINote(node);
   let apiInfo = {};
-  let versionArr=[];
+  let versionArr = [];
   if (notesStr !== '') {
     if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
@@ -185,7 +226,7 @@ function getApiInfo(node) {
         versionArr.push(versionInfo)
         apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
-      apiInfo.humpVersion=versionArr[0].replace(/\@since/g, '').trim();
+      apiInfo.humpVersion = versionArr[0].replace(/\@since/g, '').trim();
     }
     if (/\@deprecated.*since\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@deprecated.*since\s*(\d+)/g,
@@ -253,68 +294,40 @@ const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'Sta
   'systemapi'];
 exports.inheritArr = inheritArr;
 
-const ErrorValueInfoCh = {
-  ERROR_INFO_VALUE_EXTENDS: '第[$$]段JSDoc中, extends标签值错误, 请检查标签值是否与继承类名保持一致.',
-  ERROR_INFO_VALUE_ENUM: '第[$$]段JSDoc中,enum标签类型错误, 请检查标签类型是否为string或number.',
-  ERROR_INFO_VALUE_SINCE: '第[$$]段JSDoc中,since标签值错误, 请检查标签值是否为数值.',
-  ERROR_INFO_RETURNS: '第[$$]段JSDoc中,returns标签使用错误, 返回类型为void时不应该使用returns标签.',
-  ERROR_INFO_VALUE_RETURNS: '第[$$]段JSDoc中,returns标签类型错误, 请检查标签类型是否与返回类型一致.',
-  ERROR_INFO_VALUE_USEINSTEAD: '第[$$]段JSDoc中,useinstead标签值错误, 请检查使用方法.',
-  ERROR_INFO_VALUE_TYPE: '第[$$]段JSDoc中,type标签类型错误, 请检查类型是否与属性类型一致.',
-  ERROR_INFO_VALUE_DEFAULT: '第[$$]段JSDoc中,default标签值错误, 请补充默认值.',
-  ERROR_INFO_VALUE_PERMISSION: '第[$$]段JSDoc中,permission标签值书写错误, 请检查权限字段是否已配置或者更新配置文件.',
-  ERROR_INFO_VALUE_DEPRECATED: '第[$$]段JSDoc中,deprecated标签值错误, 请检查使用方法.',
-  ERROR_INFO_VALUE_SYSCAP: '第[$$]段JSDoc中,syscap标签值错误, 请检查syscap字段是否已配置.',
-  ERROR_INFO_VALUE_NAMESPACE: '第[$$]段JSDoc中,namespace标签值错误, 请检查是否与namespace名称保持一致.',
-  ERROR_INFO_VALUE_INTERFACE: '第[$$]段JSDoc中,interface标签值错误, 请检查是否与interface名称保持一致.',
-  ERROR_INFO_VALUE_TYPEDEF: '第[$$]段JSDoc中,typedef标签值错误, 请检查是否与interface名称保持一致.',
-  ERROR_INFO_TYPE_PARAM: '第[$$]段JSDoc中,第[$$]个param标签类型错误, 请检查是否与第[$$]个参数类型保持一致.',
-  ERROR_INFO_VALUE_PARAM: '第[$$]段JSDoc中,第[$$}]个param标签值错误, 请检查是否与第[$$]个参数名保持一致.',
-  ERROR_INFO_VALUE1_THROWS: '第[$$]段JSDoc中,第[$$}]个throws标签类型错误, 请填写BusinessError.',
-  ERROR_INFO_VALUE2_THROWS: '第[$$]段JSDoc中,第[$$}]个throws标签类型错误, 请检查标签值是否为数值.',
-  ERROR_INFO_INHERIT: '第[$$]段JSDoc中,检测到当前文件中存在可继承标签[$$]，但存在子节点没有此标签.',
-  ERROR_ORDER: 'JSDoc标签顺序错误,请进行调整',
-  ERROR_LABELNAME: '第[$$]段JSDoc中,[$$]标签不存在, 请使用合法的JSDoc标签.',
-  ERROR_LOST_LABEL: 'JSDoc标签合法性校验失败,请确认是否遗失$$标签.',
-  ERROR_USE: 'JSDoc标签合法性校验失败,不允许使用[$$]标签, 请检查标签使用方法.',
-  ERROR_MORELABEL: 'JSDoc标签合法性校验失败,第[$$]个[$$]标签多余, 请检查是否应该删除标签',
-  ERROR_REPEATLABEL: '第[$$]段JSDoc中,JSDoc标签合法性校验失败,[$$]标签不允许重复使用, 请删除多余标签.',
-  ERROR_USE_INTERFACE: '第[$$]段JSDoc中,JSDoc标签合法性校验失败,interface标签与typedef标签不允许同时使用, 请确认接口类型.',
-};
-
 const ErrorValueInfo = {
-  ERROR_INFO_VALUE_EXTENDS: 'In the JSDoc section [$$], the [extens] tag value is incorrect. Please check if the tag value matches the inherited class name.',
-  ERROR_INFO_VALUE_ENUM: 'In the JSDoc section [$$], the [enum] tag type is incorrect. Please check if the tag type is { string } or { number }',
-  ERROR_INFO_VALUE_SINCE: 'In the JSDoc section [$$], the [since] tag value is incorrect. Please check if the tag value is a numerical value',
-  ERROR_INFO_RETURNS: 'In the JSDoc section [$$], the [returns] tag was used incorrectly. The returns tag should not be used when the return type is void',
-  ERROR_INFO_VALUE_RETURNS: 'In the JSDoc section [$$], the [returns] tag type is incorrect. Please check if the tag type is consistent with the return type',
-  ERROR_INFO_VALUE_USEINSTEAD: 'In the JSDoc section [$$], the [useinstead] tag value is incorrect. Please check the usage method',
-  ERROR_INFO_VALUE_TYPE: 'In the JSDoc section [$$], the [type] tag type is incorrect. Please check if the type matches the attribute type',
-  ERROR_INFO_VALUE_DEFAULT: 'In the JSDoc section [$$], the [default] tag value is incorrect. Please supplement the default value',
-  ERROR_INFO_VALUE_PERMISSION: 'In the JSDoc section [$$], the [permission] tag value is incorrect. Please check if the permission field has been configured or update the configuration file',
-  ERROR_INFO_VALUE_DEPRECATED: 'In the JSDoc section [$$], the [deprecated] tag value is incorrect. Please check the usage method',
-  ERROR_INFO_VALUE_SYSCAP: 'In the JSDoc section [$$], the [syscap] tag value is incorrect. Please check if the sysnap field is configured',
-  ERROR_INFO_VALUE_NAMESPACE: 'In the JSDoc section [$$], the [namespace] tag value is incorrect. Please check if it matches the namespace name',
-  ERROR_INFO_VALUE_INTERFACE: 'In the JSDoc section [$$], the [interface] label value is incorrect. Please check if it matches the interface name',
-  ERROR_INFO_VALUE_TYPEDEF: 'In the JSDoc section [$$], the [typedef] tag value is incorrect. Please check if it matches the interface name',
-  ERROR_INFO_TYPE_PARAM: 'In the JSDoc section [$$], the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter',
-  ERROR_INFO_VALUE_PARAM: 'In the JSDoc section [$$], the value of the [$$}] [param] tag is incorrect. Please check if it matches the [$$] parameter name',
-  ERROR_INFO_VALUE1_THROWS: 'In the JSDoc section [$$], the type of the [$$}] [throws] tag is incorrect. Please fill in [BusinessError]',
-  ERROR_INFO_VALUE2_THROWS: 'In the JSDoc section [$$], the type of the [$$}] [throws] tag is incorrect. Please check if the tag value is a numerical value',
-  ERROR_INFO_INHERIT: 'In the JSDoc section [$$], it was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label',
+  ERROR_INFO_VALUE_EXTENDS: 'the [extends] tag value is incorrect. Please check if the tag value matches the inherited class name.',
+  ERROR_INFO_VALUE_ENUM: 'the [enum] tag type is incorrect. Please check if the tag type is { string } or { number }',
+  ERROR_INFO_VALUE_SINCE: 'the [since] tag value is incorrect. Please check if the tag value is a numerical value',
+  ERROR_INFO_RETURNS: 'the [returns] tag was used incorrectly. The returns tag should not be used when the return type is void',
+  ERROR_INFO_VALUE_RETURNS: 'the [returns] tag type is incorrect. Please check if the tag type is consistent with the return type',
+  ERROR_INFO_VALUE_USEINSTEAD: 'the [useinstead] tag value is incorrect. Please check the usage method',
+  ERROR_INFO_VALUE_TYPE: 'the [type] tag type is incorrect. Please check if the type matches the attribute type',
+  ERROR_INFO_VALUE_DEFAULT: 'the [default] tag value is incorrect. Please supplement the default value',
+  ERROR_INFO_VALUE_PERMISSION: 'the [permission] tag value is incorrect. Please check if the permission field has been configured or update the configuration file',
+  ERROR_INFO_VALUE_DEPRECATED: 'the [deprecated] tag value is incorrect. Please check the usage method',
+  ERROR_INFO_VALUE_SYSCAP: 'the [syscap] tag value is incorrect. Please check if the syscap field is configured',
+  ERROR_INFO_VALUE_NAMESPACE: 'the [namespace] tag value is incorrect. Please check if it matches the namespace name',
+  ERROR_INFO_VALUE_INTERFACE: 'the [interface] label value is incorrect. Please check if it matches the interface name',
+  ERROR_INFO_VALUE_TYPEDEF: 'the [typedef] tag value is incorrect. Please check if it matches the interface name',
+  ERROR_INFO_TYPE_PARAM: 'the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter',
+  ERROR_INFO_VALUE_PARAM: 'the value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name',
+  ERROR_INFO_VALUE1_THROWS: 'the type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError]',
+  ERROR_INFO_VALUE2_THROWS: 'the type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value',
+  ERROR_INFO_INHERIT: 'it was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label',
   ERROR_ORDER: 'JSDoc label order error, please make adjustments',
-  ERROR_LABELNAME: 'In the JSDoc section [$$], the [$$] tag does not exist. Please use a valid JSDoc tag',
-  ERROR_LOST_LABEL: 'JSDoc tag validity verification failed. Please confirm if the $$tag is missing',
+  ERROR_LABELNAME: 'the [$$] tag does not exist. Please use a valid JSDoc tag',
+  ERROR_LOST_LABEL: 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing',
   ERROR_USE: 'JSDoc label validity verification failed. The [$$] label is not allowed. Please check the label usage method.',
-  ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] tag is redundant. Please check if the tag should be deleted.',
-  ERROR_REPEATLABEL: 'In the JSDoc section [$$], the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
-  ERROR_USE_INTERFACE: 'In paragraph [$$] of JSDoc, the validity verification of the JSDoc tag failed. The interface tag and typedef tag are not allowed to be used simultaneously. Please confirm the interface class.',
+  ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] [$$] tag is redundant. Please check if the tag should be deleted.',
+  ERROR_REPEATLABEL: 'the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
+  ERROR_USE_INTERFACE: 'the validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
+  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API'
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
 /**
-   * 组装错误信息
-   */
+ * link error message
+ */
 function createErrorInfo(errorInfo, params) {
   params.forEach((param) => {
     errorInfo = errorInfo.replace('$$', param);
@@ -324,7 +337,7 @@ function createErrorInfo(errorInfo, params) {
 exports.createErrorInfo = createErrorInfo;
 
 /**
- * 判断是否为arkui的api文件
+ * judge if it is an API file for Arkui
  */
 function isArkUIApiFile(fileName) {
   if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
@@ -343,3 +356,44 @@ function isWhiteListFile(fileName, whiteList) {
   return false
 }
 exports.isWhiteListFile = isWhiteListFile;
+
+function getCheckApiVersion() {
+  const packageJsonPath = path.join(__dirname, "../package.json");
+  let packageJson;
+  let checkApiVersion;
+  try {
+    const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
+    packageJson = JSON.parse(packageJsonContent);
+    checkApiVersion = packageJson.checkApiVersion;
+  } catch (error) {
+    throw `Failed to read package.json or parse JSON content: ${error}`;
+  }
+  if (!checkApiVersion) {
+    throw `Please configure the correct API version to be verified`;
+  }
+  return checkApiVersion;
+}
+exports.getCheckApiVersion = getCheckApiVersion;
+
+const OptionalSymbols = {
+  QUERY: '?',
+  LEFT_BRACKET: '[',
+  RIGHT_BRACKET: ']',
+  LEFT_BRACE:'{',
+  RIGHT_BRACE:'}'
+};
+exports.OptionalSymbols = OptionalSymbols;
+
+
+function removeDuplicateObj(array) {
+  let newArr = [];
+  let errorInfoSet = new Set();
+  for (const errorInfo of array) {
+    if (!errorInfoSet.has(JSON.stringify(errorInfo))) {
+      errorInfoSet.add(JSON.stringify(errorInfo));
+      newArr.push(errorInfo);
+    }
+  }
+  return newArr;
+};
+exports.removeDuplicateObj = removeDuplicateObj;

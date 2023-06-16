@@ -15,10 +15,10 @@
 const fs = require('fs');
 const rules = require('../../code_style_rule.json');
 const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption, ErrorValueInfo,
-  createErrorInfo } = require('../../src/utils');
+  createErrorInfo, OptionalSymbols } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
-function checkExtendsValue(tag, node, fileName, JSDocIndex) {
+function checkExtendsValue(tag, node, fileName) {
   let extendsResult = {
     checkResult: true,
     errorInfo: '',
@@ -29,14 +29,14 @@ function checkExtendsValue(tag, node, fileName, JSDocIndex) {
     const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
     if (tagValue !== apiValue) {
       extendsResult.checkResult = false;
-      extendsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS, [JSDocIndex + 1]);
+      extendsResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS;
     }
   }
   return extendsResult;
 }
 exports.checkExtendsValue = checkExtendsValue;
 
-function checkEnumValue(tag, node, fileName, JSDocIndex) {
+function checkEnumValue(tag, node, fileName) {
   let enumResult = {
     checkResult: true,
     errorInfo: '',
@@ -48,13 +48,13 @@ function checkEnumValue(tag, node, fileName, JSDocIndex) {
   // 获取api中的enum信息，校验标签合法性及值规范
   if (tagProblems > 0 || enumValues.indexOf(tagValue) === -1) {
     enumResult.checkResult = false;
-    enumResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_ENUM, [JSDocIndex + 1]);
+    enumResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_ENUM;
   }
   return enumResult;
 }
 exports.checkEnumValue = checkEnumValue;
 
-function checkSinceValue(tag, node, fileName, JSDocIndex) {
+function checkSinceValue(tag, node, fileName) {
   let sinceResult = {
     checkResult: true,
     errorInfo: '',
@@ -63,13 +63,13 @@ function checkSinceValue(tag, node, fileName, JSDocIndex) {
   const checkNumber = /^\d+$/.test(tagValue);
   if (!checkNumber && commentNodeWhiteList.includes(node.kind)) {
     sinceResult.checkResult = false;
-    sinceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_SINCE, [JSDocIndex + 1]);
+    sinceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_SINCE;
   }
   return sinceResult;
 }
 exports.checkSinceValue = checkSinceValue;
 
-function checkReturnsValue(tag, node, fileName, JSDocIndex) {
+function checkReturnsValue(tag, node, fileName) {
   let returnsResult = {
     checkResult: true,
     errorInfo: '',
@@ -80,17 +80,17 @@ function checkReturnsValue(tag, node, fileName, JSDocIndex) {
     const apiReturnsValue = node.type?.getText();
     if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
       returnsResult.checkResult = false;
-      returnsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_RETURNS, [JSDocIndex + 1]);
+      returnsResult.errorInfo = ErrorValueInfo.ERROR_INFO_RETURNS;
     } else if (tagValue !== apiReturnsValue) {
       returnsResult.checkResult = false;
-      returnsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_RETURNS, [JSDocIndex + 1]);
+      returnsResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_RETURNS;
     }
   }
   return returnsResult;
 }
 exports.checkReturnsValue = checkReturnsValue;
 
-function checkParamValue(tag, node, fileName, JSDocIndex, tagIndex) {
+function checkParamValue(tag, node, fileName, tagIndex) {
   const tagNameValue = tag.name;
   const tagTypeValue = tag.type;
   let paramResult = {
@@ -101,18 +101,27 @@ function checkParamValue(tag, node, fileName, JSDocIndex, tagIndex) {
     const apiParamInfos = node.parameters;
     if (apiParamInfos[tagIndex]) {
       const apiName = apiParamInfos[tagIndex].name.escapedText;
-      const apiType = apiParamInfos[tagIndex].type?.getText();
+      let apiType = '';
+      if (apiParamInfos[tagIndex].type) {
+        if (ts.isFunctionTypeNode(apiParamInfos[tagIndex].type)) {
+          apiType = 'function';
+        } else if (ts.isTypeLiteralNode(apiParamInfos[tagIndex].type)) {
+          apiType = 'object';
+        } else {
+          apiType = apiParamInfos[tagIndex].type?.getText();
+        }
+      }
       let errorInfo = '';
       if (apiType !== tagTypeValue) {
         paramResult.checkResult = false;
-        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_TYPE_PARAM, [JSDocIndex + 1, tagIndex + 1, tagIndex + 1]);
+        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_TYPE_PARAM, [tagIndex + 1, tagIndex + 1]);
       }
       if (apiName !== tagNameValue) {
         paramResult.checkResult = false;
         if (errorInfo !== '') {
           errorInfo += '\n';
         }
-        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PARAM, [JSDocIndex + 1, tagIndex + 1, tagIndex + 1]);
+        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PARAM, [tagIndex + 1, tagIndex + 1]);
       }
       if (!paramResult.checkResult) {
         paramResult.errorInfo = errorInfo;
@@ -123,7 +132,7 @@ function checkParamValue(tag, node, fileName, JSDocIndex, tagIndex) {
 }
 exports.checkParamValue = checkParamValue;
 
-function checkThrowsValue(tag, node, fileName, JSDocIndex, tagIndex) {
+function checkThrowsValue(tag, node, fileName, tagIndex) {
   let throwsResult = {
     checkResult: true,
     errorInfo: '',
@@ -133,7 +142,7 @@ function checkThrowsValue(tag, node, fileName, JSDocIndex, tagIndex) {
   let errorInfo = '';
   if (tagTypeValue !== 'BusinessError') {
     throwsResult.checkResult = false;
-    errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE1_THROWS, [JSDocIndex + 1, tagIndex + 1]);
+    errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE1_THROWS, [tagIndex + 1]);
   }
 
   if (isNaN(tagNameValue)) {
@@ -141,7 +150,7 @@ function checkThrowsValue(tag, node, fileName, JSDocIndex, tagIndex) {
       errorInfo += '\n';
     }
     throwsResult.checkResult = false;
-    errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE2_THROWS, [JSDocIndex + 1, tagIndex + 1]);
+    errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE2_THROWS, [tagIndex + 1]);
   }
   if (!throwsResult.checkResult) {
     throwsResult.errorInfo = errorInfo;
@@ -167,7 +176,7 @@ function checkModule(moduleValue) {
     /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#event:[A-Za-z_]+\b$/.test(moduleValue);
 }
 
-function splitUseinsteadValue(useinsteadValue, JSDocIndex) {
+function splitUseinsteadValue(useinsteadValue) {
   if (!useinsteadValue || useinsteadValue === '') {
     return undefined;
   }
@@ -206,13 +215,13 @@ function splitUseinsteadValue(useinsteadValue, JSDocIndex) {
     splitResult.checkResult = false;
   }
   if (!splitResult.checkResult) {
-    splitResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_USEINSTEAD, [JSDocIndex + 1]);
+    splitResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_USEINSTEAD;
   }
   return splitResult;
 }
 
 // 精确校验功能待补全
-function checkUseinsteadValue(tag, node, fileName, JSDocIndex) {
+function checkUseinsteadValue(tag, node, fileName) {
   const tagNameValue = tag.name;
   let useinsteadResult = {
     checkResult: true,
@@ -220,9 +229,9 @@ function checkUseinsteadValue(tag, node, fileName, JSDocIndex) {
   };
   if (tagNameValue === '') {
     useinsteadResult.checkResult = false;
-    useinsteadResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_USEINSTEAD, [JSDocIndex + 1]);
+    useinsteadResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_USEINSTEAD;
   } else {
-    const result = splitUseinsteadValue(tagNameValue, JSDocIndex, fileName);
+    const result = splitUseinsteadValue(tagNameValue, fileName);
     if (result && !result.checkResult) {
       useinsteadResult = result;
     }
@@ -231,31 +240,41 @@ function checkUseinsteadValue(tag, node, fileName, JSDocIndex) {
 }
 exports.checkUseinsteadValue = checkUseinsteadValue;
 
-function checkTypeValue(tag, node, fileName, JSDocIndex) {
+function checkTypeValue(tag, node, fileName) {
   let typeResult = {
     checkResult: true,
     errorInfo: '',
   };
   const tagTypeValue = tag.type;
+  let apiTypeValue = '';
   if (commentNodeWhiteList.includes(node.kind)) {
-    const apiTypeValue = node.type?.getText();
+    if (node.type) {
+      if (ts.isFunctionTypeNode(node.type)) {
+        apiTypeValue = 'function';
+      } else if (ts.isTypeLiteralNode(node.type)) {
+        apiTypeValue = 'object';
+      } else {
+        apiTypeValue = node.type?.getText();
+      }
+    }
+    apiTypeValue = node.questionToken ? OptionalSymbols.QUERY.concat(apiTypeValue) : apiTypeValue;
     if (apiTypeValue !== tagTypeValue) {
       typeResult.checkResult = false;
-      typeResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_TYPE, [JSDocIndex + 1]);
+      typeResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPE;
     }
   }
   return typeResult;
 }
 exports.checkTypeValue = checkTypeValue;
 
-function checkDefaultValue(tag, node, fileName, JSDocIndex) {
+function checkDefaultValue(tag, node, fileName) {
   let defaultResult = {
     checkResult: true,
     errorInfo: '',
   };
   if (commentNodeWhiteList.includes(node.kind) && tag.name.length === 0 && tag.type.length === 0) {
     defaultResult.checkResult = false;
-    defaultResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_DEFAULT, [JSDocIndex + 1]);
+    defaultResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_DEFAULT;
   }
   return defaultResult;
 }
@@ -286,7 +305,7 @@ function getPermissionList() {
   return permissionRuleSets;
 }
 
-function checkPermissionTag(tag, node, fileName, JSDocIndex) {
+function checkPermissionTag(tag, node, fileName) {
   const permissionRuleSet = getPermissionList();
   let hasPermissionError = false;
   let errorInfo = '';
@@ -300,7 +319,7 @@ function checkPermissionTag(tag, node, fileName, JSDocIndex) {
     if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr) && permissionStr !== 'N/A') ||
       permissionStr === '') {
       hasPermissionError = true;
-      errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PERMISSION, [JSDocIndex + 1]);
+      errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_PERMISSION;
     }
   });
   if (hasPermissionError) {
@@ -311,7 +330,7 @@ function checkPermissionTag(tag, node, fileName, JSDocIndex) {
 }
 exports.checkPermissionTag = checkPermissionTag;
 
-function checkDeprecatedTag(tag, node, fileName, JSDocIndex) {
+function checkDeprecatedTag(tag, node, fileName) {
   let deprecatedResult = {
     checkResult: true,
     errorInfo: '',
@@ -321,13 +340,13 @@ function checkDeprecatedTag(tag, node, fileName, JSDocIndex) {
   const checkNumber = /^\d+$/.test(tagValue2);
   if ((tagValue1 !== 'since' || !checkNumber) && commentNodeWhiteList.includes(node.kind)) {
     deprecatedResult.checkResult = false;
-    deprecatedResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_DEPRECATED, [JSDocIndex + 1]);
+    deprecatedResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_DEPRECATED;
   }
   return deprecatedResult;
 }
 exports.checkDeprecatedTag = checkDeprecatedTag;
 
-function checkSyscapTag(tag, node, fileName, JSDocIndex) {
+function checkSyscapTag(tag, node, fileName) {
   let syscapResult = {
     checkResult: true,
     errorInfo: '',
@@ -336,13 +355,13 @@ function checkSyscapTag(tag, node, fileName, JSDocIndex) {
   const syscapRuleSet = new Set(rules.syscap.SystemCapability);
   if (!syscapRuleSet.has(tagValue)) {
     syscapResult.checkResult = false;
-    syscapResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_SYSCAP, [JSDocIndex + 1]);
+    syscapResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_SYSCAP;
   }
   return syscapResult;
 }
 exports.checkSyscapTag = checkSyscapTag;
 
-function checkNamespaceTag(tag, node, fileName, JSDocIndex) {
+function checkNamespaceTag(tag, node, fileName) {
   let namespaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -352,14 +371,14 @@ function checkNamespaceTag(tag, node, fileName, JSDocIndex) {
     let apiValue = node.name?.escapedText;
     if (apiValue !== undefined && tagValue !== apiValue) {
       namespaceResult.checkResult = false;
-      namespaceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_NAMESPACE, [JSDocIndex + 1]);
+      namespaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_NAMESPACE;
     }
   }
   return namespaceResult;
 }
 exports.checkNamespaceTag = checkNamespaceTag;
 
-function checkInterfaceTypedefTag(tag, node, fileName, JSDocIndex) {
+function checkInterfaceTypedefTag(tag, node, fileName) {
   let interfaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -370,9 +389,9 @@ function checkInterfaceTypedefTag(tag, node, fileName, JSDocIndex) {
     if (apiValue !== undefined && tagValue !== apiValue) {
       interfaceResult.checkResult = false;
       if (tag.tag === 'interface') {
-        interfaceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_INTERFACE, [JSDocIndex + 1]);
+        interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_INTERFACE;
       } else if (tag.tag === 'typedef') {
-        interfaceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF, [JSDocIndex + 1]);
+        interfaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF;
       }
     }
   }
