@@ -397,7 +397,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.i18n/i18.I18NUtil
+   * @useinstead ohos.i18n/i18n.I18NUtil
    */
   export interface Util {
     /**
@@ -412,7 +412,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.i18n/i18.I18NUtil#unitConvert
+     * @useinstead ohos.i18n/i18n.I18NUtil#unitConvert
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
   }
