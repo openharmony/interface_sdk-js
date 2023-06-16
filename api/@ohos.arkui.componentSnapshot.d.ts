@@ -20,6 +20,7 @@ import image from './@ohos.multimedia.image'
  * This module allows developers to export snapshot image from a component or a custom builder.
  * @namespace componentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare namespace componentSnapshot {
@@ -31,6 +32,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 401 - if parameter check fails.
    * @throws { BusinessError } 100001 - if id is not valid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   function get(id: string, callback: AsyncCallback<image.PixelMap>): void;
@@ -42,6 +44,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 100001 - if id is not valid.
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   function get(id: string): Promise<image.PixelMap>;
@@ -53,6 +56,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 401 - if parameter check fails.
    * @throws { BusinessError } 100001 - if builder is not a valid build function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   function createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>): void;
@@ -64,6 +68,7 @@ declare namespace componentSnapshot {
    * @throws { BusinessError } 100001 - if builder is not a valid build function.
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   function createFromBuilder(builder: CustomBuilder): Promise<image.PixelMap>;
