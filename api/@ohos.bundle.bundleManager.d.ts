@@ -402,7 +402,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
      */
-    PUSH = 16,
+    PUSH = 17,
 
     /**
      * Indicates extension info with type of driver
