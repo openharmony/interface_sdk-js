@@ -182,6 +182,7 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<bundle.DisplayOrientation> } callback - Indicates the realistic direction of the screen.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void;
@@ -191,6 +192,7 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<bundle.DisplayOrientation> } Indicates the screen display direction.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   getDisplayOrientation(): Promise<bundle.DisplayOrientation>;
@@ -200,6 +202,7 @@ export interface Context extends BaseContext {
    *
    * @param { AsyncCallback<string> } callback - Returns the absolute path of the application's cache directory.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 6
    * @deprecated since 7
    */
@@ -210,6 +213,7 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Return the cache directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 6
    * @deprecated since 7
    */
@@ -221,6 +225,7 @@ export interface Context extends BaseContext {
    * @param { bundle.DisplayOrientation } orientation - Indicates the new orientation for the current ability.
    * @param { AsyncCallback<void> } callback - Indicates the realistic direction of the screen.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback<void>): void;
@@ -231,6 +236,7 @@ export interface Context extends BaseContext {
    * @param { bundle.DisplayOrientation } orientation - Indicates the new orientation for the current ability.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setDisplayOrientation(orientation: bundle.DisplayOrientation): Promise<void>;
@@ -244,6 +250,7 @@ export interface Context extends BaseContext {
    *                           to show it on the lock screen, and the value false means not.
    * @param { AsyncCallback<void> } callback - Returns the callback result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
@@ -259,6 +266,7 @@ export interface Context extends BaseContext {
    *                           show it on the lock screen, and the value false means not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
@@ -272,6 +280,7 @@ export interface Context extends BaseContext {
    *                             and the value false means not.
    * @param { AsyncCallback<void> } callback - Returns the callback result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void;
@@ -283,6 +292,7 @@ export interface Context extends BaseContext {
    *                             value false means not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setWakeUpScreen(wakeUp: boolean): Promise<void>;

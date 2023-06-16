@@ -441,6 +441,7 @@ declare namespace featureAbility {
    * Defines an AppVersionInfo object.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 9
    */
   export type AppVersionInfo = _AppVersionInfo;
@@ -449,6 +450,7 @@ declare namespace featureAbility {
    * This process information about an application.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 9
    */
   export type ProcessInfo = _ProcessInfo;

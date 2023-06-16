@@ -452,6 +452,7 @@ export interface DataAbilityHelper {
    *                                                               returning the result of each operation in the
    *                                                               DataAbilityResult array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
    * @since 7
    */
   executeBatch(
@@ -469,6 +470,7 @@ export interface DataAbilityHelper {
    * @returns { Promise<Array<DataAbilityResult>> } Returns the result of each operation,
    *                                                in array {@link DataAbilityResult}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
    * @since 7
    */
   executeBatch(uri: string, operations: Array<DataAbilityOperation>): Promise<Array<DataAbilityResult>>;

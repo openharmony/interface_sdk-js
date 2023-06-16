@@ -1654,7 +1654,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } callback - callback - The callback of check notifications.
+   * @param { function } callback - callback - The callback of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1669,7 +1669,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } [callback] - callback - The callback
+   * @param { function } [callback] - callback - The callback
    *                                                                                     of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
