@@ -1564,7 +1564,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 10
    */
-  enum NormalizerMode {
+  export enum NormalizerMode {
     /**
      * Normalization form C, characters are decomposed and then re-composed by canonical equivalence
      *
@@ -1632,7 +1632,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 10
    */
-  enum SuggestionType {
+  export enum SuggestionType {
     /**
      * No correlation between language and region.
      *
