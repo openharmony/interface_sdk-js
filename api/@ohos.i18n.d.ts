@@ -397,7 +397,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead I18NUtil
+   * @useinstead ohos.i18n.I18NUtil
    */
   export interface Util {
     /**
@@ -412,7 +412,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
-     * @useinstead I18NUtil.unitConvert
+     * @useinstead ohos.i18n.I18NUtil#unitConvert
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
   }
@@ -1294,7 +1294,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.System.is24HourClock
+   * @useinstead ohos.i18n.System#is24HourClock
    */
   export function is24HourClock(): boolean;
 
@@ -1307,7 +1307,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.System.set24HourClock
+   * @useinstead ohos.i18n.System#set24HourClock
    */
   export function set24HourClock(option: boolean): boolean;
 
@@ -1321,7 +1321,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.addPreferredLanguage
+   * @useinstead ohos.i18n.System#addPreferredLanguage
    */
   export function addPreferredLanguage(language: string, index?: number): boolean;
 
@@ -1334,7 +1334,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.removePreferredLanguage
+   * @useinstead ohos.i18n.System#removePreferredLanguage
    */
   export function removePreferredLanguage(index: number): boolean;
 
@@ -1345,7 +1345,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.getPreferredLanguageList
+   * @useinstead ohos.i18n.System#getPreferredLanguageList
    */
   export function getPreferredLanguageList(): Array<string>;
 
@@ -1356,7 +1356,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.getFirstPreferredLanguage
+   * @useinstead ohos.i18n.System#getFirstPreferredLanguage
    */
   export function getFirstPreferredLanguage(): string;
 
