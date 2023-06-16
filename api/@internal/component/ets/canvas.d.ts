@@ -2588,6 +2588,12 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
+  /**
+   * Obtains the currently applied transformation matrix.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   getTransform(): Matrix2D;
 
   /**
@@ -2676,6 +2682,19 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
+  /**
+   * Adds 2D transformation effects, including rotation, translation, and scaling.
+   *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
+   * @param a Horizontal Zoom
+   * @param b Vertical Tilt
+   * @param c Horizontal Tilt
+   * @param d Vertical Zoom
+   * @param e Horizontal movement
+   * @param f Vertical movement
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
@@ -2690,6 +2709,14 @@ declare class CanvasRenderer extends CanvasPath {
    * @param transform 2D transformation matrix. For details, see {@link Matrix2D}.
    * @form
    * @since 9
+   */
+  /**
+   * The 2D transformation effect is added. The current transformation matrix is not overwritten and
+   *    the transformations are superimposed for multiple times.
+   * @param transform 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   setTransform(transform?: Matrix2D): void;
 
