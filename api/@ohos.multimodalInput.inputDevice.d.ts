@@ -25,20 +25,26 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  */
 declare namespace inputDevice {
   /**
-   * @since 9
    * Add or remove device
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 9
    */
   type ChangedType = 'add' | 'remove';
 
   /**
-   * @since 9
    * The type of input device
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 9
    */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
-   * @since 9
    * Axis Type of the input event
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 9
    */
   type AxisType =
     'touchmajor'
