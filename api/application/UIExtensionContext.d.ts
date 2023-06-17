@@ -16,7 +16,6 @@
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
-import { LocalStorage } from 'StateManagement';
 import Want from '../@ohos.app.ability.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 
@@ -226,80 +225,4 @@ export default class UIExtensionContext extends ExtensionContext {
      * @since 10
      */
     startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
-
-    /**
-     * Destroys the UI extension.
-     *
-     * @param { number } sessionId - Session ID of the ui extension component.
-     * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-     * @throws { BusinessError } 16000011 - The context does not exist.
-     * @throws { BusinessError } 16000050 - Internal error.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    terminateSelf(sessionId: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Destroys the UI extension.
-     *
-     * @param { number } sessionId - Session ID of the ui extension component.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-     * @throws { BusinessError } 16000011 - The context does not exist.
-     * @throws { BusinessError } 16000050 - Internal error.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    terminateSelf(sessionId: number): Promise<void>;
-
-    /**
-     * Sets the result code and data to be returned by the UI extension to the caller
-     * and destroys the UI extension.
-     *
-     * @param { number } sessionId - Session ID of the ui extension component.
-     * @param { AbilityResult } parameter - Indicates the result to return.
-     * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-     * @throws { BusinessError } 16000011 - The context does not exist.
-     * @throws { BusinessError } 16000050 - Internal error.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    terminateSelfWithResult(sessionId: number, parameter: AbilityResult, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets the result code and data to be returned by the UI extension to the caller
-     * and destroys the UI extension.
-     *
-     * @param { number } sessionId - Session ID of the ui extension component.
-     * @param { AbilityResult } parameter - Indicates the result to return.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-     * @throws { BusinessError } 16000011 - The context does not exist.
-     * @throws { BusinessError } 16000050 - Internal error.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    terminateSelfWithResult(sessionId: number, parameter: AbilityResult): Promise<void>;
-
-    /**
-     * Send data from an ui extension to an ui extension component.
-     *
-     * @param { number } sessionId - Session ID of the ui extension component.
-     * @param { object } data - Indicates the data send to ui extension.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
-     */
-    sendData(sessionId: number, data: { [key: string]: Object }): void;
 }
