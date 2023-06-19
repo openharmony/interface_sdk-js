@@ -98,7 +98,7 @@ export interface BundleInfo {
   readonly hapModulesInfo: Array<HapModuleInfo>;
 
   /**
-   * Indicates the required permissions details defined in file config.json
+   * Indicates the required permissions details defined in the bundle
    *
    * @type { Array<ReqPermissionDetail> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -159,6 +159,15 @@ export interface ReqPermissionDetail {
    * @since 9
    */
   name: string;
+
+  /**
+   * Indicates the module name which the request permission belongs
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  moduleName: string;
 
   /**
    * Indicates the reason of this required permissions
