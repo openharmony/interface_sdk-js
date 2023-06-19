@@ -317,7 +317,8 @@
       "SystemCapability.Msdp.DeviceStatus.Cooperate",
       "SystemCapability.Request.FileTransferAgent",
       "SystemCapability.ResourceSchedule.DeviceStandby",
-      "SystemCapability.AI.MindSporeLite"
+      "SystemCapability.AI.MindSporeLite",
+      "SystemCapability.Driver.DeviceManager.Extension"
     ]
   },
   "administrators": [
