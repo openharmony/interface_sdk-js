@@ -183,7 +183,7 @@ declare namespace distributedMissionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { 'continueStateChange' } type - Indicate the event type.
-   * @param { Callback<{ object }> } callback - The callback of continueStateChange.
+   * @param { Callback<{ [key: string]: Object }> } callback - The callback of continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -197,7 +197,7 @@ declare namespace distributedMissionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { 'continueStateChange' } type - Indicate the event type.
-   * @param { Callback<{ object }> } [callback] - The callback of continueStateChange.
+   * @param { Callback<{ [key: string]: Object }> } [callback] - The callback of continueStateChange.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
