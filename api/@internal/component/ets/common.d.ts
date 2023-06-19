@@ -3986,8 +3986,8 @@ declare interface PixelStretchEffectOptions {
 declare interface ClickEffect {
   /**
    * Set the click effect level.
+   * When level is undefined or null, the level is equal to ClickEffectLevel.Light.
    * @type { ClickEffectLevel }
-   * @default ClickEffectLevel.Light
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
