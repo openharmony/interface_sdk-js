@@ -183,6 +183,122 @@ declare namespace taskpool {
   }
 
   /**
+   * The State defines the task state.
+   *
+   * @enum { number } State
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  enum State {
+    WAITING,
+    RUNNING,
+    CANCELED
+  }
+
+  /**
+   * @typedef TaskInfo
+   * Indicates the internal information of the worker thread.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  interface TaskInfo {
+    /**
+     * Task identity.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    taskId: number;
+
+    /**
+     * Task state.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    state: State;
+
+    /**
+     * Duration of task execution.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    duration?: number;
+  }
+
+  /**
+   * @typedef ThreadInfo
+   * Indicates the internal information of the worker thread.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  interface ThreadInfo {
+    /**
+     * Thread id.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    tid: number;
+
+    /**
+     * Task id list that running on current thread.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    taskIds?: number[];
+
+    /**
+     * Thread priority.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    priority?: Priority;
+  }
+
+  /**
+   * @typedef TaskPoolInfo
+   * Indicates the internal information of the taskpool.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  interface TaskPoolInfo {
+    /**
+     * An array of taskpool thread information.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    threadInfos: ThreadInfo[];
+
+    /**
+     * An array of taskpool task information.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    taskInfos: TaskInfo[];
+  }
+
+  /**
    * Execute a concurrent function.
    *
    * @param { Function } func - func func Concurrent function want to execute.
@@ -287,6 +403,16 @@ declare namespace taskpool {
    * @since 10
    */
   function cancel(group: TaskGroup): void;
+
+  /**
+   * Get task pool internal information.
+   *
+   * @returns { TaskPoolInfo }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  function getTaskPoolInfo(): TaskPoolInfo;
 }
 
 export default taskpool;
