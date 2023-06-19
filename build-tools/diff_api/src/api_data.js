@@ -295,7 +295,8 @@ const ApiType = {
   FunctionType: { name: '方法', code: 9 },
   NamespaceType: { name: '命名空间', code: 10 },
   TypeAliasDeclaration: { name: '类型成员', code: 11 },
-  Constructor: { name: '构造器', code: 12 }
+  Constructor: { name: '构造器', code: 12 },
+  CallSignature: { name: '类方法', code: 13 }
 };
 
 exports.ApiDigestInfo = ApiDigestInfo;
