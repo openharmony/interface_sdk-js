@@ -318,7 +318,7 @@
       "SystemCapability.Request.FileTransferAgent",
       "SystemCapability.ResourceSchedule.DeviceStandby",
       "SystemCapability.AI.MindSporeLite",
-      "SystemCapability.Driver.DeviceManager.Extension"
+      "SystemCapability.Driver.ExternalDevice"
     ]
   },
   "administrators": [

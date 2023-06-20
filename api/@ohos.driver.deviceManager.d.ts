@@ -20,7 +20,7 @@ import rpc from "./@ohos.rpc"
  * This module provides the capability of manage external device.
  *
  * @namespace deviceManager
- * @syscap SystemCapability.Driver.DeviceManager.Extension
+ * @syscap SystemCapability.Driver.ExternalDevice
  * @since 10
  */
 declare namespace deviceManager {
@@ -29,7 +29,7 @@ declare namespace deviceManager {
    *
    * @param { number } busType - The bus type of device to be queried.
    * @returns { Array<Readonly<Device>> } External device list.
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   function queryDevices(busType?: number): Array<Readonly<Device>>;
@@ -40,7 +40,7 @@ declare namespace deviceManager {
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
    * @param { AsyncCallback } callback - Indicates the bind result including device ID and remote object.
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>,
@@ -52,7 +52,7 @@ declare namespace deviceManager {
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
    * @returns { Promise } Indicates the bind result including device ID and remote object.
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>):
@@ -63,7 +63,7 @@ declare namespace deviceManager {
    *
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } callback - Indicates the unbind result invoked when unbind is finished.
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   function unbindDevice(deviceId: number, callback: AsyncCallback<number>): void;
@@ -73,7 +73,7 @@ declare namespace deviceManager {
    *
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @returns { Promise } - Indicates the unbind result invoked when unbind is finished.
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   function unbindDevice(deviceId: number): Promise<number>;
@@ -82,14 +82,14 @@ declare namespace deviceManager {
    * Enumerates bus type of device.
    *
    * @enum { number }
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   export enum BusType {
     /**
      * USB device type
      *
-     * @syscap SystemCapability.Driver.DeviceManager.Extension
+     * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
     USB = 1,
@@ -99,14 +99,14 @@ declare namespace deviceManager {
    * Represents a device.
    *
    * @typedef Device
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   interface Device {
     /**
      * Bus type of the device.
      *
-     * @syscap SystemCapability.Driver.DeviceManager.Extension
+     * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
     busType: BusType;
@@ -114,7 +114,7 @@ declare namespace deviceManager {
     /**
      * Device ID.
      *
-     * @syscap SystemCapability.Driver.DeviceManager.Extension
+     * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
     deviceId: number;
@@ -122,7 +122,7 @@ declare namespace deviceManager {
     /**
      * Description of the device.
      *
-     * @syscap SystemCapability.Driver.DeviceManager.Extension
+     * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
     description: string;
@@ -132,14 +132,14 @@ declare namespace deviceManager {
    * Represents a USB device.
    *
    * @typedef USBDevice
-   * @syscap SystemCapability.Driver.DeviceManager.Extension
+   * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
   interface USBDevice extends Device {
     /**
      * Vendor ID.
      *
-     * @syscap SystemCapability.Driver.DeviceManager.Extension
+     * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
     vendorId: number;
@@ -147,7 +147,7 @@ declare namespace deviceManager {
     /**
      * Product ID.
      *
-     * @syscap SystemCapability.Driver.DeviceManager.Extension
+     * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10
      */
     productId: number;
