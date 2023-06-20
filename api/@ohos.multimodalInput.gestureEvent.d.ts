@@ -72,7 +72,7 @@ export declare interface ThreeFingersSwipe {
 }
 
 /**
- * Three fingers swipe event on touchPad
+ * Four fingers swipe event on touchPad
  *
  * @interface FourFingersSwipe
  * @syscap SystemCapability.MultimodalInput.Input.Core
