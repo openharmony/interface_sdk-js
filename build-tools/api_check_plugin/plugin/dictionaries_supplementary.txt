@@ -716,11 +716,11 @@ trashed
 traversed
 traverses
 truncates
+trustlist
 tsbundle
 ttls
 tunneled
 txpower
-trustlist
 uarfcn
 ubset
 ucs
