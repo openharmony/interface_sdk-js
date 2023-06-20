@@ -880,6 +880,156 @@ declare namespace pointer {
    * @since 10
    */
   function getTouchpadPointerSpeed(): Promise<number>;
+
+  /**
+   * Set touchpad pinch switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad pinch switch is enabled
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadPinchSwitch(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad pinch switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad pinch switch is enabled
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadPinchSwitch(state: boolean): Promise<void>;
+
+  /**
+   * Get touchpad pinch switch state.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+  */
+  function getTouchpadPinchSwitch(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Get touchpad pinch switch state.
+   *
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadPinchSwitch(): Promise<boolean>;
+
+  /**
+   * Set touchpad swipe switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad swipe switch is enabled
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadSwipeSwitch(state: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad swipe switch.
+   *
+   * @param { boolean } state - Indicates whether the touchpad swipe switch is enabled
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadSwipeSwitch(state: boolean): Promise<void>;
+ 
+  /**
+   * Get touchpad swipe switch state.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadSwipeSwitch(callback: AsyncCallback<boolean>): void;
+ 
+  /**
+   * Get touchpad swipe switch state.
+   *
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadSwipeSwitch(): Promise<boolean>;
+
+  /**
+   * Set touchpad right button menu type.
+   *
+   * @param { number } type - Indicates the number of touchpad right button menu type.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadRightMenuType(type: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad right button menu type.
+   *
+   * @param { number } type - Indicates the number of touchpad right button menu type.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setTouchpadRightMenuType(type: number): Promise<void>;
+
+  /**
+   * Get touchpad right button menu type.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadRightMenuType(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get touchpad right button menu type.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getTouchpadRightMenuType(): Promise<number>;
 }
 
 export default pointer;
