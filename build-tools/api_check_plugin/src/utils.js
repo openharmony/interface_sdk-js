@@ -397,3 +397,14 @@ function removeDuplicateObj(array) {
   return newArr;
 };
 exports.removeDuplicateObj = removeDuplicateObj;
+
+// check the api version
+function checkVersionNeedCheck(node) {
+  const apiVersion = getApiVersion(node);
+  const apiCheckVersion = getCheckApiVersion();
+  if (parseInt(apiVersion) >= parseInt(apiCheckVersion)) {
+    return true;
+  }
+  return false;
+}
+exports.checkVersionNeedCheck = checkVersionNeedCheck;
