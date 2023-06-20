@@ -297,6 +297,24 @@ declare interface ChainAnimationOptions {
    * @since 10
    */
   edgeEffect?: ChainEdgeEffect;
+
+  /**
+   * Stiffness of chain spring.
+   * @type { number }
+   * @default 228
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  stiffness?: number;
+
+  /**
+   * Damping of chain spring.
+   * @type { number }
+   * @default 30
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  damping?: number;
 }
 
 /**
