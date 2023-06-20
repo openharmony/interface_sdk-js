@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
+import { AsyncCallback, Callback } from './@ohos.base';
 import connection from './@ohos.net.connection';
 
 /**
@@ -775,7 +775,7 @@ declare namespace policy {
     NET_BACKGROUND_POLICY_DISABLE = 2,
 
     /**
-     * Only apps in allow list can use metered networks on background.
+     * Only apps in trustlist can use metered networks on background.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
