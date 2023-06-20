@@ -193,11 +193,11 @@ class SystemApiRecognizer {
    */
   recognizeNormal(node, fileName) {
     if (ts.isPropertyAccessExpression(node)) {
-      this.recognizePropertyAccessExpression(node, fileName)
+      this.recognizePropertyAccessExpression(node, fileName);
     } else if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
       this.recognizeHeritageClauses(node, fileName);
     } else if (ts.isNewExpression(node) && ts.isIdentifier(node.expression)) {
-      this.recognizeApiWithNode(node.expression, fileName, (node) => node.getStart())
+      this.recognizeApiWithNode(node.expression, fileName, (node) => node.getStart());
     } else if (ts.isStructDeclaration(node)) {
       this.recognizeHeritageClauses(node, fileName);
     }
@@ -213,7 +213,7 @@ class SystemApiRecognizer {
       return apiDecInfo;
     } else if (ts.isPropertyAccessExpression(node)) {
       this.recognizeNormalCallExpression(node.expression, fileName);
-      return this.recognizePropertyAccessExpression(node, fileName)
+      return this.recognizePropertyAccessExpression(node, fileName);
     } else {
       return undefined;
     }
@@ -253,7 +253,7 @@ class SystemApiRecognizer {
         return;
       }
       const moduleSpecifier = importDec.moduleSpecifier;
-      this.saveApiDecInfo(moduleSpecifier, apiDecInfo, typeNameNode)
+      this.saveApiDecInfo(moduleSpecifier, apiDecInfo, typeNameNode);
     }
   }
   
@@ -288,7 +288,7 @@ class SystemApiRecognizer {
       if (ts.isInterfaceDeclaration(stat) && stat.name.escapedText === interfaceName) {
         interfaceText = stat.getText().split('{')[0];
       }
-    })
+    });
     return interfaceText;
   }
 
@@ -296,7 +296,7 @@ class SystemApiRecognizer {
     if (dtsPath.indexOf('api/@internal/full/canvaspattern.d.ts') > -1) {
       return dtsPath.replace('api/@internal/full/', 'interface/sdk-js/api/common/full/');
     } else if (dtsPath.indexOf('api/@internal/full/featureability.d.ts') > -1) {
-      return  dtsPath.replace('api/@internal/full/', '/interface/sdk-js/api/common/full/');
+      return dtsPath.replace('api/@internal/full/', '/interface/sdk-js/api/common/full/');
     } else if (dtsPath.indexOf('api/internal/full') > -1) {
       return dtsPath.replace('api/@internal/full/', '/interface/sdk-js/api/@internal/ets/');
     } else if (dtsPath.indexOf('component/') > -1) {
@@ -359,7 +359,7 @@ class SystemApiRecognizer {
       return new ComponentAttrResult(chainResult.componentInfo, undefined);
     } else if (ts.isPropertyAccessExpression(node)) {
       const chainResult = this.recognizeComponentAttributeChain(node.expression, fileName);
-      const attrInfo = this.recognizeEtsComponentAndAttributeApi(node, fileName)
+      const attrInfo = this.recognizeEtsComponentAndAttributeApi(node, fileName);
       if (chainResult.componentInfo && attrInfo) {
         attrInfo.setComponentName(chainResult.componentInfo.propertyName);
       }
@@ -407,7 +407,7 @@ class SystemApiRecognizer {
     if (apiDecInfo && this.forEachComponents.has(apiDecInfo.propertyName)) {
       args.forEach((arg, index) => {
         // itemGenerator
-        if (index == 1) {
+        if (index === 1) {
           this.visitUIRenderNode(arg.body ? arg.body : arg, fileName);
         } else {
           this.recognizeArgument(arg, fileName);
@@ -518,9 +518,9 @@ class SystemApiRecognizer {
       } else {
         extendNodeSymbol.members.forEach((memberSymbol, memberName) => {
           extendClassPropertyMap.set(memberName, memberSymbol);
-        })
+        });
       }
-    })
+    });
   }
 
   /**
@@ -558,7 +558,7 @@ class SystemApiRecognizer {
         typeSymbol.members.forEach((memberSymbol, memberName) => {
           heritageMembers.set(memberName, memberSymbol);
         });
-      })
+      });
     });
     return heritageMembers;
   }
@@ -667,7 +667,7 @@ class SystemApiRecognizer {
         matchedDecs.push(dec);
       }
     }
-    if (matchedDecs.length == 1) {
+    if (matchedDecs.length === 1) {
       return matchedDecs[0];
     }
     if ('on' === callExpressionNode.expression.name.getText()) {
@@ -819,7 +819,7 @@ class SystemApiRecognizer {
     }
     for (const tag of latestJsDoc.tags) {
       if (callback(tag)) {
-        break
+        break;
       };
     };
   }
@@ -848,19 +848,19 @@ class SystemApiRecognizer {
 }
 
 const apiType = new Map([
-  [ts.SyntaxKind.FunctionDeclaration, "method"],
-  [ts.SyntaxKind.MethodSignature, "method"],
-  [ts.SyntaxKind.MethodDeclaration, "method"],
-  [ts.SyntaxKind.EnumMember, "enum_instance"],
-  [ts.SyntaxKind.PropertySignature, "field"],
-  [ts.SyntaxKind.VariableStatement, "constant"],
-  [ts.SyntaxKind.VariableDeclaration, "constant"],
-  [ts.SyntaxKind.VariableDeclarationList, "constant"],
-  [ts.SyntaxKind.TypeAliasDeclaration, "type"],
-  [ts.SyntaxKind.ClassDeclaration, "class"],
-  [ts.SyntaxKind.InterfaceDeclaration, "interface"],
-  [ts.SyntaxKind.EnumDeclaration, "enum_class"],
-  [ts.SyntaxKind.PropertyDeclaration, "field"],
+  [ts.SyntaxKind.FunctionDeclaration, 'method'],
+  [ts.SyntaxKind.MethodSignature, 'method'],
+  [ts.SyntaxKind.MethodDeclaration, 'method'],
+  [ts.SyntaxKind.EnumMember, 'enum_instance'],
+  [ts.SyntaxKind.PropertySignature, 'field'],
+  [ts.SyntaxKind.VariableStatement, 'constant'],
+  [ts.SyntaxKind.VariableDeclaration, 'constant'],
+  [ts.SyntaxKind.VariableDeclarationList, 'constant'],
+  [ts.SyntaxKind.TypeAliasDeclaration, 'type'],
+  [ts.SyntaxKind.ClassDeclaration, 'class'],
+  [ts.SyntaxKind.InterfaceDeclaration, 'interface'],
+  [ts.SyntaxKind.EnumDeclaration, 'enum_class'],
+  [ts.SyntaxKind.PropertyDeclaration, 'field']
 ]);
 
 class ComponentAttrResult {
@@ -901,7 +901,7 @@ class ApiDeclarationInformation {
     if (!this.qualifiedTypeName) {
       this.qualifiedTypeName = typeName;
     } else {
-      this.qualifiedTypeName = `${typeName}.${this.qualifiedTypeName}`
+      this.qualifiedTypeName = `${typeName}.${this.qualifiedTypeName}`;
     }
   }
 
@@ -927,7 +927,7 @@ class ApiDeclarationInformation {
    */
   setDeprecated(deprecated) {
     const regExpResult = deprecated.match(/\s*since\s*(\d)+.*/);
-    if (regExpResult != null && regExpResult.length == 2) {
+    if (regExpResult !== null && regExpResult.length === 2) {
       this.deprecated = regExpResult[1];
     }
   }

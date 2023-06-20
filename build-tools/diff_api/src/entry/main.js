@@ -13,50 +13,50 @@
  * limitations under the License.
  */
 
-const commander = require("commander");
+const commander = require('commander');
 const toolboxConfig = require('./toolbox.config');
 class ToolBoxCommander {
-    program = new commander.Command();
-    constructor() { }
-    addPluginCommand(plugin) {
-        const pluginOption = plugin.pluginOptions;
-        if (!pluginOption) {
-            return;
-        }
-        const pluginCommand = this.program.name(pluginOption.name)
-            .description(pluginOption.description)
-            .version(pluginOption.version)
-            .action((opts) => {
-                plugin.start(opts);
-                plugin.stop();
-            });
-        pluginOption.commands.forEach((command) => {
-            if (command.isRequiredOption) {
-                pluginCommand.requiredOption(...command.options);
-            } else {
-                pluginCommand.option(...command.options);
-            }
-        });
+  program = new commander.Command();
+  constructor() { }
+  addPluginCommand(plugin) {
+    const pluginOption = plugin.pluginOptions;
+    if (!pluginOption) {
+      return;
     }
-    buildCommands() {
-        this.program.parse();
-    }
+    const pluginCommand = this.program.name(pluginOption.name)
+      .description(pluginOption.description)
+      .version(pluginOption.version)
+      .action((opts) => {
+        plugin.start(opts);
+        plugin.stop();
+      });
+    pluginOption.commands.forEach((command) => {
+      if (command.isRequiredOption) {
+        pluginCommand.requiredOption(...command.options);
+      } else {
+        pluginCommand.option(...command.options);
+      }
+    });
+  }
+  buildCommands() {
+    this.program.parse();
+  }
 }
 class ToolboxEntry {
-    commandBuilder;
-    constructor() {
-        this.commandBuilder = new ToolBoxCommander();
-    }
-    runPlugins() {
+  commandBuilder;
+  constructor() {
+    this.commandBuilder = new ToolBoxCommander();
+  }
+  runPlugins() {
     const configuration = toolboxConfig.getToolConfiguration();
-        configuration.plugins.forEach((plugin) => {
-            this.commandBuilder.addPluginCommand(plugin);
-        });
-        this.commandBuilder.buildCommands();
-    }
+    configuration.plugins.forEach((plugin) => {
+      this.commandBuilder.addPluginCommand(plugin);
+    });
+    this.commandBuilder.buildCommands();
+  }
 }
 function main() {
-    const entry = new ToolboxEntry();
-    entry.runPlugins();
+  const entry = new ToolboxEntry();
+  entry.runPlugins();
 }
 main();

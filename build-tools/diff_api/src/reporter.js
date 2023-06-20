@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const path = require("path");
+const path = require('path');
 
 const ApiStatusCode = {
   DELETE: 0,
@@ -38,8 +38,8 @@ const ApiStatusCode = {
   FORM_CHANGED: 19,
   CROSSPLATFORM_CHANGED: 20,
   NEW_DTS: 21,
-  NEW_CLASS: 22
-}
+  NEW_CLASS: 22,
+};
 
 const StatusMessages = [];
 StatusMessages[ApiStatusCode.DELETE] = '删除';
@@ -76,7 +76,7 @@ function reportDeletedClass(api, syscap) {
     .setStatusMessage(StatusMessages[ApiStatusCode.DELETE_CLASS] + `(${api.getApiType().name})`)
     .setOldMessage('')
     .setNewMessage('')
-    .setSyscap(syscap)
+    .setSyscap(syscap);
   return reporterData;
 }
 
@@ -91,7 +91,7 @@ function reportDeletedPackage(packageName, dtsName) {
   return reporterData;
 }
 
-function reportNewPackage(packageName, dtsName,syscap) {
+function reportNewPackage(packageName, dtsName, syscap) {
   const reporterData = new ReporterData(undefined);
   reporterData.setStatusCode(ApiStatusCode.NEW_DTS)
     .setPackageName(packageName)
@@ -150,7 +150,7 @@ class ReporterData {
     this.changelogs = new Set();
   }
 
-  setDtsPath(dtsPath){
+  setDtsPath(dtsPath) {
     this.dtsPath = dtsPath;
     return this;
   }

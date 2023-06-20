@@ -254,7 +254,7 @@ const apiDigestMethodMap = new Map([
   [ts.SyntaxKind.PropertySignature, getPropertySignatureInfo],
   [ts.SyntaxKind.MethodDeclaration, getMethodDeclarationInfo],
   [ts.SyntaxKind.TypeAliasDeclaration, getTypeAliasDeclarationInfo],
-  [ts.SyntaxKind.CallSignature, getCallSignature],
+  [ts.SyntaxKind.CallSignature, getCallSignature]
 ]);
 
 /**
@@ -321,8 +321,8 @@ function getDummyApiDigestInfo(astNode) {
  * @returns {Boolean} true or false
  */
 function shouldVisitChildren(astNode) {
-  return ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode) || ts.isInterfaceDeclaration(astNode)
-    || ts.isClassDeclaration(astNode) || ts.isModuleBlock(astNode) || ts.isSourceFile(astNode);
+  return ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode) || ts.isInterfaceDeclaration(astNode) ||
+    ts.isClassDeclaration(astNode) || ts.isModuleBlock(astNode) || ts.isSourceFile(astNode);
 }
 
 /**
@@ -343,7 +343,7 @@ function visitAstNode(astNode, apiMap, parentApiDigest, ext) {
   apiDigestInfo.setParent(parentApiDigest);
   if (shouldVisitChildren(astNode)) {
     astNode.forEachChild((child) => {
-      visitAstNode(child, apiMap, apiDigestInfo, ext)
+      visitAstNode(child, apiMap, apiDigestInfo, ext);
     });
   }
 }
@@ -368,12 +368,12 @@ function collectApi(filePath, rootDir, resultMap) {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const sourceFile = ts.createSourceFile(apiFileName, fileContent, ts.ScriptTarget.ES2017, true);
   const isArkUI = isInDirectory(path.resolve(rootDir, 'component'), filePath);
-  const packageName = isArkUI ? "ArkUI" : path.relative(rootDir, filePath);
+  const packageName = isArkUI ? 'ArkUI' : path.relative(rootDir, filePath);
   const dtsPath = path.relative(rootDir, filePath).replace(/\\/g, '/');
   visitAstNode(sourceFile, apiMap, undefined, new VisitExt(packageName, dtsPath));
   return apiMap;
 }
 
 exports.ApiCollector = {
-  collectApi: collectApi
-}
+  collectApi: collectApi,
+};

@@ -92,7 +92,7 @@ function compareDiffApi(oldestData, nearOldVersionData) {
 // 收集一个版本的所有API变更数据
 function getSingleVersionData(versionUrl) {
   let singleVersionFiles = fs.readdirSync(versionUrl);
-  let oneVersionData = []
+  let oneVersionData = [];
   singleVersionFiles.forEach(file => {
     let filePath = path.join(versionUrl, file);
     let subsystem = file.replace('.md', '');
@@ -130,7 +130,7 @@ function mergeAllData(initialData, orderVersionArr) {
   while (number < orderVersionArr.length) {
     let versionUrl = `${url}\\${orderVersionArr[number]}`;
     let oneVersionData = getSingleVersionData(versionUrl);
-    initialData = mergeData(initialData, oneVersionData)
+    initialData = mergeData(initialData, oneVersionData);
     number++;
   }
   return initialData;
@@ -152,7 +152,7 @@ function mergeData(initialData, oneVersionData) {
 
   indexList.forEach(index => {
     oneVersionData.splice(index, 1);
-  })
+  });
 
   return initialData.concat(oneVersionData);
 }
@@ -164,6 +164,6 @@ function collectData(oldData, newData, subsystem, fileName) {
     diffNew: newData,
     subsystem: subsystem,
     packageName: fileName,
-  }
+  };
 }
 

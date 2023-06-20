@@ -17,7 +17,7 @@ const result = require('../check_result.json');
 const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult, apiCheckInfoArr } = require('../src/utils');
 
 /**
- * 
+ *
  * @param {ts.Node} node current node
  * @param {ts.Sourcefile} sourcefile root node
  * @param {String} fileName full file name
@@ -47,7 +47,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     basename: path.basename(fileName).replace(/\.d\.ts/g, ''),
     level,
     apiName: node.symbol ? node.symbol.escapedName : '',
-    apiFullText: node.getFullText()
+    apiFullText: node.getFullText(),
   });
 
   apiCheckInfoArr.push({
@@ -55,8 +55,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     level,
     location: `${baseFileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
     filePath: baseFileName,
-    message: errorMessage
+    message: errorMessage,
   });
-
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;
