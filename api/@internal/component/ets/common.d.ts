@@ -5918,6 +5918,16 @@ declare class CommonMethod<T> {
    * @since 10
    */
   reuseId(id: string)
+
+  /**
+   * Sets how content is drawn within nodes duration animation
+   * @param { RenderFit } fitMode - The render fit mode of content.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  renderFit(fitMode: RenderFit): T;
 }
 
 /**
