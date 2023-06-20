@@ -393,6 +393,37 @@ declare namespace pointer {
   }
 
   /**
+   * Touchpad right menu type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  enum RightMenuType {
+  /**
+   * Touchpad right button
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+   TOUCHPAD_RIGHT_BUTTON = 1,
+  /**
+   * Touchpad right button
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+   TOUCHPAD_LEFT_BUTTON = 2,
+  /**
+   * Touchpad two fingers tap
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  TOUCHPAD_TWO_FINGERS_TAP = 3,
+  }
+
+  /**
    * Sets the pointer moving speed.
    *
    * @param { number } speed - Pointer moving speed, which is any number.
@@ -984,7 +1015,7 @@ declare namespace pointer {
   /**
    * Set touchpad right button menu type.
    *
-   * @param { number } type - Indicates the number of touchpad right button menu type.
+   * @param { RightMenuType } type - Indicates the type of touchpad right button menu.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
@@ -992,12 +1023,12 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchpadRightMenuType(type: number, callback: AsyncCallback<void>): void;
+  function setTouchpadRightMenuType(type: RightMenuType, callback: AsyncCallback<void>): void;
 
   /**
    * Set touchpad right button menu type.
    *
-   * @param { number } type - Indicates the number of touchpad right button menu type.
+   * @param { RightMenuType } type - Indicates the type of touchpad right button menu.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1005,31 +1036,31 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setTouchpadRightMenuType(type: number): Promise<void>;
+  function setTouchpadRightMenuType(type: RightMenuType): Promise<void>;
 
   /**
    * Get touchpad right button menu type.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<RightMenuType> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchpadRightMenuType(callback: AsyncCallback<number>): void;
+  function getTouchpadRightMenuType(callback: AsyncCallback<RightMenuType>): void;
 
   /**
    * Get touchpad right button menu type.
    *
-   * @returns { Promise<number> } Returns the result through a promise.
+   * @returns { Promise<RightMenuType> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getTouchpadRightMenuType(): Promise<number>;
+  function getTouchpadRightMenuType(): Promise<RightMenuType>;
 }
 
 export default pointer;
