@@ -540,20 +540,23 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when the start and end positions of the display change.
+   * @param {(start: number, end: number) => void} event
    * @since 7
    */
   /**
    * Called when the start and end positions of the display change.
+   * @param {(start: number, end: number) => void} event
    * @form
    * @since 9
    */
   /**
-   * Called when the start and end positions of the display change.
+   * Called when the start end and center positions of the display change.
+   * @param {(start: number, end: number, center: number) => void} event
    * @form
    * @crossplatform
    * @since 10
    */
-  onScrollIndex(event: (start: number, end: number) => void): ListAttribute;
+  onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
 
   /**
    * Called when the list begins to arrive.
