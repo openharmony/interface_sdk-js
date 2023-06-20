@@ -235,6 +235,50 @@ declare class Scroller {
   isAtEnd(): boolean;
 }
 
+/*
+ * Define scroll snap options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ScrollSnapOptions {
+  /**
+   * Set scroll snap alignment.
+   * @type { ScrollSnapAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  snapAlign: ScrollSnapAlign;
+
+  /**
+   * Set snap positions. When the type of snapPositions is Dimension, Scroll content is paginated by an integer
+   * multiple of snapPositions. When the type of snapPositions is Array<number>, Scroll content is paginated based
+   * on the array of snapPositions.
+   * @type { Dimension | Array<Dimension> }
+   * @default "100%"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  snapPagination?: Dimension | Array<Dimension>;
+
+  /**
+   * Set whether the beginning of the Scroll content counts an a snap.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableSnapToStart?: boolean;
+
+  /**
+   * Set whether the end of the Scroll content counts an a snap.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableSnapToEnd?: boolean;
+}
+
 /**
  * Provides interfaces for scrollable containers.
  * @since 7
@@ -415,6 +459,15 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @since 10
    */
   friction(value: number | Resource): ScrollAttribute;
+
+  /**
+   * Called to setting the scroll snap options.
+   * @param { ScrollSnapOptions } value - options for scroll snap.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollSnap(value: ScrollSnapOptions): ScrollAttribute;
 }
 
 /**
