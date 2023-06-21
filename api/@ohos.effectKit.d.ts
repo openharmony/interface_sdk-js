@@ -165,13 +165,19 @@ declare namespace effectKit {
   function createEffect(source: image.PixelMap): Filter;
 
   /**
-   * Create a color picker to get color of an image.
-   * @since 9
+   * Defines the color picker region coordinates.
+   * The first element in the tuple means region's left coordinate. 
+   * The range of this value is [0,1], represents horizontal location percentage in the picture.
+   * The second element in the tuple means region's top coordinate. 
+   * The range of this value is [0,1], represents vertical location percentage in the picture.
+   * The third element in the tuple means region's right coordinate. 
+   * The range of this value is [0,1], represents horizontal location percentage in the picture.
+   * The fourth element in the tuple means region's bottom coordinate. 
+   * The range of this value is [0,1], represents vertical location percentage in the picture.
+   * @since 10
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @param image.PixelMap.
-   * @returns Returns the ColorPicker.
    */
-  function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
+   type Coordinates = [number, number, number, number];
 
   /**
    * Create a color picker to get color of an image.
@@ -180,7 +186,16 @@ declare namespace effectKit {
    * @param image.PixelMap.
    * @returns Returns the ColorPicker.
    */
-  function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
+  function createColorPicker(source: image.PixelMap, region?: Coordinates): Promise<ColorPicker>;
+
+  /**
+   * Create a color picker to get color of an image.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param image.PixelMap.
+   * @returns Returns the ColorPicker.
+   */
+  function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>, region?: Coordinates): void;
 }
 
 export default effectKit;
