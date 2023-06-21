@@ -18,7 +18,6 @@
  *
  * @namespace taskpool
  * @syscap SystemCapability.Utils.Lang
- * @stagemodeonly
  * @since 9
  */
 /**
@@ -26,7 +25,6 @@
  *
  * @namespace taskpool
  * @syscap SystemCapability.Utils.Lang
- * @stagemodeonly
  * @crossplatform
  * @since 10
  */
@@ -36,7 +34,6 @@ declare namespace taskpool {
    *
    * @enum { number } Priority
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @since 9
    */
   /**
@@ -44,7 +41,6 @@ declare namespace taskpool {
    *
    * @enum { number } Priority
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -53,7 +49,13 @@ declare namespace taskpool {
      * set task priority to high.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
+     * @since 9
+     */
+    /**
+     * set task priority to high.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     HIGH = 0,
@@ -62,7 +64,13 @@ declare namespace taskpool {
      * set task priority to medium.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
+     * @since 9
+     */
+    /**
+     * set task priority to medium.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     MEDIUM = 1,
@@ -71,30 +79,32 @@ declare namespace taskpool {
      * set task priority to low.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
+     * @since 9
+     */
+    /**
+     * set task priority to low.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     LOW = 2
   }
 
   /**
-   * @typedef Task
    * The Task class provides an interface to create a task.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @since 9
    */
   /**
-   * @typedef Task
    * The Task class provides an interface to create a task.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
-  interface Task {
+  class Task {
     /**
      * Create a Task instance.
      *
@@ -103,7 +113,6 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @since 9
      */
     /**
@@ -114,7 +123,6 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -126,7 +134,6 @@ declare namespace taskpool {
      * @returns { boolean } Returns {@code true} if current running task is canceled; returns {@code false} otherwise.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -138,7 +145,6 @@ declare namespace taskpool {
      * @param { ArrayBuffer[] } transfer - transfer Transfer list of this task, empty array is default.
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -148,14 +154,12 @@ declare namespace taskpool {
      * Concurrent function to execute in taskpool.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @since 9
      */
     /**
      * Concurrent function to execute in taskpool.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -165,7 +169,6 @@ declare namespace taskpool {
      * The concurrent function arguments.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @since 9
      */
     /**
@@ -173,7 +176,6 @@ declare namespace taskpool {
      *
      * @type { ?unknown[] }
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -181,20 +183,17 @@ declare namespace taskpool {
   }
 
   /**
-   * @typedef TaskGroup
    * The TaskGroup class provides an interface to create a task group.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
-  interface TaskGroup {
+  class TaskGroup {
     /**
      * Create a TaskGroup instance.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -208,7 +207,6 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -221,7 +219,6 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - The input parameters are invalid.
      * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -233,7 +230,6 @@ declare namespace taskpool {
    *
    * @enum { number } State
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -242,7 +238,6 @@ declare namespace taskpool {
      * the task state is waiting.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @since 10
      */
     WAITING = 1,
@@ -251,7 +246,6 @@ declare namespace taskpool {
      * the task state is running.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @since 10
      */
     RUNNING = 2,
@@ -260,7 +254,6 @@ declare namespace taskpool {
      * the task state is canceled.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @since 10
      */
     CANCELED = 3
@@ -270,7 +263,6 @@ declare namespace taskpool {
    * Indicates the internal information of the worker thread.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -279,9 +271,8 @@ declare namespace taskpool {
      * Task identity.
      *
      * @type { number }
-     * @syscap SystemCapability.Utils.Lang
      * @default 0
-     * @stagemodeonly
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
      */
@@ -291,9 +282,8 @@ declare namespace taskpool {
      * Task state.
      *
      * @type { State }
-     * @syscap SystemCapability.Utils.Lang
      * @default State::WAITING
-     * @stagemodeonly
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
      */
@@ -304,7 +294,6 @@ declare namespace taskpool {
      *
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -315,7 +304,6 @@ declare namespace taskpool {
    * Indicates the internal information of the worker thread.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -324,9 +312,8 @@ declare namespace taskpool {
      * Thread id.
      *
      * @type { number }
-     * @syscap SystemCapability.Utils.Lang
      * @default 0
-     * @stagemodeonly
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
      */
@@ -337,7 +324,6 @@ declare namespace taskpool {
      *
      * @type { ?number[] }
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -348,7 +334,6 @@ declare namespace taskpool {
      *
      * @type { ?Priority }
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -359,7 +344,6 @@ declare namespace taskpool {
    * Indicates the internal information of the taskpool.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -369,7 +353,6 @@ declare namespace taskpool {
      *
      * @type { ThreadInfo[] }
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -380,7 +363,6 @@ declare namespace taskpool {
      *
      * @type { TaskInfo[] }
      * @syscap SystemCapability.Utils.Lang
-     * @stagemodeonly
      * @crossplatform
      * @since 10
      */
@@ -398,7 +380,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @since 9
    */
   /**
@@ -412,7 +393,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -429,7 +409,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - if the function in task is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @since 9
    */
   /**
@@ -443,7 +422,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - if the function in task is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -458,7 +436,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -472,7 +449,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
    * @throws { BusinessError } 10200016 - The task is executing when it is canceled.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @since 9
    */
   /**
@@ -482,7 +458,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200015 - The task does not exist when it is canceled.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -495,7 +470,6 @@ declare namespace taskpool {
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200018 - The task group does not exist when it is canceled.
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
@@ -506,7 +480,6 @@ declare namespace taskpool {
    *
    * @returns { TaskPoolInfo }
    * @syscap SystemCapability.Utils.Lang
-   * @stagemodeonly
    * @crossplatform
    * @since 10
    */
