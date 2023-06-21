@@ -184,6 +184,7 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
+   * @param {region} Coordinates The region's coordinates.
    * @returns Returns the ColorPicker.
    */
   function createColorPicker(source: image.PixelMap, region?: Coordinates): Promise<ColorPicker>;
@@ -193,6 +194,7 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
+   * @param {region} Coordinates The region's coordinates.
    * @returns Returns the ColorPicker.
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>, region?: Coordinates): void;
