@@ -75,6 +75,16 @@ declare namespace dialogRequest {
      * @since 9
      */
     result: ResultCode;
+
+    /**
+     * The request additional want data passed in by the user.
+     *
+     * @type { ?Want }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    want?: Want;
   }
 
   /**
