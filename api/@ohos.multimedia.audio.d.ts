@@ -3352,7 +3352,7 @@ declare namespace audio {
   interface CaptureFilterOptions {
     /**
      * Filter by stream usages. If you want to capture voice streams, additional permission is needed.
-     * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO
+     * @permission ohos.permission.CAPTURE_VOICE_PLAYBACK_AUDIO
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10
      */
