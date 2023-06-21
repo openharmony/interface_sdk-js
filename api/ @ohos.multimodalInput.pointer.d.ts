@@ -400,27 +400,27 @@ declare namespace pointer {
    * @since 10
    */
   enum RightClickType {
-  /**
-   * Touchpad right button
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
-   */
-  TOUCHPAD_RIGHT_BUTTON = 1,
-  /**
-   * Touchpad left button
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
-   */
-  TOUCHPAD_LEFT_BUTTON = 2,
-  /**
-   * Touchpad two fingers tap
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
-   */
-  TOUCHPAD_TWO_FINGER_TAP = 3,
+    /**
+     * Touchpad right button
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    TOUCHPAD_RIGHT_BUTTON = 1,
+    /**
+     * Touchpad left button
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    TOUCHPAD_LEFT_BUTTON = 2,
+    /**
+     * Touchpad two fingers tap
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    TOUCHPAD_TWO_FINGER_TAP = 3,
   }
 
   /**
