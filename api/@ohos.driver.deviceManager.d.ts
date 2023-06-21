@@ -27,11 +27,10 @@ declare namespace deviceManager {
   /**
    * Query the external device list.
    *
-   * @permission ohos.permission.EXTERNAL_DEVICE_MANAGER
    * @param { number } busType - The bus type of device to be queried.
    * @returns { Array<Readonly<Device>> } External device list.
-   * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
@@ -40,12 +39,11 @@ declare namespace deviceManager {
   /**
    * Bind the device based on the device information returned by queryDevices().
    *
-   * @permission ohos.permission.EXTERNAL_DEVICE_MANAGER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
    * @param { AsyncCallback } callback - Indicates the bind result including device ID and remote object.
-   * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
@@ -55,12 +53,11 @@ declare namespace deviceManager {
   /**
    * Bind the device based on the device information returned by queryDevices().
    *
-   * @permission ohos.permission.EXTERNAL_DEVICE_MANAGER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } onDisconnect - Callback is invoked when device is disconnected after bind success.
    * @returns { Promise } Indicates the bind result including device ID and remote object.
-   * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
@@ -70,11 +67,10 @@ declare namespace deviceManager {
   /**
    * Unbind the device based on the device information returned by queryDevices().
    *
-   * @permission ohos.permission.EXTERNAL_DEVICE_MANAGER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @param { AsyncCallback } callback - Indicates the unbind result invoked when unbind is finished.
-   * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
@@ -83,11 +79,10 @@ declare namespace deviceManager {
   /**
    * Unbind the device based on the device information returned by queryDevices().
    *
-   * @permission ohos.permission.EXTERNAL_DEVICE_MANAGER
    * @param { number } deviceId - Device id on the device list returned by queryDevices().
    * @returns { Promise } - Indicates the unbind result invoked when unbind is finished.
-   * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
