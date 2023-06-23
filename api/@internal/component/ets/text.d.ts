@@ -61,6 +61,15 @@ interface TextInterface {
  */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
+   * Called when the font is set.
+   * @param { Font } value - the text font size and weight and family and style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { TextAttribute } The attribute of the text.
+   * @since 10
+   */
+  font(value: Font): TextAttribute;
+
+  /**
    * Called when the font color is set.
    * @since 7
    */
@@ -342,12 +351,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the text shadow is set.
    * @param { ShadowOptions } value - The shadow options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Called when the text shadow is set.
-   * @param { ShadowOptions } value - The shadow options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @crossplatform
    * @since 10
    */

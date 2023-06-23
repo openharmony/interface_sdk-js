@@ -19,6 +19,7 @@ import { AsyncCallback } from './basic';
  * Provide APIs to set system uiAppearance.
  * @namespace uiAppearance
  * @syscap SystemCapability.ArkUI.UiAppearance
+ * @systemapi hide this for inner system use
  * @since 10
  */
 declare namespace uiAppearance {
@@ -26,12 +27,14 @@ declare namespace uiAppearance {
    * Enumerates dark-mode.
    * @enum { number }
    * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
    * @since 10
    */
   enum DarkMode {
     /**
      * Always display with dark mode.
      * @syscap SystemCapability.ArkUI.UiAppearance
+     * @systemapi hide this for inner system use
      * @since 10
      */
     ALWAYS_DARK = 0,
@@ -39,6 +42,7 @@ declare namespace uiAppearance {
     /**
      * Always display with light mode.
      * @syscap SystemCapability.ArkUI.UiAppearance
+     * @systemapi hide this for inner system use
      * @since 10
      */
     ALWAYS_LIGHT = 1

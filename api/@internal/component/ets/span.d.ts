@@ -61,6 +61,15 @@ interface SpanInterface {
  */
 declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
+   * Called when the font is set.
+   * @param { Font } value - the span font size and weight and family and style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SpanAttribute } The attribute of the span.
+   * @since 10
+   */
+  font(value: Font): SpanAttribute;
+  
+  /**
    * Called when the font color is set.
    * @since 7
    */
@@ -194,6 +203,15 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @since 10
    */
   textCase(value: TextCase): SpanAttribute;
+
+  /**
+   * Called when the line height of the span is set.
+   * @param { Length } value - The line height of the span.
+   * @returns { SpanAttribute } The attribute of the span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  lineHeight(value: Length): SpanAttribute;
 }
 
 /**

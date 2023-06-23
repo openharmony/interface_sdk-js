@@ -238,7 +238,7 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
+     * @param { string } url - URL for initiating an HTTP request.
      * @param { AsyncCallback<HttpResponse> } callback - the callback of request. 
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -277,7 +277,7 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
+     * @param { string } url - URL for initiating an HTTP request.
      * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -319,9 +319,9 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
-     * @param { AsyncCallback<HttpResponse> } callback callback - the callback of request..
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request..
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -359,9 +359,9 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
-     * @param { AsyncCallback<HttpResponse> } callback callback - the callback of request..
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -402,8 +402,8 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
      * @returns { Promise<HttpResponse> } The promise returned by the function. 
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -442,8 +442,8 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
      * @returns { Promise<HttpResponse> } The promise returned by the function. 
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -485,8 +485,8 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { AsyncCallback<number> } callback Returns the callback of request2 {@link ResponseCode},
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { AsyncCallback<number> } callback - Returns the callback of request2 {@link ResponseCode},
      * should use on_headersReceive and on_dataReceive to get http response.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -527,8 +527,8 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
      * @param { AsyncCallback<number> } callback - the callback of request2.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -569,8 +569,8 @@ declare namespace http {
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
-     * @param { string } url URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } options Optional parameters {@link HttpRequestOptions}.
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
      * @returns { Promise<number> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -623,8 +623,8 @@ declare namespace http {
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { "headerReceive" } type Indicates Event name.
-     * @param { AsyncCallback<Object> } callback - the callback of on.
+     * @param { "headerReceive" } type - Indicates Event name.
+     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      * @deprecated since 8
@@ -634,8 +634,8 @@ declare namespace http {
 
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { "headerReceive" } type Indicates Event name.
-     * @param { AsyncCallback<Object> } callback - the callback of off.
+     * @param { "headerReceive" } type - Indicates Event name.
+     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
      * @deprecated since 8
@@ -645,15 +645,15 @@ declare namespace http {
 
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { "headersReceive" } type Indicates Event name.
-     * @param { Callback<Object> } callback - the callback of on.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 8
      */
     /**
      * Registers an observer for HTTP Response Header events.
-     * @param { "headersReceive" } type Indicates Event name.
-     * @param { Callback<Object> } callback - the callback of on.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -662,15 +662,15 @@ declare namespace http {
 
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { "headersReceive" } type Indicates Event name.
-     * @param { Callback<Object> } callback - the callback of off.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 8
      */
     /**
      * Unregisters the observer for HTTP Response Header events.
-     * @param { "headersReceive" } type Indicates Event name.
-     * @param { Callback<Object> } callback - the callback of off.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -679,15 +679,15 @@ declare namespace http {
 
     /**
      * Registers a one-time observer for HTTP Response Header events.
-     * @param { "headersReceive" } type Indicates Event name.
-     * @param { Callback<Object> } callback - the callback of once.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 8
      */
     /**
      * Registers a one-time observer for HTTP Response Header events.
-     * @param { "headersReceive" } type Indicates Event name.
-     * @param { Callback<Object> } callback - the callback of once.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -696,8 +696,8 @@ declare namespace http {
 
     /**
      * Registers an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type Indicates Event name.
-     * @param { Callback<ArrayBuffer> } callback - the callback of on.
+     * @param { "dataReceive" } type - Indicates Event name.
+     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -705,8 +705,8 @@ declare namespace http {
 
     /**
      * Unregisters an observer for receiving HTTP Response data events continuously.
-     * @param { "dataReceive" } type Indicates Event name.
-     * @param { Callback<ArrayBuffer> } callback - the callback of off.
+     * @param { "dataReceive" } type - Indicates Event name.
+     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -714,8 +714,8 @@ declare namespace http {
 
     /**
      * Registers an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type Indicates Event name.
-     * @param { Callback<void> } callback - the callback of on.
+     * @param { "dataEnd" } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -723,8 +723,8 @@ declare namespace http {
 
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
-     * @param { "dataEnd" } type Indicates Event name.
-     * @param { Callback<void> } callback - the callback of off.
+     * @param { "dataEnd" } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -732,8 +732,8 @@ declare namespace http {
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { "dataProgress" } type Indicates Event name.
-     * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback of on.
+     * @param { "dataProgress" } type - Indicates Event name.
+     * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -741,8 +741,8 @@ declare namespace http {
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { "dataProgress" } type Indicates Event name.
-     * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback of off.
+     * @param { "dataProgress" } type - Indicates Event name.
+     * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
@@ -1535,14 +1535,14 @@ declare namespace http {
 
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { number } cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
    * @syscap SystemCapability.Communication.NetStack
    * @since 9
    */
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { number } cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -1566,13 +1566,13 @@ declare namespace http {
   export interface HttpResponseCache {
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @param { AsyncCallback<void> } callback Returns the callback of flush.
+     * @param { AsyncCallback<void> } callback - the callback of flush.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
      */
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     * @param { AsyncCallback<void> } callback Returns the callback of flush.
+     * @param { AsyncCallback<void> } callback - the callback of flush.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -1596,13 +1596,13 @@ declare namespace http {
 
     /**
      * Disables a cache and deletes the data in it.
-     * @param { AsyncCallback<void> } callback Returns the callback of delete.
+     * @param { AsyncCallback<void> } callback - the callback of delete.
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
      */
     /**
      * Disables a cache and deletes the data in it.
-     * @param { AsyncCallback<void> } callback Returns the callback of delete.
+     * @param { AsyncCallback<void> } callback - the callback of delete.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10

@@ -302,6 +302,24 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 10
    */
   divider(value: DividerStyle | null): TabsAttribute;
+
+  /**
+   * Set whether the tab bar overlaps with the tab content.
+   * @param { boolean } value - indicates whether the tab bar overlaps with the tab content.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  barOverlap(value: boolean): TabsAttribute;
+
+  /**
+   * Set the background color of the tab bar.
+   * @param { ResourceColor } value - indicates the background color of the tab bar.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  barBackgroundColor(value: ResourceColor): TabsAttribute;
 }
 
 /**

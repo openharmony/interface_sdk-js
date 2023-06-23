@@ -660,6 +660,39 @@ declare namespace sms {
   function encodeMms(mms: MmsInformation): Promise<Array<number>>;
 
   /**
+   * Obtains the default SIM ID for sending SMS messages.
+   *
+   * @param { AsyncCallback<number> } callback - Returns the SIM ID of the default sms sim and
+   * SIM ID will increase from 1.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8301001 - SIM card is not activated.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function getDefaultSmsSimId(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the default SIM ID for sending SMS messages.
+   *
+   * @returns { Promise<number> } Returns the SIM ID of the default sms sim and
+   * SIM ID will increase from 1.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8301001 - SIM card is not activated.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function getDefaultSmsSimId(): Promise<number>;
+
+  /**
    * Defines the MMS message information.
    *
    * @interface MmsInformation
@@ -1481,16 +1514,6 @@ declare namespace sms {
 
     /**
      * Indicates the content location.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Telephony.SmsMms
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    contentLocation: string;
-
-    /**
-     * Indicates the content location for the attachment.
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms

@@ -136,6 +136,16 @@ declare namespace curves {
   function stepsCurve(count: number, end: boolean): ICurve;
 
   /**
+   * Constructs a custom curve when called.
+   * @param { (fraction: number) => number } interpolate,fraction range is [0,1], the return number must between [0,1].
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function customCurve(interpolate: (fraction: number) => number): ICurve;
+  
+  /**
    * Constructs a step curve when called.
    * @param { number } count
    * @param { boolean } end
