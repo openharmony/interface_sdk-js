@@ -55,6 +55,16 @@ declare namespace emitter {
   function off(eventId: number): void;
 
   /**
+   * Unsubscribe from an event.
+   *
+   * @param { number } eventId - indicates ID of the event to unsubscribe from.
+   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @since 10
+   */
+  function off(eventId: number, callback: Callback<EventData>): void;
+
+  /**
    * Emits an event to the event queue.
    *
    * @since 7
