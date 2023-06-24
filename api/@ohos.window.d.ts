@@ -2499,6 +2499,8 @@ declare namespace window {
     /**
      * Get the UIContext associate with the window content.
      * @returns { UIContext } the object of UIContext.
+     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 1300002 - If window state is abnormally
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform

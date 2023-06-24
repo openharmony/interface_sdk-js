@@ -397,7 +397,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead I18NUtil
+   * @useinstead ohos.i18n/i18n.I18NUtil
    */
   export interface Util {
     /**
@@ -412,7 +412,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
-     * @useinstead I18NUtil.unitConvert
+     * @useinstead ohos.i18n/i18n.I18NUtil#unitConvert
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
   }
@@ -1294,7 +1294,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.System.is24HourClock
+   * @useinstead ohos.i18n/i18n.System#is24HourClock
    */
   export function is24HourClock(): boolean;
 
@@ -1307,7 +1307,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.System.set24HourClock
+   * @useinstead ohos.i18n/i18n.System#set24HourClock
    */
   export function set24HourClock(option: boolean): boolean;
 
@@ -1321,7 +1321,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.addPreferredLanguage
+   * @useinstead ohos.i18n/i18n.System#addPreferredLanguage
    */
   export function addPreferredLanguage(language: string, index?: number): boolean;
 
@@ -1334,7 +1334,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.removePreferredLanguage
+   * @useinstead ohos.i18n/i18n.System#removePreferredLanguage
    */
   export function removePreferredLanguage(index: number): boolean;
 
@@ -1345,7 +1345,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.getPreferredLanguageList
+   * @useinstead ohos.i18n/i18n.System#getPreferredLanguageList
    */
   export function getPreferredLanguageList(): Array<string>;
 
@@ -1356,7 +1356,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.System.getFirstPreferredLanguage
+   * @useinstead ohos.i18n/i18n.System#getFirstPreferredLanguage
    */
   export function getFirstPreferredLanguage(): string;
 
@@ -1507,12 +1507,12 @@ declare namespace i18n {
     /**
      * Get the possible time zones from the specified longitude and latitude.
      *
+     * @param { number } longitude value
+     * @param { number } latitude value
+     * @returns { Array<TimeZone> } Returns a TimeZone array from the specified longitude and latitude.
      * @throws {BusinessError} 401 - check param failed
      * @throws {BusinessError} 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
-     * @param longitude longitude value
-     * @param latitude latitude value
-     * @returns Returns a TimeZone array from the specified longitude and latitude.
      * @since 10
      */
     static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
@@ -1564,7 +1564,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 10
    */
-  enum NormalizerMode {
+  export enum NormalizerMode {
     /**
      * Normalization form C, characters are decomposed and then re-composed by canonical equivalence
      *
@@ -1624,5 +1624,162 @@ declare namespace i18n {
      */
     normalize(text: string): string;
   }
+
+  /**
+   * Enumerates the locale suggestion type modes.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Global.I18n
+   * @since 10
+   */
+  export enum SuggestionType {
+    /**
+     * No correlation between language and region.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    SUGGESTION_TYPE_NONE = 0,
+    /**
+     * The language used in the region.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    SUGGESTION_TYPE_RELATED = 1,
+    /**
+     * The region is SIM card region.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    SUGGESTION_TYPE_SIM = 2,
+  }
+
+  /**
+   * Provides the options which is used to sort the locales.
+   *
+   * @interface SortOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 10
+   */
+  export interface SortOptions {
+    /**
+     * Locale code.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    locale?: string;
+
+    /**
+     * Whether to use local names for sorting
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    isUseLocalName?: boolean;
+
+    /**
+     * Whether to put the suggested item at the top
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    isSuggestedFirst?: boolean;
+  }
+
+  /**
+   * Provides the informations of one language or region.
+   *
+   * @interface LocaleItem
+   * @syscap SystemCapability.Global.I18n
+   * @since 10
+   */
+  export interface LocaleItem {
+    /**
+     * language or region code.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    id: string;
+
+    /**
+     * The suggestion type of the language or region.
+     *
+     * @type { SuggestionType }
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    suggestionType: SuggestionType;
+
+    /**
+     * The name of the language or region in specified language
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    displayName: string;
+
+    /**
+     * The name of the language or region in local language
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 10
+     */
+    localName?: string;
+  }
+}
+
+/**
+ * Provide some functions for settings and startup guide to select language or region.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @systemapi Hide this for inner system use.
+ * @since 10
+ */
+export class SystemLocaleManager {
+  /**
+   * A constructor used to create a SystemLocaleManager object.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  constructor();
+
+  /**
+   * Obtains sorted language array to setting or startup guide app.
+   *
+   * @param { Array<string> } languages - The languages whose name will be sort and displayed.
+   * @param { SortOptions } options - Specifies how to sort.
+   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
+   * @throws { BusinessError } 401 - check param failed
+   * @throws { BusinessError } 890001 - param value not valid
+   * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
+
+  /**
+   * Obtains sorted region array to setting or startup guide app.
+   *
+   * @param { Array<string>  } regions - The regions whose name will be sort and displayed.
+   * @param { SortOptions } options - Specifies how to sort.
+   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
+   * @throws { BusinessError } 401 - check param failed
+   * @throws { BusinessError } 890001 - param value not valid
+   * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
 }
 export default i18n;

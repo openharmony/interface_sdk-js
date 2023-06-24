@@ -4092,3 +4092,68 @@ declare enum ClickEffectLevel {
      */
     HEAVY,
 }
+
+/**
+ * The type of XComponent
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum XComponentType {
+  /**
+   * Surface type. The default type is used.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SURFACE,
+
+  /**
+   * Component type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COMPONENT,
+
+  /**
+   * Texture type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TEXTURE,
+}
+
+/*
+ * Nested scroll nested mode
+ * @enum { number } NestedScrollMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum NestedScrollMode {
+  /**
+   * Only Self response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SELF_ONLY,
+
+  /**
+   * Self priority response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SELF_FIRST,
+
+  /**
+   * Parent scrollable component priority response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PARENT_FIRST,
+
+  /**
+   * Both self and parent scrollable component response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PARALLEL,
+}

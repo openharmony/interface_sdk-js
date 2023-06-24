@@ -107,6 +107,23 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the application is destroyed or called when the page is redirected to another one (without entering the navigation stack).
    */
   onDestroy?(): void;
+
+  /**
+   * Called when the user data need to be saved
+   * @param { Object } data - Indicates the user data to save.
+   * @returns { boolean } Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 10
+   */
+  onSaveData?(data: Object): boolean;
+
+  /**
+   * Called when the user data need to be restored
+   * @param { Object } data - Indicates the user data to restore.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 10
+   */
+  onRestoreData?(data: Object): void;
 }
 
 /**

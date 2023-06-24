@@ -41,7 +41,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -66,13 +66,9 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
 
     private static final int PERMISSION_CHANGES = 12;
 
-    private static final int PERMISSION_DELETE = 10;
-
     private static final int NEW_ERROR_CODE = 6;
 
     private static final int DEPRECATED_CHANGES = 5;
-
-    private static final int PERMISSION_NEW = 11;
 
     private static final int FUNCTION_CHANGES = 16;
 
@@ -230,18 +226,17 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             if (!resultPath.exists()) {
                 resultPath.mkdirs();
             }
-            String orders = FileUtils.getLastDir().split(":")[0] +
-                    ": && cd updateCheck && cd api-diff && node api-diff.js --old " +
-                    this.textFieldOldSdkPath.getText() + " --new " +
+            String orders = "node api-diff.js --old " + this.textFieldOldSdkPath.getText() + " --new " +
                     this.newSdkFilePath + " --oldVersion " + this.oldSdkVersion + " --newVersion " +
                     this.newSdkVersion + " --output " + this.lastDir +
                     ConstString.get("check.format");
             LOGGER.info(LOG_TAG, "diff order:" + orders);
             ProcessBuilder builder = new ProcessBuilder();
+            builder.directory(new File(FileUtils.getLastDir().split(":")[0] + ":\\updateCheck\\api-diff"));
             builder.command("cmd.exe", "/c", orders);
             Process start = builder.start();
             BufferedReader bufferedReader = new BufferedReader(
-                    new InputStreamReader(start.getInputStream(), StandardCharsets.UTF_8));
+                    new InputStreamReader(start.getInputStream(), Charset.forName("GBK")));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
@@ -257,16 +252,17 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             LOGGER.info(LOG_TAG, "Start run api collect tool");
             File updateCheck = new File(this.project.getBasePath(), "updateCheck");
             this.reportPath = updateCheck.toString();
-            String orders = FileUtils.getLastDir().split(":")[0] +
-                    ": && cd updateCheck && cd collect_application_api && node api-collector.js --app " +
-                    this.project.getBasePath() + " --output " + updateCheck + " --sdk " +
+            String orders = "node api-collector.js --app " + this.project.getBasePath() +
+                    " --output " + updateCheck + " --sdk " +
                     this.textFieldOldSdkPath.getText() + " --format json";
             ProcessBuilder builder = new ProcessBuilder();
+            builder.directory(new File(FileUtils.getLastDir().split(":")[0] +
+                    ":\\updateCheck\\collect_application_api"));
             LOGGER.info(LOG_TAG, "application order:" + orders);
             builder.command("cmd.exe", "/c", orders);
             Process start = builder.start();
             BufferedReader bufferedReader = new BufferedReader(
-                    new InputStreamReader(start.getInputStream(), StandardCharsets.UTF_8));
+                    new InputStreamReader(start.getInputStream(), Charset.forName("GBK")));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);

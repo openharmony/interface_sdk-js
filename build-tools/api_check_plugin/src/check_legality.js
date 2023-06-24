@@ -141,7 +141,7 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
   tagsName.forEach(tagName => {
     if (tagName === 'extends') {
       illegalKindSet = new Set(commentNodeWhiteList);
-    }else if(tagName === 'syscap'){
+    } else if (tagName === 'syscap') {
       illegalKindSet = new Set([]);
     }
     comments.forEach((comment, index) => {
@@ -207,7 +207,7 @@ function checkTagsQuantity(comment, index, errorLogs) {
     if (tagCountObj[tagName] > 1 && multipleTags.indexOf(tagName) < 0) {
       errorLogs.push({
         checkResult: false,
-        errorInfo: createErrorInfo(ErrorValueInfo.ERROR_REPEATLABEL, [index + 1, tagName]),
+        errorInfo: createErrorInfo(ErrorValueInfo.ERROR_REPEATLABEL, [tagName]),
         index: index
       });
     }
@@ -216,7 +216,7 @@ function checkTagsQuantity(comment, index, errorLogs) {
   if (tagCountObj['interface'] > 0 & tagCountObj['typedef'] > 0) {
     errorLogs.push({
       checkResult: false,
-      errorInfo: createErrorInfo(ErrorValueInfo.ERROR_USE_INTERFACE, [index + 1]),
+      errorInfo: ErrorValueInfo.ERROR_USE_INTERFACE,
       index: index
     });
   }
@@ -232,12 +232,12 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
   if (checker) {
     let valueCheckResult;
     if (tag.tag === 'param' && [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor].indexOf(node.kind) >= 0) {
-      valueCheckResult = checker(tag, node, fileName, index, paramIndex++);
+    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor].indexOf(node.kind) >= 0) {
+      valueCheckResult = checker(tag, node, fileName, paramIndex++);
     } else if (tag.tag === 'throws') {
-      valueCheckResult = checker(tag, node, fileName, index, throwsIndex++);
+      valueCheckResult = checker(tag, node, fileName, throwsIndex++);
     } else {
-      valueCheckResult = checker(tag, node, fileName, index);
+      valueCheckResult = checker(tag, node, fileName);
     }
     if (!valueCheckResult.checkResult) {
       valueCheckResult.index = index;
@@ -247,9 +247,10 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
   }
 }
 
-function checkJsDocOfCurrentNode(node, sourcefile, fileName) {
+function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard) {
   const checkInfoArray = [];
-  const comments = parseJsDoc(node);
+  const lastComment = parseJsDoc(node).length > 0 ? [parseJsDoc(node).pop()] : [];
+  const comments = isGuard ? lastComment : parseJsDoc(node);
   const checkInfoMap = checkJsDocLegality(node, comments, {});
   const checkOrderResult = checkApiOrder(comments);
   checkOrderResult.forEach((result, index) => {
@@ -265,7 +266,7 @@ function checkJsDocOfCurrentNode(node, sourcefile, fileName) {
       if (!checkAPIDecorator.checkResult) {
         errorLogs.push(checkAPIDecorator);
       }
-      checkTagValue(tag, index, node, fileName, errorLogs)
+      checkTagValue(tag, index, node, fileName, errorLogs);
     });
     paramIndex = 0;
     throwsIndex = 0;
@@ -280,8 +281,8 @@ function checkJsDocOfCurrentNode(node, sourcefile, fileName) {
 }
 exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
 
-function checkJSDoc(node, sourcefile, fileName) {
-  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName);
+function checkJSDoc(node, sourcefile, fileName, isGuard) {
+  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard);
 
   let isMissingTagWhitetFile = true;
   let isIllegalTagWhitetFile = true;

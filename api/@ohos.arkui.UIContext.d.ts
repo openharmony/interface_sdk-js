@@ -48,6 +48,23 @@ export class Font {
    * @since 10
    */
   registerFont(options: font.FontOptions): void;
+
+  /**
+   * Gets a list of fonts supported by system.
+   * @returns { Array<string> } A list of font names
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getSystemFontList(): Array<string>;
+
+  /**
+   * Get font details according to the font name.
+   * @param { string } fontName font name
+   * @returns { font.FontInfo } Returns the font info
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getFontByName(fontName: string): font.FontInfo;
 }
 
 /**
@@ -249,6 +266,118 @@ export class Router {
    * @since 10
    */
   getParams(): Object;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  pushNamedRoute(options: router.NamedRouterOptions): Promise<void>;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+  */
+  pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+  */
+  pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
 }
 
 /**
@@ -357,6 +486,16 @@ export class UIContext {
    * @since 10
    */
   getPromptAction(): PromptAction;
+
+  /**
+   * Create an animator object for custom animation.
+   * @param { AnimatorOptions } options - Options.
+   * @throws { BusinessError } 401 - if parameter error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  createAnimator(options: AnimatorOptions): AnimatorResult;
 
   /**
    * Defining animation function

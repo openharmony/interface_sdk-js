@@ -165,6 +165,14 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   defaultPickerItemHeight(value: number | string): TextPickerAttribute;
 
   /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  canLoop(value: boolean): TextPickerAttribute;
+
+  /**
    * Sets the text style of disappearing items
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -292,6 +300,14 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 10
    */
   defaultPickerItemHeight?: number | string;
+
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  canLoop?: boolean;
 
   /**
    * Text style of disappearing items

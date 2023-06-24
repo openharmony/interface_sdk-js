@@ -397,12 +397,28 @@ declare namespace bundleManager {
     PRINT = 15,
 
     /**
+     * Indicates extension info with type of push
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    PUSH = 17,
+
+    /**
      * Indicates extension info with type of driver
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
      */
     DRIVER = 18,
+
+    /**
+     * Indicates extension info with type of appAccountAuthorization
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    APP_ACCOUNT_AUTHORIZATION = 19,
 
     /**
      * Indicates extension info with type of unspecified
