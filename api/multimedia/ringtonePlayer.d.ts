@@ -166,8 +166,8 @@ export interface RingtonePlayer {
    * @throws { BusinessError } 401 - if input parameter type or number mismatch
    * @throws { BusinessError } 6800101 - if input parameter value error
    * @syscap SystemCapability.Multimedia.SystemSound.Core
-   * @systemapi
    * @since 10
+   * @systemapi
    */
   on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
 }
