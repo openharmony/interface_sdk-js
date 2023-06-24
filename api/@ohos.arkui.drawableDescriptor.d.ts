@@ -77,5 +77,5 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @returns {string} Return the clip path info of mask.
    * @since 10
    */
-  getMaskClipPath(): string;
+  static getMaskClipPath(): string;
 }
