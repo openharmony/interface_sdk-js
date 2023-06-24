@@ -1181,7 +1181,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { (receivedSize: number, totalSize: number) => void } callback
+     * @param { function } callback
      *        The callback function for the download progress change event
      *        receivedSize the length of downloaded data, in bytes
      *        totalSize he length of data expected to be downloaded, in bytes.
@@ -1193,7 +1193,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { (receivedSize: number, totalSize: number) => void } callback
+     * @param { function } callback
      *        The callback function for the download progress change event
      *        receivedSize the length of downloaded data, in bytes
      *        totalSize he length of data expected to be downloaded, in bytes.
@@ -1208,7 +1208,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { (receivedSize: number, totalSize: number) => void } [callback]
+     * @param { function } [callback]
      *        The callback function for the download progress change event
      *        receivedSize the length of downloaded data, in bytes
      *        totalSize he length of data expected to be downloaded, in bytes.
@@ -1220,7 +1220,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { (receivedSize: number, totalSize: number) => void } [callback]
+     * @param { function } [callback]
      *        The callback function for the download progress change event
      *        receivedSize the length of downloaded data, in bytes
      *        totalSize he length of data expected to be downloaded, in bytes.
@@ -1238,7 +1238,7 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param { () => void } callback The callback function for the download complete pause or remove change event.
+     * @param { function } callback The callback function for the download complete pause or remove change event.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
@@ -1250,7 +1250,7 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param { () => void } callback The callback function for the download complete pause or remove change event.
+     * @param { function } callback The callback function for the download complete pause or remove change event.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1265,7 +1265,7 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param { () => void } [callback] The callback function for the download complete pause or remove change event.
+     * @param { function } [callback] The callback function for the download complete pause or remove change event.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
@@ -1277,7 +1277,7 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param { () => void } [callback] The callback function for the download complete pause or remove change event.
+     * @param { function } [callback] The callback function for the download complete pause or remove change event.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1289,7 +1289,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { (err: number) => void } callback The callback function for the download fail change event
+     * @param { function } callback The callback function for the download fail change event
      *        err The error code for download task.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
@@ -1299,7 +1299,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { (err: number) => void } callback The callback function for the download fail change event
+     * @param { function } callback The callback function for the download fail change event
      *        err The error code for download task.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -1312,7 +1312,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { (err: number) => void } [callback] Indicate the callback function to receive err.
+     * @param { function } [callback] Indicate the callback function to receive err.
      *        err The error code for download task.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
@@ -1322,7 +1322,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { (err: number) => void } [callback] Indicate the callback function to receive err.
+     * @param { function } [callback] Indicate the callback function to receive err.
      *        err The error code for download task.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -2026,7 +2026,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { (uploadedSize: number, totalSize: number) => void } callback
+     * @param { function } callback
      *        The callback function for the upload progress change event
      *        uploadedSize The length of uploaded data, in bytes
      *        totalSize The length of data expected to be uploaded, in bytes.
@@ -2038,7 +2038,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { (uploadedSize: number, totalSize: number) => void } callback
+     * @param { function } callback
      *        The callback function for the upload progress change event
      *        uploadedSize The length of uploaded data, in bytes
      *        totalSize The length of data expected to be uploaded, in bytes.
@@ -2053,7 +2053,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { (uploadedSize: number, totalSize: number) => void } [callback]
+     * @param { function } [callback]
      *        The callback function for the upload progress change event
      *        uploadedSize The length of uploaded data, in bytes
      *        totalSize The length of data expected to be uploaded, in bytes.
@@ -2065,7 +2065,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { (uploadedSize: number, totalSize: number) => void } [callback]
+     * @param { function } [callback]
      *        The callback function for the upload progress change event
      *        uploadedSize The length of uploaded data, in bytes
      *        totalSize The length of data expected to be uploaded, in bytes.
@@ -2080,7 +2080,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { (header: object) => void } callback The callback function for the HTTP Response Header event
+     * @param { function } callback The callback function for the HTTP Response Header event
      *        header HTTP Response Header returned by the developer server.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 7
@@ -2090,7 +2090,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { (header: object) => void } callback The callback function for the HTTP Response Header event
+     * @param { function } callback The callback function for the HTTP Response Header event
      *        header HTTP Response Header returned by the developer server.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -2103,7 +2103,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { (header: object) => void } [callback] The callback function for the HTTP Response Header event
+     * @param { function } [callback] The callback function for the HTTP Response Header event
      *        header HTTP Response Header returned by the developer server.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 7
@@ -2113,7 +2113,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { (header: object) => void } [callback] The callback function for the HTTP Response Header event
+     * @param { function } [callback] The callback function for the HTTP Response Header event
      *        header HTTP Response Header returned by the developer server.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -3061,25 +3061,69 @@ declare namespace request {
       /**
        * Enable the specified callback for a frontend task.
        *
-       * @param { 'progress' | 'completed' | 'failed' } event event types.
-       * @param { (progress: Progress) => void } callback callback function with a `Progress` argument.
+       * @param { 'progress' } event event types.
+       * @param { function } callback callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @throws { BusinessError } 21900005 - task mode error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
-      on(event: 'progress' | 'completed' | 'failed', callback: (progress: Progress) => void): void;
+      on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
        *
-       * @param { 'progress' | 'completed' | 'failed' } event event types.
-       * @param { (progress: Progress) => void } callback callback function with a `Progress` argument.
+       * @param { 'progress' } event event types.
+       * @param { function } callback callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error.
        * @throws { BusinessError } 21900005 - task mode error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
-      off(event: 'progress' | 'completed' | 'failed', callback?: (progress: Progress) => void): void;
+      off(event: 'progress', callback?: (progress: Progress) => void): void;
+      /**
+       * Enable the specified callback for a frontend task.
+       *
+       * @param { 'completed' } event event types.
+       * @param { function } callback callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 21900005 - task mode error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      on(event: 'completed', callback: (progress: Progress) => void): void;
+      /**
+       * Disable the specified callback for a frontend task.
+       *
+       * @param { 'completed' } event event types.
+       * @param { function } callback callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 21900005 - task mode error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      off(event: 'completed', callback?: (progress: Progress) => void): void;
+      /**
+       * Enable the specified callback for a frontend task.
+       *
+       * @param { 'failed' } event event types.
+       * @param { function } callback callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 21900005 - task mode error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      on(event: 'failed', callback: (progress: Progress) => void): void;
+      /**
+       * Disable the specified callback for a frontend task.
+       *
+       * @param { 'failed' } event event types.
+       * @param { function } callback callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error.
+       * @throws { BusinessError } 21900005 - task mode error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      off(event: 'failed', callback?: (progress: Progress) => void): void;
       /**
        * Starts the task.
        *

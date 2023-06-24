@@ -228,7 +228,7 @@ declare namespace inputMethod {
      * Subscribe input method or subtype change.
      *
      * @param { 'imeChange' } type - Indicates the event type.
-     * @param { (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void } callback - the callback of 'imeChange'
+     * @param { function } callback - the callback of 'imeChange'
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -241,7 +241,7 @@ declare namespace inputMethod {
      * Unsubscribe input method or subtype change.
      *
      * @param { 'imeChange' } type - Indicates the event type.
-     * @param { (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void } [callback] - the callback of 'imeChange',
+     * @param { function } [callback] - the callback of 'imeChange',
      *        when subscriber unsubscribes all callback functions of event 'imeChange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -252,28 +252,52 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * Subscribe input window show or hide event.
+     * Subscribe input window show event.
      *
-     * @param { 'imeShow'|'imeHide' } type - Indicates the event type.
-     * @param { (info: Array<InputWindowInfo>) => void } callback - the callback of 'imeShow' or 'imeHide'.
+     * @param { 'imeShow' } type - Indicates the event type.
+     * @param { function } callback - the callback of 'imeShow'.
      * @throws { BusinessError } 201 - permissions check fails.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
      */
-    on(type: 'imeShow' | 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
+    on(type: 'imeShow', callback: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * Unsubscribe input window show or hide event.
+     * Unsubscribe input window show event.
      *
-     * @param { 'imeShow'|'imeHide' } type - Indicates the event type.
-     * @param { (info: Array<InputWindowInfo>) => void } [callback] - the callback of 'imeShow' or 'imeHide',
-     *        when subscriber unsubscribes all callback functions of event 'imeShow' or 'imeHide', this parameter can be left blank.
+     * @param { 'imeShow' } type - Indicates the event type.
+     * @param { function } [callback] - the callback of 'imeShow',
+     *        when subscriber unsubscribes all callback functions of event 'imeShow', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
      */
-    off(type: 'imeShow' | 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
+    off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
+
+    /**
+     * Subscribe input window hide event.
+     *
+     * @param { 'imeHide' } type - Indicates the event type.
+     * @param { function } callback - the callback of 'imeHide'.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 10
+     */
+    on(type: 'imeHide', callback: (info: Array<InputWindowInfo>) => void): void;
+
+    /**
+     * Unsubscribe input window hide event.
+     *
+     * @param { 'imeHide' } type - Indicates the event type.
+     * @param { function } [callback] - the callback of 'imeHide',
+     *        when subscriber unsubscribes all callback functions of event 'imeHide', this parameter can be left blank.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
      * List subtype of the specified input method.
@@ -778,8 +802,8 @@ declare namespace inputMethod {
     /**
      * Register a callback and when IME sends insert text event, the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'insertText'.
-     * @param { (text: string) => void } callback - processes insertText command. The text of insert is provided for this callback.
+     * @param { 'insertText' } type - event type, fixed as 'insertText'.
+     * @param { function } callback - processes insertText command. The text of insert is provided for this callback.
      *        Subscribers are expected to process the inserted text and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -791,41 +815,65 @@ declare namespace inputMethod {
     /**
      * Unregister the callback of insertText.
      *
-     * @param { string } type - event type, fixed as 'insertText'.
+     * @param { 'insertText' } type - event type, fixed as 'insertText'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
     off(type: 'insertText'): void;
 
     /**
-     * Register a callback and when IME sends delete left or delete right event with length,
+     * Register a callback and when IME sends delete left event with length,
      * the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'deleteLeft' or 'deleteRight'.
-     * @param { (length: number) => void } callback - processes deleteLeft/deleteRight command. The length of
+     * @param { 'deleteLeft' } type - event type, fixed as 'deleteLeft'.
+     * @param { function } callback - processes deleteLeft command. The length of
      *     delete is provided for this callback. Subscribers are expected to delete specified length of text
-     *     to the left/right of the cursor and update changes in editor by changeSelection and updateCursor as needed.
+     *     to the left of the cursor and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'deleteLeft' | 'deleteRight', callback: (length: number) => void): void;
+    on(type: 'deleteLeft', callback: (length: number) => void): void;
 
     /**
-     * Unregister the callback of deleteLeft/deleteRight.
+     * Unregister the callback of deleteLeft.
      *
-     * @param { string } type - event type, fixed as 'deleteLeft'/'deleteRight'.
+     * @param { 'deleteLeft' } type - event type, fixed as 'deleteLeft'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'deleteLeft' | 'deleteRight'): void;
+    off(type: 'deleteLeft'): void;
+
+    /**
+     * Register a callback and when IME sends delete right event with length,
+     * the callback will be invoked.
+     *
+     * @param { 'deleteRight' } type - event type, fixed as 'deleteRight'.
+     * @param { function } callback - processes deleteRight command. The length of
+     *     delete is provided for this callback. Subscribers are expected to delete specified length of text
+     *     to the right of the cursor and update changes in editor by changeSelection and updateCursor as needed.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'deleteRight', callback: (length: number) => void): void;
+
+    /**
+     * Unregister the callback of deleteRight.
+     *
+     * @param { 'deleteRight' } type - event type, fixed as 'deleteRight'.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'deleteRight'): void;
 
     /**
      * Register a callback and when IME sends keyboard status, the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'sendKeyboardStatus'.
-     * @param { (keyBoardStatus: KeyboardStatus) => void } callback - processes sendKeyboardStatus command.
+     * @param { 'sendKeyboardStatus' } type - event type, fixed as 'sendKeyboardStatus'.
+     * @param { function } callback - processes sendKeyboardStatus command.
      *     The keyBoardStatus is provided for this callback.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -837,7 +885,7 @@ declare namespace inputMethod {
     /**
      * Unregister the callback of sendKeyboardStatus.
      *
-     * @param { string } type - event type, fixed as 'sendKeyboardStatus'.
+     * @param { 'sendKeyboardStatus' } type - event type, fixed as 'sendKeyboardStatus'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -846,8 +894,8 @@ declare namespace inputMethod {
     /**
      * Register a callback and when IME sends functionKey, the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'sendFunctionKey'.
-     * @param { (functionKey: FunctionKey) => void } callback - processes sendFunctionKey command.
+     * @param { 'sendFunctionKey' } type - event type, fixed as 'sendFunctionKey'.
+     * @param { function } callback - processes sendFunctionKey command.
      *     The functionKey is provided for this callback.Subscribers are expected to complete the
      *     corresponding task based on the value of functionKey.
      * @throws { BusinessError } 401 - parameter error.
@@ -860,7 +908,7 @@ declare namespace inputMethod {
     /**
      * Unregister the callback of sendFunctionKey.
      *
-     * @param { string } type - event type, fixed as 'sendFunctionKey'.
+     * @param { 'sendFunctionKey' } type - event type, fixed as 'sendFunctionKey'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -869,8 +917,8 @@ declare namespace inputMethod {
     /**
      * Register a callback and when IME sends move cursor, the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'moveCursor'.
-     * @param { (direction: Direction) => void } callback - processes moveCursor command. The direction of
+     * @param { 'moveCursor' } type - event type, fixed as 'moveCursor'.
+     * @param { function } callback - processes moveCursor command. The direction of
      *     cursor is provided for this callback. Subscribers are expected to move the cursor and update changes
      *     in editor by changeSelection and updateCursor.
      * @throws { BusinessError } 401 - parameter error.
@@ -883,7 +931,7 @@ declare namespace inputMethod {
     /**
      * Unregister the callback of moveCursor.
      *
-     * @param { string } type - event type, fixed as 'moveCursor'.
+     * @param { 'moveCursor' } type - event type, fixed as 'moveCursor'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -892,8 +940,8 @@ declare namespace inputMethod {
     /**
      * Register a callback and when IME sends extend action code, the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'handleExtendAction'.
-     * @param { (action: ExtendAction) => void } callback - processes handleExtendAction command. The action code
+     * @param { 'handleExtendAction' } type - event type, fixed as 'handleExtendAction'.
+     * @param { function } callback - processes handleExtendAction command. The action code
      *     is provided for this callback.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -905,7 +953,7 @@ declare namespace inputMethod {
     /**
      * Unregister the callback of handleExtendAction.
      *
-     * @param { string } type - event type, fixed as 'handleExtendAction'.
+     * @param { 'handleExtendAction' } type - event type, fixed as 'handleExtendAction'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -983,6 +1031,7 @@ declare namespace inputMethod {
     /**
      * The icon id of input method
      *
+     * @type { ?number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1017,6 +1066,7 @@ declare namespace inputMethod {
      * Cursor moves up
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_UP = 1,
 
@@ -1024,6 +1074,7 @@ declare namespace inputMethod {
      * Cursor moves down
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_DOWN,
 
@@ -1031,6 +1082,7 @@ declare namespace inputMethod {
      * Cursor moves left
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_LEFT,
 
@@ -1038,6 +1090,7 @@ declare namespace inputMethod {
      * Cursor moves right
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_RIGHT
   }
@@ -1080,7 +1133,7 @@ declare namespace inputMethod {
     /**
      * Indicates the direction of cursor movement
      *
-     * @type { number }
+     * @type { Direction }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1099,6 +1152,7 @@ declare namespace inputMethod {
      * The text input type is NONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     NONE = -1,
 
@@ -1106,6 +1160,7 @@ declare namespace inputMethod {
      * The text input type is TEXT.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     TEXT = 0,
 
@@ -1113,6 +1168,7 @@ declare namespace inputMethod {
      * The text input type is MULTILINE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     MULTILINE,
 
@@ -1120,6 +1176,7 @@ declare namespace inputMethod {
      * The text input type is NUMBER.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     NUMBER,
 
@@ -1127,6 +1184,7 @@ declare namespace inputMethod {
      * The text input type is PHONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     PHONE,
 
@@ -1134,6 +1192,7 @@ declare namespace inputMethod {
      * The text input type is DATETIME.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     DATETIME,
 
@@ -1141,6 +1200,7 @@ declare namespace inputMethod {
      * The text input type is EMAIL_ADDRESS.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     EMAIL_ADDRESS,
 
@@ -1148,6 +1208,7 @@ declare namespace inputMethod {
      * The text input type is URL.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     URL,
 
@@ -1155,6 +1216,7 @@ declare namespace inputMethod {
      * The text input type is VISIBLE_PASSWORD.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     VISIBLE_PASSWORD
   }
@@ -1171,6 +1233,7 @@ declare namespace inputMethod {
      * The enter key type is UNSPECIFIED.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     UNSPECIFIED = 0,
 
@@ -1178,6 +1241,7 @@ declare namespace inputMethod {
      * The enter key type is NONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     NONE,
 
@@ -1185,6 +1249,7 @@ declare namespace inputMethod {
      * The enter key type is GO.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     GO,
 
@@ -1192,6 +1257,7 @@ declare namespace inputMethod {
      * The enter key type is SEARCH.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     SEARCH,
 
@@ -1199,6 +1265,7 @@ declare namespace inputMethod {
      * The enter key type is SEND.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     SEND,
 
@@ -1206,6 +1273,7 @@ declare namespace inputMethod {
      * The enter key type is NEXT.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     NEXT,
 
@@ -1213,6 +1281,7 @@ declare namespace inputMethod {
      * The enter key type is DONE.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     DONE,
 
@@ -1220,6 +1289,7 @@ declare namespace inputMethod {
      * The enter key type is PREVIOUS.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     PREVIOUS
   }
@@ -1236,6 +1306,7 @@ declare namespace inputMethod {
      * The keyboard status is none.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     NONE = 0,
 
@@ -1243,6 +1314,7 @@ declare namespace inputMethod {
      * The keyboard status is hide.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     HIDE = 1,
 
@@ -1250,6 +1322,7 @@ declare namespace inputMethod {
      * The keyboard status is show.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     SHOW = 2
   }
@@ -1347,7 +1420,7 @@ declare namespace inputMethod {
   /**
    * Config of editor.
    *
-   * @typedef { typedef }
+   * @typedef TextConfig
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -1355,7 +1428,7 @@ declare namespace inputMethod {
     /**
      * Attribute of Input.
      *
-     * @typedef Movement
+     * @type { InputAttribute }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1374,6 +1447,7 @@ declare namespace inputMethod {
      * Select all text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     SELECT_ALL = 0,
 
@@ -1381,6 +1455,7 @@ declare namespace inputMethod {
      * Cut selecting text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CUT = 3,
 
@@ -1388,6 +1463,7 @@ declare namespace inputMethod {
      * Copy selecting text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     COPY = 4,
 
@@ -1395,6 +1471,7 @@ declare namespace inputMethod {
      * Paste from paste board.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     PASTE = 5
   }
