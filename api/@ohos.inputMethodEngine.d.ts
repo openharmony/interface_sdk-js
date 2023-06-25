@@ -1082,7 +1082,8 @@ declare namespace inputMethodEngine {
     off(type: 'keyDown' | 'keyUp', callback?: (event: KeyEvent) => boolean): void;
 
     /**
-     * Subscribe key event
+     * Subscribe key event.
+     *
      * @param { 'keyEvent' } type - indicates the type of subscribe event.
      * @param { function } callback - optional, indicates the callback function of on('keyEvent').
      *     If the key is processed by event subscriber, callback should be return true, else return false.
@@ -1092,7 +1093,8 @@ declare namespace inputMethodEngine {
     on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void;
 
     /**
-     * Unsubscribe key event
+     * Unsubscribe key event.
+     *
      * @param { 'keyEvent' } type - indicates the type of unsubscribe event.
      * @param { function } [callback] - optional, indicates the callback function of off('keyEvent').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
