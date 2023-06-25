@@ -18,7 +18,6 @@ import * as _ApplicationStateObserver from './application/ApplicationStateObserv
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
-import { LowMemoryObserver as _LowMemoryObserver } from './application/LowMemoryObserver';
 
 /**
  * This module provides the function of app manager service.
@@ -458,30 +457,6 @@ declare namespace appManager {
   function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Register system low memory state observer.
-   * @param { 'lowMemory' } type - lowMemory.
-   * @param { LowMemoryObserver } observer - Indicates the LowMemoryObserver to be registered.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 10
-   */
-  function on(type: 'lowMemory', observer: LowMemoryObserver): void;
-
-  /**
-   * Unregister system low memory state observer.
-   * @param { 'lowMemory' } type - lowMemory.
-   * @param { LowMemoryObserver } observer - Indicates the observer to be unregistered.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 10
-   */
-  function off(type: 'lowMemory', observer: LowMemoryObserver): void;
-
-  /**
    * Obtains memory usage of one process by its pid.
    *
    * @param { number } pid - Indicates the pid of the process.
@@ -499,7 +474,7 @@ declare namespace appManager {
    * Obtains memory usage of one process by its pid.
    *
    * @param { number } pid - Indicates the pid of the process.
-   * @param { AsyncCallback<number> } - Indicates the callback of getting process memory by pid result.
+   * @param { AsyncCallback<number> } callback - Indicates the callback of getting process memory by pid result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -513,7 +488,7 @@ declare namespace appManager {
    * Obtains the process information list of running processes that belong to a specific bundle of current user.
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
-   * @param { AsyncCallback<Array<ProcessInformation>> } - Indicates the callback of getting process information by bundleName result.
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Indicates the callback of getting process information by bundleName result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -528,7 +503,7 @@ declare namespace appManager {
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
    * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
-   * @param { AsyncCallback<Array<ProcessInformation>> } - Indicates the callback of getting process information by bundleName result.
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Indicates the callback of getting process information by bundleName result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -542,7 +517,7 @@ declare namespace appManager {
    * Obtains the process information list of running processes that belong to a specific bundle of current user.
    *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
-   * @returns { Promise<Array<ProcessInformation>> } - Returns a list of process information.
+   * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -557,7 +532,7 @@ declare namespace appManager {
    * 
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
    * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
-   * @returns { Promise<Array<ProcessInformation>> } - Returns a list of process information.
+   * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -601,14 +576,6 @@ declare namespace appManager {
    * @since 9
    */
   export type ProcessInformation = _ProcessInformation;
-
-  /**
-   * The system low memory state observer.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 10
-   */
-  export type LowMemoryObserver = _LowMemoryObserver;
 }
 
 export default appManager;
