@@ -1630,6 +1630,7 @@ declare namespace i18n {
    *
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export enum SuggestionType {
@@ -1637,6 +1638,7 @@ declare namespace i18n {
      * No correlation between language and region.
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_NONE = 0,
@@ -1644,6 +1646,7 @@ declare namespace i18n {
      * The language related to the specified region
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_RELATED = 1,
@@ -1651,6 +1654,7 @@ declare namespace i18n {
      * The region is SIM card region.
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_SIM = 2,
@@ -1661,6 +1665,7 @@ declare namespace i18n {
    *
    * @interface SortOptions
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface SortOptions {
@@ -1669,6 +1674,7 @@ declare namespace i18n {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     locale?: string;
@@ -1678,6 +1684,7 @@ declare namespace i18n {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     isUseLocalName?: boolean;
@@ -1687,6 +1694,7 @@ declare namespace i18n {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     isSuggestedFirst?: boolean;
@@ -1697,6 +1705,7 @@ declare namespace i18n {
    *
    * @interface LocaleItem
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface LocaleItem {
@@ -1705,6 +1714,7 @@ declare namespace i18n {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     code: string;
@@ -1714,6 +1724,7 @@ declare namespace i18n {
      *
      * @type { SuggestionType }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     suggestionType: SuggestionType;
@@ -1723,6 +1734,7 @@ declare namespace i18n {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     displayName: string;
@@ -1731,6 +1743,7 @@ declare namespace i18n {
      * The display name of the language or region in local language
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     localName?: string;
@@ -1741,6 +1754,7 @@ declare namespace i18n {
    *
    * @interface TimeZoneCityItem
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface ZoneCityItem {
@@ -1749,6 +1763,7 @@ declare namespace i18n {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     zoneId: string;
@@ -1758,6 +1773,7 @@ declare namespace i18n {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     cityId: string;
@@ -1767,6 +1783,7 @@ declare namespace i18n {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     cityDisplayName: string;
@@ -1775,6 +1792,7 @@ declare namespace i18n {
      * The time zone offset for the city.
      * @type { number }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     offset: number;
@@ -1784,6 +1802,7 @@ declare namespace i18n {
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     zoneDisplayName: string;
@@ -1792,6 +1811,7 @@ declare namespace i18n {
      * The time zone raw offset for the city.
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     rawOffset?: number;
