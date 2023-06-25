@@ -1085,7 +1085,7 @@ declare namespace inputMethodEngine {
      * Subscribe key event
      * @param { 'keyEvent' } type - indicates the type of subscribe event.
      * @param { function } callback - optional, indicates the callback function of on('keyEvent').
-     *    After the key is processed, it should return true, else return false.
+     *     If the key is processed by event subscriber, callback should be return true, else return false.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
