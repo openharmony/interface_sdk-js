@@ -1752,7 +1752,7 @@ declare namespace i18n {
   /**
    * Provides the informations of one time zone city.
    *
-   * @interface TimeZoneCityItem
+   * @interface ZoneCityItem
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10
