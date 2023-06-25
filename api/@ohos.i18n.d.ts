@@ -1603,7 +1603,7 @@ declare namespace i18n {
    */
   export class Normalizer {
     /**
-     * Get a Normalizer that is specified by id name.
+     * Get a Normalizer that is specified by normalize mode.
      *
      * @param { NormalizerMode } mode - specified the mode of Normalizer.
      * @returns { Normalizer } Transliterator that is specified by id name.
@@ -1641,7 +1641,7 @@ declare namespace i18n {
      */
     SUGGESTION_TYPE_NONE = 0,
     /**
-     * The language used in the region.
+     * The language related to the specified region
      *
      * @syscap SystemCapability.Global.I18n
      * @since 10
@@ -1707,7 +1707,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
-    id: string;
+    code: string;
 
     /**
      * The suggestion type of the language or region.
@@ -1719,7 +1719,7 @@ declare namespace i18n {
     suggestionType: SuggestionType;
 
     /**
-     * The name of the language or region in specified language
+     * The display name of the language or region in specified language
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -1728,7 +1728,7 @@ declare namespace i18n {
     displayName: string;
 
     /**
-     * The name of the language or region in local language
+     * The display name of the language or region in local language
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 10
