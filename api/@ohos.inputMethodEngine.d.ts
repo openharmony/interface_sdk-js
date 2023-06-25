@@ -16,7 +16,7 @@
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback } from './@ohos.base';
-import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent.d.ts';
+import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import LocalStorage from 'StateManagement';
 import BaseContext from './application/BaseContext';
