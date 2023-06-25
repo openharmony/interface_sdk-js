@@ -1752,12 +1752,12 @@ declare namespace i18n {
   /**
    * Provides the informations of one time zone city.
    *
-   * @interface ZoneCityItem
+   * @interface TimeZoneCityItem
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export interface ZoneCityItem {
+  export interface TimeZoneCityItem {
     /**
      * Time zone code.
      *
@@ -1865,12 +1865,12 @@ declare namespace i18n {
     /**
      * Obtains sorted time zone city array to setting or startup guide app.
      *
-     * @returns { Array<ZoneCityItem> } Time zone city informations sorted by Requirements.
+     * @returns { Array<TimeZoneCityItem> } Time zone city informations sorted by Requirements.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getTimeZoneCityInfoArray(): Array<ZoneCityItem>;
+    getTimeZoneCityInfoArray(): Array<TimeZoneCityItem>;
   }
 }
 export default i18n;
