@@ -1137,6 +1137,22 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
+     * Obtains the file descriptor of the TCPSocket connection.
+     * @param { AsyncCallback<number> } callback - The callback returns the file descriptor of the TCPSocket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getSocketFd(callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the file descriptor of the TCPSocket connection.
+     * @returns { Promise<number> } The promise returns the file descriptor of the TCPSocket connection.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getSocketFd(): Promise<number>;
+
+    /**
      * Sets other attributes of the TCPSocket connection.
      * @permission ohos.permission.INTERNET
      * @param { TCPExtraOptions } options - Optional parameters {@link TCPExtraOptions}.
