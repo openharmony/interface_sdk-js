@@ -1474,6 +1474,88 @@ declare namespace wifiManager {
   }
 
   /**
+   * Wi-Fi Proxy method.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  enum ProxyMethod {
+    /**
+     * No proxy is to be used.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    METHOD_NONE = 0,
+
+    /**
+     * Use auto configured proxy.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    METHOD_AUTO = 1,
+
+    /**
+     * Use manual configured proxy.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    METHOD_MANUAL = 2
+  }
+
+  /**
+   * Wi-Fi Proxy config.
+   * @typedef WifiProxyConfig
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface WifiProxyConfig {
+    /** 
+     * Wi-Fi proxy method 
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    proxyMethod?: ProxyMethod;
+
+    /** 
+     * Phase 2 authentication method
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    pacWebAddress?: string;
+
+    /** 
+     * Phase 2 authentication method
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    manualServerHostName?: string;
+
+    /** 
+     * Phase 2 authentication method
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    manualServerPort?: number;
+
+    /** 
+     * Phase 2 authentication method
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    manualExclusionObjects?: string;
+  }
+
+  /**
    * Wi-Fi EAP config.
    * @typedef WifiEapConfig
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -1707,6 +1789,14 @@ declare namespace wifiManager {
      * @since 9
      */
     eapConfig?: WifiEapConfig;
+
+    /**
+     * Proxy config.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    proxyConfig?: WifiProxyConfig;
   }
 
   /**
