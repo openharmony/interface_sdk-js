@@ -146,8 +146,7 @@ declare namespace wantAgent {
    *
    * @param { WantAgent } agent to compare.
    * @param { WantAgent } otherAgent WantAgent Object.
-   * @param { AsyncCallback<boolean> } callback Callback method for determining whether two WantAgent instances are
-   *                                              equal.
+   * @param { AsyncCallback<boolean> } callback Callback method for determining whether two WantAgent instances are equal.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
