@@ -1523,7 +1523,7 @@ declare namespace wifiManager {
     proxyMethod?: ProxyMethod;
 
     /** 
-     * Phase 2 authentication method
+     * PVC web address for auto configured proxy.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1531,7 +1531,7 @@ declare namespace wifiManager {
     pacWebAddress?: string;
 
     /** 
-     * Phase 2 authentication method
+     * Server host name for manual configured proxy. 
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1539,7 +1539,7 @@ declare namespace wifiManager {
     manualServerHostName?: string;
 
     /** 
-     * Phase 2 authentication method
+     * Server port for manual configured proxy. 
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1547,7 +1547,7 @@ declare namespace wifiManager {
     manualServerPort?: number;
 
     /** 
-     * Phase 2 authentication method
+     * Exclusion objects for manual configured proxy. objects are sepreated by ','.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
