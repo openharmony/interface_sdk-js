@@ -465,11 +465,22 @@ export default class UIAbility extends Ability {
   /**
    * Called back when an ability prepare to terminate.
    * @permission ohos.permission.PREPARE_APP_TERMINATE
-   * @returns Returns {@code true} if the ability need to top terminating; returns {@code false} if the
+   * @returns { boolean } Returns {@code true} if the ability need to top terminating; returns {@code false} if the
    *          ability need to terminate.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 10
    */
   onPrepareToTerminate(): boolean;
+
+  /**
+   * Called back when back press is dispatched.
+   *
+   * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
+   *          Returns {@code false} means the ability will be destroyed when back is pressed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  onBackPressed(): boolean;
 }
