@@ -1547,7 +1547,7 @@ declare namespace wifiManager {
     manualServerPort?: number;
 
     /** 
-     * Exclusion objects for manual configured proxy. objects are sepreated by ','.
+     * Exclusion objects for manual configured proxy. objects are separated by ','.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
