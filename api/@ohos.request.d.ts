@@ -32,7 +32,7 @@ import BaseContext from './application/BaseContext';
  */
 declare namespace request {
   /**
-   * Error code 201. the permissions check fails
+   * Error code 201 - the permissions check fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -40,7 +40,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 201. the permissions check fails
+   * Error code 201 - the permissions check fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -50,7 +50,7 @@ declare namespace request {
    */
   const EXCEPTION_PERMISSION: number;
   /**
-   * Error code 401. the parameters check fails
+   * Error code 401 - the parameters check fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -58,7 +58,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 401. the parameters check fails
+   * Error code 401 - the parameters check fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -68,7 +68,7 @@ declare namespace request {
    */
   const EXCEPTION_PARAMCHECK: number;
   /**
-   * Error code 801. call unsupported api
+   * Error code 801 - call unsupported api.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -76,7 +76,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 801. call unsupported api
+   * Error code 801 - call unsupported api.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -86,7 +86,7 @@ declare namespace request {
    */
   const EXCEPTION_UNSUPPORTED: number;
   /**
-   * Error code 13400001. file operation error
+   * Error code 13400001 - file operation error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -94,7 +94,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 13400001. file operation error
+   * Error code 13400001 - file operation error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -104,7 +104,7 @@ declare namespace request {
    */
   const EXCEPTION_FILEIO: number;
   /**
-   * Error code 13400002. bad file path
+   * Error code 13400002 - bad file path.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -112,7 +112,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 13400002. bad file path
+   * Error code 13400002 - bad file path.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -122,7 +122,7 @@ declare namespace request {
    */
   const EXCEPTION_FILEPATH: number;
   /**
-   * Error code 13400003. task manager service error
+   * Error code 13400003 - task manager service error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -130,7 +130,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 13400003. task manager service error
+   * Error code 13400003 - task manager service error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -140,7 +140,7 @@ declare namespace request {
    */
   const EXCEPTION_SERVICE: number;
   /**
-   * Error code 13499999. others error
+   * Error code 13499999 - others error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -148,7 +148,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 13499999. others error
+   * Error code 13499999 - others error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -159,7 +159,7 @@ declare namespace request {
   const EXCEPTION_OTHERS: number;
 
   /**
-   * Code 0x00000001. Bit flag indicating download is allowed when using the cellular network.
+   * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -167,7 +167,7 @@ declare namespace request {
    * @since 6
    */
   /**
-   * Code 0x00000001. Bit flag indicating download is allowed when using the cellular network.
+   * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -178,7 +178,7 @@ declare namespace request {
   const NETWORK_MOBILE: number;
 
   /**
-   * Code 0x00010000. Bit flag indicating download is allowed when using the WLAN.
+   * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -186,7 +186,7 @@ declare namespace request {
    * @since 6
    */
   /**
-   * Code 0x00010000. Bit flag indicating download is allowed when using the WLAN.
+   * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -197,7 +197,7 @@ declare namespace request {
   const NETWORK_WIFI: number;
 
   /**
-   * Error code 0. Indicates that the download cannot be resumed for network reasons.
+   * Error code 0 - Indicates that the download cannot be resumed for network reasons.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -205,7 +205,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 0. Indicates that the download cannot be resumed for network reasons.
+   * Error code 0 - Indicates that the download cannot be resumed for network reasons.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -216,7 +216,7 @@ declare namespace request {
   const ERROR_CANNOT_RESUME: number;
 
   /**
-   * Error code 1. Indicates that no storage device, such as an SD card, is found.
+   * Error code 1 - Indicates that no storage device, such as an SD card, is found.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -224,7 +224,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 1. Indicates that no storage device, such as an SD card, is found.
+   * Error code 1 - Indicates that no storage device, such as an SD card, is found.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -235,7 +235,7 @@ declare namespace request {
   const ERROR_DEVICE_NOT_FOUND: number;
 
   /**
-   * Error code 2. Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
+   * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -243,7 +243,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 2. Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
+   * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -254,7 +254,7 @@ declare namespace request {
   const ERROR_FILE_ALREADY_EXISTS: number;
 
   /**
-   * Error code 3. Indicates that a file operation fails.
+   * Error code 3 - Indicates that a file operation fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -262,7 +262,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 3. Indicates that a file operation fails.
+   * Error code 3 - Indicates that a file operation fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -273,7 +273,7 @@ declare namespace request {
   const ERROR_FILE_ERROR: number;
 
   /**
-   * Error code 4. Indicates that the HTTP transmission fails.
+   * Error code 4 - Indicates that the HTTP transmission fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -281,7 +281,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 4. Indicates that the HTTP transmission fails.
+   * Error code 4 - Indicates that the HTTP transmission fails.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -292,7 +292,7 @@ declare namespace request {
   const ERROR_HTTP_DATA_ERROR: number;
 
   /**
-   * Error code 5. Indicates insufficient storage space.
+   * Error code 5 - Indicates insufficient storage space.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -300,7 +300,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 5. Indicates insufficient storage space.
+   * Error code 5 - Indicates insufficient storage space.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -311,7 +311,7 @@ declare namespace request {
   const ERROR_INSUFFICIENT_SPACE: number;
 
   /**
-   * Error code 6. Indicates an error caused by too many network redirections.
+   * Error code 6 - Indicates an error caused by too many network redirections.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -319,7 +319,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 6. Indicates an error caused by too many network redirections.
+   * Error code 6 - Indicates an error caused by too many network redirections.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -330,7 +330,7 @@ declare namespace request {
   const ERROR_TOO_MANY_REDIRECTS: number;
 
   /**
-   * Error code 7. Indicates an HTTP code that cannot be identified.
+   * Error code 7 - Indicates an HTTP code that cannot be identified.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -338,7 +338,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 7. Indicates an HTTP code that cannot be identified.
+   * Error code 7 - Indicates an HTTP code that cannot be identified.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -349,7 +349,7 @@ declare namespace request {
   const ERROR_UNHANDLED_HTTP_CODE: number;
 
   /**
-   * Error code 8. Indicates an undefined error.
+   * Error code 8 - Indicates an undefined error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -357,7 +357,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Error code 8. Indicates an undefined error.
+   * Error code 8 - Indicates an undefined error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -368,7 +368,7 @@ declare namespace request {
   const ERROR_UNKNOWN: number;
 
   /**
-   * Error code 9. Indicates network offline.
+   * Error code 9 - Indicates network offline.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -376,7 +376,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 9. Indicates network offline.
+   * Error code 9 - Indicates network offline.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -387,7 +387,7 @@ declare namespace request {
   const ERROR_OFFLINE: number;
 
   /**
-   * Error code 10. Indicates network type configuration error.
+   * Error code 10 - Indicates network type configuration error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -395,7 +395,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Error code 10. Indicates network type configuration error.
+   * Error code 10 - Indicates network type configuration error.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -406,7 +406,8 @@ declare namespace request {
   const ERROR_UNSUPPORTED_NETWORK_TYPE: number;
 
   /**
-   * Paused code 0. Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
+   * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
+   * because the file size exceeds the maximum allowed for a session using the cellular network.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -414,7 +415,8 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Paused code 0. Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
+   * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
+   * because the file size exceeds the maximum allowed for a session using the cellular network.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -425,7 +427,7 @@ declare namespace request {
   const PAUSED_QUEUED_FOR_WIFI: number;
 
   /**
-   * Paused code 1. Indicates that the download is paused due to a network problem, for example, network disconnection.
+   * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -433,7 +435,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Paused code 1. Indicates that the download is paused due to a network problem, for example, network disconnection.
+   * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -444,7 +446,7 @@ declare namespace request {
   const PAUSED_WAITING_FOR_NETWORK: number;
 
   /**
-   * Paused code 2. Indicates that a network error occurs, and the download session will be retried.
+   * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -452,7 +454,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Paused code 2. Indicates that a network error occurs, and the download session will be retried.
+   * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -463,7 +465,7 @@ declare namespace request {
   const PAUSED_WAITING_TO_RETRY: number;
 
   /**
-   * Paused code 3. Indicates that the download is paused due to the user.
+   * Paused code 3 - Indicates that the download is paused due to the user.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -471,7 +473,7 @@ declare namespace request {
    * @since 9
    */
   /**
-   * Paused code 3. Indicates that the download is paused due to the user.
+   * Paused code 3 - Indicates that the download is paused due to the user.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -482,7 +484,7 @@ declare namespace request {
   const PAUSED_BY_USER: number;
 
   /**
-   * Paused code 4. Indicates that the download is paused for some reasons.
+   * Paused code 4 - Indicates that the download is paused for some reasons.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -490,7 +492,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Paused code 4. Indicates that the download is paused for some reasons.
+   * Paused code 4 - Indicates that the download is paused for some reasons.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -501,7 +503,7 @@ declare namespace request {
   const PAUSED_UNKNOWN: number;
 
   /**
-   * Session status code 0. Indicates that the download session is completed.
+   * Session status code 0 - Indicates that the download session is completed.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -509,7 +511,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Session status code 0. Indicates that the download session is completed.
+   * Session status code 0 - Indicates that the download session is completed.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -520,7 +522,7 @@ declare namespace request {
   const SESSION_SUCCESSFUL: number;
 
   /**
-   * Session status code 1. Indicates that the download session is in progress.
+   * Session status code 1 - Indicates that the download session is in progress.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -528,7 +530,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Session status code 1. Indicates that the download session is in progress.
+   * Session status code 1 - Indicates that the download session is in progress.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -539,7 +541,7 @@ declare namespace request {
   const SESSION_RUNNING: number;
 
   /**
-   * Session status code 2. Indicates that the download session is being scheduled.
+   * Session status code 2 - Indicates that the download session is being scheduled.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -547,7 +549,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Session status code 2. Indicates that the download session is being scheduled.
+   * Session status code 2 - Indicates that the download session is being scheduled.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -558,7 +560,7 @@ declare namespace request {
   const SESSION_PENDING: number;
 
   /**
-   * Session status code 3. Indicates that the download session has been paused.
+   * Session status code 3 - Indicates that the download session has been paused.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -566,7 +568,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Session status code 3. Indicates that the download session has been paused.
+   * Session status code 3 - Indicates that the download session has been paused.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -577,7 +579,7 @@ declare namespace request {
   const SESSION_PAUSED: number;
 
   /**
-   * Session status code 4. Indicates that the download session has failed and will not be retried.
+   * Session status code 4 - Indicates that the download session has failed and will not be retried.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -585,7 +587,7 @@ declare namespace request {
    * @since 7
    */
   /**
-   * Session status code 4. Indicates that the download session has failed and will not be retried.
+   * Session status code 4 - Indicates that the download session has failed and will not be retried.
    *
    * @permission ohos.permission.INTERNET
    * @constant
@@ -2302,7 +2304,7 @@ declare namespace request {
        */
       BACKGROUND,
       /**
-       * Indicates frontend task.
+       * Indicates foreground task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
@@ -2351,8 +2353,8 @@ declare namespace request {
     interface FileSpec {
       /**
        * Currently support:
-       * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+       * 2: uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2418,11 +2420,11 @@ declare namespace request {
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
      *
-     * @typedef Conf
+     * @typedef Config
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    interface Conf {
+    interface Config {
       /**
        * The task action, upload or download.
        *
@@ -2518,8 +2520,8 @@ declare namespace request {
       /**
        * The path to save the downloaded file, the default is "./".
        * Currently support:
-       * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+       * 2: uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
        *
        * @type { ?string }
        * @default ./
@@ -2660,7 +2662,7 @@ declare namespace request {
      */
     enum State {
       /**
-       * Indicates a task created by `new Task(conf)`.
+       * Indicates a task created by `new Task(Config)`.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
@@ -2730,9 +2732,9 @@ declare namespace request {
      * Only one file in a download task.
      * So using a unified data structure for progress.
      * Generally:
-     * 1, sum(sizes) is total files size of the task.
-     * 2, float(processed)/sizes[counter] is the progress for the current processing file.
-     * 3, float(sum(sizes[:index])+processed)/sum(sizes) is the summary progress for a task.
+     * 1: sum(sizes) is total files size of the task.
+     * 2: float(processed)/sizes[counter] is the progress for the current processing file.
+     * 3: float(sum(sizes[:index])+processed)/sum(sizes) is the summary progress for a task.
      * If fetch file size in failure, the size of the file in sizes will be set as -1.
      *
      * @typedef Progress
@@ -2797,7 +2799,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    enum Broken {
+    enum Faults {
       /**
        * Indicates others failure.
        *
@@ -2836,6 +2838,74 @@ declare namespace request {
     }
 
     /**
+     * The filter data structure.
+     * Used for search, given fields works as **LOGICAL AND**.
+     * Invalid value may cause a parameter error.
+     *
+     * @typedef Filter
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    interface Filter {
+      /**
+       * Specify the package name of an application.
+       * Only for advanced search, common search will be fixed to the caller.
+       * A "*" means any bundle.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @systemapi Hide this for inner system use.
+       * @since 10
+       */
+      bundle?: string;
+      /**
+       * Specify the end Unix timestamp.
+       * The default is the moment of calling.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      before?: number;
+      /**
+       * Specify the start Unix timestamp..
+       * The default is "`before` - 24 hours".
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      after?: number;
+      /**
+       * Specify the state of tasks.
+       * The default is any state.
+       *
+       * @type { ?State }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      state?: State;
+      /**
+       * Specify the action of tasks, "upload" or "download", case insensitive.
+       * The default is upload and download.
+       *
+       * @type { ?Action }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      action?: Action;
+      /**
+       * Specify task's mode.
+       * The default is frontend and background.
+       *
+       * @type { ?Mode }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      mode?: Mode;
+    }
+
+    /**
      * The task information data structure for query results.
      * Provides common query and advanced query, visible range of fields is different.
      *
@@ -2867,8 +2937,17 @@ declare namespace request {
        */
       readonly bundle?: string;
       /**
+       * The path to save the downloaded file.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 10
+       */
+      readonly saveas?: string;
+      /**
        * The url of a task.
-       * For normal query only, empty as system.
+       * For `${ show }` and `${ touch }`.
+       * It is empty string in `${ query }`.
        *
        * @type { ?string }
        * @readonly
@@ -2878,6 +2957,8 @@ declare namespace request {
       readonly url?: string;
       /**
        * The arguments.
+       * For `${ show }` and `${ touch }`.
+       * It is empty string in `${ query }`.
        *
        * @type { ?string | Array<FormItem> }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2930,7 +3011,7 @@ declare namespace request {
        */
       readonly mode: Mode;
       /**
-       * The MiME type in the configuration of the task.
+       * The MIME type in the configuration of the task.
        *
        * @type { string }
        * @readonly
@@ -2957,25 +3038,25 @@ declare namespace request {
        */
       readonly gauge: boolean;
       /**
-       * The creating date and time of a task in UTC pattern.
+       * Create the Unix timestamp.
        * It is generated by system of current device.
        *
-       * @type { string }
+       * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
-      readonly ctime: string;
+      readonly ctime: number;
       /**
-       * The modified date and time of a task in UTC pattern.
+       * Modify the Unix timestamp.
        * It is generated by system of current device.
        *
-       * @type { string }
+       * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
-      readonly mtime: string;
+      readonly mtime: number;
       /**
        * The retry switch of a task.
        * Just for background, frontend always disabled.
@@ -2996,14 +3077,14 @@ declare namespace request {
        */
       readonly tries: number;
       /**
-       * The broken case of a task.
+       * The faults case of a task.
        *
-       * @type { Broken }
+       * @type { Faults }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
-      readonly broken: Broken;
+      readonly faults: Faults;
       /**
        * The reason of a waiting/failed/stopped/paused task.
        *
@@ -3053,11 +3134,11 @@ declare namespace request {
       /**
        * The configurations for the task.
        *
-       * @type { Conf }
+       * @type { Config }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
-      conf: Conf;
+      config: Config;
       /**
        * Enable the specified callback for a frontend task.
        *
@@ -3228,7 +3309,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { BaseContext } context context of the caller.
-     * @param { Conf } conf configurations for a task.
+     * @param { Config } config configurations for a task.
      * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 401 - parameter error.
@@ -3239,7 +3320,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    function create(context: BaseContext, conf: Conf, callback: AsyncCallback<Task>): void;
+    function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
     /**
      * Creates a task for upload or download and enqueue it.
@@ -3251,7 +3332,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { BaseContext } context context of the caller.
-     * @param { Conf } conf configurations for a task.
+     * @param { Config } config configurations for a task.
      * @returns { Promise<Task> } the promise returned by the function.
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 401 - parameter error.
@@ -3262,7 +3343,7 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    function create(context: BaseContext, conf: Conf): Promise<Task>;
+    function create(context: BaseContext, config: Config): Promise<Task>;
 
     /**
      * Removes specified task belongs to the caller.
@@ -3291,6 +3372,118 @@ declare namespace request {
      * @since 10
      */
     function remove(id: string): Promise<void>;
+
+    /**
+     * Shows specified task details belongs to the caller.
+     *
+     * @param { string } id the task id.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function show(id: string, callback: AsyncCallback<TaskInfo>): void;
+
+    /**
+     * Shows specified task details belongs to the caller.
+     *
+     * @param { string } id the task id.
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function show(id: string): Promise<TaskInfo>;
+
+    /**
+     * Touches specified task with token.
+     *
+     * @param { string } id the task id.
+     * @param { string } token the in-application isolation key.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function touch(id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
+
+    /**
+     * Touches specified task with token.
+     *
+     * @param { string } id the task id.
+     * @param { string } token the in-application isolation key.
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function touch(id: string, token: string): Promise<TaskInfo>;
+
+    /**
+     * Searches tasks, for system.
+     *
+     * @param { Filter } filter an instance of `Filter`.
+     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function search(filter: Filter, callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Searches tasks, for system.
+     *
+     * @param { Filter } filter an instance of `Filter`.
+     * @returns { Promise<Array<string>> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function search(filter: Filter): Promise<Array<string>>;
+
+    /**
+     * Queries specified task details.
+     *
+     * @permission ohos.permission.DOWNLOAD_SESSION_MANAGER or ohos.permission.UPLOAD_SESSION_MANAGER
+     * @param { string } id the task id.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    function query(id: string, callback: AsyncCallback<TaskInfo>): void;
+
+    /**
+     * Queries specified task details.
+     *
+     * @permission ohos.permission.DOWNLOAD_SESSION_MANAGER or ohos.permission.UPLOAD_SESSION_MANAGER
+     * @param { string } id the task id.
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900006 - task not found error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    function query(id: string): Promise<TaskInfo>;
   }
 }
 
