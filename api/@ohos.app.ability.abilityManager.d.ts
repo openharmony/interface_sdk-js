@@ -216,8 +216,8 @@ declare namespace abilityManager {
    * Acquire the shared data from target ability.
    *
    * @param { number } missionId - The missionId of target ability.
-   * @param { AsyncCallback<{ object }> } callback - The callback is used to return the params of sharing
-   *                                                              data and result code.
+   * @param { AsyncCallback<{ [key: string]: Object }> } callback - The callback is used to return the params of sharing
+   *                                                 data and result code.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -231,7 +231,7 @@ declare namespace abilityManager {
    * Acquire the shared data from target ability.
    *
    * @param { number } missionId - The missionId of target ability.
-   * @returns { Promise<{ object }> } The promise returned by the function.
+   * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.

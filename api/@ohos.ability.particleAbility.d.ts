@@ -32,8 +32,8 @@ declare namespace particleAbility {
   /**
    * Service ability uses this method to start a specific ability.
    *
-   * @param { StartAbilityParameter } parameter Indicates the ability to start.
-   * @param { AsyncCallback<void> } callback Returns the result of starting Ability in the form of callback.
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
+   * @param { AsyncCallback<void> } callback - Returns the result of starting Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -43,7 +43,7 @@ declare namespace particleAbility {
   /**
    * Service ability uses this method to start a specific ability.
    *
-   * @param { StartAbilityParameter } parameter Indicates the ability to start.
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -54,7 +54,7 @@ declare namespace particleAbility {
   /**
    * Destroys this service ability.
    *
-   * @param { AsyncCallback<void> } callback Return the result of stopping Ability in the form of callback.
+   * @param { AsyncCallback<void> } callback - Return the result of stopping Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -74,7 +74,7 @@ declare namespace particleAbility {
   /**
    * Obtains the dataAbilityHelper.
    *
-   * @param { string } uri Indicates the path of the file to open.
+   * @param { string } uri - Indicates the path of the file to open.
    * @returns { DataAbilityHelper } Returns the dataAbilityHelper.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
@@ -86,10 +86,10 @@ declare namespace particleAbility {
    * Keep this Service ability in the background and display a notification bar.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { number } id Identifies the notification bar information.
-   * @param { NotificationRequest } request Indicates the notificationRequest instance containing information
-   *                                        for displaying a notification bar.
-   * @param { AsyncCallback<void> } callback returns the result of starting a long-term task in the form of callback.
+   * @param { number } id - Identifies the notification bar information.
+   * @param { NotificationRequest } request - Indicates the notificationRequest instance containing information
+   *                                          for displaying a notification bar.
+   * @param { AsyncCallback<void> } callback - returns the result of starting a long-term task in the form of callback.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
    * @since 7
@@ -102,9 +102,9 @@ declare namespace particleAbility {
    * Keep this Service ability in the background and display a notification bar.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { number } id Identifies the notification bar information.
-   * @param { NotificationRequest } request Indicates the notificationRequest instance containing information
-   *                                        for displaying a notification bar.
+   * @param { number } id - Identifies the notification bar information.
+   * @param { NotificationRequest } request - Indicates the notificationRequest instance containing information
+   *                                          for displaying a notification bar.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
@@ -117,7 +117,7 @@ declare namespace particleAbility {
   /**
    * Cancel background running of this ability to free up system memory.
    *
-   * @param { AsyncCallback<void> } callback Returns the result of canceling a long-term task in the form of callback.
+   * @param { AsyncCallback<void> } callback - Returns the result of canceling a long-term task in the form of callback.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
    * @since 7
@@ -141,8 +141,8 @@ declare namespace particleAbility {
   /**
    * Connects an ability to a Service ability.
    *
-   * @param { Want } request Indicates the Service ability to connect.
-   * @param { ConnectOptions } options Callback object for the client. If this parameter is null,
+   * @param { Want } request - Indicates the Service ability to connect.
+   * @param { ConnectOptions } options - Callback object for the client. If this parameter is null,
    *                                   an exception is thrown.
    * @returns { number } unique identifier of the connection between the client and the service side.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -154,8 +154,8 @@ declare namespace particleAbility {
   /**
    * Disconnects ability to a Service ability.
    *
-   * @param { number } connection the connection id returned from connectAbility api.
-   * @param { AsyncCallback<void> } callback Returns the disconnection result in the form of callback.
+   * @param { number } connection - the connection id returned from connectAbility api.
+   * @param { AsyncCallback<void> } callback - Returns the disconnection result in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 7
@@ -165,7 +165,7 @@ declare namespace particleAbility {
   /**
    * Disconnects ability to a Service ability.
    *
-   * @param { number } connection the connection id returned from connectAbility api.
+   * @param { number } connection - the connection id returned from connectAbility api.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
