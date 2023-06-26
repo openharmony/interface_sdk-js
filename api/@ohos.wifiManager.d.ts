@@ -1523,7 +1523,7 @@ declare namespace wifiManager {
     proxyMethod?: ProxyMethod;
 
     /** 
-     * PVC web address for auto configured proxy.
+     * PAC web address for auto configured proxy.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1536,7 +1536,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    manualServerHostName?: string;
+    serverHostName?: string;
 
     /** 
      * Server port for manual configured proxy. 
@@ -1544,7 +1544,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    manualServerPort?: number;
+    serverPort?: number;
 
     /** 
      * Exclusion objects for manual configured proxy. objects are separated by ','.
@@ -1552,7 +1552,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    manualExclusionObjects?: string;
+    exclusionObjects?: string;
   }
 
   /**
