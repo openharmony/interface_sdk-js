@@ -643,7 +643,8 @@ interface ProgressInterface {
  * @crossplatform
  * @since 10
  */
-declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap, Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
+declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap,
+  Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
   /**
    * Called when the current progress value is set.
    * @since 7
