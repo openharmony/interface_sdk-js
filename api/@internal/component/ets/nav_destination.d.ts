@@ -135,12 +135,12 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
 
   /**
    * Invoked when the navDestination page is displayed.
-   * @param { (param: unknown) => void) } callback Indicates callback when the navDestination page is displayed.
+   * @param { () => void) } callback Indicates callback when the navDestination page is displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onShown(callback: (param: unknown) => void): NavDestinationAttribute;
+  onShown(callback: () => void): NavDestinationAttribute;
 
   /**
    * Invoked when the navDestination is hidden.

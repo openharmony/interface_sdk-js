@@ -26,7 +26,7 @@ declare namespace formBindingData {
   /**
    * Create an FormBindingData instance.
    *
-   * @param { Object | string } [obj] Indicates the FormBindingData instance data.
+   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
    * @returns { FormBindingData } Returns the {@link FormBindingData} instance.
    * @syscap SystemCapability.Ability.Form
    * @since 8

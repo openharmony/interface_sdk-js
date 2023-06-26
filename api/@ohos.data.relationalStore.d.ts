@@ -357,7 +357,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    DATA_CHANGE = 0,
+    DATA_CHANGE,
 
     /**
      * Means the change type is asset change.
@@ -366,7 +366,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    ASSET_CHANGE = 1
+    ASSET_CHANGE
   }
 
   /**

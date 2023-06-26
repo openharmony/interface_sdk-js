@@ -318,7 +318,8 @@
       "SystemCapability.Request.FileTransferAgent",
       "SystemCapability.ResourceSchedule.DeviceStandby",
       "SystemCapability.AI.MindSporeLite",
-      "SystemCapability.Driver.ExternalDevice"
+      "SystemCapability.Driver.ExternalDevice",
+      "SystemCapability.Print.PrintFramework"
     ]
   },
   "administrators": [
@@ -328,5 +329,6 @@
     {
       "user": "8046261"
     }
-  ]
+  ],
+  "ciId":"7387629"
 }

@@ -3056,7 +3056,6 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData, Summary, UnifiedDataType type object for ui component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 10
  */
 declare type UnifiedData = import('../api/@ohos.data.UDMF').UnifiedData;
@@ -3167,7 +3166,6 @@ declare interface DragEvent {
    * Set dragData into DragEvent.
    * @param { UnifiedData } unifiedData - dragData.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   setData(unifiedData: UnifiedData): void;
@@ -3176,7 +3174,6 @@ declare interface DragEvent {
    * Get dragData from DragEvent.
    * @returns { UnifiedData } - get dragData.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getData(): UnifiedData;
@@ -3185,7 +3182,6 @@ declare interface DragEvent {
    * Get dragData summary from DragEvent.
    * @returns { Summary } - get Summary Data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getSummary(): Summary;
@@ -3986,8 +3982,8 @@ declare interface PixelStretchEffectOptions {
 declare interface ClickEffect {
   /**
    * Set the click effect level.
+   * When level is undefined or null, the level is equal to ClickEffectLevel.Light.
    * @type { ClickEffectLevel }
-   * @default ClickEffectLevel.Light
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -5416,7 +5412,6 @@ declare class CommonMethod<T> {
    * @param { Array<UnifiedDataType> } value - the unifiedData type for this node.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   allowDrop(value: Array<UnifiedDataType>): T;
