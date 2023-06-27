@@ -25,6 +25,7 @@ declare namespace distributedDeviceManager {
   
   /**
    * Basic description information of a distributed device.
+   * @interface DeviceBasicInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10
    */
@@ -56,6 +57,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device status of the distributed device.
+   * @enum { DeviceStatusChange }
    * @since 10
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    */
@@ -81,6 +83,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * Service publish information for device discover
+   * @interface PublishInfo
    * @since 10
    * @systemapi This method can be used only by system applications.
    */
@@ -108,6 +111,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device discover mode
+   * @enum { DiscoverMode }
    * @since 10
    * @systemapi This method can be used only by system applications.
    */
@@ -129,6 +133,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device discover frequency
+   * @enum { ExchangeFreq }
    * @since 10
    * @systemapi This method can be used only by system applications.
    */
@@ -156,6 +161,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device bind parameter. Function input of the interface {@link bindDevice}.
+   * @interface BindParam
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10
    */
@@ -175,6 +181,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device authenticate information.
+   * @interface AuthInfo
    * @since 10
    * @systemapi This method can be used only by system applications
    */
@@ -504,7 +511,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'deviceStatusChange' } type Device status change.
      * @param { Callback<{ action: DeviceStatusChange, device: DeviceBasicInfo }> } callback
-     *          Indicates the device status callback to register.
+     *          Indicates the device status callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -530,7 +537,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'discoverSuccess' } type Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
-     *          Indicates the device discovery callback to register.
+     *          Indicates the device discovery callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -554,7 +561,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param { 'deviceNameChange' } type Changed device name.
-     * @param { Callback<{ deviceName: string }> } callback Indicates the device name change callback to register.
+     * @param { Callback<{ deviceName: string }> } callback Indicates the device name change callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -580,7 +587,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'discoverFail' } type Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback
-     *          Indicates the device found result callback to register.
+     *          Indicates the device found result callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -604,7 +611,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param { 'serviceDie' } type Service death.
-     * @param { function } callback Indicates the service error callback to register.
+     * @param { function } callback Indicates the service error callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -630,7 +637,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param { 'uiStateChange' } type Ui state to unregister.
-     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
+     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
@@ -656,7 +663,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param { 'publishSuccess' } type Successfully published device.
-     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
+     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
@@ -684,7 +691,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'publishFail' } type Failed to publish device.
      * @param { Callback<{ publishId: number, reason: number }> } callback
-     *          Indicates the device publish result callback to register.
+     *          Indicates the device publish result callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
