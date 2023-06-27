@@ -132,6 +132,7 @@
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
     "SystemCapability.DistributedDataManager.Preferences.Core",
+    "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
     "SystemCapability.DistributedDataManager.DataShare.Core",
     "SystemCapability.DistributedDataManager.DataShare.Consumer",
     "SystemCapability.DistributedDataManager.DataShare.Provider",

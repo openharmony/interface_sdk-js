@@ -15,7 +15,7 @@
 
 /**
  * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @deprecated since 6
  * @FAModelOnly
  */
@@ -65,7 +65,7 @@ export interface GetStorageOptions {
 
 /**
  * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @deprecated since 6
  * @FAModelOnly
  */
@@ -114,7 +114,7 @@ export interface SetStorageOptions {
 
 /**
  * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @deprecated since 6
  * @FAModelOnly
  */
@@ -148,7 +148,7 @@ export interface ClearStorageOptions {
  * @since 3
  * @deprecated since 6
  * @FAModelOnly
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  */
 export interface DeleteStorageOptions {
   /**
@@ -187,7 +187,7 @@ export interface DeleteStorageOptions {
 
 /**
  * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @deprecated since 6
  * @FAModelOnly
  */

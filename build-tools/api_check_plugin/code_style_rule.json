@@ -318,7 +318,8 @@
       "SystemCapability.Request.FileTransferAgent",
       "SystemCapability.ResourceSchedule.DeviceStandby",
       "SystemCapability.AI.MindSporeLite",
-      "SystemCapability.Print.PrintFramework"
+      "SystemCapability.Print.PrintFramework",
+      "SystemCapability.DistributedDataManager.Preferences.Core.Lite"
     ]
   },
   "administrators": [
