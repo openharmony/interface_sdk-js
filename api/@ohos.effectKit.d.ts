@@ -164,7 +164,6 @@ declare namespace effectKit {
    */
   function createEffect(source: image.PixelMap): Filter;
 
-
   /**
    * Create a color picker to get color of an image.
    * @since 9
