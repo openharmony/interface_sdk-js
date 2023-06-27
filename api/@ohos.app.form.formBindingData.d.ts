@@ -64,6 +64,7 @@ declare namespace formBindingData {
 
   /**
    * Defines the form proxy data.
+   *
    * @typedef ProxyData
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly

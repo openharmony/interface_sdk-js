@@ -48,6 +48,23 @@ export class Font {
    * @since 10
    */
   registerFont(options: font.FontOptions): void;
+
+  /**
+   * Gets a list of fonts supported by system.
+   * @returns { Array<string> } A list of font names
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getSystemFontList(): Array<string>;
+
+  /**
+   * Get font details according to the font name.
+   * @param { string } fontName font name
+   * @returns { font.FontInfo } Returns the font info
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getFontByName(fontName: string): font.FontInfo;
 }
 
 /**

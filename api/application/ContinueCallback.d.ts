@@ -25,7 +25,7 @@ export interface ContinueCallback {
   /**
    * Called by system when continue mission done.
    *
-   * @param { number } result The result code of continue mission.
+   * @param { number } result - The result code of continue mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

@@ -31,9 +31,9 @@ declare namespace formProvider {
   /**
    * Set next update time for a specified form.
    *
-   * @param { string } formId Indicates the form ID.
-   * @param { number } minute Indicates duration minute before next update.
-   * @param { AsyncCallback<void> } callback Callback function.
+   * @param { string } formId - Indicates the form ID.
+   * @param { number } minute - Indicates duration minute before next update.
+   * @param { AsyncCallback<void> } callback - Callback function.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -44,8 +44,8 @@ declare namespace formProvider {
   /**
    * Set next update time for a specified form.
    *
-   * @param { string } formId Indicates the form ID.
-   * @param { number } minute Indicates duration minute before next update.
+   * @param { string } formId - Indicates the form ID.
+   * @param { number } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @since 8
@@ -58,9 +58,9 @@ declare namespace formProvider {
    * Update a specified form.
    * Client to communication with FormManagerService.
    *
-   * @param { string } formId Indicates the form ID
-   * @param { formBindingData.FormBindingData } formBindingData Indicates the form data
-   * @param { AsyncCallback<void> } callback Callback function.
+   * @param { string } formId - Indicates the form ID
+   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data
+   * @param { AsyncCallback<void> } callback - Callback function.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
@@ -76,8 +76,8 @@ declare namespace formProvider {
    * Update a specified form.
    * Client to communication with FormManagerService.
    *
-   * @param { string } formId Indicates the form ID
-   * @param { formBindingData.FormBindingData } formBindingData Indicates the form data
+   * @param { string } formId - Indicates the form ID
+   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @since 8

@@ -121,3 +121,4 @@
 /// <reference path="./water_flow.d.ts" />
 /// <reference path="./flow_item.d.ts" />
 /// <reference path="./image_span.d.ts" />
+/// <reference path="./effect_component.d.ts" />

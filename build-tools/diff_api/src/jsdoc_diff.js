@@ -257,12 +257,12 @@ function compareJSDocs(oldApi, newApi, diffReporter) {
   diffPermission(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffForm(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffCrossplatform(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
-  diffSinceVersion(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint)
+  diffSinceVersion(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffSyscap(diffReporter, oldApi, newApi, hint);
   diffDeprecated(diffReporter, oldApi, newApi, hint);
   diffApiLevel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffAppModel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
-  diffType(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint)
+  diffType(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
 }
 
 /**
@@ -275,7 +275,7 @@ function compareJSDocs(oldApi, newApi, diffReporter) {
  * @param {ApiDigestInfo} newApi 
  * @param {string} hint 
  */
-function diffType(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint){
+function diffType(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint) {
   const oldType = oldTagItem.getTypeTag();
   const newType = newTagItem.getTypeTag();
   if (!isArrayEquals(oldType, newType)) {
@@ -304,12 +304,12 @@ function diffType(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint){
  * @param {ApiDigestInfo} newApi 
  * @param {string} hint 
  */
-function diffAppModel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint){
+function diffAppModel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint) {
   const oldAppModel = oldTagItem.getAppModel();
   const newAppModel = newTagItem.getAppModel();
   if (!isArrayEquals(oldAppModel, newTagItem.getAppModel())) {
     diffReporter.addChangedApi(wrapApiChanges(newApi, StatusCode.MODEL_CHNAGES,
-      arrayToString(oldAppModel), arrayToString(newAppModel ),
+      arrayToString(oldAppModel), arrayToString(newAppModel),
       hint, '', '', matchSyscapInFile(newApi)
     ));
 
@@ -333,7 +333,7 @@ function diffAppModel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint
  * @param {ApiDigestInfo} newApi 
  * @param {string} hint 
  */
-function diffApiLevel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint){
+function diffApiLevel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint) {
   const oldApiLevel = oldTagItem.getApiLevel();
   const newApiLevel = newTagItem.getApiLevel();
   if (!isArrayEquals(oldApiLevel, newApiLevel)) {
@@ -447,7 +447,7 @@ function diffSyscap(diffReporter, oldApi, newApi, hint) {
  * @param {ApiDigestInfo} newApi 
  * @param {string} hint 
  */
-function diffSinceVersion(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint){
+function diffSinceVersion(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint) {
   const oldVersion = oldTagItem.getSinceVersion();
   const newVersion = newTagItem.getSinceVersion()
   if (!isArrayEquals(oldVersion, newVersion)) {
@@ -505,7 +505,7 @@ function diffDeprecated(diffReporter, oldApi, newApi, hint) {
  */
 function diffPermission(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint) {
   if (!isArrayEquals(oldTagItem.getPermission(), newTagItem.getPermission())) {
-    diffReporter.addChangedApi(wrapApiChanges(newApi, StatusCode.PERMISSION_CHNAGES,
+    diffReporter.addChangedApi(wrapApiChanges(newApi, StatusCode.PERMISSION_CHANGES,
       arrayToString(oldTagItem.getPermission()),
       arrayToString(newTagItem.getPermission()),
       hint,
@@ -514,7 +514,7 @@ function diffPermission(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hi
       matchSyscapInFile(newApi)
     ));
 
-    diffReporter.addDiffInfo(wrapApiChanges(newApi, StatusCode.PERMISSION_CHNAGES,
+    diffReporter.addDiffInfo(wrapApiChanges(newApi, StatusCode.PERMISSION_CHANGES,
       arrayToString(oldTagItem.getPermission()),
       arrayToString(newTagItem.getPermission()),
       hint,
@@ -675,7 +675,6 @@ function appendCrossplatform(tagObject, tagItem) {
 }
 
 const tagHandlerMap = new Map([
-  ['since', appendSinceTag],
   ['syscap', appendSyscapTag],
   ['permission', appendPermissionTag],
   ['deprecated', appendDeprecatedTag],
@@ -702,11 +701,20 @@ function createTagItemFromJSDoc(jsdocs) {
     return tagItem;
   }
   const singleJSDoc = jsdocs[jsdocs.length - 1];
+  const firstJsDoc = jsdocs[0];
   if (singleJSDoc.tags) {
     singleJSDoc.tags.forEach((tagObject) => {
       const handler = tagHandlerMap.get(tagObject.tag.toLowerCase())
       if (handler) {
         handler(tagObject, tagItem);
+      }
+    });
+  }
+  
+  if (firstJsDoc.tags) {
+    firstJsDoc.tags.forEach((tagObject) => {
+      if (tagObject.tag.toLowerCase() === 'since') {
+        appendSinceTag(tagObject, tagItem);
       }
     });
   }

@@ -559,12 +559,12 @@ declare namespace UDMF {
    */
   enum Intention {
     /**
-     * indicates the intention of super hub
+     * indicates the intention of data hub
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    SUPER_HUB = 'SuperHub'
+    DATA_HUB = 'DataHub'
   }
 
   /**
