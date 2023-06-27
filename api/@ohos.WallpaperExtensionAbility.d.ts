@@ -31,10 +31,10 @@ declare class WallpaperExtensionAbility {
    * @StageModelOnly
    * @since 10
    */
-  onCreated(want: object): void;
+  onCreate(want: object): void;
 
   /**
-   * The onWallpaperChanged callback is triggered when the user modifies the wallpaper settings.
+   * The onWallpaperChange callback is triggered when the user modifies the wallpaper settings.
    *
    * @param { number } wallpaperType - Indicates the wallpaper type.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -42,7 +42,7 @@ declare class WallpaperExtensionAbility {
    * @StageModelOnly
    * @since 10
    */
-  onWallpaperChanged(wallpaperType: number): void;
+  onWallpaperChange(wallpaperType: number): void;
 
   /**
    * Called once to destroy the extension ability.
