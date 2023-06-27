@@ -393,7 +393,7 @@ declare namespace pointer {
   }
 
   /**
-   * Touchpad right menu type.
+   * Device right menu type.
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
