@@ -215,7 +215,9 @@ declare namespace distributedDeviceManager {
     /**
      * Releases the {@code DeviceManager} instance that is no longer used.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
+     * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      */
@@ -224,6 +226,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get a list of available devices. This interface query all authorized and connectable devices.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
@@ -235,6 +238,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get a list of available devices. This interface query all authorized and connectable devices.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param callback Indicates the callback to be invoked upon getAvailableDeviceList
      * @throws { BusinessError } 201 - User permission verify failed.
@@ -246,6 +250,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get a list of available devices. This interface query all authorized and connectable devices.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -256,6 +261,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get the network id of the local device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -266,6 +272,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get the device name of the local device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -276,6 +283,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get the device type of the local device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -286,6 +294,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get the device id of the local device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -296,6 +305,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get the device name by network id.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param { string } networkId - Device network id.
      * @throws { BusinessError } 201 - User permission verify failed.
@@ -308,6 +318,7 @@ declare namespace distributedDeviceManager {
     /**
      * Get the device type by network id.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param { string } networkId - Device network id.
      * @throws { BusinessError } 201 - User permission verify failed.
@@ -320,6 +331,7 @@ declare namespace distributedDeviceManager {
     /**
      * Start to discover device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param subscribeId subscribe id to discovery device
      * @param filterOptions filterOptions to filter discovery device
@@ -333,6 +345,7 @@ declare namespace distributedDeviceManager {
     /**
      * Stop discovering device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param subscribeId service subscribe id
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -343,6 +356,7 @@ declare namespace distributedDeviceManager {
     /**
      * Bind the specified device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param deviceId id of device to bind
      * @param bindParam parameters of device to bind
@@ -357,6 +371,7 @@ declare namespace distributedDeviceManager {
     /**
      * Unbind the specified device.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param deviceId id of device to unbind
      * @throws { BusinessError } 401 - Input parameter error.
@@ -367,6 +382,8 @@ declare namespace distributedDeviceManager {
 
     /**
      * Publish discover device.
+     * 
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param publishInfo publish information to Publish discovery device
      * @throws { BusinessError } 401 - Input parameter error.
@@ -380,6 +397,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * UnPublish discover device.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param publishId service publish id, identify a publish operation, should be a unique id in package range
      * @throws { BusinessError } 401 - Input parameter error.
@@ -393,6 +411,7 @@ declare namespace distributedDeviceManager {
     /**
      * Verify authentication information, such as pin code.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param authInfo device authentication information to verify
      * @param callback indicates the callback to be invoked upon verifyAuthInfo
      * @throws { BusinessError } 201 - Permission verify failed
@@ -406,6 +425,7 @@ declare namespace distributedDeviceManager {
     /**
      * Set user Operation from devicemanager sea, this interface can only be used by devicemanager Sea.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param operateAction user Operation Actions.
      * @param params indicates the input param of the user.
@@ -419,6 +439,7 @@ declare namespace distributedDeviceManager {
     /**
      * Request credential information.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
      * @param { AsyncCallback<{registerInfo: string}> } callback - Indicates the callback to be invoked upon requestCredential
@@ -433,6 +454,7 @@ declare namespace distributedDeviceManager {
     /**
      * Import credential information.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param { string } credentialInfo - Import credential params, the params is json string, it includes processType, authType,
      * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
@@ -449,6 +471,7 @@ declare namespace distributedDeviceManager {
     /**
      * Delete credential information.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
      * @param { string } queryInfo - Delete credential params. the params is json string, it includes processType, authType, userId.
      * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon deleteCredential
@@ -464,8 +487,11 @@ declare namespace distributedDeviceManager {
      * Register a device status callback so that the application can be notified upon device status changes based on
      * the application bundle name.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device status callback to register.
+     * @param { 'deviceStatusChange' } type Device status change.
+     * @param { Callback<{ action: DeviceStatusChange, device: DeviceBasicInfo }> } callback
+     *          Indicates the device status callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -474,8 +500,11 @@ declare namespace distributedDeviceManager {
     /**
      * UnRegister device status callback based on the application bundle name.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device status callback to register.
+     * @param { 'deviceStatusChange' } type Device status change.
+     * @param { Callback<{ action: DeviceStatusChange, device: DeviceBasicInfo }> } callback
+     *          Indicates the device status callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -484,8 +513,11 @@ declare namespace distributedDeviceManager {
     /**
      * Register a device discovery result callback so that the application can be notified when discovery success.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device found callback to register.
+     * @param { 'discoverSuccess' } type Successfully discovered device.
+     * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
+     *          Indicates the device discovery callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -494,8 +526,11 @@ declare namespace distributedDeviceManager {
     /**
      * UnRegister the device discovery result callback.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device found callback to register.
+     * @param { 'discoverSuccess' } type Successfully discovered device.
+     * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
+     *          Indicates the device discovery callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -504,8 +539,10 @@ declare namespace distributedDeviceManager {
     /**
      * Register a device name change callback so that the application can be notified when discovery success.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device name change callback to register.
+     * @param { 'deviceNameChange' } type Changed device name.
+     * @param { Callback<{ deviceName: string }> } callback Indicates the device name change callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -514,8 +551,10 @@ declare namespace distributedDeviceManager {
     /**
      * UnRegister the device name change result callback.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device name change callback to register.
+     * @param { 'deviceNameChange' } type Changed device name.
+     * @param { Callback<{ deviceName: string }> } callback Indicates the device name change callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -524,8 +563,11 @@ declare namespace distributedDeviceManager {
     /**
      * Register a device discovery result callback so that the application can be notified when discover failed.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device found result callback to register.
+     * @param { 'discoverFail' } type Discovery Device Failure.
+     * @param { Callback<{ subscribeId: number, reason: number }> } callback
+     *          Indicates the device found result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -534,8 +576,11 @@ declare namespace distributedDeviceManager {
     /**
      * UnRegister the device discovery result callback.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the device found result callback to register.
+     * @param { 'discoverFail' } type Discovery Device Failure.
+     * @param { Callback<{ subscribeId: number, reason: number }> } callback
+     *          Indicates the device found result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -544,8 +589,10 @@ declare namespace distributedDeviceManager {
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the service error callback to register.
+     * @param { 'serviceDie' } type Service death.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -554,8 +601,10 @@ declare namespace distributedDeviceManager {
     /**
      * UnRegister the service error callback.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param callback Indicates the service error callback to register.
+     * @param { 'serviceDie' } type Service death.
+     * @param { function } callback Indicates the service error callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -565,8 +614,10 @@ declare namespace distributedDeviceManager {
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
      * changes.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
-     * @param callback Indicates the devicemanager ui state to register.
+     * @param { 'uiStateChange' } type Ui state to unregister.
+     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
@@ -574,21 +625,25 @@ declare namespace distributedDeviceManager {
     on(type: 'uiStateChange', callback: Callback<{ param: string }>): void;
 
     /**
-      * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
-      *
-      * @since 10
-      * @param callback Indicates the devicemanager ui state to unregister.
-      * @throws { BusinessError } 201 - Permission verify failed.
-      * @throws { BusinessError } 401 - Input parameter error.
-      * @systemapi this method can be used only by system applications.
-      */
+     * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @since 10
+     * @param { 'uiStateChange' } type Ui state to unregister.
+     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
+     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @systemapi this method can be used only by system applications.
+     */
     off(type: 'uiStateChange', callback?: Callback<{ param: string }>): void;
 
     /**
      * Register a device publish result callback so that the application can be notified when the device publish success
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
-     * @param callback Indicates the device publish result callback to register.
+     * @param { 'publishSuccess' } type Successfully published device.
+     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
@@ -598,8 +653,10 @@ declare namespace distributedDeviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
-     * @param callback Indicates the device publish result callback to register.
+     * @param { 'publishSuccess' } type Successfully published device.
+     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
@@ -609,8 +666,11 @@ declare namespace distributedDeviceManager {
     /**
      * Register a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
-     * @param callback Indicates the device publish result callback to register.
+     * @param { 'publishFail' } type Failed to publish device.
+     * @param { Callback<{ publishId: number, reason: number }> } callback
+     *          Indicates the device publish result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
@@ -620,8 +680,11 @@ declare namespace distributedDeviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
-     * @param callback Indicates the device publish result callback to register.
+     * @param { 'publishFail' } type Failed to publish device.
+     * @param { Callback<{ publishId: number, reason: number }> } callback
+     *          Indicates the device publish result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
