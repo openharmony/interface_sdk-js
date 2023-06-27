@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
-
+import type { AsyncCallback } from './@ohos.base';
+import type { Callback } from './@ohos.base';
 /**
  * This file provides interfaces for discovering devices, binding a device,
  * querying device information, and listening for device status change.
@@ -128,7 +128,7 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device discover frequence
+   * Device discover frequency
    * @since 10
    * @systemapi This method can be used only by system applications.
    */
@@ -170,7 +170,7 @@ declare namespace distributedDeviceManager {
      * Extra information.
      * @since 10
      */
-    extraInfo: { [key: string]: any };
+    extraInfo: { [key: string]: Object };
   }
 
   /**
@@ -192,7 +192,7 @@ declare namespace distributedDeviceManager {
     /**
      * Authentication extra information.
      */
-    extraInfo: { [key: string]: any };
+    extraInfo: { [key: string]: Object };
   }
 
   /**
