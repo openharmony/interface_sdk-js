@@ -15,12 +15,15 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type { Callback } from './@ohos.base';
+
 /**
- * This file provides interfaces for discovering devices, binding a device,
- * querying device information, and listening for device status change.
- * @since 10
+ * Providers interfaces to create a {@link deviceManager} instances.
+ *
+ * @namespace distributedDeviceManager
  * @syscap SystemCapability.DistributedHardware.DeviceManager
+ * @since 10
  */
+
 declare namespace distributedDeviceManager {
   
   /**
@@ -82,84 +85,6 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Service publish information for device discover
-   * @interface PublishInfo
-   * @since 10
-   * @systemapi This method can be used only by system applications.
-   */
-  interface PublishInfo {
-    /**
-     * Service publish id, the value is in scope [0, 65535], should be unique for each publish process
-     */
-    publishId: number;
-
-    /**
-     * Discovery mode for service subscription.
-     */
-    mode: DiscoverMode;
-
-    /**
-     * Service subscription frequency.
-     */
-    freq: ExchangeFreq;
-
-    /**
-     *  Whether the device should be ranged by discoverer.
-     */
-    ranging: boolean;
-  }
-
-  /**
-   * Device discover mode
-   * @enum { DiscoverMode }
-   * @since 10
-   * @systemapi This method can be used only by system applications.
-   */
-  enum DiscoverMode {
-    /**
-     * When using this key at client side, it means discovering for available nearby devices by 
-     * calling @startDeviceDiscovery function, while using this key at server side indicating that
-     * a device publication or advertisement by calling @publishDeviceDiscovery.
-     */
-    DISCOVER_MODE_PASSIVE = 0x55,
-
-    /**
-     * When using this key at server side, it means discovering for available nearby devices by 
-     * calling @startDeviceDiscovery function, while using this key at client side indicating that
-     * a device publication or advertisement by calling @publishDeviceDiscovery.
-     */
-    DISCOVER_MODE_ACTIVE = 0xAA
-  }
-
-  /**
-   * Device discover frequency
-   * @enum { ExchangeFreq }
-   * @since 10
-   * @systemapi This method can be used only by system applications.
-   */
-  enum ExchangeFreq {
-    /**
-     * Low
-     */
-    LOW = 0,
-
-    /**
-     * Medium
-     */
-    MID = 1,
-
-    /**
-     * High
-     */
-    HIGH = 2,
-
-    /**
-     * Super-high
-     */
-    SUPER_HIGH = 3
-  }
-
-  /**
    * Device bind parameter. Function input of the interface {@link bindDevice}.
    * @interface BindParam
    * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -180,29 +105,6 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device authenticate information.
-   * @interface AuthInfo
-   * @since 10
-   * @systemapi This method can be used only by system applications
-   */
-  interface AuthInfo {
-    /**
-     * Authentication type, 1 for pin code.
-     */
-    authType: number;
-
-    /**
-     * The token used for this authentication.
-     */
-    token: number;
-
-    /**
-     * Authentication extra information.
-     */
-    extraInfo: { [key: string]: Object };
-  }
-
-  /**
    * Creates an {@code DeviceManager} instance.
    *
    * <p>To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
@@ -216,7 +118,11 @@ declare namespace distributedDeviceManager {
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
 
   /**
-   * Provides methods for manage the distributed devices.
+   * Provides methods for managing devices.
+   *
+   * @interface DeviceManager
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since 10
    */
   interface DeviceManager {
     /**
@@ -336,7 +242,7 @@ declare namespace distributedDeviceManager {
     getDeviceTypeSync(networkId: string): number;
 
     /**
-     * Start to discover device.
+     * Start to discover target.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
@@ -347,10 +253,10 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600104 - Discovery invalid.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      */
-    startDeviceDiscovery(subscribeId: number, filterOptions?: string): void;
+    startDiscovering(subscribeId: number, filterOptions?: string): void;
 
     /**
-     * Stop discovering device.
+     * Stop discovering target.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param subscribeId service subscribe id
@@ -358,10 +264,10 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      */
-    stopDeviceDiscovery(subscribeId: number): void;
+    stopDiscovering(subscribeId: number): void;
 
     /**
-     * Bind the specified device.
+     * Bind the specified target.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
@@ -373,10 +279,10 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @throws { BusinessError } 11600103 - Bind invalid.
      */
-    bindDevice(deviceId: string, bindParam: BindParam, callback: AsyncCallback<{deviceId: string}>): void;
+    bindTarget(deviceId: string, bindParam: BindParam, callback: AsyncCallback<{deviceId: string}>): void;
 
     /**
-     * Unbind the specified device.
+     * Unbind the specified target.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
@@ -385,49 +291,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      */
-    unbindDevice(deviceId: string): void;
-
-    /**
-     * Publish discover device.
-     * 
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param publishInfo publish information to Publish discovery device
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 11600105 - Publish invalid.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @systemapi this method can be used only by system applications.
-     */
-    publishDeviceDiscovery(publishInfo: PublishInfo): void;
-
-    /**
-     * UnPublish discover device.
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param publishId service publish id, identify a publish operation, should be a unique id in package range
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @systemapi this method can be used only by system applications.
-     */
-    unPublishDeviceDiscovery(publishId: number): void;
-
-    /**
-     * Verify authentication information, such as pin code.
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param authInfo device authentication information to verify
-     * @param callback indicates the callback to be invoked upon verifyAuthInfo
-     * @throws { BusinessError } 201 - Permission verify failed
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @systemapi this method can be used only by system applications.
-     */
-    verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{ deviceId: string, level: number }>): void;
+    unbindTarget(deviceId: string): void;
 
     /**
      * Set user Operation from devicemanager sea, this interface can only be used by devicemanager Sea.
@@ -442,53 +306,6 @@ declare namespace distributedDeviceManager {
      * @systemapi this method can be used only by system applications.
      */
     setUserOperation(operateAction: number, params: string): void;
-
-    /**
-     * Request credential information.
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
-     * @param { AsyncCallback<{registerInfo: string}> } callback - Indicates the callback to be invoked upon requestCredential
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @returns Returns device credential register information, it include deviceId, devicePk, useId and version.
-     * @systemapi this method can be used only by system applications.
-     */
-    requestCredentialRegisterInfo(requestInfo: string, callback: AsyncCallback<{ registerInfo: string }>): void;
-
-    /**
-     * Import credential information.
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { string } credentialInfo - Import credential params, the params is json string, it includes processType, authType,
-     * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
-     * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
-     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon importCredential.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @returns Returns the groupId to which the device belongs.
-     * @systemapi this method can be used only by system applications.
-     */
-    importCredential(credentialInfo: string, callback: AsyncCallback<{ resultInfo: string }>): void;
-
-    /**
-     * Delete credential information.
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { string } queryInfo - Delete credential params. the params is json string, it includes processType, authType, userId.
-     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon deleteCredential
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @returns Returns the groupId to which the device belongs.
-     * @systemapi this method can be used only by system applications.
-     */
-    deleteCredential(queryInfo: string, callback: AsyncCallback<{ resultInfo: string }>): void;
 
     /**
      * Register a device status callback so that the application can be notified upon device status changes based on
@@ -616,87 +433,6 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 401 - Input parameter error.
      */
     off(type: 'serviceDie', callback?: () => void): void;
-
-    /**
-     * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
-     * changes.
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { 'uiStateChange' } type Ui state to unregister.
-     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @systemapi this method can be used only by system applications.
-     */
-    on(type: 'uiStateChange', callback: Callback<{ param: string }>): void;
-
-    /**
-     * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { 'uiStateChange' } type Ui state to unregister.
-     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @systemapi this method can be used only by system applications.
-     */
-    off(type: 'uiStateChange', callback?: Callback<{ param: string }>): void;
-
-    /**
-     * Register a device publish result callback so that the application can be notified when the device publish success
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { 'publishSuccess' } type Successfully published device.
-     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to register.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @systemapi this method can be used only by system applications.
-     */
-    on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
-
-    /**
-     * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { 'publishSuccess' } type Successfully published device.
-     * @param { Callback<{ publishId: number }> } callback Indicates the device publish result callback to unregister.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @systemapi this method can be used only by system applications.
-     */
-    off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
-
-    /**
-     * Register a device publish result callback so that the application can be notified when the device publish was failed
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { 'publishFail' } type Failed to publish device.
-     * @param { Callback<{ publishId: number, reason: number }> } callback
-     *          Indicates the device publish result callback to register.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @systemapi this method can be used only by system applications.
-     */
-    on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
-
-    /**
-     * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
-     *
-     * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @since 10
-     * @param { 'publishFail' } type Failed to publish device.
-     * @param { Callback<{ publishId: number, reason: number }> } callback
-     *          Indicates the device publish result callback to unregister.
-     * @throws { BusinessError } 201 - Permission verify failed.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @systemapi this method can be used only by system applications.
-     */
-    off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
   }
 }
 
