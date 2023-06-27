@@ -33,9 +33,9 @@ declare namespace continuationManager {
    * You can implement your own processing logic in this callback to initiate the hop process.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { 'deviceSelected' } type deviceSelected.
-   * @param { number } token Registered token.
-   * @param { Callback<Array<ContinuationResult>> } callback Called when the user selects a device from the device
+   * @param { 'deviceSelected' } type - deviceSelected.
+   * @param { number } token - Registered token.
+   * @param { Callback<Array<ContinuationResult>> } callback - Called when the user selects a device from the device
    *                                                         selection module, returning the device ID,device type,
    *                                                         and device name for developers to use
    * @throws { BusinessError } 201 - Permission denied.
@@ -53,8 +53,8 @@ declare namespace continuationManager {
    * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { 'deviceSelected' } type deviceSelected.
-   * @param { number } token Registered token.
+   * @param { 'deviceSelected' } type - deviceSelected.
+   * @param { number } token - Registered token.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -70,11 +70,11 @@ declare namespace continuationManager {
    * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { 'deviceUnselected' } type deviceUnselected.
-   * @param { number } token Registered token.
-   * @param { Callback<Array<ContinuationResult>> } callback Called when the user disconnects the device from the
-   *                                                         device selection module, returning the device ID,
-   *                                                         device type, and device name for developers to use
+   * @param { 'deviceUnselected' } type - deviceUnselected.
+   * @param { number } token - Registered token.
+   * @param { Callback<Array<ContinuationResult>> } callback - Called when the user disconnects the device from the
+   *                                                           device selection module, returning the device ID,
+   *                                                           device type, and device name for developers to use
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -90,8 +90,8 @@ declare namespace continuationManager {
    * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { 'deviceUnselected' } type deviceUnselected.
-   * @param { number } token Registered token.
+   * @param { 'deviceUnselected' } type - deviceUnselected.
+   * @param { number } token - Registered token.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -106,10 +106,10 @@ declare namespace continuationManager {
    * Called when the user selects a device from the candidate device list.
    * You can implement your own processing logic in this callback to initiate the hop process.
    *
-   * @param { 'deviceConnect' } type deviceConnect.
-   * @param { Callback<ContinuationResult> } callback Called when the user selects a device from the device selection
-   *                                                  module, returning the device ID,device type, and device name for
-   *                                                  developers to use.
+   * @param { 'deviceConnect' } type - deviceConnect.
+   * @param { Callback<ContinuationResult> } callback - Called when the user selects a device from the device selection
+   *                                                    module, returning the device ID,device type, and device name for
+   *                                                    developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -121,10 +121,10 @@ declare namespace continuationManager {
    * Called when the user selects a device from the candidate device list.
    * You can implement your own processing logic in this callback to initiate the hop process.
    *
-   * @param { 'deviceConnect' } type deviceConnect.
-   * @param { Callback<ContinuationResult> } [callback] Called when the user selects a device from the device selection
-   *                                                    module, returning the device ID,device type, and device name for
-   *                                                    developers to use.
+   * @param { 'deviceConnect' } type - deviceConnect.
+   * @param { Callback<ContinuationResult> } [callback] - Called when the user selects a device from the device
+   *                                                      selection module, returning the device ID,device type,
+   *                                                      and device name for developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -136,9 +136,9 @@ declare namespace continuationManager {
    * Called when a device is disconnected from the continuation manager service.
    * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
    *
-   * @param { 'deviceDisconnect' } type deviceDisconnect.
-   * @param { Callback<string> } callback Called when the user disconnects the device from the device selection
-   *                                      module, returning the device ID for developers to use.
+   * @param { 'deviceDisconnect' } type - deviceDisconnect.
+   * @param { Callback<string> } callback - Called when the user disconnects the device from the device selection
+   *                                        module, returning the device ID for developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -150,9 +150,9 @@ declare namespace continuationManager {
    * Called when a device is disconnected from the continuation manager service.
    * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
    *
-   * @param { 'deviceDisconnect' } type deviceDisconnect.
-   * @param { Callback<string> } [callback] Called when the user selects a device from the device selection module,
-   *                                        returning the device ID,device type, and device name for developers to use.
+   * @param { 'deviceDisconnect' } type - deviceDisconnect.
+   * @param { Callback<string> } [callback] - Called when the user selects a device from the device selection module,
+   *                                          returning the device ID,device type, and device name for developers to use.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -164,8 +164,8 @@ declare namespace continuationManager {
    * Registers an ability to be hopped with the continuation manager service and obtains the registration token
    * assigned to the ability.
    *
-   * @param { AsyncCallback<number> } callback The AsyncCallback form returns the token generated after connecting to
-   *                                           the flow management service.
+   * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
+   *                                             the flow management service.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -177,10 +177,10 @@ declare namespace continuationManager {
    * Registers an ability to be hopped with the continuation manager service and obtains the registration token
    * assigned to the ability.
    *
-   * @param { ContinuationExtraParams } options Indicates the {@link ExtraParams} object containing the extra
-   *                                            parameters used to filter the list of available devices.
-   * @param { AsyncCallback<number> } callback The AsyncCallback form returns the token generated after
-   *                                           connecting to the flow management service.
+   * @param { ContinuationExtraParams } options - Indicates the {@link ExtraParams} object containing the extra
+   *                                              parameters used to filter the list of available devices.
+   * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after
+   *                                             connecting to the flow management service.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -192,8 +192,8 @@ declare namespace continuationManager {
    * Registers an ability to be hopped with the continuation manager service and obtains the registration token
    * assigned to the ability.
    *
-   * @param { ContinuationExtraParams } [options] Indicates the {@link ExtraParams} object containing the extra
-   *                                              parameters used to filter the list of available devices.
+   * @param { ContinuationExtraParams } [options] - Indicates the {@link ExtraParams} object containing the extra
+   *                                                parameters used to filter the list of available devices.
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager service
    *                              is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -207,8 +207,8 @@ declare namespace continuationManager {
    * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
    * registration.
    *
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback AsyncCallback returns the interface call result.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -220,7 +220,7 @@ declare namespace continuationManager {
    * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
    * registration.
    *
-   * @param { number } token Indicates the registration token of the ability.
+   * @param { number } token - Indicates the registration token of the ability.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager
    *                            service is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -233,10 +233,10 @@ declare namespace continuationManager {
   /**
    * Updates the connection state of the device where the specified ability is successfully hopped.
    *
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { string } deviceId Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status Indicates the connection state to update.
-   * @param { AsyncCallback<void> } callback AsyncCallback returns the interface call result.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
+   * @param { DeviceConnectState } status - Indicates the connection state to update.
+   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -252,9 +252,9 @@ declare namespace continuationManager {
   /**
    * Updates the connection state of the device where the specified ability is successfully hopped.
    *
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { string } deviceId Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status Indicates the connection state to update.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
+   * @param { DeviceConnectState } status - Indicates the connection state to update.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation
    *                            manager service is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -267,8 +267,8 @@ declare namespace continuationManager {
   /**
    * Start to manage the devices that can be selected for continuation.
    *
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback AsyncCallback returns the interface call result.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -279,10 +279,10 @@ declare namespace continuationManager {
   /**
    * Start to manage the devices that can be selected for continuation.
    *
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } options Indicates the extraParams object containing the extra parameters
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { ContinuationExtraParams } options - Indicates the extraParams object containing the extra parameters
    *                                            used to filter the list of available devices. This parameter is null.
-   * @param { AsyncCallback<void> } callback AsyncCallback returns the interface call result.
+   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -293,9 +293,9 @@ declare namespace continuationManager {
   /**
    * Start to manage the devices that can be selected for continuation.
    *
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } [options] Indicates the extraParams object containing the extra parameters
-   *                                              used to filter the list of available devices. This parameter is null.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { ContinuationExtraParams } [options] - Indicates the extraParams object containing the extra parameters
+   *                                                used to filter the list of available devices. This parameter is null.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
    *                            is connected.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -310,8 +310,8 @@ declare namespace continuationManager {
    * assigned to the ability.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { AsyncCallback<number> } callback The AsyncCallback form returns the token generated after connecting to
-   *                                           the flow management service.
+   * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
+   *                                             the flow management service.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -326,10 +326,10 @@ declare namespace continuationManager {
    * assigned to the ability.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { ContinuationExtraParams } options Indicates the {@link ExtraParams} object containing extra parameters
-   *                                            used to filter the list of available devices.
-   * @param { AsyncCallback<number> } callback The AsyncCallback form returns the token generated after connecting to
-   *                                           flow management service.
+   * @param { ContinuationExtraParams } options - Indicates the {@link ExtraParams} object containing extra parameters
+   *                                              used to filter the list of available devices.
+   * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
+   *                                             flow management service.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -344,8 +344,8 @@ declare namespace continuationManager {
    * assigned to the ability.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { ContinuationExtraParams } [options] Indicates the {@link ExtraParams} object containing the extra parameters
-   *                                            used to filter the list of available devices.
+   * @param { ContinuationExtraParams } [options] - Indicates the {@link ExtraParams} object containing the extra
+   *                                                parameters used to filter the list of available devices.
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager
    *                              service is connected.
    * @throws { BusinessError } 201 - Permission denied.
@@ -362,9 +362,9 @@ declare namespace continuationManager {
    * registration.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback The AsyncCallback form returns token generated after connecting to flow
-   *                                         management service.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { AsyncCallback<void> } callback - The AsyncCallback form returns token generated after connecting to flow
+   *                                           management service.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -379,7 +379,7 @@ declare namespace continuationManager {
    * registration.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token Indicates the registration token of the ability.
+   * @param { number } token - Indicates the registration token of the ability.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -394,10 +394,10 @@ declare namespace continuationManager {
    * Updates the connection state of the device where the specified ability is successfully hopped.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { string } deviceId Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status Indicates the connection state to update.
-   * @param { AsyncCallback<void> } callback AsyncCallback returns the interface call result.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
+   * @param { DeviceConnectState } status - Indicates the connection state to update.
+   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -416,9 +416,9 @@ declare namespace continuationManager {
    * Updates the connection state of the device where the specified ability is successfully hopped.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { string } deviceId Indicates the ID of the device whose connection state is to be updated.
-   * @param { DeviceConnectState } status Indicates the connection state to update.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
+   * @param { DeviceConnectState } status - Indicates the connection state to update.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
    *                            is connected.
    * @throws { BusinessError } 201 - Permission denied.
@@ -434,8 +434,8 @@ declare namespace continuationManager {
    * Start to manage the devices that can be selected for continuation.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { AsyncCallback<void> } callback AsyncCallback returns the interface call result.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -449,10 +449,10 @@ declare namespace continuationManager {
    * Start to manage the devices that can be selected for continuation.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } options Indicates the extraParams object containing the extra parameters
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { ContinuationExtraParams } options - Indicates the extraParams object containing the extra parameters
    *                                            used to filter list of available devices. This parameter can be null.
-   * @param { AsyncCallback<void> } callback AsyncCallback form returns the interface call result.
+   * @param { AsyncCallback<void> } callback - AsyncCallback form returns the interface call result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -470,9 +470,9 @@ declare namespace continuationManager {
    * Start to manage the devices that can be selected for continuation.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { number } token Indicates the registration token of the ability.
-   * @param { ContinuationExtraParams } [options] Indicates extraParams object containing extra parameters used to filter
-   *                                            the list of available devices. This parameter can be null.
+   * @param { number } token - Indicates the registration token of the ability.
+   * @param { ContinuationExtraParams } [options] - Indicates extraParams object containing extra parameters used to
+   *                                                filter the list of available devices. This parameter can be null.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when continuation manager service is connected.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.

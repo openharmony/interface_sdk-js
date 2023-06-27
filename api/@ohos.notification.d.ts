@@ -55,8 +55,8 @@ declare namespace notification {
    * <p>If a notification with the same ID has been published by the current application and has not been deleted,
    * this method will update the notification.
    *
-   * @param { NotificationRequest } request notification request
-   * @param { AsyncCallback<void> } callback callback function
+   * @param { NotificationRequest } request - notification request
+   * @param { AsyncCallback<void> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -69,7 +69,7 @@ declare namespace notification {
    * <p>If a notification with the same ID has been published by the current application and has not been deleted,
    * this method will update the notification.
    *
-   * @param { NotificationRequest } request notification request
+   * @param { NotificationRequest } request - notification request
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
@@ -82,9 +82,9 @@ declare namespace notification {
    * Publishes a notification to the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationRequest } request Publishes a notification.
-   * @param { number } userId of subscriber receiving the notification
-   * @param { AsyncCallback<void> } callback Callback method for publishing notifications.
+   * @param { NotificationRequest } request - Publishes a notification.
+   * @param { number } userId - of subscriber receiving the notification
+   * @param { AsyncCallback<void> } callback - Callback method for publishing notifications.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -97,8 +97,8 @@ declare namespace notification {
    * Publishes a notification to the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationRequest } request Publishes a notification.
-   * @param { number } userId of subscriber receiving the notification
+   * @param { NotificationRequest } request - Publishes a notification.
+   * @param { number } userId - of subscriber receiving the notification
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -111,8 +111,8 @@ declare namespace notification {
   /**
    * Cancel a notification with the specified ID.
    *
-   * @param { number } id of the notification to cancel, which must be unique in the application.
-   * @param { AsyncCallback<void> } callback callback function
+   * @param { number } id - of the notification to cancel, which must be unique in the application.
+   * @param { AsyncCallback<void> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -123,9 +123,9 @@ declare namespace notification {
   /**
    * Cancel a notification with the specified label and ID.
    *
-   * @param { number } id ID of the notification to cancel, which must be unique in the application.
-   * @param { string } label Label of the notification to cancel.
-   * @param { AsyncCallback<void> } callback callback function
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { string } label - Label of the notification to cancel.
+   * @param { AsyncCallback<void> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -136,8 +136,8 @@ declare namespace notification {
   /**
    * Cancel a notification with the specified label and ID.
    *
-   * @param { number } id ID of the notification to cancel, which must be unique in the application.
-   * @param { string } [label] Label of the notification to cancel.
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { string } [label] - Label of the notification to cancel.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
@@ -149,7 +149,7 @@ declare namespace notification {
   /**
    * Cancels all notifications of the current application.
    *
-   * @param { AsyncCallback<void> } callback The specified callback method.
+   * @param { AsyncCallback<void> } callback - The specified callback method.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -172,9 +172,9 @@ declare namespace notification {
    * Creates a notification slot.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSlot } slot Indicates the notification slot to be created, which is set by
-   *                                  {@link NotificationSlot}.This parameter must be specified.
-   * @param { AsyncCallback<void> } callback callback function
+   * @param { NotificationSlot } slot - Indicates the notification slot to be created, which is set by
+   *                                    {@link NotificationSlot}.This parameter must be specified.
+   * @param { AsyncCallback<void> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -187,8 +187,8 @@ declare namespace notification {
    * Creates a notification slot.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSlot } slot Indicates the notification slot to be created, which is set by
-   *                                  {@link NotificationSlot}.This parameter must be specified.
+   * @param { NotificationSlot } slot - Indicates the notification slot to be created, which is set by
+   *                                    {@link NotificationSlot}.This parameter must be specified.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -201,8 +201,8 @@ declare namespace notification {
   /**
    * Adds a slot type.
    *
-   * @param { SlotType } type Slot type to add.
-   * @param { AsyncCallback<void> } callback callback function
+   * @param { SlotType } type - Slot type to add.
+   * @param { AsyncCallback<void> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -213,7 +213,7 @@ declare namespace notification {
   /**
    * Adds a slot type.
    *
-   * @param { SlotType } type Slot type to add.
+   * @param { SlotType } type - Slot type to add.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
@@ -226,9 +226,9 @@ declare namespace notification {
    * Creates a notification slot.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots Indicates the notification slots to be created, which is set by
-   *                                          {@link NotificationSlot}.This parameter must be specified.
-   * @param { AsyncCallback<void> } callback callback function
+   * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by
+   *                                            {@link NotificationSlot}.This parameter must be specified.
+   * @param { AsyncCallback<void> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -241,8 +241,8 @@ declare namespace notification {
    * Creates a notification slot.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots Indicates the notification slots to be created, which is set by
-   *                                          {@link NotificationSlot}.This parameter must be specified.
+   * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by
+   *                                            {@link NotificationSlot}.This parameter must be specified.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -255,8 +255,8 @@ declare namespace notification {
   /**
    * Obtains a notification slot of the specified slot type.
    *
-   * @param { SlotType } slotType Type of the notification slot to obtain.
-   * @param { AsyncCallback<NotificationSlot> } callback callback function
+   * @param { SlotType } slotType - Type of the notification slot to obtain.
+   * @param { AsyncCallback<NotificationSlot> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -267,7 +267,7 @@ declare namespace notification {
   /**
    * Obtains a notification slot of the specified slot type.
    *
-   * @param { SlotType } slotType Type of the notification slot to obtain.
+   * @param { SlotType } slotType - Type of the notification slot to obtain.
    * @returns { Promise<NotificationSlot> } Returns the created {@link NotificationSlot}.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
@@ -279,8 +279,8 @@ declare namespace notification {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    *
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback Returns the result of obtaining all notification
-   *                                                            channels for this application in the form of callback.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - Returns the result of obtaining all notification
+   *                                                              channels for this application in the form of callback.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -302,8 +302,8 @@ declare namespace notification {
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
    *
-   * @param { SlotType } slotType Type of the NotificationSlot to remove.
-   * @param { AsyncCallback<void> } callback callback function
+   * @param { SlotType } slotType - Type of the NotificationSlot to remove.
+   * @param { AsyncCallback<void> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -314,7 +314,7 @@ declare namespace notification {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    *
-   * @param { SlotType } slotType The types of notification channels are currently divided into social communication,
+   * @param { SlotType } slotType - The types of notification channels are currently divided into social communication,
    *                              service reminders, content consulting, and other types
    * @returns { Promise<void> } Returns all notification slots of this application.
    * @syscap SystemCapability.Notification.Notification
@@ -327,7 +327,7 @@ declare namespace notification {
   /**
    * Removes all NotificationSlot objects created by the current application.
    *
-   * @param { AsyncCallback<void> } callback Represents the specified callback method.
+   * @param { AsyncCallback<void> } callback - Represents the specified callback method.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -537,8 +537,8 @@ declare namespace notification {
    * subscribe
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber Notification subscription object.
-   * @param { AsyncCallback<void> } callback Subscription action callback parameters.
+   * @param { NotificationSubscriber } subscriber - Notification subscription object.
+   * @param { AsyncCallback<void> } callback - Subscription action callback parameters.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -551,9 +551,9 @@ declare namespace notification {
    * subscribe
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber Notification subscription object.
-   * @param { NotificationSubscribeInfo } info Notification subscription information.
-   * @param { AsyncCallback<void> } callback Subscription Action Callback Function.
+   * @param { NotificationSubscriber } subscriber - Notification subscription object.
+   * @param { NotificationSubscribeInfo } info - Notification subscription information.
+   * @param { AsyncCallback<void> } callback - Subscription Action Callback Function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -570,8 +570,8 @@ declare namespace notification {
    * subscribe
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber Notification subscription object.
-   * @param { NotificationSubscribeInfo } [info] Notification subscription information.
+   * @param { NotificationSubscriber } subscriber - Notification subscription object.
+   * @param { NotificationSubscribeInfo } [info] - Notification subscription information.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -585,8 +585,8 @@ declare namespace notification {
    * unsubscribe
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber Notification subscription object.
-   * @param { AsyncCallback<void> } callback Unsubscribe Action Callback Function.
+   * @param { NotificationSubscriber } subscriber - Notification subscription object.
+   * @param { AsyncCallback<void> } callback - Unsubscribe Action Callback Function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -599,7 +599,7 @@ declare namespace notification {
    * unsubscribe
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { NotificationSubscriber } subscriber Subscription action callback parameters.
+   * @param { NotificationSubscriber } subscriber - Subscription action callback parameters.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -613,9 +613,9 @@ declare namespace notification {
    * enableNotification
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { boolean } enable Enabling state.
-   * @param { AsyncCallback<void> } callback Set notification enable callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { boolean } enable - Enabling state.
+   * @param { AsyncCallback<void> } callback - Set notification enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -628,8 +628,8 @@ declare namespace notification {
    * enableNotification
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { boolean } enable Enabling state.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { boolean } enable - Enabling state.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -643,8 +643,8 @@ declare namespace notification {
    * isNotificationEnabled
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { AsyncCallback<boolean> } callback Get notification enable callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { AsyncCallback<boolean> } callback - Get notification enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -657,7 +657,7 @@ declare namespace notification {
    * isNotificationEnabled
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
+   * @param { BundleOption } bundle - Specify the package information for the application.
    * @returns { Promise<boolean> } Returns the result of obtaining notification enable status in the form of Promise.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -671,7 +671,7 @@ declare namespace notification {
    * isNotificationEnabled
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback Get notification enable callback function.
+   * @param { AsyncCallback<boolean> } callback - Get notification enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -697,8 +697,8 @@ declare namespace notification {
    * Checks whether this application has permission to publish notifications under the user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId userId
-   * @param { AsyncCallback<boolean> } callback Get notification enable callback function.
+   * @param { number } userId - userId
+   * @param { AsyncCallback<boolean> } callback - Get notification enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -711,7 +711,7 @@ declare namespace notification {
    * Checks whether this application has permission to publish notifications under the user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId userId
+   * @param { number } userId - userId
    * @returns { Promise<boolean> } Returns the result of obtaining notification enable status in the form of Promise.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -725,9 +725,9 @@ declare namespace notification {
    * displayBadge
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { boolean } enable Enabling state.
-   * @param { AsyncCallback<void> } callback Set the corner marker enable callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { boolean } enable - Enabling state.
+   * @param { AsyncCallback<void> } callback - Set the corner marker enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -740,8 +740,8 @@ declare namespace notification {
    * displayBadge
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { boolean } enable Enabling state.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { boolean } enable - Enabling state.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -755,8 +755,8 @@ declare namespace notification {
    * isBadgeDisplayed
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { AsyncCallback<boolean> } callback Set the corner marker enable callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { AsyncCallback<boolean> } callback - Set the corner marker enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -769,7 +769,7 @@ declare namespace notification {
    * isBadgeDisplayed
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
+   * @param { BundleOption } bundle - Specify the package information for the application.
    * @returns { Promise<boolean> } Returns the result of obtaining notification enable status in the form of Promise.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -783,9 +783,9 @@ declare namespace notification {
    * setSlotByBundle
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { NotificationSlot } slot Notification channel.
-   * @param { AsyncCallback<void> } callback Set notification channel callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { NotificationSlot } slot - Notification channel.
+   * @param { AsyncCallback<void> } callback - Set notification channel callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -798,8 +798,8 @@ declare namespace notification {
    * setSlotByBundle
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { NotificationSlot } slot Notification channel.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { NotificationSlot } slot - Notification channel.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -813,8 +813,8 @@ declare namespace notification {
    * getSlotsByBundle
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback Set the corner marker enable callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - Set the corner marker enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -827,7 +827,7 @@ declare namespace notification {
    * getSlotsByBundle
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
+   * @param { BundleOption } bundle - Specify the package information for the application.
    * @returns { Promise<Array<NotificationSlot>> } Returns the notification channel of the specified application in
    * the form of a promise.
    * @syscap SystemCapability.Notification.Notification
@@ -842,8 +842,8 @@ declare namespace notification {
    * getSlotNumByBundle
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { AsyncCallback<number> } callback Set the corner marker enable callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { AsyncCallback<number> } callback - Set the corner marker enable callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -856,7 +856,7 @@ declare namespace notification {
    * getSlotNumByBundle
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
+   * @param { BundleOption } bundle - Specify the package information for the application.
    * @returns { Promise<number> } Returns the number of notification channels for the specified application
    *                              in the form of Promise.
    * @syscap SystemCapability.Notification.Notification
@@ -871,10 +871,10 @@ declare namespace notification {
    * remove
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { NotificationKey } notificationKey Notification Key Value
-   * @param { RemoveReason } reason Reason for notification deletion.
-   * @param { AsyncCallback<void> } callback Delete the specified notification callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { NotificationKey } notificationKey - Notification Key Value
+   * @param { RemoveReason } reason - Reason for notification deletion.
+   * @param { AsyncCallback<void> } callback - Delete the specified notification callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -892,9 +892,9 @@ declare namespace notification {
    * remove
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { NotificationKey } notificationKey Notification Key Value
-   * @param { RemoveReason } reason Reason for notification deletion.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { NotificationKey } notificationKey - Notification Key Value
+   * @param { RemoveReason } reason - Reason for notification deletion.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -908,10 +908,10 @@ declare namespace notification {
    * remove
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode The unique ID of the notification can be obtained through the input parameter
+   * @param { string } hashCode - The unique ID of the notification can be obtained through the input parameter
    * SubscribeCallbackData of the onConsumer callback to obtain the hashCode in its internal NotificationRequest object
-   * @param { RemoveReason } reason Reason for notification deletion.
-   * @param { AsyncCallback<void> } callback Delete the specified notification callback function.
+   * @param { RemoveReason } reason - Reason for notification deletion.
+   * @param { AsyncCallback<void> } callback - Delete the specified notification callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -924,8 +924,8 @@ declare namespace notification {
    * remove
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode Notification unique ID.
-   * @param { RemoveReason } reason Reason for notification deletion.
+   * @param { string } hashCode - Notification unique ID.
+   * @param { RemoveReason } reason - Reason for notification deletion.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -939,8 +939,8 @@ declare namespace notification {
    * removeAll
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { AsyncCallback<void> } callback Delete the specified notification callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { AsyncCallback<void> } callback - Delete the specified notification callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -953,7 +953,7 @@ declare namespace notification {
    * removeAll
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<void> } callback Delete the specified notification callback function.
+   * @param { AsyncCallback<void> } callback - Delete the specified notification callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -966,8 +966,8 @@ declare namespace notification {
    * Remove all notifications under the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId userId
-   * @param { AsyncCallback<void> } callback Delete the specified notification callback function.
+   * @param { number } userId - userId
+   * @param { AsyncCallback<void> } callback - Delete the specified notification callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -980,7 +980,7 @@ declare namespace notification {
    * Remove all notifications under the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId userId
+   * @param { number } userId - userId
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -994,7 +994,7 @@ declare namespace notification {
    * removeAll
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } [bundle] Specify the package information for the application.
+   * @param { BundleOption } [bundle] - Specify the package information for the application.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1009,7 +1009,7 @@ declare namespace notification {
    * call this method.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<Array<NotificationRequest>> } callback Gets the activity notification callback function.
+   * @param { AsyncCallback<Array<NotificationRequest>> } callback - Gets the activity notification callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -1035,7 +1035,7 @@ declare namespace notification {
   /**
    * Obtains the number of all active notifications.
    *
-   * @param { AsyncCallback<number> } callback Callback function to obtain the number of undelete notifications.
+   * @param { AsyncCallback<number> } callback - Callback function to obtain the number of undelete notifications.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -1057,8 +1057,8 @@ declare namespace notification {
   /**
    * Obtains an array of active notifications.
    *
-   * @param { AsyncCallback<Array<NotificationRequest>> } callback Retrieve the callback function for the current
-   *                                                               application notification list.
+   * @param { AsyncCallback<Array<NotificationRequest>> } callback - Retrieve the callback function for the current
+   *                                                                 application notification list.
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
@@ -1080,9 +1080,9 @@ declare namespace notification {
   /**
    * Cancel the notification of a specified group for this application.
    *
-   * @param { string } groupName Notification group name, which needs to be specified through the NotificationRequest
-   *                             object when publishing notifications.
-   * @param { AsyncCallback<void> } callback Cancel the callback function for notifications under the specified group
+   * @param { string } groupName - Notification group name, which needs to be specified through the NotificationRequest
+   *                               object when publishing notifications.
+   * @param { AsyncCallback<void> } callback - Cancel the callback function for notifications under the specified group
    * of this application.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
@@ -1094,7 +1094,7 @@ declare namespace notification {
   /**
    * Cancel the notification of a specified group for this application.
    *
-   * @param { string } groupName Notification group name.
+   * @param { string } groupName - Notification group name.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
@@ -1107,9 +1107,9 @@ declare namespace notification {
    * Delete the notification of a specified group for this application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { string } groupName Notification group name.
-   * @param { AsyncCallback<void> } callback Delete the specified notification callback function.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { string } groupName - Notification group name.
+   * @param { AsyncCallback<void> } callback - Delete the specified notification callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1122,8 +1122,8 @@ declare namespace notification {
    * Delete the notification of a specified group for this application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Specify the package information for the application.
-   * @param { string } groupName Notification group name.
+   * @param { BundleOption } bundle - Specify the package information for the application.
+   * @param { string } groupName - Notification group name.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1137,8 +1137,8 @@ declare namespace notification {
    * Set the Do Not Disturb date.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date Disturbance free time option.
-   * @param { AsyncCallback<void> } callback Set the undisturbed time callback function.
+   * @param { DoNotDisturbDate } date - Disturbance free time option.
+   * @param { AsyncCallback<void> } callback - Set the undisturbed time callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1151,7 +1151,7 @@ declare namespace notification {
    * Set the Do Not Disturb date.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date Disturbance free time option.
+   * @param { DoNotDisturbDate } date - Disturbance free time option.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1165,9 +1165,9 @@ declare namespace notification {
    * Set the Do Not Disturb date under the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date Disturbance free time option.
-   * @param { number } userId userId
-   * @param { AsyncCallback<void> } callback Set the undisturbed time callback function
+   * @param { DoNotDisturbDate } date - Disturbance free time option.
+   * @param { number } userId - userId
+   * @param { AsyncCallback<void> } callback - Set the undisturbed time callback function
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1180,8 +1180,8 @@ declare namespace notification {
    * Set the Do Not Disturb date under the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { DoNotDisturbDate } date Disturbance free time option.
-   * @param { number } userId userId
+   * @param { DoNotDisturbDate } date - Disturbance free time option.
+   * @param { number } userId - userId
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1195,7 +1195,7 @@ declare namespace notification {
    * Obtains the Do Not Disturb date.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<DoNotDisturbDate> } callback Query the undisturbed time callback function.
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - Query the undisturbed time callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1221,8 +1221,8 @@ declare namespace notification {
    * Obtains the Do Not Disturb date.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId userId
-   * @param { AsyncCallback<DoNotDisturbDate> } callback Query the undisturbed time callback function.
+   * @param { number } userId - userId
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - Query the undisturbed time callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1235,7 +1235,7 @@ declare namespace notification {
    * Obtains the Do Not Disturb date.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId
+   * @param { number } userId - userId
    * @returns { Promise<DoNotDisturbDate> } Return in the form of Promise to obtain the queried uninterrupted time.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1249,7 +1249,7 @@ declare namespace notification {
    * Obtains whether to support the Do Not Disturb mode.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback Check if callback function for anti-interference function is supported.
+   * @param { AsyncCallback<boolean> } callback - Check if callback function for anti-interference function is supported.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1275,8 +1275,8 @@ declare namespace notification {
   /**
    * Obtains whether the template is supported by the system.
    *
-   * @param { string } templateName Name of template to be Obtained
-   * @param { AsyncCallback<boolean> } callback callback function
+   * @param { string } templateName - Name of template to be Obtained
+   * @param { AsyncCallback<boolean> } callback - callback function
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1287,7 +1287,7 @@ declare namespace notification {
   /**
    * Obtains whether the template is supported by the system.
    *
-   * @param { string } templateName Name of template to be Obtained
+   * @param { string } templateName - Name of template to be Obtained
    * @returns { Promise<boolean> } The Promise method returns the result of whether the template exists.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
@@ -1299,7 +1299,7 @@ declare namespace notification {
   /**
    * Request permission to send notification.
    *
-   * @param { AsyncCallback<void> } callback Application Request Notification Enable Callback Function.
+   * @param { AsyncCallback<void> } callback - Application Request Notification Enable Callback Function.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1322,8 +1322,8 @@ declare namespace notification {
    * Sets whether the device supports distributed notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable support or not.
-   * @param { AsyncCallback<void> } callback Set whether the device supports callback functions for distributed notifications.
+   * @param { boolean } enable - support or not.
+   * @param { AsyncCallback<void> } callback - Set whether the device supports callback functions for distributed notifications.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1336,7 +1336,7 @@ declare namespace notification {
    * Sets whether the device supports distributed notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { boolean } enable support or not.
+   * @param { boolean } enable - support or not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1349,8 +1349,8 @@ declare namespace notification {
   /**
    * Obtains whether the device supports distributed notification.
    *
-   * @param { AsyncCallback<boolean> } callback Set whether the device supports callback functions for distributed
-   *                                            notifications.
+   * @param { AsyncCallback<boolean> } callback - Set whether the device supports callback functions for distributed
+   *                                              notifications.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    * @deprecated since 9
@@ -1374,9 +1374,9 @@ declare namespace notification {
    * Sets whether an application supports distributed notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle Package information for the application.
-   * @param { boolean } enable support or not.
-   * @param { AsyncCallback<void> } callback Does application support callback functions for distributed notifications.
+   * @param { BundleOption } bundle - Package information for the application.
+   * @param { boolean } enable - support or not.
+   * @param { AsyncCallback<void> } callback - Does application support callback functions for distributed notifications.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1389,8 +1389,8 @@ declare namespace notification {
    * Sets whether an application supports distributed notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle package of application.
-   * @param { boolean } enable support or not.
+   * @param { BundleOption } bundle - package of application.
+   * @param { boolean } enable - support or not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1404,8 +1404,8 @@ declare namespace notification {
    * Obtains whether an application supports distributed notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle package of application.
-   * @param { AsyncCallback<boolean> } callback Query whether callback function for distributed notifications
+   * @param { BundleOption } bundle - package of application.
+   * @param { AsyncCallback<boolean> } callback - Query whether callback function for distributed notifications
    *                                            is supported.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1419,7 +1419,7 @@ declare namespace notification {
    * Obtains whether an application supports distributed notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle package of application.
+   * @param { BundleOption } bundle - package of application.
    * @returns { Promise<boolean> } The Promise method returns the result of whether the specified application supports
    *                               distributed notifications.
    * @syscap SystemCapability.Notification.Notification
@@ -1434,7 +1434,7 @@ declare namespace notification {
    * Obtains the remind modes of the notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<DeviceRemindType> } callback Get notification reminder callback function.
+   * @param { AsyncCallback<DeviceRemindType> } callback - Get notification reminder callback function.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8

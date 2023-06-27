@@ -125,9 +125,9 @@ declare namespace appRecovery {
   /**
    * Enable appRecovery function.
    *
-   * @param { RestartFlag } [restart] The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
-   * @param { SaveOccasionFlag } [saveOccasion] The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
-   * @param { SaveModeFlag } [saveMode] The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
+   * @param { RestartFlag } [restart] - The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
+   * @param { SaveOccasionFlag } [saveOccasion] - The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
+   * @param { SaveModeFlag } [saveMode] - The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -148,7 +148,7 @@ declare namespace appRecovery {
   /**
    * Set the want that will be used when app restart initiated by appRecovery.
    *
-   * @param { Want } want that defines the ability you want to start
+   * @param { Want } want - that defines the ability you want to start
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 10

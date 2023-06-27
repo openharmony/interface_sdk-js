@@ -537,21 +537,7 @@ function resolveCallback(url) {
           !isSystemapi(statement)
         ) {
           ts.visitEachChild(statement, collectAllIdentifier, context);
-          node.statements.forEach((externalStatement) => {
-            let name = '';
-            if (isSystemapi(externalStatement)) {
-              if (ts.isVariableStatement(externalStatement)) {
-                name = externalStatement.declarationList.declarations[0].name.escapedText.toString();
-              } else if (ts.isInterfaceDeclaration(externalStatement)) {
-                name = externalStatement.name.escapedText.toString();
-              } else if (ts.isClassDeclaration(externalStatement)) {
-                name = externalStatement.name.escapedText.toString();
-              } else if (ts.isEnumDeclaration(externalStatement)) {
-                name = externalStatement.name.escapedText.toString();
-              }
-              allReferencesIdentifierSet.delete(name);
-            }
-          });
+          dealExternalStatements(referenceSourceFile);
           allModule[statement.name.text.toString()] = [...allReferencesIdentifierSet];
           allReferencesIdentifierSet.clear();
         }
@@ -560,6 +546,39 @@ function resolveCallback(url) {
       allModule = {};
       return node;
     };
+    function dealExternalStatements(node) {
+      node.statements.forEach((statement) => {
+        let name = '';
+        if (isSystemapi(statement)) {
+          if (ts.isVariableStatement(statement)) {
+            name = variableStatementGetEscapedText(statement);
+          } else if (
+            ts.isInterfaceDeclaration(statement) ||
+            ts.isClassDeclaration(statement) ||
+            ts.isEnumDeclaration(statement)
+          ) {
+            if (statement && statement.name && statement.name.escapedText) {
+              name = statement.name.escapedText.toString();
+            }
+          }
+          allReferencesIdentifierSet.delete(name);
+        }
+      });
+    }
+    function variableStatementGetEscapedText(statement) {
+      let name = '';
+      if (
+        statement &&
+        statement.declarationList &&
+        statement.declarationList.declarations &&
+        statement.declarationList.declarations.length > 0 &&
+        statement.declarationList.declarations[0].name &&
+        statement.declarationList.declarations[0].name.escapedText
+      ) {
+        name = statement.declarationList.declarations[0].name.escapedText.toString();
+      }
+      return name;
+    }
     function collectAllIdentifier(node) {
       if (isSystemapi(node)) {
         return;

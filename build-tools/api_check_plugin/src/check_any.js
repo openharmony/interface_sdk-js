@@ -14,12 +14,12 @@
  */
 
 
-const { requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo } = require('./utils');
+const { requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo, checkVersionNeedCheck } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
 
 function checkAnyInAPI(node, sourcefile, fileName) {
-  if (node.kind === ts.SyntaxKind.AnyKeyword) {
+  if (node.kind === ts.SyntaxKind.AnyKeyword && checkVersionNeedCheck(node)) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.ILLEGAL_ANY, ErrorValueInfo.ILLEGAL_USE_ANY, FileType.API,
       ErrorLevel.LOW);
   }

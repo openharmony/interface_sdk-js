@@ -37,6 +37,7 @@ const etsComponentSet = new Set([
   "DataPanel",
   "DatePicker",
   "Divider",
+  "EffectComponent",
   "Ellipse",
   "Flex",
   "FormComponent",

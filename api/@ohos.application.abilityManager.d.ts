@@ -101,8 +101,8 @@ declare namespace abilityManager {
    * Updates the configuration by modifying the configuration.
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
-   * @param { Configuration } config Indicates the new configuration.
-   * @param { AsyncCallback<void> } callback The specified callback method.
+   * @param { Configuration } config - Indicates the new configuration.
+   * @param { AsyncCallback<void> } callback - The specified callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -115,7 +115,7 @@ declare namespace abilityManager {
    * Updates the configuration by modifying the configuration.
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
-   * @param { Configuration } config Indicates the new configuration.
+   * @param { Configuration } config - Indicates the new configuration.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -142,7 +142,7 @@ declare namespace abilityManager {
    * Get information about running abilities
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback The specified callback method.
+   * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The specified callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8

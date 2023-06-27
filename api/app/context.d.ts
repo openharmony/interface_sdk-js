@@ -55,7 +55,7 @@ export interface Context extends BaseContext {
    * the ability; if in the context of the application, return the
    * root dir of the application.
    *
-   * @param { AsyncCallback<string> } callback Returns the local root directory of the application.
+   * @param { AsyncCallback<string> } callback - Returns the local root directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -68,8 +68,8 @@ export interface Context extends BaseContext {
    * Pid and uid are optional. If you do not pass in pid and uid,
    * it will check your own permission.
    *
-   * @param { string } permission The name of the specified permission.
-   * @param { PermissionOptions } [options] Permission Options.
+   * @param { string } permission - The name of the specified permission.
+   * @param { PermissionOptions } [options] - Permission Options.
    * @returns { Promise<number> } asynchronous callback with {@code 0} if the PID
    *                              and UID have the permission; callback with {@code -1} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -84,9 +84,9 @@ export interface Context extends BaseContext {
    * Pid and uid are optional. If you do not pass in pid and uid,
    * it will check your own permission.
    *
-   * @param { string } permission The name of the specified permission
-   * @param { PermissionOptions } options Permission Options
-   * @param { AsyncCallback<number> } callback Return permission verification result, 0 has permission,
+   * @param { string } permission - The name of the specified permission
+   * @param { PermissionOptions } options - Permission Options
+   * @param { AsyncCallback<number> } callback - Return permission verification result, 0 has permission,
    *                                           -1 has no permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -100,8 +100,8 @@ export interface Context extends BaseContext {
    * Pid and uid are optional. If you do not pass in pid and uid,
    * it will check your own permission.
    *
-   * @param { string } permission The name of the specified permission
-   * @param { AsyncCallback<number> } callback Return permission verification result, 0 has permission,
+   * @param { string } permission - The name of the specified permission
+   * @param { AsyncCallback<number> } callback - Return permission verification result, 0 has permission,
    *                                           -1 has no permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -112,9 +112,9 @@ export interface Context extends BaseContext {
   /**
    * Requests certain permissions from the system.
    *
-   * @param { Array<string> } permissions Indicates the list of permissions to be requested.parameter cannot be null.
-   * @param { number } requestCode Indicates the request code to be passed to the PermissionRequestResult
-   * @param { AsyncCallback<PermissionRequestResult> } resultCallback Return authorization result information.
+   * @param { Array<string> } permissions - Indicates the list of permissions to be requested.parameter cannot be null.
+   * @param { number } requestCode - Indicates the request code to be passed to the PermissionRequestResult
+   * @param { AsyncCallback<PermissionRequestResult> } resultCallback - Return authorization result information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -128,8 +128,8 @@ export interface Context extends BaseContext {
   /**
    * Requests certain permissions from the system.
    *
-   * @param { Array<string> } permissions Indicates the list of permissions to be requested.Parameter cannot be null.
-   * @param { number } requestCode Indicates the request code to be passed to the PermissionRequestResult
+   * @param { Array<string> } permissions - Indicates the list of permissions to be requested.Parameter cannot be null.
+   * @param { number } requestCode - Indicates the request code to be passed to the PermissionRequestResult
    * @returns { Promise<PermissionRequestResult> } Indicates the request code to be passed to PermissionRequestResult.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -140,7 +140,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains information about the current application.
    *
-   * @param { AsyncCallback<ApplicationInfo> } callback Returns information about the current application.
+   * @param { AsyncCallback<ApplicationInfo> } callback - Returns information about the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -160,7 +160,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the bundle name of the current ability.
    *
-   * @param { AsyncCallback<string> } callback Returns the Bundle name of the current capability.
+   * @param { AsyncCallback<string> } callback - Returns the Bundle name of the current capability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -180,8 +180,9 @@ export interface Context extends BaseContext {
   /**
    * Obtains the current display orientation of this ability.
    *
-   * @param { AsyncCallback<bundle.DisplayOrientation> } callback Indicates the realistic direction of the screen.
+   * @param { AsyncCallback<bundle.DisplayOrientation> } callback - Indicates the realistic direction of the screen.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void;
@@ -191,6 +192,7 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<bundle.DisplayOrientation> } Indicates the screen display direction.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   getDisplayOrientation(): Promise<bundle.DisplayOrientation>;
@@ -198,8 +200,9 @@ export interface Context extends BaseContext {
   /**
    * Obtains the absolute path to the application-specific cache directory
    *
-   * @param { AsyncCallback<string> } callback Returns the absolute path of the application's cache directory.
+   * @param { AsyncCallback<string> } callback - Returns the absolute path of the application's cache directory.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 6
    * @deprecated since 7
    */
@@ -210,6 +213,7 @@ export interface Context extends BaseContext {
    *
    * @returns { Promise<string> } Return the cache directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 6
    * @deprecated since 7
    */
@@ -218,9 +222,10 @@ export interface Context extends BaseContext {
   /**
    * Sets the display orientation of the current ability.
    *
-   * @param { bundle.DisplayOrientation } orientation Indicates the new orientation for the current ability.
-   * @param { AsyncCallback<void> } callback Indicates the realistic direction of the screen.
+   * @param { bundle.DisplayOrientation } orientation - Indicates the new orientation for the current ability.
+   * @param { AsyncCallback<void> } callback - Indicates the realistic direction of the screen.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback<void>): void;
@@ -228,9 +233,10 @@ export interface Context extends BaseContext {
   /**
    * Sets the display orientation of the current ability.
    *
-   * @param { bundle.DisplayOrientation } orientation Indicates the new orientation for the current ability.
+   * @param { bundle.DisplayOrientation } orientation - Indicates the new orientation for the current ability.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setDisplayOrientation(orientation: bundle.DisplayOrientation): Promise<void>;
@@ -240,10 +246,11 @@ export interface Context extends BaseContext {
    * ability in the ACTIVE state.
    * The interface can only take effect in API8 and below versions.
    *
-   * @param { boolean } show Specifies whether to show this ability on top of the lock screen. The value true means
-   *                         to show it on the lock screen, and the value false means not.
-   * @param { AsyncCallback<void> } callback Returns the callback result.
+   * @param { boolean } show - Specifies whether to show this ability on top of the lock screen. The value true means
+   *                           to show it on the lock screen, and the value false means not.
+   * @param { AsyncCallback<void> } callback - Returns the callback result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
@@ -255,10 +262,11 @@ export interface Context extends BaseContext {
    * ability in the ACTIVE state.
    * The interface can only take effect in API8 and below versions.
    *
-   * @param { boolean } show Specifies whether to show this ability on top of the lock screen. The value true means to
-   *                         show it on the lock screen, and the value false means not.
+   * @param { boolean } show - Specifies whether to show this ability on top of the lock screen. The value true means to
+   *                           show it on the lock screen, and the value false means not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.window/window.WindowStage#setShowOnLockScreen
@@ -268,10 +276,11 @@ export interface Context extends BaseContext {
   /**
    * Sets whether to wake up the screen when this ability is restored.
    *
-   * @param { boolean } wakeUp Specifies whether to wake up the screen. The value true means to wake it up,
-   *                           and the value false means not.
-   * @param { AsyncCallback<void> } callback Returns the callback result.
+   * @param { boolean } wakeUp - Specifies whether to wake up the screen. The value true means to wake it up,
+   *                             and the value false means not.
+   * @param { AsyncCallback<void> } callback - Returns the callback result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void;
@@ -279,10 +288,11 @@ export interface Context extends BaseContext {
   /**
    * Sets whether to wake up the screen when this ability is restored.
    *
-   * @param { boolean } wakeUp Specifies whether to wake up the screen. The value true means to wake it up, and the
-   *                           value false means not.
+   * @param { boolean } wakeUp - Specifies whether to wake up the screen. The value true means to wake it up, and the
+   *                             value false means not.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    * @since 7
    */
   setWakeUpScreen(wakeUp: boolean): Promise<void>;
@@ -290,7 +300,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains information about the current process, including the process ID and name.
    *
-   * @param { AsyncCallback<ProcessInfo> } callback Return current process information.
+   * @param { AsyncCallback<ProcessInfo> } callback - Return current process information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -310,7 +320,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the ohos.bundle.ElementName object of the current ability.This method is available only to Page abilities.
    *
-   * @param { AsyncCallback<ElementName> } callback Returns the ohos.bundle.ElementName of the current capability.
+   * @param { AsyncCallback<ElementName> } callback - Returns the ohos.bundle.ElementName of the current capability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -330,7 +340,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the name of the current process.
    *
-   * @param { AsyncCallback<string> } callback Return current process name.
+   * @param { AsyncCallback<string> } callback - Return current process name.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -350,7 +360,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the bundle name of the ability that called the current ability.
    *
-   * @param { AsyncCallback<string> } callback Returns the Bundle name of the ability caller.
+   * @param { AsyncCallback<string> } callback - Returns the Bundle name of the ability caller.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -370,7 +380,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the file directory of this application on the internal storage.
    *
-   * @param { AsyncCallback<string> } callback Return the file directory of this application on internal storage.
+   * @param { AsyncCallback<string> } callback - Return the file directory of this application on internal storage.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 6
@@ -390,7 +400,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the cache directory of this application on the internal storage.
    *
-   * @param { AsyncCallback<string> } callback Returns the internal storage directory of the application.
+   * @param { AsyncCallback<string> } callback - Returns the internal storage directory of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 6
@@ -423,7 +433,7 @@ export interface Context extends BaseContext {
    * Obtains the distributed file path for storing ability or application data files.
    * If the distributed file path does not exist, the system will create a path and return the created path.
    *
-   * @param { AsyncCallback<string> } callback Returns the distributed file path of Ability or application.
+   * @param { AsyncCallback<string> } callback - Returns the distributed file path of Ability or application.
    *                                  If the path does not exist,the system will create a path and return the created path.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
@@ -434,7 +444,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the application type.
    *
-   * @param { AsyncCallback<string> } callback Returns the type of the current application.
+   * @param { AsyncCallback<string> } callback - Returns the type of the current application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -454,7 +464,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the ModuleInfo object for this application.
    *
-   * @param { AsyncCallback<HapModuleInfo> } callback Returns the ModuleInfo object of the application.
+   * @param { AsyncCallback<HapModuleInfo> } callback - Returns the ModuleInfo object of the application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -474,7 +484,7 @@ export interface Context extends BaseContext {
   /**
    * Obtains the application version information.
    *
-   * @param { AsyncCallback<AppVersionInfo> } callback Return application version information.
+   * @param { AsyncCallback<AppVersionInfo> } callback - Return application version information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -504,7 +514,7 @@ export interface Context extends BaseContext {
   /**
    * Checks the detailed information of this ability.
    *
-   * @param { AsyncCallback<AbilityInfo> } callback Return the detailed information of the current belonging Ability.
+   * @param { AsyncCallback<AbilityInfo> } callback - Return the detailed information of the current belonging Ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -524,7 +534,7 @@ export interface Context extends BaseContext {
   /**
    * Checks whether the configuration of this ability is changing.
    *
-   * @param { AsyncCallback<boolean> } callback True if the configuration of the capability is being changed, otherwise false.
+   * @param { AsyncCallback<boolean> } callback - True if the configuration of the capability is being changed, otherwise false.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7
@@ -544,7 +554,7 @@ export interface Context extends BaseContext {
   /**
    * Inform the system of the time required for drawing this Page ability.
    *
-   * @param { AsyncCallback<void> } callback Represents the specified callback method.
+   * @param { AsyncCallback<void> } callback - Represents the specified callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 7

@@ -280,6 +280,17 @@ declare interface ListItemOptions {
 interface ListItemInterface {
   /**
    * Called when an interface is used.
+   * @param { ListItemOptions } value the list item options.
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  (value?: ListItemOptions): ListItemAttribute;
+
+  /**
+   * Called when an interface is used.
    * @since 7
    */
   /**
@@ -290,17 +301,6 @@ interface ListItemInterface {
    * @useinstead listItem/ListItemInterface
    */
   (value?: string): ListItemAttribute;
-
-  /**
-   * Called when an interface is used.
-   * @param { ListItemOptions } value the list item options.
-   * @returns { ListItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @crossplatform
-   * @since 10
-   */
-  (value?: ListItemOptions): ListItemAttribute;
 }
 
 /**
