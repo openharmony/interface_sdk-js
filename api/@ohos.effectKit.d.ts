@@ -169,7 +169,7 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
-   * @param {region} Array<number> The region's coordinates.
+   * @param {region} Array<number> At least 4 elements, represents the region's left, top, right, bottom coordinates, its range is [0, 1].
    * @returns Returns the ColorPicker.
    */
   function createColorPicker(source: image.PixelMap, region?: Array<number>): Promise<ColorPicker>;
