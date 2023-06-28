@@ -33,9 +33,9 @@ import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
 /**
  * Defines the console info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
  * @crossplatform
  * @since 10
+ * @form
  */
 export declare class console {
   /**
