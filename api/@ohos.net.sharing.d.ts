@@ -369,9 +369,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { 'sharingStateChange' } type - Indicates Event name.
    * @param { Callback<boolean> } callback - the callback function that returns the status.
-   * @throws { BusinessError } 201 Permission denied.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 Parameter error.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since 9

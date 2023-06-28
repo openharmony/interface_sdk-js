@@ -192,6 +192,15 @@ declare namespace formInfo {
      * @since 9
      */
     customizeData: { [key: string]: [value: string] };
+
+    /**
+     * Obtains whether this form is a dynamic form.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.Form
+     * @since 10
+     */
+    isDynamic: boolean;
   }
 
   /**

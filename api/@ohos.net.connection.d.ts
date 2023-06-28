@@ -481,6 +481,36 @@ declare namespace connection {
   function setAppNet(netHandle: NetHandle): Promise<void>;
 
   /**
+   * Obtains the default {@link HttpProxy} proxy settings.
+   *
+   * If a global proxy is set, the global proxy parameters are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
+   * In other cases, the proxy settings of default network are returned.
+   *
+   * @param { AsyncCallback<HttpProxy> } callback - Returns the default {@link HttpProxy} settings.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
+
+  /**
+   * Obtains the default {@link HttpProxy} proxy settings.
+   *
+   * If a global proxy is set, the global proxy parameters are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
+   * In other cases, the proxy settings of default network are returned.
+   *
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getDefaultHttpProxy(): Promise<HttpProxy>;
+
+  /**
    * Obtains the network independent global {@link HttpProxy} proxy settings.
    * @param { AsyncCallback<HttpProxy> } callback - Returns the proxy settings. For details, see {@link HttpProxy}.
    * @throws { BusinessError } 401 - Parameter error.
@@ -518,7 +548,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use. 
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;

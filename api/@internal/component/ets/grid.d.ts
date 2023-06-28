@@ -385,6 +385,15 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @since 10
    */
   edgeEffect(value: EdgeEffect): GridAttribute;
+
+  /**
+   * Called to setting the nested scroll options.
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { GridAttribute } the attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nestedScroll(value: NestedScrollOptions): GridAttribute
 }
 
 /**

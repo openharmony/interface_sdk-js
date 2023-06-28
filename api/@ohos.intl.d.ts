@@ -690,6 +690,14 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the year.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     year?: string;
 
     /**

@@ -35,9 +35,9 @@ declare namespace formHost {
    * Service no longer keeps the cache information about the form.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the form ID
-   * @param { AsyncCallback<void> } callback Callback function, when the specified card is successfully deleted,
-   *                                         the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Indicates the form ID
+   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully deleted,
+   *                                           the error is undefined,otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -52,7 +52,7 @@ declare namespace formHost {
    * Service no longer keeps the cache information about the form.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the form ID
+   * @param { string } formId - Indicates the form ID
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -69,9 +69,9 @@ declare namespace formHost {
    * the {@code formId}.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the form ID
-   * @param { AsyncCallback<void> } callback Callback function, when the specified card is successfully released,
-   *                                         the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Indicates the form ID
+   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully released,
+   *                                           the error is undefined,otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -87,10 +87,10 @@ declare namespace formHost {
    * the {@code formId}.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the form ID
-   * @param { boolean } isReleaseCache Indicates whether or not release cache
-   * @param { AsyncCallback<void> } callback Callback function, when the specified card is successfully released,
-   *                                         the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Indicates the form ID
+   * @param { boolean } isReleaseCache - Indicates whether or not release cache
+   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully released,
+   *                                           the error is undefined,otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -106,8 +106,8 @@ declare namespace formHost {
    * the {@code formId}.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the form ID
-   * @param { boolean } [isReleaseCache] Indicates whether or not release cache
+   * @param { string } formId - Indicates the form ID
+   * @param { boolean } [isReleaseCache] - Indicates whether or not release cache
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -125,9 +125,9 @@ declare namespace formHost {
    * process being unperceivable by the application.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the ID of the form to update.
-   * @param { AsyncCallback<void> } callback Callback function, when the specified card is successfully requested,
-   *                                         the error is undefined,otherwise it is an error object.
+   * @param { string } formId - Indicates the ID of the form to update.
+   * @param { AsyncCallback<void> } callback - Callback function, when the specified card is successfully requested,
+   *                                           the error is undefined,otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -144,7 +144,7 @@ declare namespace formHost {
    * process being unperceivable by the application.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the ID of the form to update.
+   * @param { string } formId - Indicates the ID of the form to update.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -158,10 +158,10 @@ declare namespace formHost {
    * Converts a specified temporary form that has been obtained by the application into a normal form.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the ID of the temporary form to convert.
-   * @param { AsyncCallback<void> } callback Callback function, when the specified temporary card is successfully
-   *                                         converted to a regular card, the error is undefined, otherwise it is
-   *                                         an error object.
+   * @param { string } formId - Indicates the ID of the temporary form to convert.
+   * @param { AsyncCallback<void> } callback - Callback function, when the specified temporary card is successfully
+   *                                           converted to a regular card, the error is undefined, otherwise it is
+   *                                           an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -174,7 +174,7 @@ declare namespace formHost {
    * Converts a specified temporary form that has been obtained by the application into a normal form.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId Indicates the ID of the temporary form to convert.
+   * @param { string } formId - Indicates the ID of the temporary form to convert.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -190,10 +190,10 @@ declare namespace formHost {
    * the form visibility change event.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made visible.
-   * @param { AsyncCallback<void> } callback Callback function, when the specified temporary card is successfully
-   *                                         converted to a regular card, the error is undefined, otherwise it is
-   *                                         an error object.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
+   * @param { AsyncCallback<void> } callback - Callback function, when the specified temporary card is successfully
+   *                                           converted to a regular card, the error is undefined, otherwise it is
+   *                                           an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -208,7 +208,7 @@ declare namespace formHost {
    * the form visibility change event.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made visible.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -224,10 +224,10 @@ declare namespace formHost {
    * the form visibility change event.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback Callback function, when sending a notification to the card framework to
-   *                                         make the specified card invisible, the error is undefined, otherwise
-   *                                         it is an error object.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
+   * @param { AsyncCallback<void> } callback - Callback function, when sending a notification to the card framework to
+   *                                           make the specified card invisible, the error is undefined, otherwise
+   *                                           it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -242,7 +242,7 @@ declare namespace formHost {
    * the form visibility change event.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made invisible.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -258,10 +258,10 @@ declare namespace formHost {
    * update from service.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback function, when sending a notification to the card framework so that the
-   *                                         specified card can be successfully updated, the error is undefined,
-   *                                         otherwise it is an error object.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
+   * @param { AsyncCallback<void> } callback - function, when sending a notification to the card framework so that the
+   *                                           specified card can be successfully updated, the error is undefined,
+   *                                           otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -276,7 +276,7 @@ declare namespace formHost {
    * update from service.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made invisible.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -292,10 +292,10 @@ declare namespace formHost {
    * new update from service.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback Callback function, when sending a notification to the card framework to
-   *                                         prevent the specified card from being successfully updated, the error
-   *                                         is undefined, otherwise it is error object.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
+   * @param { AsyncCallback<void> } callback - Callback function, when sending a notification to the card framework to
+   *                                           prevent the specified card from being successfully updated, the error
+   *                                           is undefined, otherwise it is error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -310,7 +310,7 @@ declare namespace formHost {
    * new update from service.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the IDs of the forms to be made invisible.
+   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -324,8 +324,8 @@ declare namespace formHost {
    * Checks whether the system is ready.
    * <p>You can use this method to obtain the system is ready.</p>
    *
-   * @param { AsyncCallback<void> } callback Callback function, when checking whether the system is ready for success,
-   *                                         error is undefined,otherwise it is an error object.
+   * @param { AsyncCallback<void> } callback - Callback function, when checking whether the system is ready for success,
+   *                                           error is undefined,otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -351,10 +351,10 @@ declare namespace formHost {
    * Obtains the FormInfo objects provided by all applications on the device.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback Callback function, when obtaining card information
-   *                                                             provided by all applications on the device
-   *                                                             successfully, the error is undefined, otherwise it
-   *                                                             is an error object.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback function, when obtaining card information
+   *                                                               provided by all applications on the device
+   *                                                               successfully, the error is undefined, otherwise it
+   *                                                               is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -380,11 +380,11 @@ declare namespace formHost {
    * Obtains the FormInfo objects provided by a specified application on the device.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName Indicates the bundle name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback Callback function, when card information provided by
-   *                                                             specified application on the device is successfully
-   *                                                             obtained, error is undefined, otherwise it is
-   *                                                             error object.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback function, when card information provided by
+   *                                                               specified application on the device is successfully
+   *                                                               obtained, error is undefined, otherwise it is
+   *                                                               error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -397,12 +397,12 @@ declare namespace formHost {
    * Obtains the FormInfo objects provided by a specified application on the device.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName Indicates the bundle name of the application.
-   * @param { string } moduleName Indicates the module name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback Callback function, when the card information provided
-   *                                                             by the specified application on the device is
-   *                                                             successfully obtained, the error is undefined,
-   *                                                             otherwise it is an error object.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } moduleName - Indicates the module name of the application.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback function, when the card information provided
+   *                                                               by the specified application on the device is
+   *                                                               successfully obtained, the error is undefined,
+   *                                                               otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -419,8 +419,8 @@ declare namespace formHost {
    * Obtains the FormInfo objects provided by a specified application on the device.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName Indicates the bundle name of the application.
-   * @param { string } [moduleName] Indicates the module name of the application.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } [moduleName] - Indicates the module name of the application.
    * @returns { Promise<Array<formInfo.FormInfo>> } Returns the {@link FormInfo}
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -435,11 +435,11 @@ declare namespace formHost {
    * <p>You can use this method to delete invalid forms of the application.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the specify form id.
-   * @param { AsyncCallback<number> } callback Callback function, when deleting invalid cards from the application
-   *                                           program based on the list is successful, error is undefined, and
-   *                                           data is the number of deleted cards; Otherwise,
-   *                                           it is the wrong object.
+   * @param { Array<string> } formIds - Indicates the specify form id.
+   * @param { AsyncCallback<number> } callback - Callback function, when deleting invalid cards from the application
+   *                                             program based on the list is successful, error is undefined, and
+   *                                             data is the number of deleted cards; Otherwise,
+   *                                             it is the wrong object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -453,7 +453,7 @@ declare namespace formHost {
    * <p>You can use this method to delete invalid forms of the application.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the specify form id.
+   * @param { Array<string> } formIds - Indicates the specify form id.
    * @returns { Promise<number> } Returns the number of invalid forms deleted by the Form Manager Service
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -468,11 +468,11 @@ declare namespace formHost {
    * <p>You can use this method to obtains the form state.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want Indicates want of the form.
-   * @param { AsyncCallback<formInfo.FormStateInfo> } callback Callback function, when deleting invalid cards from
-   *                                                           application program based on the list is successful,
-   *                                                           error is undefined, and data is the number of deleted
-   *                                                           cards;Otherwise, it is the wrong object.
+   * @param { Want } want - Indicates want of the form.
+   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - Callback function, when deleting invalid cards from
+   *                                                             application program based on the list is successful,
+   *                                                             error is undefined, and data is the number of deleted
+   *                                                             cards;Otherwise, it is the wrong object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -486,7 +486,7 @@ declare namespace formHost {
    * <p>You can use this method to obtains the form state.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want Indicates want of the form.
+   * @param { Want } want - Indicates want of the form.
    * @returns { Promise<formInfo.FormStateInfo> } Returns form state {@link FormStateInfo}
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -500,8 +500,8 @@ declare namespace formHost {
    * Listens to the event of uninstall form.
    * <p>You can use this method to listen to the event of uninstall form.</p>
    *
-   * @param { 'formUninstall' } type Indicates event type.
-   * @param { Callback<string> } callback Callback function that returns the card identifier.
+   * @param { 'formUninstall' } type - Indicates event type.
+   * @param { Callback<string> } callback - Callback function that returns the card identifier.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -514,11 +514,11 @@ declare namespace formHost {
    * Cancels listening to the event of uninstall form.
    * <p>You can use this method to cancel listening to the event of uninstall form.</p>
    *
-   * @param { 'formUninstall' } type Indicates event type.
-   * @param { Callback<string> } [callback] Callback function that returns the card identifier. By default, it
-   *                                        indicates the cancellation of all registered event callbacks, which
-   *                                        must be consistent with the corresponding
-   *                                        callback for on('formUninstall').
+   * @param { 'formUninstall' } type - Indicates event type.
+   * @param { Callback<string> } [callback] - Callback function that returns the card identifier. By default, it
+   *                                           indicates the cancellation of all registered event callbacks, which
+   *                                           must be consistent with the corresponding
+   *                                           callback for on('formUninstall').
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -532,10 +532,10 @@ declare namespace formHost {
    * <p>You can use this method to notify form visible state.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the specify form id.
-   * @param { boolean } isVisible Indicates whether visible.
-   * @param { AsyncCallback<void> } callback Callback function, when the notification card is visible and successful,
-   *                                         the error is undefined,otherwise it is an error object.
+   * @param { Array<string> } formIds - Indicates the specify form id.
+   * @param { boolean } isVisible - Indicates whether visible.
+   * @param { AsyncCallback<void> } callback - Callback function, when the notification card is visible and successful,
+   *                                           the error is undefined,otherwise it is an error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -549,8 +549,8 @@ declare namespace formHost {
    * <p>You can use this method to notify form visible state.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the specify form id.
-   * @param { boolean } isVisible Indicates whether visible.
+   * @param { Array<string> } formIds - Indicates the specify form id.
+   * @param { boolean } isVisible - Indicates whether visible.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -565,10 +565,10 @@ declare namespace formHost {
    * <p>You can use this method to notify form enable update state.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the specify form id.
-   * @param { boolean } isEnableUpdate Indicates whether enable update.
-   * @param { AsyncCallback<void> } callback Callback function, when the notification card is successfully enabled
-   *                                         for updating status, the error is undefined, otherwise is error object.
+   * @param { Array<string> } formIds - Indicates the specify form id.
+   * @param { boolean } isEnableUpdate - Indicates whether enable update.
+   * @param { AsyncCallback<void> } callback - Callback function, when the notification card is successfully enabled
+   *                                           for updating status, the error is undefined, otherwise is error object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 8
@@ -586,8 +586,8 @@ declare namespace formHost {
    * <p>You can use this method to notify form enable update state.</p>
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds Indicates the specify form id.
-   * @param { boolean } isEnableUpdate Indicates whether enable update.
+   * @param { Array<string> } formIds - Indicates the specify form id.
+   * @param { boolean } isEnableUpdate - Indicates whether enable update.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.Form
    * @systemapi

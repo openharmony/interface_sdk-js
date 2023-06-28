@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./@ohos.base";
+import { connection } from './@ohos.net.connection';
 
 /**
  * Provides interfaces to manage ethernet.
@@ -22,6 +23,12 @@ import { AsyncCallback, Callback } from "./@ohos.base";
  * @since 9
  */
 declare namespace ethernet {
+  /**
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @since 10
+   */
+  type HttpProxy = connection.HttpProxy;
+
   /**
    * Get the specified network interface information.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -266,6 +273,15 @@ declare namespace ethernet {
      * @since 9
      */
     dnsServers: string;
+
+    /**
+     * Indicates the HttpProxy settings, no proxy is to be used as default.
+     * @type {?HttpProxy}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    httpProxy?: HttpProxy;
   }
 
   /**

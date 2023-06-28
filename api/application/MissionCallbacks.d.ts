@@ -27,7 +27,7 @@ export interface MissionCallback {
    * Called by system when mission changed.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the deviceId mission changed.
+   * @param { string } deviceId - Indicates the deviceId mission changed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -38,8 +38,8 @@ export interface MissionCallback {
    * Called by system when snapshot changed.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the deviceId mission changed.
-   * @param { number } mission Indicates the id of destroyed mission.
+   * @param { string } deviceId - Indicates the deviceId mission changed.
+   * @param { number } mission - Indicates the id of destroyed mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -50,8 +50,8 @@ export interface MissionCallback {
    * Called by system when network disconnect.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the deviceId mission changed.
-   * @param { number } state Indicates the state of network
+   * @param { string } deviceId - Indicates the deviceId mission changed.
+   * @param { number } state - Indicates the state of network
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

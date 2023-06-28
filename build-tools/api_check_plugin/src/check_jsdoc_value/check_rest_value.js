@@ -15,7 +15,7 @@
 const fs = require('fs');
 const rules = require('../../code_style_rule.json');
 const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption, ErrorValueInfo,
-  createErrorInfo, OptionalSymbols } = require('../../src/utils');
+  createErrorInfo, OptionalSymbols, parseJsDoc } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
 function checkExtendsValue(tag, node, fileName) {
@@ -140,12 +140,21 @@ function checkThrowsValue(tag, node, fileName, tagIndex) {
   const tagNameValue = tag.name;
   const tagTypeValue = tag.type;
   let errorInfo = '';
-  if (tagTypeValue !== 'BusinessError') {
+  let hasDeprecated = false
+  const comments = parseJsDoc(node).length > 0 ? [parseJsDoc(node).pop()] : [];
+  comments.forEach(comment => {
+    comment.tags.forEach(tag => {
+      if (tag.tag === 'deprecated') {
+        hasDeprecated = true;
+      }
+    })
+  })
+  if (tagTypeValue !== 'BusinessError' && !hasDeprecated) {
     throwsResult.checkResult = false;
     errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE1_THROWS, [tagIndex + 1]);
   }
 
-  if (isNaN(tagNameValue)) {
+  if (isNaN(tagNameValue) && !hasDeprecated) {
     if (errorInfo !== '') {
       errorInfo += '\n';
     }
@@ -245,7 +254,7 @@ function checkTypeValue(tag, node, fileName) {
     checkResult: true,
     errorInfo: '',
   };
-  const tagTypeValue = tag.type;
+  const tagTypeValue = tag.type.replace(/\n|\r|\s/g, '');
   let apiTypeValue = '';
   if (commentNodeWhiteList.includes(node.kind)) {
     if (node.type) {
@@ -258,7 +267,7 @@ function checkTypeValue(tag, node, fileName) {
       }
     }
     apiTypeValue = node.questionToken ? OptionalSymbols.QUERY.concat(apiTypeValue) : apiTypeValue;
-    if (apiTypeValue !== tagTypeValue) {
+    if (apiTypeValue.replace(/\n|\r|\s/g, '') !== tagTypeValue) {
       typeResult.checkResult = false;
       typeResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPE;
     }
@@ -314,7 +323,7 @@ function checkPermissionTag(tag, node, fileName) {
     errorInfo: '',
   };
   const tagValue = tag.name + tag.description;
-  const permissionArr = tagValue.replace(/\s/g, '').replace(/(or|and|\(|\))/g, '$').split('$');
+  const permissionArr = tagValue.replace(/\s|\(|\)/g, '').replace(/(or|and)/g, '$').split('$');
   permissionArr.forEach(permissionStr => {
     if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr) && permissionStr !== 'N/A') ||
       permissionStr === '') {
