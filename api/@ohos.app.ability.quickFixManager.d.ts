@@ -184,7 +184,7 @@ declare namespace quickFixManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - Bundle name wish to revoke quick fix.
-   * @param { AsyncCallback<void> } callback
+   * @param { AsyncCallback<void> } callback - The callback of revokeQuickFix.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

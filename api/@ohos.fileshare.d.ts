@@ -27,6 +27,7 @@ declare namespace fileShare {
   /**
    * Provides grant uri permission for app
    *
+   * @permission ohos.permission.WRITE_MEDIA
    * @param { string } uri uri
    * @param { string } bundleName bundleName
    * @param { wantConstant.Flags } flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
@@ -49,6 +50,7 @@ declare namespace fileShare {
   /**
    * Provides grant uri permission for app
    *
+   * @permission ohos.permission.WRITE_MEDIA
    * @param { string } uri uri
    * @param { string } bundleName bundleName
    * @param { wantConstant.Flags } flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION

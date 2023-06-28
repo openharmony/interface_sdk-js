@@ -318,6 +318,7 @@
       "SystemCapability.Request.FileTransferAgent",
       "SystemCapability.ResourceSchedule.DeviceStandby",
       "SystemCapability.AI.MindSporeLite",
+      "SystemCapability.Print.PrintFramework",
       "SystemCapability.Driver.ExternalDevice"
     ]
   },

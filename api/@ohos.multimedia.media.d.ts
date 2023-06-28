@@ -476,7 +476,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     audioEffectMode ?: audio.AudioEffectMode;
+    audioEffectMode ?: audio.AudioEffectMode;
 
     /**
      * Current playback position.
