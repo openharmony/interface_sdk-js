@@ -14,6 +14,7 @@
             "ability_component.d.ts",
             "animator.d.ts",
             "calendar.d.ts",
+            "effect_component.d.ts",
             "form_component.d.ts",
             "plugin_component.d.ts",
             "remote_window.d.ts",
