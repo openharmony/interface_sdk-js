@@ -14,8 +14,8 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
-import { LocalStorage } from 'StateManagement';
-import Want from './@ohos.app.ability.Want';
+import type { LocalStorage } from 'StateManagement';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * The class of UI extension ability.
@@ -26,53 +26,53 @@ import Want from './@ohos.app.ability.Want';
  * @since 10
  */
 export default class UIExtensionAbility extends ExtensionAbility {
-    /**
-     * Called back when an UI extension is started for initialization.
-     *
-     * @param { Want } want - Indicates the want info of the created UI extension.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    onCreate(want: Want): void;
+  /**
+   * Called back when an UI extension is started for initialization.
+   *
+   * @param { Want } want - Indicates the want info of the created UI extension.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onCreate(want: Want): void;
 
-    /**
-     * Called back when an UI extension need load content.
-     *
-     * @param { string } path - Path of the page to which the content will be loaded
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    onLoadContent(path: string, storage: LocalStorage): void;
+  /**
+   * Called back when an UI extension need load content.
+   *
+   * @param { string } path - Path of the page to which the content will be loaded
+   * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onLoadContent(path: string, storage: LocalStorage): void;
 
-    /**
-     * Called back when the state of an UI extension changes to foreground.
-     *
-     * @param { Want } want - Indicates the want info of the UI extension.
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
-     * @since 10
-     */
-    onForeground(want: Want): void;
+  /**
+   * Called back when the state of an UI extension changes to foreground.
+   *
+   * @param { Want } want - Indicates the want info of the UI extension.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  onForeground(want: Want): void;
 
-    /**
-     * Called back when the state of an UI extension changes to background.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
-     * @since 10
-     */
-    onBackground(): void;
+  /**
+   * Called back when the state of an UI extension changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  onBackground(): void;
 
-    /**
-     * Called back before an UI extension is destroyed.
-     *
-     * @returns { void | Promise<void> } the promise returned by the function.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    onDestroy(): void | Promise<void>;
+  /**
+   * Called back before an UI extension is destroyed.
+   *
+   * @returns { void | Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onDestroy(): void | Promise<void>;
 }
