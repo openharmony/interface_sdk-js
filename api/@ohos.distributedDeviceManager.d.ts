@@ -452,7 +452,7 @@ declare namespace distributedDeviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 10
      */
-      on(type: 'replyResult', callback: Callback<{ param: string }>): void;
+    on(type: 'replyResult', callback: Callback<{ param: string }>): void;
 
     /**
       * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
@@ -467,7 +467,7 @@ declare namespace distributedDeviceManager {
       * @systemapi this method can be used only by system applications.
       * @since 10
       */
-      off(type: 'replyResult', callback?: Callback<{ param: string }>): void;
+    off(type: 'replyResult', callback?: Callback<{ param: string }>): void;
   }
 }
 
