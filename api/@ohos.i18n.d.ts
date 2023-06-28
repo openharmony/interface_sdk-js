@@ -1710,14 +1710,14 @@ declare namespace i18n {
    */
   export interface LocaleItem {
     /**
-     * language or region code.
+     * language or region id.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    code: string;
+    id: string;
 
     /**
      * The suggestion type of the language or region.
@@ -1759,7 +1759,7 @@ declare namespace i18n {
    */
   export interface TimeZoneCityItem {
     /**
-     * Time zone code.
+     * Time zone id.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -1769,7 +1769,7 @@ declare namespace i18n {
     zoneId: string;
 
     /**
-     * City code.
+     * City id.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
