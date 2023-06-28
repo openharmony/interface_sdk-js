@@ -303,8 +303,8 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
-     * @param action user Operation Actions.
-     * @param params indicates the input param of the user.
+     * @param action The reply action of user operation.
+     * @param params Indicates the input param of the user.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter error.
