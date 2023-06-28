@@ -20,7 +20,6 @@ import { Context } from './app/context';
  * @namespace camera
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @since 10
- * @name camera
  */
 declare namespace camera {
   /**
