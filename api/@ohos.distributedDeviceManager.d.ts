@@ -59,7 +59,7 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device status of the distributed device.
+   * The status of the bearby devices.
    * @enum { DeviceStatusChange }
    * @since 10
    * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -85,7 +85,7 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Device bind parameter. Function input of the interface {@link bindDevice}.
+   * Device bind parameter. The input parameter of the function {@link bindTarget}.
    * @interface BindParam
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10
@@ -99,6 +99,10 @@ declare namespace distributedDeviceManager {
 
     /**
      * Extra information.
+     * Such as:
+     * targetPkgName - The name of binding target.
+     * appName - The name of application.
+     * appOperation - The operation of application.
      * @since 10
      */
     extraInfo: { [key: string]: Object };
@@ -259,6 +263,7 @@ declare namespace distributedDeviceManager {
      * Stop discovering target.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @since 10
      * @param subscribeId service subscribe id
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -294,18 +299,18 @@ declare namespace distributedDeviceManager {
     unbindTarget(deviceId: string): void;
 
     /**
-     * Set user Operation from devicemanager sea, this interface can only be used by devicemanager Sea.
+     * The reply of ui operation from pin-code window, this interface can only be used by pin-code-hap of devicemanager.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @since 10
-     * @param operateAction user Operation Actions.
+     * @param action user Operation Actions.
      * @param params indicates the input param of the user.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
-    setUserOperation(operateAction: number, params: string): void;
+    replyUiAction(action: number, params: string): void;
 
     /**
      * Register a device status callback so that the application can be notified upon device status changes based on
@@ -433,6 +438,36 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 401 - Input parameter error.
      */
     off(type: 'serviceDie', callback?: () => void): void;
+
+    /**
+     * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
+     * changes.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { 'replyResult' } type Ui reply result to register.
+     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+      on(type: 'replyResult', callback: Callback<{ param: string }>): void;
+
+    /**
+      * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
+      *ui state change
+      *
+      * @permission ohos.permission.ACCESS_SERVICE_DM
+      * @param { 'replyResult' } type Ui reply result to unregister.
+      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
+      * @throws { BusinessError } 401 - Input parameter error.
+      * @throws { BusinessError } 202 - The caller is not a system application. 
+      * @syscap SystemCapability.DistributedHardware.DeviceManager
+      * @systemapi this method can be used only by system applications.
+      * @since 10
+      */
+      off(type: 'replyResult', callback?: Callback<{ param: string }>): void;
   }
 }
 
