@@ -59,7 +59,7 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * The status of the bearby devices.
+   * The status of the nearby devices.
    * @enum { DeviceStatusChange }
    * @since 10
    * @syscap SystemCapability.DistributedHardware.DeviceManager
