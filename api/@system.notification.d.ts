@@ -93,7 +93,7 @@ export default class Notification {
   /**
    * Displays the notification.
    *
-   * @param { ShowNotificationOptions } [options] Options.
+   * @param { ShowNotificationOptions } [options] - Options.
    * @syscap SystemCapability.Notification.Notification
    * @since 3
    */

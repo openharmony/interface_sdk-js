@@ -397,6 +397,14 @@ declare namespace bundleManager {
     PRINT = 15,
 
     /**
+     * Indicates extension info with type of push
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    PUSH = 17,
+
+    /**
      * Indicates extension info with type of driver
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -896,7 +904,7 @@ declare namespace bundleManager {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -911,7 +919,7 @@ declare namespace bundleManager {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
@@ -928,7 +936,7 @@ declare namespace bundleManager {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
@@ -945,7 +953,7 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -960,7 +968,7 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
@@ -978,7 +986,7 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.

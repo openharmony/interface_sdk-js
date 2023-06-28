@@ -18,13 +18,12 @@
  * a larger contiguous memory area is automatically allocated, all the elements are copied to the new memory area,
  * and the current memory area is reclaimed.
  *
- * @namespace Vector
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  * @deprecated since 9
  * @useinstead ohos.util.ArrayList
  */
-declare class Vector<T>{
+declare class Vector<T> {
   /**
    * A constructor used to create a Vector object.
    *
@@ -201,7 +200,7 @@ declare class Vector<T>{
   /**
    * Replaces each element of this vector with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, vector?: Vector<T>) => T } callbackFn - callbackFn
+   * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to four arguments.The function to be called
    * for each element in the vector,Returns the result of an operation
    * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
@@ -214,7 +213,7 @@ declare class Vector<T>{
   /**
    * Executes a provided function once for each value in the vector object.
    *
-   * @param { (value: T, index?: number, vector?: Vector<T>) => void } callbackFn - callbackFn
+   * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to four arguments.The function to be
    * called for each element in the vector
    * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
@@ -228,7 +227,7 @@ declare class Vector<T>{
    * Sorts this vector according to the order induced by the specified comparator,without comparator
    * this parameter, it will default to ASCII sorting
    *
-   * @param { (firstValue: T, secondValue: T) => number } comparator - comparator comparator
+   * @param { function } comparator - comparator comparator
    * (Optional) A function that accepts up to two arguments.Specifies the sort order.
    * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an vector sorted
    * in ascending order;If it returns secondValue minus firstValue, it returns an vector sorted in descending order;

@@ -317,7 +317,8 @@
       "SystemCapability.Msdp.DeviceStatus.Cooperate",
       "SystemCapability.Request.FileTransferAgent",
       "SystemCapability.ResourceSchedule.DeviceStandby",
-      "SystemCapability.AI.MindSporeLite"
+      "SystemCapability.AI.MindSporeLite",
+      "SystemCapability.Print.PrintFramework"
     ]
   },
   "administrators": [
@@ -327,5 +328,6 @@
     {
       "user": "8046261"
     }
-  ]
+  ],
+  "ciId":"7387629"
 }

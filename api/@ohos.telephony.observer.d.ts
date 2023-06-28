@@ -411,6 +411,39 @@ declare namespace observer {
   function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
 
   /**
+   * Receives an ICC account change. This callback is invoked when the ICC account updates
+   * and the observer is added to monitor the updates.
+   *
+   * @param { 'iccAccountInfoChange' } type - iccAccountInfoChange
+   * @param { Callback<void> } callback - including state Indicates the ICC account information,
+   * and reason Indicates the cause of the change.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 10
+   */
+  function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
+
+  /**
+   * Cancel to receive an ICC account change.
+   *
+   * @param { 'iccAccountInfoChange' } type - iccAccountInfoChange
+   * @param { Callback<void> } callback - including state Indicates the ICC account information,
+   * and reason Indicates the cause of the change.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 10
+   */
+  function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
+
+  /**
    * Indicates SIM card type and status.
    *
    * @interface SimStateData

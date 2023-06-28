@@ -414,6 +414,50 @@ declare namespace deviceInfo {
    */
   const udid: string;
 
+  /**
+   * Obtains the Distribution OS name.
+   *
+   * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS name.
+   * distributionOsName will return the ISV OS name
+   * If ISV not specified, it will return an empty string
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 10
+   */
+  const distributionOSName: string;
+
+  /**
+   * Obtains the Distribution OS version.
+   *
+   * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS version.
+   * distributionOSVersion will return the ISV OS version
+   * If ISV not specified, it will return the same value as osFullName
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 10
+   */
+  const distributionOSVersion: string;
+
+  /**
+   * Obtains the Distribution OS version.
+   *
+   * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api version.
+   * distributionOSVersion will return the ISV OS api version
+   * If ISV not specified, it will return the same value as sdkApiVersion
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 10
+   */
+  const distributionOSApiVersion: number;
+
+  /**
+   * Obtains the Distribution OS release type.
+   *
+   * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS release type.
+   * distributionOSVersion will return the ISV OS release type
+   * If ISV not specified, it will return the same value as osReleaseType
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 10
+   */
+  const distributionOSReleaseType: string;
+
 }
 
 export default deviceInfo;
