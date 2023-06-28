@@ -32,7 +32,7 @@ declare namespace config {
    * @systemapi
    * @since 10
    */
-  let audioMono: Config<boolean>;
+  const audioMono: Config<boolean>;
   /**
    * Indicates the configuration of audio balance.
    *
@@ -40,7 +40,7 @@ declare namespace config {
    * @systemapi
    * @since 10
    */
-  let audioBalance: Config<number>;
+  const audioBalance: Config<number>;
   /**
    * Indicates the configuration of high-contrast text.
    *
