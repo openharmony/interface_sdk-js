@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
-import connection from "./@ohos.net.connection";
-import Context from "./application/Context";
+import type { AsyncCallback, Callback } from "./@ohos.base";
+import type connection from "./@ohos.net.connection";
+import type Context from "./application/Context";
 
 /**
  * Provides interfaces to discover DNS based services on a local network over Multicast DNS.

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from "./@ohos.base";
+import type { AsyncCallback, ErrorCallback } from "./@ohos.base";
 
 /**
  * Provides WebSocket APIs.
