@@ -1870,7 +1870,7 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    static getTimeZoneCityInfoArray(): Array<TimeZoneCityItem>;
+    static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
   }
 }
 export default i18n;
