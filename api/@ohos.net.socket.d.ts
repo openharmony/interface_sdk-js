@@ -91,6 +91,14 @@ declare namespace socket {
   function constructTLSSocketInstance(): TLSSocket;
 
   /**
+   * Creates a TCPSocketServer object.
+   * @returns { TCPSocketServer } the TCPSocketServer of the constructTCPSocketServerInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 10
+   */
+  function constructTCPSocketServerInstance(): TCPSocketServer;
+
+  /**
    * Defines the parameters for sending data over the UDPSocket connection.
    * @interface UDPSendOptions
    * @syscap SystemCapability.Communication.NetStack
@@ -2263,6 +2271,295 @@ declare namespace socket {
      * @since 10
      */
     TLSv13 = "TLSv1.3"
+  }
+
+  /**
+   * Defines the connection of the TCPSocket client and server.
+   * @interface TCPSocketConnection
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 10
+   */
+  export interface TCPSocketConnection {
+    /**
+     * The id of a client connects to the TCPSocketServer.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    clientId: number;
+
+    /**
+     * Sends data over a TCPSocketServer connection to client.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
+     * @param { AsyncCallback<void> } callback - The callback of send.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sends data over a TCPSocketServer connection to client.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPSendOptions } options - Parameters for sending data {@link TCPSendOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    send(options: TCPSendOptions): Promise<void>;
+
+    /**
+     * Closes a TCPSocket client connection.
+     * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<void> } callback - The callback of close.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    close(callback: AsyncCallback<void>): void;
+
+    /**
+     * Closes a TCPSocket client connection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    close(): Promise<void>;
+
+    /**
+     * Obtains the peer address of a TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<NetAddress> } callback - The callback of getRemoteAddress.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
+
+    /**
+     * Obtains the peer address of a TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getRemoteAddress(): Promise<NetAddress>;
+
+    /**
+     * Listens for message receiving events of the TCPSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+
+    /**
+     * Cancels listening for message receiving events of the TCPSocketConnection.
+     * @param { 'message' } type - Indicates Event name.
+     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
+
+    /**
+     * Listens for close events of the TCPSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'close', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for close events of the TCPSocketConnection.
+     * @param { 'close' } type - Indicates Event name.
+     * @param { Callback<void> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'close', callback?: Callback<void>): void;
+
+    /**
+     * Listens for error events of the TCPSocketConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the TCPSocketConnection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Defines a TCPSocket server connection.
+   * @interface TCPSocketServer
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 10
+   */
+  export interface TCPSocketServer {
+    /**
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } address - Network address information {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of listen.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    listen(address: NetAddress, callback: AsyncCallback<void>): void;
+
+    /** 
+     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a TCPSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * for accept processing and uses poll multiplex to process client connections.</p>
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } address - Network address information {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    listen(address: NetAddress): Promise<void>;
+
+    /**
+     * Obtains the status of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getState(callback: AsyncCallback<SocketStateBase>): void;
+
+    /**
+     * Obtains the status of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<SocketStateBase> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    getState(): Promise<SocketStateBase>;
+
+    /**
+     * Sets other attributes of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets other attributes of the TCPSocketServer connection.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPExtraOptions } options - Parameters of the attributes {@link TCPExtraOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    setExtraOptions(options: TCPExtraOptions): Promise<void>;
+
+    /**
+     * Listens for connect events of the TCPSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TCPSocketConnection> } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'connect', callback: Callback<TCPSocketConnection>): void;
+
+    /**
+     * Cancels listening for connect events of the TCPSocketServer connection.
+     * @param { 'connect' } type - Indicates Event name.
+     * @param { Callback<TCPSocketConnection> } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'connect', callback?: Callback<TCPSocketConnection>): void;
+
+    /**
+     * Listens for error events of the TCPSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of on.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the TCPSocketServer connection.
+     * @param { 'error' } type - Indicates Event name.
+     * @param { ErrorCallback } callback - The callback of off.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 }
 

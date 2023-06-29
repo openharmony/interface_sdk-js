@@ -321,6 +321,12 @@ const ErrorValueInfo = {
   ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] [$$] tag is redundant. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL: 'the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
   ERROR_USE_INTERFACE: 'the validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
+  ERROR_EVENT_NAME_STRING: 'The event name should be string.',
+  ERROR_EVENT_NAME_NULL: 'The event name cannot be Null value.',
+  ERROR_EVENT_NAME_SMALL_HUMP: 'The event name should be named by small hump. (Received [\'$$\'])',
+  ERROR_EVENT_CALLBACK_OPTIONAL: 'The callback parameter of off function should be optional.',
+  ERROR_EVENT_CALLBACK_MISSING: 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
+  ERROR_EVENT_ON_AND_OFF_PAIR: 'The on and off event subscription methods do not appear in pair.',
   ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API'
 };
 exports.ErrorValueInfo = ErrorValueInfo;
