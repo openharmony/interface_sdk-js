@@ -16,6 +16,7 @@
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback } from './@ohos.base';
+import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import LocalStorage from 'StateManagement';
 import BaseContext from './application/BaseContext';
@@ -1079,6 +1080,27 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     off(type: 'keyDown' | 'keyUp', callback?: (event: KeyEvent) => boolean): void;
+
+    /**
+     * Subscribe key event.
+     *
+     * @param { 'keyEvent' } type - indicates the type of subscribe event.
+     * @param { function } callback - indicates the callback function of on('keyEvent').
+     *     If the key is processed by event subscriber, callback should be return true, else return false.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void;
+
+    /**
+     * Unsubscribe key event.
+     *
+     * @param { 'keyEvent' } type - indicates the type of unsubscribe event.
+     * @param { function } [callback] - optional, indicates the callback function of off('keyEvent').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'keyEvent', callback?: (event: InputKeyEvent) => boolean): void;
 
     /**
      * Subscribe cursor context change
