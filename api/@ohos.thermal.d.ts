@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,6 +29,7 @@ declare namespace thermal {
   /**
    * Enumerates the {@link ThermalLevel} types.
    *
+   * @enum {number}
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8
    */
@@ -37,18 +38,21 @@ declare namespace thermal {
      * The device is cool, and services are not restricted.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 8
      */
     COOL = 0,
     /**
      * The device is operational but is not cool. You need to pay attention to its heating.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 8
      */
     NORMAL = 1,
     /**
      * The device is warm. You need to stop or delay some imperceptible services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 8
      */
     WARM = 2,
     /**
@@ -56,6 +60,7 @@ declare namespace thermal {
      * or reduce the load of other services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 8
      */
     HOT = 3,
     /**
@@ -63,6 +68,7 @@ declare namespace thermal {
      * or reduce the load of major services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 8
      */
     OVERHEATED = 4,
     /**
@@ -70,6 +76,7 @@ declare namespace thermal {
      * all imperceptible services and downgrade major services to the maximum extent.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 8
      */
     WARNING = 5,
     /**
@@ -77,6 +84,7 @@ declare namespace thermal {
      * for the emergency help purposes.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 8
      */
     EMERGENCY = 6
   }
@@ -84,12 +92,11 @@ declare namespace thermal {
   /**
    * Subscribes to callbacks of thermal level changes.
    *
-   * @param callback Callback of thermal level changes.
-   * @returns Returns the thermal level.
+   * @param { AsyncCallback<ThermalLevel> } callback Callback of thermal level changes. Returns the thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link thermal#registerThermalLevelCallback }
+   * @useinstead thermal#registerThermalLevelCallback
    */
   function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
 
@@ -107,11 +114,11 @@ declare namespace thermal {
   /**
    * Unsubscribes from the callbacks of thermal level changes.
    *
-   * @param callback Callback of thermal level changes.
+   * @param { AsyncCallback<void> } callback Callback of thermal level changes.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link thermal#unregisterThermalLevelCallback }
+   * @useinstead thermal#unregisterThermalLevelCallback
    */
   function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
 
@@ -129,11 +136,11 @@ declare namespace thermal {
   /**
    * Obtains the current thermal level.
    *
-   * @returns Returns the thermal level.
+   * @returns { ThermalLevel } Returns the thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8
    * @deprecated since 9
-   * @useinstead { @link thermal#getLevel }
+   * @useinstead thermal#getLevel
    */
   function getThermalLevel(): ThermalLevel;
 
