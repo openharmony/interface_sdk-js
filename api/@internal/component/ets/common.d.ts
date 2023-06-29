@@ -1290,6 +1290,28 @@ declare interface RotateOptions {
   centerY?: number | string;
 
   /**
+   * The param of center point of z.
+   * @form
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default 0
+   * @crossplatform
+   * @since 10
+   */
+  centerZ?: number;
+
+  /**
+   * The param of camera distance, value range (1, ∞).
+   * @type { ?number }
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default 1.0
+   * @crossplatform
+   * @since 10
+   */
+  perspective?: number;
+
+  /**
    * The param of angle.
    * @since 7
    */
