@@ -439,12 +439,12 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
- * Defining Recycle ClassDecorator.
+ * Defining Reusable ClassDecorator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare const Recycle: ClassDecorator;
+declare const Reusable: ClassDecorator;
 
 /**
  * Get context.
@@ -3215,6 +3215,12 @@ declare interface DragEvent {
 }
 
 /**
+ * Import the IntentionCode type object for IntentionCode.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').IntentionCode;
+/**
  * KeyEvent object description:
  * @since 7
  */
@@ -3313,6 +3319,15 @@ declare interface KeyEvent {
    * @since 10
    */
   stopPropagation?: () => void;
+
+  /**
+   * Intention code of a key or modifier keys.
+   * @type { IntentionCode }
+   * @default IntentionCode.INTENTION_UNKNOWN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  intentionCode: IntentionCode;
 }
 
 /**
@@ -5818,6 +5833,15 @@ declare class CommonMethod<T> {
    * @since 10
    */
   obscured(reasons: Array<ObscuredReasons>): T;
+
+  /**
+   * Reuse id is used for identify the reuse type for each custom node.
+   * @param { string } id - The id for reusable custom node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  reuseId(id: string)
 }
 
 /**
@@ -6453,13 +6477,13 @@ declare class CustomComponent extends CommonAttribute {
   aboutToDisappear?(): void;
 
   /**
-   * onRecycle Method
+   * aboutToReuse Method
    * @param {{ [key: string]: unknown }} params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onRecycle?(params: { [key: string]: unknown }): void;
+  aboutToReuse?(params: { [key: string]: unknown }): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
