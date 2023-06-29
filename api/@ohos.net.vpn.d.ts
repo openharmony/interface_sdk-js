@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
-import connection from "./@ohos.net.connection";
-import AbilityContext from "./application/UIAbilityContext";
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type connection from './@ohos.net.connection';
+import type AbilityContext from './application/UIAbilityContext';
  
 /**
  * Provides VPN related interfaces.
@@ -40,6 +40,7 @@ declare namespace vpn {
    * Defines a VPN connection.
    * @interface VpnConnection
    * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface VpnConnection {
@@ -93,7 +94,7 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203004 - Invalid socket file descriptor.
+     * @throws { BusinessError } 2203003 - Invalid socket file descriptor.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -112,7 +113,7 @@ declare namespace vpn {
      * @throws { BusinessError } 2200001 - Invalid parameter value.
      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
      * @throws { BusinessError } 2200003 - System internal error.
-     * @throws { BusinessError } 2203004 - Invalid socket file descriptor.
+     * @throws { BusinessError } 2203003 - Invalid socket file descriptor.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -154,6 +155,7 @@ declare namespace vpn {
    * Define configuration of the VPN network.
    * @interface VpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface VpnConfig {
@@ -209,7 +211,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    isAcceptIPv4?: boolean;
+    isIPv4Accepted?: boolean;
  
     /**
      * Whether ipv6 is supported. The default value is false.
@@ -218,7 +220,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    isAcceptIPv6?: boolean;
+    isIPv6Accepted?: boolean;
  
     /**
      * Whether to use the built-in VPN. The default value is false.
@@ -236,25 +238,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    isBlock?: boolean;
- 
-    /**
-     * Whether the VPN network is metered. The default value is false.
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetManager.Vpn
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    isMetered?: boolean;
- 
-    /**
-     * Whether allows all apps to bypass this VPN network. The default value is false.
-     * @type {?boolean}
-     * @syscap SystemCapability.Communication.NetManager.Vpn
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    isAcceptBypass?: boolean;
+    isBlocking?: boolean;
  
     /**
      * The array of trustlist for the VPN network. The string indicates package name.
