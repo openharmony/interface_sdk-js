@@ -509,7 +509,13 @@ declare enum ProtectedResourceType {
    * The MidiSysex resource.
    * @since 9
    */
-  MidiSysex = "TYPE_MIDI_SYSEX"
+  MidiSysex = 'TYPE_MIDI_SYSEX',
+
+  /**
+   * The video capture resource, such as camera.
+   * @since 10
+   */
+  VIDEO_CAPTURE = 'TYPE_VIDEO_CAPTURE'
 }
 
 /**

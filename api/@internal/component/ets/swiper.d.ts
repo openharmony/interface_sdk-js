@@ -303,6 +303,72 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
 }
 
 /**
+ * Arrow object.
+ * @interface arrow style
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ArrowStyle {
+  /**
+   * Is show the arrow background or not.
+   * @default false
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  isShowBackground?: boolean;
+
+  /**
+   * When the indicator show, set the arrow position is side of the indicator or in the middle of content area.
+   * The arrow is displayed on side of the indicator, if the value is false.
+   * @default false
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  isSidebarMiddle?: boolean;
+
+  /**
+   * The arrow background size.
+   * The size of the arrow is three-quarters of the background size, when the background is displayed.
+   * @default 24vp
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  backgroundSize?: Length;
+
+  /**
+   * The arrow background background color.
+   * @default #19182431
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * The arrow size.
+   * The arrow size can be set, when the background is not displayed.
+   * The size of the arrow is three-quarters of the background size, when the background is displayed.
+   * @default 18vp
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  arrowSize?: Length;
+
+  /**
+   * The arrow color.
+   * @default #182431
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  arrowColor?: ResourceColor;
+}
+
+/**
  * Declare the size of the swiper on the spindle.
  * @since 7
  */
@@ -351,10 +417,6 @@ declare enum SwiperDisplayMode {
    */
   STRETCH,
 
-  /**
-   * The rotation chart is self linear.
-   * @since 7
-   */
   /**
    * The rotation chart is self linear.
    * @form
@@ -513,6 +575,17 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
 
   /**
+   * Set arrow is enabled, or set the arrow style.
+   * @default value: false, isHoverShow: false
+   * @param { ArrowStyle | boolean } value - arrow is displayed or set the arrow style.
+   * @param { boolean } value - arrow is display when mouse hover in indicator hotspot.
+   * @returns { SwiperAttribute } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean): SwiperAttribute;
+
+  /**
    * Called when setting whether to turn on cyclic sliding.
    * @since 7
    */
@@ -663,26 +736,6 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @deprecated since 10
    */
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
-
-  /**
-   * The previous margin which can be used to expose a small portion of the previous item.
-   * @param { Length } value - The length of previous margin.
-   * @returns { SwiperAttribute } The attribute of the swiper.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  prevMargin(value: Length): SwiperAttribute;
-
-  /**
-   * The next margin which can be used to expose a small portion of the latter item.
-   * @param { Length } value - The length of next margin.
-   * @returns { SwiperAttribute } The attribute of the swiper.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  nextMargin(value: Length): SwiperAttribute;
 
   /**
    * Called when the swiper animation start.

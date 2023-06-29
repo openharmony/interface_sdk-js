@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,24 +17,51 @@
  * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
  * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
  *
- * @since 9
+ * @typedef AbilityStageMonitor
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 9
+ */
+/**
+ * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
+ * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
+ *
+ * @typedef AbilityStageMonitor
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 10
  */
 export interface AbilityStageMonitor {
   /**
    * The module name of the abilityStage to monitor.
    *
-   * @since 9
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  /**
+   * The module name of the abilityStage to monitor.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   moduleName: string;
 
   /**
    * The source path of the abilityStage to monitor.
    *
-   * @since 9
+   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  /**
+   * The source path of the abilityStage to monitor.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   srcEntrance: string;
 }

@@ -57,8 +57,8 @@ declare namespace FaultLogger {
 
   /**
    * Query the result of the current application FaultLog in callback Mode.
-   * @param faultType Fault type to query
-   * @param callback Faultlog information data callback function
+   * @param { FaultType } faultType - Fault type to query
+   * @param { AsyncCallback<Array<FaultLogInfo>> } callback - Faultlog information data callback function
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8
    * @deprecated since 9
@@ -68,8 +68,8 @@ declare namespace FaultLogger {
 
   /**
    * Query the result of the current application FaultLog in return promise mode.
-   * @param faultType Fault type to query
-   * @returns return faultlog information data by promise
+   * @param { FaultType } faultType - Fault type to query
+   * @returns { Promise<Array<FaultLogInfo>> } return faultlog information data by promise
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8
    * @deprecated since 9
@@ -79,8 +79,8 @@ declare namespace FaultLogger {
 
   /**
    * Query the result of the current application FaultLog in callback Mode.
-   * @param faultType Fault type to query
-   * @param callback Faultlog information data callback function
+   * @param { FaultType } faultType - Fault type to query
+   * @param { AsyncCallback<Array<FaultLogInfo>> } callback - Faultlog information data callback function
    * @throws { BusinessError } 401 - The parameter check failed
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
@@ -91,8 +91,8 @@ declare namespace FaultLogger {
 
   /**
    * Query the result of the current application FaultLog in return promise mode.
-   * @param faultType Fault type to query
-   * @returns return faultlog information data by promise
+   * @param { FaultType } faultType - Fault type to query
+   * @returns { Promise<Array<FaultLogInfo>> } return faultlog information data by promise
    * @throws { BusinessError } 401 - The parameter check failed
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
@@ -103,6 +103,7 @@ declare namespace FaultLogger {
 
   /**
    * FaultLog information data structure.
+   * @interface FaultLogInfo
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8
    */

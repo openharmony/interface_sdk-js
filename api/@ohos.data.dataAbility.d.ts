@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -59,7 +59,8 @@ declare namespace dataAbility {
     /**
      * Configure the DataAbilityPredicates to match the field whose data type is ValueType and value is unequal to
      * a specified value.
-     * Configure the data capability predicate to match a field where the data type is a value type and the value is not equal to the specified value.
+     * Configure the data capability predicate to match a field where the data type is a value type and the value is
+     * not equal to the specified value.
      * This method is similar to != of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.
@@ -178,8 +179,8 @@ declare namespace dataAbility {
      * This method is similar to like of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataAbilityPredicates. The percent sign (%) in the value
-     * is a wildcard (like * in a regular expression).
+     * @param { string } value - Indicates the value to match with the DataAbilityPredicates. The percent sign (%)
+     *                           in the value is a wildcard (like * in a regular expression).
      * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @since 7
@@ -188,8 +189,7 @@ declare namespace dataAbility {
 
     /**
      * Configure DataAbilityPredicates to match the specified field whose data type is string and the value contains
-     * a wildcard.
-     * Different from like, the input parameters of this method are case-sensitive.
+     * a wildcard.Different from like, the input parameters of this method are case-sensitive.
      *
      * @param { string } field - Indicates the column name in the database table.
      * @param { string } value - Indicates the value to match with DataAbilityPredicates.
@@ -304,7 +304,6 @@ declare namespace dataAbility {
      *
      * @param { number } value - Indicates the max length of the return list.
      * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
-     * @throws { BusinessError } IllegalPredicateException Throws this exception if DataAbilityPredicates are added to a wrong position.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @since 7
      */
@@ -325,7 +324,8 @@ declare namespace dataAbility {
      * Configure DataAbilityPredicates to group query results by specified columns.
      *
      * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the specified columns by which query results are grouped.
+     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the specified columns by which query
+     *                                    results are grouped.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @since 7
      */
@@ -347,7 +347,7 @@ declare namespace dataAbility {
      * are within a given range.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value Indicates the values to match with DataAbilityPredicates.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataAbilityPredicates.
      * @returns { DataAbilityPredicates } Returns DataAbilityPredicates that matches the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @since 7

@@ -324,6 +324,26 @@ declare namespace hiSysEvent {
      * @since 9
      */
     maxEvents: number;
+
+    /**
+     * Begin sequence
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 10
+     */
+    fromSeq?: number;
+
+    /**
+     * End sequence
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 10
+     */
+    toSeq?: number;
   }
 
   /**
@@ -354,6 +374,16 @@ declare namespace hiSysEvent {
      * @since 9
      */
     names: string[];
+
+    /**
+     * Extra parameter condition of event
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 10
+     */
+    condition?: string;
   }
 
   /**
@@ -434,6 +464,56 @@ declare namespace hiSysEvent {
    * @since 9
    */
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
+
+  /**
+   * Export system event
+   *
+   * @permission ohos.permission.READ_DFX_SYSEVENT
+   * @param {QueryArg} queryArg common arguments of query system event
+   * @param {QueryRule[]} rules rule of query system event
+   * @returns {number} return hiview receive task time.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200302 - Invalid query rule.
+   * @throws {BusinessError} 11200304 – Export frequency is over limit.
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): number;
+
+  /**
+   * Subscribe system event
+   *
+   * @permission ohos.permission.READ_DFX_SYSEVENT
+   * @param {QueryRule[]} rules rule of subscribe system event
+   * @returns {number} return hiview receive task time.
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200302 - Invalid query rule.
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function subscribe(rules: QueryRule[]): number;
+
+  /**
+   * Unsubscribe system event
+   *
+   * @permission ohos.permission.READ_DFX_SYSEVENT
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200305 – unsubscribe failed.
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function unsubscribe(): void;
 }
 
 export default hiSysEvent;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,14 +16,14 @@
 /**
  * The base context of 'app.Context' for FA Mode or
  * 'application.Context' for Stage Mode.
- * @permission N/A
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  */
 /**
  * The base context of 'app.Context' for FA Mode or
  * 'application.Context' for Stage Mode.
- * @permission N/A
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @since 10
@@ -32,15 +32,17 @@ export default abstract class BaseContext {
   /**
    * Indicates the context is FA Mode or Stage Mode.
    *
-   * @since 8
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
    */
   /**
    * Indicates the context is FA Mode or Stage Mode.
    *
-   * @since 10
+   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
+   * @since 10
    */
   stageMode: boolean;
 }

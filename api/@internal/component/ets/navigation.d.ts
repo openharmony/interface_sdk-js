@@ -117,7 +117,7 @@ declare enum NavigationMode {
    * @since 9
    */
   /**
-   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+   * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
    * Otherwise it's displayed in stack mode.
    * @crossplatform
    * @since 10
@@ -311,7 +311,7 @@ declare class NavPathStack {
   pop(): NavPathInfo | undefined;
 
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the stack back to the route page specified by the name.
    * @param { string } name Indicates the name of the route page to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
@@ -321,7 +321,7 @@ declare class NavPathStack {
   popTo(name: string): number;
 
   /**
-   * Pops the specified route page out of the stack.
+   * Pops the stack back to the route page specified by the index.
    * @param { number } index Indicates the index of the route page to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -468,6 +468,27 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 10
    */
   navBarPosition(value: NavBarPosition): NavigationAttribute;
+
+  /**
+   * Sets the minimum width and the maximum width of navigation bar.
+   * @param { [Dimension, Dimension] } value The minimum and the maximum width of navigation bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavigationAttribute }
+   * @since 10
+   * @crossplatform
+   */
+  navBarWidthRange(value: [Dimension, Dimension]): NavigationAttribute;
+
+  /**
+   * Sets the minimum width of content.
+   * @default value is 360vp.
+   * @param { Dimension } value The minimum width of content.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { NavigationAttribute }
+   * @since 10
+   * @crossplatform
+   */
+  minContentWidth(value: Dimension): NavigationAttribute;
 
   /**
    * Sets the mode of navigation.
