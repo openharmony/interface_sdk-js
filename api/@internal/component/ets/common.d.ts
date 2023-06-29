@@ -4215,7 +4215,7 @@ declare class CommonMethod<T> {
 
   /**
    * Background.
-   * @param { CustomBuilder } value
+   * @param { CustomBuilder } builder
    * @param { ?{ align?: Alignment } } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
