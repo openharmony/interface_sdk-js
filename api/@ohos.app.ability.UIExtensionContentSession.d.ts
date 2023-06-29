@@ -29,42 +29,40 @@ export default class UIExtensionContentSession {
    * Send data from an ui extension to an ui extension component.
    *
    * @param { object } data - Indicates the data send to ui extension component.
-   * @returns { number } Returns {@code 0} if the page send data succeeded;
-   *                     returns otherwise code if the page send data failed.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
    * @since 10
    */
-  sendData(data: { [key: string]: Object }): number;
+  sendData(data: { [key: string]: Object }): void;
 
   /**
    * Sets the callback for the ui extension to receive data from an ui extension component.
    *
    * @param { (object) => void } callback Indicates the receive data callback to set.
-   * @returns { number } Returns {@code 0} if the page set receive data callback succeeded;
-   *                     returns otherwise code if the page set receive data callback failed.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
    * @since 10
    */
-  setReceiveDataCallback(callback: (data: { [key: string]: Object }) => void): number;
+  setReceiveDataCallback(callback: (data: { [key: string]: Object }) => void): void;
 
   /**
    * Loads an UI extension content.
    *
    * @param { string } path - Path of the page to which the content will be loaded
    * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the page
-   * @returns { number } Returns {@code 0} if the page load succeeded; returns otherwise code if the page load failed.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 10
    */
-  loadContent(path: string, storage?: LocalStorage): number;
+  loadContent(path: string, storage?: LocalStorage): void;
 
   /**
    * Destroys the UI extension.
@@ -117,15 +115,14 @@ export default class UIExtensionContentSession {
    * Sets the background color of the UI extension.
    *
    * @param { string } color the specified color.
-   * @returns { number } Returns {@code 0} if the page set background color succeeded;
-   *                     returns otherwise code if the page set background color failed.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
    * @since 10
    */
-  setWindowBackgroundColor(color: string): number;
+  setWindowBackgroundColor(color: string): void;
 
   /**
    * Sets whether is private mode or not.

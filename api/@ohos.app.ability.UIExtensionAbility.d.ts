@@ -15,6 +15,7 @@
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
+import UIExtensionContext from './application/UIExtensionContext';
 import Want from './@ohos.app.ability.Want';
 
 /**
@@ -26,61 +27,71 @@ import Want from './@ohos.app.ability.Want';
  * @since 10
  */
 export default class UIExtensionAbility extends ExtensionAbility {
-    /**
-     * Called back when an UI extension is started for initialization.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    onCreate(): void;
+  /**
+   * Indicates configuration information about an UI extension ability context.
+   *
+   * @type { UIExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  context: UIExtensionContext;
 
-    /**
-     * Called back when an UI extension session is created.
-     *
-     * @param { Want } want - Indicates the want info of the UI extension.
-     * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    onSessionCreate(want: Want, session: UIExtensionContentSession): void;
+  /**
+   * Called back when an UI extension is started for initialization.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onCreate(): void;
 
-    /**
-     * Called back when an UI extension session is destroyed.
-     *
-     * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    onSessionDestroy(session: UIExtensionContentSession): void;
+  /**
+   * Called back when an UI extension session is created.
+   *
+   * @param { Want } want - Indicates the want info of the UI extension.
+   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onSessionCreate(want: Want, session: UIExtensionContentSession): void;
 
-    /**
-     * Called back when the state of an UI extension changes to foreground.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
-     * @since 10
-     */
-    onForeground(): void;
+  /**
+   * Called back when an UI extension session is destroyed.
+   *
+   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onSessionDestroy(session: UIExtensionContentSession): void;
 
-    /**
-     * Called back when the state of an UI extension changes to background.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
-     * @since 10
-     */
-    onBackground(): void;
+  /**
+   * Called back when the state of an UI extension changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  onForeground(): void;
 
-    /**
-     * Called back before an UI extension is destroyed.
-     *
-     * @returns { void | Promise<void> } the promise returned by the function.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    onDestroy(): void | Promise<void>;
+  /**
+   * Called back when the state of an UI extension changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  onBackground(): void;
+
+  /**
+   * Called back before an UI extension is destroyed.
+   *
+   * @returns { void | Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onDestroy(): void | Promise<void>;
 }
