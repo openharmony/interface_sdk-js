@@ -1846,7 +1846,7 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-   getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
+    getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
     /**
      * Obtains sorted region array to setting or startup guide app.
