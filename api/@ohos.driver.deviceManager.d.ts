@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
-import rpc from "./@ohos.rpc"
+import type { AsyncCallback } from './@ohos.base';
+import type rpc from './@ohos.rpc';
 
 /**
  * This module provides the capability of manage external device.
@@ -61,8 +61,8 @@ declare namespace deviceManager {
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
    */
-  function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>):
-    Promise<{deviceId: number, remote: rpc.IRemoteObject}>;
+  function bindDevice(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<{deviceId: number,
+    remote: rpc.IRemoteObject}>;
 
   /**
    * Unbind the device based on the device information returned by queryDevices().
