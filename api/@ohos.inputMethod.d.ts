@@ -958,6 +958,50 @@ declare namespace inputMethod {
      * @since 10
      */
     off(type: 'handleExtendAction'): void;
+
+    /**
+     * Register a callback and when input method ability gets left or right text of cursor, the callback will be invoked.
+     *
+     * @param { 'getLeftTextOfCursor | getRightTextOfCursor' } type - event type, fixed as 'getLeftTextOfCursor' or 'getRightTextOfCursor'.
+     * @param { function } callback - processes getLeftTextOfCursor or getRightTextOfCursor command. The callback
+     *     must be a synchronization method and will block the input method application.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'getLeftTextOfCursor | getRightTextOfCursor', callback: (length: number) => string): void;
+
+    /**
+     * Unregister the callback of getLeftTextOfCursor or getRightTextOfCursor event.
+     *
+     * @param { 'getLeftTextOfCursor | getRightTextOfCursor' } type - event type, fixed as 'getLeftTextOfCursor' or 'getRightTextOfCursor'.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'getLeftTextOfCursor | getRightTextOfCursor'): void;
+
+    /**
+     * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
+     *
+     * @param { 'getTextIndexAtCursor' } type - event type, fixed as 'getTextIndexAtCursor'.
+     * @param { function } callback - processes getTextIndexAtCursor command. The callback
+     *     must be a synchronization method, and should return the text index at the cursor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'getTextIndexAtCursor', callback: () => number): void;
+
+    /**
+     * Unregister the callback of getTextIndexAtCursor.
+     *
+     * @param { 'getTextIndexAtCursor' } type - event type, fixed as 'getTextIndexAtCursor'.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'getTextIndexAtCursor'): void;
   }
 
   /**
