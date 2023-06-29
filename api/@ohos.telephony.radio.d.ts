@@ -2147,7 +2147,6 @@ declare namespace radio {
    *
    * @interface CellInformation
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 8
    */
   export interface CellInformation {
