@@ -13,12 +13,13 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './@ohos.base';
+import type { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
+import type media from './@ohos.multimedia.media';
 
 /**
  * @namespace avSession
@@ -193,21 +194,21 @@ declare namespace avSession {
     /**
      * Process id of session
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9
      */
-    pid: number;
+    pid?: number;
     /**
      * User id
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 9
      */
-    uid: number;
+    uid?: number;
   }
 
   /**
@@ -383,6 +384,216 @@ declare namespace avSession {
   function sendSystemControlCommand(command: AVControlCommand): Promise<void>;
 
   /**
+   * Define different protocol capability
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  enum ProtocolType {
+    /**
+     * The default cast type "local", media can be routed on the same device, 
+     * including internal speakers or audio jack on the device itself, A2DP devices.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    TYPE_LOCAL = 0,
+
+    /**
+     * Cast+ mirror capability
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    TYPE_CAST_PLUS_MIRROR = 1,
+
+    /**
+     * The Cast+ Stream indicating the media is presenting on a different device
+     * the application need get an AVCastController to control remote playback.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    TYPE_CAST_PLUS_STREAM = 2,
+  }
+
+  /**
+   * Start device discovery.
+   * @param { AsyncCallback<void> } callback a callback function
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function startCastDeviceDiscovery(callback: AsyncCallback<void>): void;
+
+  /**
+   * Start device discovery.
+   * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
+   * @param { AsyncCallback<void> } callback a callback function
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function startCastDeviceDiscovery(filter: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Start device discovery.
+   * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
+   * @returns { Promise<void> } Promise for the result
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function startCastDeviceDiscovery(filter?: number): Promise<void>;
+
+  /**
+   * Stop device discovery.
+   * @param { AsyncCallback<void> } callback a callback function
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function stopCastDeviceDiscovery(callback: AsyncCallback<void>): void;
+
+  /**
+   * Stop device discovery.
+   * @returns { Promise<void> } Promise for the result
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function stopCastDeviceDiscovery(): Promise<void>;
+
+  /**
+   * Enable or disable device to be discoverable, used at sink side.
+   * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
+   * @param { AsyncCallback<void> } callback a callback function
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function setDiscoverable(enable: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Enable or disable device to be discoverable, used at sink side.
+   * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
+   * @returns { Promise<void> } Promise for the result
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function setDiscoverable(enable: boolean): Promise<void>;
+
+  /**
+   * Register device discovery callback
+   * @param { 'deviceAvailable' } type Registration Type
+   * @param { function } callback Used to returns the device info
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 401 - parameter check failed
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'deviceAvailable', callback: (device: OutputDeviceInfo) => void): void;
+
+  /**
+   * Unregister device discovery callback
+   * @param { 'deviceAvailable' } type Registration Type
+   * @param { function } callback Used to returns the device info
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 401 - parameter check failed
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'deviceAvailable', callback?: (device: OutputDeviceInfo) => void): void;
+
+  /**
+   * Register a callback to retrieve an avsession cast controller.
+   * This function can be used at both side to get the same controller to do the playback control.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } sessionId Specifies the sessionId to get controller.
+   * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 6600101 - server exception
+   * @throws {BusinessError} 6600102 - session does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function getAVCastController(sessionId: string, callback: AsyncCallback<AVCastController>): void;
+
+  /**
+   * Get the current session's remote controller client.
+   * If the avsession is not under casting state, the controller will return null.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { string } sessionId Specifies the sessionId to get controller.
+   * @returns { Promise<AVCastController> } Promise for the AVCastController
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 6600101 - server exception
+   * @throws {BusinessError} 6600102 - session does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function getAVCastController(sessionId: string): Promise<AVCastController>;
+
+  /**
+   * Cast resource to remote device.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { SessionToken } session Specifies the sessionId which is to be casted.
+   * @param { OutputDeviceInfo } device Specifies the device to cast.
+   * @param { AsyncCallback<void> } callback A callback instance used to return when start casting.
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 6600101 - server exception
+   * @throws {BusinessError} 6600108 - device connection error
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function startCasting(session: SessionToken, device: OutputDeviceInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Cast resource to remote device.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { SessionToken } session Specifies the sessionId which is to be casted.
+   * @param { OutputDeviceInfo } device Specifies the device to cast.
+   * @returns { Promise<void> } Promise for the result
+   * @throws {BusinessError} 201 - permission denied
+   * @throws {BusinessError} 401 - parameter check failed
+   * @throws {BusinessError} 6600101 - server exception
+   * @throws {BusinessError} 6600108 - device connection error
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function startCasting(session: SessionToken, device: OutputDeviceInfo): Promise<void>;
+
+  /**
+   * Stop current cast and disconnect device connection.
+   * @param { SessionToken } session Specifies the sessionId which is to be stopped.
+   * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
+   * @throws { BusinessError } 6600109 - remote connection does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function stopCasting(session: SessionToken, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stop current cast and disconnect device connection.
+   * @param { SessionToken } session Specifies the sessionId which is to be stopped.
+   * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 6600109 - remote connection does not exist
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 10
+   */
+  function stopCasting(session: SessionToken): Promise<void>;
+
+  /**
    * session type.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 10
@@ -401,6 +612,13 @@ declare namespace avSession {
      * @since 10
      */
     readonly sessionId: string;
+
+    /**
+     * Get current session type
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    readonly sessionType: AVSessionType;
 
     /**
      * Set the metadata of this session.
@@ -593,6 +811,28 @@ declare namespace avSession {
      * @since 10
      */
     getController(): Promise<AVSessionController>;
+
+    /**
+     * Get the cast controller when the session is casted to remote device.
+     * If the avsession is not under casting state, the controller will return null.
+     * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
+     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    getAVCastController(callback: AsyncCallback<AVCastController>): void;
+
+    /**
+     * Get the cast controller when the session is casted to remote device.
+     * If the avsession is not under casting state, the controller will return null.
+     * @returns { Promise<AVCastController> } Promise for the AVCastController
+     * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
+     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    getAVCastController(): Promise<AVCastController>;
 
     /**
      * Get output device information
@@ -950,27 +1190,27 @@ declare namespace avSession {
      * Register session output device change callback
      * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
-     * The callback provide the new device info {@link OutputDeviceInfo}
+     * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    on(type: 'outputDeviceChange', callback: (device: OutputDeviceInfo) => void): void;
+    on(type: 'outputDeviceChange', callback: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
     /**
      * Unregister session output device change callback
      * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
-     * The callback provide the new device info {@link OutputDeviceInfo}
+     * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    off(type: 'outputDeviceChange', callback?: (device: OutputDeviceInfo) => void): void;
+    off(type: 'outputDeviceChange', callback?: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
     /**
      * Register session custom command change callback
@@ -1023,6 +1263,24 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'skipToQueueItem', callback?: (itemId: number) => void): void;
+
+    /**
+     * Stop current cast and disconnect device connection.
+     * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
+     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    stopCasting(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop current cast and disconnect device connection.
+     * @returns { Promise<void> } void result promise when executed successfully 
+     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    stopCasting(): Promise<void>;
 
     /**
      * Activate the session, indicating that the session can accept control commands
@@ -1086,6 +1344,352 @@ declare namespace avSession {
   }
 
   /**
+   * The type of control command
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @since 10
+   */
+  type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
+  'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+
+  /**
+   * The definition of command to be sent to the session
+   * @interface AVCastControlCommand
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @since 10
+   */
+  interface AVCastControlCommand {
+    /**
+     * The command value {@link AVCastControlCommandType}
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    command: AVCastControlCommandType;
+    /**
+     * parameter of the command.
+     * seek command requires a number parameter
+     * setVolume command requires a number parameter
+     * toggleFavorite command requires assetId {@link AVMediaDescription.mediaId} parameter
+     * setSpeed the parameter sees {@link #media.PlaybackSpeed}.
+     * other commands need no parameter
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    parameter?: media.PlaybackSpeed | number;
+  }
+
+  /**
+   * AVCastController definition used to implement a remote control when a cast is connected
+   * @interface AVCastController
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @since 10
+   */
+  interface AVCastController {
+    /**
+     * Set a surface instance to display playing view, used at sink side.
+     * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
+     * @param { AsyncCallback<void> } callback - A callback instance used to return when set surface completed.
+     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    setDisplaySurface(surfaceId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set a surface instance to display playing view, used at sink side.
+     * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    setDisplaySurface(surfaceId: string): Promise<void>;
+
+    /**
+     * Get the playback status of the current player
+     * @param { AsyncCallback<AVPlaybackState> } callback - The triggered asyncCallback when (getAVPlaybackState).
+     * @throws { BusinessError } 6600101 - server exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void;
+
+    /**
+     * Get the playback status of the current player
+     * @returns { Promise<AVPlaybackState> } (AVPlaybackState) returned through promise
+     * @throws { BusinessError } 6600101 - server exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    getAVPlaybackState(): Promise<AVPlaybackState>;
+
+    /**
+     * Send control commands to remote player
+     * @param { AVCastControlCommand } command The command to be send.
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600105 - command not supported
+     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback<void>): void;
+
+    /**
+     * Send control commands to remote player
+     * @param { AVCastControlCommand } command The command to be send.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600105 - command not supported
+     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    sendControlCommand(command: AVCastControlCommand): Promise<void>;
+
+    /**
+     * Play the current item, should contain mediaUri otherwise the playback will fail.
+     * @param { AVQueueItem } item media item info.
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    start(item: AVQueueItem, callback: AsyncCallback<void>): void;
+
+    /**
+     * Play the current item, should contain mediaUri otherwise the playback will fail.
+     * @param { AVQueueItem } item media item info.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    start(item: AVQueueItem): Promise<void>;
+
+    /**
+     * Load the current item and mediaUri can be null, this is needed for sink media information displaying
+     * @param { AVQueueItem } item media item info.
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    prepare(item: AVQueueItem, callback: AsyncCallback<void>): void;
+
+    /**
+     * Load the current item and mediaUri can be null, this is needed for sink media information displaying
+     * @param { AVQueueItem } item media item info.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws {BusinessError} 401 - parameter check failed
+     * @throws {BusinessError} 6600101 - server exception
+     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    prepare(item: AVQueueItem): Promise<void>;
+
+    /**
+     * Get the current playing item
+     * @param { AsyncCallback<AVQueueItem> } callback - The triggered asyncCallback.
+     * @throws { BusinessError } 6600101 - server exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    getCurrentItem(callback: AsyncCallback<AVQueueItem>): void;
+
+    /**
+     * Get the current playing item
+     * @returns { Promise<AVQueueItem> } (AVQueueItem) returned through promise
+     * @throws { BusinessError } 6600101 - server exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    getCurrentItem(): Promise<AVQueueItem>;
+
+    /**
+     * Register playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { function } callback - The callback used to handle playback state changed event.
+     * The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - server exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void);
+
+    /**
+     * Unregister playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { function } callback - The callback used to handle playback state changed event.
+     * The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - server exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void);
+
+    /**
+     * Register listener for current media item playback events.
+     * @param { 'mediaItemChange' } type Type of the playback event to listen for.
+     * @param { Callback<AVQueueItem> } callback Callback used to listen for current item changed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    on(type: 'mediaItemChange', callback: Callback<AVQueueItem>): void;
+
+    /**
+     * Unregister listener for current media item playback events.
+     * @param { 'mediaItemChange' } type Type of the playback event to listen for.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    off(type: 'mediaItemChange'): void;
+
+    /**
+     * Register playback command callback sent by remote side or media center.
+     * Application needs update the new media resource when receive these commands by using playItem.
+     * @param { 'playNext' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - Used to handle 'playNext' command
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    on(type: 'playNext', callback: Callback<void>): void;
+
+    /**
+     * Unregister playback command callback sent by remote side or media center.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playNext' } type - Type of the playback event to listen for.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    off(type: 'playNext'): void;
+
+    /**
+     * Register playback command callback sent by remote side or media center.
+     * Application needs update the new media resource when receive these commands by using playItem.
+     * @param { 'playPrevious' } type - Type of the playback event to listen for.
+     * @param { Callback<void> } callback - Used to handle 'playPrevious' command
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    on(type: 'playPrevious', callback: Callback<void>): void;
+
+    /**
+     * Unregister playback command callback sent by remote side or media center.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playPrevious' } type - Type of the playback event to listen for.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    off(type: 'playPrevious'): void;
+
+    /**
+     * Register listens for playback events.
+     * @param { 'seekDone' } type - Type of the playback event to listen for.
+     * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    on(type: 'seekDone', callback: Callback<number>): void;
+
+    /**
+     * Unregister listens for playback events.
+     * @param { 'seekDone' } type - Type of the playback event to listen for.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    off(type: 'seekDone'): void;
+
+    /**
+     * Register listener for video size change event, used at remote side.
+     * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to return video size.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void;
+
+    /**
+     * Unregister listener for video size change event, used at remote side.
+     * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'videoSizeChange'): void;
+
+    /**
+     * Register listeners for playback error events.
+     * @param { 'error' } type Type of the playback error event to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the playback error event.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listens for playback error events.
+     * @param { 'error' } type Type of the playback error event to listen for.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    off(type: 'error'): void;
+  }
+
+  /**
+   * Define the device connection state.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 10
+   */
+  enum ConnectionState {
+    /**
+     * A connection state indicating the device is in the process of connecting.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    STATE_CONNECTING = 0,
+    /**
+     * A connection state indicating the device is connected.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    STATE_CONNECTED = 1,
+    /**
+     * The default connection state indicating the device is disconnected.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    STATE_DISCONNECTED = 6,
+  }
+
+  /*
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1242,7 +1846,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    icon?: image.PixelMap | string;
+    icon?: image.PixelMap;
     /**
      * The image of the media as an uri formatted String,
      * used to display in media center.
@@ -1258,12 +1862,95 @@ declare namespace avSession {
      */
     extras?: {[key: string]: Object};
     /**
+     * The type of this media, such as video, audio and so on.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    mediaType?: string;
+    /**
+     * The size of this media.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    mediaSize?: number;
+    /**
+     * The album title of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    albumTitle?: string;
+    /**
+     * The album cover uri of this media
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    albumCoverUri?: string;
+    /**
+     * The lyric content of the media, it should be in standard lyric format
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    lyricContent?: string;
+    /**
+     * The lyric uri of the media.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    lyricUri?: string;
+    /**
+     * The artist of this media.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    artist?: string;
+    /**
      * The uri of the media, used to locate the media in some special cases
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     mediaUri?: string;
+    /**
+     * Media file descriptor.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 10
+     */
+    fdSrc?: media.AVFileDescriptor;
+    /**
+     * The duration of this media
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    duration?: number;
+    /**
+     * Media start position, described by milliseconds.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    startPosition?: number;
+    /**
+     * Media credits position, described by milliseconds.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    creditsPosition?: number;
+    /**
+     * Application name.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    appName?: string;
   }
 
   /**
@@ -1343,6 +2030,13 @@ declare namespace avSession {
      */
     activeItemId?: number;
     /**
+     * Current player volume
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    volume?: number;
+    /**
      * Current custom media packets
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
@@ -1372,6 +2066,112 @@ declare namespace avSession {
      */
     updateTime: number;
   }
+
+  /**
+   * cast category indicating different playback scenes
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @since 10
+   */
+  enum AVCastCategory {
+    /**
+     * The default cast type "local", media can be routed on the same device, 
+     * including internal speakers or audio jack on the device itself, A2DP devices.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    CATEGORY_LOCAL = 0,
+
+    /**
+     * The remote category indicating the media is presenting on a remote device,
+     * the application needs to get an AVCastController to control remote playback.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    CATEGORY_REMOTE = 1,
+  }
+  /**
+   * Device type definition
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 10
+   */
+  enum DeviceType {
+    /**
+     * A device type indicating the route is on internal speakers or audio jack on the device itself.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    DEVICE_TYPE_LOCAL = 0,
+    /**
+     * A device type indicating the route is on a TV.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    DEVICE_TYPE_TV = 2,
+    /**
+     * A device type indicating the route is on a smart speaker.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 10
+     */
+    DEVICE_TYPE_SMART_SPEAKER = 3,
+    /**
+     * A device type indicating the route is on a bluetooth device.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    DEVICE_TYPE_BLUETOOTH = 10,
+  }
+
+  /**
+   * Device Information Definition
+   * @interface DeviceInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 10
+   */
+  interface DeviceInfo {
+    /**
+     * The playback type supported by the device, can be union of {@link AVCastCategory}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    castCategory: number;
+    /**
+     * Audio device id.The length of the audioDeviceId array is greater than 1
+     * if output to multiple devices at the same time.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    deviceId: string;
+    /**
+     * Device name. The length of the deviceName array is greater than 1
+     * if output to multiple devices at the same time.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    deviceName: string;
+    /**
+     * device type.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    deviceType: DeviceType;
+    /**
+     * device ip address if available.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    ipAddress?: string;
+    /**
+     * device provider which supplies the route capability.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 10
+     */
+    providerId?: number;
+  }
+
   /**
    * Target Device Information Definition
    * @interface OutputDeviceInfo
@@ -1380,27 +2180,13 @@ declare namespace avSession {
    */
   interface OutputDeviceInfo {
     /**
-     * Whether the remote device
-     * @type { boolean }
+     * Arrays of device information
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    isRemote: boolean;
-    /**
-     * Audio device id.The length of the audioDeviceId array is greater than 1
-     * if output to multiple devices at the same time.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
-     */
-    audioDeviceId: Array<number>;
-    /**
-     * Device name. The length of the deviceName array is greater than 1
-     * if output to multiple devices at the same time.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
-     */
-    deviceName: Array<string>;
+    devices: Array<DeviceInfo>;
   }
+
   /**
    * Loop Play Mode Definition
    * @enum { number }
@@ -1493,6 +2279,27 @@ declare namespace avSession {
      * @since 10
      */
     PLAYBACK_STATE_STOP = 6,
+
+    /**
+     * Completed state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    PLAYBACK_STATE_COMPLETED = 7,
+
+    /**
+     * Released state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    PLAYBACK_STATE_RELEASED = 8,
+
+    /**
+     * error state.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    PLAYBACK_STATE_ERROR = 9,
   }
 
   /**
@@ -2061,27 +2868,27 @@ declare namespace avSession {
      * Register session output device change callback
      * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
-     * The callback provides the new device info {@link OutputDeviceInfo}
+     * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    on(type: 'outputDeviceChange', callback: (device: OutputDeviceInfo) => void): void;
+    on(type: 'outputDeviceChange', callback: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
     /**
      * Unregister session output device change callback
      * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
-     * The callback provides the new device info {@link OutputDeviceInfo}
+     * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    off(type: 'outputDeviceChange', callback?: (device: OutputDeviceInfo) => void): void;
+    off(type: 'outputDeviceChange', callback?: (state: ConnectionState, device: OutputDeviceInfo) => void): void;
 
     /**
      * Register session event callback
@@ -2277,6 +3084,20 @@ declare namespace avSession {
      * @since 10
      */
     ERR_CODE_MESSAGE_OVERLOAD = 6600107,
+
+    /**
+     * Device connecting failed.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    ERR_CODE_DEVICE_CONNECTION_FAILED = 6600108,
+
+    /**
+     * The remote connection is not established.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
   }
 }
 
