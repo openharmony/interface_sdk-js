@@ -324,6 +324,7 @@
       "SystemCapability.ResourceSchedule.DeviceStandby",
       "SystemCapability.AI.MindSporeLite",
       "SystemCapability.Print.PrintFramework",
+      "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
       "SystemCapability.Driver.ExternalDevice"
     ]
   },
