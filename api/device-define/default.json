@@ -142,6 +142,7 @@
     "SystemCapability.FileManagement.StorageService.Volume",
     "SystemCapability.FileManagement.StorageService.Encryption",
     "SystemCapability.FileManagement.File.FileIO",
+    "SystemCapability.FileManagement.File.FileIO.Lite",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.DistributedFile",
     "SystemCapability.FileManagement.AppFileService",

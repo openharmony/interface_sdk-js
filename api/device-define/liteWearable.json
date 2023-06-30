@@ -5,6 +5,7 @@
     "SystemCapability.Location.Location.Lite",
     "SystemCapability.PowerManager.BatteryManager.Core",
     "SystemCapability.FileManagement.File.FileIO",
+    "SystemCapability.FileManagement.File.FileIO.Lite",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.Communication.NFC.CardEmulation",
