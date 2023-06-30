@@ -325,7 +325,8 @@
       "SystemCapability.AI.MindSporeLite",
       "SystemCapability.Print.PrintFramework",
       "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
-      "SystemCapability.Driver.ExternalDevice"
+      "SystemCapability.Driver.ExternalDevice",
+      "SystemCapability.FileManagement.PhotoAccessHelper.Core"
     ]
   },
   "administrators": [

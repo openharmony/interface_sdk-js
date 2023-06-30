@@ -19,6 +19,8 @@ import type image from './@ohos.multimedia.image';
 import type dataSharePredicates from './@ohos.data.dataSharePredicates';
 
 /**
+ * Helper functions to access image and video assets
+ *
  * @namespace photoAccessHelper
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @since 10
@@ -30,7 +32,7 @@ declare namespace photoAccessHelper {
    * @permission ohos.permission.READ_IMAGEVIDEO
    * @param { Context } context - Hap context information
    * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
-   * @throws { BusinessError } 13900020 - if parameter is invalid
+   * @throws { BusinessError } 401 - if parameter is invalid
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @StageModelOnly
    * @since 10
@@ -38,7 +40,7 @@ declare namespace photoAccessHelper {
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
 
   /**
-   * Enumeration types for different kinds of photos
+   * Enumeration of different types of photos
    *
    * @enum { number } PhotoType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -62,7 +64,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Enumeration types for different types of PhotoAsset
+   * Enumeration of different categories of photos
    *
    * @enum { number } PhotoSubtype
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -91,7 +93,7 @@ declare namespace photoAccessHelper {
   /**
    * Photo asset position
    *
-   * @enum { number } Photo asset position, which indicates the asset is in local device or cloud
+   * @enum { number } Photo asset position, such as local device or cloud
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 10
@@ -124,7 +126,7 @@ declare namespace photoAccessHelper {
   type MemberType = number | string | boolean;
 
   /**
-   * Provides methods to encapsulate asset attributes.
+   * Defines the photo asset
    *
    * @interface PhotoAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -132,14 +134,14 @@ declare namespace photoAccessHelper {
    */
   interface PhotoAsset {
     /**
-     * URI of the asset.
+     * uri of the asset.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     readonly uri: string;
     /**
-     * Photo type, IMAGE or VIDEO
+     * Photo type, image or video
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -153,108 +155,108 @@ declare namespace photoAccessHelper {
      */
     readonly displayName: string;
     /**
-     * Return the photo asset member parameter.
+     * Returns the value of the specified member.
      *
-     * @param { string } member - The name of the parameter. for example : get(PhotoKeys.URI)
+     * @param { string } member - Photo asset member. for example : get(PhotoKeys.SIZE)
      * @returns { MemberType }
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     get(member: string): MemberType;
     /**
-     * Set the photo asset member parameter.
+     * Set a new value to the specified member
      *
-     * @param { string } member - The name of the parameter
-     * @param { string } value - The value of the parameter.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { string } member - Photo asset member
+     * @param { string } value - The new value of the member.
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
-     * @example : Set(PhotoKeys.TITLE, "newTitle"), call commitModify after set value
+     * @example : set(PhotoKeys.TITLE, "newTitle"), call commitModify after set
      */
     set(member: string, value: string): void;
     /**
-     * Modify meta data of the asset
+     * Modify metadata of the asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { AsyncCallback<void> } callback - No value will be returned.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { AsyncCallback<void> } callback - Returns void.
+     * @throws { BusinessError } 401 - if values to commit is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
-     * Modify meta data of the asset
+     * Modify metadata of the asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @returns { Promise<void> } Return promise
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 401 - if values to commit is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     commitModify(): Promise<void>;
     /**
-     * Open local asset.
+     * Open the asset
      *
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } mode - Mode for open, for example: rw, r, w.
      * @param { AsyncCallback<number> } callback - Callback return the fd of the asset.
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
-     * Open local asset.
+     * Open the asset
      *
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } mode - Mode for open, for example: rw, r, w.
-     * @returns { Promise<number> } Return promise
+     * @returns { Promise<number> } Returns the fd
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     open(mode: string): Promise<number>;
     /**
-     * Open asset in read only mode
+     * Open the asset in read only mode
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<number> } callback - Return the read only fd
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { AsyncCallback<number> } callback - Returns the read only fd
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getReadOnlyFd(callback: AsyncCallback<number>): void;
     /**
-     * Open asset in read only mode
+     * Open the asset in read only mode
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @returns { Promise<number> } Return the read only fd
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @returns { Promise<number> } Returns the read only fd
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getReadOnlyFd(): Promise<number>;
     /**
-     * Close the asset is located.
+     * Close the asset
      *
-     * @param { number } fd - Fd of the asset which had been opened
-     * @param { AsyncCallback<void> } callback - No value will be returned.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { number } fd - The opened fd of the asset.
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
-     * Close the asset is located.
+     * Close the asset
      *
-     * @param { number } fd - Fd of the asset which had been opened
-     * @returns { Promise<void> } Return promise
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { number } fd - The opened fd of the asset.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -263,8 +265,8 @@ declare namespace photoAccessHelper {
      * Get thumbnail of the asset
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnail's pixelMap.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the thumbnail's pixelMap.
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -274,8 +276,8 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { image.Size } size - Thumbnail's size
-     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnail's pixelMap.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { AsyncCallback<image.PixelMap> } callback - Returns the thumbnail's pixelMap.
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -285,8 +287,8 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { image.Size } size - Thumbnail's size
-     * @returns { Promise<image.PixelMap> } Return promise
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @returns { Promise<image.PixelMap> } Returns the thumbnail's pixelMap.
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -296,8 +298,9 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { boolean } favoriteState - true: Put the asset into favorite album; false: Remove the asset from favorite album.
-     * @param { AsyncCallback<void> } callback - Callback used to return, No value is returned.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -308,8 +311,9 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { boolean } favoriteState - true: Put the asset into favorite album; false: Remove the asset from favorite album.
-     * @returns { Promise<void> } Return promise
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -320,9 +324,9 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { boolean } hiddenState - true: Put the asset into hidden album; false: Recover the asset from hidden album.
-     * @param { AsyncCallback<void> } callback - Return void.
+     * @param { AsyncCallback<void> } callback - Returns void.
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -335,7 +339,7 @@ declare namespace photoAccessHelper {
      * @param { boolean } hiddenState - true: Put the asset into hidden album; false: Recover the asset from hidden album.
      * @returns { Promise<void> } Returns the promise
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -344,7 +348,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Describes Image, Video TYPE FetchOptions's predicate
+   * Enumeration of photo asset members
    *
    * @enum { string } PhotoKeys
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -359,7 +363,7 @@ declare namespace photoAccessHelper {
      */
     URI = 'uri',
     /**
-     * Photo type of the Asset, read only
+     * Photo type of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -380,14 +384,14 @@ declare namespace photoAccessHelper {
      */
     SIZE = 'size',
     /**
-     * Date of the asset creation, read only
+     * Creation date of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     DATE_ADDED = 'date_added',
     /**
-     * Modify date of the asset, read only
+     * Modified date of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -469,7 +473,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Describes Album TYPE predicate
+   * Enumeration of photo album members.
    *
    * @enum { string } AlbumKeys
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -493,7 +497,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Fetch parameters
+   * Options to fetch assets or albums
    *
    * @interface FetchOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -501,14 +505,14 @@ declare namespace photoAccessHelper {
    */
   interface FetchOptions {
     /**
-     * Indicates the columns to query.
+     * Indicates the members to query.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     fetchColumns: Array<string>;
     /**
-     * Predicate to query
+     * Predicates to query
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -517,7 +521,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Describe additional operations for creating photo
+   * Options to create a photo asset for system apps
    *
    * @interface PhotoCreateOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -526,7 +530,7 @@ declare namespace photoAccessHelper {
    */
   interface PhotoCreateOptions {
     /**
-     * Subtype of the photo
+     * Specify subtype of the asset to create
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -536,7 +540,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Describe additional operations for creating asset
+   * Options to create a photo asset
    *
    * @interface CreateOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -544,7 +548,7 @@ declare namespace photoAccessHelper {
    */
   interface CreateOptions {
     /**
-     * Title of the Asset
+     * Title of the asset
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -553,7 +557,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Implements asset retrieval.
+   * The fetch result of assets or albums
    *
    * @interface FetchResult
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -561,9 +565,9 @@ declare namespace photoAccessHelper {
    */
   interface FetchResult<T> {
     /**
-     * Obtains the total number of files in the asset retrieval result.
+     * Obtains the total number of objects in the fetch result.
      *
-     * @returns { number } Total number of files.
+     * @returns { number } Total number of objects.
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -571,125 +575,118 @@ declare namespace photoAccessHelper {
     getCount(): number;
     /**
      * Checks whether the result set points to the last row.
+     * You need to check whether the object is the last one before calling getNextObject.
      *
-     * @returns { boolean } Whether the asset is the last one.
-     * You need to check whether the asset is the last one before calling getNextObject,
-     * which returns the next asset only when False is returned for this method.
+     * @returns { boolean } Whether the object is the last one in the fetch result.
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     isAfterLast(): boolean;
     /**
-     * Releases the FetchResult instance and invalidates it. Other methods cannot be called.
+     * Obtains the first object in the fetch result.
      *
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 10
-     */
-    close(): void;
-    /**
-     * Obtains the first PhotoAsset in the asset retrieval result. This method uses a callback to return the asset.
-     *
-     * @param { AsyncCallback<T> } callback - Callback used to return the asset in the format of a PhotoAsset instance.
+     * @param { AsyncCallback<T> } callback - Returns the first object in the fetch result.
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getFirstObject(callback: AsyncCallback<T>): void;
     /**
-     * Obtains the first T in the asset retrieval result. This method uses a promise to return the asset.
+     * Obtains the first object in the fetch result.
      *
-     * @returns { Promise<T> } A Promise instance used to return the asset in the format of a T instance.
+     * @returns { Promise<T> } Returns the first object in the fetch result.
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getFirstObject(): Promise<T>;
     /**
-     * Obtains the next T in the asset retrieval result.
-     * This method uses a callback to return the asset.
-     * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next asset only when False is returned for isAfterLast().
+     * Obtains the next object in the fetch result.
+     * Before calling this method, you must use isAfterLast() to check whether the current position is the last row
+     * in the fetch result. This method only works when the current position is not the last row.
      *
-     * @param { AsyncCallback<T> } callback - Callback used to return the asset in the format of a T instance.
+     * @param { AsyncCallback<T> } callback - Returns the next object
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getNextObject(callback: AsyncCallback<T>): void;
     /**
-     * Obtains the next T in the asset retrieval result.
-     * This method uses a promise to return the asset.
-     * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next asset only when False is returned for isAfterLast().
+     * Obtains the next object in the fetch result.
+     * Before calling this method, you must use isAfterLast() to check whether the current position is the last row
+     * in the fetch result. This method only works when the current position is not the last row.
      *
-     * @returns { Promise<T> } A Promise instance used to return the asset in the format of a T instance.
+     * @returns { Promise<T> } Returns the next object
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getNextObject(): Promise<T>;
     /**
-     * Obtains the last T in the asset retrieval result. This method uses a callback to return the asset.
+     * Obtains the last object in the fetch result
      *
-     * @param { AsyncCallback<T> } callback - Callback used to return the asset in the format of a T instance.
+     * @param { AsyncCallback<T> } callback - Returns the last object
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getLastObject(callback: AsyncCallback<T>): void;
     /**
-     * Obtains the last T in the asset retrieval result. This method uses a promise to return the asset.
+     * Obtains the last object in the fetch result
      *
-     * @returns { Promise<T> } A Promise instance used to return the asset in the format of a T instance.
+     * @returns { Promise<T> } Returns the last object
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getLastObject(): Promise<T>;
     /**
-     * Obtains the T with the specified index in the asset retrieval result.
-     * This method uses a callback to return the asset.
+     * Obtains the object with the specified index in the fetch result.
      *
-     * @param { number } index - Index of the asset to obtain.
-     * @param { AsyncCallback<T> } callback - Callback used to return the asset in the format of a T instance.
-     * @throws { BusinessError } 13900020 - if type index is not number
+     * @param { number } index - Index of the object to obtain.
+     * @param { AsyncCallback<T> } callback - Returns the object
+     * @throws { BusinessError } 401 - if type index is not number
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getObjectByPosition(index: number, callback: AsyncCallback<T>): void;
     /**
-     * Obtains the T with the specified index in the asset retrieval result.
-     * This method uses a promise to return the asset.
+     * Obtains the object with the specified index in the fetch result.
      *
      * @param { number } index - Index of the asset to obtain.
-     * @returns { Promise<T> } A Promise instance used to return the asset in the format of a T instance.
-     * @throws { BusinessError } 13900020 - if type index is not number
+     * @returns { Promise<T> } Returns the object
+     * @throws { BusinessError } 401 - if type index is not number
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getObjectByPosition(index: number): Promise<T>;
     /**
-     * Obtains all T in the asset retrieval result.
-     * This method uses a callback to return the result. After this method is called,
+     * Obtains all objects in the fetch result.
      *
-     * @param { AsyncCallback<Array<T>> } callback - Callback used to return a T array.
+     * @param { AsyncCallback<Array<T>> } callback - Returns all the objects
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getAllObjects(callback: AsyncCallback<Array<T>>): void;
     /**
-     * Obtains all T in the asset retrieval result.
-     * This method uses a promise to return the result. that store the selected media resources.
+     * Obtains all objects in the fetch result.
      *
-     * @returns { Promise<Array<T>> } A Promise instance used to return a T array.
+     * @returns { Promise<Array<T>> } Returns all the objects
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getAllObjects(): Promise<Array<T>>;
+    /**
+     * Releases the fetch result.
+     *
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    close(): void;
   }
 
   /**
@@ -708,7 +705,7 @@ declare namespace photoAccessHelper {
      */
     USER = 0,
     /**
-     * Album created by system, which metadata cannot be modified by user.
+     * Album created by system, which metadata cannot be modified.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -787,7 +784,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Defines the AbsAlbum.
+   * Defines the abstract interface of albums.
    *
    * @interface AbsAlbum
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -823,37 +820,37 @@ declare namespace photoAccessHelper {
      */
     readonly albumUri: string;
     /**
-     * Asset count for the album
+     * Number of assets in the album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     readonly count: number;
     /**
-     * CoverUri for the album
+     * Cover uri for the album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     readonly coverUri: string;
     /**
-     * Obtains files in an album. This method uses an asynchronous callback to return the files.
+     * Fetch assets in an album.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - Retrieval options.
-     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback used to return the files in the format of a FetchResult instance.
-     * @throws { BusinessError } 13900020 - if type options is not FetchOptions
+     * @param { FetchOptions } options - Fetch options.
+     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Returns the fetch result
+     * @throws { BusinessError } 401 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
     /**
-     * Obtains files in an album. This method uses a promise to return the files.
+     * Fetch assets in an album.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - Retrieval options.
-     * @returns { Promise<FetchResult<PhotoAsset>> } A Promise instance used to return the files in the format of a FetchResult instance.
-     * @throws { BusinessError } 13900020 - if type options is not FetchOptions
+     * @param { FetchOptions } options - Fetch options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result
+     * @throws { BusinessError } 401 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -869,142 +866,142 @@ declare namespace photoAccessHelper {
    */
   interface Album extends AbsAlbum {
     /**
-     * Modify the meta data for the album
+     * Modify metadata for the album
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { AsyncCallback<void> } callback - No value will be returned.
-     * @throws { BusinessError } 13900020 - if attribute to modify is invalid
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @throws { BusinessError } 401 - if value to modify is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
-     * Modify the meta data for the album
+     * Modify metadata for the album
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @returns { Promise<void> } Return promise
-     * @throws { BusinessError } 13900020 - if attribute to modify is invalid
+     * @returns { Promise<void> } v
+     * @throws { BusinessError } 401 - if value to modify is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     commitModify(): Promise<void>;
     /**
-     * Add PhotoAssets to the album.
+     * Add assets to the album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to add
      * @param { AsyncCallback<void> } callback - Returns void
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     addAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
-     * Add PhotoAssets to the album.
+     * Add assets to the album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to add
-     * @returns { Promise<void> } Returns the promise
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     addAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
-     * Remove PhotoAssets from the album.
+     * Remove assets from the album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to remove
      * @param { AsyncCallback<void> } callback - Returns void
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     removeAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
-     * Remove PhotoAssets from the album.
+     * Remove assets from the album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to remove
      * @returns { Promise<void> } Returns the promise
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     removeAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
-     * Recover PhotoAssets from the trash album.
+     * Recover assets from the trash album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to recover
      * @param { AsyncCallback<void> } callback - Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     recoverAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
-     * Recover PhotoAssets from the trash album.
+     * Recover assets from the trash album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to recover
      * @returns { Promise<void> } Returns the promise
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     recoverAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
-     * Delete PhotoAssets permanently from the trash album.
+     * Delete assets permanently from the trash album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to delete
      * @param { AsyncCallback<void> } callback - Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     deleteAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
-     * Delete PhotoAssets permanently from the trash album.
+     * Delete assets permanently from the trash album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - Assets to delete
      * @returns { Promise<void> } Returns the promise
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
+     * @throws { BusinessError } 401 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     deleteAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
-     * Set coverUri for this album.
+     * Set cover uri for this album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } uri - The asset uri to set
-     * @param { AsyncCallback<void> } callback - Return void
+     * @param { AsyncCallback<void> } callback - Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     setCoverUri(uri: string, callback: AsyncCallback<void>): void;
     /**
-     * Set coverUri for this album.
+     * Set cover uri for this album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } uri - The asset uri to set
-     * @returns { Promise<void> } Returns the promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -1013,7 +1010,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Defines the PhotoAccessHelper class and provides functions to access the data in user file storage.
+   * Helper functions to access photos and albums.
    *
    * @interface PhotoAccessHelper
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1021,77 +1018,79 @@ declare namespace photoAccessHelper {
    */
   interface PhotoAccessHelper {
     /**
-     * Query photo, video assets
+     * Fetch photo assets
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - retrieval options.
-     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback return the FetchResult.
-     * @throws { BusinessError } 13900020 - if type options is not FetchOptions
+     * @param { FetchOptions } options - Fetch options.
+     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Returns the fetch result.
+     * @throws { BusinessError } 401 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
     /**
-     * Query photo, video assets
+     * Fetch photo assets
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { FetchOptions } options - Retrieval options.
-     * @returns { Promise<FetchResult<PhotoAsset>> } A promise instance used to return the files in the format of a FetchResult instance
-     * @throws { BusinessError } 13900020 - if type options is not FetchOptions
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 401 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
-     * Create Photo Asset
+     * Create a photo asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - Asset name
-     * @param { AsyncCallback<PhotoAsset> } callback - Callback used to return the PhotoAsset
+     * @param { AsyncCallback<PhotoAsset> } callback - Returns the newly created asset
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if type displayName is not string
-     * @throws { BusinessError } 14000001 - if type displayName invalid
+     * @throws { BusinessError } 401 - if type displayName is not string
+     * @throws { BusinessError } 14000001 - if type of displayName is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     createAsset(displayName: string, callback: AsyncCallback<PhotoAsset>): void;
     /**
-     * Create Photo Asset
+     * Create a photo asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - Asset name
-     * @returns { Promise<PhotoAsset> } A Promise instance used to return the PhotoAsset
+     * @returns { Promise<PhotoAsset> } Returns the newly created asset
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if type displayName or albumUri is not string
+     * @throws { BusinessError } 401 - if type displayName or albumUri is not string
+     * @throws { BusinessError } 14000001 - if type of displayName is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     createAsset(displayName: string): Promise<PhotoAsset>;
     /**
-     * Create Photo Asset
+     * Create a photo asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - Asset name
      * @param { PhotoCreateOptions } options - Create operation
-     * @returns { Promise<PhotoAsset> } A Promise instance used to return the PhotoAsset
+     * @returns { Promise<PhotoAsset> } Returns the newly created asset
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if type displayName is not string
+     * @throws { BusinessError } 401 - if type displayName is not string
+     * @throws { BusinessError } 14000001 - if type of displayName is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     createAsset(displayName: string, options: PhotoCreateOptions): Promise<PhotoAsset>;
     /**
-     * Create Photo Asset
+     * Create a photo asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - Asset name
      * @param { PhotoCreateOptions } options - Photo create operation
-     * @param { AsyncCallback<PhotoAsset> } callback - Callback used to return the PhotoAsset
+     * @param { AsyncCallback<PhotoAsset> } callback - Returns the newly created asset
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if type displayName is not string
+     * @throws { BusinessError } 401 - if type displayName is not string
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1099,36 +1098,36 @@ declare namespace photoAccessHelper {
      */
     createAsset(displayName: string, options: PhotoCreateOptions, callback: AsyncCallback<PhotoAsset>): void;
     /**
-     * Create asset:
+     * Create a photo asset:
      *   1. (Suggested)Integrate security component without WRITE_IMAGEVIDEO permission;
      *   2. Get WRITE_IMAGEVIDEO permission by ACL;
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { PhotoType } photoType - Photo asset type
      * @param { string } extension - Asset extension
-     * @param { CreateOptions } options - Optional asset create option
-     * @param { AsyncCallback<string> } callback - Callback used to return the asset URI
-     * @throws { BusinessError } 13900020 - if type createOption is wrong
+     * @param { CreateOptions } options - Asset create option
+     * @param { AsyncCallback<string> } callback - Returns the uri of the newly created asset
+     * @throws { BusinessError } 401 - if type createOption is wrong
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     createAsset(photoType: PhotoType, extension: string, options: CreateOptions, callback: AsyncCallback<string>): void;
     /**
-     * Create asset:
+     * Create a photo asset:
      *   1. (Suggested)Integrate security component without WRITE_IMAGEVIDEO permission;
      *   2. Get WRITE_IMAGEVIDEO permission by ACL;
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { PhotoType } photoType - Photo asset type
      * @param { string } extension - Asset extension
-     * @param { AsyncCallback<string> } callback - Callback used to return the asset URI
-     * @throws { BusinessError } 13900020 - if type createOption is wrong
+     * @param { AsyncCallback<string> } callback - Returns the uri of the newly created asset
+     * @throws { BusinessError } 401 - if type createOption is wrong
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     createAsset(photoType: PhotoType, extension: string, callback: AsyncCallback<string>): void;
     /**
-     * Create asset:
+     * Create a photo asset:
      *   1. (Suggested)Integrate security component without WRITE_IMAGEVIDEO permission;
      *   2. Get WRITE_IMAGEVIDEO permission by ACL;
      *
@@ -1136,8 +1135,8 @@ declare namespace photoAccessHelper {
      * @param { PhotoType } photoType - Photo asset type
      * @param { string } extension - Asset extension
      * @param { CreateOptions } [options] - Optional asset create option
-     * @returns { Promise<string> } A promise instance used to return the asset URI
-     * @throws { BusinessError } 13900020 - if type createOption is wrong
+     * @returns { Promise<string> } Returns the uri of the newly created asset
+     * @throws { BusinessError } 401 - if type createOption is wrong
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1149,7 +1148,7 @@ declare namespace photoAccessHelper {
      * @param { string } name - Album name to be created.
      * @param { AsyncCallback<Album> } callback - Returns the instance of newly created Album
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -1162,7 +1161,7 @@ declare namespace photoAccessHelper {
      * @param { string } name - Album name to be created.
      * @returns { Promise<Album> } Returns the instance of newly created Album
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -1172,10 +1171,10 @@ declare namespace photoAccessHelper {
      * Delete generic user-created albums.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<Album> } albums - Specify which album to delete
+     * @param { Array<Album> } albums - Specify which albums to delete
      * @param { AsyncCallback<void> } callback - Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -1185,24 +1184,24 @@ declare namespace photoAccessHelper {
      * Delete generic user-created albums.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<Album> } albums - Specify which album to delete
+     * @param { Array<Album> } albums - Specify which albums to delete
      * @returns { Promise<void> } Returns the promise
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     deleteAlbums(albums: Array<Album>): Promise<void>;
     /**
-     * Obtains albums based on the retrieval options and album types.
+     * Fetch albums.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { AlbumType } type - Album type.
      * @param { AlbumSubtype } subtype - Album subtype.
      * @param { FetchOptions } options - options to fetch albums
-     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result of the albums
-     * @throws { BusinessError } 13900020 - if type options is not FetchOption
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result
+     * @throws { BusinessError } 401 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1213,26 +1212,26 @@ declare namespace photoAccessHelper {
       callback: AsyncCallback<FetchResult<Album>>
     ): void;
     /**
-     * Obtains albums based on the album types.
+     * Fetch albums.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { AlbumType } type - Album type.
      * @param { AlbumSubtype } subtype - Album subtype.
-     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result of the albums
-     * @throws { BusinessError } 13900020 - if type options is not FetchOption
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result
+     * @throws { BusinessError } 401 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     getAlbums(type: AlbumType, subtype: AlbumSubtype, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
-     * Obtains albums based on the retrieval options and album types.
+     * Fetch albums.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { AlbumType } type - Album type.
      * @param { AlbumSubtype } subtype - Album subtype.
-     * @param { FetchOptions } [options] -options to fetch albums
-     * @returns { Promise<FetchResult<Album>> } - Returns the fetch result of the albums
-     * @throws { BusinessError } 13900020 - if type options is not FetchOption
+     * @param { FetchOptions } [options] - options to fetch albums
+     * @returns { Promise<FetchResult<Album>> } - Returns the fetch result
+     * @throws { BusinessError } 401 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1241,10 +1240,10 @@ declare namespace photoAccessHelper {
      * Delete assets
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<string> } uriList - Uris of assets to be deleted
+     * @param { Array<string> } uriList - Uris of assets to delete
      * @param { AsyncCallback<void> } callback - No value returned
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
@@ -1254,56 +1253,56 @@ declare namespace photoAccessHelper {
      * Delete assets
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<string> } uriList - Uris of assets to be deleted
+     * @param { Array<string> } uriList - Uris of assets to delete
      * @returns { Promise<void> } - Returns void
      * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
      */
     deleteAssets(uriList: Array<string>): Promise<void>;
     /**
-     * Turn on monitor for the specified uri.
+     * Register change notify for the specified uri.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { string } uri - PhotoAsset's uri, album's uri or DefaultChangeUri
      * @param { boolean } forChildUris - Monitor the child uris.
-     * @param { Callback<ChangeData> } callback - callback function, return the ChangeData to be monitored
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { Callback<ChangeData> } callback - Returns the changed data
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
-    on(uri: string, forChildUris: boolean, callback: Callback<ChangeData>): void;
+    registerChange(uri: string, forChildUris: boolean, callback: Callback<ChangeData>): void;
     /**
-     * Turn off monitor for the specified uri.
+     * Unregister change notify for the specified uri.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } uri - PhotoAsset's uri, Album's uri or DefaultChangeUri value
-     * @param { Callback<ChangeData> } [callback] - Remove specified callback from monitoring to a specified uri
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @param { string } uri - PhotoAsset's uri, album's uri or DefaultChangeUri
+     * @param { Callback<ChangeData> } [callback] - The callback function to unregister.
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
-    off(uri: string, callback?: Callback<ChangeData>): void;
+    unRegisterChange(uri: string, callback?: Callback<ChangeData>): void;
     /**
-     * create a pop-up box to delete photos
+     * Create a pop-up box to delete photos
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<string> } uriList - List of the asset URIs to be deleted
+     * @param { Array<string> } uriList - List of the asset uris to be deleted
      * @param { AsyncCallback<void> } callback - Returns void
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     createDeleteRequest(uriList: Array<string>, callback: AsyncCallback<void>): void;
     /**
-     * create a pop-up box to delete photos
+     * Create a pop-up box to delete photos
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<string> } uriList - List of the asset URIs to be deleted
+     * @param { Array<string> } uriList - List of the asset uris to be deleted
      * @returns { Promise<void> } - Returns void
-     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @throws { BusinessError } 401 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1311,7 +1310,7 @@ declare namespace photoAccessHelper {
     /**
      * Release PhotoAccessHelper instance
      *
-     * @param { AsyncCallback<void> } callback - No value returned
+     * @param { AsyncCallback<void> } callback - Returns void
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -1320,7 +1319,7 @@ declare namespace photoAccessHelper {
     /**
      * Release PhotoAccessHelper instance
      *
-     * @returns { Promise<void> } Return promise
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -1329,43 +1328,43 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * NotifyType subtype
+   * Enumeration types of data change.
    *
-   * @enum { number } NotifyType subtype
+   * @enum { number } NotifyType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
   enum NotifyType {
     /**
-     * Type for add notification of the PhotoAsset or Album
+     * Data(assets or albums) have been newly created
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     NOTIFY_ADD,
     /**
-     * Type for update notification of the PhotoAsset or Album
+     * Data(assets or albums) have been modified
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     NOTIFY_UPDATE,
     /**
-     * Type for remove notification of the PhotoAsset or Album
+     * Data(assets or albums) have been removed
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     NOTIFY_REMOVE,
     /**
-     * Type for notification of the PhotoAsset added at an Album
+     * Assets have been added to an album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     NOTIFY_ALBUM_ADD_ASSET,
     /**
-     * Type for notification of the PhotoAsset removed at an Album
+     * Assets have been removed from an album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -1374,22 +1373,22 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * DefaultChangeUri subtype
+   * Enumeration uris for registerChange.
    *
-   * @enum { string } DefaultChangeUri subtype
+   * @enum { string } DefaultChangeUri
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
   enum DefaultChangeUri {
     /**
-     * Uri for default PhotoAsset, use with forDescendant{true}, will recieve all PhotoAsset's change notifications
+     * Uri for default PhotoAsset, use with forDescendant{true}, will receive all PhotoAsset's change notifications
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     DEFAULT_PHOTO_URI = 'file://media/Photo',
     /**
-     * Uri for default Album, use with forDescendant{true}, will recieve all Album's change notifications
+     * Uri for default Album, use with forDescendant{true}, will receive all Album's change notifications
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
@@ -1398,7 +1397,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * the value of the monitor callback function
+   * Defines the change data
    *
    * @interface ChangeData
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1406,26 +1405,26 @@ declare namespace photoAccessHelper {
    */
   interface ChangeData {
     /**
-     * the NotifyType of ChangeData
+     * The NotifyType of ChangeData
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     type: NotifyType;
     /**
-     * all uris of the same NotifyType, could be PhotoAssets' or Albums'
+     * The changed uris
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
     uris: Array<string>;
     /**
-     * change details of the Album's PhotoAssets when uris is the Album's uri type
+     * Change details of the asset uris to an album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
-    suburis: Array<string>;
+    extraUris: Array<string>;
   }
 }
 
