@@ -26,6 +26,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace config {
   /**
+   * @constant
    * Indicates the configuration of audio mono.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -34,6 +35,7 @@ declare namespace config {
    */
   const audioMono: Config<boolean>;
   /**
+   * @constant
    * Indicates the configuration of audio balance.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
