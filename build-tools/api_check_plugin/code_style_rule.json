@@ -113,6 +113,7 @@
       "SystemCapability.Graphic.Graphic2D.WebGL",
       "SystemCapability.Graphic.Graphic2D.WebGL2",
       "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
+      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.WindowManager.WindowManager.Core",
       "SystemCapability.WindowManager.WindowManager.MutiScreen",
       "SystemCapability.Notification.CommonEvent",
