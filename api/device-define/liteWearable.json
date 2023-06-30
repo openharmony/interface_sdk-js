@@ -9,6 +9,8 @@
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.Communication.NFC.CardEmulation",
     "SystemCapability.Security.Huks.Core",
-    "SystemCapability.DistributedDataManager.Preferences.Core.Lite"
+    "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
+    "SystemCapability.Sensors.Sensor.Lite",
+    "SystemCapability.Sensors.MiscDevice.Lite"
   ]
 }
