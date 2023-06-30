@@ -247,7 +247,7 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
   }
 }
 
-function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard, useWhitelist) {
+function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard) {
   const checkInfoArray = [];
   const lastComment = parseJsDoc(node).length > 0 ? [parseJsDoc(node).pop()] : [];
   const comments = isGuard ? lastComment : parseJsDoc(node);
@@ -259,10 +259,10 @@ function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard, useWhiteli
   comments.forEach((comment, index) => {
     const errorLogs = [];
     // 继承校验
-    checkInheritTag(comment, node, sourcefile, fileName, index, useWhitelist);
+    checkInheritTag(comment, node, sourcefile, fileName, index);
     // 值检验
     comment.tags.forEach(tag => {
-      const checkAPIDecorator = checkAPITagName(tag, node, sourcefile, fileName, index, useWhitelist);
+      const checkAPIDecorator = checkAPITagName(tag, node, sourcefile, fileName, index);
       if (!checkAPIDecorator.checkResult) {
         errorLogs.push(checkAPIDecorator);
       }
@@ -281,29 +281,26 @@ function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard, useWhiteli
 }
 exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
 
-function checkJSDoc(node, sourcefile, fileName, isGuard, useWhitelist) {
-  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard, useWhitelist);
-  let isMissingTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag) : true;
-  let isIllegalTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag) : true;
-  let isOrderTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkOrderResult) : true;
+function checkJSDoc(node, sourcefile, fileName, isGuard) {
+  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard);
 
   verificationResult.forEach(item => {
     let errorInfo = '';
-    if (item.missingTags.length > 0 && isMissingTagWhitetFile) {
+    if (item.missingTags.length > 0) {
       item.missingTags.forEach(lostLabel => {
         errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
           ErrorLevel.MIDDLE);
       });
     }
-    if (item.illegalTags.length > 0 && isIllegalTagWhitetFile) {
+    if (item.illegalTags.length > 0) {
       item.illegalTags.forEach(wrongValueLabel => {
         errorInfo = wrongValueLabel.errorInfo;
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_VALUE, errorInfo, FileType.JSDOC,
           ErrorLevel.MIDDLE);
       });
     }
-    if (!item.orderResult.checkResult && isOrderTagWhitetFile) {
+    if (!item.orderResult.checkResult) {
       errorInfo = item.orderResult.errorInfo;
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
         ErrorLevel.MIDDLE);
