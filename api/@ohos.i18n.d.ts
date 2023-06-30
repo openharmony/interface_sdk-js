@@ -1701,7 +1701,7 @@ declare namespace i18n {
   }
 
   /**
-   * Provides the informations of one language or region.
+   * Provide information for a language or region
    *
    * @interface LocaleItem
    * @syscap SystemCapability.Global.I18n
@@ -1835,11 +1835,11 @@ declare namespace i18n {
     constructor();
 
     /**
-     * Obtains sorted language array to setting or startup guide app.
+     * Obtains sorted language array for setting or startup guide app.
      *
-     * @param { Array<string> } languages - The languages whose name will be sort and displayed.
-     * @param { SortOptions } options - Specifies how to sort.
-     * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
+     * @param { Array<string> } languages - The languages whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
@@ -1849,11 +1849,11 @@ declare namespace i18n {
     getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
     /**
-     * Obtains sorted region array to setting or startup guide app.
+     * Obtains sorted region array for setting or startup guide app.
      *
-     * @param { Array<string>  } regions - The regions whose name will be sort and displayed.
-     * @param { SortOptions } options - Specifies how to sort.
-     * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
+     * @param { Array<string>  } regions - The regions whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
@@ -1863,9 +1863,9 @@ declare namespace i18n {
     getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
     /**
-     * Obtains sorted time zone city array to setting or startup guide app.
+     * Obtains sorted time zone city info array for showing time zone list
      *
-     * @returns { Array<TimeZoneCityItem> } Time zone city informations sorted by Requirements.
+     * @returns { Array<TimeZoneCityItem> } Time zone city information sorted by city name.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
      * @since 10
