@@ -247,7 +247,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    acceptedApplications?: Array<string>;
+    allowedApplications?: Array<string>;
  
     /**
      * The array of blocklist for the VPN network. The string indicates package name.
@@ -256,7 +256,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    refusedApplications?: Array<string>;
+    blockedApplications?: Array<string>;
   }
 }
 export default vpn;
