@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback, Callback } from "./@ohos.base";
-import type http from "./@ohos.net.http";
-import type socket from "./@ohos.net.socket";
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type http from './@ohos.net.http';
+import type socket from './@ohos.net.socket';
 
 /**
  * Provides interfaces to manage and use data networks.
