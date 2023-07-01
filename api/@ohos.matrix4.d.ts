@@ -393,10 +393,11 @@ declare namespace matrix4 {
    */
   /**
    * Copy function of Matrix, which can copy a copy of the current matrix object.
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function copy(): Matrix4Transit;
 
@@ -408,10 +409,11 @@ declare namespace matrix4 {
    */
   /**
    * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function invert(): Matrix4Transit;
 
@@ -423,10 +425,11 @@ declare namespace matrix4 {
    */
   /**
    * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function combine(options: Matrix4Transit): Matrix4Transit;
 
@@ -438,10 +441,11 @@ declare namespace matrix4 {
    */
   /**
    * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function translate(options: TranslateOption): Matrix4Transit;
 
@@ -453,10 +457,11 @@ declare namespace matrix4 {
    */
   /**
    * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function scale(options: ScaleOption): Matrix4Transit;
 
@@ -468,10 +473,11 @@ declare namespace matrix4 {
    */
   /**
    * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function rotate(options: RotateOption): Matrix4Transit;
 
@@ -483,10 +489,11 @@ declare namespace matrix4 {
    */
   /**
    * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function transformPoint(options: [number, number]): [number, number];
 }

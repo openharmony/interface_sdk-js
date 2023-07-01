@@ -389,7 +389,18 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): ScrollAttribute
+  nestedScroll(value: NestedScrollOptions): ScrollAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { ScrollAttribute } The attribute of the scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableScrollInteraction(value: boolean): ScrollAttribute;
 }
 
 /**
