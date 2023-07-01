@@ -128,11 +128,14 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    */
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
-   * @form
+   * @param { Array<[ResourceColor, number]> } colors - section colors of gauge drawing. 
+   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
-  colors(colors: Array<any>): GaugeAttribute;
+  colors(colors: Array<[ResourceColor, number]>): GaugeAttribute;
 
   /**
    * Sets the thickness of the ring chart.
