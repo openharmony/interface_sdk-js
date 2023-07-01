@@ -169,8 +169,15 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
-   * @param {region} Array<number> At least 4 elements, represents the region's left, top, right, bottom coordinates, its range is [0, 1].
    * @returns Returns the ColorPicker.
+   */
+    /**
+   * Create a color picker to get color of an image.
+   * @param { image.PixelMap } source - the source pixelmap.
+   * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates, its range is [0, 1].
+   * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 10
    */
   function createColorPicker(source: image.PixelMap, region?: Array<number>): Promise<ColorPicker>;
 
@@ -179,8 +186,16 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
-   * @param {region} Array<number> At least 4 elements, represents the region's left, top, right, bottom coordinates, its range is [0, 1].
    * @returns Returns the ColorPicker.
+   */
+    /**
+   * Create a color picker to get color of an image.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param { image.PixelMap } source - the source pixelmap.
+   * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
+   * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates, its range is [0, 1].
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 10
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>, region?: Array<number>): void;
 }
