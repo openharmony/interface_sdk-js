@@ -439,12 +439,12 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
- * Defining Recycle ClassDecorator.
+ * Defining Reusable ClassDecorator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare const Recycle: ClassDecorator;
+declare const Reusable: ClassDecorator;
 
 /**
  * Get context.
@@ -3056,7 +3056,6 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData, Summary, UnifiedDataType type object for ui component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 10
  */
 declare type UnifiedData = import('../api/@ohos.data.UDMF').UnifiedData;
@@ -3167,7 +3166,6 @@ declare interface DragEvent {
    * Set dragData into DragEvent.
    * @param { UnifiedData } unifiedData - dragData.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   setData(unifiedData: UnifiedData): void;
@@ -3176,7 +3174,6 @@ declare interface DragEvent {
    * Get dragData from DragEvent.
    * @returns { UnifiedData } - get dragData.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getData(): UnifiedData;
@@ -3185,7 +3182,6 @@ declare interface DragEvent {
    * Get dragData summary from DragEvent.
    * @returns { Summary } - get Summary Data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getSummary(): Summary;
@@ -3218,6 +3214,12 @@ declare interface DragEvent {
   getPreviewRect(): Rectangle;
 }
 
+/**
+ * Import the IntentionCode type object for IntentionCode.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').IntentionCode;
 /**
  * KeyEvent object description:
  * @since 7
@@ -3317,6 +3319,15 @@ declare interface KeyEvent {
    * @since 10
    */
   stopPropagation?: () => void;
+
+  /**
+   * Intention code of a key or modifier keys.
+   * @type { IntentionCode }
+   * @default IntentionCode.INTENTION_UNKNOWN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  intentionCode: IntentionCode;
 }
 
 /**
@@ -4891,6 +4902,19 @@ declare class CommonMethod<T> {
   hueRotate(value: number | string): T;
 
   /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
+   * @param { boolean } value - true means the component should apply the effects template.
+   * @default false
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  useEffect(value: boolean): T;
+
+  /**
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    * @since 7
@@ -5416,7 +5440,6 @@ declare class CommonMethod<T> {
    * @param { Array<UnifiedDataType> } value - the unifiedData type for this node.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   allowDrop(value: Array<UnifiedDataType>): T;
@@ -5810,6 +5833,15 @@ declare class CommonMethod<T> {
    * @since 10
    */
   obscured(reasons: Array<ObscuredReasons>): T;
+
+  /**
+   * Reuse id is used for identify the reuse type for each custom node.
+   * @param { string } id - The id for reusable custom node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  reuseId(id: string)
 }
 
 /**
@@ -6445,13 +6477,13 @@ declare class CustomComponent extends CommonAttribute {
   aboutToDisappear?(): void;
 
   /**
-   * onRecycle Method
+   * aboutToReuse Method
    * @param {{ [key: string]: unknown }} params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onRecycle?(params: { [key: string]: unknown }): void;
+  aboutToReuse?(params: { [key: string]: unknown }): void;
 
   /**
    * Custom component override this method to layout each of its sub components.

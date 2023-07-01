@@ -64,6 +64,7 @@
     "SystemCapability.Multimedia.Media.AVRecorder",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
+    "SystemCapability.Multimedia.AVSession.AVCast",
     "SystemCapability.Multimedia.Audio.Core",
     "SystemCapability.Multimedia.Audio.Renderer",
     "SystemCapability.Multimedia.Audio.Capturer",
@@ -147,6 +148,8 @@
     "SystemCapability.USB.USBManager",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
+    "SystemCapability.Sensors.Sensor.Lite",
+    "SystemCapability.Sensors.MiscDevice.Lite",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
@@ -154,6 +157,7 @@
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
     "SystemCapability.DistributedDataManager.Preferences.Core",
+    "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
     "SystemCapability.DistributedDataManager.DataShare.Core",
     "SystemCapability.DistributedDataManager.DataShare.Consumer",
     "SystemCapability.DistributedDataManager.DataShare.Provider",
@@ -192,6 +196,7 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
     "SystemCapability.Request.FileTransferAgent",
-    "SystemCapability.ResourceSchedule.DeviceStandby"
+    "SystemCapability.ResourceSchedule.DeviceStandby",
+    "SystemCapability.Print.PrintFramework"
   ]
 }

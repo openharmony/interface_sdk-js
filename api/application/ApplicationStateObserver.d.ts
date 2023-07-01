@@ -28,7 +28,7 @@ export default class ApplicationStateObserver {
   /**
    * Will be called when foreground or background application changed.
    *
-   * @param { AppStateData } appStateData State changed Application info.
+   * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -38,7 +38,7 @@ export default class ApplicationStateObserver {
   /**
    * Will be called when ability state changed.
    *
-   * @param { AbilityStateData } abilityStateData State changed ability info.
+   * @param { AbilityStateData } abilityStateData - State changed ability info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -48,7 +48,7 @@ export default class ApplicationStateObserver {
   /**
    * Will be called when process created.
    *
-   * @param { ProcessData } processData Process info.
+   * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -58,7 +58,7 @@ export default class ApplicationStateObserver {
   /**
    * Will be called when process died.
    *
-   * @param { ProcessData } processData Process info.
+   * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -68,7 +68,7 @@ export default class ApplicationStateObserver {
   /**
    * Called when process state changes.
    *
-   * @param { ProcessData } processData Process info.
+   * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9

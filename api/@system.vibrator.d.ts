@@ -16,7 +16,7 @@
 /**
  * @interface VibrateOptions
  * @permission ohos.permission.VIBRATE
- * @syscap SystemCapability.Sensors.MiscDevice
+ * @syscap SystemCapability.Sensors.MiscDevice.Lite
  * @since 3
  * @deprecated since 8
  * @useinstead ohos.vibrator/vibrator.VibrateTime
@@ -27,7 +27,7 @@ export interface VibrateOptions {
    * The default value is long.
    *
    * @permission ohos.permission.VIBRATE
-   * @syscap SystemCapability.Sensors.MiscDevice
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
    */
@@ -37,7 +37,7 @@ export interface VibrateOptions {
    * Called when success to trigger vibration.
    *
    * @permission ohos.permission.VIBRATE
-   * @syscap SystemCapability.Sensors.MiscDevice
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
    */
@@ -47,7 +47,7 @@ export interface VibrateOptions {
    * Called when fail to trigger vibration.
    *
    * @permission ohos.permission.VIBRATE
-   * @syscap SystemCapability.Sensors.MiscDevice
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
    */
@@ -57,7 +57,7 @@ export interface VibrateOptions {
    * Called when the execution is completed.
    *
    * @permission ohos.permission.VIBRATE
-   * @syscap SystemCapability.Sensors.MiscDevice
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
    */
@@ -66,7 +66,7 @@ export interface VibrateOptions {
 
 /**
  * @permission ohos.permission.VIBRATE
- * @syscap SystemCapability.Sensors.MiscDevice
+ * @syscap SystemCapability.Sensors.MiscDevice.Lite
  * @since 3
  * @deprecated since 8
  * @useinstead ohos.vibrator/vibrator
@@ -77,7 +77,7 @@ export default class Vibrator {
    *
    * @permission ohos.permission.VIBRATE
    * @param { VibrateOptions } options Options.
-   * @syscap SystemCapability.Sensors.MiscDevice
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
    * @useinstead ohos.vibrator/vibrator#startVibration

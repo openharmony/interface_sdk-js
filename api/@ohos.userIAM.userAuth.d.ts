@@ -136,6 +136,7 @@ declare namespace userAuth {
   /**
    * Auth types
    *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 6
    * @deprecated since 8
    */
@@ -144,6 +145,7 @@ declare namespace userAuth {
   /**
    * Secure levels
    *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 6
    * @deprecated since 8
    */
@@ -694,8 +696,8 @@ declare namespace userAuth {
   /**
    * Authentication events.
    *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
-   * @deprecated since 10
    */
   type AuthEventKey = 'result' | 'tip';
 
@@ -704,7 +706,6 @@ declare namespace userAuth {
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
-   * @deprecated since 10
    */
   type EventInfo = AuthResultInfo | TipInfo;
 
@@ -714,8 +715,6 @@ declare namespace userAuth {
    * @interface AuthEvent
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.userIAM.userAuth.IAuthCallback
    */
   interface AuthEvent {
     /**
@@ -724,7 +723,6 @@ declare namespace userAuth {
      * @param { EventInfo } result Event info.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     callback(result: EventInfo): void;
   }
@@ -735,8 +733,6 @@ declare namespace userAuth {
    * @typedef AuthResultInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.userIAM.userAuth.UserAuthResult
    */
   interface AuthResultInfo {
     /**
@@ -745,7 +741,6 @@ declare namespace userAuth {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     result: number;
 
@@ -755,7 +750,6 @@ declare namespace userAuth {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     token?: Uint8Array;
 
@@ -765,7 +759,6 @@ declare namespace userAuth {
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     remainAttempts?: number;
 
@@ -775,7 +768,6 @@ declare namespace userAuth {
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     lockoutDuration?: number;
   }
@@ -786,7 +778,6 @@ declare namespace userAuth {
    * @typedef TipInfo
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
-   * @deprecated since 10
    */
   interface TipInfo {
     /**
@@ -795,7 +786,6 @@ declare namespace userAuth {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     module: number;
 
@@ -805,7 +795,6 @@ declare namespace userAuth {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     tip: number;
   }
@@ -1115,7 +1104,7 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500007 - The authentication task is busy.
      * @throws { BusinessError } 12500009 - The authenticator is locked.
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
-     * @throws { BusinessError } 12500011 - The authentication is canceled from widget.
+     * @throws { BusinessError } 12500011 - The authentication is canceled from widget's navigation button.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
@@ -1273,7 +1262,7 @@ declare namespace userAuth {
     NOT_ENROLLED = 12500010,
 
     /**
-     * Indicates that this operation is canceled from widget.
+     * Indicates that this operation is canceled from widget's navigation button.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
@@ -1321,7 +1310,7 @@ declare namespace userAuth {
    * Get authentication instance with widget.
    *
    * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { number } version The vesion of widget.
+   * @param { number } version The version of widget.
    * @returns { UserAuthWidgetMgr } Returns an authentication manager.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -1343,7 +1332,7 @@ declare namespace userAuth {
    */
   interface IAuthWidgetCallback {
     /**
-     * The command data for authentication with widget is sended through the callback.
+     * The command data for authentication with widget is sent through the callback.
      *
      * @param { string } cmdData The command data for authentication with widget.
      * @syscap SystemCapability.UserIAM.UserAuth.Core

@@ -225,6 +225,16 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   backgroundMask(color: ResourceColor): PanelAttribute;
 
   /**
+   * Called when the panel show close icon.
+   * @default false
+   * @param { boolean } value - used to set whether to display the close icon.
+   * @returns { PanelAttribute } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showCloseIcon(value: boolean): PanelAttribute;
+
+  /**
    * Called when the state of the slidable panel changes.
    * @since 7
    */

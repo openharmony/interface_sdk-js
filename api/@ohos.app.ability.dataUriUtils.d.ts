@@ -24,7 +24,7 @@ declare namespace dataUriUtils {
   /**
    * Obtains the ID attached to the end of the path component of the given uri.
    *
-   * @param { string } uri Indicates the uri object from which the ID is to be obtained.
+   * @param { string } uri - Indicates the uri object from which the ID is to be obtained.
    * @returns { number } Returns the ID attached to the end of the path component;
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -35,8 +35,8 @@ declare namespace dataUriUtils {
   /**
    * Attaches the given ID to the end of the path component of the given uri.
    *
-   * @param { string } uri Indicates the uri string from which the ID is to be obtained.
-   * @param { number } id Indicates the ID to attach.
+   * @param { string } uri - Indicates the uri string from which the ID is to be obtained.
+   * @param { number } id - Indicates the ID to attach.
    * @returns { string } Returns the uri object with the given ID attached.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -47,7 +47,7 @@ declare namespace dataUriUtils {
   /**
    * Deletes the ID from the end of the path component of the given uri.
    *
-   * @param { string } uri Indicates the uri object from which the ID is to be deleted.
+   * @param { string } uri - Indicates the uri object from which the ID is to be deleted.
    * @returns { string } Returns the uri object with the ID deleted.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -58,8 +58,8 @@ declare namespace dataUriUtils {
   /**
    * Updates the ID in the specified uri
    *
-   * @param { string } uri Indicates the uri object to be updated.
-   * @param { number } id Indicates the new ID.
+   * @param { string } uri - Indicates the uri object to be updated.
+   * @param { number } id - Indicates the new ID.
    * @returns { string } Returns the updated uri object.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

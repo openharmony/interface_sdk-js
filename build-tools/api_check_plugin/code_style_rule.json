@@ -113,6 +113,7 @@
       "SystemCapability.Graphic.Graphic2D.WebGL",
       "SystemCapability.Graphic.Graphic2D.WebGL2",
       "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
+      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.WindowManager.WindowManager.Core",
       "SystemCapability.WindowManager.WindowManager.MutiScreen",
       "SystemCapability.Notification.CommonEvent",
@@ -178,6 +179,7 @@
       "SystemCapability.Multimedia.Media.Muxer",
       "SystemCapability.Multimedia.AVSession.Core",
       "SystemCapability.Multimedia.AVSession.Manager",
+      "SystemCapability.Multimedia.AVSession.AVCast",
       "SystemCapability.Multimedia.Audio.Core",
       "SystemCapability.Multimedia.Audio.Tone",
       "SystemCapability.Multimedia.Audio.Interrupt",
@@ -264,6 +266,7 @@
       "SystemCapability.FileManagement.StorageService.Volume",
       "SystemCapability.FileManagement.StorageService.Encryption",
       "SystemCapability.FileManagement.File.FileIO",
+      "SystemCapability.FileManagement.File.FileIO.Lite",
       "SystemCapability.FileManagement.File.Environment",
       "SystemCapability.FileManagement.File.DistributedFile",
       "SystemCapability.FileManagement.AppFileService",
@@ -274,6 +277,8 @@
       "SystemCapability.USB.USBManager",
       "SystemCapability.Sensors.Sensor",
       "SystemCapability.Sensors.MiscDevice",
+      "SystemCapability.Sensors.Sensor.Lite",
+      "SystemCapability.Sensors.MiscDevice.Lite",
       "SystemCapability.Startup.SystemInfo",
       "SystemCapability.DistributedDataManager.RelationalStore.Core",
       "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
@@ -317,7 +322,10 @@
       "SystemCapability.Msdp.DeviceStatus.Cooperate",
       "SystemCapability.Request.FileTransferAgent",
       "SystemCapability.ResourceSchedule.DeviceStandby",
-      "SystemCapability.AI.MindSporeLite"
+      "SystemCapability.AI.MindSporeLite",
+      "SystemCapability.Print.PrintFramework",
+      "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
+      "SystemCapability.Driver.ExternalDevice"
     ]
   },
   "administrators": [
@@ -326,6 +334,9 @@
     },
     {
       "user": "8046261"
+    },
+    {
+      "user": "9127956"
     }
   ],
   "ciId":"7387629"

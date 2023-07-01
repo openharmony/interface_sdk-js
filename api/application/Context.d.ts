@@ -14,6 +14,7 @@
  */
 
 import { ApplicationInfo } from '../bundleManager/ApplicationInfo';
+import type { AsyncCallback } from '../@ohos.base';
 import resmgr from '../@ohos.resourceManager';
 import BaseContext from './BaseContext';
 import EventHub from './EventHub';
@@ -295,4 +296,28 @@ export default class Context extends BaseContext {
    * @since 10
    */
   getApplicationContext(): ApplicationContext;
+
+  /**
+   * get dir by the groupId.
+   *
+   * @param { string } dataGroupID - Indicates the groupId.
+   * @param { AsyncCallback<string> } callback - The callback of getGroupDir.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void;
+
+   /**
+   * get dir by the groupId.
+   *
+   * @param { string } dataGroupID - Indicates the groupId.
+   * @returns { Promise<string> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  getGroupDir(dataGroupID: string): Promise<string>;
 }
