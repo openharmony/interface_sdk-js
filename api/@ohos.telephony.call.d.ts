@@ -1579,8 +1579,10 @@ declare namespace call {
   /**
    * Set the audio device.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AudioDevice } device - Indicates the device of audio.
    * @param { AsyncCallback<void> } callback - The callback of setAudioDevice.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1611,42 +1613,6 @@ declare namespace call {
    * @since 10
    */
   function setAudioDevice(device: AudioDevice): Promise<void>;
-
-  /**
-   * Set the audio device with options.
-   *
-   * @param { AudioDevice } device - Indicates the device of audio.
-   * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
-   * @param { AsyncCallback<void> } callback - The callback of setAudioDevice.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function setAudioDevice(device: AudioDevice, options: AudioDeviceOptions, callback: AsyncCallback<void>): void;
-
-  /**
-   * Set the audio device with options.
-   *
-   * @param { AudioDevice } device - Indicates the device of audio.
-   * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
-   * @returns { Promise<void> } The promise returned by the setAudioDevice.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function setAudioDevice(device: AudioDevice, options?: AudioDeviceOptions): Promise<void>;
 
   /**
    * Join the conference call.
@@ -3364,26 +3330,6 @@ declare namespace call {
      * @since 7
      */
     countryCode?: string;
-  }
-
-  /**
-   * The option for audio device.
-   *
-   * @interface AudioDeviceOptions
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  export interface AudioDeviceOptions {
-    /**
-     * Indicates the bluetooth device address.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 9
-     */
-    bluetoothAddress?: string;
   }
 
   /**
