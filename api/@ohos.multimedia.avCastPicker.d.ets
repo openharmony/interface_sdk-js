@@ -21,4 +21,4 @@
 @Component
 declare struct AVCastPicker {
 }
-export default AVCastPicker
+export default AVCastPicker;
