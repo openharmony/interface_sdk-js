@@ -4237,7 +4237,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  background(builder:CustomBuilder, options?: { align?: Alignment }): T;
+  background(builder: CustomBuilder, options?: { align?: Alignment }): T;
 
   /**
    * Background color
