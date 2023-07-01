@@ -171,7 +171,7 @@ declare namespace effectKit {
    * @param image.PixelMap.
    * @returns Returns the ColorPicker.
    */
-    /**
+  /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
    * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates, its range is [0, 1].
@@ -188,7 +188,7 @@ declare namespace effectKit {
    * @param image.PixelMap.
    * @returns Returns the ColorPicker.
    */
-    /**
+  /**
    * Create a color picker to get color of an image.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param { image.PixelMap } source - the source pixelmap.
