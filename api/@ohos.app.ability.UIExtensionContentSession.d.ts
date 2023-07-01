@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { AbilityResult } from './ability/abilityResult';
-import { AsyncCallback } from './@ohos.base';
-import { LocalStorage } from 'StateManagement';
+import type { AbilityResult } from './ability/abilityResult';
+import type { AsyncCallback } from './@ohos.base';
+import type { LocalStorage } from 'StateManagement';
 
 /**
  * class of ui extension content session.

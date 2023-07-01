@@ -155,6 +155,10 @@ const ErrorType = {
   ILLEGAL_ANY: {
     id: 11,
     description: 'illegal any'
+  },
+  API_CHANGE_ERRORS: {
+    id: 12,
+    description: 'api change errors'
   }
 };
 exports.ErrorType = ErrorType;
@@ -327,7 +331,20 @@ const ErrorValueInfo = {
   ERROR_EVENT_CALLBACK_OPTIONAL: 'The callback parameter of off function should be optional.',
   ERROR_EVENT_CALLBACK_MISSING: 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
   ERROR_EVENT_ON_AND_OFF_PAIR: 'The on and off event subscription methods do not appear in pair.',
-  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API'
+  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API',
+  ERROR_CHANGES_VERSION: 'Please check if the changed API version number is 10.',
+  ERROR_CHANGES_API_HISTORY_PARAM_REQUIRED_CHANGE: 'Forbid changes: Optional parameters cannot be changed to required parameters.',
+  ERROR_CHANGES_API_HISTORY_PARAM_RANGE_CHANGE: 'Forbid changes: Parameters type range cannot be reduced.',
+  ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE: 'Forbid changes: Parameters Parameter must be defined by type.',
+  ERROR_CHANGES_API_HISTORY_PARAM_TYPE_CHANGE: 'Forbid changes: Parameters type cannot be modified.',
+  ERROR_CHANGES_API_HISTORY_PARAM_POSITION_CHANGE: 'Forbid changes: Parameters position not be allowed to be modified.',
+  ERROR_CHANGES_API_NEW_REQUIRED_PARAM: 'Forbid changes: Required parameters cannot be created.',
+  ERROR_CHANGES_API_DELETE_PARAM: 'Forbid changes: Parameters cannot be deleted.',
+  ERROR_CHANGES_DEPRECATED: 'Forbid changes: The api has deprecated tag.',
+  ERROR_CHANGES_JSDOC_NUMBER: 'Forbid changes: API changes must add a new section of JSDoc.',
+  ERROR_CHANGES_JSDOC_CHANGE: 'Forbid changes: Previous JSDoc cannot be changed.',
+  ERROR_CHANGES_JSDOC_TRROWS: 'Forbid changes: Throws tag cannot be created.',
+  ERROR_CHANGES_JSDOC_PERMISSION: 'Forbid changes: Permission tag cannot be created or modified.'
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 

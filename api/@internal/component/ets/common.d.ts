@@ -3215,6 +3215,12 @@ declare interface DragEvent {
 }
 
 /**
+ * Import the IntentionCode type object for IntentionCode.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').IntentionCode;
+/**
  * KeyEvent object description:
  * @since 7
  */
@@ -3313,6 +3319,15 @@ declare interface KeyEvent {
    * @since 10
    */
   stopPropagation?: () => void;
+
+  /**
+   * Intention code of a key or modifier keys.
+   * @type { IntentionCode }
+   * @default IntentionCode.INTENTION_UNKNOWN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  intentionCode: IntentionCode;
 }
 
 /**

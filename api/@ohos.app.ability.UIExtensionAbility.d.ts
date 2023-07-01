@@ -14,9 +14,9 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
-import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
-import UIExtensionContext from './application/UIExtensionContext';
-import Want from './@ohos.app.ability.Want';
+import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
+import type UIExtensionContext from './application/UIExtensionContext';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * The class of UI extension ability.

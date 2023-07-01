@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { AbilityResult } from '../ability/abilityResult';
-import { AsyncCallback } from '../@ohos.base';
+import type { AbilityResult } from '../ability/abilityResult';
+import type { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
-import Want from '../@ohos.app.ability.Want';
-import StartOptions from '../@ohos.app.ability.StartOptions';
+import type Want from '../@ohos.app.ability.Want';
+import type StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
  * The context of UI extension. It allows access to UIExtension-specific resources.

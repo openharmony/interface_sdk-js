@@ -152,7 +152,18 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): WaterFlowAttribute
+  nestedScroll(value: NestedScrollOptions): WaterFlowAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { WaterFlowAttribute } The attribute of the waterflow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableScrollInteraction(value: boolean): WaterFlowAttribute;
 
   /**
    * Called when the water flow begins to arrive.
