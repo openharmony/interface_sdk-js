@@ -511,6 +511,17 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   enableScrollInteraction(value: boolean): ListAttribute;
 
   /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): ListAttribute;
+
+  /**
    * Called when the offset and status callback of the slide are set.
    * @since 7
    */
