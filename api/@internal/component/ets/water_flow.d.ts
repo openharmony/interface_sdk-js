@@ -166,6 +166,17 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   enableScrollInteraction(value: boolean): WaterFlowAttribute;
 
   /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): WaterFlowAttribute;
+
+  /**
    * Called when the water flow begins to arrive.
    * @since 9
    */
