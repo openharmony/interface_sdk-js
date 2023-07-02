@@ -5466,11 +5466,14 @@ declare class CommonMethod<T> {
    */
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
+   * @param { (string | CustomBuilder) } value
+   * @param { ?{ align?: Alignment; offset?: { x?: number; y?: number } } options
+   * @returns { T }
    * @form
    * @crossplatform
    * @since 10
    */
-  overlay(value: string, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
+  overlay(value: string | CustomBuilder, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
 
   /**
    * Linear Gradient
