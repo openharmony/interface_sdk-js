@@ -39,6 +39,7 @@
 /// <reference path="./flex.d.ts" />
 /// <reference path="./for_each.d.ts" />
 /// <reference path="./form_component.d.ts" />
+/// <reference path="./form_link.d.ts" />
 /// <reference path="./gauge.d.ts" />
 /// <reference path="./gesture.d.ts" />
 /// <reference path="./grid.d.ts" />
