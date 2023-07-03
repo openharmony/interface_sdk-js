@@ -17,7 +17,8 @@ const fs = require('fs');
 const path = require('path');
 const { exportDiffInfo } = require('../../diff_api/src/api_diff');
 const { StatusCode } = require('../../diff_api/src/reporter');
-const { parseJsDoc, requireTypescriptModule, ErrorType, LogType, ErrorLevel, ErrorValueInfo, getCheckApiVersion } = require('./utils');
+const { parseJsDoc, requireTypescriptModule, ErrorType, LogType, ErrorLevel, ErrorValueInfo, getCheckApiVersion,
+  FUNCTION_TYPES } = require('./utils');
 const ts = requireTypescriptModule();
 const { addAPICheckErrorLogs } = require('./compile_info');
 
@@ -356,11 +357,13 @@ function checkApiChangeEntry(change) {
  * @param {array} changes api_diff获取的变更数据列表
  */
 function analyseChanges(changes) {
+  const functionTypeSet = new Set(FUNCTION_TYPES);
   changes.forEach(change => {
     if (change.statusCode === StatusCode.ERRORCODE_CHANGES || change.statusCode === StatusCode.NEW_ERRORCODE ||
       change.statusCode === StatusCode.PERMISSION_CHANGES) {
       checkJSDocChangeEntry(change);
-    } else if (change.statusCode === StatusCode.FUNCTION_CHANGES) {
+    } else if (change.statusCode === StatusCode.FUNCTION_CHANGES && functionTypeSet.has(change.oldNode.kind) &&
+      functionTypeSet.has(change.newNode.kind)) {
       checkApiChangeEntry(change);
     }
   });
@@ -373,7 +376,7 @@ function logChangeErrors() {
   changeErrors.forEach(error => {
     const sourceFileNode = ts.getSourceFileOfNode(error.node);
     addAPICheckErrorLogs(error.node, sourceFileNode, sourceFileNode.fileName, ErrorType.API_CHANGE_ERRORS,
-      error.errorInfo, error.LogType, ErrorLevel.LOW);
+      error.errorInfo, error.LogType, ErrorLevel.MIDDLE);
   });
 }
 
@@ -385,6 +388,9 @@ function checkApiChanges(prId) {
   const oldFiles = [];
   // 编译流水线根目录
   const rootDir = path.resolve(__dirname, `../../../../../Archive/patch_info/openharmony_interface_sdk-js_${prId}`);
+  if (!fs.existsSync(rootDir)) {
+    return;
+  }
   const oldApiPath = path.resolve(rootDir, './old');
   const newFiles = [];
   const newApiPath = path.resolve(rootDir, './new');
