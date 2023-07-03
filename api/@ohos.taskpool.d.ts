@@ -238,6 +238,7 @@ declare namespace taskpool {
      * the task state is waiting.
      *
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     WAITING = 1,
@@ -246,6 +247,7 @@ declare namespace taskpool {
      * the task state is running.
      *
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     RUNNING = 2,
@@ -254,6 +256,7 @@ declare namespace taskpool {
      * the task state is canceled.
      *
      * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
      * @since 10
      */
     CANCELED = 3
@@ -407,7 +410,7 @@ declare namespace taskpool {
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - if the function in task is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -420,7 +423,7 @@ declare namespace taskpool {
    * @throws { BusinessError } 401 - The input parameters are invalid.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - if the function in task is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
