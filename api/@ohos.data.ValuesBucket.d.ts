@@ -17,8 +17,9 @@
  * Indicates possible value types
  *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @systemapi
  * @StageModelOnly
- * @since 10
+ * @since 9
  */
 export type ValueType = number | string | boolean;
 
@@ -26,8 +27,9 @@ export type ValueType = number | string | boolean;
  * Values in buckets are stored in key-value pairs
  *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @systemapi
  * @StageModelOnly
- * @since 10
+ * @since 9
  */
 export type ValuesBucket = {
   [key: string]: ValueType | Uint8Array | null;
