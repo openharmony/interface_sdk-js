@@ -844,6 +844,7 @@ zooms
 zpass
 commonevent
 clouddata
+unadjustable
 unprepare
 unchained
 sar

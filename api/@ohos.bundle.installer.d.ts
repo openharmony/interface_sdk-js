@@ -48,38 +48,6 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
-   * Obtains the distribution type specified during bundle installation.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @returns { string } The specified distribution type.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Input parameters check failed.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
-   */
-  function getSpecifiedDistributionType(bundleName: string): string;
-
-  /**
-   * Obtains the additional information during bundle installation.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @returns { string } The additional information.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Input parameters check failed.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
-   */
-  function getAdditionalInfo(bundleName: string): string;
-
-  /**
    * Bundle installer interface, include install uninstall recover.
    *
    * @interface BundleInstaller
