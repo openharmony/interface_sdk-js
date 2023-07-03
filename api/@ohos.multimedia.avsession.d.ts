@@ -516,7 +516,7 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 6600101 - server exception
+   * @throws {BusinessError} 6600101 - Session service exception
    * @throws {BusinessError} 6600102 - session does not exist
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
@@ -547,8 +547,8 @@ declare namespace avSession {
    * @param { AsyncCallback<void> } callback A callback instance used to return when start casting.
    * @throws {BusinessError} 201 - permission denied
    * @throws {BusinessError} 401 - parameter check failed
-   * @throws {BusinessError} 6600101 - server exception
-   * @throws {BusinessError} 6600108 - device connection error
+   * @throws {BusinessError} 6600101 - Session service exception
+   * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -563,8 +563,8 @@ declare namespace avSession {
    * @returns { Promise<void> } Promise for the result
    * @throws {BusinessError} 201 - permission denied
    * @throws {BusinessError} 401 - parameter check failed
-   * @throws {BusinessError} 6600101 - server exception
-   * @throws {BusinessError} 6600108 - device connection error
+   * @throws {BusinessError} 6600101 - Session service exception
+   * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -575,7 +575,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
-   * @throws { BusinessError } 6600109 - remote connection does not exist
+   * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -586,7 +586,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @returns { Promise<void> } Promise for the result
-   * @throws { BusinessError } 6600109 - remote connection does not exist
+   * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -1192,8 +1192,8 @@ declare namespace avSession {
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1205,8 +1205,8 @@ declare namespace avSession {
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600102 - The session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -1267,7 +1267,7 @@ declare namespace avSession {
     /**
      * Stop current cast and disconnect device connection.
      * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
-     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1276,7 +1276,7 @@ declare namespace avSession {
     /**
      * Stop current cast and disconnect device connection.
      * @returns { Promise<void> } void result promise when executed successfully 
-     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1388,7 +1388,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when set surface completed.
-     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 10
@@ -1399,7 +1399,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 10
@@ -1409,7 +1409,7 @@ declare namespace avSession {
     /**
      * Get the playback status of the current player
      * @param { AsyncCallback<AVPlaybackState> } callback - The triggered asyncCallback when (getAVPlaybackState).
-     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1418,7 +1418,7 @@ declare namespace avSession {
     /**
      * Get the playback status of the current player
      * @returns { Promise<AVPlaybackState> } (AVPlaybackState) returned through promise
-     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1429,9 +1429,9 @@ declare namespace avSession {
      * @param { AVCastControlCommand } command The command to be send.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600105 - command not supported
-     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600105 - Invalid session command
+     * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1442,9 +1442,9 @@ declare namespace avSession {
      * @param { AVCastControlCommand } command The command to be send.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
-     * @throws { BusinessError } 6600105 - command not supported
-     * @throws { BusinessError } 6600109 - remote connection does not exist
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600105 - Invalid session command
+     * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1455,8 +1455,8 @@ declare namespace avSession {
      * @param { AVQueueItem } item media item info.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws {BusinessError} 401 - parameter check failed
-     * @throws {BusinessError} 6600101 - server exception
-     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600101 - Session service exception
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1467,8 +1467,8 @@ declare namespace avSession {
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws {BusinessError} 401 - parameter check failed
-     * @throws {BusinessError} 6600101 - server exception
-     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600101 - Session service exception
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1479,8 +1479,8 @@ declare namespace avSession {
      * @param { AVQueueItem } item media item info.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws {BusinessError} 401 - parameter check failed
-     * @throws {BusinessError} 6600101 - server exception
-     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600101 - Session service exception
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1491,8 +1491,8 @@ declare namespace avSession {
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws {BusinessError} 401 - parameter check failed
-     * @throws {BusinessError} 6600101 - server exception
-     * @throws {BusinessError} 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600101 - Session service exception
+     * @throws {BusinessError} 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1501,7 +1501,7 @@ declare namespace avSession {
     /**
      * Get the current playing item
      * @param { AsyncCallback<AVQueueItem> } callback - The triggered asyncCallback.
-     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1510,7 +1510,7 @@ declare namespace avSession {
     /**
      * Get the current playing item
      * @returns { Promise<AVQueueItem> } (AVQueueItem) returned through promise
-     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1523,11 +1523,11 @@ declare namespace avSession {
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
-    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void);
+    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
      * Unregister playback state changed callback
@@ -1535,11 +1535,11 @@ declare namespace avSession {
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - server exception
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
-    off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void);
+    off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): void;
 
     /**
      * Register listener for current media item playback events.
@@ -1680,13 +1680,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    STATE_CONNECTED = 6,
+    STATE_CONNECTED = 1,
     /**
      * The default connection state indicating the device is disconnected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    STATE_DISCONNECTED = 5,
+    STATE_DISCONNECTED = 6,
   }
 
   /*
@@ -1919,7 +1919,7 @@ declare namespace avSession {
     mediaUri?: string;
     /**
      * Media file descriptor.
-     * @syscap SystemCapability.Multimedia.Media.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     fdSrc?: media.AVFileDescriptor;
@@ -2870,8 +2870,8 @@ declare namespace avSession {
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600103 - The session controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -2883,8 +2883,8 @@ declare namespace avSession {
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @throws { BusinessError } 6600103 - The session controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
