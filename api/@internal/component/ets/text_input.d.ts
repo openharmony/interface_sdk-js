@@ -658,6 +658,24 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 10
    */
   showUnderline(value: boolean): TextInputAttribute;
+
+  /**
+   * Define bar state of the text input.
+   * @param { BarState }
+   * @returns { TextInputAttribute } the attribute of the text input.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  barState(value: BarState): TextInputAttribute;
+
+  /**
+   * Define max lines of the text input.
+   * @param { number }
+   * @returns { TextInputAttribute } the attribute of the text input.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxLines(value: number): TextInputAttribute;
 }
 
 /**

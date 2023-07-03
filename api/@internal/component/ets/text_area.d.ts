@@ -340,6 +340,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 10
    */
   style(value: TextContentStyle): TextAreaAttribute;
+
+  /**
+   * Define max lines of the text area.
+   * @param { number }
+   * @returns { TextAreaAttribute } the attribute of the text area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxLines(value: number): TextAreaAttribute;
 }
 
 /**
