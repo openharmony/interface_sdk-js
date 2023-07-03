@@ -186,6 +186,14 @@ declare class TextInputController {
    * @since 10
    */
   setTextSelection(selectionStart: number, selectionEnd: number): void;
+
+  /**
+   * Exit edit state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  stopEditing(): void;
 }
 
 /**
@@ -434,6 +442,26 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onChange(callback: (value: string) => void): TextInputAttribute;
 
   /**
+   * Called when the text selection changes.
+   * @param { (selectionStart: number, selectionEnd: number) => void } callback - callback of the listened event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextInputAttribute;
+
+  /**
+   * Called when the content scrolls.
+   * @param { (totalOffsetX: number, totalOffsetY: number) => void } callback - callback of the listened event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): TextInputAttribute;
+
+  /**
    * Called when the input of maximum text length is set.
    * @since 7
    */
@@ -658,6 +686,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 10
    */
   showUnderline(value: boolean): TextInputAttribute;
+
+  /**
+   * Controls whether the selection menu pops up.
+   * @param { boolean } value
+   * @default false
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  selectionMenuHidden(value: boolean): TextInputAttribute;
 }
 
 /**
