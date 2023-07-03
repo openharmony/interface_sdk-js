@@ -1680,13 +1680,13 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    STATE_CONNECTED = 1,
+    STATE_CONNECTED = 6,
     /**
      * The default connection state indicating the device is disconnected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    STATE_DISCONNECTED = 6,
+    STATE_DISCONNECTED = 5,
   }
 
   /*
