@@ -492,6 +492,26 @@ declare namespace inputDevice {
   function setKeyboardRepeatDelay(delay: number): Promise<void>;
 
   /**
+   * Get the Keyboard Repetition Delay.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 10
+   */
+  function getKeyboardRepeatDelay(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the Keyboard Repetition Delay.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 10
+   */
+  function getKeyboardRepeatDelay(): Promise<number>;
+
+  /**
    * Setting the Keyboard Key Repetition Rate.
    *
    * @param { number } rate - Repetition rate, the unit is ms.
@@ -512,6 +532,26 @@ declare namespace inputDevice {
    * @since 10
    */
   function setKeyboardRepeatRate(rate: number): Promise<void>;
+
+  /**
+   * Get Keyboard Key Repetition Rate.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 10
+   */
+  function getKeyboardRepeatRate(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get Keyboard Key Repetition Rate.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 10
+   */
+  function getKeyboardRepeatRate(): Promise<number>;
 }
 
 export default inputDevice;
