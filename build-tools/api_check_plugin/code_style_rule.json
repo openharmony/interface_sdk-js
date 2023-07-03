@@ -159,6 +159,7 @@
       "SystemCapability.PowerManager.BatteryManager.Extension",
       "SystemCapability.PowerManager.BatteryStatistics",
       "SystemCapability.PowerManager.DisplayPowerManager",
+      "SystemCapability.PowerManager.DisplayPowerManager.Lite",
       "SystemCapability.PowerManager.ThermalManager",
       "SystemCapability.PowerManager.PowerManager.Core",
       "SystemCapability.PowerManager.PowerManager.Lite",

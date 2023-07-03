@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,8 @@
  */
 
 /**
- * @syscap SystemCapability.PowerManager.BatteryManager.Core
+ * @interface BatteryResponse
+ * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3
  * @deprecated since 6
  */
@@ -22,7 +23,7 @@ export interface BatteryResponse {
   /**
    * Whether the battery is being charged.
    *
-   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
    */
@@ -31,7 +32,7 @@ export interface BatteryResponse {
   /**
    * Current battery level, which ranges from 0.00 to 1.00.
    *
-   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
    */
@@ -39,7 +40,8 @@ export interface BatteryResponse {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.BatteryManager.Core
+ * @interface GetStatusOptions
+ * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3
  * @deprecated since 6
  */
@@ -47,7 +49,7 @@ export interface GetStatusOptions {
   /**
    * Called when the current charging state and battery level are obtained.
    *
-   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
    */
@@ -56,7 +58,7 @@ export interface GetStatusOptions {
   /**
    * Called when the current charging state and battery level fail to be obtained.
    *
-   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
    */
@@ -65,7 +67,7 @@ export interface GetStatusOptions {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
    */
@@ -73,7 +75,7 @@ export interface GetStatusOptions {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.BatteryManager.Core
+ * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3
  * @deprecated since 6
  */
@@ -81,8 +83,8 @@ export default class Battery {
   /**
    * Obtains the current charging state and battery level.
    *
-   * @param options Options.
-   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @param { GetStatusOptions } options Options.
+   * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3
    * @deprecated since 6
    */

@@ -40,6 +40,8 @@
     "SystemCapability.MultimodalInput.Input.InputSimulator",
     "SystemCapability.MultimodalInput.Input.InputFilter",
     "SystemCapability.MultimodalInput.Input.ShortKey",
+    "SystemCapability.PowerManager.BatteryManager.Lite",
+    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.PowerManager.ThermalManager",
     "SystemCapability.PowerManager.PowerManager.Core",
     "SystemCapability.Multimedia.Media.Core",
