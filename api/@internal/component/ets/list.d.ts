@@ -319,7 +319,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @crossplatform
    * @since 10
    */
-  lanes(value: number | LengthConstrain): ListAttribute;
+  lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
 
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
