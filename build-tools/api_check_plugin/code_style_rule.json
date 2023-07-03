@@ -177,6 +177,7 @@
       "SystemCapability.Multimedia.Media.VideoEncoder",
       "SystemCapability.Multimedia.Media.Spliter",
       "SystemCapability.Multimedia.Media.Muxer",
+      "SystemCapability.Multimedia.Media.AVScreenCapture",
       "SystemCapability.Multimedia.AVSession.Core",
       "SystemCapability.Multimedia.AVSession.Manager",
       "SystemCapability.Multimedia.AVSession.AVCast",
