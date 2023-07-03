@@ -284,7 +284,7 @@ declare namespace preferences {
    * @crossplatform
    * @since 10
    */
-  function removePreferencesFromCache(context: Context, name: string): void;
+  function removePreferencesFromCacheSync(context: Context, name: string): void;
 
   /**
    * Provides interfaces to obtain and modify preferences data.
@@ -676,7 +676,7 @@ declare namespace preferences {
      * @crossplatform
      * @since 10
      */
-    clear(): void;
+    clearSync(): void;
 
     /**
      * Asynchronously saves the {@link Preferences} object to the file.
