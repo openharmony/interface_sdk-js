@@ -311,8 +311,8 @@ declare namespace preferences {
    */
   interface Preferences {
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -323,8 +323,8 @@ declare namespace preferences {
      * @since 9
      */
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -338,8 +338,8 @@ declare namespace preferences {
     get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
 
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -350,8 +350,8 @@ declare namespace preferences {
      * @since 9
      */
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -365,8 +365,8 @@ declare namespace preferences {
     get(key: string, defValue: ValueType): Promise<ValueType>;
 
     /**
-     * Obtains the value of a preferences in the int format. This interface is executed synchronously.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format. This interface is executed synchronously.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
