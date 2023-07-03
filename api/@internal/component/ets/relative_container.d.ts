@@ -18,13 +18,24 @@
  * @form
  * @since 9
  */
+/**
+ * Provides ports for relative containers.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface RelativeContainerInterface {
-    (): RelativeContainerAttribute;
+  (): RelativeContainerAttribute;
 }
 
 /**
  * @form
  * @since 9
+ */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
 }
@@ -33,10 +44,20 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
  * @form
  * @since 9
  */
-declare const RelativeContainer : RelativeContainerInterface;
+/**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
+declare const RelativeContainer: RelativeContainerInterface;
 
 /**
  * @form
  * @since 9
+ */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const RelativeContainerInstance: RelativeContainerAttribute;

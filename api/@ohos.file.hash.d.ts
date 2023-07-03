@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,29 +12,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic'
+
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Hash
+ *
+ * @namespace hash
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
 declare namespace hash {
-    /**
-     * Hash file.
-     * @static
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 9
-     * @param {string} path - path.
-     * @param {string} algorithm - algorithm md5 sha1 sha256.
-     * @param {AsyncCallback<string>} [callback] - callback.
-     * @returns {void | Promise<string>} no callback return Promise otherwise return void
-     * @throws { BusinessError } 13900020  - Invalid argument
-     * @throws { BusinessError } 13900042  - Unknown error
-     */
-    function hash(path: string, algorithm: string): Promise<string>;
-    function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
+  /**
+   * Hash file.
+   *
+   * @param { string } path - path.
+   * @param { string } algorithm - algorithm md5 sha1 sha256.
+   * @returns { Promise<string> } return Promise
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 9
+   */
+  function hash(path: string, algorithm: string): Promise<string>;
+
+  /**
+   * Hash file.
+   *
+   * @param { string } path - path.
+   * @param { string } algorithm - algorithm md5 sha1 sha256.
+   * @param { AsyncCallback<string> } [callback] - callback.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 9
+   */
+  function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 }
 
 export default hash;
- 

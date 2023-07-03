@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,30 +16,46 @@
 /**
  * interface of formBindingData.
  *
- * @name formBindingData
- * @since 8
+ * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
+ * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formBindingData
+ * @useinstead ohos.app.form.formBindingData/formBindingData
  */
 declare namespace formBindingData {
-    /**
-     * Create an FormBindingData instance.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.Form
-     * @param obj Indicates the FormBindingData instance data.
-     * @returns Returns the {@link FormBindingData} instance.
-     */
-    function createFormBindingData(obj?: Object | string): FormBindingData;
+  /**
+   * Create an FormBindingData instance.
+   *
+   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
+   * @returns { FormBindingData } Returns the {@link FormBindingData} instance.
+   * @syscap SystemCapability.Ability.Form
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.form.formBindingData/formBindingData#createFormBindingData
+   */
+  function createFormBindingData(obj?: Object | string): FormBindingData;
 
+  /**
+   * Defines the createFormBindingData result interface.
+   *
+   * @typedef FormBindingData
+   * @syscap SystemCapability.Ability.Form
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.form.formBindingData/formBindingData#FormBindingData
+   */
+  interface FormBindingData {
     /**
-     * Defines the createFormBindingData result interface.
+     * The data to be displayed on the js card. Can be a string in Object or json format that
+     * contains several key-value pairs.
+     *
+     * @type { Object }
      * @syscap SystemCapability.Ability.Form
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.form.formBindingData/formBindingData#FormBindingData
      */
-    interface FormBindingData {
-        data: Object
-    }
+    data: Object;
+  }
 }
 export default formBindingData;

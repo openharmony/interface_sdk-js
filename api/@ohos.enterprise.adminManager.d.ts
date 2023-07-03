@@ -13,36 +13,43 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
-import Want from "./@ohos.app.ability.Want";
+import type { AsyncCallback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the administrator of the enterprise devices.
+ *
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 9
  */
 declare namespace adminManager {
-
   /**
    * Provides the enterprise information.
+   *
    * @typedef EnterpriseInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @since 9
    */
   export interface EnterpriseInfo {
-   /**
-    * The name of enterprise.
-    * @type {string}
-    * @since 9
-    */
+    /**
+     * The name of enterprise.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 9
+     */
     name: string;
 
     /**
      * The description of enterprise.
-     * @type {string}
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @since 9
      */
     description: string;
@@ -50,7 +57,8 @@ declare namespace adminManager {
 
   /**
    * Enum for type of administrator.
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @since 9
@@ -58,14 +66,18 @@ declare namespace adminManager {
   export enum AdminType {
     /**
      * The value of normal administrator.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @since 9
      */
     ADMIN_TYPE_NORMAL = 0x00,
 
     /**
      * The value of super administrator.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @since 9
      */
     ADMIN_TYPE_SUPER = 0x01
@@ -73,31 +85,54 @@ declare namespace adminManager {
 
   /**
    * Enum for managed event
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @since 9
    */
   export enum ManagedEvent {
-    
     /**
      * The event of bundle added.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_ADDED = 0,
 
     /**
      * The event of bundle removed.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_REMOVED = 1,
+
+    /**
+     * The event of app start.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 10
+     */
+    MANAGED_EVENT_APP_START = 2,
+
+    /**
+     * The event of app stop.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 10
+     */
+    MANAGED_EVENT_APP_STOP = 3
   }
 
   /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
@@ -119,6 +154,7 @@ declare namespace adminManager {
   /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
@@ -141,6 +177,7 @@ declare namespace adminManager {
   /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
@@ -163,6 +200,7 @@ declare namespace adminManager {
   /**
    * Disables a current normal administrator ability.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<void> } callback - the callback of disableAdmin.
@@ -180,6 +218,7 @@ declare namespace adminManager {
   /**
    * Disables a current normal administrator ability.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } userId - userId indicates the user ID.
@@ -198,6 +237,7 @@ declare namespace adminManager {
   /**
    * Disables a current normal administrator ability.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
@@ -216,8 +256,9 @@ declare namespace adminManager {
   /**
    * Disables a current super administrator ability.
    * Only the administrator app or apps with the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @param { AsyncCallback<void> } callback - the callback of disableSuperAdmin.
    * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -233,8 +274,9 @@ declare namespace adminManager {
   /**
    * Disables a current super administrator ability.
    * Only the administrator app or apps with the shell uid can call this method.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @returns { Promise<void> } the promise returned by the disableSuperAdmin.
    * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -249,6 +291,7 @@ declare namespace adminManager {
 
   /**
    * Get whether the ability is enabled as device administrator.
+   *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is enabled.
    * @throws { BusinessError } 202 - not system application.
@@ -262,6 +305,7 @@ declare namespace adminManager {
 
   /**
    * Get whether the ability is enabled as device administrator.
+   *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is enabled.
@@ -276,6 +320,7 @@ declare namespace adminManager {
 
   /**
    * Get whether the ability is enabled as device administrator.
+   *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<boolean> } promise contained true if the administrator is enabled.
@@ -290,6 +335,7 @@ declare namespace adminManager {
 
   /**
    * Get information of the administrator's enterprise.
+   *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<EnterpriseInfo> } callback - callback contained the enterprise info of administrator.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
@@ -304,6 +350,7 @@ declare namespace adminManager {
 
   /**
    * Get information of the administrator's enterprise.
+   *
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<EnterpriseInfo> } promise contained the enterprise info of administrator.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
@@ -319,6 +366,7 @@ declare namespace adminManager {
   /**
    * Set the information of the administrator's enterprise.
    * Only the administrator app can call this method.
+   *
    * @permission ohos.permission.SET_ENTERPRISE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
@@ -337,6 +385,7 @@ declare namespace adminManager {
   /**
    * Set the information of the administrator's enterprise.
    * Only the administrator app can call this method.
+   *
    * @permission ohos.permission.SET_ENTERPRISE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
@@ -354,7 +403,8 @@ declare namespace adminManager {
 
   /**
    * Get whether the ability is enabled as super device administrator.
-   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   *
+   * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is super administrator.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -367,7 +417,8 @@ declare namespace adminManager {
 
   /**
    * Get whether the ability is enabled as super device administrator.
-   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   *
+   * @param { String } bundleName - bundleName indicates the administrator bundle information.
    * @returns { Promise<boolean> } promise contained true if the administrator is super administrator.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -380,6 +431,7 @@ declare namespace adminManager {
 
   /**
    * Subscribes the managed event of admin.
+   *
    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
@@ -394,61 +446,64 @@ declare namespace adminManager {
    * @StageModelOnly
    * @since 9
    */
-   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+  function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
-   /**
-    * Subscribes the managed event of admin.
-    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-    * @param { Want } admin - admin indicates the administrator ability information.
-    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
-    * @returns { Promise<void> } the promise returned by the subscribeManagedEvent.
-    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-    * @throws { BusinessError } 202 - not system application.
-    * @throws { BusinessError } 401 - invalid input parameter.
-    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-    * @systemapi
-    * @StageModelOnly
-    * @since 9
-    */
-   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
- 
-   /**
-    * Unsubscribes the managed event of admin.
-    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-    * @param { Want } admin - admin indicates the administrator ability information.
-    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
-    * @param { AsyncCallback<void> } callback - the callback of unsubscribeManagedEvent.
-    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-    * @throws { BusinessError } 202 - not system application.
-    * @throws { BusinessError } 401 - invalid input parameter.
-    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-    * @systemapi
-    * @StageModelOnly
-    * @since 9
-    */
-   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+  /**
+   * Subscribes the managed event of admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @returns { Promise<void> } the promise returned by the subscribeManagedEvent.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
-   /**
-    * Unsubscribes the managed event of admin.
-    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-    * @param { Want } admin - admin indicates the administrator ability information.
-    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
-    * @returns { Promise<void> } the promise returned by the unsubscribeManagedEvent.
-    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-    * @throws { BusinessError } 202 - not system application.
-    * @throws { BusinessError } 401 - invalid input parameter.
-    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-    * @systemapi
-    * @StageModelOnly
-    * @since 9
-    */
-   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
+  /**
+   * Unsubscribes the managed event of admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @param { AsyncCallback<void> } callback - the callback of unsubscribeManagedEvent.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unsubscribes the managed event of admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @returns { Promise<void> } the promise returned by the unsubscribeManagedEvent.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 }
 
 export default adminManager;

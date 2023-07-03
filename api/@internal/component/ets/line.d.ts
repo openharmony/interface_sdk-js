@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Line drawing component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface LineInterface {
   /**
    * Uses new to create the line.
@@ -35,6 +41,14 @@ interface LineInterface {
    * height: Height of the rectangle where the line resides.
    * @form
    * @since 9
+   */
+  /**
+   * Uses new to create the line.
+   * width: Width of the rectangle where the line resides..
+   * height: Height of the rectangle where the line resides.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   new (value?: { width?: string | number; height?: string | number }): LineAttribute;
 
@@ -51,6 +65,14 @@ interface LineInterface {
    * @form
    * @since 9
    */
+  /**
+   * The return value of the parameter is Line.
+   * width: Width of the rectangle where the line resides..
+   * height: Height of the rectangle where the line resides.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (value?: { width?: string | number; height?: string | number }): LineAttribute;
 }
 
@@ -63,6 +85,12 @@ interface LineInterface {
  * @form
  * @since 9
  */
+/**
+ * inheritance CommonShapeMethod.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Coordinate of the start point of the line (relative coordinate).
@@ -72,6 +100,12 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * Coordinate of the start point of the line (relative coordinate).
    * @form
    * @since 9
+   */
+  /**
+   * Coordinate of the start point of the line (relative coordinate).
+   * @form
+   * @crossplatform
+   * @since 10
    */
   startPoint(value: Array<any>): LineAttribute;
 
@@ -84,8 +118,45 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Line end coordinates (relative coordinates).
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   endPoint(value: Array<any>): LineAttribute;
 }
 
+/**
+ * Defines Line Component.
+ * @since 7
+ */
+/**
+ * Defines Line Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Line Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Line: LineInterface;
+
+/**
+ * Defines Line Component instance.
+ * @since 7
+ */
+/**
+ * Defines Line Component instance.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Line Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const LineInstance: LineAttribute;

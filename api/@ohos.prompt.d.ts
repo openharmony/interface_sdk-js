@@ -15,7 +15,7 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 
 /**
@@ -147,14 +147,14 @@ declare namespace prompt {
    * @param options Options.
    * @since 8
    */
-  function showToast(options: ShowToastOptions):void;
+  function showToast(options: ShowToastOptions): void;
 
   /**
    * Displays the dialog box.
    * @param options Options.
    * @since 8
    */
-  function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>):void;
+  function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
   function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
 
   /**
@@ -162,7 +162,7 @@ declare namespace prompt {
    * @param options Options.
    * @since 8
    */
-  function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>):void;
+  function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }
 

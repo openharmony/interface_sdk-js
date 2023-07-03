@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Defines the badge position property.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum BadgePosition {
   /**
    * The dot is displayed vertically centered on the right.
@@ -31,6 +37,12 @@ declare enum BadgePosition {
    * The dot is displayed vertically centered on the right.
    * @form
    * @since 9
+   */
+  /**
+   * The dot is displayed vertically centered on the right.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   RightTop,
 
@@ -43,6 +55,12 @@ declare enum BadgePosition {
    * @form
    * @since 9
    */
+  /**
+   * Dots are displayed in the upper right corner.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Right,
 
   /**
@@ -53,6 +71,12 @@ declare enum BadgePosition {
    * The dot is displayed in the left vertical center.
    * @form
    * @since 9
+   */
+  /**
+   * The dot is displayed in the left vertical center.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Left,
 }
@@ -66,6 +90,12 @@ declare enum BadgePosition {
  * @form
  * @since 9
  */
+/**
+ * BadgeStyle object
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BadgeStyle {
   /**
    * Text Color
@@ -75,6 +105,12 @@ declare interface BadgeStyle {
    * Text Color
    * @form
    * @since 9
+   */
+  /**
+   * Text Color
+   * @form
+   * @crossplatform
+   * @since 10
    */
   color?: ResourceColor;
 
@@ -87,6 +123,12 @@ declare interface BadgeStyle {
    * @form
    * @since 9
    */
+  /**
+   * Text size.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontSize?: number | string;
 
   /**
@@ -97,6 +139,12 @@ declare interface BadgeStyle {
    * Size of a badge.
    * @form
    * @since 9
+   */
+  /**
+   * Size of a badge.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   badgeSize?: number | string;
 
@@ -109,7 +157,61 @@ declare interface BadgeStyle {
    * @form
    * @since 9
    */
+  /**
+   * Color of the badge.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   badgeColor?: ResourceColor;
+
+  /**
+   * Define the border color of the badge.
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Define the border color of the badge.
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  borderColor?: ResourceColor;
+
+  /**
+   * Define the border width of the badge.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Define the border width of the badge.
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  borderWidth?: Length;
+
+  /**
+   * Define the font weight of the badge.
+   * @type { number | FontWeight | string}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Define the font weight of the badge.
+   * @type { number | FontWeight | string}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  fontWeight?: number | FontWeight | string;
 }
 
 /**
@@ -121,6 +223,12 @@ declare interface BadgeStyle {
  * @form
  * @since 9
  */
+/**
+ * Defines the base param of badge.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
@@ -130,6 +238,12 @@ declare interface BadgeParam {
    * Set the display position of the prompt point.
    * @form
    * @since 9
+   */
+  /**
+   * Set the display position of the prompt point.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   position?: BadgePosition;
 
@@ -141,6 +255,12 @@ declare interface BadgeParam {
    * Defines the style of the Badge component, including the text color, size, dot color, and size.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the style of the Badge component, including the text color, size, dot color, and size.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   style: BadgeStyle;
 }
@@ -154,6 +274,12 @@ declare interface BadgeParam {
  * @form
  * @since 9
  */
+/**
+ * Defines the badge param with count and maxCount.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BadgeParamWithNumber extends BadgeParam {
   /**
    * Set the number of reminder messages.
@@ -163,6 +289,12 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * Set the number of reminder messages.
    * @form
    * @since 9
+   */
+  /**
+   * Set the number of reminder messages.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   count: number;
 
@@ -174,6 +306,12 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * @form
    * @since 9
+   */
+  /**
+   * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   maxCount?: number;
 }
@@ -187,6 +325,12 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @form
  * @since 9
  */
+/**
+ * Defines the badge param with string value.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BadgeParamWithString extends BadgeParam {
   /**
    * Text string of the prompt content.
@@ -196,6 +340,12 @@ declare interface BadgeParamWithString extends BadgeParam {
    * Text string of the prompt content.
    * @form
    * @since 9
+   */
+  /**
+   * Text string of the prompt content.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   value: string;
 }
@@ -208,6 +358,12 @@ declare interface BadgeParamWithString extends BadgeParam {
  * Defines Badge Component.
  * @form
  * @since 9
+ */
+/**
+ * Defines Badge Component.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 interface BadgeInterface {
   /**
@@ -224,6 +380,15 @@ interface BadgeInterface {
    * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
    * @form
    * @since 9
+   */
+  /**
+   * position: Set the display position of the prompt point.
+   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * count: Set the number of reminder messages.
+   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (value: BadgeParamWithNumber): BadgeAttribute;
 
@@ -242,6 +407,15 @@ interface BadgeInterface {
    * @form
    * @since 9
    */
+  /**
+   * value: Text string of the prompt content.
+   * position: Set the display position of the prompt point.
+   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (value: BadgeParamWithString): BadgeAttribute;
 }
 
@@ -254,7 +428,44 @@ interface BadgeInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines Badge Component attribute.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
+/**
+ * Defines Badge Component.
+ * @since 7
+ */
+/**
+ * Defines Badge Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Badge Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Badge: BadgeInterface;
+
+/**
+ * Defines Badge Component instance.
+ * @since 7
+ */
+/**
+ * Defines Badge Component instance.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Badge Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const BadgeInstance: BadgeAttribute;

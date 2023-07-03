@@ -13,21 +13,22 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./basic";
-import Want from "./@ohos.app.ability.Want";
+import type { AsyncCallback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the datetime of the enterprise devices.
- * @namespace dateTimeManager.
+ *
+ * @namespace dateTimeManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 9
  */
 declare namespace dateTimeManager {
-
   /**
    * Sets the system time.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } time - time indicates the target time stamp (ms).
@@ -47,6 +48,7 @@ declare namespace dateTimeManager {
   /**
    * Sets the system time.
    * This function can be called by a super administrator.
+   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } time - time indicates the target time stamp (ms).
@@ -62,6 +64,84 @@ declare namespace dateTimeManager {
    * @since 9
    */
   function setDateTime(admin: Want, time: number): Promise<void>;
+
+  /**
+   * Disallow modify the system time.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_DATETIME
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disallow - true if the user is not allowed to modify the system time.
+   * @param { AsyncCallback<void> } callback - the callback of disallowModifyDateTime.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function disallowModifyDateTime(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Disallow modify the system time.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_DATETIME
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disallow - true if the user is not allowed to modify the system time.
+   * @returns { Promise<void> } the promise returned by the disallowModifyDateTime.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function disallowModifyDateTime(admin: Want, disallow: boolean): Promise<void>;
+
+  /**
+   * Query the capability of modify the system time is allowed or disallowed.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_DATETIME
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AsyncCallback<boolean> } callback - return true if modify datetime is not allowed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function isModifyDateTimeDisallowed(admin: Want, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Query the capability of modify the system time is allowed or disallowed.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_DATETIME
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Promise<boolean> } return true if modify datetime is not allowed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function isModifyDateTimeDisallowed(admin: Want): Promise<boolean>;
 }
 
 export default dateTimeManager;

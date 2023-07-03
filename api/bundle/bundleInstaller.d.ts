@@ -13,77 +13,87 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './../basic';
+import { AsyncCallback } from './../@ohos.base';
 import bundle from './../@ohos.bundle';
 
 /**
- * @name Provides parameters required for installing or uninstalling an application.
- * @since 7
+ * Provides parameters required for installing or uninstalling an application.
+ *
+ * @typedef InstallParam
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#InstallParam
  */
 export interface InstallParam {
   /**
-    * @default Indicates the user id
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @deprecated since 9
-    * @useinstead ohos.bundle.installer.InstallParam#userId
-    */
+   * @default Indicates the user id
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bundle.installer.InstallParam#userId
+   */
   userId: number;
 
   /**
-    * @default Indicates the install flag
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @deprecated since 9
-    * @useinstead ohos.bundle.installer.InstallParam#installFlag
-    */
+   * @default Indicates the install flag
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bundle.installer.InstallParam#installFlag
+   */
   installFlag: number;
 
   /**
-    * @default Indicates whether the param has data
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @deprecated since 9
-    * @useinstead ohos.bundle.installer.InstallParam#isKeepData
-    */
+   * @default Indicates whether the param has data
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bundle.installer.InstallParam#isKeepData
+   */
   isKeepData: boolean;
 }
 
 /**
- * @name Indicates the install or uninstall status
- * @since 7
+ * Indicates the install or uninstall status
+ *
+ * @typedef InstallStatus
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
+ * @since 7
  * @deprecated since 9
  */
 export interface InstallStatus {
-
   /**
-    * @default Indicates the install or uninstall error code
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @deprecated since 9
-    */
+   * @default Indicates the install or uninstall error code
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
+   * @deprecated since 9
+   */
   status: bundle.InstallErrorCode;
 
   /**
-    * @default Indicates the install or uninstall result string message
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @deprecated since 9
-    */
+   * @default Indicates the install or uninstall result string message
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
+   * @deprecated since 9
+   */
   statusMessage: string;
 }
 
 /**
- * @name Offers install, upgrade, and remove bundles on the devices.
- * @since 7
+ * Offers install, upgrade, and remove bundles on the devices.
+ *
+ * @interface BundleInstaller
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#BundleInstaller
  */
@@ -91,14 +101,14 @@ export interface BundleInstaller {
   /**
    * Install an application in a HAP.
    *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   *
-   * @param bundleFilePaths Indicates the path where the bundle of the application is stored. The path should be the
-   *                        relative path to the data directory of the current application.
-   * @param param Indicates other parameters required for the installation.
-   * @returns InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { Array<string> } bundleFilePaths Indicates the path where the bundle of the application is stored. The path should be the
+   *                                   relative path to the data directory of the current application.
+   * @param { InstallParam } param Indicates other parameters required for the installation.
+   * @param { AsyncCallback<InstallStatus> } callback
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#install
    */
@@ -107,13 +117,13 @@ export interface BundleInstaller {
   /**
    * Uninstall an application.
    *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   *
-   * @param bundleName Indicates the bundle name of the application to be uninstalled.
-   * @param param Indicates other parameters required for the uninstall.
-   * @returns InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName Indicates the bundle name of the application to be uninstalled.
+   * @param { InstallParam } param Indicates other parameters required for the uninstall.
+   * @param { AsyncCallback<InstallStatus> } callback
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#uninstall
    */
@@ -122,16 +132,15 @@ export interface BundleInstaller {
   /**
    * recover an application.
    *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   *
-   * @param bundleName Indicates the bundle name of the application to be recovered.
-   * @param param Indicates other parameters required for the recover.
-   * @returns InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName Indicates the bundle name of the application to be recovered.
+   * @param { InstallParam } param Indicates other parameters required for the recover.
+   * @param { AsyncCallback<InstallStatus> } callback
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#recover
    */
-   recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+  recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 }

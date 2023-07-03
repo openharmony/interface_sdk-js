@@ -13,192 +13,234 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, BusinessError} from './basic';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
  * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
  * when the screen is off.
- *
  * <p>{@link create} can be called to obtain a {@link RunningLock}.
  * <p>{@link hold} can be called to set the lock duration, during which the system will not hibernate. After the
  * lock duration times out, the lock is automatically released and the system hibernates if no other
  * {@link RunningLock} is set.
  *
+ * @namespace runningLock
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7
  */
 declare namespace runningLock {
-    class RunningLock {
-        /**
-         * Prevents the system from hibernating and sets the lock duration.
-         * This method requires the ohos.permission.RUNNING_LOCK permission.
-         *
-         * @permission ohos.permission.RUNNING_LOCK
-         * @param timeout Indicates the lock duration (ms). After the lock duration times out, the lock is automatically
-         * released and the system hibernates if no other {@link RunningLock} is set.
-         * @since 7
-         * @deprecated since 9
-         * @useinstead {@link RunningLock#hold}
-         */
-        lock(timeout: number): void;
-
-        /**
-         * Prevents the system from hibernating and sets the lock duration.
-         * This method requires the ohos.permission.RUNNING_LOCK permission.
-         *
-         * @permission ohos.permission.RUNNING_LOCK
-         * @param {number} timeout Indicates the lock duration (ms). After the lock duration times out,
-         * the lock is automatically released and the system hibernates if no other {@link RunningLock} is set.
-         * @throws {BusinessError} 401 - If the timeout is not valid.
-         * @throws {BusinessError} 4900101 - If connecting to the service failed.
-         * @since 9
-         */
-        hold(timeout: number): void;
-
-        /**
-         * Checks whether a lock is held or in use.
-         *
-         * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
-         * @since 7
-         * @deprecated since 9
-         * @useinstead {@link RunningLock#isHolding}
-         */
-        isUsed(): boolean;
-
-        /**
-         * Checks whether a lock is held or in use.
-         *
-         * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
-         * @throws {BusinessError} 4900101 - If connecting to the service failed.
-         * @since 9
-         */
-        isHolding(): boolean;
-
-        /**
-         * Release the {@link RunningLock} that prevents the system from hibernating.
-         * This method requires the ohos.permission.RUNNING_LOCK permission.
-         *
-         * @permission ohos.permission.RUNNING_LOCK
-         * @since 7
-         * @deprecated since 9
-         * @useinstead {@link RunningLock#unhold}
-         */
-        unlock(): void;
-
-        /**
-         * Release the {@link RunningLock} that prevents the system from hibernating.
-         * This method requires the ohos.permission.RUNNING_LOCK permission.
-         *
-         * @permission ohos.permission.RUNNING_LOCK
-         * @throws {BusinessError} 4900101 - If connecting to the service failed.
-         * @since 9
-         */
-        unhold(): void;
-    }
-
+  class RunningLock {
     /**
-     * Enumerates the {@link RunningLock} types.
+     * Prevents the system from hibernating and sets the lock duration.
+     * This method requires the ohos.permission.RUNNING_LOCK permission.
      *
-     * <p>Two {@link RunningLock} types are available: {@link BACKGROUND}, and {@link PROXIMITY_SCREEN_CONTROL}.
-     * {@link BACKGROUND} ensures that applications can run in the background.
-     * {@link PROXIMITY_SCREEN_CONTROL} determines whether to turn on or off the screen based on the proximity sensor.
-     *
-     * @since 7
-     */
-    export enum RunningLockType {
-        /**
-         * Indicates the lock that prevents the system from hibernating.
-         *
-         * @deprecated since 10
-         */
-        BACKGROUND = 1,
-        /**
-         * Indicates the lock that determines whether to turn on or off the screen based on the proximity sensor.
-         * For example, during a call, if the proximity sensor detects that the device is moving close to
-         * the user's ear, the screen turns off; if the proximity sensor detects that the device is moving away
-         * from the user's ear, the screen turns on.
-         */
-        PROXIMITY_SCREEN_CONTROL
-    }
-
-    /**
-     * Checks whether the specified {@link RunningLockType} is supported.
-     *
-     * @param type Indicates the specified {@link RunningLockType}.
-     * @param callback Indicates the callback function contains the result whether the specified
-     * {@link RunningLockType} is supported.
-     * @returns Returns true if the specified {@link RunningLockType} is supported;
-     * returns false otherwise.
+     * @permission ohos.permission.RUNNING_LOCK
+     * @param timeout Indicates the lock duration (ms). After the lock duration times out, the lock is automatically
+     * released and the system hibernates if no other {@link RunningLock} is set.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead {@link RunningLock#isSupported}
+     * @useinstead { @link RunningLock#hold }
      */
-    function isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback<boolean>): void;
-    function isRunningLockTypeSupported(type: RunningLockType): Promise<boolean>;
+    lock(timeout: number): void;
 
     /**
-     * Checks whether the specified {@link RunningLockType} is supported.
+     * Prevents the system from hibernating and sets the lock duration.
+     * This method requires the ohos.permission.RUNNING_LOCK permission.
      *
-     * @param {RunningLockType} type Indicates the specified {@link RunningLockType}.
-     * @returns {boolean} Whether the specified {@link RunningLockType} is supported.
-     * @throws {BusinessError} 401 - If the type is not valid.
-     * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @permission ohos.permission.RUNNING_LOCK
+     * @param { number } timeout Indicates the lock duration (ms). After the lock duration times out,
+     * the lock is automatically released and the system hibernates if no other {@link RunningLock} is set.
+     * @throws { BusinessError } 401 - If the timeout is not valid.
+     * @throws { BusinessError } 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
-    function isSupported(type: RunningLockType): boolean;
+    hold(timeout: number): void;
 
     /**
-     * Creates a {@link RunningLock} object.
+     * Checks whether a lock is held or in use.
      *
-     * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
-     *
-     * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
-     *
-     * @param name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
-     * a suffix.
-     * @param type Indicates the {@link RunningLockType}.
-     * @param callback Indicates the callback contains the {@link RunningLock} object.
-     * @returns Returns the {@link RunningLock} object.
-     * @permission ohos.permission.RUNNING_LOCK
+     * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead {@link RunningLock#create}
+     * @useinstead { @link RunningLock#isHolding }
      */
-    function createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
-    function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
+    isUsed(): boolean;
 
     /**
-     * Creates a {@link RunningLock} object.
+     * Checks whether a lock is held or in use.
      *
-     * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
-     *
-     * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
-     *
-     * @permission ohos.permission.RUNNING_LOCK
-     * @param {string} name Indicates the {@link RunningLock} name. A recommended name consists of the package or
-     * class name and a suffix.
-     * @param {RunningLockType} type Indicates the {@link RunningLockType}.
-     * @param {AsyncCallback<RunningLock>)} callback Indicates the callback of {@link RunningLock} object.
-     * @throws {BusinessError} 401 - If the name, type or callback is not valid.
+     * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
+     * @throws { BusinessError } 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
-    function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
+    isHolding(): boolean;
 
     /**
-     * Creates a {@link RunningLock} object.
-     *
-     * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
-     *
-     * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+     * Release the {@link RunningLock} that prevents the system from hibernating.
+     * This method requires the ohos.permission.RUNNING_LOCK permission.
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @param {string} name Indicates the {@link RunningLock} name. A recommended name consists of the package or
-     * class name and a suffix.
-     * @param {RunningLockType} type Indicates the {@link RunningLockType}.
-     * @returns {Promise<RunningLock>} The {@link RunningLock} object.
-     * @throws {BusinessError} 401 - If the name or type is not valid.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead { @link RunningLock#unhold }
+     */
+    unlock(): void;
+
+    /**
+     * Release the {@link RunningLock} that prevents the system from hibernating.
+     * This method requires the ohos.permission.RUNNING_LOCK permission.
+     *
+     * @permission ohos.permission.RUNNING_LOCK
+     * @throws { BusinessError } 4900101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
-    function create(name: string, type: RunningLockType): Promise<RunningLock>;
+    unhold(): void;
+  }
+
+  /**
+   * Enumerates the {@link RunningLock} types.
+   * <p>Two {@link RunningLock} types are available: {@link BACKGROUND}, and {@link PROXIMITY_SCREEN_CONTROL}.
+   * {@link BACKGROUND} ensures that applications can run in the background.
+   * {@link PROXIMITY_SCREEN_CONTROL} determines whether to turn on or off the screen based on the proximity sensor.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 7
+   */
+  export enum RunningLockType {
+    /**
+     * Indicates the lock that prevents the system from hibernating.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 7
+     * @deprecated since 10
+     */
+    BACKGROUND = 1,
+    /**
+     * Indicates the lock that determines whether to turn on or off the screen based on the proximity sensor.
+     * For example, during a call, if the proximity sensor detects that the device is moving close to
+     * the user's ear, the screen turns off; if the proximity sensor detects that the device is moving away
+     * from the user's ear, the screen turns on.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 7
+     */
+    PROXIMITY_SCREEN_CONTROL
+  }
+
+  /**
+   * Checks whether the specified {@link RunningLockType} is supported.
+   *
+   * @param type Indicates the specified {@link RunningLockType}.
+   * @param callback Indicates the callback function contains the result whether the specified
+   * {@link RunningLockType} is supported.
+   * @returns Returns true if the specified {@link RunningLockType} is supported;
+   * returns false otherwise.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead { @link RunningLock#isSupported }
+   */
+  function isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether the specified {@link RunningLockType} is supported.
+   *
+   * @param type Indicates the specified {@link RunningLockType}.
+   * @param callback Indicates the callback function contains the result whether the specified
+   * {@link RunningLockType} is supported.
+   * @returns Returns true if the specified {@link RunningLockType} is supported;
+   * returns false otherwise.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead { @link RunningLock#isSupported }
+   */
+  function isRunningLockTypeSupported(type: RunningLockType): Promise<boolean>;
+
+  /**
+   * Checks whether the specified {@link RunningLockType} is supported.
+   *
+   * @param { RunningLockType } type Indicates the specified {@link RunningLockType}.
+   * @returns { boolean } Whether the specified {@link RunningLockType} is supported.
+   * @throws { BusinessError } 401 - If the type is not valid.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 9
+   */
+  function isSupported(type: RunningLockType): boolean;
+
+  /**
+   * Creates a {@link RunningLock} object.
+   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
+   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   *
+   * @permission ohos.permission.RUNNING_LOCK
+   * @param name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
+   * a suffix.
+   * @param type Indicates the {@link RunningLockType}.
+   * @param callback Indicates the callback contains the {@link RunningLock} object.
+   * @returns Returns the {@link RunningLock} object.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead { @link RunningLock#create }
+   */
+  function createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
+
+  /**
+   * Creates a {@link RunningLock} object.
+   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
+   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   *
+   * @permission ohos.permission.RUNNING_LOCK
+   * @param name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
+   * a suffix.
+   * @param type Indicates the {@link RunningLockType}.
+   * @param callback Indicates the callback contains the {@link RunningLock} object.
+   * @returns Returns the {@link RunningLock} object.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead { @link RunningLock#create }
+   */
+  function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
+
+  /**
+   * Creates a {@link RunningLock} object.
+   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
+   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   *
+   * @permission ohos.permission.RUNNING_LOCK
+   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or
+   * class name and a suffix.
+   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
+   * @param { AsyncCallback<RunningLock>) } callback Indicates the callback of {@link RunningLock} object.
+   * @throws { BusinessError } 401 - If the name, type or callback is not valid.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 9
+   */
+  function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
+
+  /**
+   * Creates a {@link RunningLock} object.
+   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
+   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   *
+   * @permission ohos.permission.RUNNING_LOCK
+   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or
+   * class name and a suffix.
+   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
+   * @returns { Promise<RunningLock> } The {@link RunningLock} object.
+   * @throws { BusinessError } 401 - If the name or type is not valid.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 9
+   */
+  function create(name: string, type: RunningLockType): Promise<RunningLock>;
 }
 export default runningLock;

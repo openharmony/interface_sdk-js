@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -36,7 +36,7 @@ declare namespace effectKit {
     * @param radius The degree of blur, the value is measured in pixels.
     * @returns Filters for the current effect have been added.
     */
-    blur(radius:number): Filter;
+    blur(radius: number): Filter;
 
     /**
     * A Brightness effect is added to the image.
@@ -45,7 +45,7 @@ declare namespace effectKit {
     * @param bright The degree of light and darkness,the value range is 0 to 1.
     * @returns Filters for the current effect have been added.
     */
-    brightness(bright:number): Filter;
+    brightness(bright: number): Filter;
 
     /**
     * A Grayscale effect is added to the image.
@@ -84,6 +84,39 @@ declare namespace effectKit {
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     getMainColorSync(): Color;
+
+    /**
+     * Get largest proportion color of an image
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @returns {Color} Largest proportion color picked in the image.
+     */
+    getLargestProportionColor(): Color;
+
+    /**
+     * Get highest saturation color of an image
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @returns {Color} Highest saturation color picked in the image.
+     */
+    getHighestSaturationColor(): Color;
+
+    /**
+     * Get average color of an image
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @returns {Color} Average color calculated in the image.
+     */
+    getAverageColor(): Color;
+
+    /**
+     * Determine whether the color is black or white or gray
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param {color} number The 32 bit ARGB color to discriminate.
+     * @returns {boolean} Result of judging black, white and gray.
+     */
+    isBlackOrWhiteOrGrayColor(color: number): boolean;
   }
 
   /**
@@ -150,4 +183,4 @@ declare namespace effectKit {
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
 }
 
-export default  effectKit;
+export default effectKit;

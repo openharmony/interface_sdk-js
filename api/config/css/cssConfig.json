@@ -6286,7 +6286,8 @@
         }
       ],
       "syscap": [
-        "SystemCapability.ArkUI.ArkUI.Full"
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
       ],
       "version": [
         {
@@ -7714,6 +7715,37 @@
         {
           "name": [
             "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transition-effect",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
+      "values": [
+        {
+          "name": "none"
+        },
+        {
+          "name": "unfold"
+        }
+      ],
+      "version": [
+        {
+          "name": "v10.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set transition effect of this component. 'unfold' means this component moves up by one card height if it is above the card, and moves down by one card height if it is below the card. 'none' means this component has no transition effect and keeps still."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
           ]
         }
       ]

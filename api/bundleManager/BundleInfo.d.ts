@@ -19,6 +19,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Obtains configuration information about a bundle
+ *
  * @typedef BundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
@@ -26,7 +27,8 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 export interface BundleInfo {
   /**
    * Indicates the name of this bundle
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -34,7 +36,8 @@ export interface BundleInfo {
 
   /**
    * Indicates the bundle vendor
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -42,7 +45,8 @@ export interface BundleInfo {
 
   /**
    * Indicates the version code of the bundle
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -50,7 +54,8 @@ export interface BundleInfo {
 
   /**
    * Indicates the version name of the bundle
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -58,23 +63,26 @@ export interface BundleInfo {
 
   /**
    * Indicates the **minimum ** version compatible with the bundle
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly minCompatibleVersionCode: number;
+  readonly minCompatibleVersionCode: number;
 
   /**
    * Indicates the target version number of the bundle
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly targetVersion: number;
+  readonly targetVersion: number;
 
   /**
    * Obtains configuration information about an application
-   * @type {ApplicationInfo}
+   *
+   * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -82,15 +90,17 @@ export interface BundleInfo {
 
   /**
    * Obtains configuration information about a module
-   * @type {Array<HapModuleInfo>}
+   *
+   * @type { Array<HapModuleInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly hapModulesInfo: Array<HapModuleInfo>;
 
   /**
-   * Indicates the required permissions details defined in file config.json
-   * @type {Array<ReqPermissionDetail>}
+   * Indicates the required permissions details defined in the bundle
+   *
+   * @type { Array<ReqPermissionDetail> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -98,7 +108,8 @@ export interface BundleInfo {
 
   /**
    * Indicates the grant state of required permissions
-   * @type {Array<bundleManager.PermissionGrantState>}
+   *
+   * @type { Array<bundleManager.PermissionGrantState> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -106,7 +117,8 @@ export interface BundleInfo {
 
   /**
    * Indicates the SignatureInfo of the bundle
-   * @type {SignatureInfo}
+   *
+   * @type { SignatureInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -114,7 +126,8 @@ export interface BundleInfo {
 
   /**
    * Indicates the hap install time
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -122,7 +135,8 @@ export interface BundleInfo {
 
   /**
    * Indicates the hap update time
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -131,6 +145,7 @@ export interface BundleInfo {
 
 /**
  * Indicates the required permissions details defined in configuration file
+ *
  * @typedef ReqPermissionDetail
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
@@ -138,31 +153,44 @@ export interface BundleInfo {
 export interface ReqPermissionDetail {
   /**
    * Indicates the name of this required permissions
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   name: string;
 
   /**
+   * Indicates the module name which the request permission belongs
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  moduleName: string;
+
+  /**
    * Indicates the reason of this required permissions
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   reason: string;
 
-   /**
-    * Indicates the reason id of this required permissions
-    * @type {number}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the reason id of this required permissions
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   reasonId: number;
 
   /**
    * Indicates the used scene of this required permissions
-   * @type {UsedScene}
+   *
+   * @type { UsedScene }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -171,6 +199,7 @@ export interface ReqPermissionDetail {
 
 /**
  * The scene which is used
+ *
  * @typedef UsedScene
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
@@ -178,7 +207,8 @@ export interface ReqPermissionDetail {
 export interface UsedScene {
   /**
    * Indicates the abilities that need the permission
-   * @type {Array<string>}
+   *
+   * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -186,7 +216,8 @@ export interface UsedScene {
 
   /**
    * Indicates the time when the permission is used
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -195,6 +226,7 @@ export interface UsedScene {
 
 /**
  * Indicates SignatureInfo
+ *
  * @typedef SignatureInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
@@ -203,7 +235,8 @@ export interface SignatureInfo {
   /**
    * Indicates the ID of the application to which this bundle belongs
    * The application ID uniquely identifies an application. It is determined by the bundle name and signature
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -211,9 +244,10 @@ export interface SignatureInfo {
 
   /**
    * Indicates the fingerprint of the certificate
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly fingerprint: string;
+  readonly fingerprint: string;
 }

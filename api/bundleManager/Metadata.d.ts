@@ -13,34 +13,70 @@
  * limitations under the License.
  */
 
- /**
-  * Indicates the Metadata
-  * @typedef Metadata
-  * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @since 9
-  */
-  export interface Metadata {
-    /**
-     * Indicates the metadata name
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-    name: string;
+/**
+ * Indicates the Metadata
+ *
+ * @typedef Metadata
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
+ */
+/**
+ * Indicates the Metadata
+ *
+ * @typedef Metadata
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @since 10
+ */
+export interface Metadata {
+  /**
+   * Indicates the metadata name
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the metadata name
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  name: string;
 
-    /**
-     * Indicates the metadata value
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-    value: string;
+  /**
+   * Indicates the metadata value
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the metadata value
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  value: string;
 
-    /**
-     * Indicates the metadata resource
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-    resource: string;
-  }
+  /**
+   * Indicates the metadata resource
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the metadata resource
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  resource: string;
+}

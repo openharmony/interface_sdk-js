@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Provides the path drawing interface.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface PathInterface {
   /**
    * Use new to create Path.
@@ -31,6 +37,12 @@ interface PathInterface {
    * Use new to create Path.
    * @form
    * @since 9
+   */
+  /**
+   * Use new to create Path.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   new (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 
@@ -43,15 +55,29 @@ interface PathInterface {
    * @form
    * @since 9
    */
+  /**
+   * Called when drawing path.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 }
 
 /**
+ * Provides methods for attribute path component.
  * @since 7
  */
 /**
+ * Provides methods for attribute path component.
  * @form
  * @since 9
+ */
+/**
+ * Provides methods for attribute path component.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
@@ -63,8 +89,45 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the command string drawn by the path is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   commands(value: string): PathAttribute;
 }
 
+/**
+ * Defines Path Component.
+ * @since 7
+ */
+/**
+ * Defines Path Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Path Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Path: PathInterface;
+
+/**
+ * Defines Path Component instance.
+ * @since 7
+ */
+/**
+ * Defines Path Component instance.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Path Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const PathInstance: PathAttribute;

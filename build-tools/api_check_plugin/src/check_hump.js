@@ -14,82 +14,112 @@
  */
 
 const path = require('path');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { ErrorType, ErrorLevel } = require('./utils');
-const rules = require("../code_style_rule.json");
+const { ErrorLevel, LogType, hasAPINote, getApiInfo, requireTypescriptModule, ErrorType, getApiVersion } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
+const ts = requireTypescriptModule();
+
+/**
+ * 大驼峰
+ * class、interface、枚举名
+ * 小驼峰
+ * 变量名、方法名、参数名、namespace
+ * 全大写
+ * 常量命名、枚举值
+ */
+
+// 大驼峰检查
+function checkLargeHump(word) {
+  return /^([A-Z][a-z0-9]*)*$/g.test(word);
+}
+
+// 小驼峰检查
+function checkSmallHump(word) {
+  return /^[a-z]+[0-9]*([A-Z][a-z0-9]*)*$/g.test(word);
+}
+exports.checkSmallHump = checkSmallHump;
+
+// 全大写检查
+function checkAllUppercaseHump(word) {
+  return /^[A-Z]+[0-9]*([\_][A-Z0-9]+)*$/g.test(word);
+}
+
+function getName(node) {
+  if (node.name.escapedText) {
+    return node.name.escapedText.toString();
+  } else if (node.name.text) {
+    return node.name.text.toString();
+  }
+}
+
+function isConstantDecorator(node, name) {
+  return hasAPINote(node) && getApiInfo(node).isConstant && !checkAllUppercaseHump(name);
+}
+
+function filterApiVersion(node, version) {
+  const apiVersion = getApiVersion(node);
+  return apiVersion === version;
+}
 
 function checkAPINameOfHump(node, sourcefile, fileName) {
-  let errorInfo = '';
-  if (node.parent && !ts.isImportClause(node.parent) && !ts.isImportSpecifier(node.parent) &&
-    (ts.isInterfaceDeclaration(node.parent) || ts.isClassDeclaration(node.parent) ||
-      ts.isEnumDeclaration(node.parent))) {
-    if (!checkLargeHump(node.escapedText.toString())) {
-      errorInfo = `This moduleName [${node.escapedText.toString()}] should be used by large hump.`;
+  let checkResult = '';
+  const apiInfo = getApiInfo(node);
+  if (ts.isEnumMember(node) || (ts.isVariableDeclaration(node) && !(fileName.indexOf("component\\ets\\") >= 0 ||
+    fileName.indexOf("component/ets/") >= 0))) {
+    const name = getName(node);
+    if (!checkAllUppercaseHump(name)) {
+      checkResult = `This name [${name}] should be named by all uppercase.`;
     }
-  } else if (!node.parent || (!ts.isImportClause(node.parent) && !ts.isImportSpecifier(node.parent) &&
-    !ts.isTypeReferenceNode(node.parent) && !ts.isQualifiedName(node.parent) &&
-    !ts.isTypeParameterDeclaration(node.parent))) {
-    if (!checkSmallHump(node.escapedText.toString())) {
-      errorInfo = `This moduleName [${node.escapedText.toString()}] should be used by small hump.`;
+  } else if (ts.isInterfaceDeclaration(node) || ts.isClassDeclaration(node) || ts.isTypeAliasDeclaration(node) ||
+    ts.isEnumDeclaration(node)) {
+    const name = getName(node);
+    if (isConstantDecorator(node, name)) {
+      checkResult = `This name [${name}] should be named by all uppercase.`;
+    } else if (!apiInfo.isConstant && !checkLargeHump(name)) {
+      checkResult = `This name [${name}] should be named by large hump.`;
+    }
+  } else if (ts.isPropertyDeclaration(node) || ts.isPropertySignature(node) || ts.isMethodDeclaration(node) ||
+    ts.isFunctionDeclaration(node) || ts.isParameter(node) || ts.isModuleDeclaration(node)) {
+    const name = getName(node);
+    if (isConstantDecorator(node, name)) {
+      checkResult = `This name [${name}] should be named by all uppercase.`;
+    } else if (!apiInfo.isConstant && !checkSmallHump(name)) {
+      checkResult = `This name [${name}] should be named by small hump.`;
     }
   }
-  if (errorInfo !== '') {
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, errorInfo, ErrorLevel.MIDDLE);
+
+  if (checkResult !== "" && filterApiVersion(node, '10') && (!apiInfo.deprecated || apiInfo.deprecated === '')) {
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
+      ErrorLevel.MIDDLE);
   }
 }
 exports.checkAPINameOfHump = checkAPINameOfHump;
 
 function checkAPIFileName(sourcefile, fileName) {
-  const moduleNames = new Set([]);
-  const exportAssignments = new Set([]);
-  sourcefile.statements.forEach((statement, index) => {
-    if (ts.isModuleDeclaration(statement) && statement.name && ts.isIdentifier(statement.name)) {
-      moduleNames.add(statement.name.escapedText.toString());
-    }
-    if (ts.isExportAssignment(statement) && statement.expression && ts.isIdentifier(statement.expression)) {
-      exportAssignments.add(statement.expression.escapedText.toString());
-    }
-  });
-  if (exportAssignments.size > 1) {
-    addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-      `This API file can only have one export default statement.`, ErrorLevel.MIDDLE);
-  } else if (exportAssignments.size === 1) {
-    const basename = path.basename(fileName);
-    if (/^@ohos|@system/g.test(basename)) {
-      for (const exportAssignment of exportAssignments) {
-        const lastModuleName = basename.split('.').at(-1);
-        if (moduleNames.has(exportAssignment) && !checkSmallHump(lastModuleName)) {
-          addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-            `This API file should be named by small hump.`, ErrorLevel.MIDDLE);
-        } else if (!checkLargeHump(lastModuleName)) {
-          addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-            `This API file should be named by large hump.`, ErrorLevel.MIDDLE);
-        }
+  if (fileName.indexOf("component\\ets\\") < 0 && fileName.indexOf("component/ets/") < 0) {
+    let moduleName = "";
+    let exportAssignment = "";
+    sourcefile.statements.forEach(statement => {
+      if (ts.isModuleDeclaration(statement) && statement.name && ts.isIdentifier(statement.name)) {
+        moduleName = statement.name.escapedText.toString();
       }
-    } else if (!checkSmallHump(basename)) {
-      addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS,
-        `This API file should be named by small hump.`, ErrorLevel.MIDDLE);
+      if (ts.isExportAssignment(statement) && statement.expression && ts.isIdentifier(statement.expression)) {
+        exportAssignment = statement.expression.escapedText.toString();
+      }
+    });
+    const basename = path.basename(fileName).replace(/\.d\.ts$/, '');
+    const lastModuleName = basename.split('.').pop();
+    let checkResult = "";
+
+    if (moduleName !== "" && exportAssignment === moduleName && !checkSmallHump(lastModuleName)) {
+      checkResult = `This API file should be named by small hump.`;
+    } else if (moduleName === "" && exportAssignment !== moduleName && !checkSmallHump(lastModuleName)) {
+      checkResult = `This API file should be named by large hump.`;
     }
+    if (checkResult !== "" && filterApiVersion(sourcefile, '10')) {
+      addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_FILE,
+        ErrorLevel.MIDDLE);
+    }
+    
   }
 }
-
-function spliteByHump(word) {
-  let firstBasicWord = word;
-  if (/(?<!^)(?=[A-Z])/g.test(word)) {
-    firstBasicWord = word.split(/(?<!^)(?=[A-Z])/g)[0];
-  }
-  return firstBasicWord;
-}
-
-function checkLargeHump(word) {
-  return /^[A-Z]/.test(spliteByHump(word));
-}
-
-function checkSmallHump(word) {
-  const namingWhitelistSet = new Set(rules.namingWhitelist)
-  if (namingWhitelistSet.has(word)) {
-    return true;
-  }
-  return /^[a-z]/.test(spliteByHump(word));
-}
+exports.checkAPIFileName = checkAPIFileName;

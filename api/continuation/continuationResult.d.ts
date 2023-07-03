@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,31 +16,35 @@
 /**
  * Indicates the description of transfer results for continuation.
  *
- * @since 8
+ * @typedef ContinuationResult
  * @syscap SystemCapability.Ability.DistributedAbilityManager
+ * @since 8
  */
 export interface ContinuationResult {
-    /**
-     * the information about the selected device id.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    id: string;
+  /**
+   * the information about the selected device id.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
+   */
+  id: string;
 
-    /**
-     * the information about the selected device type.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    type: string;
+  /**
+   * the information about the selected device type.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
+   */
+  type: string;
 
-    /**
-     * Indicates the name of the selected device.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.DistributedAbilityManager
-     */
-    name: string;
+  /**
+   * Indicates the name of the selected device.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @since 8
+   */
+  name: string;
 }

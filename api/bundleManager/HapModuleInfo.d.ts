@@ -13,165 +13,264 @@
  * limitations under the License.
  */
 
-import { AbilityInfo } from "./AbilityInfo";
-import { ExtensionAbilityInfo } from "./ExtensionAbilityInfo";
+import { AbilityInfo } from './AbilityInfo';
+import { ExtensionAbilityInfo } from './ExtensionAbilityInfo';
 import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Obtains configuration information about a hap module.
+ *
  * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
+/**
+ * Obtains configuration information about a hap module.
+ *
+ * @typedef HapModuleInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @since 10
+ */
 export interface HapModuleInfo {
   /**
    * Indicates the name of this hap module
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates the name of this hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
    */
   readonly name: string;
 
   /**
    * Indicates the icon of this hap module
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
+  /**
+   * Indicates the icon of this hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
   readonly icon: string;
 
-   /**
-    * Indicates the icon id of this hap module
-    * @type {number}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the icon id of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the icon id of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
   readonly iconId: number;
 
-   /**
-    * Indicates the label of this hap module
-    * @type {string}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-   readonly label: string;
+  /**
+   * Indicates the label of this hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the label of this hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  readonly label: string;
 
-   /**
-    * Indicates the label id of this hap module
-    * @type {number}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-   readonly labelId: number;
+  /**
+   * Indicates the label id of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the label id of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  readonly labelId: number;
 
   /**
    * Describes the hap module
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Describes the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
    */
   readonly description: string;
 
   /**
    * Indicates the description of this hap module
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates the description of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
    */
   readonly descriptionId: number;
 
   /**
    * Indicates main elementName of the hap module
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Indicates main elementName of the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
    */
   readonly mainElementName: string;
 
   /**
    * Obtains configuration information about abilities
-   * @type {Array<AbilityInfo>}
+   *
+   * @type { Array<AbilityInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   */
+  /**
+   * Obtains configuration information about abilities
+   *
+   * @type { Array<AbilityInfo> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
    */
   readonly abilitiesInfo: Array<AbilityInfo>;
 
   /**
    * Obtains configuration information about extension abilities
-   * @type {Array<ExtensionAbilityInfo>}
+   *
+   * @type { Array<ExtensionAbilityInfo> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
-   /**
-    * Indicates the metadata of ability
-    * @type {Array<Metadata>}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the metadata of ability
+   *
+   * @type { Array<Metadata> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the metadata of ability
+   *
+   * @type { Array<Metadata> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
   readonly metadata: Array<Metadata>;
 
   /**
    * The device types that this hap module can run on
-   * @type {Array<string>}
+   *
+   * @type { Array<string> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly deviceTypes: Array<string>;
+  readonly deviceTypes: Array<string>;
 
   /**
    * Indicates whether free installation of the hap module is supported
-   * @type {boolean}
+   *
+   * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly installationFree: boolean;
 
-   /**
-    * Indicates the hash value of the hap module
-    * @type {string}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the hash value of the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly hashValue: string;
 
-   /**
-    * Indicates the type of the module
-    * @type {bundleManager.ModuleType}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the type of the module
+   *
+   * @type { bundleManager.ModuleType }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly type: bundleManager.ModuleType;
 
-   /**
-    * Indicates the dependency module that this module depends on
-    * @type {Array<Dependency>}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the dependency module that this module depends on
+   *
+   * @type { Array<Dependency> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly dependencies: Array<Dependency>;
 
-   /**
-    * Indicates the preload module
-    * @type {Array<PreloadItem>}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the preload module
+   *
+   * @type { Array<PreloadItem> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly preloads: Array<PreloadItem>;
-
-   /**
-    * Indicates the atomic module type when atomicService is split
-    * @type {bundleManager.AtomicServiceModuleType}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-   readonly atomicServiceModuleType: bundleManager.AtomicServiceModuleType;
 }
 
 /**
  * Indicates the dependency
+ *
  * @typedef Dependency
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
@@ -179,25 +278,46 @@ export interface HapModuleInfo {
 export interface Dependency {
   /**
    * Indicates the module name
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly moduleName: string;
+
+  /**
+   * Indicates the bundle name of the dependency
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly bundleName: string;
+
+  /**
+   * Indicates the version code of the dependency
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly versionCode: number;
 }
 
 /**
  * Indicates the preloadItem
+ *
  * @typedef PreloadItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
-export interface PreloadItem{
+export interface PreloadItem {
   /**
    * Indicates the module name need preload
-   * @type {string}
+   *
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-  */
+   */
   readonly moduleName: string;
 }

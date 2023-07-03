@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,20 +17,40 @@
  * Provides a way to control the textclock status.
  * @since 8
  */
+/**
+ * Provides a way to control the textclock status.
+ * @crossplatform
+ * @since 10
+ */
 declare class TextClockController {
   /**
    * constructor.
    * @since 8
+   */
+  /**
+   * constructor.
+   * @crossplatform
+   * @since 10
    */
   constructor();
   /**
    * Provides a start event for textclock.
    * @since 8
    */
+  /**
+   * Provides a start event for textclock.
+   * @crossplatform
+   * @since 10
+   */
   start();
   /**
    * Provides a stop event for textclock.
    * @since 8
+   */
+  /**
+   * Provides a stop event for textclock.
+   * @crossplatform
+   * @since 10
    */
   stop();
 }
@@ -39,6 +59,11 @@ declare class TextClockController {
  * TextClock component, which provides the text clock capability.
  * @since 8
  */
+/**
+ * TextClock component, which provides the text clock capability.
+ * @crossplatform
+ * @since 10
+ */
 interface TextClockInterface {
   /**
    * Construct the text clock component.
@@ -46,6 +71,14 @@ interface TextClockInterface {
    * The valid value is an integer ranging from - 14 to 12,
    * Where a negative value indicates the eastern time zone, for example, -8.
    * @since 8
+   */
+  /**
+   * Construct the text clock component.
+   * Specifies the current time zone.
+   * The valid value is an integer ranging from - 14 to 12,
+   * Where a negative value indicates the eastern time zone, for example, -8.
+   * @crossplatform
+   * @since 10
    */
   (options?: { timeZoneOffset?: number; controller?: TextClockController }): TextClockAttribute;
 }
@@ -58,6 +91,14 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
    * @since 8
    */
+  /**
+   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
+   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
+   * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
+   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
+   * @crossplatform
+   * @since 10
+   */
   format(value: string): TextClockAttribute;
   /**
    * Provides a date change callback.
@@ -69,33 +110,93 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @param event Listening date event callback.
    * @since 8
    */
+  /**
+   * Provides a date change callback.
+   * The callback parameter is Unix Time Stamp,
+   * The number of milliseconds that have elapsed since January 1, 1970 (UTC).
+   * The minimum callback interval for this event is seconds.
+   * You can listen to this callback,
+   * Use the format attribute method to customize data display in the callback.
+   * @param event Listening date event callback.
+   * @crossplatform
+   * @since 10
+   */
   onDateChange(event: (value: number) => void): TextClockAttribute;
+
   /**
    * Called when the value of TextClock fontColor is set
    * @since 8
    */
+  /**
+   * Called when the value of TextClock fontColor is set
+   * @crossplatform
+   * @since 10
+   */
   fontColor(value: ResourceColor): TextClockAttribute;
+
   /**
    * Called when the value of TextClock fontSize is set
    * @since 8
    */
+  /**
+   * Called when the value of TextClock fontSize is set
+   * @crossplatform
+   * @since 10
+   */
   fontSize(value: Length): TextClockAttribute;
+
   /**
    * Called when the value of TextClock fontStyle is set
    * @since 8
    */
+  /**
+   * Called when the value of TextClock fontStyle is set
+   * @crossplatform
+   * @since 10
+   */
   fontStyle(value: FontStyle): TextClockAttribute;
+
   /**
    * Called when the value of TextClock fontWeight is set
    * @since 8
    */
+  /**
+   * Called when the value of TextClock fontWeight is set
+   * @crossplatform
+   * @since 10
+   */
   fontWeight(value: number | FontWeight | string): TextClockAttribute;
+
   /**
    * Called when the value of TextClock fontFamily is set
    * @since 8
    */
+  /**
+   * Called when the value of TextClock fontFamily is set
+   * @crossplatform
+   * @since 10
+   */
   fontFamily(value: ResourceStr): TextClockAttribute;
 }
 
+/**
+ * Defines TextClock Component.
+ * @since 8
+ */
+/**
+ * Defines TextClock Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TextClock: TextClockInterface;
+
+/**
+ * Defines TextClock Component instance.
+ * @since 8
+ */
+/**
+ * Defines TextClock Component instance.
+ * @crossplatform
+ * @since 10
+ */
 declare const TextClockInstance: TextClockAttribute;

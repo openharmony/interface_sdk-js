@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback , Callback} from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from "./@ohos.wantAgent";
 import Context from './application/BaseContext';
 
@@ -26,175 +26,223 @@ import Context from './application/BaseContext';
  * @useinstead ohos.resourceschedule.backgroundTaskManager
  */
 declare namespace backgroundTaskManager {
+  /**
+   * The info of delay suspend.
+   *
+   * @name DelaySuspendInfo
+   * @interface DelaySuspendInfo
+   * @since 7
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
+   */
+  interface DelaySuspendInfo {
     /**
-     * The info of delay suspend.
+     * The unique identifier of the delay request.
      *
-     * @name DelaySuspendInfo
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
      */
-    interface DelaySuspendInfo {
-        /**
-         * The unique identifier of the delay request.
-         */
-        requestId: number;
-        /**
-         * The actual delay duration (ms).
-         */
-        actualDelayTime: number;
-    }
-
+    requestId: number;
     /**
-     * Cancels delayed transition to the suspended state.
+     * The actual delay duration (ms).
      *
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @param requestId Indicates the identifier of the delay request.
      * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.cancelSuspendDelay
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
      */
-    function cancelSuspendDelay(requestId: number): void;
+    actualDelayTime: number;
+  }
 
-    /**
-     * Obtains the remaining time before an application enters the suspended state.
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @param requestId Indicates the identifier of the delay request.
-     * @returns The remaining delay time
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.getRemainingDelayTime
-     */
-    function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
-    function getRemainingDelayTime(requestId: number): Promise<number>;
+  /**
+   * Cancels delayed transition to the suspended state.
+   *
+   * @since 7
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @param { number } requestId Indicates the identifier of the delay request.
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.cancelSuspendDelay
+   */
+  function cancelSuspendDelay(requestId: number): void;
 
-    /**
-     * Requests delayed transition to the suspended state.
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @param reason Indicates the reason for delayed transition to the suspended state.
-     * @param callback The callback delay time expired.
-     * @returns Info of delay request
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.requestSuspendDelay
-     */
-    function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
+  /**
+   * Obtains the remaining time before an application enters the suspended state.
+   *
+   * @param { number } requestId Indicates the identifier of the delay request.
+   * @param { AsyncCallback<number> } callback - The callback of the remaining delay time.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.getRemainingDelayTime
+   */
+  function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
 
+  /**
+   * Obtains the remaining time before an application enters the suspended state.
+   *
+   * @param { number } requestId Indicates the identifier of the delay request.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.getRemainingDelayTime
+   */
+  function getRemainingDelayTime(requestId: number): Promise<number>;
+
+  /**
+   * Requests delayed transition to the suspended state.
+   *
+   * @since 7
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @param { string } reason Indicates the reason for delayed transition to the suspended state.
+   * @param { Callback<void> } callback The callback delay time expired.
+   * @returns { DelaySuspendInfo } Info of delay request
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.requestSuspendDelay
+   */
+  function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
+
+  /**
+   * Service ability uses this method to request start running in background.
+   * system will publish a notification related to the this service.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context app running context.
+   * @param { BackgroundMode } bgMode Indicates which background mode to request.
+   * @param { WantAgent } wantAgent Indicates which ability to start when user click the notification bar.
+   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
+   */
+  function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
+
+  /**
+   * Service ability uses this method to request start running in background.
+   * system will publish a notification related to the this service.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context app running context.
+   * @param { BackgroundMode } bgMode Indicates which background mode to request.
+   * @param { WantAgent } wantAgent Indicates which ability to start when user click the notification bar.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
+   */
+  function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
+
+  /**
+   * Service ability uses this method to request stop running in background.
+   *
+   * @param { Context } context - App running context.
+   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
+   */
+  function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
+
+  /**
+   * Service ability uses this method to request stop running in background.
+   *
+   * @param { Context } context - App running context.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
+   */
+  function stopBackgroundRunning(context: Context): Promise<void>;
+
+  /**
+   * Supported background mode.
+   *
+   * @enum { number }
+   * @since 8
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode
+   */
+  export enum BackgroundMode {
     /**
-     * Service ability uses this method to request start running in background.
-     * system will publish a notification related to the this service.
+     * data transfer mode
      *
      * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param context app running context.
-     * @param bgMode Indicates which background mode to request.
-     * @param wantAgent Indicates which ability to start when user click the notification bar.
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
      */
-    function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
-    function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
+    DATA_TRANSFER = 1,
 
     /**
-     * Service ability uses this method to request stop running in background.
+     * audio playback mode
      *
      * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @param context app running context.
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
      */
-    function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
-    function stopBackgroundRunning(context: Context): Promise<void>;
+    AUDIO_PLAYBACK = 2,
 
     /**
-     * Supported background mode.
+     * audio recording mode
      *
      * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode
      */
-    export enum BackgroundMode {
-        /**
-         * data transfer mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         */
-        DATA_TRANSFER = 1,
+    AUDIO_RECORDING = 3,
 
-        /**
-         * audio playback mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         */
-        AUDIO_PLAYBACK = 2,
+    /**
+     * location mode
+     *
+     * @since 8
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     */
+    LOCATION = 4,
 
-        /**
-         * audio recording mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         */
-        AUDIO_RECORDING = 3,
+    /**
+     * bluetooth interaction mode
+     *
+     * @since 8
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     */
+    BLUETOOTH_INTERACTION = 5,
 
-        /**
-         * location mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         */
-        LOCATION = 4,
+    /**
+     * multi-device connection mode
+     *
+     * @since 8
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     */
+    MULTI_DEVICE_CONNECTION = 6,
 
-        /**
-         * bluetooth interaction mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         */
-        BLUETOOTH_INTERACTION = 5,
+    /**
+     * wifi interaction mode
+     *
+     * @since 8
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     */
+    WIFI_INTERACTION = 7,
 
-        /**
-         * multi-device connection mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         */
-        MULTI_DEVICE_CONNECTION = 6,
+    /**
+     * Voice over Internet Phone mode
+     *
+     * @since 8
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @systemapi Hide this for inner system use.
+     */
+    VOIP = 8,
 
-        /**
-         * wifi interaction mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         * @systemapi Hide this for inner system use.
-         */
-        WIFI_INTERACTION = 7,
-
-        /**
-         * Voice over Internet Phone mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         * @systemapi Hide this for inner system use.
-         */
-        VOIP = 8,
-
-        /**
-         * background continuous calculate mode, for example 3D render.
-         * only supported in particular device
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         */
-        TASK_KEEPING = 9,
-    }
+    /**
+     * background continuous calculate mode, for example 3D render.
+     * only supported in particular device
+     *
+     * @since 8
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     */
+    TASK_KEEPING = 9,
+  }
 }
 
 export default backgroundTaskManager;

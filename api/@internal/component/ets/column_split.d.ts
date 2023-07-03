@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Defines the ColumnSplit component.
  * @since 7
  */
+/**
+ * Defines the ColumnSplit component.
+ * @crossplatform
+ * @since 10
+ */
 interface ColumnSplitInterface {
   /**
    * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
    * @since 7
+   */
+  /**
+   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+   * @crossplatform
+   * @since 10
    */
   (): ColumnSplitAttribute;
 }
@@ -29,13 +39,42 @@ interface ColumnSplitInterface {
  * Defines the ColumnSplit component attribute functions.
  * @since 7
  */
+/**
+ * Defines the ColumnSplit component attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
    * Indicates whether the split line can be dragged. The default value is false.
    * @since 7
    */
+  /**
+   * Indicates whether the split line can be dragged. The default value is false.
+   * @crossplatform
+   * @since 10
+   */
   resizeable(value: boolean): ColumnSplitAttribute;
 }
 
+/**
+ * Defines ColumnSplit Component instance.
+ * @since 7
+ */
+/**
+ * Defines ColumnSplit Component instance.
+ * @crossplatform
+ * @since 10
+ */
 declare const ColumnSplitInstance: ColumnSplitAttribute;
+
+/**
+ * Defines ColumnSplit Component.
+ * @since 7
+ */
+/**
+ * Defines ColumnSplit Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const ColumnSplit: ColumnSplitInterface;

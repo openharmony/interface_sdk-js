@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, BusinessError, Callback} from './basic';
+import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
  * Provides thermal level-related callback and query APIs to obtain the information required for
@@ -21,108 +21,130 @@ import {AsyncCallback, BusinessError, Callback} from './basic';
  * {@link registerThermalLevelCallback}: subscribes to callbacks of thermal level changes.
  * {@link getLevel}: obtains the thermal level of the system in real time.
  *
+ * @namespace thermal
  * @syscap SystemCapability.PowerManager.ThermalManager
  * @since 8
  */
 declare namespace thermal {
+  /**
+   * Enumerates the {@link ThermalLevel} types.
+   *
+   * @syscap SystemCapability.PowerManager.ThermalManager
+   * @since 8
+   */
+  export enum ThermalLevel {
     /**
-     * Enumerates the {@link ThermalLevel} types.
+     * The device is cool, and services are not restricted.
      *
-     * @since 8
+     * @syscap SystemCapability.PowerManager.ThermalManager
      */
-    export enum ThermalLevel {
-        /**
-         * The device is cool, and services are not restricted.
-         */
-        COOL = 0,
-        /**
-         * The device is operational but is not cool. You need to pay attention to its heating.
-         */
-        NORMAL = 1,
-        /**
-         * The device is warm. You need to stop or delay some imperceptible services.
-         */
-        WARM = 2,
-        /**
-         * The device is heating up. You need to stop all imperceptible services and downgrade
-         * or reduce the load of other services.
-         */
-        HOT = 3,
-        /**
-         * The device is overheated. You need to stop all imperceptible services and downgrade
-         * or reduce the load of major services.
-         */
-        OVERHEATED = 4,
-        /**
-         * The device is overheated and is about to enter the emergency state. You need to stop
-         * all imperceptible services and downgrade major services to the maximum extent.
-         */
-        WARNING = 5,
-        /**
-         * The device has entered the emergency state. You need to stop all services except those
-         * for the emergency help purposes.
-         */
-        EMERGENCY = 6,
-    }
+    COOL = 0,
+    /**
+     * The device is operational but is not cool. You need to pay attention to its heating.
+     *
+     * @syscap SystemCapability.PowerManager.ThermalManager
+     */
+    NORMAL = 1,
+    /**
+     * The device is warm. You need to stop or delay some imperceptible services.
+     *
+     * @syscap SystemCapability.PowerManager.ThermalManager
+     */
+    WARM = 2,
+    /**
+     * The device is heating up. You need to stop all imperceptible services and downgrade
+     * or reduce the load of other services.
+     *
+     * @syscap SystemCapability.PowerManager.ThermalManager
+     */
+    HOT = 3,
+    /**
+     * The device is overheated. You need to stop all imperceptible services and downgrade
+     * or reduce the load of major services.
+     *
+     * @syscap SystemCapability.PowerManager.ThermalManager
+     */
+    OVERHEATED = 4,
+    /**
+     * The device is overheated and is about to enter the emergency state. You need to stop
+     * all imperceptible services and downgrade major services to the maximum extent.
+     *
+     * @syscap SystemCapability.PowerManager.ThermalManager
+     */
+    WARNING = 5,
+    /**
+     * The device has entered the emergency state. You need to stop all services except those
+     * for the emergency help purposes.
+     *
+     * @syscap SystemCapability.PowerManager.ThermalManager
+     */
+    EMERGENCY = 6
+  }
 
-    /**
-     * Subscribes to callbacks of thermal level changes.
-     *
-     * @param callback Callback of thermal level changes.
-     * @returns Returns the thermal level.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead {@link thermal#registerThermalLevelCallback}
-     */
-    function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
+  /**
+   * Subscribes to callbacks of thermal level changes.
+   *
+   * @param callback Callback of thermal level changes.
+   * @returns Returns the thermal level.
+   * @syscap SystemCapability.PowerManager.ThermalManager
+   * @since 8
+   * @deprecated since 9
+   * @useinstead { @link thermal#registerThermalLevelCallback }
+   */
+  function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
 
-    /**
-     * Registers to callbacks of thermal level changes.
-     *
-     * @param {Callback<ThermalLevel>} callback Callback of thermal level changes.
-     * @throws {BusinessError} 401 - If callback is not valid.
-     * @throws {BusinessError} 4800101 If connecting to the service failed.
-     * @since 9
-     */
-    function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
+  /**
+   * Registers to callbacks of thermal level changes.
+   *
+   * @param { Callback<ThermalLevel> } callback Callback of thermal level changes.
+   * @throws { BusinessError } 401 - If callback is not valid.
+   * @throws { BusinessError } 4800101 If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.ThermalManager
+   * @since 9
+   */
+  function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
 
-    /**
-     * Unsubscribes from the callbacks of thermal level changes.
-     *
-     * @param callback Callback of thermal level changes.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead {@link thermal#unregisterThermalLevelCallback}
-     */
-    function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
+  /**
+   * Unsubscribes from the callbacks of thermal level changes.
+   *
+   * @param callback Callback of thermal level changes.
+   * @syscap SystemCapability.PowerManager.ThermalManager
+   * @since 8
+   * @deprecated since 9
+   * @useinstead { @link thermal#unregisterThermalLevelCallback }
+   */
+  function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
 
-    /**
-     * Unregisters from the callbacks of thermal level changes.
-     *
-     * @param {Callback<void>} callback Callback of thermal level changes.
-     * @throws {BusinessError} 401 - If callback is not valid.
-     * @throws {BusinessError} 4800101 If connecting to the service failed.
-     * @since 9
-     */
-    function unregisterThermalLevelCallback(callback?: Callback<void>): void;
+  /**
+   * Unregisters from the callbacks of thermal level changes.
+   *
+   * @param { Callback<void> } callback Callback of thermal level changes.
+   * @throws { BusinessError } 401 - If callback is not valid.
+   * @throws { BusinessError } 4800101 If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.ThermalManager
+   * @since 9
+   */
+  function unregisterThermalLevelCallback(callback?: Callback<void>): void;
 
-    /**
-     * Obtains the current thermal level.
-     *
-     * @returns Returns the thermal level.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead {@link thermal#getLevel}
-     */
-    function getThermalLevel(): ThermalLevel;
+  /**
+   * Obtains the current thermal level.
+   *
+   * @returns Returns the thermal level.
+   * @syscap SystemCapability.PowerManager.ThermalManager
+   * @since 8
+   * @deprecated since 9
+   * @useinstead { @link thermal#getLevel }
+   */
+  function getThermalLevel(): ThermalLevel;
 
-    /**
-     * Obtains the current thermal level.
-     *
-     * @returns {ThermalLevel} The thermal level.
-     * @throws {BusinessError} 4800101 If connecting to the service failed.
-     * @since 9
-     */
-    function getLevel(): ThermalLevel;
+  /**
+   * Obtains the current thermal level.
+   *
+   * @returns { ThermalLevel } The thermal level.
+   * @throws { BusinessError } 4800101 If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.ThermalManager
+   * @since 9
+   */
+  function getLevel(): ThermalLevel;
 }
 export default thermal;

@@ -166,7 +166,26 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    */
   onUninstall(callback: (info: { id: number }) => void): FormComponentAttribute;
+
+  /**
+   * Card to be loaded.
+   * @since 10
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   */
+  onLoad(callback: () => void): FormComponentAttribute;
 }
 
+/**
+ * Defines FormComponent Component.
+ * @since 7
+ * @systemapi
+ */
 declare const FormComponent: FormComponentInterface;
+
+/**
+ * Defines FormComponent Component instance.
+ * @since 7
+ * @systemapi
+ */
 declare const FormComponentInstance: FormComponentAttribute;

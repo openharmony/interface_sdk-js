@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * xts_device_attest authResult information
@@ -22,84 +22,84 @@ import { AsyncCallback, Callback } from './basic';
  * @syscap SystemCapability.XTS.DeviceAttest
  */
 declare namespace deviceAttest {
+  /**
+   * Obtains the AttestResultInfo object.
+   *
+   * @param callback Indicates the callback containing the AttestResultInfo object.
+   * @since 9
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 20000001 -  system service exception.
+   * @systemapi
+   */
+  function getAttestStatus(callback: AsyncCallback<AttestResultInfo>): void;
+
+  /**
+   * Obtains the AttestResultInfo object.
+   *
+   * @returns Returns that the AttestResultInfo object is returned in Promise mode.
+   * @since 9
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 20000001 -  system service exception.
+   * @systemapi
+   */
+  function getAttestStatus(): Promise<AttestResultInfo>;
+
+  /**
+   * Obtains the AttestResultInfo object.
+   *
+   * @returns Obtains the AttestResultInfo object synchronously.
+   * @since 9
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 20000001 -  system service exception.
+   * @systemapi
+   */
+  function getAttestStatusSync(): AttestResultInfo;
+
+  /**
+   * Device attest result information.
+   * @typedef AttestResultInfo
+   * @syscap SystemCapability.XTS.DeviceAttest
+   * @since 9
+   * @systemapi
+   */
+  export interface AttestResultInfo {
+
     /**
-     * Obtains the AttestResultInfo object.
+     * Result of the device hardware information authentication.
      *
-     * @param callback Indicates the callback containing the AttestResultInfo object.
+     * @type { number }
      * @since 9
-     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 20000001 -  system service exception.
-     * @systemapi
      */
-    function getAttestStatus(callback: AsyncCallback<AttestResultInfo>) : void;
+    authResult: number;
 
     /**
-     * Obtains the AttestResultInfo object.
+     * Result of the device software information authentication.
      *
-     * @returns Returns that the AttestResultInfo object is returned in Promise mode.
+     * @type { number }
      * @since 9
-     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 20000001 -  system service exception.
-     * @systemapi
      */
-    function getAttestStatus() : Promise<AttestResultInfo>;
+    softwareResult: number;
 
     /**
-     * Obtains the AttestResultInfo object.
+     * Software result detail array that includes versionId, patchLevel,
+     * rootHash and a reserved space.
      *
-     * @returns Obtains the AttestResultInfo object synchronously.
+     * @type { Array<number> }
      * @since 9
-     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 20000001 -  system service exception.
-     * @systemapi
      */
-    function getAttestStatusSync() : AttestResultInfo;
+    softwareResultDetail: Array<number>;
 
     /**
-     * Device attest result information.
-     * @typedef AttestResultInfo
-     * @syscap SystemCapability.XTS.DeviceAttest
+     * Credential sent from the cloud.
+     *
+     * @type { string }
      * @since 9
-     * @systemapi
      */
-    export interface AttestResultInfo {
-
-        /**
-         * Result of the device hardware information authentication.
-         *
-         * @type { number }
-         * @since 9
-         */
-        authResult : number;
-
-        /**
-         * Result of the device software information authentication.
-         *
-         * @type { number }
-         * @since 9
-         */
-        softwareResult : number;
-
-        /**
-         * Software result detail array that includes versionId, patchLevel,
-         * rootHash and a reserved space.
-         *
-         * @type { Array<number> }
-         * @since 9
-         */
-        softwareResultDetail : Array<number>;
-
-        /**
-         * Credential sent from the cloud.
-         *
-         * @type { string }
-         * @since 9
-         */
-        ticket : string;
-    }
+    ticket: string;
+  }
 }
 
 export default deviceAttest;

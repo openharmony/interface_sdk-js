@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Provides a button component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum ButtonType {
   /**
    * Capsule button (rounded corners default to half the height).
@@ -31,6 +37,12 @@ declare enum ButtonType {
    * Capsule button (rounded corners default to half the height).
    * @form
    * @since 9
+   */
+  /**
+   * Capsule button (rounded corners default to half the height).
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Capsule,
 
@@ -43,6 +55,12 @@ declare enum ButtonType {
    * @form
    * @since 9
    */
+  /**
+   * Round buttons.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Circle,
 
   /**
@@ -53,6 +71,12 @@ declare enum ButtonType {
    * Common button (no rounded corners by default).
    * @form
    * @since 9
+   */
+  /**
+   * Common button (no rounded corners by default).
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Normal,
 }
@@ -66,6 +90,12 @@ declare enum ButtonType {
  * @form
  * @since 9
  */
+/**
+ * Defines the button options.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface ButtonOptions {
   /**
    * Describes the button style.
@@ -75,6 +105,12 @@ declare interface ButtonOptions {
    * Describes the button style.
    * @form
    * @since 9
+   */
+  /**
+   * Describes the button style.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   type?: ButtonType;
 
@@ -86,6 +122,12 @@ declare interface ButtonOptions {
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
    * @form
    * @since 9
+   */
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   stateEffect?: boolean;
 }
@@ -99,6 +141,12 @@ declare interface ButtonOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the Button Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface ButtonInterface {
   /**
    * Button object
@@ -108,6 +156,12 @@ interface ButtonInterface {
    * Button object
    * @form
    * @since 9
+   */
+  /**
+   * Button object
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (): ButtonAttribute;
 
@@ -120,6 +174,12 @@ interface ButtonInterface {
    * @form
    * @since 9
    */
+  /**
+   * Create Button with Text child.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (options: ButtonOptions): ButtonAttribute;
 
   /**
@@ -131,7 +191,116 @@ interface ButtonInterface {
    * @form
    * @since 9
    */
+  /**
+   * Create Button with inner text label.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
+}
+
+/**
+ * LabelStyle object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+/**
+ * LabelStyle object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface LabelStyle {
+  /**
+   * overflow mode.
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * overflow mode.
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  overflow?: TextOverflow;
+
+  /**
+   * Label max lines.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Label max lines.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maxLines?: number;
+
+  /**
+   * Min font size for adapted height.
+   * @type { number | ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Min font size for adapted height.
+   * @type { number | ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  minFontSize?: number | ResourceStr;
+
+  /**
+   * Max font size for adapted height.
+   * @type { number | ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Max font size for adapted height.
+   * @type { number | ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maxFontSize?: number | ResourceStr;
+
+  /**
+   * Adapt text height option.
+   * @type { TextHeightAdaptivePolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Adapt text height option.
+   * @type { TextHeightAdaptivePolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  heightAdaptivePolicy?: TextHeightAdaptivePolicy;
+
+  /**
+   * Font style.
+   * @type { Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Font style.
+   * @type { Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  font?: Font;
 }
 
 /**
@@ -143,6 +312,12 @@ interface ButtonInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the button attribute functions.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
    * Describes the button style.
@@ -152,6 +327,12 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * Describes the button style.
    * @form
    * @since 9
+   */
+  /**
+   * Describes the button style.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   type(value: ButtonType): ButtonAttribute;
 
@@ -164,6 +345,12 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   stateEffect(value: boolean): ButtonAttribute;
 
   /**
@@ -174,6 +361,12 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * Text color.
    * @form
    * @since 9
+   */
+  /**
+   * Text color.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fontColor(value: ResourceColor): ButtonAttribute;
 
@@ -186,6 +379,12 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Text size.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontSize(value: Length): ButtonAttribute;
 
   /**
@@ -196,6 +395,12 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * Font weight.
    * @form
    * @since 9
+   */
+  /**
+   * Font weight.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fontWeight(value: number | FontWeight | string): ButtonAttribute;
 
@@ -208,6 +413,12 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Font style.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontStyle(value: FontStyle): ButtonAttribute;
 
   /**
@@ -219,8 +430,60 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Font family.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontFamily(value: string | Resource): ButtonAttribute;
+
+  /**
+   * Set button label style.
+   * @param { LabelStyle } value - The label style configuration on button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Set button label style.
+   * @param { LabelStyle } value - The label style configuration on button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  labelStyle(value: LabelStyle): ButtonAttribute;
 }
 
+/**
+ * Defines Button Component.
+ * @since 7
+ */
+/**
+ * Defines Button Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Button Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Button: ButtonInterface;
+
+/**
+ * Defines Button Component instance.
+ * @since 7
+ */
+/**
+ * Defines Button Component instance.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Button Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const ButtonInstance: ButtonAttribute;

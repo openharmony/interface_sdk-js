@@ -17,55 +17,63 @@
  * Contains basic Ability information, which uniquely identifies an ability.
  * You can use this class to obtain values of the fields set in an element,
  * such as the device ID, bundle name, and ability name.
- * @name Contains basic Ability information, which uniquely identifies an ability
- * @since 7
+ *
+ * Contains basic Ability information, which uniquely identifies an ability
+ *
+ * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 7
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ElementName
  */
- export interface ElementName {
+export interface ElementName {
   /**
    * device id
-   * @default -
    *
-   * @since 7
+   * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
    */
   deviceId?: string;
 
   /**
    * bundle name
-   * @default -
    *
-   * @since 7
+   * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
    */
   bundleName: string;
 
   /**
    * ability name
-   * @default ability class name.
    *
-   * @since 7
+   * @default ability class name.
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
    */
   abilityName: string;
 
   /**
    * uri
-   * @default -
    *
-   * @since 7
+   * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
    */
   uri?: string;
 
   /**
    * shortName
-   * @default -
    *
-   * @since 7
+   * @default -
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
    */
   shortName?: string;
 }

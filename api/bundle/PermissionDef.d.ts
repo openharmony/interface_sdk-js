@@ -14,39 +14,49 @@
  */
 
 /**
- * @name Indicates the defined permission details in file config.json
- * @since 8
+ * Indicates the defined permission details in file config.json
+ *
+ * @typedef PermissionDef
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.PermissionDef
  */
- export interface PermissionDef {
+export interface PermissionDef {
   /**
-    * @default Indicates the name of this permission
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the name of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   */
   permissionName: string;
 
   /**
-    * @default Indicates the grant mode of this permission
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the grant mode of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   */
   grantMode: number;
 
   /**
-    * @default Indicates the labelId of this permission
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the labelId of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   */
   labelId: number;
 
   /**
-    * @default Indicates the descriptionId of this permission
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the descriptionId of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   */
   descriptionId: number;
 }

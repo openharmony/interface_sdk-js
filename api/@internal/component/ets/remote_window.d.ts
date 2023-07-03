@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
- /**
-  * Round rect.
-  *
-  * @systemapi
-  * @since 9
-  */
+/**
+ * Round rect.
+ *
+ * @systemapi
+ * @since 9
+ */
 interface RRect {
   left: number;
 
@@ -71,5 +71,16 @@ interface RemoteWindowInterface {
  */
 declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {}
 
+/**
+ * Defines RemoteWindow Component.
+ * @since 9
+ * @systemapi
+ */
 declare const RemoteWindow: RemoteWindowInterface;
+
+/**
+ * Defines RemoteWindow Component instance.
+ * @since 9
+ * @systemapi
+ */
 declare const RemoteWindowInstance: RemoteWindowAttribute;

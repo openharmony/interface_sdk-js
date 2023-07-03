@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,46 +16,50 @@
 /**
  * The class of an process running information.
  *
- * @since 8
+ * @typedef ProcessRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
+ * @since 8
  * @deprecated since 9
- * @useinstead ProcessInformation
+ * @useinstead ProcessInformation/ProcessInformation
  */
 export interface ProcessRunningInfo {
-    /**
-     * @default process id
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @deprecated since 9
-     * @useinstead ProcessInformation.pid
-     */
-    pid: number;
+  /**
+   * @type { number }
+   * @default process id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ProcessInformation/ProcessInformation#pid
+   */
+  pid: number;
 
-    /**
-     * @default user id
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @deprecated since 9
-     * @useinstead ProcessInformation.uid
-     */
-    uid: number;
+  /**
+   * @type { number }
+   * @default user id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ProcessInformation/ProcessInformation#uid
+   */
+  uid: number;
 
-    /**
-     * @default the name of the process
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @deprecated since 9
-     * @useinstead ProcessInformation.processName
-     */
-    processName: string;
+  /**
+   * @type { string }
+   * @default the name of the process
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ProcessInformation/ProcessInformation#processName
+   */
+  processName: string;
 
-    /**
-     * @default an array of the bundleNames running in the process
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @deprecated since 9
-     * @useinstead ProcessInformation.bundleNames
-     */
-    bundleNames: Array<string>;
+  /**
+   * @type { Array<string> }
+   * @default an array of the bundleNames running in the process
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ProcessInformation/ProcessInformation#bundleNames
+   */
+  bundleNames: Array<string>;
 }

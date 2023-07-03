@@ -13,88 +13,128 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './basic';
+import { AsyncCallback, ErrorCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
 /**
  * Declares the screenshot APIs.
+ *
+ * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
  * @since 7
  */
 declare namespace screenshot {
-    /**
-     * Takes a screenshot and saves it as a PixelMap object.
-     * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @throws {BusinessError} 201 - If there is no permission
-     * @throws {BusinessError} 401 - If param is invalid
-     * @since 7
-     */
-    function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
-    /**
-     * Takes a screenshot and saves it as a PixelMap object.
-     * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @throws {BusinessError} 201 - If there is no permission
-     * @since 7
-     */
-    function save(callback: AsyncCallback<image.PixelMap>): void;
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function save(callback: AsyncCallback<image.PixelMap>): void;
 
-    /**
-     * Takes a screenshot and saves it as a PixelMap object.
-     * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @throws {BusinessError} 201 - If there is no permission
-     * @throws {BusinessError} 401 - If param is invalid
-     * @since 7
-     */
-    function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
-    /**
-     * Describes the region of the screen to capture.
-     * @since 7
-     */
-    interface Rect {
-        left: number;
-        top: number;
-        width: number;
-        height: number;
-    }
+  /**
+   * Describes the region of the screen to capture.
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  interface Rect {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  }
 
-    /**
-     * Describes the size of the screen region to capture.
-     * @since 7
-     */
-    interface Size {
-        width: number;
-        height: number;
-    }
+  /**
+   * Describes the size of the screen region to capture.
+   *
+   * @interface Size
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  interface Size {
+    width: number;
+    height: number;
+  }
 
+  /**
+   * Describes screenshot options.
+   *
+   * @interface ScreenshotOptions
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  interface ScreenshotOptions {
     /**
-     * Describes screenshot options.
+     * Region of the screen to capture. If this parameter is null, the full screen will be captured.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 7
      */
-    interface ScreenshotOptions {
-        /**
-         * Region of the screen to capture. If this parameter is null, the full screen will be captured.
-         */
-        screenRect?: Rect;
-        /**
-         * Region of the screen to capture. If this parameter is null, the full screen will be captured.
-         */
-        imageSize?: Size;
-        /**
-         * Rotation angle of the screenshot. The value can be 0, 90, 180, or 270. The default value is 0.
-         */
-        rotation?: number;
-        /**
-         * ID of the screen to be captured.
-         * @since 8
-         */
-        displayId?: number;
-    }
+    screenRect?: Rect;
+    /**
+     * Region of the screen to capture. If this parameter is null, the full screen will be captured.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
+    imageSize?: Size;
+    /**
+     * Rotation angle of the screenshot. The value can be 0, 90, 180, or 270. The default value is 0.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
+    rotation?: number;
+    /**
+     * ID of the screen to be captured.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    displayId?: number;
+  }
 }
 
 export default screenshot;

@@ -69,10 +69,20 @@ declare enum EditMode {
  * Sliding effect
  * @since 9
  */
+/**
+ * Sliding effect
+ * @crossplatform
+ * @since 10
+ */
 declare enum SwipeEdgeEffect {
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    * @since 9
+   */
+  /**
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * @crossplatform
+   * @since 10
    */
   Spring,
 
@@ -80,32 +90,164 @@ declare enum SwipeEdgeEffect {
    * Sliding to the edge has no effect.
    * @since 9
    */
+  /**
+   * Sliding to the edge has no effect.
+   * @crossplatform
+   * @since 10
+   */
   None,
+}
+
+/**
+ * Defines the swipe action item for SwipeActionOptions.
+ * @interface SwipeActionItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface SwipeActionItem {
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  builder?: CustomBuilder;
+
+  /**
+   * Defines distance for the delete area.
+   * @type { Length }
+   * @default 56vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  deleteAreaDistance?: Length;
+
+  /**
+   * Set whether to use default delete animation.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  useDefaultDeleteAnimation?: boolean;
+
+  /**
+   * Called when ListItem need to be deleted.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onDelete?: () => void;
+
+  /**
+   * Called when swipe entry delete area.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onEnterDeleteArea?: () => void;
+
+  /**
+   * Called when swipe exit delete area.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onExitDeleteArea?: () => void;
 }
 
 /**
  * Defines the SwipeActionOption of swipeAction attribute method.
  * @since 9
  */
+/**
+ * Defines the SwipeActionOption of swipeAction attribute method.
+ * @crossplatform
+ * @since 10
+ */
 declare interface SwipeActionOptions {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
    * slides down (when list direction Horizontal).
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  start?: CustomBuilder;
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   * @crossplatform
+   * @type { CustomBuilder | SwipeActionItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  start?: CustomBuilder | SwipeActionItem;
+
   /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
    * slides up (when list direction Horizontal).
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  end?: CustomBuilder;
+  /**
+   * An action item that appears when a list item slides left (when list direction is Vertical) or
+   * slides up (when list direction Horizontal).
+   * @crossplatform
+   * @type { CustomBuilder | SwipeActionItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  end?: CustomBuilder | SwipeActionItem;
 
   /**
    * Sets whether sliding to a boundary has a spring effect.
    * @since 9
    */
+  /**
+   * Sets whether sliding to a boundary has a spring effect.
+   * @crossplatform
+   * @since 10
+   */
   edgeEffect?: SwipeEdgeEffect;
+}
+
+/**
+ * Defines the list item style.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ListItemStyle {
+  /**
+   * Show custom style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE = 0,
+
+  /**
+   * Show default style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CARD = 1,
+}
+
+/**
+ * Defines the list item options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ListItemOptions {
+  /**
+   * Describes the ListItem style.
+   * @type { ?ListItemStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  style?: ListItemStyle;
 }
 
 /**
@@ -116,6 +258,11 @@ declare interface SwipeActionOptions {
  * @since 9
  */
 /**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
+/**
  * Values in the list
  * @since 7
  */
@@ -124,7 +271,24 @@ declare interface SwipeActionOptions {
  * @form
  * @since 9
  */
+/**
+ * Values in the list
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface ListItemInterface {
+  /**
+   * Called when an interface is used.
+   * @param { ListItemOptions } value the list item options.
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  (value?: ListItemOptions): ListItemAttribute;
+
   /**
    * Called when an interface is used.
    * @since 7
@@ -133,6 +297,8 @@ interface ListItemInterface {
    * Called when an interface is used.
    * @form
    * @since 9
+   * @deprecated since 10
+   * @useinstead listItem/ListItemInterface
    */
   (value?: string): ListItemAttribute;
 }
@@ -143,6 +309,11 @@ interface ListItemInterface {
 /**
  * @form
  * @since 9
+ */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
@@ -169,12 +340,24 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when judging whether it is selectable.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   selectable(value: boolean): ListItemAttribute;
 
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    * @param value items defines in the SwipeActionOption.
    * @since 9
+   */
+  /**
+   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   * @param value items defines in the SwipeActionOption.
+   * @crossplatform
+   * @since 10
    */
   swipeAction(value: SwipeActionOptions): ListItemAttribute;
 
@@ -187,15 +370,45 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the listItem is selected.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
 /**
+ * Defines ListItem Component instance.
  * @since 7
  */
 /**
+ * Defines ListItem Component instance.
  * @form
  * @since 9
  */
+/**
+ * Defines ListItem Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const ListItemInstance: ListItemAttribute;
+
+/**
+ * Defines ListItem Component.
+ * @since 7
+ */
+/**
+ * Defines ListItem Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines ListItem Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const ListItem: ListItemInterface;

@@ -13,14 +13,13 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * colorSpaceManager
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  */
- declare namespace colorSpaceManager {
-
+declare namespace colorSpaceManager {
   /**
    * Enumerates color space types.
    * @since 9
@@ -146,14 +145,14 @@ import { AsyncCallback } from './basic';
      * @throws {BusinessError} 18600001 - If param value is abnormal
      */
     getColorSpaceName(): ColorSpace;
-  
+
     /**
      * Get white point(x, y) of color space.
      * @since 9
      * @throws {BusinessError} 18600001 - If param value is abnormal
      */
     getWhitePoint(): Array<number>;
-  
+
     /**
      * Get gamma value of color space.
      * @since 9
@@ -180,6 +179,6 @@ import { AsyncCallback } from './basic';
    * @throws {BusinessError} 18600001 - If param value is abnormal
    */
   function create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager;
- }
+}
 
- export default colorSpaceManager;
+export default colorSpaceManager;

@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Provides an interface for writing texts.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface TextInterface {
   /**
    * Called when writing text.
@@ -31,6 +37,12 @@ interface TextInterface {
    * Called when writing text.
    * @form
    * @since 9
+   */
+  /**
+   * Called when writing text.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (content?: string | Resource): TextAttribute;
 }
@@ -42,7 +54,21 @@ interface TextInterface {
  * @form
  * @since 9
  */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
+  /**
+   * Called when the font is set.
+   * @param { Font } value - the text font size and weight and family and style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { TextAttribute } The attribute of the text.
+   * @since 10
+   */
+  font(value: Font): TextAttribute;
+
   /**
    * Called when the font color is set.
    * @since 7
@@ -51,6 +77,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the font color is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the font color is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fontColor(value: ResourceColor): TextAttribute;
 
@@ -63,6 +95,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the font size is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontSize(value: number | string | Resource): TextAttribute;
 
   /**
@@ -73,6 +111,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the minimum font size of the font is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the minimum font size of the font is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   minFontSize(value: number | string | Resource): TextAttribute;
 
@@ -85,6 +129,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the maximum font size of the font is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   maxFontSize(value: number | string | Resource): TextAttribute;
 
   /**
@@ -95,6 +145,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the font style of a font is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the font style of a font is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fontStyle(value: FontStyle): TextAttribute;
 
@@ -107,6 +163,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the font weight is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontWeight(value: number | FontWeight | string): TextAttribute;
 
   /**
@@ -117,6 +179,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the horizontal center mode of the font is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the horizontal center mode of the font is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   textAlign(value: TextAlign): TextAttribute;
 
@@ -129,6 +197,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the vertical center mode of the font is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   lineHeight(value: number | string | Resource): TextAttribute;
 
   /**
@@ -139,6 +213,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the overflow mode of the font is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the overflow mode of the font is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   textOverflow(value: { overflow: TextOverflow }): TextAttribute;
 
@@ -151,6 +231,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the font list of text is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   fontFamily(value: string | Resource): TextAttribute;
 
   /**
@@ -161,6 +247,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the maximum number of lines of text is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the maximum number of lines of text is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   maxLines(value: number): TextAttribute;
 
@@ -173,6 +265,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the text decoration of the text is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   decoration(value: { type: TextDecorationType; color?: ResourceColor }): TextAttribute;
 
   /**
@@ -183,6 +281,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the distance between text fonts is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the distance between text fonts is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   letterSpacing(value: number | string): TextAttribute;
 
@@ -195,6 +299,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the type of letter in the text font is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   textCase(value: TextCase): TextAttribute;
 
   /**
@@ -206,6 +316,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the baseline offset is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   baselineOffset(value: number | string): TextAttribute;
 
   /**
@@ -213,17 +329,97 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Allow replication.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   copyOption(value: CopyOptions): TextAttribute;
 
   /**
    * Enable the selectable area can be dragged.
    * @type boolean
    * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @deprecated since 10
+   * @useinstead common.CommonMethod#draggable
    */
   draggable(value: boolean): TextAttribute;
+
+  /**
+   * Called when the text shadow is set.
+   * @param { ShadowOptions } value - The shadow options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  textShadow(value: ShadowOptions): TextAttribute;
+
+  /**
+   * Called when the height adaptive policy is set.
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Called when the height adaptive policy is set.
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
+
+  /**
+   * Specify the indentation of the first line in a text-block.
+   * @param { Length } value - The length of text indent.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Specify the indentation of the first line in a text-block.
+   * @param { Length } value - The length of text indent.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  textIndent(value: Length): TextAttribute;
 }
 
+/**
+ * Defines Text Component instance.
+ * @since 7
+ */
+/**
+ * Defines Text Component instance.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Text Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const TextInstance: TextAttribute;
+
+/**
+ * Defines Text Component.
+ * @since 7
+ */
+/**
+ * Defines Text Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Text Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Text: TextInterface;

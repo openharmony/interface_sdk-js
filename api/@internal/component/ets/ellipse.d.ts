@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Ellipse drawing.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface EllipseInterface {
   /**
    * use new function to set the value.
@@ -31,6 +37,12 @@ interface EllipseInterface {
    * use new function to set the value.
    * @form
    * @since 9
+   */
+  /**
+   * use new function to set the value.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 
@@ -43,6 +55,12 @@ interface EllipseInterface {
    * @form
    * @since 9
    */
+  /**
+   * Set the value.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 }
 
@@ -53,7 +71,43 @@ interface EllipseInterface {
  * @form
  * @since 9
  */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
+/**
+ * Defines Ellipse Component.
+ * @since 7
+ */
+/**
+ * Defines Ellipse Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Ellipse Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Ellipse: EllipseInterface;
+
+/**
+ * Defines Ellipse Component instance.
+ * @since 7
+ */
+/**
+ * Defines Ellipse Component instance.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Ellipse Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const EllipseInstance: EllipseAttribute;

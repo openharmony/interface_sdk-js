@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,28 +13,31 @@
  * limitations under the License.
  */
 
- /**
- * @name DataAbilityResult
- * @since 7
+/**
+ * Indicates the return result of the data to be manipulated.
+ *
+ * @typedef DataAbilityResult
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
+ * @since 7
  */
 export interface DataAbilityResult {
   /**
    * Indicates the path of data to operate.
-   * @default -
-   * @since 7
+   *
+   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
-   uri?: string;
+  uri?: string;
 
-   /**
+  /**
    * Indicates the number of rows affected by the operation.
-   * @default -
-   * @since 7
+   *
+   * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
-   count?:number;
+  count?: number;
 }

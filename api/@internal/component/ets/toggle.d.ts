@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Declare the type of status button
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum ToggleType {
   /**
    * Checkbox
@@ -31,6 +37,12 @@ declare enum ToggleType {
    * Checkbox
    * @form
    * @since 9
+   */
+  /**
+   * Checkbox
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Checkbox,
 
@@ -43,6 +55,12 @@ declare enum ToggleType {
    * @form
    * @since 9
    */
+  /**
+   * Switch
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Switch,
 
   /**
@@ -53,6 +71,12 @@ declare enum ToggleType {
    * Button
    * @form
    * @since 9
+   */
+  /**
+   * Button
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Button,
 }
@@ -66,6 +90,12 @@ declare enum ToggleType {
  * @form
  * @since 9
  */
+/**
+ * Defines the toggle interface.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface ToggleInterface {
   /**
    * Set parameters to obtain the toggle.
@@ -75,6 +105,12 @@ interface ToggleInterface {
    * Set parameters to obtain the toggle.
    * @form
    * @since 9
+   */
+  /**
+   * Set parameters to obtain the toggle.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
 }
@@ -88,6 +124,12 @@ interface ToggleInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the toggle attribute functions
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
    * Called when the selected state of the component changes.
@@ -97,6 +139,12 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * Called when the selected state of the component changes.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the selected state of the component changes.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
@@ -109,6 +157,12 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the color of the selected button is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
@@ -120,8 +174,45 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the color of the selected button is set.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   switchPointColor(color: ResourceColor): ToggleAttribute;
 }
 
+/**
+ * Defines Toggle Component.
+ * @since 8
+ */
+/**
+ * Defines Toggle Component.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Toggle Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Toggle: ToggleInterface;
+
+/**
+ * Defines Toggle Component instance.
+ * @since 8
+ */
+/**
+ * Defines Toggle Component instance.
+ * @form
+ * @since 9
+ */
+/**
+ * Defines Toggle Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const ToggleInstance: ToggleAttribute;

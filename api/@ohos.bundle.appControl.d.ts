@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 
 /**
  * Used for application interception control
+ *
  * @namespace appControl
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
@@ -26,10 +27,11 @@ import Want from './@ohos.app.ability.Want';
 declare namespace appControl {
   /**
    * Set the disposed status of a specified bundle.
+   *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { Want } disposedWant - Indicates the disposed want.
-   * @param { AsyncCallback } callback - The callback of setting the disposed status result.
+   * @param { AsyncCallback<void> } callback - The callback of setting the disposed status result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -43,6 +45,7 @@ declare namespace appControl {
 
   /**
    * Set the disposed status of a specified bundle.
+   *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { Want } disposedWant - Indicates the disposed want.
@@ -60,6 +63,7 @@ declare namespace appControl {
 
   /**
    * Obtains the disposed status of a specified bundle.
+   *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle result.
@@ -76,6 +80,7 @@ declare namespace appControl {
 
   /**
    * Obtains the disposed status of a specified bundle.
+   *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
@@ -92,6 +97,7 @@ declare namespace appControl {
 
   /**
    * Delete the disposed status of a specified bundle.
+   *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { AsyncCallback<void> } callback - the callback of deleting the disposed status of a specified bundle result.
@@ -108,6 +114,7 @@ declare namespace appControl {
 
   /**
    * Delete the disposed status of a specified bundle.
+   *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Promise<void> } Returns the result of deleting the disposed status of a specified bundle.

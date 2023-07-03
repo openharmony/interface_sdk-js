@@ -14,59 +14,80 @@
  */
 
 import { ApplicationInfo } from './applicationInfo';
-import { ElementName } from './elementName'
+import { ElementName } from './elementName';
 
 /**
  * Contains basic Ability information, which uniquely identifies an ability.
  * You can use this class to obtain values of the fields set in an AbilityInfo,
  * such as the application Info , elementName, labelId, iconId, userId, installTime.
- * @name Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
- * @since 8
+ *
+ * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
+ *
+ * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.LauncherAbilityInfo
  */
 export interface LauncherAbilityInfo {
   /**
-   * @name Obtains application info information about an launcher ability.
-   * @since 8
+   * Obtains application info information about an launcher ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    */
   readonly applicationInfo: ApplicationInfo;
 
   /**
-   * @name Obtains element name about an launcher ability.
-   * @since 8
+   * Obtains element name about an launcher ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    */
-  readonly elementName : ElementName;
+  readonly elementName: ElementName;
 
   /**
-   * @name Obtains labelId about an launcher ability.
-   * @since 8
+   * Obtains labelId about an launcher ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    */
   readonly labelId: number;
 
   /**
-   * @name Obtains iconId about an launcher ability.
-   * @since 8
+   * Obtains iconId about an launcher ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    */
   readonly iconId: number;
 
   /**
-   * @name Obtains userId about an launcher ability.
-   * @since 8
+   * Obtains userId about an launcher ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    */
   readonly userId: number;
 
   /**
-   * @name Obtains installTime about an launcher ability.
-   * @since 8
+   * Obtains installTime about an launcher ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
    */
-  readonly installTime : number;
+  readonly installTime: number;
 }

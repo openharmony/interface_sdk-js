@@ -14,10 +14,11 @@
  */
 
 import { ApplicationInfo } from './ApplicationInfo';
-import { ElementName } from './ElementName'
+import { ElementName } from './ElementName';
 
 /**
  * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
+ *
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi
@@ -26,49 +27,61 @@ import { ElementName } from './ElementName'
 export interface LauncherAbilityInfo {
   /**
    * Obtains application info information about an launcher ability.
-   * @type {ApplicationInfo}
+   *
+   * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
    * @since 9
    */
   readonly applicationInfo: ApplicationInfo;
 
   /**
    * Obtains element name about an launcher ability.
-   * @type {ElementName}
+   *
+   * @type { ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
    * @since 9
    */
-  readonly elementName : ElementName;
+  readonly elementName: ElementName;
 
   /**
    * Obtains labelId about an launcher ability.
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
    * @since 9
    */
   readonly labelId: number;
 
   /**
    * Obtains iconId about an launcher ability.
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
    * @since 9
    */
   readonly iconId: number;
 
   /**
    * Obtains userId about an launcher ability.
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
    * @since 9
    */
   readonly userId: number;
 
   /**
    * Obtains installTime about an launcher ability.
-   * @type {number}
+   *
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
    * @since 9
    */
-  readonly installTime : number;
+  readonly installTime: number;
 }

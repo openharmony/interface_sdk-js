@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './basic';
-import { WantAgent } from './@ohos.wantAgent';
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides js api for systemTimer
  *
+ * @namespace systemTimer
  * @syscap SystemCapability.MiscServices.Time
  * @systemapi Hide this for inner system use.
  * @since 7
@@ -67,8 +67,7 @@ declare namespace systemTimer {
   /**
    * Creates a timer.
    *
-   * @param options Indicates the timer options.
-   * @param { TimerOptions } options - The necessary configuration information.
+   * @param { TimerOptions } options - The timer options.
    * @param { AsyncCallback<number> } callback - {number} is the timer ID.
    * @throws { BusinessError } 202 - permission denied.
    * @throws { BusinessError } 401 - if the parameter type is incorrect.
@@ -81,8 +80,7 @@ declare namespace systemTimer {
   /**
    * Creates a timer.
    *
-   * @param options Indicates the timer options.
-   * @param { TimerOptions } options - The necessary configuration information.
+   * @param { TimerOptions } options - The timer options.
    * @returns { Promise<number> } the timer ID.
    * @throws { BusinessError } 202 - permission denied.
    * @throws { BusinessError } 401 - if the parameter type is incorrect.
@@ -180,6 +178,7 @@ declare namespace systemTimer {
    * When the repeat is false,the interval is not needed, choose one of wantAgent and callback.
    * When the repeat is true,the interval is required, the wantAgent is required, and the callback can be left blank.
    *
+   * @interface TimerOptions
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7

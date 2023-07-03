@@ -14,51 +14,70 @@
  */
 
 /**
- * @syscap SystemCapability.Sensors.MiscDevice
+ * @interface VibrateOptions
  * @permission ohos.permission.VIBRATE
+ * @syscap SystemCapability.Sensors.MiscDevice.Lite
  * @since 3
  * @deprecated since 8
  * @useinstead ohos.vibrator/vibrator.VibrateTime
  */
- export interface VibrateOptions {
+export interface VibrateOptions {
   /**
    * Vibration mode. The value long  indicates long vibration, and short indicates short vibration.
    * The default value is long.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
+   * @deprecated since 8
    */
-  mode?: "long" | "short";
+  mode?: 'long' | 'short';
 
   /**
    * Called when success to trigger vibration.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
+   * @deprecated since 8
    */
   success: () => void;
 
   /**
    * Called when fail to trigger vibration.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
+   * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   *
+   * @permission ohos.permission.VIBRATE
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
+   * @deprecated since 8
    */
   complete?: () => void;
 }
 
-  /**
-   * @syscap SystemCapability.Sensors.MiscDevice
-   * @permission ohos.permission.VIBRATE
-   * @since 3
-   * @deprecated since 8
-   * @useinstead ohos.vibrator/vibrator
-   */
-  export default class Vibrator {
+/**
+ * @permission ohos.permission.VIBRATE
+ * @syscap SystemCapability.Sensors.MiscDevice.Lite
+ * @since 3
+ * @deprecated since 8
+ * @useinstead ohos.vibrator/vibrator
+ */
+export default class Vibrator {
   /**
    * Triggers vibration.
-   * @param options Options.
+   *
    * @permission ohos.permission.VIBRATE
+   * @param { VibrateOptions } options Options.
+   * @syscap SystemCapability.Sensors.MiscDevice.Lite
    * @since 3
    * @deprecated since 8
    * @useinstead ohos.vibrator/vibrator#startVibration

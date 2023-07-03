@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 
 /**
  * Bundle monitor
+ *
  * @namespace bundleMonitor
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
@@ -25,6 +26,7 @@ import { Callback } from './basic';
 declare namespace bundleMonitor {
   /**
    * This module defines the result information of monitoring install, update and uninstall.
+   *
    * @typedef BundleChangedInfo
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -33,22 +35,27 @@ declare namespace bundleMonitor {
   interface BundleChangedInfo {
     /**
      * The bundle name
-     * @type {string}
+     *
+     * @type { string }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
      */
-     readonly bundleName: string;
+    readonly bundleName: string;
     /**
      * The user id
-     * @type {number}
+     *
+     * @type { number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
      */
-     readonly userId: number;
+    readonly userId: number;
   }
 
   /**
    * Indicates the event type of bundle change
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -57,12 +64,13 @@ declare namespace bundleMonitor {
 
   /**
    * Register to monitor the installation status
+   *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type - Indicates the command should be implement.
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be register.
-   * @throws {BusinessError} 201 - Verify permission denied.
-   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
-   * @throws {BusinessError} 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -71,12 +79,13 @@ declare namespace bundleMonitor {
 
   /**
    * Unregister to monitor the installation status
+   *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type -type Indicates the command should be implement.
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
-   * @throws {BusinessError} 201 - Verify permission denied.
-   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
-   * @throws {BusinessError} 401 - The parameter check failed.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -84,4 +93,4 @@ declare namespace bundleMonitor {
   function off(type: BundleChangedEvent, callback?: Callback<BundleChangedInfo>): void;
 }
 
-export default bundleMonitor
+export default bundleMonitor;
