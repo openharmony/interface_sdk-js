@@ -4193,6 +4193,16 @@ declare class CommonMethod<T> {
   responseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
+   * Sets the mouse response region of current component
+   * @param { Array<Rectangle> | Rectangle } value
+   * @returns { T } return the component attribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
+   * @since 10
+   */
+  mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
+
+  /**
    * The size of the current component.
    * @since 7
    */
