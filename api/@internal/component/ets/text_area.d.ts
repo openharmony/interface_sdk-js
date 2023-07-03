@@ -311,11 +311,11 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns { TextAreaInterface } Returns the instance of the TextAreaInterface.
+   * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
    * @crossplatform
    * @since 10
    */
-  enableKeyboardOnFocus(value: boolean): TextAreaInterface;
+  enableKeyboardOnFocus(value: boolean): TextAreaAttribute;
 
   /**
    * Define the max length content of the text area.
