@@ -1142,6 +1142,14 @@ declare namespace commonEventManager {
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
 
     /**
+     * Sent when device's charge idle mode changed.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 10
+     */
+    COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED = 'usual.event.CHARGE_IDLE_MODE_CHANGED',
+
+    /**
      * Sent when the list of exempt applications in idle mode is updated.
      *
      * @syscap SystemCapability.Notification.CommonEvent
