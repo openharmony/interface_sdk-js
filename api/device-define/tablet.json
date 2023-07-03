@@ -153,6 +153,7 @@
     "SystemCapability.Sensors.Sensor.Lite",
     "SystemCapability.Sensors.MiscDevice.Lite",
     "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
     "SystemCapability.DistributedDataManager.KVStore.Core",
