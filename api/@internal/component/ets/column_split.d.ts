@@ -55,6 +55,18 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * @since 10
    */
   resizeable(value: boolean): ColumnSplitAttribute;
+
+  /**
+   * Called when the ColumnSplit split line margin is set.
+   * @crossplatform
+   * @since 10
+   */
+  divider(
+      value: {
+        startMargin?: Length;
+        endMargin?: Length;
+      } | null,
+  ): ColumnSplitAttribute;
 }
 
 /**
