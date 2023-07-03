@@ -243,6 +243,22 @@ declare class DotIndicator extends Indicator<DotIndicator> {
 }
 
 /**
+ * Set Swiper column count adaptation.
+ * @form
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type SwiperAutoFill = {
+  /**
+   * Set minSize size.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  minSize: VP;
+};
+
+/**
  * Define DigitIndicator, the indicator type is digit.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -672,7 +688,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @since 10
    */
-  displayCount(value: number | string): SwiperAttribute;
+  displayCount(value: number | string | SwiperAutoFill): SwiperAttribute;
 
   /**
    * Invoked when setting the sliding effect
