@@ -31,6 +31,7 @@ declare namespace vpn {
    * Create a VPN connection using the AbilityContext.
    * @param { AbilityContext } context - Indicates the context of application or capability.
    * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @since 10
    */
