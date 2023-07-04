@@ -529,7 +529,7 @@ declare namespace appManager {
 
   /**
    * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
-   * 
+   *
    * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
    * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
    * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
