@@ -3,10 +3,15 @@
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.Base",
     "SystemCapability.Location.Location.Lite",
-    "SystemCapability.PowerManager.BatteryManager.Core",
+    "SystemCapability.PowerManager.BatteryManager.Lite",
     "SystemCapability.FileManagement.File.FileIO",
+    "SystemCapability.FileManagement.File.FileIO.Lite",
     "SystemCapability.Startup.SystemInfo",
-    "SystemCapability.PowerManager.DisplayPowerManager",
-    "SystemCapability.Communication.NFC.CardEmulation"
+    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
+    "SystemCapability.Communication.NFC.CardEmulation",
+    "SystemCapability.Security.Huks.Core",
+    "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
+    "SystemCapability.Sensors.Sensor.Lite",
+    "SystemCapability.Sensors.MiscDevice.Lite"
   ]
 }

@@ -28,8 +28,8 @@ export interface ConnectOptions {
   /**
    * The callback interface was connect successfully.
    *
-   * @param { ElementName } elementName The element name of the service ability
-   * @param { rpc.IRemoteObject } remote The remote object instance
+   * @param { ElementName } elementName - The element name of the service ability
+   * @param { rpc.IRemoteObject } remote - The remote object instance
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -38,7 +38,7 @@ export interface ConnectOptions {
   /**
    * The callback interface was disconnect successfully.
    *
-   * @param { ElementName } elementName The element name of the service ability
+   * @param { ElementName } elementName - The element name of the service ability
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
@@ -47,7 +47,7 @@ export interface ConnectOptions {
   /**
    * The callback interface was connect failed.
    *
-   * @param { number } code The error code of the failed.
+   * @param { number } code - The error code of the failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */

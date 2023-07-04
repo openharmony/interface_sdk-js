@@ -23,7 +23,6 @@ import Context from './Context';
  * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @crossplatform
  * @since 9
  */
 /**

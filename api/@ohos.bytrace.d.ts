@@ -34,27 +34,27 @@
  * <p>Each {@code startTrace} matches one {@code finishTrace}, and they must have the same name
  * and taskId.
  *
- * @deprecated since 8
- * @useinstead ohos.hiTraceMeter 
- * @since 7
+ * @namespace bytrace
  * @syscap SystemCapability.HiviewDFX.HiTrace
+ * @since 7
+ * @deprecated since 8
+ * @useinstead ohos.hiTraceMeter
  */
 declare namespace bytrace {
   /**
    * Records a trace marking it as the start of a task, can with the expected completion time between
    * startTrace and finishTrace.
-   *
    * This method is invoked at the start of a transaction to indicate that a task has started, whose name
    * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
    * {@link #finishTrace}, the name and taskId need to be the same.
    *
+   * @param { string } name Indicates the task name.
+   * @param { number } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
+   * @param { number } expectedTime Indicates the expected time required for completing the task, in milliseconds.
+   * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @since 7
    * @deprecated since 8
    * @useinstead ohos.hiTraceMeter.startTrace
-   * @since 7
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @param name Indicates the task name.
-   * @param taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
-   * @param expectedTime Indicates the expected time required for completing the task, in milliseconds.
    */
   function startTrace(name: string, taskId: number, expectedTime?: number): void;
 
@@ -64,25 +64,25 @@ declare namespace bytrace {
    * This method is invoked at the end of a transaction to indicate that a task has ended, whose name
    * is specified by {@code name}. This method must be invoked after the the startTrace.
    *
+   * @param { string } name Indicates the task name. It must be the same with the {@code name} of startTrace.
+   * @param { number } taskId The unique id used to distinguish the tasks and must be the same with the .
+   * {@code taskId} of startTrace.
+   * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @since 7
    * @deprecated since 8
    * @useinstead ohos.hiTraceMeter.finishTrace
-   * @since 7
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @param name Indicates the task name. It must be the same with the {@code name} of startTrace.
-   * @param taskId The unique id used to distinguish the tasks and must be the same with the .
-   * {@code taskId} of startTrace.
    */
   function finishTrace(name: string, taskId: number): void;
 
   /**
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
+   * @param { string } name Indicates the name used to identify the count.
+   * @param { number } count Indicates the number of the count.
+   * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @since 7
    * @deprecated since 8
    * @useinstead ohos.hiTraceMeter.traceByValue
-   * @since 7
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @param name Indicates the name used to identify the count.
-   * @param count Indicates the number of the count.
    */
   function traceByValue(name: string, count: number): void;
 }

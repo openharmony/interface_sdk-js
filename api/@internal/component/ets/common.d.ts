@@ -31,6 +31,32 @@
 declare const Component: ClassDecorator;
 
 /**
+ * Defines the options of Entry ClassDecorator.
+ * @form
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface EntryOptions {
+  /**
+   * Named route name.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { ?string }
+   * @since 10
+   */
+  routeName? : string,
+
+  /**
+   * LocalStorage to be passed.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @type { ?LocalStorage }
+   * @since 10
+   */
+  storage? : LocalStorage,
+}
+
+/**
  * Defines Entry ClassDecorator.
  * @returns { ClassDecorator } Entry is a ClassDecorator.
  * @since 7
@@ -44,13 +70,13 @@ declare const Component: ClassDecorator;
  */
 /**
  * Defines Entry ClassDecorator.
- * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
- * Entry is a ClassDecorator and it supports LocalStorage as parameters.
+ * @returns { ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator) }
+ * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
  * @form
  * @crossplatform
  * @since 10
  */
-declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
+declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -413,12 +439,12 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
- * Defining Recycle ClassDecorator.
+ * Defining Reusable ClassDecorator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare const Recycle: ClassDecorator;
+declare const Reusable: ClassDecorator;
 
 /**
  * Get context.
@@ -1984,6 +2010,7 @@ declare enum RepeatMode {
    */
   Space,
 }
+
 /**
  * enum Blur style
  * @form
@@ -2066,6 +2093,15 @@ declare enum BlurStyle {
    * @since 10
    */
   BACKGROUND_ULTRA_THICK,
+
+  /**
+   * Defines none material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */  
+  NONE,    
 }
 
 /**
@@ -2156,26 +2192,47 @@ declare enum ModalTransition {
 
 /**
  * Defines the options of backgroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare interface BackgroundBlurStyleOptions {
+declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of ForegroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of blurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface BlurStyleOptions {
   /**
    * color mode
-   * @crossplatform
+   * @type { ThemeColorMode }
+   * @default ThemeColorMode.SYSTEM
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   colorMode?: ThemeColorMode;
 
   /**
    * adaptive color
-   * @crossplatform
+   * @type { AdaptiveColor }
+   * @default AdaptiveColor.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
 
   /**
-   * Define the scale of background blur effect. 
+   * Define the scale of blur effect. 
    * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
    * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
    * @type { number }
@@ -2387,6 +2444,69 @@ declare enum ShadowStyle {
    * @since 10
    */
   OUTER_FLOATING_MD,
+}
+
+/**
+ * Enumerates the safe area types.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum SafeAreaType {
+  /**
+   * Default area of the system, including the status bar and navigation bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SYSTEM,
+
+  /**
+   * Notch or punch hole.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CUTOUT,
+
+  /**
+   * Soft keyboard area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  KEYBOARD
+}
+
+/**
+ * Enumerates the safe area edges.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum SafeAreaEdge {
+  /**
+   * Top edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TOP,
+
+  /**
+   * Bottom edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BOTTOM,
+
+  /**
+   * Start edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  START,
+
+  /**
+   * End edge of the safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  END
 }
 
 /**
@@ -2999,7 +3119,6 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData, Summary, UnifiedDataType type object for ui component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 10
  */
 declare type UnifiedData = import('../api/@ohos.data.UDMF').UnifiedData;
@@ -3110,7 +3229,6 @@ declare interface DragEvent {
    * Set dragData into DragEvent.
    * @param { UnifiedData } unifiedData - dragData.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   setData(unifiedData: UnifiedData): void;
@@ -3119,7 +3237,6 @@ declare interface DragEvent {
    * Get dragData from DragEvent.
    * @returns { UnifiedData } - get dragData.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getData(): UnifiedData;
@@ -3128,7 +3245,6 @@ declare interface DragEvent {
    * Get dragData summary from DragEvent.
    * @returns { Summary } - get Summary Data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getSummary(): Summary;
@@ -3161,6 +3277,12 @@ declare interface DragEvent {
   getPreviewRect(): Rectangle;
 }
 
+/**
+ * Import the IntentionCode type object for IntentionCode.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').IntentionCode;
 /**
  * KeyEvent object description:
  * @since 7
@@ -3260,6 +3382,15 @@ declare interface KeyEvent {
    * @since 10
    */
   stopPropagation?: () => void;
+
+  /**
+   * Intention code of a key or modifier keys.
+   * @type { IntentionCode }
+   * @default IntentionCode.INTENTION_UNKNOWN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  intentionCode: IntentionCode;
 }
 
 /**
@@ -3778,6 +3909,24 @@ declare interface ContextMenuOptions {
   placement?: Placement;
 
   /**
+   * whether show arrow belong to the menu, default: false, not show arrow
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
+
+  /**
+    * The horizontal offset to the left of menu or vertical offset to the top of menu
+    * @type { ?Length }
+    * @default 0
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  arrowOffset?: Length; 
+
+  /**
    * Callback function when the context menu appears.
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3911,8 +4060,8 @@ declare interface PixelStretchEffectOptions {
 declare interface ClickEffect {
   /**
    * Set the click effect level.
+   * When level is undefined or null, the level is equal to ClickEffectLevel.Light.
    * @type { ClickEffectLevel }
-   * @default ClickEffectLevel.Light
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3926,6 +4075,29 @@ declare interface ClickEffect {
    * @since 10
    */
   scale?: number;
+}
+
+/*
+ * Define nested scroll options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface NestedScrollOptions {
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls forward
+   * @type { NestedScrollMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollForward: NestedScrollMode;
+
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls backward
+   * @type { NestedScrollMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollBackward: NestedScrollMode;
 }
 
 /**
@@ -3981,17 +4153,27 @@ declare class CommonMethod<T> {
    * @since 7
    */
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @form
    * @since 9
    */
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @form
    * @crossplatform
    * @since 10
    */
   height(value: Length): T;
+
+  /**
+   * Expands the safe area.
+   * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
+   * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
+   * @returns { T } The component instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
 
   /**
    * Sets the response region of the current component.
@@ -4009,6 +4191,16 @@ declare class CommonMethod<T> {
    * @since 10
    */
   responseRegion(value: Array<Rectangle> | Rectangle): T;
+
+  /**
+   * Sets the mouse response region of current component
+   * @param { Array<Rectangle> | Rectangle } value
+   * @returns { T } return the component attribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
+   * @since 10
+   */
+  mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
    * The size of the current component.
@@ -4120,6 +4312,17 @@ declare class CommonMethod<T> {
   margin(value: Margin | Length): T;
 
   /**
+   * Background.
+   * @param { CustomBuilder } builder
+   * @param { ?{ align?: Alignment } } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  background(builder: CustomBuilder, options?: { align?: Alignment }): T;
+
+  /**
    * Background color
    * @since 7
    */
@@ -4210,6 +4413,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
+  /**
+   * Foreground blur style.
+   * blurStyle:Blur style type.
+   * @param { BlurStyle } value
+   * @param { ForegroundBlurStyleOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
+   * @since 10
+   */
+  foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
   /**
    * Opacity
@@ -4782,6 +4996,19 @@ declare class CommonMethod<T> {
   hueRotate(value: number | string): T;
 
   /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
+   * @param { boolean } value - true means the component should apply the effects template.
+   * @default false
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  useEffect(value: boolean): T;
+
+  /**
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    * @since 7
@@ -5307,7 +5534,6 @@ declare class CommonMethod<T> {
    * @param { Array<UnifiedDataType> } value - the unifiedData type for this node.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   allowDrop(value: Array<UnifiedDataType>): T;
@@ -5334,11 +5560,14 @@ declare class CommonMethod<T> {
    */
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
+   * @param { (string | CustomBuilder) } value
+   * @param { ?{ align?: Alignment; offset?: { x?: number; y?: number } } options
+   * @returns { T }
    * @form
    * @crossplatform
    * @since 10
    */
-  overlay(value: string, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
+  overlay(value: string | CustomBuilder, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
 
   /**
    * Linear Gradient
@@ -5701,6 +5930,25 @@ declare class CommonMethod<T> {
    * @since 10
    */
   obscured(reasons: Array<ObscuredReasons>): T;
+
+  /**
+   * Reuse id is used for identify the reuse type for each custom node.
+   * @param { string } id - The id for reusable custom node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  reuseId(id: string)
+
+  /**
+   * Sets how content is drawn within nodes duration animation
+   * @param { RenderFit } fitMode - The render fit mode of content.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  renderFit(fitMode: RenderFit): T;
 }
 
 /**
@@ -6336,13 +6584,13 @@ declare class CustomComponent extends CommonAttribute {
   aboutToDisappear?(): void;
 
   /**
-   * onRecycle Method
+   * aboutToReuse Method
    * @param {{ [key: string]: unknown }} params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onRecycle?(params: { [key: string]: unknown }): void;
+  aboutToReuse?(params: { [key: string]: unknown }): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
@@ -6445,6 +6693,72 @@ declare class View {
    * @since 9
    */
   create(value: any): any;
+}
+
+/**
+ * Rect info.
+ * @crossplatform
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface RectResult {
+  /**
+   * x:Horizontal coordinate relative to the component.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  x: number;
+
+  /**
+   * y:Vertical axis coordinate relative to the component.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  y: number;
+
+  /**
+   * Get the width of the current textRect.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  width: number;
+
+  /**
+   * Get the height of the current textRect.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  height: number;
+}
+
+/**
+ * TextContentControllerBase
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare abstract class TextContentControllerBase {
+  /**
+   * Get the start and end positions of the text content.
+   * @returns { RectResult } Text content rect.
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getTextContentRect() : RectResult;
+
+  /**
+   * Get the lines number of the text content.
+   * @returns { number } Text content line count
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getTextContentLineCount() : number;
 }
 
 declare module "SpecialEvent" {

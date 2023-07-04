@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
+import appManager from '../@ohos.app.ability.appManager';
+
 /**
  * The class of an process information.
  *
  * @typedef ProcessInformation
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
  * @since 9
  */
 /**
@@ -85,4 +86,13 @@ export interface ProcessInformation {
    * @since 10
    */
   bundleNames: Array<string>;
+
+  /**
+   * The process state.
+   *
+   * @type { appManager.ProcessState }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 10
+   */
+  state: appManager.ProcessState;
 }

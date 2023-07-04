@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,18 +20,16 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  *
  * @namespace dataSharePredicates
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @systemapi
  * @StageModelOnly
- * @since 9
+ * @since 10
  */
 declare namespace dataSharePredicates {
   /**
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   class DataSharePredicates {
     /**
@@ -43,9 +41,8 @@ declare namespace dataSharePredicates {
      * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     equalTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -107,9 +104,8 @@ declare namespace dataSharePredicates {
      *
      * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     and(): DataSharePredicates;
 
@@ -319,9 +315,8 @@ declare namespace dataSharePredicates {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     orderByAsc(field: string): DataSharePredicates;
 
@@ -332,9 +327,8 @@ declare namespace dataSharePredicates {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     orderByDesc(field: string): DataSharePredicates;
 
@@ -356,9 +350,8 @@ declare namespace dataSharePredicates {
      * @param { number } offset - Indicates the starting position.
      * @returns { DataSharePredicates } Returns the query object.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     limit(total: number, offset: number): DataSharePredicates;
 
@@ -395,9 +388,8 @@ declare namespace dataSharePredicates {
      * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
      * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
 

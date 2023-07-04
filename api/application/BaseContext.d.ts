@@ -18,7 +18,6 @@
  * 'application.Context' for Stage Mode.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
  * @since 8
  */
 /**

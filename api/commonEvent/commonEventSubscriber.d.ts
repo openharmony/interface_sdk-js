@@ -27,7 +27,7 @@ export interface CommonEventSubscriber {
   /**
    * Obtains the result code of the current ordered common event.
    *
-   * @param { AsyncCallback<number> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<number> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -45,8 +45,8 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -55,7 +55,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -65,7 +65,7 @@ export interface CommonEventSubscriber {
   /**
    * Obtains the result data of the current ordered common event.
    *
-   * @param { AsyncCallback<string> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<string> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -83,8 +83,8 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result data of the current ordered common event.
    *
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -93,7 +93,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result data of the current ordered common event.
    *
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -103,9 +103,9 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -114,8 +114,8 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -125,7 +125,7 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether the current common event is an ordered common event.
    *
-   * @param { AsyncCallback<boolean> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -143,7 +143,7 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether the current common event is a sticky common event.
    *
-   * @param { AsyncCallback<boolean> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -161,7 +161,7 @@ export interface CommonEventSubscriber {
   /**
    * Abort the current ordered common event.
    *
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -179,7 +179,7 @@ export interface CommonEventSubscriber {
   /**
    * Clears the abort state of the current ordered common event
    *
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -197,7 +197,7 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether the current ordered common event should be aborted.
    *
-   * @param { AsyncCallback<boolean> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -215,7 +215,7 @@ export interface CommonEventSubscriber {
   /**
    * get the CommonEventSubscribeInfo of this CommonEventSubscriber.
    *
-   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback Indicate callback function to receive common event.
+   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Indicate callback function to receive common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -233,7 +233,7 @@ export interface CommonEventSubscriber {
   /**
    * finish the current ordered common event.
    *
-   * @param { AsyncCallback<void> } callback Indicate the callback function after ordered common event is finished.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function after ordered common event is finished.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */

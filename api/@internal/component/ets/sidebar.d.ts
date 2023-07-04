@@ -44,6 +44,14 @@ declare enum SideBarContainerType {
    * @since 10
    */
   Overlay,
+
+  /**
+   * The sidebar AUTO 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  AUTO,
 }
 
 /**
@@ -383,6 +391,17 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @since 10
    */
   divider(value: DividerStyle | null): SideBarContainerAttribute;
+  
+  /**
+   * Sets the min length of content.
+   * @param { value: Dimension } value - min length of content.
+   * @default value is 360vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SideBarContainerAttribute }
+   * @crossplatform
+   * @since 10
+   */
+  minContentWidth(value: Dimension): SideBarContainerAttribute;
 }
 
 /**

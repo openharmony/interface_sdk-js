@@ -214,6 +214,43 @@ declare interface SwipeActionOptions {
 }
 
 /**
+ * Defines the list item style.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ListItemStyle {
+  /**
+   * Show custom style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE = 0,
+
+  /**
+   * Show default style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CARD = 1,
+}
+
+/**
+ * Defines the list item options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ListItemOptions {
+  /**
+   * Describes the ListItem style.
+   * @type { ?ListItemStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  style?: ListItemStyle;
+}
+
+/**
  * @since 7
  */
 /**
@@ -243,18 +280,25 @@ declare interface SwipeActionOptions {
 interface ListItemInterface {
   /**
    * Called when an interface is used.
+   * @param { ListItemOptions } value the list item options.
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  (value?: ListItemOptions): ListItemAttribute;
+
+  /**
+   * Called when an interface is used.
    * @since 7
    */
   /**
    * Called when an interface is used.
    * @form
    * @since 9
-   */
-  /**
-   * Called when an interface is used.
-   * @form
-   * @crossplatform
-   * @since 10
+   * @deprecated since 10
+   * @useinstead listItem/ListItemInterface
    */
   (value?: string): ListItemAttribute;
 }

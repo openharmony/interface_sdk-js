@@ -19,10 +19,11 @@
  */
 /**
  * Provides the method of switching the cursor position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare class TextAreaController {
+declare class TextAreaController extends TextContentControllerBase {
   /**
    * constructor.
    * @since 8
@@ -54,6 +55,14 @@ declare class TextAreaController {
    * @since 10
    */
   setTextSelection(selectionStart: number, selectionEnd: number): void;
+
+  /**
+   * Exit edit state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  stopEditing(): void;
 }
 
 /**
@@ -254,6 +263,27 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onChange(callback: (value: string) => void): TextAreaAttribute;
 
   /**
+   * Called when the text selection changes.
+   * @param { (selectionStart: number, selectionEnd: number) => void } callback - callback of the listened event.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAreaAttribute;
+
+  /**
+   * Called when the content scrolls.
+   * @param { (totalOffsetX: number, totalOffsetY: number) => void } callback - callback of the listened event.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): TextAreaAttribute;
+
+
+  /**
    * Called when judging whether the text editing change finished.
    * @param {boolean} isEditing - Triggered when the text area status changes. If the value of isEditing is true, text area is in progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -311,11 +341,11 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns { TextAreaInterface } Returns the instance of the TextAreaInterface.
+   * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
    * @crossplatform
    * @since 10
    */
-  enableKeyboardOnFocus(value: boolean): TextAreaInterface;
+  enableKeyboardOnFocus(value: boolean): TextAreaAttribute;
 
   /**
    * Define the max length content of the text area.
@@ -348,6 +378,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 10
    */
   barState(value: BarState): TextAreaAttribute;
+
+  /**
+   * Controls whether the selection menu pops up.
+   * @param { boolean } value
+   * @default false
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  selectionMenuHidden(value: boolean): TextAreaAttribute;
 }
 
 /**

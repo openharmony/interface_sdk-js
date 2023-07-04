@@ -33,7 +33,7 @@ declare namespace appManager {
    * Register application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { ApplicationStateObserver } observer The application state observer.
+   * @param { ApplicationStateObserver } observer - The application state observer.
    * @returns { number } Returns the number code of the observer.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -47,8 +47,8 @@ declare namespace appManager {
    * Unregister application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { number } observerId Indicates the number code of the observer.
-   * @param { AsyncCallback<void> } callback Represents the specified callback method.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @param { AsyncCallback<void> } callback - Represents the specified callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -61,7 +61,7 @@ declare namespace appManager {
    * Unregister application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
-   * @param { number } observerId Indicates the number code of the observer.
+   * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -75,8 +75,8 @@ declare namespace appManager {
    * getForegroundApplications.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<AppStateData>> } callback Return all application information currently in the
-   *                                                        foreground in the form of callback.
+   * @param { AsyncCallback<Array<AppStateData>> } callback - Return all application information currently in the
+   *                                                          foreground in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -102,8 +102,8 @@ declare namespace appManager {
    * Kill process with account.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
-   * @param { string } bundleName The process bundle name.
-   * @param { number } accountId The account id.
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -117,9 +117,9 @@ declare namespace appManager {
    * Kill process with account.
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
-   * @param { string } bundleName The process bundle name.
-   * @param { number } accountId The account id.
-   * @param { AsyncCallback<void> } callback Cut off the callback function of the account process.
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @param { AsyncCallback<void> } callback - Cut off the callback function of the account process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -131,7 +131,7 @@ declare namespace appManager {
   /**
    * Is user running in stability test.
    *
-   * @param { AsyncCallback<boolean> } callback Returns whether the current stability testing scenario is in progress.
+   * @param { AsyncCallback<boolean> } callback - Returns whether the current stability testing scenario is in progress.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
@@ -166,7 +166,7 @@ declare namespace appManager {
    * Get information about running processes
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { AsyncCallback<Array<ProcessRunningInfo>> } callback Obtain information about running processes.
+   * @param { AsyncCallback<Array<ProcessRunningInfo>> } callback - Obtain information about running processes.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    * @deprecated since 9
@@ -178,7 +178,7 @@ declare namespace appManager {
    * Kill processes by bundle name
    *
    * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
-   * @param { string } bundleName bundle name.
+   * @param { string } bundleName - bundle name.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -192,8 +192,8 @@ declare namespace appManager {
    * Kill processes by bundle name
    *
    * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
-   * @param { string } bundleName bundle name.
-   * @param { AsyncCallback<void> } callback cut off the callback function of the account process.
+   * @param { string } bundleName - bundle name.
+   * @param { AsyncCallback<void> } callback - cut off the callback function of the account process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -206,7 +206,7 @@ declare namespace appManager {
    * Clear up application data by bundle name
    *
    * @permission ohos.permission.CLEAN_APPLICATION_DATA
-   * @param { string } bundleName bundle name.
+   * @param { string } bundleName - bundle name.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -220,8 +220,8 @@ declare namespace appManager {
    * Clear up application data by bundle name
    *
    * @permission ohos.permission.CLEAN_APPLICATION_DATA
-   * @param { string } bundleName bundle name.
-   * @param { AsyncCallback<void> } callback Represents the specified callback method.
+   * @param { string } bundleName - bundle name.
+   * @param { AsyncCallback<void> } callback - Represents the specified callback method.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 8
@@ -244,7 +244,7 @@ declare namespace appManager {
   /**
    * Is it a ram-constrained device
    *
-   * @param { AsyncCallback<boolean> } callback Returns whether the current device is a RAM restricted device.
+   * @param { AsyncCallback<boolean> } callback - Returns whether the current device is a RAM restricted device.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -266,7 +266,7 @@ declare namespace appManager {
   /**
    * Get the memory size of the application
    *
-   * @param { AsyncCallback<number> } callback application memory size in M.
+   * @param { AsyncCallback<number> } callback - application memory size in M.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9

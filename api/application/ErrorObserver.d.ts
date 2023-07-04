@@ -23,7 +23,7 @@ export default class ErrorObserver {
   /**
    * Will be called when the js runtime throws an exception which doesn't caught by user.
    *
-   * @param { string } errMsg the message and error stacktrace about the exception.
+   * @param { string } errMsg - the message and error stacktrace about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -32,7 +32,7 @@ export default class ErrorObserver {
   /**
    * Will be called when the native executions exception.
    *
-   * @param { Error } errObject the error object about the exception.
+   * @param { Error } errObject - the error object about the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
    */

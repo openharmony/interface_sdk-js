@@ -20,6 +20,14 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
  */
+/**
+ * Store unit testing-related parameters, including test case names, and test runner name.
+ *
+ * @typedef AbilityDelegatorArgs
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 10
+ */
 export interface AbilityDelegatorArgs {
   /**
    * the bundle name of the application being tested.
@@ -27,6 +35,14 @@ export interface AbilityDelegatorArgs {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
+   */
+  /**
+   * the bundle name of the application being tested.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   bundleName: string;
 
@@ -37,6 +53,14 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
+  /**
+   * the parameters used for unit testing.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
   parameters: { [key: string]: string };
 
   /**
@@ -46,6 +70,14 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
+  /**
+   * the class names of all test cases.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
   testCaseNames: string;
 
   /**
@@ -54,6 +86,14 @@ export interface AbilityDelegatorArgs {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
+   */
+  /**
+   * the class name of the test runner used to execute test cases.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   testRunnerClassName: string;
 }

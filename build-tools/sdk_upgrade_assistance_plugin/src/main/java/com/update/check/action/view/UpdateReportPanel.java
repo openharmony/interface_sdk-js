@@ -33,7 +33,6 @@ import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.ToolWindow;
-import com.intellij.ui.JBColor;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
 import org.apache.commons.lang.StringUtils;
@@ -46,7 +45,6 @@ import javax.swing.JComponent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.AbstractTableModel;
-import java.awt.Font;
 import java.awt.Desktop;
 import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
@@ -127,8 +125,6 @@ public class UpdateReportPanel implements Disposable {
 
     private void setTableStyle() {
         LOGGER.info(LOG_TAG, "Start rendering JTable");
-        this.sumLabel.setFont(new java.awt.Font(Font.DIALOG, 1, 25));
-        this.sumLabel.setForeground(JBColor.RED);
         DefaultComboBoxModel<String> types = new DefaultComboBoxModel<>(ResourceFileUtil.getChooseTypes());
         Report report = new Report(0);
         this.updateReport.setModel(report);
