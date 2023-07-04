@@ -1322,7 +1322,7 @@ declare namespace radio {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
-   * @param { NetworkCapabilityState } state - Indicates the service ability of the {@link NetworkCapabilityState}.
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
    * @param { AsyncCallback<void> } callback - The callback of setNetworkCapability.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1345,7 +1345,7 @@ declare namespace radio {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
-   * @param { NetworkCapabilityState } state - Indicates the service ability of the {@link NetworkCapabilityState}.
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
    * @returns { Promise<void> } The promise returned by the setNetworkCapability.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
