@@ -146,6 +146,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -206,6 +207,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -270,6 +272,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -453,6 +456,36 @@ declare namespace installer {
   }
 
   /**
+   * Provides parameters required for VerifyCodeParam.
+   *
+   * @typedef VerifyCodeParam
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface VerifyCodeParam {
+    /**
+     * Indicates the moduleName which hopes to be processed with code-signature.
+     *
+     * @type { string }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    moduleName: string;
+
+    /**
+     * Indicates the path where the code signature file of the corresponding hap is stored.
+     *
+     * @type { string }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    signatureFilePath: string;
+  }
+
+  /**
    * Provides parameters required for installing or uninstalling an application.
    *
    * @typedef InstallParam
@@ -532,6 +565,16 @@ declare namespace installer {
      * @since 10
      */
     additionalInfo?: string;
+
+    /**
+     * Indicates the verification code param.
+     *
+     * @type { ?Array<VerifyCodeParam> }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    verifyCodeParams?: Array<VerifyCodeParam>;
   }
 
   /**
