@@ -789,6 +789,24 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
 
   /**
+   * The previous margin which can be used to expose a small portion of the previous item.
+   * @param { Length } value - The length of previous margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  prevMargin(value: Length): SwiperAttribute;
+
+  /**
+   * The next margin which can be used to expose a small portion of the latter item.
+   * @param { Length } value - The length of next margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nextMargin(value: Length): SwiperAttribute;
+
+  /**
    * Called when the swiper animation start.
    * @param { number } index - the index value of the swiper page that when animation start.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
