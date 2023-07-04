@@ -210,6 +210,44 @@ declare enum ChainEdgeEffect {
 }
 
 /**
+ * Declare limited position when scroll end.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare enum ScrollSnapAlign {
+  /**
+   * Default no item scroll snap alignment effect. When scroll end,
+   * list item will stop without limit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE,
+
+  /**
+   * The first item in view will be aligned at the start of list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  START,
+
+  /**
+   * The middle item in view will be aligned at the center of list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CENTER,
+
+  /**
+   * The last item in view will be aligned at the end of list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  END,
+}
+
+/**
  * Defines the chain animation options.
  * @interface ChainAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -490,6 +528,17 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   sticky(value: StickyStyle): ListAttribute;
 
+  /**
+   * Called to set list item scroll end alignment effect.
+   * @param { ScrollSnapAlign } value - options of the list alignment effect.
+   * @returns { ListAttribute } the attribute of the list.
+   * @default ScrollSnapAlign.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  scrollSnapAlign(value: ScrollSnapAlign): ListAttribute;
+  
   /**
    * Called to setting the nested scroll options.
    * @param { NestedScrollOptions } value - options for nested scrolling.
