@@ -150,10 +150,13 @@ declare class Scroller {
 
     /**
      * Descriptive animation.
+     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
-    animation?: { duration: number; curve: Curve };
+    animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
   });
 
   /**
