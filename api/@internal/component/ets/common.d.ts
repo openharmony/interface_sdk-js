@@ -6695,6 +6695,72 @@ declare class View {
   create(value: any): any;
 }
 
+/**
+ * Rect info.
+ * @crossplatform
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface RectResult {
+  /**
+   * x:Horizontal coordinate relative to the component.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  x: number;
+
+  /**
+   * y:Vertical axis coordinate relative to the component.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  y: number;
+
+  /**
+   * Get the width of the current textRect.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  width: number;
+
+  /**
+   * Get the height of the current textRect.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  height: number;
+}
+
+/**
+ * TextContentControllerBase
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare abstract class TextContentControllerBase {
+  /**
+   * Get the start and end positions of the text content.
+   * @returns { RectResult } Text content rect.
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getTextContentRect() : RectResult;
+
+  /**
+   * Get the lines number of the text content.
+   * @returns { number } Text content line count
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getTextContentLineCount() : number;
+}
+
 declare module "SpecialEvent" {
   module "SpecialEvent" {
     // @ts-ignore

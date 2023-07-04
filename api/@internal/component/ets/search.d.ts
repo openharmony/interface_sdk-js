@@ -19,10 +19,11 @@
  */
 /**
  * Provides the method of switching the cursor position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare class SearchController {
+declare class SearchController extends TextContentControllerBase {
   /**
    * constructor.
    * @since 8

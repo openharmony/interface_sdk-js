@@ -151,10 +151,11 @@ declare enum EnterKeyType {
  */
 /**
  * Provides the method of switching the cursor position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare class TextInputController {
+declare class TextInputController extends TextContentControllerBase {
   /**
    * constructor.
    * @since 8
