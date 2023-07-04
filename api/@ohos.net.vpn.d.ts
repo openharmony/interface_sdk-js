@@ -248,7 +248,7 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    allowedApplications?: Array<string>;
+    trustedApplications?: Array<string>;
  
     /**
      * The array of blocklist for the VPN network. The string indicates package name.
