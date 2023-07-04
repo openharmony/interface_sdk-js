@@ -155,7 +155,7 @@ declare namespace relationalStore {
     status?: AssetStatus;
   }
 
- /**
+  /**
    * Indicates several assets in one column
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -192,6 +192,30 @@ declare namespace relationalStore {
    * @since 10
    */
   type ValuesBucket = { [key: string]: ValueType; }
+
+  /**
+   * The type of the priority key can be number or string
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  type PRIKeyType = number | string;
+
+  /**
+   * The time is in UTC format.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  type UTCTime = Date;
+
+  /**
+   * Indicates the primary key and UTC time of the modified rows.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  type ModifyTime = Map<PRIKeyType, UTCTime>;
 
   /**
    * Manages relational database configurations.
@@ -340,6 +364,70 @@ declare namespace relationalStore {
     download: Statistic;
   }
 
+  /**
+   * Describes the status of {@code Progress}.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  enum ProgressCode {
+    /**
+     * SUCCESS: means the status of progress is success.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SUCCESS,
+
+    /**
+     * UNKNOWN_ERROR: means the progress meets unknown error.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    UNKNOWN_ERROR,
+
+    /**
+     * NETWORK_ERROR: means the progress meets network error.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    NETWORK_ERROR,
+
+    /**
+     * CLOUD_DISABLED: means cloud is disabled.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    CLOUD_DISABLED,
+
+    /**
+     * LOCKED_BY_OTHERS: means the progress is locked by others.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    LOCKED_BY_OTHERS,
+
+    /**
+     * RECORD_LIMIT_EXCEEDED: means the record exceeds the limit.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    RECORD_LIMIT_EXCEEDED,
+
+    /**
+     * NO_SPACE_FOR_ASSET: means the cloud has no space for the asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    NO_SPACE_FOR_ASSET,
+  }
 
   /**
    * Describes detail of the cloud sync {@code Progress}.
@@ -2929,7 +3017,7 @@ declare namespace relationalStore {
      */
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
 
-   /**
+    /**
      * Sync data to cloud.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
