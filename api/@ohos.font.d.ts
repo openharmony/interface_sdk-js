@@ -19,21 +19,33 @@
  */
 declare namespace font {
   /**
- * @since 9
- */
+   * @since 9
+   */
   interface FontOptions {
 
     /**
      * The font name to register.
      * @since 9
      */
-    familyName: string;
+    /**
+     * The font name to register.
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    familyName: string | Resource;
 
     /**
      * The path of the font file.
      * @since 9
      */
-    familySrc: string;
+    /**
+     * The path of the font file.
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    familySrc: string | Resource;
   }
 
   /**

@@ -393,7 +393,29 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): GridAttribute
+  nestedScroll(value: NestedScrollOptions): GridAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { GridAttribute } The attribute of the grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableScrollInteraction(value: boolean): GridAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { GridAttribute } the attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): GridAttribute;
 }
 
 /**

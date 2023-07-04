@@ -457,6 +457,92 @@ declare namespace appManager {
   function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
 
   /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @returns { Promise<number> } Returns the memory usage of the process in KB.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number): Promise<number>;
+
+  /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @param { AsyncCallback<number> } callback - Indicates the callback of getting process memory by pid result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle of current user.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Indicates the callback of getting process information by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Indicates the callback of getting process information by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle of current user.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string): Promise<Array<ProcessInformation>>;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: number): Promise<Array<ProcessInformation>>;
+
+  /**
    * The ability or extension state data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

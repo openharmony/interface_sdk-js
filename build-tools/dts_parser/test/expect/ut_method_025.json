@@ -1,0 +1,68 @@
+[
+  {
+    "apiType": "class",
+    "name": "Test",
+    "syscap": "",
+    "since": -1,
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "isSystemApi": false,
+    "isStageModelOnly": false,
+    "isFaModelOnly": false,
+    "deprecatedVersion": -1,
+    "useinstead": "",
+    "childApis": [
+      {
+        "apiType": "method",
+        "name": "test",
+        "syscap": "",
+        "since": -1,
+        "isForm": false,
+        "isCrossPlatForm": false,
+        "isSystemApi": false,
+        "isStageModelOnly": false,
+        "isFaModelOnly": false,
+        "deprecatedVersion": -1,
+        "useinstead": "",
+        "callForm": "test(param1: string, callback: AsyncCallback<Want>): void",
+        "params": [
+          {
+            "apiType": "param",
+            "name": "param1",
+            "syscap": "",
+            "since": -1,
+            "isForm": false,
+            "isCrossPlatForm": false,
+            "isSystemApi": false,
+            "isStageModelOnly": false,
+            "isFaModelOnly": false,
+            "deprecatedVersion": -1,
+            "useinstead": "",
+            "type": "string",
+            "isRequired": true
+          },
+          {
+            "apiType": "param",
+            "name": "callback",
+            "syscap": "",
+            "since": -1,
+            "isForm": false,
+            "isCrossPlatForm": false,
+            "isSystemApi": false,
+            "isStageModelOnly": false,
+            "isFaModelOnly": false,
+            "deprecatedVersion": -1,
+            "useinstead": "",
+            "type": "AsyncCallback<Want>",
+            "isRequired": true
+          }
+        ],
+        "returnValue": "",
+        "isStatic": false,
+        "permission": "",
+        "errorCodes": []
+      }
+    ],
+    "parentClasses": []
+  }
+]

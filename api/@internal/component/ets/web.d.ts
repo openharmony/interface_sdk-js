@@ -509,13 +509,13 @@ declare enum ProtectedResourceType {
    * The MidiSysex resource.
    * @since 9
    */
-  MidiSysex = "TYPE_MIDI_SYSEX",
+  MidiSysex = 'TYPE_MIDI_SYSEX',
 
   /**
    * The video capture resource, such as camera.
    * @since 10
    */
-  VIDEO_CAPTURE = "TYPE_VIDEO_CAPTURE"
+  VIDEO_CAPTURE = 'TYPE_VIDEO_CAPTURE'
 }
 
 /**
@@ -1500,6 +1500,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param password {@code true} means the Web can save the password; {@code false} otherwise.
    *
    * @since 8
+   * @deprecated since 10
    */
   password(password: boolean): WebAttribute;
 
@@ -1540,6 +1541,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    *
    * @since 8
+   * @deprecated since 10
    */
   tableData(tableData: boolean): WebAttribute;
 
@@ -1548,6 +1550,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param wideViewModeAccess {@code true} means the Web access meta 'viewport' in HTML; {@code false} otherwise.
    *
    * @since 8
+   * @deprecated since 10
    */
   wideViewModeAccess(wideViewModeAccess: boolean): WebAttribute;
 

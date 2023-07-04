@@ -349,6 +349,18 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   selectable(value: boolean): ListItemAttribute;
 
   /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   * @param {boolean} value if the listItem is selected.
+   * @returns {GridItemAttribute} the attribute of the listItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  selected(value: boolean): ListItemAttribute;
+
+  /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    * @param value items defines in the SwipeActionOption.
    * @since 9

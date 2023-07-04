@@ -50,6 +50,30 @@ declare namespace relationalStore {
     ASSET_NORMAL,
 
     /**
+     * ASSET_ABNORMAL: means the asset needs to be inserted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_INSERT,
+
+    /**
+     * ASSET_ABNORMAL: means the asset needs to be updated.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_UPDATE,
+
+    /**
+     * ASSET_ABNORMAL: means the asset needs to be deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_DELETE,
+
+    /**
      * ASSET_ABNORMAL: means the status of asset is abnormal.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -437,7 +461,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    DISTRIBUTED_DEVICE = 0,
+    DISTRIBUTED_DEVICE,
 
     /**
      * Indicates the table is distributed between the cloud and the devices.

@@ -1138,6 +1138,30 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates volume adjustment types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @since 10
+   */
+  enum VolumeAdjustType {
+    /**
+     * Adjust volume up.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    VOLUME_UP = 0,
+    /**
+     * Adjust volume down.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    VOLUME_DOWN = 1,
+  }
+
+  /**
    * Implements audio volume and audio device management.
    * @typedef AudioManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2233,6 +2257,107 @@ declare namespace audio {
      * @since 9
      */
     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
+
+    /**
+     * Gets if this volume group is volume unadjustable.
+     * @returns { boolean } Whether it is volume unadjustable.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    isVolumeUnadjustable(): boolean;
+
+    /**
+     * Adjusts system volume by step, volume type is decided by system.
+     * This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustVolumeByStep(adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
+    /**
+     * Adjusts system volume by step, volume type is decided by system.
+     * This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustVolumeByStep(adjustType: VolumeAdjustType): Promise<void>;
+
+    /**
+     * Adjusts system volume by step for target volume type.
+     * This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
+    /**
+     * Adjusts system volume by step for target volume type.
+     * This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType): Promise<void>;
+
+    /**
+     * Gets the volume db value that system calculate by volume type, volume level and device type.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType, callback: AsyncCallback<number>): void;
+    /**
+     * Gets the volume db value that system calculate by volume type, volume level and device type.
+     * This method uses a promise to return the result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise<number>;
   }
 
   /**
@@ -2968,6 +3093,68 @@ declare namespace audio {
     setVolume(volume: number): Promise<void>;
 
     /**
+     * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMinStreamVolume(callback: AsyncCallback<number>): void;
+    /**
+     * Gets the min volume this stream can set. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMinStreamVolume(): Promise<number>;
+
+    /**
+     * Gets the max volume this stream can set. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMaxStreamVolume(callback: AsyncCallback<number>): void;
+    /**
+     * Gets the max volume this stream can set. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMaxStreamVolume(): Promise<number>;
+
+    /**
+     * Gets buffer underflow count. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getUnderflowCount(callback: AsyncCallback<number>): void;
+    /**
+     * Gets buffer underflow count. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getUnderflowCount(): Promise<number>;
+
+    /**
+     * Gets the output device or devices for this stream.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getCurrentOutputDevices(callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Gets the output device or devices for this stream.
+     * This method uses a promise to return the result.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
@@ -3023,6 +3210,28 @@ declare namespace audio {
      * @since 8
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when output device change for this stream.
+     * @param { 'outputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { 'outputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
   }
 
   /**
@@ -3315,6 +3524,16 @@ declare namespace audio {
      * @since 10
      */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
+
+    /**
+     * UnSubscribes to audio interrupt events.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 10
+     */
+    off(type: 'audioInterrupt'): void;
   }
 
   /**

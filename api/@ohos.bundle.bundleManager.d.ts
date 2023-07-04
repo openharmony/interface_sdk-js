@@ -904,7 +904,7 @@ declare namespace bundleManager {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -919,7 +919,7 @@ declare namespace bundleManager {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
@@ -936,7 +936,7 @@ declare namespace bundleManager {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
@@ -953,7 +953,7 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -968,7 +968,7 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
@@ -986,7 +986,7 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
@@ -1758,6 +1758,38 @@ declare namespace bundleManager {
    * @since 10
    */
   function getAppProvisionInfo(bundleName: string, userId?: number): Promise<AppProvisionInfo>;
+
+  /**
+   * Obtains the distribution type specified during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The specified distribution type.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getSpecifiedDistributionType(bundleName: string): string;
+
+  /**
+   * Obtains the additional information during bundle installation.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { string } The additional information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAdditionalInfo(bundleName: string): string;
 
   /**
    * Obtains configuration information about an application.

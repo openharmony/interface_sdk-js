@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
-import { ContinuableInfo as _ContinuableInfo } from './application/ContinuableInfo';
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type { ContinuableInfo as _ContinuableInfo } from './application/ContinuableInfo';
 import { ContinueCallback } from './application/ContinueCallback';
 import { ContinueDeviceInfo } from './application/ContinueDeviceInfo';
-import { ContinueMissionInfo as _ContinueMissionInfo } from './application/ContinueMissionInfo';
+import type { ContinueMissionInfo as _ContinueMissionInfo } from './application/ContinueMissionInfo';
 import { MissionCallback } from './application/MissionCallbacks';
 import { MissionDeviceInfo } from './application/MissionDeviceInfo';
 import { MissionParameter } from './application/MissionParameter';
