@@ -3394,15 +3394,68 @@ declare interface KeyEvent {
 }
 
 /**
- * Component Sheet Styles
+ * Overlay module options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare interface SheetStyle {
+declare interface BindOptions {
+  /**
+   * Defines the background color
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Callback function when overlay interface appears
+   * @type { ?(() => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onAppear?: () => void;
+
+  /**
+   * Callback function when overlay interface exits
+   * @type { ?(() => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onDisappear?: () => void;
+}
+
+/**
+ * Component content cover options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface ContentCoverOptions extends BindOptions {
+  /**
+   * Defines transition type
+   * @type { ?ModalTransition }
+   * @default ModalTransition.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  modalTransition?: ModalTransition,
+}
+
+/**
+ * Component sheet options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SheetOptions extends BindOptions {
   /**
    * Defines sheet height
-   * @type { SheetSize | Length }
+   * @type { ?(SheetSize | Length) }
    * @default Sheet.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3412,7 +3465,7 @@ declare interface SheetStyle {
 
   /**
    * Defines whether the control bar is displayed.
-   * @type { boolean }
+   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5837,16 +5890,27 @@ declare class CommonMethod<T> {
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
+   * Bind content cover
+   * @param { boolean } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ContentCoverOptions } options - options of content cover.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
+
+  /**
    * Bind sheet
    * @param { boolean } isShow - true means display sheet, false means hide sheet.
    * @param { CustomBuilder } builder - the sheet to be displayed.
-   * @param { style } style - sheet style type.
+   * @param { SheetOptions } options - options of sheet.
    * @returns { T } - template type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
+  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
