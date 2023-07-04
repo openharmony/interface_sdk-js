@@ -380,6 +380,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 10
    */
   selectionMenuHidden(value: boolean): TextAreaAttribute;
+
+  /**
+   * Define max lines of the text area.
+   * @param { number }
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxLines(value: number): TextAreaAttribute;
 }
 
 /**
