@@ -155,6 +155,12 @@ declare namespace relationalStore {
     status?: AssetStatus;
   }
 
+ /**
+   * Indicates several assets in one column
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
   type Assets = Asset[];
 
   /**
@@ -235,6 +241,140 @@ declare namespace relationalStore {
     encrypt?: boolean;
   }
 
+  /**
+   * The cloud sync progress
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  enum Progress {
+    /**
+     * SYNC_BEGIN: means the sync process begin.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SYNC_BEGIN,
+
+    /**
+     * SYNC_BEGIN: means the sync process is in progress
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SYNC_IN_PROGRESS,
+
+    /**
+     * SYNC_BEGIN: means the sync process is finished
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SYNC_FINISH
+  }
+
+  /**
+   * Describes the statistic of the cloud sync process.
+   *
+   * @interface Statistic
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface Statistic {
+    /**
+     * Describes the total number of data to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    total: number;
+
+    /**
+     * Describes the number of successfully synced data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    success: number;
+
+    /**
+     * Describes the number of data failed to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    failed: number;
+
+    /**
+     * Describes the number of data remained to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    remained: number;
+  }
+
+  /**
+   * Describes the {@code Statistic} details of the table.
+   *
+   * @interface TableDetails
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface TableDetails {
+    /**
+     * Describes the {@code Statistic} details of the upload process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    upload: Statistic;
+
+    /**
+     * Describes the {@code Statistic} details of the download process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    download: Statistic;
+  }
+
+
+  /**
+   * Describes detail of the cloud sync {@code Progress}.
+   *
+   * @interface ProgressDetails
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface ProgressDetails {
+    /**
+     * Describes the status of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    schedule: Progress;
+
+    /**
+     * Describes the code of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    code: ProgressCode;
+
+    /**
+     * The statistic details of the tables.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    details: {
+      [table: string]: TableDetails;
+    };
+  }
   /**
    * Describes the {@code RdbStore} type.
    *
@@ -397,7 +537,7 @@ declare namespace relationalStore {
    * Indicates the notify info
    * 
    * @interface ChangeInfo
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
   interface ChangeInfo {
@@ -2421,7 +2561,38 @@ declare namespace relationalStore {
      * @since 10
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+  
+    /**
+     * Obtains the modify time of rows corresponding to the primary keys.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { string } columnName - Indicates the name of the column to check.
+     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
+     * @returns { Promise<ModifyTime> } -The promise returned by the function. ModifyTime indicates the modify time of current row.
+     * If this table does not support cloud, the {@link ModifyTime} will be empty.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[]): Promise<ModifyTime>;
 
+    /**
+     * Obtains the modify time of rows corresponding to the primary keys.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { string } columnName - Indicates the name of the column to check.
+     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
+     * @param { AsyncCallback<ModifyTime> } callback - The callback of getModifyTime. ModifyTime indicates the modify time of current row.
+     * If this table does not support cloud, the {@link ModifyTime} will be empty.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[], callback: AsyncCallback<ModifyTime>): void;
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
      *
@@ -2757,6 +2928,68 @@ declare namespace relationalStore {
      * @since 9
      */
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
+
+   /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { string[] } tables - indicates the database synchronization mode.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - indicates the database synchronization mode.
+     * @param { string[] } tables - indicates the database synchronization mode.
+     * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
+     * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
