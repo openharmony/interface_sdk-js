@@ -466,6 +466,33 @@ interface GestureEvent extends BaseEvent {
    * @since 10
    */
   pinchCenterY: number;
+
+  /**
+   * X-axis velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  velocityX: number;
+
+  /**
+   * Y-axis velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  velocityY: number;
+
+  /**
+   * velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  velocity: number;
 }
 
 /**
