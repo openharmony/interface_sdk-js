@@ -122,6 +122,7 @@
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
+    "SystemCapability.FileManagement.PhotoAccessHelper.Core",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
     "SystemCapability.Sensors.Sensor.Lite",
