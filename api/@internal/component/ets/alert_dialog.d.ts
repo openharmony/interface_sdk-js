@@ -212,6 +212,15 @@ declare interface AlertDialogParam {
    * @since 10
    */
   title?: ResourceStr;
+  
+  /**
+   * Subtitle Properties
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  subtitle?: ResourceStr;
 
   /**
    * message Properties
@@ -349,6 +358,36 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
    */
   confirm?: {
     /**
+     * Enable switch of confirmation button
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    enabled?: boolean;
+
+    /**
+     * Default focus switch of confirmation button
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    defaultFocus?: boolean;
+    
+    /**
+     * Style of confirmation button.
+     * @type { ?DialogButtonStyle }
+     * @default DialogButtonStyle.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    style?: DialogButtonStyle;
+
+    /**
      * Text content of the confirmation button.
      *
      * @type { ResourceStr }
@@ -402,14 +441,14 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -437,19 +476,49 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
    *
-   * @type { object }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * First button.
    *
-   * @type { object }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   primaryButton: {
+    /**
+     * Enable switch of primaryButton
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    enabled?: boolean;
+
+    /**
+     * Default focus switch of primaryButton button
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    defaultFocus?: boolean;
+    
+    /**
+     * Style of primaryButton button.
+     * @type { ?DialogButtonStyle }
+     * @default DialogButtonStyle.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    style?: DialogButtonStyle;
+
     /**
      * Text content of the confirmation button.
      *
@@ -504,14 +573,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -522,19 +591,49 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * Second button.
    *
-   * @type { object }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Second button.
    *
-   * @type { object }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   secondaryButton: {
+    /**
+     * Enable switch of secondaryButton
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    enabled?: boolean;
+
+    /**
+     * Default focus switch of secondaryButton button
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    defaultFocus?: boolean;
+    
+    /**
+     * Style of secondaryButton button.
+     * @type { ?DialogButtonStyle }
+     * @default DialogButtonStyle.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    style?: DialogButtonStyle;
+
     /**
      * Text content of the confirmation button.
      *
@@ -589,14 +688,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
