@@ -976,8 +976,8 @@ declare namespace inputMethod {
      * Unregister the callback of getLeftTextOfCursor event.
      *
      * @param { 'getLeftTextOfCursor' } type - event type, fixed as 'getLeftTextOfCursor'.
-     * @param { function } callback - processes getLeftTextOfCursor command. The callback
-     *     must be a synchronization method and will block the input method application. This parameter can be left blank.
+     * @param { function } callback - the callback of 'getLeftTextOfCursor',
+     *     when subscriber unsubscribes all callback functions of event 'getLeftTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1000,8 +1000,8 @@ declare namespace inputMethod {
      * Unregister the callback of getRightTextOfCursor event.
      *
      * @param { 'getRightTextOfCursor' } type - event type, fixed as 'getRightTextOfCursor'.
-     * @param { function } callback - processes getRightTextOfCursor command. The callback
-     *     must be a synchronization method and will block the input method application. This parameter can be left blank.
+     * @param { function } callback - the callback of 'getRightTextOfCursor',
+     *     when subscriber unsubscribes all callback functions of event 'getRightTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1024,8 +1024,8 @@ declare namespace inputMethod {
      * Unregister the callback of getTextIndexAtCursor.
      *
      * @param { 'getTextIndexAtCursor' } type - event type, fixed as 'getTextIndexAtCursor'.
-     * @param { function } callback - processes getTextIndexAtCursor command. The callback
-     *     must be a synchronization method, and should return the text index at the cursor.This parameter can be left blank.
+     * @param { function } callback - the callback of 'getTextIndexAtCursor',
+     *     when subscriber unsubscribes all callback functions of event 'getTextIndexAtCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
