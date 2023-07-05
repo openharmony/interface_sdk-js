@@ -976,10 +976,12 @@ declare namespace inputMethod {
      * Unregister the callback of getLeftTextOfCursor event.
      *
      * @param { 'getLeftTextOfCursor' } type - event type, fixed as 'getLeftTextOfCursor'.
+     * @param { function } callback - processes getLeftTextOfCursor command. The callback
+     *     must be a synchronization method and will block the input method application. This parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'getLeftTextOfCursor'): void;
+    off(type: 'getLeftTextOfCursor', callback?: (length: number) => string): void;
 
     /**
      * Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
@@ -998,10 +1000,12 @@ declare namespace inputMethod {
      * Unregister the callback of getRightTextOfCursor event.
      *
      * @param { 'getRightTextOfCursor' } type - event type, fixed as 'getRightTextOfCursor'.
+     * @param { function } callback - processes getRightTextOfCursor command. The callback
+     *     must be a synchronization method and will block the input method application. This parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'getRightTextOfCursor'): void;
+    off(type: 'getRightTextOfCursor', callback?: (length: number) => string): void;
 
     /**
      * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
@@ -1020,10 +1024,12 @@ declare namespace inputMethod {
      * Unregister the callback of getTextIndexAtCursor.
      *
      * @param { 'getTextIndexAtCursor' } type - event type, fixed as 'getTextIndexAtCursor'.
+     * @param { function } callback - processes getTextIndexAtCursor command. The callback
+     *     must be a synchronization method, and should return the text index at the cursor.This parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'getTextIndexAtCursor'): void;
+    off(type: 'getTextIndexAtCursor', callback?: () => number): void;
   }
 
   /**
