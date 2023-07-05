@@ -2648,29 +2648,25 @@ declare namespace audio {
    * Describes the volume event received by the app when the volume is changed.
    * @typedef VolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @systemapi
-   * @since 8
+   * @since 9
    */
   interface VolumeEvent {
     /**
      * Volume type of the current stream.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     volumeType: AudioVolumeType;
     /**
      * Volume level.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     volume: number;
     /**
      * Whether to show the volume change in UI.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     updateUi: boolean;
     /**
