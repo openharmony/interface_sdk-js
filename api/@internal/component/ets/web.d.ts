@@ -184,6 +184,20 @@ declare enum WebDarkMode {
 }
 
 /**
+ * Enum type supplied to {@link captureMode} for setting the web capture mode.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 10
+ */
+declare enum WebCaptureMode {
+  /**
+   * The home screen.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  HOME_SCREEN = 0,
+}
+
+/**
  * Defines the Media Options.
  * @since 10
  */
@@ -198,6 +212,20 @@ declare interface WebMediaOptions {
    * @since 10
    */
   audioExclusive?: boolean;
+}
+
+/**
+ * Defines the screen capture configuration.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 10
+ */
+declare interface ScreenCaptureConfig {
+  /**
+   * The mode for selecting the recording area.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  captureMode: WebCaptureMode;
 }
 
 /**
@@ -515,7 +543,13 @@ declare enum ProtectedResourceType {
    * The video capture resource, such as camera.
    * @since 10
    */
-  VIDEO_CAPTURE = 'TYPE_VIDEO_CAPTURE'
+  VIDEO_CAPTURE = 'TYPE_VIDEO_CAPTURE',
+
+  /**
+   * The audio capture resource, such as microphone.
+   * @since 10
+   */
+  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE'
 }
 
 /**
@@ -552,6 +586,42 @@ declare class PermissionRequest {
    * @since 9
    */
   grant(resources: Array<string>): void;
+}
+
+/**
+ * Defines the onScreenCapture callback, related to {@link onScreenCapture} method.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 10
+ */
+declare class ScreenCaptureHandler {
+  /**
+   * Constructor.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  constructor();
+
+  /**
+   * Gets the source of the webpage that attempted to access the restricted resource.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  getOrigin(): string;
+
+  /**
+   * Grant origin access to a given resource.
+   * @param { ScreenCaptureConfig } config The screen capture configuration.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  grant(config: ScreenCaptureConfig): void;
+
+  /**
+   * Reject the request.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  deny(): void;
 }
 
 /**
@@ -1848,6 +1918,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onPermissionRequest(callback: (event?: { request: PermissionRequest }) => void): WebAttribute;
+
+  /**
+   * Triggered when the host application that web content from the specified origin is requesting to capture screen.
+   * @param callback The triggered callback when the host application that web content from the specified origin is
+   *     requesting to capture screen.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  onScreenCaptureRequest(callback: (event?: { handler: ScreenCaptureHandler }) => void): WebAttribute;
 
   /**
    * Triggered when called to allow custom display of the context menu.
