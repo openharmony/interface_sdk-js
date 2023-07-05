@@ -151,12 +151,12 @@ function getSycap(api) {
   }
   while (curApi && !ts.isSourceFile(curApi.node)) {
     if (!curApi.jsdoc || curApi.jsdoc.length === 0) {
-      return;
+      return syscap;
     }
 
     const jsdoc = curApi.jsdoc[curApi.jsdoc.length - 1];
     if (!jsdoc.tags) {
-      return;
+      return syscap;
     }
     const jsdocTagItem = curApi.jsdoc[curApi.jsdoc.length - 1].tags;
     jsdocTagItem.forEach(tagInfo => {

@@ -195,16 +195,20 @@ function splitUseinsteadValue(useinsteadValue) {
   }
   // 拆分字符串
   const splitArray = useinsteadValue.split(/\//g);
-  if (splitArray.length === 1) {
+  const MODEL_COUNT = 1;
+  const MODEL_COUNTS = 2;
+  const FILENAME_MODEL_COUNT = 1;
+  if (splitArray.length === MODEL_COUNT) {
     if (splitArray[0].indexOf(OptionalSymbols.LEFT_BRACKET) === -1 &&
       splitArray[0].indexOf(OptionalSymbols.RIGHT_BRACKET) === -1) {
       // 同一文件
       splitResult.checkResult = checkModule(splitArray[0]);
     }
-  } else if (splitArray.length === 2) {
+
+  } else if (splitArray.length === MODEL_COUNTS) {
     // 不同文件
     const fileNameArray = splitArray[0].split('.');
-    if (fileNameArray.length === 1) {
+    if (fileNameArray.length === FILENAME_MODEL_COUNT) {
       // arkui
       if (!/^[A-Za-z0-9_]+\b$/.test(fileNameArray[0]) || !checkModule(splitArray[1])) {
         splitResult.checkResult = false;

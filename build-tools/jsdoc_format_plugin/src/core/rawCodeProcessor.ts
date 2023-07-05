@@ -1,7 +1,8 @@
 import { Code } from '../utils/constant';
 import { StringUtils } from '../utils/stringUtils';
 import { AstNodeHelper, RawSourceCodeInfoImpl } from './coreImpls';
-import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
+import type { Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
+import { comment } from './typedef';
 
 export class RawSourceCodeProcessor implements ISourceCodeProcessor, sourceParser.INodeVisitorCallback {
   rawSourceCodeInfo?: RawSourceCodeInfoImpl;

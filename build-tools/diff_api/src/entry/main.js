@@ -14,7 +14,7 @@
  */
 
 const commander = require("commander");
-const toolbox_config = require("./toolbox.config");
+const toolboxConfig = require('./toolbox.config');
 class ToolBoxCommander {
     program = new commander.Command();
     constructor() { }
@@ -48,7 +48,7 @@ class ToolboxEntry {
         this.commandBuilder = new ToolBoxCommander();
     }
     runPlugins() {
-        const configuration = toolbox_config.getToolConfiguration();
+    const configuration = toolboxConfig.getToolConfiguration();
         configuration.plugins.forEach((plugin) => {
             this.commandBuilder.addPluginCommand(plugin);
         });

@@ -395,6 +395,7 @@ function collectOnOffApi(node, url, type, sourcefile) {
   if (apiName !== '') {
     return collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, '', '', type, note, node)
   }
+  return {};
 }
 
 function isImportFiles(node) {
@@ -402,6 +403,7 @@ function isImportFiles(node) {
     (node.moduleSpecifier.text).indexOf('@system.') != -1) && node.importClause !== undefined) {
     return true;
   }
+  return false;
 }
 
 try {

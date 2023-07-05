@@ -16,7 +16,7 @@
 const whiteLists = require('../config/jsdocCheckWhiteList.json');
 const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo,
   createErrorInfo, isWhiteListFile } = require('./utils');
-const { checkApiOrder, checkAPITagName, checkInheritTag } = require('./check_jsdoc_value/chek_order');
+const { checkApiOrder, checkAPITagName, checkInheritTag } = require('./check_jsdoc_value/check_order');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
 
@@ -128,10 +128,10 @@ function dealSpecialTag(comment, tagName) {
     }
   });
   return {
-    useinsteadResultObj: useinsteadResultObj,
-    checkResult: checkResult,
-    paramTagNum: paramTagNum
-  }
+    useinsteadResultObj,
+    checkResult,
+    paramTagNum
+  };
 }
 
 function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInfoMap, extraCheckCallback) {
@@ -184,8 +184,8 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
         }
         checkInfoMap[index].illegalTags.push({
           checkResult: false,
-          errorInfo: errorInfo,
-          index: index
+          errorInfo,
+          index
         });
       }
     });
@@ -208,16 +208,16 @@ function checkTagsQuantity(comment, index, errorLogs) {
       errorLogs.push({
         checkResult: false,
         errorInfo: createErrorInfo(ErrorValueInfo.ERROR_REPEATLABEL, [tagName]),
-        index: index
+        index
       });
     }
   }
   // interface/typedef互斥校验
-  if (tagCountObj['interface'] > 0 & tagCountObj['typedef'] > 0) {
+  if (tagCountObj.interface > 0 & tagCountObj.typedef > 0) {
     errorLogs.push({
       checkResult: false,
       errorInfo: ErrorValueInfo.ERROR_USE_INTERFACE,
-      index: index
+      index
     });
   }
 }
