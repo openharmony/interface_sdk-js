@@ -63,6 +63,7 @@ bevels
 bgra
 bidirectionally
 bitrates
+blocklist
 bms
 bolder
 bonded
@@ -844,6 +845,7 @@ zooms
 zpass
 commonevent
 clouddata
+unadjustable
 unprepare
 unchained
 sar

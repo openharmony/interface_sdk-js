@@ -14,7 +14,8 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
-import type { LocalStorage } from 'StateManagement';
+import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
+import type UIExtensionContext from './application/UIExtensionContext';
 import type Want from './@ohos.app.ability.Want';
 
 /**
@@ -27,35 +28,53 @@ import type Want from './@ohos.app.ability.Want';
  */
 export default class UIExtensionAbility extends ExtensionAbility {
   /**
-   * Called back when an UI extension is started for initialization.
+   * Indicates configuration information about an UI extension ability context.
    *
-   * @param { Want } want - Indicates the want info of the created UI extension.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 10
-   */
-  onCreate(want: Want): void;
-
-  /**
-   * Called back when an UI extension need load content.
-   *
-   * @param { string } path - Path of the page to which the content will be loaded
-   * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 10
-   */
-  onLoadContent(path: string, storage: LocalStorage): void;
-
-  /**
-   * Called back when the state of an UI extension changes to foreground.
-   *
-   * @param { Want } want - Indicates the want info of the UI extension.
+   * @type { UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 10
    */
-  onForeground(want: Want): void;
+  context: UIExtensionContext;
+
+  /**
+   * Called back when an UI extension is started for initialization.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onCreate(): void;
+
+  /**
+   * Called back when an UI extension session is created.
+   *
+   * @param { Want } want - Indicates the want info of the UI extension.
+   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onSessionCreate(want: Want, session: UIExtensionContentSession): void;
+
+  /**
+   * Called back when an UI extension session is destroyed.
+   *
+   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  onSessionDestroy(session: UIExtensionContentSession): void;
+
+  /**
+   * Called back when the state of an UI extension changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+  onForeground(): void;
 
   /**
    * Called back when the state of an UI extension changes to background.

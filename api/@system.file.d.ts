@@ -15,7 +15,7 @@
 
 /**
  * @interface FileResponse
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -23,7 +23,7 @@ export interface FileResponse {
   /**
    * File URI.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -33,7 +33,7 @@ export interface FileResponse {
    * File size, in bytes.
    * If type is dir, the length value is fixed to 0.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -43,7 +43,7 @@ export interface FileResponse {
    * Timestamp when the file is stored, which is the number of milliseconds elapsed since 1970/01/01 00:00:00.
    * For lite wearables, the value is fixed to 0, because this parameter is restricted by the underlying file system.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -54,7 +54,7 @@ export interface FileResponse {
    * dir: directory
    * file: file
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -64,7 +64,7 @@ export interface FileResponse {
    * File list. When the recursive value is true and the type is dir, the file information under the subdirectory will be returned.
    * Otherwise, no value will be returned.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -73,7 +73,7 @@ export interface FileResponse {
 
 /**
  * @interface FileMoveOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -84,7 +84,7 @@ export interface FileMoveOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -96,7 +96,7 @@ export interface FileMoveOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -106,7 +106,7 @@ export interface FileMoveOption {
    * Called when the source file is moved to the specified location successfully.
    * This function returns the URI of the file moved to the target location.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -115,7 +115,7 @@ export interface FileMoveOption {
   /**
    * Called when moving fails.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -124,7 +124,7 @@ export interface FileMoveOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -133,13 +133,13 @@ export interface FileMoveOption {
 
 /**
  * @interface FileListResponse
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
 export interface FileListResponse {
   /**
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -148,7 +148,7 @@ export interface FileListResponse {
 
 /**
  * @interface FileListOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -159,7 +159,7 @@ export interface FileListOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -168,7 +168,7 @@ export interface FileListOption {
   /**
    * Called when the list is obtained successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -177,7 +177,7 @@ export interface FileListOption {
   /**
    * Called when the list fails to be obtained.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -186,7 +186,7 @@ export interface FileListOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -195,7 +195,7 @@ export interface FileListOption {
 
 /**
  * @interface FileCopyOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -206,7 +206,7 @@ export interface FileCopyOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -218,7 +218,7 @@ export interface FileCopyOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -228,7 +228,7 @@ export interface FileCopyOption {
    * Called when the copy file is saved successful.
    * This function returns the URI of the file saved to the target location.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -237,7 +237,7 @@ export interface FileCopyOption {
   /**
    * Called when the copy or save operation fails.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -246,7 +246,7 @@ export interface FileCopyOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -255,7 +255,7 @@ export interface FileCopyOption {
 
 /**
  * @interface FileGetOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -266,7 +266,7 @@ export interface FileGetOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -276,7 +276,7 @@ export interface FileGetOption {
    * Whether to recursively obtain the file list under a subdirectory.
    * The default value is false.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -285,7 +285,7 @@ export interface FileGetOption {
   /**
    * Called when file information is obtained successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -294,7 +294,7 @@ export interface FileGetOption {
   /**
    * Called when file information fails to be obtained.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -303,7 +303,7 @@ export interface FileGetOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -312,7 +312,7 @@ export interface FileGetOption {
 
 /**
  * @interface FileDeleteOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -323,7 +323,7 @@ export interface FileDeleteOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -332,7 +332,7 @@ export interface FileDeleteOption {
   /**
    * Called when local files are deleted successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -341,7 +341,7 @@ export interface FileDeleteOption {
   /**
    * Called when the deletion fails.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -350,7 +350,7 @@ export interface FileDeleteOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -359,7 +359,7 @@ export interface FileDeleteOption {
 
 /**
  * @interface FileWriteTextOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -370,7 +370,7 @@ export interface FileWriteTextOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -379,7 +379,7 @@ export interface FileWriteTextOption {
   /**
    * Character string to write into the local file.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -388,7 +388,7 @@ export interface FileWriteTextOption {
   /**
    * Encoding format. The default format is UTF-8.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -397,7 +397,7 @@ export interface FileWriteTextOption {
   /**
    * Whether to enable the append mode. The default value is false.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -406,7 +406,7 @@ export interface FileWriteTextOption {
   /**
    * Called when texts are written into a file successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -415,7 +415,7 @@ export interface FileWriteTextOption {
   /**
    * Called when texts fail to be written into a file.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -424,7 +424,7 @@ export interface FileWriteTextOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -433,13 +433,13 @@ export interface FileWriteTextOption {
 
 /**
  * @interface FileReadTextResponse
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
 export interface FileReadTextResponse {
   /**
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -448,7 +448,7 @@ export interface FileReadTextResponse {
 
 /**
  * @interface FileReadTextOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -459,7 +459,7 @@ export interface FileReadTextOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -469,7 +469,7 @@ export interface FileReadTextOption {
    * Encoding format. The default format is UTF-8.
    * Currently, only UTF-8 is supported.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -479,7 +479,7 @@ export interface FileReadTextOption {
    * Position where the reading starts.
    * The default value is the start position of the file.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -489,7 +489,7 @@ export interface FileReadTextOption {
    * Position where the reading starts.
    * The default value is the start position of the file.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -498,7 +498,7 @@ export interface FileReadTextOption {
   /**
    * Called when texts are read successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -507,7 +507,7 @@ export interface FileReadTextOption {
   /**
    * Called when texts fail to be read.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -516,7 +516,7 @@ export interface FileReadTextOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -525,7 +525,7 @@ export interface FileReadTextOption {
 
 /**
  * @interface FileWriteArrayBufferOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -536,7 +536,7 @@ export interface FileWriteArrayBufferOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -545,7 +545,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Buffer from which the data is derived.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -554,7 +554,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Offset to the position where the writing starts. The default value is 0.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -564,7 +564,7 @@ export interface FileWriteArrayBufferOption {
    * Whether to enable the append mode.
    * The default value is false. If the value is true, the position parameter will become invalid.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -573,7 +573,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Called when data from a buffer is written into a file successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -582,7 +582,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Called when data from a buffer fails to be written into a file.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -591,7 +591,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -600,13 +600,13 @@ export interface FileWriteArrayBufferOption {
 
 /**
  * @interface FileReadArrayBufferResponse
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
 export interface FileReadArrayBufferResponse {
   /**
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -615,7 +615,7 @@ export interface FileReadArrayBufferResponse {
 
 /**
  * @interface FileReadArrayBufferOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -626,7 +626,7 @@ export interface FileReadArrayBufferOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -636,7 +636,7 @@ export interface FileReadArrayBufferOption {
    * Position where the reading starts.
    * The default value is the start position of the file.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -646,7 +646,7 @@ export interface FileReadArrayBufferOption {
    * Length of the content to read.
    * If this parameter is not set, all content of the file will be read.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -655,7 +655,7 @@ export interface FileReadArrayBufferOption {
   /**
    * Called when the buffer data is read successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -664,7 +664,7 @@ export interface FileReadArrayBufferOption {
   /**
    * Called when the buffer data fails to be read.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -673,7 +673,7 @@ export interface FileReadArrayBufferOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -682,7 +682,7 @@ export interface FileReadArrayBufferOption {
 
 /**
  * @interface FileAccessOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -693,7 +693,7 @@ export interface FileAccessOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -702,7 +702,7 @@ export interface FileAccessOption {
   /**
    * Called when the check result is obtained successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -711,7 +711,7 @@ export interface FileAccessOption {
   /**
    * Called when the check fails.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -720,7 +720,7 @@ export interface FileAccessOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -729,7 +729,7 @@ export interface FileAccessOption {
 
 /**
  * @interface FileMkdirOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -741,7 +741,7 @@ export interface FileMkdirOption {
    * 2. The maximum number of characters allowed is 128.
    * 3. A maximum of five recursions are allowed for creating the directory.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -751,7 +751,7 @@ export interface FileMkdirOption {
    * Whether to create the directory after creating its upper-level directory recursively.
    * The default value is false.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -760,7 +760,7 @@ export interface FileMkdirOption {
   /**
    * Called when the directory is created successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -769,7 +769,7 @@ export interface FileMkdirOption {
   /**
    * Called when the creation fails.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -778,7 +778,7 @@ export interface FileMkdirOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -787,7 +787,7 @@ export interface FileMkdirOption {
 
 /**
  * @interface FileRmdirOption
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -798,7 +798,7 @@ export interface FileRmdirOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -808,7 +808,7 @@ export interface FileRmdirOption {
    * Whether to delete files and subdirectories recursively.
    * The default value is false.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -817,7 +817,7 @@ export interface FileRmdirOption {
   /**
    * Called when the directory is deleted successfully.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -826,7 +826,7 @@ export interface FileRmdirOption {
   /**
    * Called when the deletion fails.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -835,7 +835,7 @@ export interface FileRmdirOption {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    */
@@ -843,7 +843,7 @@ export interface FileRmdirOption {
 }
 
 /**
- * @syscap SystemCapability.FileManagement.File.FileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
  */
@@ -852,7 +852,7 @@ export default class File {
    * Moves the source file to a specified location.
    *
    * @param { FileMoveOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.moveFile
@@ -863,7 +863,7 @@ export default class File {
    * Copies a source file and save the copy to a specified location.
    *
    * @param { FileCopyOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.copyFile
@@ -874,7 +874,7 @@ export default class File {
    * Obtains the list of files in a specified directory.
    *
    * @param { FileListOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.listFile
@@ -885,7 +885,7 @@ export default class File {
    * Obtains information about a local file.
    *
    * @param { FileGetOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.stat
@@ -896,7 +896,7 @@ export default class File {
    * Deletes local files.
    *
    * @param { FileDeleteOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.unlink
@@ -907,7 +907,7 @@ export default class File {
    * Writes texts into a file.
    *
    * @param { FileWriteTextOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.write
@@ -918,7 +918,7 @@ export default class File {
    * Reads texts from a file.
    *
    * @param { FileReadTextOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.readText
@@ -929,7 +929,7 @@ export default class File {
    * Writes data from a buffer into a file.
    *
    * @param { FileWriteArrayBufferOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.write
@@ -940,7 +940,7 @@ export default class File {
    * Reads buffer data from a file.
    *
    * @param { FileReadArrayBufferOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.read
@@ -951,7 +951,7 @@ export default class File {
    * Checks whether a file or directory exists.
    *
    * @param { FileAccessOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.access
@@ -962,7 +962,7 @@ export default class File {
    * Creates a directory.
    *
    * @param { FileMkdirOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.mkdir
@@ -973,7 +973,7 @@ export default class File {
    * Deletes a directory.
    *
    * @param { FileRmdirOption } options - Options.
-   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
    * @useinstead ohos.file.fs.rmdir

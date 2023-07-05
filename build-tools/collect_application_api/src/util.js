@@ -41,6 +41,7 @@ const etsComponentSet = new Set([
   "Ellipse",
   "Flex",
   "FormComponent",
+  "FormLink",
   "Gauge",
   "GeometryView",
   "Grid",

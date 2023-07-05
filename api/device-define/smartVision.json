@@ -6,6 +6,7 @@
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.PowerManager.PowerManager.Lite",
     "SystemCapability.PowerManager.BatteryManager.Lite",
+    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.Customization.ConfigPolicy",
     "SystemCapability.HiviewDFX.HiLogLite",
     "SystemCapability.HiviewDFX.HiviewLite",

@@ -132,7 +132,7 @@ declare namespace util {
    *
    * @permission N/A
    * @param { Function } original - original original Asynchronous function
-   * @returns { function }
+   * @returns { function } Return a Asynchronous function
    * @throws { BusinessError } 401 - The type of original must be Function.
    * @syscap SystemCapability.Utils.Lang
    * @since 7
@@ -143,7 +143,7 @@ declare namespace util {
    *
    * @permission N/A
    * @param { Function } original - original original Asynchronous function
-   * @returns { function }
+   * @returns { function } Return a Asynchronous function
    * @throws { BusinessError } 401 - The type of original must be Function.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -156,7 +156,7 @@ declare namespace util {
    * callback as the last argument, and return a function that returns promises.
    *
    * @permission N/A
-   * @param { (err: Object, value: Object) => void } original - original original Asynchronous function
+   * @param { function } original - original original Asynchronous function
    * @returns { Function } Return a function that returns promises
    * @throws { BusinessError } 401 - The type of original must be Function.
    * @syscap SystemCapability.Utils.Lang
@@ -167,7 +167,7 @@ declare namespace util {
    * callback as the last argument, and return a function that returns promises.
    *
    * @permission N/A
-   * @param { (err: Object, value: Object) => void } original - original original Asynchronous function
+   * @param { function } original - original original Asynchronous function
    * @returns { Function } Return a function that returns promises
    * @throws { BusinessError } 401 - The type of original must be Function.
    * @syscap SystemCapability.Utils.Lang
@@ -181,7 +181,7 @@ declare namespace util {
    * callback as the last argument, and return a version that returns promises.
    *
    * @permission N/A
-   * @param { (err: Object, value: Object) => void } original - original original Asynchronous function
+   * @param { function } original - original original Asynchronous function
    * @returns { Object } Return a version that returns promises
    * @syscap SystemCapability.Utils.Lang
    * @since 7
@@ -542,7 +542,7 @@ declare namespace util {
      * @permission N/A
      * @param { string } input - input input The string to be encoded.
      * @param { Uint8Array } dest - dest dest Decoded numbers in accordance with the format
-     * @returns { object } Return the object, where read represents
+     * @returns { { read: number; written: number } } Return the object, where read represents
      * the number of characters that have been encoded, and written
      * represents the number of bytes occupied by the encoded characters.
      * @syscap SystemCapability.Utils.Lang
@@ -558,7 +558,7 @@ declare namespace util {
      * @permission N/A
      * @param { string } input - input input The string to be encoded.
      * @param { Uint8Array } dest - dest dest dest Decoded numbers in accordance with the format
-     * @returns { object } Return the object, where read represents
+     * @returns { { read: number; written: number } } Return the object, where read represents
      * the number of characters that have been encoded, and written
      * represents the number of bytes occupied by the encoded characters.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -571,7 +571,7 @@ declare namespace util {
      * @permission N/A
      * @param { string } input - input input The string to be encoded.
      * @param { Uint8Array } dest - dest dest dest Decoded numbers in accordance with the format
-     * @returns { object } Return the object, where read represents
+     * @returns { { read: number; written: number } } Return the object, where read represents
      * the number of characters that have been encoded, and written
      * represents the number of bytes occupied by the encoded characters.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1179,11 +1179,11 @@ declare namespace util {
 
     /**
      * Specifies the default iterator for an object.
+     * @returns { IterableIterator<[K, V]> } Returns a two - dimensional array in the form of key - value pairs.
+     * @syscap SystemCapability.Utils.Lang
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.util.LRUCache.[Symbol.iterator]
-     * @syscap SystemCapability.Utils.Lang
-     * @returns Returns a two - dimensional array in the form of key - value pairs.
      */
     [Symbol.iterator](): IterableIterator<[K, V]>;
   }
@@ -2152,7 +2152,6 @@ declare namespace util {
      *
      * @permission N/A
      * @param No input parameter is required.
-     * @returns No return value.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      * @deprecated since 9
@@ -2240,6 +2239,31 @@ declare namespace util {
   }
 
   /**
+   * The Type represents two different encoding formats for base64
+   * 
+   * @enum { number } Type
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  enum Type {
+    /**
+     * The value indicates that the encoding format of base64 is BASIC
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    BASIC,
+    /**
+     * The value indicates that the encoding format of base64 is MIME
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     */
+    MIME
+  }
+
+  /**
    * Decodes a Base64 encoded String or input u8 array into a newly-allocated
    * u8 array using the Base64 encoding scheme.
    *
@@ -2262,7 +2286,6 @@ declare namespace util {
      *
      * @permission N/A
      * @param No input parameter is required.
-     * @returns No return value.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -2271,7 +2294,6 @@ declare namespace util {
      *
      * @permission N/A
      * @param No input parameter is required.
-     * @returns No return value.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -2306,6 +2328,7 @@ declare namespace util {
      *
      * @permission N/A
      * @param { Uint8Array } src - src src A Uint8Array value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { string } Return the encoded string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
@@ -2316,19 +2339,21 @@ declare namespace util {
      *
      * @permission N/A
      * @param { Uint8Array } src - src src A Uint8Array value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { string } Return the encoded string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
      */
-    encodeToStringSync(src: Uint8Array): string;
+    encodeToStringSync(src: Uint8Array, options?: Type): string;
 
     /**
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
      *
      * @permission N/A
      * @param { Uint8Array | string } src - src src A Uint8Array value or value A string value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
@@ -2339,13 +2364,14 @@ declare namespace util {
      *
      * @permission N/A
      * @param { Uint8Array | string } src - src src A Uint8Array value or value A string value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
      */
-    decodeSync(src: Uint8Array | string): Uint8Array;
+    decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
     /**
      * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
@@ -2375,6 +2401,7 @@ declare namespace util {
      *
      * @permission N/A
      * @param { Uint8Array } src - src src A Uint8Array value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<string> } Returns the encoded asynchronous string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
@@ -2385,13 +2412,14 @@ declare namespace util {
      *
      * @permission N/A
      * @param { Uint8Array } src - src src A Uint8Array value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<string> } Returns the encoded asynchronous string.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
      */
-    encodeToString(src: Uint8Array): Promise<string>;
+    encodeToString(src: Uint8Array, options?: Type): Promise<string>;
 
     /**
      * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
@@ -2399,6 +2427,7 @@ declare namespace util {
      *
      * @permission N/A
      * @param { Uint8Array | string } src - src src A Uint8Array value or value A string value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
@@ -2410,13 +2439,14 @@ declare namespace util {
      *
      * @permission N/A
      * @param { Uint8Array | string } src - src src A Uint8Array value or value A string value
+     * @param { Type } options - options options Enumerating input parameters includes two encoding formats: BASIC and MIME
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
      * @throws { BusinessError } 401 - The type of src must be Uint8Array or string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
      */
-    decode(src: Uint8Array | string): Promise<Uint8Array>;
+    decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
   }
 
   /**
@@ -2440,7 +2470,6 @@ declare namespace util {
      *
      * @permission N/A
      * @param No input parameter is required.
-     * @returns No return value.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
@@ -2449,7 +2478,6 @@ declare namespace util {
      *
      * @permission N/A
      * @param No input parameter is required.
-     * @returns No return value.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10

@@ -147,6 +147,17 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @since 10
    */
   color(value: ResourceColor): LoadingProgressAttribute;
+
+  /**
+   * Whether to display the LoadingProgress content.
+   * @param { boolean } value - indicates the state of LoadingProgress content
+   * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableLoading(value: boolean): LoadingProgressAttribute;
 }
 
 /**

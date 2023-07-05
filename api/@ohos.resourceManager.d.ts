@@ -2399,6 +2399,28 @@ declare namespace resourceManager {
      * @since 10
      */
     getColorByNameSync(resName: string) : number;
+
+    /**
+     * Add overlay resources during application runtime.
+     *
+     * @param { string } path - Indicates the application overlay path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    addResource(path: string) : void;
+
+    /**
+     * Remove overlay resources during application runtime.
+     * 
+     * @param { string } path - Indicates the application overlay path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001010 - If loading the overlay failed.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    removeResource(path: string) : void;
   }
 
   /**

@@ -150,10 +150,13 @@ declare class Scroller {
 
     /**
      * Descriptive animation.
+     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
-    animation?: { duration: number; curve: Curve };
+    animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
   });
 
   /**
@@ -389,7 +392,29 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): ScrollAttribute
+  nestedScroll(value: NestedScrollOptions): ScrollAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { ScrollAttribute } The attribute of the scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableScrollInteraction(value: boolean): ScrollAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): ScrollAttribute;
 }
 
 /**
