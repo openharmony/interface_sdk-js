@@ -398,13 +398,8 @@ declare interface ArrowStyle {
 declare enum SwiperDisplayMode {
   /**
    * Carousel map extension.
-   * @since 7
-   */
-  /**
-   * Carousel map extension.
-   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 7
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#STRETCH
    */
@@ -412,13 +407,8 @@ declare enum SwiperDisplayMode {
 
   /**
    * The rotation chart is self linear.
-   * @since 7
-   */
-  /**
-   * The rotation chart is self linear.
-   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 7
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#AUTO_LINEAR
    */
