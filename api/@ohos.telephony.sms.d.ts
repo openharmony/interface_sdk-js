@@ -133,7 +133,7 @@ declare namespace sms {
    */
   function sendMessage(options: SendMessageOptions): void;
 
-    /**
+  /**
    * Sends a text or data SMS message.
    *
    * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
