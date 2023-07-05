@@ -1622,7 +1622,7 @@ export default class UIAbilityContext extends Context {
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
   /**
-   * The callback interface is connected successfully.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - The number code of the ability connected
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
@@ -1636,7 +1636,7 @@ export default class UIAbilityContext extends Context {
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * The callback interface is connected successfully.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
