@@ -9945,11 +9945,14 @@ declare class CustomComponent extends CommonAttribute {
   /**
    * onBackPress Method
    *
+   * @returns { void | boolean } true means that the page itself processes the return logic.
+   * false means that the default return logic is used.
+   * If no value is returned, the default return logic is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onBackPress?(): void;
+  onBackPress?(): void | boolean;
 
   /**
    * PageTransition Method.
