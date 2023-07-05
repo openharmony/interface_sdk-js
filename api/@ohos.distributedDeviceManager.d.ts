@@ -98,11 +98,11 @@ declare namespace distributedDeviceManager {
     bindType: number;
 
     /**
-     * Extra information.
-     * Such as:
-     * targetPkgName - The name of binding target.
-     * appName - The name of application.
-     * appOperation - The operation of application.
+     * Extra information. 
+     * The type of extraInfo is key-value, The value type is string, The keys are as follows:
+     * targetPkgName - The packege name of binding target.
+     * appName - The app name that try to bind the target.
+     * appOperation - The reason why the app want to bind the target packege.
      * @since 10
      */
     extraInfo: { [key: string]: Object };
@@ -246,21 +246,38 @@ declare namespace distributedDeviceManager {
     getDeviceTypeSync(networkId: string): number;
 
     /**
-     * Start to discover target.
+     * Start to discover nearby devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param subscribeId subscribe id to discovery device
-     * @param filterOptions filterOptions to filter discovery device
+     * @param subscribeId - Subscribe id to discovery device.
+     * @param filterOptions - FilterOptions to filter discovery device.
+     * The type of filterOptions is key-value, The keys are as follows:
+     * credible - Discover only devices are credible, The value can be 0 or 1.
+     * range - Discover only devices within the range, The value less than 1 m.
+     * isTrusted - Discover only devices are trusted, The value can be 0 or 1.
+     * authForm - Discover only devices are specified authenticate, The value can be 1 to 4.
+     * deviceType - Discover only devices are specified type, The value are as follows:
+     * 0 - Unknown device type.
+     * 8 - Indicates a smart camera.
+     * 10 - Indicates a smart speaker.
+     * 12 - Indicates a smart pc.
+     * 14 - Indicates a smart phone.
+     * 17 - Indicates a smart pad.
+     * 109 - Indicates a smart watch.
+     * 131 - Indicates a car.
+     * 156 - Indicates a smart TV.
+     * @param discoveringParameter - Identifies the type of target discovered. The keys are as follows:
+     * targetType - Identifies the type of target discovered, The value is 1.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      */
-    startDiscovering(subscribeId: number, filterOptions?: string): void;
+    startDiscovering(subscribeId: number, filterOptions?: string, discoveringParameter?:string): void;
 
     /**
-     * Stop discovering target.
+     * Stop discovering nearby devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
@@ -276,9 +293,14 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
-     * @param deviceId id of device to bind
-     * @param bindParam parameters of device to bind
-     * @param callback indicates the callback to be invoked upon bindDevice
+     * @param deviceId id of device to bind.
+     * @param bindParam parameters of device to bind. The parameter type is key-value, The keys are as follows:
+     * bindType - This key is type of binding target, the value include:
+     * 1 - The bind type is pin code .
+     * 2 - The bind type is QRcode.
+     * 3 - The bind type is nfc.
+     * 4 - The bind type is no_interaction.
+     * @param callback indicates the callback to be invoked upon bindDevice.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -320,7 +342,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'deviceStatusChange' } type Device status change.
      * @param { Callback<{ action: DeviceStatusChange, device: DeviceBasicInfo }> } callback
-     *          Indicates the device status callback to register.
+     * Indicates the device status callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -333,7 +355,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'deviceStatusChange' } type Device status change.
      * @param { Callback<{ action: DeviceStatusChange, device: DeviceBasicInfo }> } callback
-     *          Indicates the device status callback to unregister.
+     * Indicates the device status callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -346,7 +368,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'discoverSuccess' } type Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
-     *          Indicates the device discovery callback to register.
+     * Indicates the device discovery callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -359,7 +381,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'discoverSuccess' } type Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
-     *          Indicates the device discovery callback to unregister.
+     * Indicates the device discovery callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -395,8 +417,10 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @since 10
      * @param { 'discoverFail' } type Discovery Device Failure.
-     * @param { Callback<{ subscribeId: number, reason: number }> } callback
-     *          Indicates the device found result callback to register.
+     * @param { Callback<{ subscribeId: number, reason: number }> } callback 
+     * Indicates the device found result callback to register. The return value are as follows:
+     * subscribeId - The flag of discovery.
+     * reason - The result of discovery.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -409,7 +433,9 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @param { 'discoverFail' } type Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback
-     *          Indicates the device found result callback to unregister.
+     * Indicates the device found result callback to unregister. The return value are as follows:
+     * subscribeId - The flag of discovery.
+     * reason - The result of discovery.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
