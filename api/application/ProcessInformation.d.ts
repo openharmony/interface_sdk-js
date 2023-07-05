@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import appManager from '../@ohos.app.ability.appManager';
+import type appManager from '../@ohos.app.ability.appManager';
 
 /**
  * The class of an process information.
