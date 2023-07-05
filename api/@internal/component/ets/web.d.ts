@@ -2110,6 +2110,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onLoadIntercept(callback: (event: { data: WebResourceRequest }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
+   * This callback can not use the interface about manipulating web pages.
+   * @param callback The triggered callback when web controller initialization success.
+   * @since 10
+   */
+  onControllerAttached(callback: () => void): WebAttribute;
 }
 
 /**
