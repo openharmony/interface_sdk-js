@@ -33,7 +33,13 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    familyName: string;
+    /**
+     * The font name to register.
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    familyName: string | Resource;
 
     /**
      * The path of the font file.
@@ -42,7 +48,13 @@ declare namespace font {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    familySrc: string;
+    /**
+     * The path of the font file.
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    familySrc: string | Resource;
   }
 
   /**

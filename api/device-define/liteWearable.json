@@ -6,7 +6,7 @@
     "SystemCapability.PowerManager.BatteryManager.Lite",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.FileIO.Lite",
-    "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.Communication.NFC.CardEmulation",
     "SystemCapability.Security.Huks.Core",

@@ -2763,35 +2763,53 @@ declare interface BorderImageOption {
 declare interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
-   * @since 7
-   */
-  /**
-   * X coordinate of the click point relative to the left edge of the device screen.
-   * @form
-   * @since 9
-   */
-  /**
-   * X coordinate of the click point relative to the left edge of the device screen.
-   * @form
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the click point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the click point relative to the upper edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY: number;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the current window.
+   * @since 7
+   * @deprecated since 10
+   * @useinstead ClickEvent#windowX
    */
   screenX: number;
 
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * Y coordinate of the click point relative to the upper edge of the current window.
    * @since 7
-   */
-  /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
-   * @form
-   * @since 9
-   */
-  /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
-   * @form
-   * @crossplatform
-   * @since 10
+   * @deprecated since 10
+   * @useinstead ClickEvent#windowY
    */
   screenY: number;
 
@@ -2880,44 +2898,78 @@ declare interface MouseEvent extends BaseEvent {
   action: MouseAction;
 
   /**
-   * X coordinate of the click point relative to the left edge of the device screen.
-   * @since 8
-   */
-  /**
-   * X coordinate of the click point relative to the left edge of the device screen.
+   * X coordinate of the mouse point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY: number;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the current window.
+   * @since 8
+   * @deprecated since 10
+   * @useinstead MouseEvent#windowX
    */
   screenX: number;
 
   /**
-   * The Y coordinate of the click point relative to the upper edge of the device screen.
+   * Y coordinate of the mouse point relative to the upper edge of the current window.
    * @since 8
-   */
-  /**
-   * The Y coordinate of the click point relative to the upper edge of the device screen.
-   * @crossplatform
-   * @since 10
+   * @deprecated since 10
+   * @useinstead MouseEvent#windowY
    */
   screenY: number;
 
   /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
+   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
    * @since 8
    */
   /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
+   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   x: number;
 
   /**
-   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
    * @since 8
    */
   /**
-   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -2969,23 +3021,53 @@ declare interface TouchObject {
 
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
-   * @since 7
-   */
-  /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @since 7
+   * @deprecated since 10
+   * @useinstead TouchObject#windowX
    */
   screenX: number;
 
   /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * Y coordinate of the touch point relative to the upper edge of the current window.
    * @since 7
-   */
-  /**
-   * The Y coordinate of the touch point relative to the upper edge of the device screen.
-   * @crossplatform
-   * @since 10
+   * @deprecated since 10
+   * @useinstead TouchObject#windowY
    */
   screenY: number;
 
@@ -2995,6 +3077,8 @@ declare interface TouchObject {
    */
   /**
    * X coordinate of the touch point relative to the left edge of the touched element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -3006,6 +3090,8 @@ declare interface TouchObject {
    */
   /**
    * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -3185,24 +3271,54 @@ declare enum DragRet {
  */
 declare interface DragEvent {
   /**
-   * Get the X coordinate of the finger, in vp.
-   * @since 7
-   */
-  /**
-   * Get the X coordinate of the finger, in vp.
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  getDisplayX(): number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getDisplayY(): number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getWindowX(): number;
+
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getWindowY(): number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window. in vp.
+   * @since 7
+   * @deprecated since 10
+   * @useinstead DragEvent#getWindowX()
    */
   getX(): number;
 
   /**
-   * Get the Y coordinate of the finger, in vp.
+   * Y coordinate of the touch point relative to the left edge of the current window. in vp.
    * @since 7
-   */
-  /**
-   * Get the Y coordinate of the finger, in vp.
-   * @crossplatform
-   * @since 10
+   * @deprecated since 10
+   * @useinstead DragEvent#getWindowY()
    */
   getY(): number;
 
@@ -3394,15 +3510,68 @@ declare interface KeyEvent {
 }
 
 /**
- * Component Sheet Styles
+ * Overlay module options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare interface SheetStyle {
+declare interface BindOptions {
+  /**
+   * Defines the background color
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Callback function when overlay interface appears
+   * @type { ?(() => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onAppear?: () => void;
+
+  /**
+   * Callback function when overlay interface exits
+   * @type { ?(() => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onDisappear?: () => void;
+}
+
+/**
+ * Component content cover options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface ContentCoverOptions extends BindOptions {
+  /**
+   * Defines transition type
+   * @type { ?ModalTransition }
+   * @default ModalTransition.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  modalTransition?: ModalTransition,
+}
+
+/**
+ * Component sheet options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SheetOptions extends BindOptions {
   /**
    * Defines sheet height
-   * @type { SheetSize | Length }
+   * @type { ?(SheetSize | Length) }
    * @default Sheet.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3412,7 +3581,7 @@ declare interface SheetStyle {
 
   /**
    * Defines whether the control bar is displayed.
-   * @type { boolean }
+   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3521,6 +3690,15 @@ declare interface StateStyles {
    * @since 10
    */
   clicked?: any;
+
+  /**
+   * Defines selected state styles.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  selected?: object;
 }
 
 /**
@@ -4193,6 +4371,16 @@ declare class CommonMethod<T> {
   responseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
+   * Sets the mouse response region of current component
+   * @param { Array<Rectangle> | Rectangle } value
+   * @returns { T } return the component attribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
+   * @since 10
+   */
+  mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
+
+  /**
    * The size of the current component.
    * @since 7
    */
@@ -4300,6 +4488,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   margin(value: Margin | Length): T;
+
+  /**
+   * Background.
+   * @param { CustomBuilder } builder
+   * @param { ?{ align?: Alignment } } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  background(builder: CustomBuilder, options?: { align?: Alignment }): T;
 
   /**
    * Background color
@@ -5816,16 +6015,27 @@ declare class CommonMethod<T> {
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
+   * Bind content cover
+   * @param { boolean } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ContentCoverOptions } options - options of content cover.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
+
+  /**
    * Bind sheet
    * @param { boolean } isShow - true means display sheet, false means hide sheet.
    * @param { CustomBuilder } builder - the sheet to be displayed.
-   * @param { style } style - sheet style type.
+   * @param { SheetOptions } options - options of sheet.
    * @returns { T } - template type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
+  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
@@ -5902,6 +6112,46 @@ declare class CommonMethod<T> {
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 
   /**
+   * Sets accessibilityGroup
+   * @param { boolean } value , set group with accessibility
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @returns { T }
+   * @since 10
+   */
+  accessibilityGroup(value: boolean): T;
+
+  /**
+   * Sets accessibilityText
+   * @param { string } value , set accessibility text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { T }
+   * @crossplatform
+   * @since 10
+   */
+  accessibilityText(value: string): T;
+
+  /**
+   * Sets accessibilityDescription
+   * @param { string } value , set description of accessibility
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { T }
+   * @crossplatform
+   * @since 10
+   */
+  accessibilityDescription(value: string): T;
+
+  /**
+   * Sets accessibilityLevel
+   * @param { string } value , set accessibility level
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { T }
+   * @crossplatform
+   * @since 10
+   */
+  accessibilityLevel(value: string): T;
+
+  /**
    * Sets obscured
    * @param { Array<ObscuredReasons> } reasons , reasons of obscuration
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5918,6 +6168,16 @@ declare class CommonMethod<T> {
    * @since 10
    */
   reuseId(id: string)
+
+  /**
+   * Sets how content is drawn within nodes duration animation
+   * @param { RenderFit } fitMode - The render fit mode of content.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  renderFit(fitMode: RenderFit): T;
 }
 
 /**
@@ -6662,6 +6922,72 @@ declare class View {
    * @since 9
    */
   create(value: any): any;
+}
+
+/**
+ * Rect info.
+ * @crossplatform
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface RectResult {
+  /**
+   * x:Horizontal coordinate relative to the component.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  x: number;
+
+  /**
+   * y:Vertical axis coordinate relative to the component.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  y: number;
+
+  /**
+   * Get the width of the current textRect.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  width: number;
+
+  /**
+   * Get the height of the current textRect.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  height: number;
+}
+
+/**
+ * TextContentControllerBase
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare abstract class TextContentControllerBase {
+  /**
+   * Get the start and end positions of the text content.
+   * @returns { RectResult } Text content rect.
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getTextContentRect() : RectResult;
+
+  /**
+   * Get the lines number of the text content.
+   * @returns { number } Text content line count
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getTextContentLineCount() : number;
 }
 
 declare module "SpecialEvent" {

@@ -521,136 +521,63 @@ declare namespace matrix4 {
 
   /**
    * Copy function of Matrix, which can copy a copy of the current matrix object.
-   *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Copy function of Matrix, which can copy a copy of the current matrix object.
-   *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    */
   function copy(): Matrix4Transit;
 
   /**
    * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
-   *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
-   *
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    */
   function invert(): Matrix4Transit;
 
   /**
    * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
-   *
-   * @param { Matrix4Transit } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
-   *
-   * @param { Matrix4Transit } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    */
   function combine(options: Matrix4Transit): Matrix4Transit;
 
   /**
    * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
-   *
-   * @param { TranslateOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
-   *
-   * @param { TranslateOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    */
   function translate(options: TranslateOption): Matrix4Transit;
 
   /**
    * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
-   *
-   * @param { ScaleOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
-   *
-   * @param { ScaleOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    */
   function scale(options: ScaleOption): Matrix4Transit;
 
   /**
    * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
-   *
-   * @param { RotateOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
-   *
-   * @param { RotateOption } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    */
   function rotate(options: RotateOption): Matrix4Transit;
 
   /**
    * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
-   *
-   * @param { [number, number] } options
-   * @returns { [number, number] } Return to Matrix4Transit
+   * @returns Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
-   *
-   * @param { [number, number] } options
-   * @returns { [number, number] } Return to Matrix4Transit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    */
   function transformPoint(options: [number, number]): [number, number];

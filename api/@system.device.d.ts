@@ -14,68 +14,69 @@
  */
 
 /**
- * @syscap SystemCapability.Startup.SystemInfo
+ * @interface DeviceResponse
+ * @syscap SystemCapability.Startup.SystemInfo.Lite
  */
 export interface DeviceResponse {
   /**
    * Brand.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   brand: string;
 
   /**
    * Manufacturer.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   manufacturer: string;
 
   /**
    * Model.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   model: string;
 
   /**
    * Product number.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   product: string;
 
   /**
    * System language.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
    */
   language: string;
 
   /**
    * System region.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
    */
   region: string;
 
   /**
    * Window width.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   windowWidth: number;
 
   /**
    * Window Height.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   windowHeight: number;
 
   /**
    * Screen density.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
    */
   screenDensity: number;
@@ -84,14 +85,14 @@ export interface DeviceResponse {
    * Screen shape. The options are as follows:
    * rect: Rectangle screen.
    * circle: Circle screen.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
    */
   screenShape: "rect" | "circle";
 
   /**
    * API version.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
    */
   apiVersion: number;
@@ -110,7 +111,7 @@ export interface DeviceResponse {
    * speaker: speaker
    * smartVision: smart visual device
    * linkIoT: connection module
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
    */
   deviceType: string;
@@ -119,21 +120,21 @@ export interface DeviceResponse {
 export interface GetDeviceOptions {
   /**
    * Called when the device information is obtained.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   success?: (data: DeviceResponse) => void;
 
   /**
    * Called when the device information fails to be obtained.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   fail?: (data: any, code: number) => void;
 
   /**
    * Called when the execution is completed.
-   * @syscap SystemCapability.Startup.SystemInfo
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
    */
   complete?: () => void;
@@ -141,12 +142,14 @@ export interface GetDeviceOptions {
 
 /**
  * getInfo interface
+ * @syscap SystemCapability.Startup.SystemInfo.Lite
  */
 export default class Device {
   /**
    * Obtains the device information.
-   * @syscap SystemCapability.Startup.SystemInfo
-   * @param options Options.
+   * 
+   * @param { GetDeviceOptions } options - Options
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @deprecated since 6
    */
   static getInfo(options?: GetDeviceOptions): void;

@@ -282,6 +282,7 @@
       "SystemCapability.Sensors.Sensor.Lite",
       "SystemCapability.Sensors.MiscDevice.Lite",
       "SystemCapability.Startup.SystemInfo",
+      "SystemCapability.Startup.SystemInfo.Lite",
       "SystemCapability.DistributedDataManager.RelationalStore.Core",
       "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
       "SystemCapability.DistributedDataManager.RelationalStore.Lite",
@@ -327,7 +328,8 @@
       "SystemCapability.AI.MindSporeLite",
       "SystemCapability.Print.PrintFramework",
       "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
-      "SystemCapability.Driver.ExternalDevice"
+      "SystemCapability.Driver.ExternalDevice",
+      "SystemCapability.FileManagement.PhotoAccessHelper.Core"
     ]
   },
   "administrators": [

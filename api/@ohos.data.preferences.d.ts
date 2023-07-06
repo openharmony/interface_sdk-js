@@ -271,6 +271,22 @@ declare namespace preferences {
   function removePreferencesFromCache(context: Context, name: string): Promise<void>;
 
   /**
+   * Deletes a {@link Preferences} instance matching a specified preferences file name
+   * from the cache. This interface is executed synchronously.
+   * <p>When deleting the {@link Preferences} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+   * will occur.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } name - Indicates the preferences file name.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function removePreferencesFromCacheSync(context: Context, name: string): void;
+
+  /**
    * Provides interfaces to obtain and modify preferences data.
    * <p>The preferences data is stored in a file, which matches only one {@link Preferences} instance in the memory.
    * You can use getPreferences to obtain the {@link Preferences} instance matching
@@ -295,8 +311,8 @@ declare namespace preferences {
    */
   interface Preferences {
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -307,8 +323,8 @@ declare namespace preferences {
      * @since 9
      */
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -322,8 +338,8 @@ declare namespace preferences {
     get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
 
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -334,8 +350,8 @@ declare namespace preferences {
      * @since 9
      */
     /**
-     * Obtains the value of a preferences in the int format.
-     * <p>If the value is {@code null} or not in the int format, the default value is returned.
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
      * @param { ValueType } defValue - Indicates the default value to return.
@@ -347,6 +363,21 @@ declare namespace preferences {
      * @since 10
      */
     get(key: string, defValue: ValueType): Promise<ValueType>;
+
+    /**
+     * Obtains the value of a preferences in the ValueType format. This interface is executed synchronously.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
+     *
+     * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     * @param { ValueType } defValue - Indicates the default value to return.
+     * @returns { ValueType } The value matching the specified key if it is found;
+     *          returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 10
+     */
+    getSync(key: string, defValue: ValueType): ValueType;
 
     /**
      * Obtains all the keys and values of a preferences in an object.
@@ -385,6 +416,18 @@ declare namespace preferences {
      * @since 10
      */
     getAll(): Promise<Object>;
+
+    /**
+     * Obtains all the keys and values of a preferences in an object.  This interface
+     * is executed synchronously.
+     *
+     * @returns { Object } The values and keys in an object.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 10
+     */
+    getAllSync(): Object;
 
     /**
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
@@ -431,6 +474,20 @@ declare namespace preferences {
      * @since 10
      */
     has(key: string): Promise<boolean>;
+
+    /**
+     * Checks whether the {@link Preferences} object contains a preferences matching a specified key. This interface
+     * is executed synchronously.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     * @returns { boolean } {@code true} if the {@link Preferences} object contains
+     *         a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 10
+     */
+    hasSync(key: string): boolean;
 
     /**
      * Sets an int value for the key in the {@link Preferences} object.
@@ -491,6 +548,21 @@ declare namespace preferences {
     put(key: string, value: ValueType): Promise<void>;
 
     /**
+     * Sets an int value for the key in the {@link Preferences} object. This interface is executed synchronously.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+     * file.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 10
+     */
+    putSync(key: string, value: ValueType): void;
+
+    /**
      * Deletes the preferences with a specified key from the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
@@ -545,6 +617,20 @@ declare namespace preferences {
     delete(key: string): Promise<void>;
 
     /**
+     * Deletes the preferences with a specified key from the {@link Preferences} object. This interface is
+     * executed synchronously. <p>You can call the {@link #flush} method to save the {@link Preferences}
+     * object to the file.
+     *
+     * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 10
+     */
+    deleteSync(key: string): void;
+
+    /**
      * Clears all preferences from the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
@@ -581,6 +667,16 @@ declare namespace preferences {
      * @since 10
      */
     clear(): Promise<void>;
+
+    /**
+     * Clears all preferences from the {@link Preferences} object. This interface is executed synchronously.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
+     *
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 10
+     */
+    clearSync(): void;
 
     /**
      * Asynchronously saves the {@link Preferences} object to the file.

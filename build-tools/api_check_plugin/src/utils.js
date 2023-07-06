@@ -431,3 +431,7 @@ function checkVersionNeedCheck(node) {
   return false;
 }
 exports.checkVersionNeedCheck = checkVersionNeedCheck;
+
+const FUNCTION_TYPES = [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor];
+exports.FUNCTION_TYPES = FUNCTION_TYPES;
