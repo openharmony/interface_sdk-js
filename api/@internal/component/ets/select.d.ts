@@ -15,20 +15,32 @@
 
 /**
  * The declare of selectOption.
+ *
+ * @interface SelectOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The declare of selectOption.
+ *
+ * @interface SelectOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface SelectOption {
   /**
    * Option string.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Option string.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +48,16 @@ declare interface SelectOption {
 
   /**
    * Option icon.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Option icon.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -48,20 +66,34 @@ declare interface SelectOption {
 
 /**
  * Provides the select interface.
+ *
+ * @interface SelectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Provides the select interface.
+ *
+ * @interface SelectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface SelectInterface {
   /**
    * Called when the select is set.
+   *
+   * @param { Array<SelectOption> } options
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the select is set.
+   *
+   * @param { Array<SelectOption> } options
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -70,7 +102,8 @@ interface SelectInterface {
 
 /**
  * The enum for arrow position in the select
- * @enum {number}
+ *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -78,6 +111,7 @@ interface SelectInterface {
 declare enum ArrowPosition {
   /**
    * The value of arrow position end
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -86,6 +120,7 @@ declare enum ArrowPosition {
 
   /**
    * The value of arrow position start
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -95,25 +130,29 @@ declare enum ArrowPosition {
 
 /**
  * The type of alignment between select and menu.
- * @enum {number}
+ *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 declare enum MenuAlignType {
   /**
    * The value of menu align type start.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   START,
   /**
    * The value of menu align type center.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   CENTER,
   /**
    * The value of menu align type end.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -122,20 +161,32 @@ declare enum MenuAlignType {
 
 /**
  * The commonMethod of select.
+ *
+ * @extends CommonMethod
  * @since 8
  */
 /**
  * The commonMethod of select.
+ *
+ * @extends CommonMethod
  * @crossplatform
  * @since 10
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Sets the serial number of the select item, starting from 0.
+   *
+   * @param { number } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the serial number of the select item, starting from 0.
+   *
+   * @param { number } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -143,10 +194,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the text display of the select button itself.
+   *
+   * @param { string } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the text display of the select button itself.
+   *
+   * @param { string } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -154,10 +213,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the text properties of the select button itself.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the text properties of the select button itself.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -165,10 +232,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the text color of the select button itself.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the text color of the select button itself.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -176,10 +251,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the background color of the selected items in the select.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the background color of the selected items in the select.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -187,10 +270,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the text style of the selected items in the select.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the text style of the selected items in the select.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -198,10 +289,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the text color of the selected item in the select.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the text color of the selected item in the select.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -209,10 +308,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the background color of the select item.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the background color of the select item.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -220,10 +327,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the text style for select items.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the text style for select items.
+   *
+   * @param { Font } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -231,10 +346,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Sets the text color for select items.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the text color for select items.
+   *
+   * @param { ResourceColor } value
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -242,10 +365,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Callback for selecting an item from the select.
+   *
+   * @param { (index: number, value?: string) => void } callback
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback for selecting an item from the select.
+   *
+   * @param { (index: number, value?: string) => void } callback
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -253,7 +384,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Set the space for text and icon in select
+   *
    * @param { Length } value - indicates the length of the space
+   * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -262,7 +395,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Set the layout direction for text and arrow in select
+   *
    * @param { ArrowPosition } value - indicates the arrow position in the select
+   * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -271,6 +406,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Set the alignment between select and menu.
+   *
    * @param { MenuAlignType } alignType - The type of alignment between select and menu.
    * @param { Offset } offset - The offset between select and menu.
    * @returns { SelectAttribute } the attribute of the select.
@@ -282,10 +418,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
 /**
  * Defines Select Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Select Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -293,10 +433,14 @@ declare const Select: SelectInterface;
 
 /**
  * Defines Select Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Select Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

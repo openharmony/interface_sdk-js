@@ -17,11 +17,15 @@ import { Callback } from './@ohos.base';
 
 /**
  * Used to do mediaquery operations.
+ *
+ * @namespace mediaquery
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Used to do mediaquery operations.
+ *
+ * @namespace mediaquery
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -32,11 +36,17 @@ declare namespace mediaquery {
     /**
      * Whether the match condition is met.
      * This parameter is read-only.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Whether the match condition is met.
      * This parameter is read-only.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -45,11 +55,17 @@ declare namespace mediaquery {
     /**
      * Matching condition of a media event.
      * This parameter is read-only.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Matching condition of a media event.
      * This parameter is read-only.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -60,11 +76,19 @@ declare namespace mediaquery {
     /**
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback is triggered when the media attributes change.
+     *
+     * @param { 'change' } type
+     * @param { Callback<MediaQueryResult> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback is triggered when the media attributes change.
+     *
+     * @param { 'change' } type
+     * @param { Callback<MediaQueryResult> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -73,11 +97,19 @@ declare namespace mediaquery {
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
      * This callback is not triggered when the media attributes chang.
+     *
+     * @param { 'change' } type
+     * @param { Callback<MediaQueryResult> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
      * This callback is not triggered when the media attributes chang.
+     *
+     * @param { 'change' } type
+     * @param { Callback<MediaQueryResult> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -86,10 +118,18 @@ declare namespace mediaquery {
 
   /**
    * Sets the media query criteria and returns the corresponding listening handle
+   *
+   * @param { string } condition
+   * @returns { MediaQueryListener }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Sets the media query criteria and returns the corresponding listening handle
+   *
+   * @param { string } condition
+   * @returns { MediaQueryListener }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */

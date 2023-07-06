@@ -15,20 +15,34 @@
 
 /**
  * Declare the stepper.
+ *
+ * @interface StepperInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Declare the stepper.
+ *
+ * @interface StepperInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface StepperInterface {
   /**
    * Called when the stepper component is used.
+   *
+   * @param { { index?: number } } value
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the stepper component is used.
+   *
+   * @param { { index?: number } } value
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -37,20 +51,32 @@ interface StepperInterface {
 
 /**
  * Defines the stepper attribute functions
+ *
+ * @extends CommonMethod
  * @since 8
  */
 /**
  * Defines the stepper attribute functions
+ *
+ * @extends CommonMethod
  * @crossplatform
  * @since 10
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the finish label is clicked.
+   *
+   * @param { () => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback when the finish label is clicked.
+   *
+   * @param { () => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -58,10 +84,18 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 
   /**
    * Callback when the skip label is clicked.
+   *
+   * @param { () => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback when the skip label is clicked.
+   *
+   * @param { () => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -69,10 +103,18 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 
   /**
    * Callback when the change label is clicked.
+   *
+   * @param { (prevIndex?: number, index?: number) => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback when the change label is clicked.
+   *
+   * @param { (prevIndex?: number, index?: number) => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -80,10 +122,18 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 
   /**
    * Callback when the next label is clicked.
+   *
+   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback when the next label is clicked.
+   *
+   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -91,10 +141,18 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 
   /**
    * Callback when the previous label is clicked.
+   *
+   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback when the previous label is clicked.
+   *
+   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -103,10 +161,14 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 
 /**
  * Defines Stepper Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Stepper Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -114,10 +176,14 @@ declare const Stepper: StepperInterface;
 
 /**
  * Defines Stepper Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Stepper Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

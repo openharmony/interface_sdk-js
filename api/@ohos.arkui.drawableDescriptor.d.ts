@@ -17,23 +17,25 @@ import image from './@ohos.multimedia.image';
 
 /**
  * Use the DrawableDescriptor class to get drawable image.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 export class DrawableDescriptor {
-
   /**
    * Creates a new DrawableDescriptor.
-   * @systemapi Hide this for inner system use.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   constructor();
 
   /**
    * Get pixelMap of drawable image.
+   *
+   * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns {image.PixelMap} Return the PixelMap of the calling DrawableDescriptor object.
    * @since 10
    */
   getPixelMap(): image.PixelMap;
@@ -41,31 +43,35 @@ export class DrawableDescriptor {
 
 /**
  * Use the LayeredDrawableDescriptor class to get the foreground, the background and the mask DrawableDescriptor.
+ *
+ * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 export class LayeredDrawableDescriptor extends DrawableDescriptor {
-
   /**
-  * Get DrawableDescriptor for the foreground.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @returns {DrawableDescriptor} Return the DrawableDescriptor object of foreground.
-  * @since 10
-  */
+   * Get DrawableDescriptor for the foreground.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getForeground(): DrawableDescriptor;
 
   /**
-  * Get DrawableDescriptor for the background.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @returns {DrawableDescriptor} Return the DrawableDescriptor object of background.
-  * @since 10
-  */
+   * Get DrawableDescriptor for the background.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getBackground(): DrawableDescriptor;
 
   /**
    * Get DrawableDescriptor for the mask.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns {DrawableDescriptor} Return the DrawableDescriptor object of mask.
    * @since 10
    */
   getMask(): DrawableDescriptor;

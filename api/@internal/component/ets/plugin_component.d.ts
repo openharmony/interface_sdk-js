@@ -15,69 +15,99 @@
 
 /**
  * PluginComponentTemplate
- * @since 9
+ *
+ * @interface PluginComponentTemplate
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 interface PluginComponentTemplate {
   /**
    * Defines the plugin source name.
-   * @since 9
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   source: string;
   /**
    * Defines the bundle name of the Template.
-   * @since 9
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   bundleName: string;
 }
 
 /**
  * Provides plugin component.
- * @since 9
+ *
+ * @interface PluginComponentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 interface PluginComponentInterface {
   /**
    * Called when setting the plugin.
-   * @since 9
+   *
+   * @param { { template: PluginComponentTemplate; data: any } } value
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 }
 
 /**
  * Defines the plugin component attribute functions.
- * @since 9
+ *
+ * @extends CommonMethod
  * @systemapi
+ * @since 9
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
    * pluginComponent onComplete callback,
-   * @since 9
+   *
+   * @param { () => void } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   onComplete(callback: () => void): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
-   * @since 9
+   *
+   * @param { (info: { errcode: number; msg: string }) => void } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }
 
 /**
  * Defines PluginComponent Component.
- * @since 9
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 declare const PluginComponent: PluginComponentInterface;
 
 /**
  * Defines PluginComponent Component instance.
- * @since 9
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 declare const PluginComponentInstance: PluginComponentAttribute;

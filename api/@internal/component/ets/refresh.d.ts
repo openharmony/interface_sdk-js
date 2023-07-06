@@ -15,20 +15,30 @@
 
 /**
  * The refresh status of the drop-down refresh.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The refresh status of the drop-down refresh.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum RefreshStatus {
   /**
    * The refresh status of the drop-down refresh.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The refresh status of the drop-down refresh.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@ declare enum RefreshStatus {
 
   /**
    * Drop down, but the drop-down distance is less than the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Drop down, but the drop-down distance is less than the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -47,10 +61,14 @@ declare enum RefreshStatus {
 
   /**
    * The pull-down exceeds the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The pull-down exceeds the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -58,10 +76,14 @@ declare enum RefreshStatus {
 
   /**
    * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -69,10 +91,14 @@ declare enum RefreshStatus {
 
   /**
    * After refresh, return to the initial state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * After refresh, return to the initial state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -81,11 +107,15 @@ declare enum RefreshStatus {
 
 /**
  * Defines the options of refresh component.
+ *
+ * @interface RefreshOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the options of refresh component.
+ *
+ * @interface RefreshOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -94,14 +124,16 @@ interface RefreshOptions {
   /**
    * Whether the current component is being refreshed.
    * This parameter supports $$ for two-way binding of variables.
-   * @type {boolean}
+   *
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Whether the current component is being refreshed.
    * This parameter supports $$ for two-way binding of variables.
-   * @type {boolean}
+   *
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -111,14 +143,16 @@ interface RefreshOptions {
   /**
    * Distance to the top of the parent component from the component that
    * comes to rest after a successful pull-down gesture. Default value: 16, in vp
-   * @type {number | string}
+   *
+   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Distance to the top of the parent component from the component that
    * comes to rest after a successful pull-down gesture. Default value: 16, in vp
-   * @type {number | string}
+   *
+   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -131,7 +165,8 @@ interface RefreshOptions {
    *   - 0 indicates that the component is not sensitive to the pull-down gesture.
    *   - 100 indicates that the component is highly sensitive to the pull-down gesture.
    *   - A larger value indicates a more sensitive response of the component to the pull-down gesture.
-   * @type {number | string}
+   *
+   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -141,7 +176,8 @@ interface RefreshOptions {
    *   - 0 indicates that the component is not sensitive to the pull-down gesture.
    *   - 100 indicates that the component is highly sensitive to the pull-down gesture.
    *   - A larger value indicates a more sensitive response of the component to the pull-down gesture.
-   * @type {number | string}
+   *
+   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -150,7 +186,8 @@ interface RefreshOptions {
 
   /**
    * Custom component to display during dragging.
-   * @type {CustomBuilder}
+   *
+   * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -160,23 +197,33 @@ interface RefreshOptions {
 
 /**
  * Provides a pull-down refresh interface.
+ *
+ * @interface RefreshInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Provides a pull-down refresh interface.
+ *
+ * @interface RefreshInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface RefreshInterface {
   /**
    * Called when the drop-down refresh is set.
-   * @param { { refreshing: boolean; offset?: number | string; friction?: number | string } }
+   *
+   * @param { RefreshOptions } value - The options of refresh component.
+   * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the drop-down refresh is set.
+   *
    * @param { RefreshOptions } value - The options of refresh component.
+   * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -186,20 +233,32 @@ interface RefreshInterface {
 
 /**
  * Defines the refresh attribute functions.
+ *
+ * @extends CommonMethod
  * @since 8
  */
 /**
  * Defines the refresh attribute functions.
+ *
+ * @extends CommonMethod
  * @crossplatform
  * @since 10
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Called when the refresh state changes.
+   *
+   * @param { (state: RefreshStatus) => void } callback
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the refresh state changes.
+   *
+   * @param { (state: RefreshStatus) => void } callback
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -207,10 +266,18 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
 
   /**
    * Called when the refresh state is entered.
+   *
+   * @param { () => void } callback
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the refresh state is entered.
+   *
+   * @param { () => void } callback
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -219,10 +286,14 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
 
 /**
  * Defines Refresh Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Refresh Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -230,10 +301,14 @@ declare const Refresh: RefreshInterface;
 
 /**
  * Defines Refresh Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Refresh Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

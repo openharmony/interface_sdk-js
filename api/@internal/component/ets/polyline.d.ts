@@ -15,18 +15,27 @@
 
 /**
  * Provides an interface for drawing polylines.
+ *
+ * @interface PolylineInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides an interface for drawing polylines.
- * @form
+ *
+ * @interface PolylineInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Provides an interface for drawing polylines.
- * @form
+ *
+ * @interface PolylineInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface PolylineInterface {
   /**
@@ -48,83 +57,122 @@ interface PolylineInterface {
 
   /**
    * Called when using the draw fold.
+   *
+   * @param { ?({ width?: string | number; height?: string | number }) } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when using the draw fold.
-   * @form
+   *
+   * @param { ?({ width?: string | number; height?: string | number }) } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when using the draw fold.
-   * @form
+   *
+   * @param { ?({ width?: string | number; height?: string | number }) } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 }
 
 /**
+ * @extends CommonShapeMethod
  * @since 7
  */
 /**
- * @form
+ * @extends CommonShapeMethod
  * @since 9
+ * @form
  */
 /**
- * @form
+ * @extends CommonShapeMethod
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
+   *
+   * @param { Array<any> } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the polyline is set to pass through the coordinate point list.
-   * @form
+   *
+   * @param { Array<any> } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the polyline is set to pass through the coordinate point list.
-   * @form
+   *
+   * @param { Array<any> } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   points(value: Array<any>): PolylineAttribute;
 }
 
 /**
  * Defines Polyline Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Polyline Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Polyline Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Polyline: PolylineInterface;
 
 /**
  * Defines Polyline Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Polyline Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Polyline Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const PolylineInstance: PolylineAttribute;
