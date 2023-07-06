@@ -1433,6 +1433,33 @@ declare namespace inputMethod {
      * @since 10
      */
     inputAttribute: InputAttribute;
+
+    /**
+     * Cursor information.
+     *
+     * @type { ?CursorInfo }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    cursorInfo?: CursorInfo;
+
+    /**
+     * Selection information.
+     *
+     * @type { ?Range }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    selection?: Range;
+
+    /**
+     * The window ID of the application currently bound to the input method.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    windowId?: number;
   }
 
   /**
