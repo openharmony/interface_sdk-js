@@ -20,7 +20,7 @@ import type businessAbilityRouter from './../@ohos.app.businessAbilityRouter';
  * Contains basic business ability information.
  *
  * @typedef BusinessAbilityInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 10
  */
@@ -29,7 +29,7 @@ export interface BusinessAbilityInfo {
    * Indicates the name of the bundle
    *
    * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -39,7 +39,7 @@ export interface BusinessAbilityInfo {
    * Indicates the name of the module
    *
    * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -49,7 +49,7 @@ export interface BusinessAbilityInfo {
    * Indicates the name of the business ability info
    *
    * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -59,7 +59,7 @@ export interface BusinessAbilityInfo {
    * Indicates the label id of the business ability info
    *
    * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -69,7 +69,7 @@ export interface BusinessAbilityInfo {
    * Indicates the description id of the business ability info
    *
    * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -79,7 +79,7 @@ export interface BusinessAbilityInfo {
    * Indicates the icon id of the business ability info
    *
    * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -89,7 +89,7 @@ export interface BusinessAbilityInfo {
    * Enumerates types of the business ability info
    *
    * @type { businessAbilityRouter.BusinessType }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -99,7 +99,7 @@ export interface BusinessAbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
