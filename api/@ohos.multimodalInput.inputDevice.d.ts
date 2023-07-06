@@ -495,8 +495,10 @@ declare namespace inputDevice {
    * Get the Keyboard Repetition Delay.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function getKeyboardRepeatDelay(callback: AsyncCallback<number>): void;
@@ -505,8 +507,10 @@ declare namespace inputDevice {
    * Get the Keyboard Repetition Delay.
    *
    * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function getKeyboardRepeatDelay(): Promise<number>;
@@ -537,8 +541,10 @@ declare namespace inputDevice {
    * Get Keyboard Key Repetition Rate.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function getKeyboardRepeatRate(callback: AsyncCallback<number>): void;
@@ -547,8 +553,10 @@ declare namespace inputDevice {
    * Get Keyboard Key Repetition Rate.
    *
    * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function getKeyboardRepeatRate(): Promise<number>;
