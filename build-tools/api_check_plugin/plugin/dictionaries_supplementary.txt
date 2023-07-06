@@ -292,6 +292,8 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hogp
+hsp
 hspa
 hspap
 htmltext
