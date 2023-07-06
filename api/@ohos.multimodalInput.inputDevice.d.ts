@@ -474,8 +474,10 @@ declare namespace inputDevice {
    *
    * @param { number } delay - Repeat delay time, the unit is ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatDelay(delay: number, callback: AsyncCallback<void>): void;
@@ -485,8 +487,10 @@ declare namespace inputDevice {
    *
    * @param { number } delay - Repeat delay time, the unit is ms.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatDelay(delay: number): Promise<void>;
@@ -520,8 +524,10 @@ declare namespace inputDevice {
    *
    * @param { number } rate - Repetition rate, the unit is ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatRate(rate: number, callback: AsyncCallback<void>): void;
@@ -531,8 +537,10 @@ declare namespace inputDevice {
    *
    * @param { number } rate - Repetition rate, the unit is ms.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatRate(rate: number): Promise<void>;
