@@ -68,6 +68,7 @@
     "SystemCapability.Multimedia.Audio.Communication",
     "SystemCapability.Multimedia.Audio.Interrupt",
     "SystemCapability.Multimedia.Audio.Tone",
+    "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.Camera.DistributedCore",
     "SystemCapability.Multimedia.Image.Core",
