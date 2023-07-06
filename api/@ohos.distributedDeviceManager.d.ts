@@ -100,9 +100,9 @@ declare namespace distributedDeviceManager {
     /**
      * Extra information. 
      * The type of extraInfo is key-value, The value type is string, The keys are as follows:
-     * targetPkgName - The packege name of binding target.
+     * targetPkgName - The package name of binding target.
      * appName - The app name that try to bind the target.
-     * appOperation - The reason why the app want to bind the target packege.
+     * appOperation - The reason why the app want to bind the target package.
      * @since 10
      */
     extraInfo: { [key: string]: Object };
@@ -302,7 +302,7 @@ declare namespace distributedDeviceManager {
      * @param bindParam parameters of device to bind. The parameter type is key-value, The keys are as follows:
      * bindType - This key is type of binding target, the value include:
      * 1 - The bind type is pin code .
-     * 2 - The bind type is QRcode.
+     * 2 - The bind type is QR code.
      * 3 - The bind type is nfc.
      * 4 - The bind type is no_interaction.
      * @param callback indicates the callback to be invoked upon bindDevice.
