@@ -4663,49 +4663,43 @@ export interface Watcher {
  * File filter type
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
+ * @since 10
  */
 export type Filter = {
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   suffix?: Array<string>;
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   displayName?: Array<string>;
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   mimeType?: Array<string>;
   /**
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   fileSizeOver?: number;
   /**
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   lastModifiedAfter?: number;
   /**
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   excludeMedia?: boolean;
 };
