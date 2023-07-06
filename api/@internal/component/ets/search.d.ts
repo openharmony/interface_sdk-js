@@ -19,10 +19,11 @@
  */
 /**
  * Provides the method of switching the cursor position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare class SearchController {
+declare class SearchController extends TextContentControllerBase {
   /**
    * constructor.
    * @since 8
@@ -239,12 +240,12 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the search button text, fontSize and fontColor
    * @param { string } value - indicates the text of the search button.
-   * @param { SearchButtonOption } option - indicates the fontSize and fontColor of the search button.
+   * @param { SearchButtonOptions } option - indicates the fontSize and fontColor of the search button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  searchButton(value: string, option?: SearchButtonOption): SearchAttribute;
+  searchButton(value: string, option?: SearchButtonOptions): SearchAttribute;
 
   /**
    * Set the text Color

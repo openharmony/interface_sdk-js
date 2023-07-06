@@ -205,6 +205,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
   lunar?: boolean;
 
   /**
+   * Whether to show the switch to display the lunar.
+   * @param { boolean } value - indicates whether to show the switch to display the lunar
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  lunarSwitch?: boolean;
+
+  /**
    * Indicates whether to show the time selector.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

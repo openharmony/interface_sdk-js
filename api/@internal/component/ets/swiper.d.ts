@@ -398,13 +398,8 @@ declare interface ArrowStyle {
 declare enum SwiperDisplayMode {
   /**
    * Carousel map extension.
-   * @since 7
-   */
-  /**
-   * Carousel map extension.
-   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 7
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#STRETCH
    */
@@ -412,13 +407,8 @@ declare enum SwiperDisplayMode {
 
   /**
    * The rotation chart is self linear.
-   * @since 7
-   */
-  /**
-   * The rotation chart is self linear.
-   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 7
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#AUTO_LINEAR
    */
@@ -522,6 +512,41 @@ declare interface IndicatorStyle {
    * @since 8
    */
   selectedColor?: ResourceColor;
+}
+
+/**
+ * Provides an interface for swiper animation.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SwiperAnimationEvent {
+  /**
+   * Offset of the current page to the start position of the swiper main axis. The unit is vp.
+   * @default 0.0 vp
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  currentOffset: number;
+
+  /**
+   * Offset of the target page to the start position of the swiper main axis. The unit is vp.
+   * @default 0.0 vp
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  targetOffset: number;
+
+  /**
+   * Start speed of the page-turning animation. The unit is vp/s.
+   * @default 0.0 vp/s
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  velocity: number;
 }
 
 /**
@@ -754,6 +779,24 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
 
   /**
+   * The previous margin which can be used to expose a small portion of the previous item.
+   * @param { Length } value - The length of previous margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  prevMargin(value: Length): SwiperAttribute;
+
+  /**
+   * The next margin which can be used to expose a small portion of the latter item.
+   * @param { Length } value - The length of next margin.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nextMargin(value: Length): SwiperAttribute;
+
+  /**
    * Called when the swiper animation start.
    * @param { number } index - the index value of the swiper page that when animation start.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -761,13 +804,16 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the swiper animation start.
-   * @param { number } index - the index value of the swiper page that when animation start.
+   * @param { (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void } event
+   * "index": the index value of the swiper page that when animation start.
+   * "targetIndex": the target index value of the swiper page that when animation start.
+   * "extraInfo": the extra callback info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @crossplatform
    * @since 10
    */
-  onAnimationStart(event: (index: number) => void): SwiperAttribute;
+  onAnimationStart(event: (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
 
   /**
    * Called when the swiper animation end.
@@ -777,13 +823,26 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the swiper animation end.
-   * @param { number } index - the index value of the swiper page that when animation end.
+   * @param { (index: number, extraInfo: SwiperAnimationEvent) => void } event
+   * "index": the index value of the swiper page that when animation end.
+   * "extraInfo": the extra callback info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @crossplatform
    * @since 10
    */
-  onAnimationEnd(event: (index: number) => void): SwiperAttribute;
+  onAnimationEnd(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+
+  /**
+   * Called when the swiper swipe with the gesture.
+   * @param { (index: number, extraInfo: SwiperAnimationEvent) => void } event
+   * "index": the index value of the swiper page before gesture swipe.
+   * "extraInfo": the extra callback info.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onGestureSwipe(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
 }
 
 /**

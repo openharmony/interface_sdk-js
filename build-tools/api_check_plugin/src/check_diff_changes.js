@@ -45,9 +45,11 @@ function checkHistoryJSDoc(newNodeJSDocs, oldNodeJSDocs) {
  * @returns {number}
  */
 function getJSDocVersion(JSDoc) {
-  for (let i = 0; i < JSDoc.length; i++) {
-    if (JSDoc.tags[i].tag === 'since') {
-      return Number.parseInt(JSDoc.tags[i].name);
+  if (JSDoc) {
+    for (let i = 0; i < JSDoc.tags.length; i++) {
+      if (JSDoc.tags[i].tag === 'since') {
+        return JSDoc.tags[i].name;
+      }
     }
   }
   return NaN;
@@ -83,17 +85,20 @@ function checkJSDocChange(tagName, currentJSDoc, lastJSDoc, customCheckCallback)
   const newTagValue = [];
   const oldTagValue = [];
   const addTags = [];
-
-  currentJSDoc.tags.forEach(tag => {
-    if (tag.tag === tagName) {
-      newTagValue.push(tag.name);
-    }
-  });
-  lastJSDoc.tags.forEach(tag => {
-    if (tag.tag === tagName) {
-      oldTagValue.push(tag.name);
-    }
-  });
+  if (currentJSDoc) {
+    currentJSDoc.tags.forEach(tag => {
+      if (tag.tag === tagName) {
+        newTagValue.push(tag.name);
+      }
+    });
+  }
+  if (lastJSDoc) {
+    lastJSDoc.tags.forEach(tag => {
+      if (tag.tag === tagName) {
+        oldTagValue.push(tag.name);
+      }
+    });
+  }
   newTagValue.forEach(newValue => {
     if (!new Set(oldTagValue).has(newValue)) {
       addTags.push(newValue);
@@ -122,7 +127,7 @@ function checkPermissionChange(newPermission, oldPermission) {
  */
 function checkCurrentJSDocChange(newNodeJSDocs, statusCode, node) {
   const currentJSDoc = newNodeJSDocs[newNodeJSDocs.length - 1];
-  const lastJSDoc = newNodeJSDocs[newNodeJSDocs.length - 2];
+  const lastJSDoc = newNodeJSDocs.length === 1 ? null : newNodeJSDocs[newNodeJSDocs.length - 2];
 
   checkApiChangeVersion(currentJSDoc, lastJSDoc, node);
 
@@ -257,7 +262,7 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
         errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE,
         LogType: LogType.LOG_API
       });
-    // 变更后参数范围大于变更前
+      // 变更后参数范围大于变更前
     } else if (currentParamType.length > historyParamType.length) {
       for (let j = 0; j < historyParamType.length; j++) {
         if (!new Set(currentParamType).has(historyParamType[j])) {
@@ -268,7 +273,7 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
           });
         }
       }
-    // 变更后参数范围小于变更前
+      // 变更后参数范围小于变更前
     } else {
       changeErrors.push({
         node: change.newNode,
@@ -333,6 +338,18 @@ function analysisParameters(params) {
  * @param {object} change api_diff获取的变更数据
  */
 function checkApiChangeEntry(change) {
+
+  const newNodeJSDocs = parseJsDoc(change.newNode);
+  const oldNodeJSDocs = parseJsDoc(change.oldNode);
+  if (oldNodeJSDocs.length === 1 && newNodeJSDocs.length === 1) {
+    const currentVersion = getJSDocVersion(newNodeJSDocs[0]);
+    const lastVersion = getJSDocVersion(oldNodeJSDocs[0]);
+    const checkApiVersion = getCheckApiVersion();
+    if (currentVersion === checkApiVersion && lastVersion === checkApiVersion) {
+      return;
+    }
+  }
+
   const currentParameters = analysisParameters(change.newNode.parameters);
   const lastParameters = analysisParameters(change.oldNode.parameters);
 
