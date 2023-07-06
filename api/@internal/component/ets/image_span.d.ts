@@ -15,6 +15,8 @@
 
 /**
  * Provide image decoration in the text component.
+ *
+ * @interface ImageSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -22,7 +24,8 @@
 interface ImageSpanInterface {
   /**
    * Called when image is entered in span.
-   * @param { ResourceStr | PixelMap } - The image resource.
+   *
+   * @param { ResourceStr | PixelMap } value - The image resource.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -33,6 +36,8 @@ interface ImageSpanInterface {
 
 /**
  * Define the ImageSpan attribute functions.
+ *
+ * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -40,6 +45,7 @@ interface ImageSpanInterface {
 declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
   /**
    * Called when the alignment of image span is set.
+   *
    * @param { ImageSpanAlignment } value - The alignment type of image span.
    * @default ImageSpanAlignment.BOTTOM
    * @returns { ImageSpanAttribute } The attribute of the image span.
@@ -51,6 +57,7 @@ declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
 
   /**
    * Sets the zoom type of an image.
+   *
    * @param { ImageFit } value - Image display mode.
    * @default ImageFit.Cover
    * @returns { ImageSpanAttribute } The attribute of the image span.
@@ -63,6 +70,7 @@ declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
 
 /**
  * Defines ImageSpan Component instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -71,6 +79,7 @@ declare const ImageSpan: ImageSpanInterface;
 
 /**
  * Defines ImageSpan Component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10

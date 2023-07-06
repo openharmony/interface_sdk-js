@@ -15,20 +15,32 @@
 
 /**
  * Defines the ColumnSplit component.
+ *
+ * @interface ColumnSplitInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the ColumnSplit component.
+ *
+ * @interface ColumnSplitInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface ColumnSplitInterface {
   /**
    * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+   *
+   * @returns { ColumnSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+   *
+   * @returns { ColumnSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -37,20 +49,34 @@ interface ColumnSplitInterface {
 
 /**
  * Defines the ColumnSplit component attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the ColumnSplit component attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
    * Indicates whether the split line can be dragged. The default value is false.
+   *
+   * @param { boolean } value
+   * @returns { ColumnSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Indicates whether the split line can be dragged. The default value is false.
+   *
+   * @param { boolean } value
+   * @returns { ColumnSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -59,10 +85,14 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
 
 /**
  * Defines ColumnSplit Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines ColumnSplit Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -70,10 +100,14 @@ declare const ColumnSplitInstance: ColumnSplitAttribute;
 
 /**
  * Defines ColumnSplit Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines ColumnSplit Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

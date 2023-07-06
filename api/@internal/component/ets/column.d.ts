@@ -15,125 +15,191 @@
 
 /**
  * Defines the Column Component.
+ *
+ * @interface ColumnInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Column Component.
- * @form
+ *
+ * @interface ColumnInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the Column Component.
- * @form
+ *
+ * @interface ColumnInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface ColumnInterface {
   /**
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
+   *
+   * @param { ?{ space?: string | number } } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
-   * @form
+   *
+   * @param { ?{ space?: string | number } } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
-   * @form
+   *
+   * @param { ?{ space?: string | number } } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (value?: { space?: string | number }): ColumnAttribute;
 }
 
 /**
  * Defines the Column component attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Column component attribute functions.
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the Column component attribute functions.
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
+   *
+   * @param { HorizontalAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
-   * @form
+   *
+   * @param { HorizontalAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
-   * @form
+   *
+   * @param { HorizontalAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 
   /**
    * Sets the alignment format of the subassembly in the vertical direction.
+   *
+   * @param { FlexAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the alignment format of the subassembly in the vertical direction.
-   * @form
+   *
+   * @param { FlexAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the alignment format of the subassembly in the vertical direction.
-   * @form
+   *
+   * @param { FlexAlign } value
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
 }
 
 /**
  * Defines Column Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Column Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Column Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Column: ColumnInterface;
 
 /**
  * Defines Column Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Column Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Column Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const ColumnInstance: ColumnAttribute;

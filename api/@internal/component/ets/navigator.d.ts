@@ -15,20 +15,30 @@
 
 /**
  * Route jump.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Route jump.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum NavigationType {
   /**
    * Jump to the next page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Jump to the next page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@ declare enum NavigationType {
 
   /**
    * Return to the previous page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Return to the previous page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -47,10 +61,14 @@ declare enum NavigationType {
 
   /**
    * Replace page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Replace page.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -59,20 +77,34 @@ declare enum NavigationType {
 
 /**
  * Create route
+ * 
+ * @interface NavigatorInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Create route
+ * 
+ * @interface NavigatorInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface NavigatorInterface {
   /**
    * Called when the route jumps.
+   * 
+   * @param { ?({ target: string; type?: NavigationType }) } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the route jumps.
+   * 
+   * @param { ?({ target: string; type?: NavigationType }) } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -80,10 +112,16 @@ interface NavigatorInterface {
 
   /**
    * Called when using the navigator.
+   * 
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when using the navigator.
+   * 
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -92,20 +130,34 @@ interface NavigatorInterface {
 
 /**
  * Declare navigator properties.
+ * 
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Declare navigator properties.
+ * 
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
    * Called when determining whether the routing component is active.
+   * 
+   * @param { boolean } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when determining whether the routing component is active.
+   * 
+   * @param { boolean } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -113,10 +165,18 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 
   /**
    * Called when determining whether the routing component is active.
+   * 
+   * @param { NavigationType } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when determining whether the routing component is active.
+   * 
+   * @param { NavigationType } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -124,10 +184,18 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 
   /**
    * Called when the path to the specified jump target page is set.
+   * 
+   * @param { string } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the path to the specified jump target page is set.
+   * 
+   * @param { string } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -135,10 +203,18 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 
   /**
    * Called when data is passed to the target page at the same time during jump.
+   * 
+   * @param { object } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when data is passed to the target page at the same time during jump.
+   * 
+   * @param { object } value
+   * @returns { NavigatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -147,10 +223,14 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 
 /**
  * Defines Navigator Component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Navigator Component.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -158,10 +238,14 @@ declare const Navigator: NavigatorInterface;
 
 /**
  * Defines Navigator Component instance.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Navigator Component instance.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

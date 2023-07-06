@@ -15,1014 +15,1382 @@
 
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
- * @since 7
+ *
+ * @interface CalendarDay
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
- * @form
+ *
+ * @interface CalendarDay
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface CalendarDay {
   /**
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
    * The week sequence is one, two, three, four, five, six.
-   * @since 7
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
    * The week sequence is one, two, three, four, five, six.
-   * @form
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   index: number;
 
   /**
    * Lunar moon.
    * The week sequence is one, two, three, four, five, six.
-   * @since 7
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Lunar moon.
    * The week sequence is one, two, three, four, five, six.
-   * @form
+   *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   lunarMonth: string;
 
   /**
    * Lunar day.
-   * @since 7
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Lunar day.
-   * @form
+   *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   lunarDay: string;
 
   /**
    * Day.
-   * @since 7
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Day.
-   * @form
+   *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dayMark: string;
 
   /**
    * Indicates the off-duty flag information. The options are work and off.By default, the off-duty flag information is not required.
-   * @since 7
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Indicates the off-duty flag information. The options are work and off.By default, the off-duty flag information is not required.
-   * @form
+   *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dayMarkValue: string;
 
   /**
    * Gregorian calendar year.
-   * @since 7
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Gregorian calendar year.
-   * @form
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   year: number;
 
   /**
    * Gregorian calendar month.
-   * @since 7
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Gregorian calendar month.
-   * @form
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   month: number;
 
   /**
    * Gregorian calendar day.
-   * @since 7
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Gregorian calendar day.
-   * @form
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   day: number;
 
   /**
-   *
    * Indicates whether the default value is Lunar calendar.
-   * @since 7
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
-   *
    * Indicates whether the default value is Lunar calendar.
-   * @form
+   *
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   isFirstOfLunar: boolean;
 
   /**
    * Indicates whether to display has Schedule.
    * The week sequence is one, two, three, four, five, six.
-   * @since 7
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Indicates whether to display has Schedule.
    * The week sequence is one, two, three, four, five, six.
-   * @form
+   *
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   hasSchedule: boolean;
 
   /**
    * Display Lunar Date.The week sequence is one, two, three, four, five, six.
-   * @since 7
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Display Lunar Date.The week sequence is one, two, three, four, five, six.
-   * @form
+   *
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   markLunarDay: boolean;
 }
 
 /**
  * Date object.
- * @since 7
+ *
+ * @interface MonthData
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Date object.
- * @form
+ *
+ * @interface MonthData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface MonthData {
   /**
    * Gregorian calendar year.
-   * @since 7
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Gregorian calendar year.
-   * @form
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   year: number;
 
   /**
    * Gregorian calendar month.
-   * @since 7
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Gregorian calendar month.
-   * @form
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   month: number;
 
   /**
    * CalendarDay.
-   * @since 7
+   *
+   * @type { CalendarDay[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * CalendarDay.
-   * @form
+   *
+   * @type { CalendarDay[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   data: CalendarDay[];
 }
 
 /**
  * CurrentDayStyle object.
- * @since 7
+ *
+ * @interface CurrentDayStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * CurrentDayStyle object.
- * @form
+ *
+ * @interface CurrentDayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface CurrentDayStyle {
   /**
    * Text color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Text color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dayColor?: ResourceColor;
 
   /**
    * lunar Text color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * lunar Text color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   lunarColor?: ResourceColor;
 
   /**
    * lunar  Work and rest  text color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * lunar  Work and rest  text color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   markLunarColor?: ResourceColor;
 
   /**
    * Text fontSize.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Text fontSize.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dayFontSize?: number;
 
   /**
    * lunar text fontSize.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * lunar text fontSize.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   lunarDayFontSize?: number;
 
   /**
    * Single date height.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Single date height.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dayHeight?: number;
 
   /**
    * Single date width.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Single date width.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dayWidth?: number;
 
   /**
    * Gregorian calendar height.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Gregorian calendar height.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   gregorianCalendarHeight?: number;
 
   /**
    * Data y axis Off set.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Data y axis Off set.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dayYAxisOffset?: number;
 
   /**
    * Lunar data y axis Off set.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Lunar data y axis Off set.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   lunarDayYAxisOffset?: number;
 
   /**
    * Under score X Axis Off set.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Under score X Axis Off set.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   underscoreXAxisOffset?: number;
 
   /**
    * Under score Y Axis Off set
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Under score Y Axis Off set
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   underscoreYAxisOffset?: number;
 
   /**
    * Schedule marker X axis Off set
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Schedule marker X axis Off set
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   scheduleMarkerXAxisOffset?: number;
 
   /**
    * schedule Marker Y Axis Off set
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * schedule Marker Y Axis Off set
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   scheduleMarkerYAxisOffset?: number;
 
   /**
    * Number of columns.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Number of columns.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   colSpace?: number;
 
   /**
    * Daily five row space.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Daily five row space.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dailyFiveRowSpace?: number;
 
   /**
    * Daily six row space.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Daily six row space.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   dailySixRowSpace?: number;
 
   /**
    * Single lunar height.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Single lunar height.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   lunarHeight?: number;
 
   /**
    * Under score width.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Under score width.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   underscoreWidth?: number;
 
   /**
    * Under score length.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Under score length.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   underscoreLength?: number;
 
   /**
    * Schedule marker radius.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Schedule marker radius.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   scheduleMarkerRadius?: number;
 
   /**
    * Boundary row offset.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Boundary row offset.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   boundaryRowOffset?: number;
 
   /**
    * Boundary col offset.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Boundary col offset.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   boundaryColOffset?: number;
 }
 
 /**
  * Non current day style.
- * @since 7
+ *
+ * @interface NonCurrentDayStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Non current day style.
- * @form
+ *
+ * @interface NonCurrentDayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface NonCurrentDayStyle {
   /**
    * Non-current month day color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Non-current month day color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   nonCurrentMonthDayColor?: ResourceColor;
 
   /**
    * Lunar style of non-current month.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Lunar style of non-current month.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   nonCurrentMonthLunarColor?: ResourceColor;
 
   /**
    * Non-Current Month Workday Marker Color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Non-Current Month Workday Marker Color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   nonCurrentMonthWorkDayMarkColor?: ResourceColor;
 
   /**
    * Non-Current Month Off Day Marker Color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Non-Current Month Off Day Marker Color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   nonCurrentMonthOffDayMarkColor?: ResourceColor;
 }
 
 /**
  * Non current day style.
- * @since 7
+ *
+ * @interface TodayStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Non current day style.
- * @form
+ *
+ * @interface TodayStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface TodayStyle {
   /**
    * Style of focus color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of focus color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   focusedDayColor?: ResourceColor;
 
   /**
    * Focus on Lunar Colors.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Focus on Lunar Colors.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   focusedLunarColor?: ResourceColor;
 
   /**
    * Background color of the focus area.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Background color of the focus area.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   focusedAreaBackgroundColor?: ResourceColor;
 
   /**
    * Focus area radius.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Focus area radius.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   focusedAreaRadius?: number;
 }
 
 /**
  * Week Style.
- * @since 7
+ *
+ * @interface WeekStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Week Style.
- * @form
+ *
+ * @interface WeekStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface WeekStyle {
   /**
    * Style of week color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of week color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekColor?: ResourceColor;
 
   /**
    * Style of week day color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of week day color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekendDayColor?: ResourceColor;
 
   /**
    * Style of lunar color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of lunar color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekendLunarColor?: ResourceColor;
 
   /**
    * Style of week font size.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of week font size.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekFontSize?: number;
 
   /**
    * Style of week height.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of week height.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekHeight?: number;
 
   /**
    * Style of week width.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of week width.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekWidth?: number;
 
   /**
    * Style of week space.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of week space.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekAndDayRowSpace?: number;
 }
 
 /**
  * Work state style.
- * @since 7
+ *
+ * @interface WorkStateStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Work state style.
- * @form
+ *
+ * @interface WorkStateStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface WorkStateStyle {
   /**
    * Style of day color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of day color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   workDayMarkColor?: ResourceColor;
 
   /**
    * Style of day color.
-   * @since 7
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of day color.
-   * @form
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   offDayMarkColor?: ResourceColor;
 
   /**
    * Style of day size.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of day size.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   workDayMarkSize?: number;
 
   /**
    * Style of day size.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of day size.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   offDayMarkSize?: number;
 
   /**
    * Style of width.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of width.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   workStateWidth?: number;
 
   /**
    * Style of distance.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of distance.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   workStateHorizontalMovingDistance?: number;
 
   /**
    * Style of distance.
-   * @since 7
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Style of distance.
-   * @form
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   workStateVerticalMovingDistance?: number;
 }
 
 /**
  * Calendar controller.
- * @since 7
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Calendar controller.
- * @form
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 declare class CalendarController {
   /**
    * Constructor.
-   * @since 7
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Constructor.
-   * @form
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   constructor();
 
   /**
    * Back to day.
-   * @since 7
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Back to day.
-   * @form
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   backToToday();
 
   /**
    * To the specified element.
-   * @since 7
+   *
+   * @param { { year: number; month: number; day: number } } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * To the specified element.
-   * @form
+   *
+   * @param { { year: number; month: number; day: number } } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   goTo(value: { year: number; month: number; day: number });
 }
 
 /**
- * @since 7
+ * Calendar Interface
+ *
+ * @interface CalendarInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
- * @form
+ * Calendar Interface
+ *
+ * @interface CalendarInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 interface CalendarInterface {
   /**
    * Set value.
-   * @since 7
+   *
+   * @param { {
+   *  date: { year: number; month: number; day: number };
+   *  currentData: MonthData;
+   *  preData: MonthData;
+   *  nextData: MonthData;
+   *  controller?: CalendarController;
+   *  } } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Set value.
-   * @form
+   *
+   * @param { {
+   *  date: { year: number; month: number; day: number };
+   *  currentData: MonthData;
+   *  preData: MonthData;
+   *  nextData: MonthData;
+   *  controller?: CalendarController;
+   *  } } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   (value: {
     date: { year: number; month: number; day: number };
@@ -1034,195 +1402,299 @@ interface CalendarInterface {
 }
 
 /**
- * @since 7
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
- * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 declare class CalendarAttribute {
   /**
    * Specifies whether the component displays the lunar calendar information.
-   * @since 7
+   *
+   * @param { boolean } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Specifies whether the component displays the lunar calendar information.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   showLunar(value: boolean): CalendarAttribute;
 
   /**
    * Setting whether to display holiday information
-   * @since 7
+   *
+   * @param { boolean } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Setting whether to display holiday information
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   showHoliday(value: boolean): CalendarAttribute;
 
   /**
    * Indicates whether the page can be scrolled.
-   * @since 7
+   *
+   * @param { boolean } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Indicates whether the page can be scrolled.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   needSlide(value: boolean): CalendarAttribute;
 
   /**
    * Set the start day of the week for the calendar.
-   * @since 7
+   *
+   * @param { number } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Set the start day of the week for the calendar.
-   * @form
+   *
+   * @param { number } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   startOfWeek(value: number): CalendarAttribute;
 
   /**
    * Set weekend. The default value is Sunday and Saturday.
-   * @since 7
+   *
+   * @param { number } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Set weekend. The default value is Sunday and Saturday.
-   * @form
+   *
+   * @param { number } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   offDays(value: number): CalendarAttribute;
 
   /**
    * Sets the sliding direction.
-   * @since 7
+   *
+   * @param { Axis } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Sets the sliding direction.
-   * @form
+   *
+   * @param { Axis } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   direction(value: Axis): CalendarAttribute;
 
   /**
    * Sets the date style in the current month.
-   * @since 7
+   *
+   * @param { CurrentDayStyle } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Sets the date style in the current month.
-   * @form
+   *
+   * @param { CurrentDayStyle } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   currentDayStyle(value: CurrentDayStyle): CalendarAttribute;
 
   /**
    * Sets the non-monthly date style.
-   * @since 7
+   *
+   * @param { NonCurrentDayStyle } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Sets the non-monthly date style.
-   * @form
+   *
+   * @param { NonCurrentDayStyle } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   nonCurrentDayStyle(value: NonCurrentDayStyle): CalendarAttribute;
 
   /**
    * Set the date style for today.
-   * @since 7
+   *
+   * @param { TodayStyle } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Set the date style for today.
-   * @form
+   *
+   * @param { TodayStyle } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   todayStyle(value: TodayStyle): CalendarAttribute;
 
   /**
    * Sets the date style for the weekend.
-   * @since 7
+   *
+   * @param { WeekStyle } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Sets the date style for the weekend.
-   * @form
+   *
+   * @param { WeekStyle } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   weekStyle(value: WeekStyle): CalendarAttribute;
 
   /**
    * Sets the style of the working state.
-   * @since 7
+   *
+   * @param { WorkStateStyle } value
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Sets the style of the working state.
-   * @form
+   *
+   * @param { WorkStateStyle } value
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   workStateStyle(value: WorkStateStyle): CalendarAttribute;
 
   /**
    * Click a date to return the information about the date you clicked.
-   * @since 7
+   *
+   * @param { (event: { year: number; month: number; day: number }) => void } event
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * Click a date to return the information about the date you clicked.
-   * @form
+   *
+   * @param { (event: { year: number; month: number; day: number }) => void } event
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   onSelectChange(event: (event: { year: number; month: number; day: number }) => void): CalendarAttribute;
 
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
-   * @since 7
+   *
+   * @param { (event: {
+   *   year: number;
+   *   month: number;
+   *   currentYear: number;
+   *   currentMonth: number;
+   *   monthState: number;
+   * }) => void } event
+   * @returns { CalendarAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
-   * @form
+   *
+   * @param { (event: {
+   *   year: number;
+   *   month: number;
+   *   currentYear: number;
+   *   currentMonth: number;
+   *   monthState: number;
+   * }) => void } event
+   * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
    * @systemapi
+   * @since 10
+   * @form
    */
   onRequestData(
     event: (event: {
@@ -1237,28 +1709,34 @@ declare class CalendarAttribute {
 
 /**
  * Defines Calendar Component.
- * @since 7
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Defines Calendar Component.
- * @form
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 declare const Calendar: CalendarInterface;
 
 /**
  * Defines Calendar Component instance.
- * @since 7
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 7
  */
 /**
  * Defines Calendar Component instance.
- * @form
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
  * @systemapi
+ * @since 10
+ * @form
  */
 declare const CalendarInstance: CalendarAttribute;
