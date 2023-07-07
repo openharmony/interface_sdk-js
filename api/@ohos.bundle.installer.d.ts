@@ -472,7 +472,7 @@ declare namespace installer {
     userId?: number;
 
     /**
-     * Indicates the install flag, which 0x00 for normal, 0x10 for freeInstall
+     * Indicates the installation type. The value 0x00 means normal installation, 0x01 means overwrite installation, and 0x10 means installation-free.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
