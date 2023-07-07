@@ -321,7 +321,6 @@ public class FileUtils {
      * @throws IOException If an I/O error occurs
      */
     public static String getJsonString(File buildFile) throws IOException {
-        String jsonStr;
         FileReader fileReader = new FileReader(buildFile);
         Reader reader = new InputStreamReader(new FileInputStream(buildFile), StandardCharsets.UTF_8);
         int ch = 0;
@@ -331,8 +330,7 @@ public class FileUtils {
         }
         fileReader.close();
         reader.close();
-        jsonStr = stringBuilder.toString();
-        return jsonStr;
+        return stringBuilder.toString();
     }
 
 }
