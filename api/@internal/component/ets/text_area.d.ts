@@ -557,6 +557,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   style(value: TextContentStyle): TextAreaAttribute;
 
   /**
+   * Define bar state of the text area.
+   * @param { BarState }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  barState(value: BarState): TextAreaAttribute;
+
+  /**
    * Controls whether the selection menu pops up.
    * @param { boolean } value
    * @default false
