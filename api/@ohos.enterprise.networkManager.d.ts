@@ -27,6 +27,370 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace networkManager {
   /**
+   * Iptables rule add method.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  enum AddMethod {
+    /**
+     * Append method
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    APPEND = 0,
+
+    /**
+     * Insert method
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    INSERT = 1
+  }
+
+  /**
+   * Iptables rule direction.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  enum Direction {
+    /**
+     * Input direction
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    INPUT = 0,
+
+    /**
+     * Output direction
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    OUTPUT = 1
+  }
+
+  /**
+   * Iptables rule action.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  enum Action {
+    /**
+     * Action allow
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    ALLOW = 0,
+
+    /**
+     * Action deny
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    DENY = 1
+  }
+
+  /**
+   * Iptables rule protocol
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  enum Protocol {
+    /**
+     * Protocol all
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    ALL = 0,
+
+    /**
+     * Protocol tcp
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    TCP = 1,
+
+    /**
+     * Protocol udp
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    UDP = 2,
+
+    /**
+     * Protocol icmp
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    ICMP = 3
+  }
+
+  /**
+   * Iptables add filter rule
+   *
+   * @typedef AddFilterRule
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  interface AddFilterRule {
+    /**
+     * Iptables rule num
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    ruleNo?: number;
+
+    /**
+     * Iptables ip source address
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    srcAddr?: string;
+
+    /**
+     * Iptables ip destination address
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    destAddr?: string;
+
+    /**
+     * Iptables source port
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    srcPort?: string;
+
+    /**
+     * Iptables destination port
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    destPort?: string;
+
+    /**
+     * Application uid
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    uid?: string;
+
+    /**
+     * Add method
+     *
+     * @type { AddMethod }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    method: AddMethod;
+
+    /**
+     * Direction
+     *
+     * @type { Direction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    direction: Direction;
+
+    /**
+     * Action
+     *
+     * @type { Action }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    action: Action;
+
+    /**
+     * Protocol
+     *
+     * @type { ?Protocol }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    protocol?: Protocol;
+  }
+
+  /**
+   * Iptables remove filter rule
+   *
+   * @typedef RemoveFilterRule
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  interface RemoveFilterRule {
+    /**
+     * Iptables ip source address
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    srcAddr?: string;
+
+    /**
+     * Iptables ip destination address
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    destAddr?: string;
+
+    /**
+     * Iptables source port
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    srcPort?: string;
+
+    /**
+     * Iptables destination port
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    destPort?: string;
+
+    /**
+     * Application uid
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    uid?: string;
+
+    /**
+     * Direction
+     *
+     * @type { Direction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    direction: Direction;
+
+    /**
+     * Action
+     *
+     * @type { ?Action }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    action?: Action;
+
+    /**
+     * Protocol
+     *
+     * @type { ?Protocol }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    protocol?: Protocol;
+  }
+
+  /**
    * Gets all of the network interfaces of the device.
    * This function can be called by a super administrator.
    *
@@ -225,6 +589,124 @@ declare namespace networkManager {
    * @since 10
    */
   function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): Promise<void>;
+
+  /**
+   * Add iptables filter rule by {@link AddFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AddFilterRule } filterRule - iptables filter rule configuration information.
+   * @param { AsyncCallback<void> } callback - the callback of addIptablesFilterRule.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function addIptablesFilterRule(admin: Want, filterRule: AddFilterRule, callback: AsyncCallback<void>): void;
+
+  /**
+   * Add iptables filter rule by {@link AddFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AddFilterRule } filterRule - iptables filter rule configuration information.
+   * @returns { Promise<void> } the promise returned by the addIptablesFilterRule.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function addIptablesFilterRule(admin: Want, filterRule: AddFilterRule): Promise<void>;
+
+  /**
+   * Remove iptables filter rule by {@link RemoveFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { RemoveFilterRule } filterRule - iptables filter rule configuration information.
+   * @param { AsyncCallback<void> } callback - the callback of removeIptablesFilterRule.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function removeIptablesFilterRule(admin: Want, filterRule: RemoveFilterRule, callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove iptables filter rule by {@link RemoveFilterRule}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { RemoveFilterRule } filterRule - iptables filter rule configuration information.
+   * @returns { Promise<void> } the promise returned by the removeIptablesFilterRule.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function removeIptablesFilterRule(admin: Want, filterRule: RemoveFilterRule): Promise<void>;
+
+  /**
+   * Query iptables rule and list the result.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AsyncCallback<string> } callback - the callback carries the iptables rules in the table filter.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function listIptablesFilterRules(admin: Want, callback: AsyncCallback<string>): void;
+
+  /**
+   * Query iptables rule and list the result.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Promise<string> } the promise carries the iptables rules in the table filter.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function listIptablesFilterRules(admin: Want): Promise<string>;
 }
 
 export default networkManager;
