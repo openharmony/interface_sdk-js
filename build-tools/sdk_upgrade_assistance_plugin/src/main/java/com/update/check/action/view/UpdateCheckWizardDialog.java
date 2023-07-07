@@ -340,8 +340,9 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
     private void judgeCollDiff(List<CollectApplicationApiDto> allApiResult, ApiDiffResultDto apiDto) {
         for (CollectApplicationApiDto collApiDto : allApiResult) {
             if (this.judgeApi(apiDto, collApiDto)) {
-                if (this.generateReportData(apiDto, collApiDto) != null) {
-                    this.updateCheckReportDtos.add(this.generateReportData(apiDto, collApiDto));
+                UpdateCheckReportDto reportDtoToCheck = this.generateReportData(apiDto, collApiDto);
+                if (reportDtoToCheck != null) {
+                    this.updateCheckReportDtos.add(reportDtoToCheck);
                 }
             }
         }

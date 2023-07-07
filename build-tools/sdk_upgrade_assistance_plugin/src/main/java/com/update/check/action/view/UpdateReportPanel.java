@@ -126,8 +126,6 @@ public class UpdateReportPanel implements Disposable {
     private void setTableStyle() {
         LOGGER.info(LOG_TAG, "Start rendering JTable");
         DefaultComboBoxModel<String> types = new DefaultComboBoxModel<>(ResourceFileUtil.getChooseTypes());
-        Report report = new Report(0);
-        this.updateReport.setModel(report);
         this.setUpdateReportStyle();
         chooseType.setModel(types);
         this.chooseType.addItemListener(e -> {
