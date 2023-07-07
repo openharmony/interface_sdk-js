@@ -2950,6 +2950,51 @@ declare interface TouchObject {
 }
 
 /**
+ * TouchObject getHistoricalPoints Function Parameters
+ * @interface HistoricalPoint 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface HistoricalPoint {
+  /**
+   * The base touchObject information of historicalPoint
+   * @type { TouchObject }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  touchObject: TouchObject;
+
+  /**
+   * Contact area between the finger pad and the screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  size: number;
+
+  /**
+   * Pressure of the touch event.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  force: number;
+
+  /**
+   * Timestamp of the touch event.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  timestamp: number;
+}
+
+/**
  * Touch Action Function Parameters
  * @since 7
  */
@@ -3002,6 +3047,15 @@ declare interface TouchEvent extends BaseEvent {
    * @since 10
    */
   stopPropagation?: () => void;
+
+  /**
+   * Get the historical points.
+   * @returns { Array<HistoricalPoint> } - return all historical points.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getHistoricalPoints(): Array<HistoricalPoint>;
 }
 
 /**
