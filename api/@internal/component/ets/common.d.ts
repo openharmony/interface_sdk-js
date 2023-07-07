@@ -5287,15 +5287,15 @@ declare class CommonMethod<T> {
    */
   backdropBlur(value: number): T;
 
-
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
-   * @param value if this view and its children need to composite into an offscreen cache.
-   * @form
+   * @param { boolean } value if this view and its children need to composite into an offscreen cache.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  renderGroup(value: bool): T;
+  renderGroup(value: boolean): T;
 
   /**
    * Sets the translation effect during page transition.
