@@ -17,6 +17,7 @@ import { AsyncCallback } from './basic';
 
 /**
  * Provide APIs to set system uiAppearance.
+ *
  * @namespace uiAppearance
  * @syscap SystemCapability.ArkUI.UiAppearance
  * @systemapi hide this for inner system use
@@ -25,6 +26,7 @@ import { AsyncCallback } from './basic';
 declare namespace uiAppearance {
   /**
    * Enumerates dark-mode.
+   *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
@@ -33,6 +35,7 @@ declare namespace uiAppearance {
   enum DarkMode {
     /**
      * Always display with dark mode.
+     *
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
      * @since 10
@@ -41,6 +44,7 @@ declare namespace uiAppearance {
 
     /**
      * Always display with light mode.
+     *
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
      * @since 10
@@ -50,6 +54,7 @@ declare namespace uiAppearance {
 
   /**
    * Set the system dark-mode.
+   *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
    * @param { AsyncCallback<void> } callback - the callback of setDarkMode
@@ -61,6 +66,7 @@ declare namespace uiAppearance {
 
   /**
    * Set the system dark-mode.
+   *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
    * @returns { Promise<void> } the promise returned by the function
@@ -72,8 +78,9 @@ declare namespace uiAppearance {
 
   /**
    * Acquire the current dark-mode.
+   *
    * @permission ohos.permission.UPDATE_CONFIGURATION
-   * @returns current dark-mode.
+   * @returns { DarkMode } current dark-mode.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
    * @since 10
