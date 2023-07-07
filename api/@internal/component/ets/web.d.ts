@@ -2197,6 +2197,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onControllerAttached(callback: () => void): WebAttribute;
+
+  /**
+   * Triggered when the over scrolling.
+   * @param callback Function Triggered when the over scrolling.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
 }
 
 /**
