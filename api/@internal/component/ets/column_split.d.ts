@@ -43,25 +43,25 @@ interface ColumnSplitInterface {
  * @since 10
  */
 interface DividerStyle {
-    /**
-     * Define the start margin of the divider
-     * @type { Length }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    startMargin?: Length;
+  /**
+   * Define the start margin of the divider
+   * @type { Dimension }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  startMargin?: Dimension;
 
-    /**
-     * Define the end margin of the divider
-     * @type { Length }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    endMargin?: Length;
+  /**
+   * Define the end margin of the divider
+   * @type { Dimension }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  endMargin?: Dimension;
 }
 
 /**
