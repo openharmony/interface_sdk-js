@@ -191,7 +191,6 @@ declare namespace effectKit {
    */
   /**
    * Create a color picker to get color of an image.
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @param { image.PixelMap } source - the source pixelmap.
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates,
