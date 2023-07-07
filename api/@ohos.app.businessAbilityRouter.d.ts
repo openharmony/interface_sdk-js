@@ -14,7 +14,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-import type * as _BusinessAbilityInfo from './bundleManager/BusinessAbilityInfo';
+import type * as _BusinessAbilityInfo from './application/BusinessAbilityInfo';
 
 /**
  * This module is used to obtain business ability information of various applications installed on the current device.
