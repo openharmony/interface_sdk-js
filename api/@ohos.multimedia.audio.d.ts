@@ -893,6 +893,7 @@ declare namespace audio {
 
   /**
    * Enumerates audio stream privacy type for playback capture.
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10
    */
@@ -3346,6 +3347,7 @@ declare namespace audio {
 
   /**
    * Describe playback capture filtering options
+   * @typedef CaptureFilterOptions
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10
    */
@@ -3361,6 +3363,7 @@ declare namespace audio {
 
   /**
    * Describe playback capture config object.
+   * @typedef AudioPlaybackCaptureConfig
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10
    */
