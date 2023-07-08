@@ -25,7 +25,7 @@ import type { Callback } from './@ohos.base';
  */
 
 declare namespace distributedDeviceManager {
-  
+
   /**
    * Basic description information of a distributed device.
    * @interface DeviceBasicInfo
@@ -34,25 +34,32 @@ declare namespace distributedDeviceManager {
    */
   interface DeviceBasicInfo {
     /**
-     * Device id.
+     * Device unique identifier, The actual value is the udid-hash confused with the appid baseed on sha256.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     deviceId: string;
 
     /**
      * Device name.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     deviceName: string;
 
     /**
-     * Device type.
+     * Device type. Currently, only support the following device types:
+     *    12 - Indicates a smart pc.
+     *    14 - Indicates a smart phone.
+     *    17 - Indicates a smart pad.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     deviceType: number;
 
     /**
      * Device network id.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     networkId?: string;
@@ -66,19 +73,23 @@ declare namespace distributedDeviceManager {
    */
   enum DeviceStatusChange {
     /**
-     * Unknown status.
+     * This status indicates the device is online but the status is unknown,The distributed function cannot used until
+     * status changes to AVAILABLE.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     UNKNOWN = 0,
 
     /**
-     * Available status.
+     * This status indicates the device has been synchronized to the database, Now the distributed function can be used.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     AVAILABLE = 1,
 
     /**
-     * Unavailable status.
+     * This status indicates the device is offline.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     UNAVAILABLE = 2,
@@ -92,17 +103,23 @@ declare namespace distributedDeviceManager {
    */
   interface BindParam {
     /**
-     * Bind type, 1 for pin code.
+     * This value is type of bind, the values are as follows:
+     *    1 - The bind type is pin code .
+     *    2 - The bind type is QR code.
+     *    3 - The bind type is nfc.
+     *    4 - The bind type is no_interaction.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     bindType: number;
 
     /**
-     * Extra information. 
-     * The type of extraInfo is key-value, The value type is string, The keys are as follows:
-     * targetPkgName - The package name of binding target.
-     * appName - The app name that try to bind the target.
-     * appOperation - The reason why the app want to bind the target package.
+     * Information displayed in the autentication dialog box.
+     * The type of extraInfo is object, The key-value are as follows:
+     *    "targetPkgName" : xxxx - The package name of binding target.
+     *    "appName" : xxxx       - The app name that try to bind the target.
+     *    "appOperation" : xxxx  - The reason why the app want to bind the target package.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     extraInfo: { [key: string]: Object };
@@ -111,16 +128,16 @@ declare namespace distributedDeviceManager {
   /**
    * Creates an {@code DeviceManager} instance.
    *
-   * <p>To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
+   * To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
    * use this instance to call other device management methods.
    *
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10
-   * @param bundleName Indicates the bundle name of the application.
-   * @param callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @throws { BusinessError } 401 - Input parameter error.
+   * @returns { DeviceManager } - Return the DeviceManager object.
    */
-  function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
+  function createDeviceManager(bundleName: string): DeviceManager;
 
   /**
    * Provides methods for managing devices.
@@ -151,7 +168,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns a list of available devices.
+     * @returns { Array<DeviceBasicInfo> } - Returns a list of available devices.
      */
     getAvailableDeviceListSync(): Array<DeviceBasicInfo>;
 
@@ -161,7 +178,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param callback Indicates the callback to be invoked upon getAvailableDeviceList
+     * @param { AsyncCallback<Array<DeviceBasicInfo>> } callback - Indicates the callback to be
+     * invoked upon getAvailableDeviceList.
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @returns Returns a list of available devices.
@@ -176,7 +194,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns a list of available devices.
+     * @returns { Promise<Array<DeviceBasicInfo>> } - Returns a list of available devices.
      */
     getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>;
 
@@ -188,7 +206,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device network id.
+     * @returns { string } - Returns local device network id.
      */
     getLocalDeviceNetworkIdSync(): string;
 
@@ -200,7 +218,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device name.
+     * @returns { string } - Returns local device name.
      */
     getLocalDeviceNameSync(): string;
 
@@ -212,7 +230,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device type.
+     * @returns { number } - Returns local device type.
      */
     getLocalDeviceTypeSync(): number;
 
@@ -224,7 +242,7 @@ declare namespace distributedDeviceManager {
      * @since 10
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device type.
+     * @returns { string } - Returns local device type.
      */
     getLocalDeviceIdSync(): string;
 
@@ -238,7 +256,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns device name.
+     * @returns { string } - Returns device name.
      */
     getDeviceNameSync(networkId: string): string;
 
@@ -252,7 +270,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns device type.
+     * @returns { number } - Returns device type.
      */
     getDeviceTypeSync(networkId: string): number;
 
@@ -262,30 +280,26 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param discoverParameter - Identifies the type of target discovered. The type of discoverParameter is key-value.
-     * Currently, only one key is supported.
-     * device - Indicates discover the nearby devices, The value is 1.
-     * @param filterOptions - FilterOptions to filter discovery device.
-     * The type of filterOptions is key-value, The keys are as follows:
-     * filter_op - Conditions for filter devices. The value type is string such as 'or' or 'and'.
-     * filters - Filter devices based on this parameter.
-     * If filter_op is 'or', discover devices that meet one of the filters;
-     * If filter_op is 'and', discover devices that meet all of the filters;
-     * The value type of filters is key-value such as:
-     * credible - Discover only devices are credible, The value can be 0 or 1.
-     * range - Discover only devices within the range, The value less than 1 m.
-     * isTrusted - Discover only devices are trusted, The value can be 0 or 1.
-     * authForm - Discover only devices are specified authenticate, The value can be 1 to 4.
-     * deviceType - Discover only devices are specified type, The value are as follows:
-     * 0 - Unknown device type.
-     * 8 - Indicates a smart camera.
-     * 10 - Indicates a smart speaker.
-     * 12 - Indicates a smart pc.
-     * 14 - Indicates a smart phone.
-     * 17 - Indicates a smart pad.
-     * 109 - Indicates a smart watch.
-     * 131 - Indicates a car.
-     * 156 - Indicates a smart TV.
+     * @param { string } discoverParameter - Identifies the type of target discovered. The type of discoverParameter is
+     * json-format string. Currently, only one json-format string is supported:
+     *     "device" : 1 - Indicates discover the nearby devices.
+     * @param { string } filterOptions - FilterOptions to filter discovery device. The type of filterOptions is
+     * json-format string. The json-format string are as follows:
+     *     "filter_op" : "or"/"and" - If the value is "or" discover devices that meet one of the filters;
+     *                                If the value is "and" discover devices that meet all of the filters;
+     *     "filters" : [            - Filter devices based on this paramter.
+     *         "credible" : 0/1     - Discover devices only are credible, The value is 0 indicates device isn't credible;
+     *                                The value is 1 indicates device is credible.
+     *         "range" : 1          - Discover devices only within the range, The value less than 1 m.
+     *         "isTrusted" : 0/1    - Discover devices only are trusted, The value is 0 indicates device isn't trust;
+     *                                The value is 1 indicates device is trust.
+     *         "authForm" : 1-4     - Discover devices only are specified authenticate type, The value can be 1 to 4.
+     *                                The authenticate type are as follows:
+     *                                   1 - The authenticate type is pin code .
+     *                                   2 - The authenticate type is QR code.
+     *                                   3 - The authenticate type is nfc.
+     *                                   4 - The authenticate type is no_interaction.
+     *     ]
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery invalid.
@@ -311,14 +325,9 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param deviceId id of device to bind.
-     * @param bindParam parameters of device to bind. The parameter type is key-value, The keys are as follows:
-     * bindType - This key is type of binding target, the value include:
-     * 1 - The bind type is pin code .
-     * 2 - The bind type is QR code.
-     * 3 - The bind type is nfc.
-     * 4 - The bind type is no_interaction.
-     * @param callback indicates the callback to be invoked upon bindDevice.
+     * @param { string } deviceId - id of device to bind.
+     * @param { BindParam } bindParam - parameters of device to bind, The parameter type is object.
+     * @param { AsyncCallback<{deviceId: string}> } callback - indicates the callback to be invoked upon bindDevice.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -332,7 +341,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param deviceId id of device to unbind
+     * @param { string } deviceId - id of device to unbind
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -345,8 +354,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param action The reply action of user operation.
-     * @param params Indicates the input param of the user.
+     * @param { number } action - The reply action of user operation.
+     * @param { string } params - Indicates the input param of the user.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter error.
@@ -361,7 +370,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'deviceStatusChange' } type Device status change.
+     * @param { 'deviceStatusChange' } type - Device status change.
      * @param { Callback<{ action: DeviceStatusChange, device: DeviceBasicInfo }> } callback
      * Indicates the device status callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -375,7 +384,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'deviceStatusChange' } type Device status change.
+     * @param { 'deviceStatusChange' } type - Device status change.
      * @param { Callback<{ action: DeviceStatusChange, device: DeviceBasicInfo }> } callback
      * Indicates the device status callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -389,7 +398,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'discoverSuccess' } type Successfully discovered device.
+     * @param { 'discoverSuccess' } type - Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
      * Indicates the device discovery callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -403,7 +412,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'discoverSuccess' } type Successfully discovered device.
+     * @param { 'discoverSuccess' } type - Successfully discovered device.
      * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
      * Indicates the device discovery callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -417,8 +426,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'deviceNameChange' } type Changed device name.
-     * @param { Callback<{ deviceName: string }> } callback Indicates the device name change callback to register.
+     * @param { 'deviceNameChange' } type - Changed device name.
+     * @param { Callback<{ deviceName: string }> } callback - Indicates the device name change callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -430,8 +439,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'deviceNameChange' } type Changed device name.
-     * @param { Callback<{ deviceName: string }> } callback Indicates the device name change callback to unregister.
+     * @param { 'deviceNameChange' } type - Changed device name.
+     * @param { Callback<{ deviceName: string }> } callback - Indicates the device name change callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -443,10 +452,9 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'discoverFail' } type Discovery Device Failure.
-     * @param { Callback<{ subscribeId: number, reason: number }> } callback 
-     * Indicates the device found result callback to register. The return value as follows:
-     * reason - The result of discovery.
+     * @param { 'discoverFail' } type - Discovery Device Failure.
+     * @param { Callback<{ subscribeId: number, reason: number }> } callback
+     * Indicates the device found result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -458,10 +466,9 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'discoverFail' } type Discovery Device Failure.
+     * @param { 'discoverFail' } type - Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback
-     * Indicates the device found result callback to unregister. The return value as follows:
-     * reason - The result of discovery.
+     * Indicates the device found result callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
@@ -473,12 +480,12 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'serviceDie' } type Service death.
-     * @param { function } callback Indicates the service error callback to register.
+     * @param { 'serviceDie' } type - Service death.
+     * @param { Callback<{}> } callback - Indicates the service error callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
-    on(type: 'serviceDie', callback: () => void): void;
+    on(type: 'serviceDie', callback?: Callback<{}>): void;
 
     /**
      * UnRegister the service error callback.
@@ -486,12 +493,12 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
-     * @param { 'serviceDie' } type Service death.
-     * @param { function } callback Indicates the service error callback to unregister.
+     * @param { 'serviceDie' } type - Service death.
+     * @param { Callback<{}> } callback - Indicates the service error callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      */
-    off(type: 'serviceDie', callback?: () => void): void;
+    off(type: 'serviceDie', callback?: Callback<{}>): void;
 
     /**
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
@@ -499,8 +506,8 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @param { 'replyResult' } type Ui reply result to register.
-     * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to register.
+     * @param { 'replyResult' } type - Ui reply result to register.
+     * @param { Callback<{ param: string }> } callback - Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -515,8 +522,8 @@ declare namespace distributedDeviceManager {
       *
       * @permission ohos.permission.ACCESS_SERVICE_DM
       * @syscap SystemCapability.DistributedHardware.DeviceManager
-      * @param { 'replyResult' } type Ui reply result to unregister.
-      * @param { Callback<{ param: string }> } callback Indicates the devicemanager ui state to unregister.
+      * @param { 'replyResult' } type - Ui reply result to unregister.
+      * @param { Callback<{ param: string }> } callback - Indicates the devicemanager ui state to unregister.
       * @throws { BusinessError } 401 - Input parameter error.
       * @throws { BusinessError } 202 - The caller is not a system application. 
       * @syscap SystemCapability.DistributedHardware.DeviceManager
