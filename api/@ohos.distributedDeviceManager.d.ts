@@ -34,7 +34,7 @@ declare namespace distributedDeviceManager {
    */
   interface DeviceBasicInfo {
     /**
-     * Device unique identifier, The actual value is the udid-hash confused with the appid baseed on sha256.
+     * Device unique identifier, The actual value is the udid-hash confused with the appid based on sha256.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -114,7 +114,7 @@ declare namespace distributedDeviceManager {
     bindType: number;
 
     /**
-     * Information displayed in the autentication dialog box.
+     * Information displayed in the authentication dialog box.
      * The type of extraInfo is object, The key-value are as follows:
      *    "targetPkgName" : xxxx - The package name of binding target.
      *    "appName" : xxxx       - The app name that try to bind the target.
@@ -287,7 +287,7 @@ declare namespace distributedDeviceManager {
      * json-format string. The json-format string are as follows:
      *     "filter_op" : "or"/"and" - If the value is "or" discover devices that meet one of the filters;
      *                                If the value is "and" discover devices that meet all of the filters;
-     *     "filters" : [            - Filter devices based on this paramter.
+     *     "filters" : [            - Filter devices based on this parameter.
      *         "credible" : 0/1     - Discover devices only are credible, The value is 0 indicates device isn't credible;
      *                                The value is 1 indicates device is credible.
      *         "range" : 1          - Discover devices only within the range, The value less than 1 m.
