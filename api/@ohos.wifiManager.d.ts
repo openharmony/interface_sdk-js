@@ -85,6 +85,35 @@ declare namespace wifiManager {
   function getScanInfoList(): Array<WifiScanInfo>;
 
   /**
+   * User can trigger scan even Wi-Fi is disabled.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { boolean } isScanAlwaysAllowed - true for allow trigger scan, otherwise don't allow trigger scan when Wi-Fi is disabled.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setScanAlwaysAllowed(isScanAlwaysAllowed: boolean): void;
+
+  /**
+   * Get scan always allowed flag.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @returns { boolean } Returns {@code true} if scan running state is true, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getScanAlwaysAllowed(): boolean;
+
+  /**
    * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
@@ -365,6 +394,19 @@ declare namespace wifiManager {
    * @since 9
    */
   function getIpInfo(): IpInfo;
+
+  /**
+   * Obtain the IPv6 information of the Wi-Fi connection.
+   * The IPv6 information includes the host IP address, gateway address, and DNS information.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Ipv6Info } Returns the IPv6 information of the Wi-Fi connection.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 10
+   */
+  function getIpv6Info(): Ipv6Info;
 
   /**
    * Obtain the country code of the device.
@@ -2225,7 +2267,7 @@ declare namespace wifiManager {
     WIFI_STANDARD_11AX,
 
     /**
-     * Wifi 802.11ad 
+     * Wifi 802.11ad
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2240,21 +2282,21 @@ declare namespace wifiManager {
    */
   interface WifiLinkedInfo {
     /**
-     * The SSID of the Wi-Fi hotspot 
+     * The SSID of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     ssid: string;
 
     /**
-     * The BSSID of the Wi-Fi hotspot 
+     * The BSSID of the Wi-Fi hotspot
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     bssid: string;
 
     /**
-     * The ID(uniquely identifies) of a Wi-Fi connection. 
+     * The ID(uniquely identifies) of a Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2262,70 +2304,70 @@ declare namespace wifiManager {
     networkId: number;
 
     /**
-     * The RSSI(dBm) of a Wi-Fi access point.  
+     * The RSSI(dBm) of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     rssi: number;
 
     /**
-     * The frequency band of a Wi-Fi access point.  
+     * The frequency band of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     band: number;
 
     /**
-     * The speed of a Wi-Fi access point.  
+     * The speed of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     linkSpeed: number;
 
     /**
-     * The rx speed of a Wi-Fi access point. 
+     * The rx speed of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
     rxLinkSpeed: number;
 
     /**
-     * Max tx speed of a Wi-Fi access point. 
+     * Max tx speed of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
     maxSupportedTxLinkSpeed: number;
 
     /**
-     * Max rx speed of a Wi-Fi access point. 
+     * Max rx speed of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
     maxSupportedRxLinkSpeed: number;
 
     /**
-     * The frequency of a Wi-Fi access point.  
+     * The frequency of a Wi-Fi access point.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     frequency: number;
 
     /**
-     * Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden. 
+     * Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     isHidden: boolean;
 
     /**
-     * Whether this Wi-Fi connection restricts the data volume. 
+     * Whether this Wi-Fi connection restricts the data volume.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
     isRestricted: boolean;
 
     /**
-     * The load value of this Wi-Fi connection. A greater value indicates a higher load. 
+     * The load value of this Wi-Fi connection. A greater value indicates a higher load.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2333,7 +2375,7 @@ declare namespace wifiManager {
     chload: number;
 
     /**
-     * The signal-to-noise ratio (SNR) of this Wi-Fi connection. 
+     * The signal-to-noise ratio (SNR) of this Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -2451,6 +2493,70 @@ declare namespace wifiManager {
      * @since 9
      */
     leaseDuration: number;
+  }
+
+/**
+   * Wi-Fi IPv6 information.
+   * @typedef Ipv6Info
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 10
+   */
+  interface Ipv6Info {
+    /**
+     * The link IPv6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    linkIpv6Address: string;
+
+    /**
+     * The global IPv6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    globalIpv6Address: string;
+
+    /**
+     * The rand Global IPv6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    randomGlobalIpv6Address: string;
+
+    /**
+     * The gateway of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    gateway: string;
+
+    /**
+     * The network mask of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    netmask: string;
+
+    /**
+     * The primary DNS server IPV6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    primaryDNS: string;
+
+    /**
+     * The secondary DNS server IPV6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    secondDNS: string;
   }
 
   /**
