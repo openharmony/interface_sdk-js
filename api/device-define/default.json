@@ -210,6 +210,7 @@
     "SystemCapability.Request.FileTransferAgent",
     "SystemCapability.ResourceSchedule.DeviceStandby",
     "SystemCapability.DistributedDataManager.UDMF.Core",
-    "SystemCapability.Print.PrintFramework"
+    "SystemCapability.Print.PrintFramework",
+    "SystemCapability.Multimedia.Media.AVScreenCapture"
   ]
 }
