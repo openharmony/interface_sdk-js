@@ -311,13 +311,13 @@ declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
    *
-   * @type { ?BadgePosition }
+   * @type { BadgePosition | Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  position?: BadgePosition;
+  position?: BadgePosition | Position;
 
   /**
    * Defines the style of the Badge component, including the text color, size, dot color, and size.
