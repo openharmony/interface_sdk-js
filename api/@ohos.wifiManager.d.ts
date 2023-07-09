@@ -86,7 +86,7 @@ declare namespace wifiManager {
 
   /**
    * User can trigger scan even Wi-Fi is disabled.
-   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { boolean } isScanAlwaysAllowed - true for allow trigger scan, otherwise don't allow trigger scan when Wi-Fi is disabled.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
@@ -101,7 +101,7 @@ declare namespace wifiManager {
 
   /**
    * Get scan always allowed flag.
-   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
    * @returns { boolean } Returns {@code true} if scan running state is true, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
