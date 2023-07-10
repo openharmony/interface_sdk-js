@@ -1468,11 +1468,15 @@ declare namespace huks {
      */
     HUKS_STORAGE_PERSISTENT = 1,
     /**
+     * Key only exists and can be used in HUKS, opposite to HUKS_STORAGE_KEY_EXPORT_ALLOWED
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
     /**
+     * Allow key to be exported, opposite to HUKS_STORAGE_ONLY_USED_IN_HUKS
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
@@ -1500,7 +1504,20 @@ declare namespace huks {
    * @since 10
    */
   export enum HuksRsaPssSaltLenType {
+    /**
+     * Salt length matches digest
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 10
+     */
     HUKS_RSA_PSS_SALT_LEN_DIGEST = 0,
+
+    /**
+     * Set salt length to maximum possible
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 10
+     */
     HUKS_RSA_PSS_SALT_LEN_MAX = 1
   }
 
@@ -1713,6 +1730,8 @@ declare namespace huks {
     HUKS_TAG_UNWRAP_ALGORITHM_SUITE = HuksTagType.HUKS_TAG_TYPE_UINT | 26,
 
     /**
+     * Tag for key existence scope. Choose from enum HUKS_STORAGE_ONLY_USED_IN_HUKS and HUKS_STORAGE_KEY_EXPORT_ALLOWED
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
