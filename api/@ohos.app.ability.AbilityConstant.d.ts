@@ -507,6 +507,34 @@ declare namespace AbilityConstant {
      */
     APP_RECOVERY = 1
   }
+
+  /**
+   * Continue state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  export enum ContinueState {
+    /**
+     * Mission continuable active.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    ACTIVE = 0,
+
+    /**
+     * Mission continuable inactive.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    INACTIVE = 1
+  }
 }
 
 export default AbilityConstant;

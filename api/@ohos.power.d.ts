@@ -181,6 +181,16 @@ declare namespace power {
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
   /**
+   * Returns true if the device is currently in idle mode.
+   *
+   * @returns { boolean } Returns true if the device is in idle mode; returns false otherwise.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 10
+   */
+  function isStandby(): boolean;
+
+  /**
    * Power mode of a device.
    *
    * @enum { number }

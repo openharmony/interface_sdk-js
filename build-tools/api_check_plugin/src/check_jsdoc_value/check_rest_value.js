@@ -92,7 +92,7 @@ exports.checkReturnsValue = checkReturnsValue;
 
 function checkParamValue(tag, node, fileName, tagIndex) {
   const tagNameValue = tag.name;
-  const tagTypeValue = tag.type;
+  const tagTypeValue = tag.type.replace(/\n|\r|\s/g, '');
   let paramResult = {
     checkResult: true,
     errorInfo: '',
@@ -108,7 +108,7 @@ function checkParamValue(tag, node, fileName, tagIndex) {
         } else if (ts.isTypeLiteralNode(apiParamInfos[tagIndex].type)) {
           apiType = 'object';
         } else {
-          apiType = apiParamInfos[tagIndex].type?.getText();
+          apiType = apiParamInfos[tagIndex].type?.getText().replace(/\n|\r|\s/g, '');
         }
       }
       let errorInfo = '';
@@ -180,9 +180,9 @@ exports.checkThrowsValue = checkThrowsValue;
  * xxx.xxx#event:xxx
  */
 function checkModule(moduleValue) {
-  return /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*$/.test(moduleValue) ||
-    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#[A-Za-z_]+\b$/.test(moduleValue) ||
-    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#event:[A-Za-z_]+\b$/.test(moduleValue);
+  return /^[A-Za-z0-9_]+\b(\.[A-Za-z0-9_]+\b)*$/.test(moduleValue) ||
+    /^[A-Za-z0-9_]+\b(\.[A-Za-z0-9_]+\b)*\#[A-Za-z0-9_]+\b$/.test(moduleValue) ||
+    /^[A-Za-z0-9_]+\b(\.[A-Za-z0-9_]+\b)*\#event:[A-Za-z0-9_]+\b$/.test(moduleValue);
 }
 
 function splitUseinsteadValue(useinsteadValue) {
@@ -196,26 +196,29 @@ function splitUseinsteadValue(useinsteadValue) {
   // 拆分字符串
   const splitArray = useinsteadValue.split(/\//g);
   if (splitArray.length === 1) {
-    // 同一文件
-    splitResult.checkResult = checkModule(splitArray[0]);
-
+    if (splitArray[0].indexOf(OptionalSymbols.LEFT_BRACKET) === -1 &&
+      splitArray[0].indexOf(OptionalSymbols.RIGHT_BRACKET) === -1) {
+      // 同一文件
+      splitResult.checkResult = checkModule(splitArray[0]);
+    }
   } else if (splitArray.length === 2) {
     // 不同文件
     const fileNameArray = splitArray[0].split('.');
     if (fileNameArray.length === 1) {
       // arkui
-      if (!/^[A-Za-z_]+\b$/.test(fileNameArray[0]) || !checkModule(splitArray[1])) {
+      if (!/^[A-Za-z0-9_]+\b$/.test(fileNameArray[0]) || !checkModule(splitArray[1])) {
         splitResult.checkResult = false;
       }
     } else {
       // 非arkui
       let checkFileName = true;
       for (let i = 0; i < fileNameArray.length; i++) {
-        if (fileNameArray[0] !== 'ohos' || !/^[A-Za-z_]+\b$/.test(fileNameArray[i])) {
+        if (fileNameArray[0] !== 'ohos' || !/^[A-Za-z0-9_]+\b$/.test(fileNameArray[i])) {
           checkFileName = false;
         }
       }
-      if (!checkFileName || !checkModule(splitArray[1])) {
+      if (!checkFileName || (!checkModule(splitArray[1]) && splitArray[1].indexOf(OptionalSymbols.LEFT_BRACKET) === -1 &&
+        splitArray[1].indexOf(OptionalSymbols.RIGHT_BRACKET) === -1)) {
         splitResult.checkResult = false;
       }
     }

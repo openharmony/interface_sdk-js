@@ -179,7 +179,7 @@ declare namespace commonEventManager {
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @param { string } event - name of the common event.
-   * @returns { Promise<void> }
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - The application dose not have permission to call the interface
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
@@ -212,7 +212,7 @@ declare namespace commonEventManager {
    * Set static subscriber state.
    *
    * @param { boolean } enable - static subscribe event enable/disable state.
-   * @returns { Promise<void> }
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
@@ -1140,6 +1140,14 @@ declare namespace commonEventManager {
      * @since 9
      */
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
+
+    /**
+     * Sent when device's charge idle mode changed.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 10
+     */
+    COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED = 'usual.event.CHARGE_IDLE_MODE_CHANGED',
 
     /**
      * Sent when the list of exempt applications in idle mode is updated.

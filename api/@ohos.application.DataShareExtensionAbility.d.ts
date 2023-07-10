@@ -31,13 +31,13 @@ export default class DataShareExtensionAbility {
   /**
    * Indicates datashare extension ability context.
    *
-   * @type { ?ExtensionContext }
+   * @type { ExtensionContext }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
-  context?: ExtensionContext;
+  context: ExtensionContext;
 
   /**
    * Called back when a datashare extension ability is started for initialization.

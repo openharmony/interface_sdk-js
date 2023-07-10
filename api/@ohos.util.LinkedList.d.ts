@@ -18,7 +18,6 @@
  * references pointing to the previous element and the next element. When querying an element,
  * the system traverses the list from the beginning or end. 
  *
- * @namespace LinkedList
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -27,12 +26,11 @@
  * references pointing to the previous element and the next element. When querying an element,
  * the system traverses the list from the beginning or end. 
  *
- * @namespace LinkedList
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
  */
-declare class LinkedList<T>{
+declare class LinkedList<T> {
   /**
    * A constructor used to create a LinkedList object.
    *
@@ -428,7 +426,7 @@ declare class LinkedList<T>{
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, LinkedList?: LinkedList<T>) => void } callbackFn - callbackFn callbackFn
+   * @param { function } callbackFn - callbackFn callbackFn
    * (required) A function that accepts up to four arguments.
    * The function to be called for each element in the linkedlist,Returns the result of an operation
    * Value (required) current element
@@ -444,7 +442,7 @@ declare class LinkedList<T>{
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, LinkedList?: LinkedList<T>) => void } callbackFn - callbackFn callbackFn
+   * @param { function } callbackFn - callbackFn callbackFn
    * (required) A function that accepts up to four arguments.
    * The function to be called for each element in the linkedlist,Returns the result of an operation
    * Value (required) current element

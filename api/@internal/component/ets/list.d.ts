@@ -210,6 +210,44 @@ declare enum ChainEdgeEffect {
 }
 
 /**
+ * Declare limited position when scroll end.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare enum ScrollSnapAlign {
+  /**
+   * Default no item scroll snap alignment effect. When scroll end,
+   * list item will stop without limit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE,
+
+  /**
+   * The first item in view will be aligned at the start of list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  START,
+
+  /**
+   * The middle item in view will be aligned at the center of list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CENTER,
+
+  /**
+   * The last item in view will be aligned at the end of list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  END,
+}
+
+/**
  * Defines the chain animation options.
  * @interface ChainAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -259,6 +297,24 @@ declare interface ChainAnimationOptions {
    * @since 10
    */
   edgeEffect?: ChainEdgeEffect;
+
+  /**
+   * Stiffness of chain spring.
+   * @type { number }
+   * @default 228
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  stiffness?: number;
+
+  /**
+   * Damping of chain spring.
+   * @type { number }
+   * @default 30
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  damping?: number;
 }
 
 /**
@@ -319,7 +375,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @crossplatform
    * @since 10
    */
-  lanes(value: number | LengthConstrain): ListAttribute;
+  lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
 
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
@@ -491,13 +547,46 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   sticky(value: StickyStyle): ListAttribute;
 
   /**
+   * Called to set list item scroll end alignment effect.
+   * @param { ScrollSnapAlign } value - options of the list alignment effect.
+   * @returns { ListAttribute } the attribute of the list.
+   * @default ScrollSnapAlign.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  scrollSnapAlign(value: ScrollSnapAlign): ListAttribute;
+  
+  /**
    * Called to setting the nested scroll options.
    * @param { NestedScrollOptions } value - options for nested scrolling.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): ListAttribute
+  nestedScroll(value: NestedScrollOptions): ListAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { ListAttribute } The attribute of the list
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableScrollInteraction(value: boolean): ListAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.
@@ -518,20 +607,23 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when the start and end positions of the display change.
+   * @param {(start: number, end: number) => void} event
    * @since 7
    */
   /**
    * Called when the start and end positions of the display change.
+   * @param {(start: number, end: number) => void} event
    * @form
    * @since 9
    */
   /**
-   * Called when the start and end positions of the display change.
+   * Called when the start end and center positions of the display change.
+   * @param {(start: number, end: number, center: number) => void} event
    * @form
    * @crossplatform
    * @since 10
    */
-  onScrollIndex(event: (start: number, end: number) => void): ListAttribute;
+  onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
 
   /**
    * Called when the list begins to arrive.

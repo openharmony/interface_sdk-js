@@ -30,6 +30,7 @@ const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteLis
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
 const rules = require('../code_style_rule.json');
+const { checkApiChanges } = require('./check_diff_changes');
 
 function checkAPICodeStyle(url) {
   if (fs.existsSync(url)) {
@@ -106,9 +107,12 @@ function checkAllNode(node, sourcefile, fileName) {
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
 
-function scanEntry(url) {
-  // scan entry
-  checkAPICodeStyle(url);
+function scanEntry(url, prId) {
+  if (prId && prId !== 'NA') {
+    checkApiChanges(prId);
+    // scan entry
+    checkAPICodeStyle(url);
+  }
   result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
   return result.scanResult;
 }

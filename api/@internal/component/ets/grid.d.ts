@@ -217,14 +217,21 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
 
   /**
    * Sets the status of the scroll bar.
+   * @param {(first: number, last: number) => void} callback of grid scroll,
+   * first is the index  of the starting sliding position, last is the index  of the ending sliding position.
    * @since 7
    */
   /**
    * Sets the status of the scroll bar.
+   * @param {(first: number, last: number) => void} callback of grid scroll,
+   * first is the index  of the starting sliding position, last is the index  of the ending sliding position,
+   * return void to no return value.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onScrollIndex(event: (first: number) => void): GridAttribute;
+  onScrollIndex(event: (first: number, last: number) => void): GridAttribute;
 
   /**
    * cached Count
@@ -393,7 +400,84 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): GridAttribute
+  nestedScroll(value: NestedScrollOptions): GridAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { GridAttribute } The attribute of the grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableScrollInteraction(value: boolean): GridAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { GridAttribute } the attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): GridAttribute;
+  
+  /**
+   * Called When sliding the grid.
+   * @param {(scrollOffset: number, scrollState: ScrollState) => void} callback of grid scroll,
+   * scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
+   * @returns { GridAttribute }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): GridAttribute;
+
+  /**
+   * Called when the grid begins to arrive.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onReachStart(event: () => void): GridAttribute;
+
+  /**
+   * Called when the grid reaches the end.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onReachEnd(event: () => void): GridAttribute;
+
+  /**
+   * Called when the slider start.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onScrollStart(event: () => void): GridAttribute;
+
+  /**
+   * Called when the slider stops.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onScrollStop(event: () => void): GridAttribute;
+
+  /**
+   * Called when scrolling begin each frame.
+   * @param {(offset: number, state: ScrollState) => void} callback of grid scroll,
+   * offset is the amount of sliding that is about to occur, state is current sliding state,
+   * return number to actual sliding offset.
+   * @returns { GridAttribute }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): GridAttribute;
 }
 
 /**

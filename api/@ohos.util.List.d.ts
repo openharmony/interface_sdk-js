@@ -17,7 +17,6 @@
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
  * When querying an element, the system traverses the list from the beginning.
  *
- * @namespace List
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -25,12 +24,11 @@
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
  * When querying an element, the system traverses the list from the beginning.
  *
- * @namespace List
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
  */
-declare class List<T>{
+declare class List<T> {
   /**
    * A constructor used to create a List object.
    *
@@ -334,7 +332,7 @@ declare class List<T>{
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, List?: List<T>) => void } callbackFn - callbackFn
+   * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
@@ -347,7 +345,7 @@ declare class List<T>{
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, List?: List<T>) => void } callbackFn - callbackFn
+   * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
@@ -362,7 +360,7 @@ declare class List<T>{
   /**
    * Sorts this list according to the order induced by the specified comparator
    *
-   * @param { (firstValue: T, secondValue: T) => number } comparator - comparator
+   * @param { function } comparator - comparator
    * comparator (required) A function that accepts up to two arguments.
    * Specifies the sort order. Must be a function,return number type,If it returns firstValue
    * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
@@ -375,7 +373,7 @@ declare class List<T>{
   /**
    * Sorts this list according to the order induced by the specified comparator
    *
-   * @param { (firstValue: T, secondValue: T) => number } comparator - comparator
+   * @param { function } comparator - comparator
    * comparator (required) A function that accepts up to two arguments.
    * Specifies the sort order. Must be a function,return number type,If it returns firstValue
    * minus secondValue, it returns an list sorted in ascending order;If it returns secondValue
@@ -434,7 +432,7 @@ declare class List<T>{
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, list?: List<T>) => T } callbackFn - callbackFn
+   * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
@@ -447,7 +445,7 @@ declare class List<T>{
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
-   * @param { (value: T, index?: number, list?: List<T>) => T } callbackFn - callbackFn
+   * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.

@@ -34,7 +34,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
   if (!checkFailFileNameSet.has(fileName)) {
     result.apiFiles.push(fileName);
   }
-  const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+  const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.getStart());
   const baseFileName = fileName.substring(fileName.indexOf('api'), fileName.length);
   const errorMessage = `API check error of [${errorType.description}]: ${errorInfo}`;
 

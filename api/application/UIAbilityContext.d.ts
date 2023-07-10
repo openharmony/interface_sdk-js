@@ -28,6 +28,7 @@ import { Caller } from '../@ohos.app.ability.UIAbility';
 import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
+import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -1735,6 +1736,34 @@ export default class UIAbilityContext extends Context {
   setMissionIcon(icon: image.PixelMap): Promise<void>;
 
   /**
+   * Set mission continue state of current ability.
+   *
+   * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
+   * @param { AsyncCallback<void> } callback - The callback of setMissionContinueState.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set mission continue state of current ability.
+   *
+   * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  setMissionContinueState(state: AbilityConstant.ContinueState): Promise<void>;
+
+  /**
    * Restore window stage data in ability continuation
    *
    * @param { LocalStorage } localStorage - the storage data used to restore window stage
@@ -2049,4 +2078,16 @@ export default class UIAbilityContext extends Context {
    * @since 10
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
+
+  /**
+   * Report to system when the ability is drawn completed.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  reportDrawnCompleted(callback: AsyncCallback<void>): void;
 }

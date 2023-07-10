@@ -311,7 +311,7 @@ declare class NavPathStack {
   pop(): NavPathInfo | undefined;
 
   /**
-   * Pops the stack back to the route page specified by the name.
+   * Pops the specified route page out of the stack.
    * @param { string } name Indicates the name of the route page to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
@@ -321,7 +321,7 @@ declare class NavPathStack {
   popTo(name: string): number;
 
   /**
-   * Pops the stack back to the route page specified by the index.
+   * Pops the specified route page out of the stack.
    * @param { number } index Indicates the index of the route page to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

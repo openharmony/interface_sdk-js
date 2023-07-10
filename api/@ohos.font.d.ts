@@ -14,26 +14,47 @@
  */
 
 /**
+ * @namespace font
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 declare namespace font {
   /**
- * @since 9
- */
+   * @typedef FontOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
   interface FontOptions {
 
     /**
      * The font name to register.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    familyName: string;
+    /**
+     * The font name to register.
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    familyName: string | Resource;
 
     /**
      * The path of the font file.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
-    familySrc: string;
+    /**
+     * The path of the font file.
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    familySrc: string | Resource;
   }
 
   /**
@@ -45,6 +66,7 @@ declare namespace font {
 
     /**
      * The path of the font file.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -53,6 +75,7 @@ declare namespace font {
 
     /**
      * The name of postscript.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -61,6 +84,7 @@ declare namespace font {
 
     /**
      * The font name.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -69,6 +93,7 @@ declare namespace font {
 
     /**
      * A set of fonts with a common design.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -77,6 +102,7 @@ declare namespace font {
 
     /**
      * A subset of the font family.
+     *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -85,6 +111,7 @@ declare namespace font {
 
     /**
      * The weight of the font.
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -93,6 +120,7 @@ declare namespace font {
 
     /**
      * The width of the font style.
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -101,6 +129,7 @@ declare namespace font {
 
     /**
      * Whether it is italic.
+     *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -109,6 +138,7 @@ declare namespace font {
 
     /**
      * Whether it is compact.
+     *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -117,6 +147,7 @@ declare namespace font {
 
     /**
      * Whether symbol fonts are supported.
+     *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
@@ -126,13 +157,16 @@ declare namespace font {
 
   /**
    * Register a customized font in the FontManager.
-   * @param options FontOptions
+   *
+   * @param { FontOptions } options FontOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   function registerFont(options: FontOptions): void;
 
   /**
    * Gets a list of fonts supported by system.
+   *
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -141,6 +175,7 @@ declare namespace font {
 
   /**
    * Get font details according to the font name.
+   *
    * @param { string } fontName font name
    * @returns { FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full

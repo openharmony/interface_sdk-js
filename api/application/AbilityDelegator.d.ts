@@ -29,6 +29,14 @@ import { ShellCmdResult } from './shellCmdResult';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
+/**
+ * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+ *
+ * @interface AbilityDelegator
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 10
+ */
 export interface AbilityDelegator {
   /**
    * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.

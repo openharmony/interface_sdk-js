@@ -15,18 +15,27 @@
 
 /**
  * Provides the path drawing interface.
+ *
+ * @interface PathInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides the path drawing interface.
- * @form
+ *
+ * @interface PathInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Provides the path drawing interface.
- * @form
+ *
+ * @interface PathInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface PathInterface {
   /**
@@ -48,86 +57,128 @@ interface PathInterface {
 
   /**
    * Called when drawing path.
+   *
+   * @param { ?({ width?: number | string; height?: number | string; commands?: string }) } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when drawing path.
-   * @form
+   *
+   * @param { ?({ width?: number | string; height?: number | string; commands?: string }) } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when drawing path.
-   * @form
+   *
+   * @param { ?({ width?: number | string; height?: number | string; commands?: string }) } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 }
 
 /**
  * Provides methods for attribute path component.
+ *
+ * @extends CommonShapeMethod
  * @since 7
  */
 /**
  * Provides methods for attribute path component.
- * @form
+ *
+ * @extends CommonShapeMethod
  * @since 9
+ * @form
  */
 /**
  * Provides methods for attribute path component.
- * @form
+ *
+ * @extends CommonShapeMethod
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
    * Called when the command string drawn by the path is set.
+   *
+   * @param { string } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the command string drawn by the path is set.
-   * @form
+   *
+   * @param { string } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the command string drawn by the path is set.
-   * @form
+   *
+   * @param { string } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   commands(value: string): PathAttribute;
 }
 
 /**
  * Defines Path Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Path Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Path Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Path: PathInterface;
 
 /**
  * Defines Path Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Path Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Path Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const PathInstance: PathAttribute;
