@@ -1738,6 +1738,8 @@ declare namespace huks {
     HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 29,
 
     /**
+     * Rsa salt len type type. Choose from HuksRsaPssSaltLenType
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
