@@ -47,8 +47,23 @@ class Project {
 
   getAppSdkVersion() {
     const profile = this.getProfile();
-    if (profile && profile.app && profile.app.compileSdkVersion) {
+
+    if (!profile) {
+      return undefined;
+    }
+
+    if (!profile.app) {
+      return undefined;
+    }
+
+    if (profile.app.compileSdkVersion) {
       return profile.app.compileSdkVersion;
+    }
+
+    if (profile.app.products) {
+      const compileSdkVersion = profile.app.products[0].compileSdkVersion;
+      const version = compileSdkVersion.match(/\((.+)\)/g)[0].replace(/\(|\)/g, '');
+      return version;
     }
     return undefined;
   }

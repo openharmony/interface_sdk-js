@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const { FileSystem } = require('./utils');
+const { FileSystem, Logger } = require('./utils');
 const path = require('path');
 const ts = require('typescript');
 const fs = require('fs');
@@ -168,8 +168,14 @@ class SystemApiRecognizer {
     if (!node) {
       return undefined;
     }
-    const symbol = this.typeChecker.getSymbolAtLocation(node);
-    return this.recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations);
+
+    try {
+      const symbol = this.typeChecker.getSymbolAtLocation(node);
+      return this.recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations);
+    } catch (error) {
+      Logger.error('UNKNOW NODE', error);
+    }
+
   }
 
   recognizeApiWithNodeAndSymbol(node, symbol, fileName, positionCallback, useDeclarations) {
@@ -256,7 +262,7 @@ class SystemApiRecognizer {
       this.saveApiDecInfo(moduleSpecifier, apiDecInfo, typeNameNode);
     }
   }
-  
+
   saveApiDecInfo(moduleSpecifier, apiDecInfo, typeNameNode) {
     const specialInterfaceSet = new Set(['Callback', 'AsyncCallback']);
     if (ts.isStringLiteral(moduleSpecifier, apiDecInfo)) {
@@ -511,7 +517,7 @@ class SystemApiRecognizer {
         return;
       }
       const valueDeclaration = extendNodeSymbol.declarations[0];
-      if (valueDeclaration && !this.isSdkApi(valueDeclaration.getSourceFile().fileName) && extendNodeSymbol.valueDeclaration && 
+      if (valueDeclaration && !this.isSdkApi(valueDeclaration.getSourceFile().fileName) && extendNodeSymbol.valueDeclaration &&
         extendNodeSymbol.valueDeclaration.heritageClauses) {
         const parentNodes = extendNodeSymbol.valueDeclaration.heritageClauses[0].types;
         this.getExtendClassPropertyMap(parentNodes, extendClassPropertyMap);
@@ -723,7 +729,7 @@ class SystemApiRecognizer {
     apiInfo.setSdkFileName(path.basename(sourceFile.fileName));
     apiInfo.setTypeName(this.getApiTypeName(valudeDec));
     apiInfo.setApiNode(valudeDec);
-    apiInfo.setApiType(this.getApiTypeName(valudeDec));
+    apiInfo.setApiType(this.getApiType(valudeDec));
     apiInfo.setDtsPath(this.formatDtsPath(dtsPath));
     apiInfo.setCompletedText(this.getApiText(valudeDec));
 
