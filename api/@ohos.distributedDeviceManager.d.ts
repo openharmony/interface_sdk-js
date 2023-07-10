@@ -250,22 +250,22 @@ declare namespace distributedDeviceManager {
      * Start to discover nearby devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { { [key: string]: Object } } discoverParameter - Identifies the type of target discovered.
-     * The type of discoverParameter is map. Currently, only one json-format string is supported:
-     *         "device" : 1 - Indicates discover the nearby devices.
+     * @param { { [key: string]: Object } } discoverParam - Identifies the type of target discovered:
+     *       discoverTargetType : 1     - Discovery target as a device by default, the value is 1.
      * @param { { [key: string]: Object } } filterOptions - FilterOptions to filter discovery device.
      * The type of filterOptions is map. The map are as follows:
-     *         "credible" : 0/1     - Discover devices only are credible, The value is 0 indicates device isn't credible;
-     *                                The value is 1 indicates device is credible.
-     *         "range" : 1          - Discover devices only within the range, The value less than 1 m.
-     *         "isTrusted" : 0/1    - Discover devices only are trusted, The value is 0 indicates device isn't trust;
+     *       availableStatus: 0-1       - Discover devices only are credible, The value is 0 indicates device isn't credible;
+     *                                      0: Devices are offline, client need to bind the device by calling bindTarget() and then connect to it.
+     *                                      1: Devices already online, client can make connection.
+     *       discoverDistance: 0-100    - Discover devices within a certain distance from the local, the unit is cm.
+     *       authenticationStatus: 0-1  - Discover devices based on different authentication status:
+     *                                      0: Devices not authenticated.
+                                            1: Devices already authenticated.
      *                                The value is 1 indicates device is trust.
-     *         "authForm" : -1-2    - Discover devices only are specified authenticate type, The value can be -1 to 2.
-     *                                The authenticate type are as follows: 
-     *                                  -1 - Indicates invalid trusted device type.
-     *                                   0 - Indicates peer to peer trusted device type without account.
-     *                                   1 - Indicates identical account trusted device type.
-     *                                   2 - Indicates across account trusted device type.
+     *       authorizationType: 0-2     - Discover devices based on different authorization type:
+     *                                      0: Devices authenticated based on temporary negotiated session key.
+     *                                      1: Devices authenticated based on the same account credential key.
+     *                                      2: Devices authenticated based on different account credential keys.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Discovery repeats.
@@ -273,7 +273,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    startDiscovering(discoverParameter: { [key: string]: Object }, filterOptions?: { [key: string]: Object }): void;
+    startDiscovering(discoverParam?: { [key: string]: Object }, filterOptions?: { [key: string]: Object }): void;
 
     /**
      * Stop discovering nearby devices.
@@ -429,7 +429,7 @@ declare namespace distributedDeviceManager {
      * Register a device discovery result callback so that the application can be notified when discover failed.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'discoverFail' } type - Discovery Device Failure.
+     * @param { 'discoverFailure' } type - Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback
      * Indicates the device found result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -437,13 +437,13 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    on(type: 'discoverFail', callback: Callback<{ reason: number }>): void;
+    on(type: 'discoverFailure', callback: Callback<{ reason: number }>): void;
 
     /**
      * UnRegister the device discovery result callback.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'discoverFail' } type - Discovery Device Failure.
+     * @param { 'discoverFailure' } type - Discovery Device Failure.
      * @param { Callback<{ subscribeId: number, reason: number }> } callback
      * Indicates the device found result callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
@@ -451,7 +451,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    off(type: 'discoverFail', callback?: Callback<{ reason: number }>): void;
+    off(type: 'discoverFailure', callback?: Callback<{ reason: number }>): void;
 
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
