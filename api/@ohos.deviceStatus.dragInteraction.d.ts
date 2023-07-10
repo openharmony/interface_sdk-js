@@ -22,7 +22,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Msdp.DeviceStatus.Drag
  * @systemapi Hide this for inner system use.
  */
-declare namespace drag {
+declare namespace dragInteraction {
   /**
    * Enumerates the dragging states.
    *
@@ -81,4 +81,4 @@ declare namespace drag {
   function off(type: 'drag', callback?: Callback<DragState>): void;
 }
 
-export default drag;
+export default dragInteraction;
