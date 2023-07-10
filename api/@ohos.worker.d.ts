@@ -311,11 +311,13 @@ export interface PostMessageOptions {
 export interface EventListener {
   /**
    * Specifies the callback to invoke.
-   * @param evt Event class for the callback to invoke.
+   *
+   * @param { Event } evt - evt evt Event class for the callback to invoke.
+   * @returns { void | Promise<void> }
+   * @syscap SystemCapability.Utils.Lang
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.worker.WorkerEventListener.(event: Event): void | Promise<void>
-   * @syscap SystemCapability.Utils.Lang
+   * @useinstead ohos.worker.WorkerEventListener.(event: Event)
    */
   (evt: Event): void | Promise<void>;
 }
@@ -785,7 +787,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { ArrayBuffer[] } transfer - transfer array cannot contain null.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -796,7 +798,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { ArrayBuffer[] } transfer - transfer array cannot contain null.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -810,7 +812,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { PostMessageOptions } options - options Option can be set for postmessage.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -821,7 +823,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { PostMessageOptions } options - options Option can be set for postmessage.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
-   * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -988,7 +990,7 @@ declare namespace worker {
      * The transferList array cannot contain null.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -1001,7 +1003,7 @@ declare namespace worker {
      * The transferList array cannot contain null.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1015,7 +1017,7 @@ declare namespace worker {
      * @param { PostMessageOptions } options - options
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -1027,7 +1029,7 @@ declare namespace worker {
      * @param { PostMessageOptions } options - options
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200006 - Serializing an uncaught exception failed.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10

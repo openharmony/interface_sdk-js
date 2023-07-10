@@ -30,7 +30,7 @@ export default class StaticSubscriberExtensionAbility {
    *
    * @type { StaticSubscriberExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide for inner use.
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */

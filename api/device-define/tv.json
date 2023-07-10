@@ -36,7 +36,9 @@
     "SystemCapability.MultimodalInput.Input.InputSimulator",
     "SystemCapability.MultimodalInput.Input.InputFilter",
     "SystemCapability.MultimodalInput.Input.ShortKey",
+    "SystemCapability.PowerManager.BatteryManager.Lite",
     "SystemCapability.PowerManager.DisplayPowerManager",
+    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.PowerManager.ThermalManager",
     "SystemCapability.PowerManager.PowerManager.Core",
     "SystemCapability.PowerManager.PowerManager.Extension",
@@ -65,6 +67,7 @@
     "SystemCapability.Multimedia.Audio.Communication",
     "SystemCapability.Multimedia.Audio.Interrupt",
     "SystemCapability.Multimedia.Audio.Tone",
+    "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.Camera.DistributedCore",
     "SystemCapability.Multimedia.Image.Core",
@@ -123,10 +126,12 @@
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
+    "SystemCapability.FileManagement.PhotoAccessHelper.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
     "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
     "SystemCapability.DistributedDataManager.KVStore.Core",
@@ -166,6 +171,7 @@
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
-    "SystemCapability.ResourceSchedule.DeviceStandby"
+    "SystemCapability.ResourceSchedule.DeviceStandby",
+    "SystemCapability.Multimedia.Media.AVScreenCapture"
   ]
 }

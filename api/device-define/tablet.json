@@ -42,8 +42,10 @@
     "SystemCapability.MultimodalInput.Input.InputFilter",
     "SystemCapability.MultimodalInput.Input.ShortKey",
     "SystemCapability.PowerManager.BatteryManager.Extension",
+    "SystemCapability.PowerManager.BatteryManager.Lite",
     "SystemCapability.PowerManager.BatteryStatistics",
     "SystemCapability.PowerManager.DisplayPowerManager",
+    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.PowerManager.ThermalManager",
     "SystemCapability.PowerManager.PowerManager.Core",
     "SystemCapability.PowerManager.BatteryManager.Core",
@@ -73,6 +75,7 @@
     "SystemCapability.Multimedia.Audio.Communication",
     "SystemCapability.Multimedia.Audio.Interrupt",
     "SystemCapability.Multimedia.Audio.Tone",
+    "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.Camera.DistributedCore",
     "SystemCapability.Multimedia.Image.Core",
@@ -143,6 +146,7 @@
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
+    "SystemCapability.FileManagement.PhotoAccessHelper.Core",
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
     "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
     "SystemCapability.USB.USBManager",
@@ -151,6 +155,7 @@
     "SystemCapability.Sensors.Sensor.Lite",
     "SystemCapability.Sensors.MiscDevice.Lite",
     "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
     "SystemCapability.DistributedDataManager.KVStore.Core",
@@ -197,6 +202,7 @@
     "SystemCapability.Msdp.DeviceStatus.Stationary",
     "SystemCapability.Request.FileTransferAgent",
     "SystemCapability.ResourceSchedule.DeviceStandby",
-    "SystemCapability.Print.PrintFramework"
+    "SystemCapability.Print.PrintFramework",
+    "SystemCapability.Multimedia.Media.AVScreenCapture"
   ]
 }

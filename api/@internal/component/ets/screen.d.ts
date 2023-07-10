@@ -15,6 +15,8 @@
 
 /**
  * Defines the interface of Screen.
+ *
+ * @interface ScreenInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -22,10 +24,11 @@
 interface ScreenInterface {
   /**
    * Called when the Screen is used.
+   *
    * @param { number } screenId - indicates the identifier of a screen.
+   * @returns { ScreenAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @returns { ScreenAttribute }
    * @since 10
    */
   (screenId: number): ScreenAttribute;
@@ -33,6 +36,8 @@ interface ScreenInterface {
 
 /**
  * Defines the attribute functions of Screen.
+ *
+ * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -42,6 +47,7 @@ declare class ScreenAttribute extends CommonMethod<ScreenAttribute> {
 
 /**
  * Defines the Screen component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -50,6 +56,7 @@ declare const Screen: ScreenInterface;
 
 /**
  * Defines the Screen instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10

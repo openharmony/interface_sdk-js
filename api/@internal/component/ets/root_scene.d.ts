@@ -15,6 +15,8 @@
 
 /**
  * Defines the session of RootScene.
+ *
+ * @interface RootSceneSession
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -24,6 +26,8 @@ interface RootSceneSession {
 
 /**
  * Defines the interface of RootScene.
+ *
+ * @interface RootSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -31,10 +35,11 @@ interface RootSceneSession {
 interface RootSceneInterface {
   /**
    * Called when the RootScene is used.
+   *
    * @param { RootSceneSession } session - indicates the session of RootScene.
+   * @returns { RootSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @returns { RootSceneAttribute }
    * @since 10
    */
   (session: RootSceneSession): RootSceneAttribute;
@@ -42,6 +47,8 @@ interface RootSceneInterface {
 
 /**
  * Defines the attribute functions of RootScene.
+ *
+ * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -51,6 +58,7 @@ declare class RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
 
 /**
  * Defines the RootScene component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -59,6 +67,7 @@ declare const RootScene: RootSceneInterface;
 
 /**
  * Defines the RootScene instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10

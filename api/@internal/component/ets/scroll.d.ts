@@ -150,10 +150,13 @@ declare class Scroller {
 
     /**
      * Descriptive animation.
+     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
-    animation?: { duration: number; curve: Curve };
+    animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
   });
 
   /**
@@ -230,6 +233,50 @@ declare class Scroller {
    * @since 10
    */
   isAtEnd(): boolean;
+}
+
+/*
+ * Define scroll snap options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ScrollSnapOptions {
+  /**
+   * Set scroll snap alignment.
+   * @type { ScrollSnapAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  snapAlign: ScrollSnapAlign;
+
+  /**
+   * Set snap positions. When the type of snapPositions is Dimension, Scroll content is paginated by an integer
+   * multiple of snapPositions. When the type of snapPositions is Array<number>, Scroll content is paginated based
+   * on the array of snapPositions.
+   * @type { Dimension | Array<Dimension> }
+   * @default "100%"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  snapPagination?: Dimension | Array<Dimension>;
+
+  /**
+   * Set whether the beginning of the Scroll content counts an a snap.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableSnapToStart?: boolean;
+
+  /**
+   * Set whether the end of the Scroll content counts an a snap.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableSnapToEnd?: boolean;
 }
 
 /**
@@ -401,6 +448,26 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @since 10
    */
   enableScrollInteraction(value: boolean): ScrollAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): ScrollAttribute;
+
+  /**
+   * Called to setting the scroll snap options.
+   * @param { ScrollSnapOptions } value - options for scroll snap.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollSnap(value: ScrollSnapOptions): ScrollAttribute;
 }
 
 /**

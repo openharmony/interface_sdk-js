@@ -15,16 +15,18 @@
 
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
+import ExtensionContext from './application/ExtensionContext';
 
 /**
  * class of static subscriber extension context.
  *
+ * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
  * @since 10
  */
-export default class StaticSubscriberExtensionContext {
+export default class StaticSubscriberExtensionContext extends ExtensionContext {
   /**
    * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
    * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.

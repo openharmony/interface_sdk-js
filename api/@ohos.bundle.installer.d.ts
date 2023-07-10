@@ -48,38 +48,6 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
-   * Obtains the distribution type specified during bundle installation.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @returns { string } The specified distribution type.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Input parameters check failed.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
-   */
-  function getSpecifiedDistributionType(bundleName: string): string;
-
-  /**
-   * Obtains the additional information during bundle installation.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @returns { string } The additional information.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Input parameters check failed.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
-   */
-  function getAdditionalInfo(bundleName: string): string;
-
-  /**
    * Bundle installer interface, include install uninstall recover.
    *
    * @interface BundleInstaller
@@ -465,7 +433,7 @@ declare namespace installer {
    */
   export interface VerifyCodeParam {
     /**
-     * Indicates the moduleName which hopes to be processed with code-signature.
+     * Indicates the moduleName which hopes to be processed with code signature.
      *
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -504,7 +472,7 @@ declare namespace installer {
     userId?: number;
 
     /**
-     * Indicates the install flag, which 0x00 for normal, 0x10 for freeInstall
+     * Indicates the installation type. The value 0x00 means normal installation, 0x01 means overwrite installation, and 0x10 means installation-free.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi

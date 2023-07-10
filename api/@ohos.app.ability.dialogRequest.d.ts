@@ -24,13 +24,72 @@ import Want from './@ohos.app.ability.Want';
  */
 declare namespace dialogRequest {
   /**
+   * Window Rectangle
+   *
+   * @typedef WindowRect
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  export interface WindowRect {
+    /**
+     * The left position of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    left: number;
+
+    /**
+     * The top position of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    top: number;
+
+    /**
+     * The width of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    width: number;
+
+    /**
+     * The height of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    height: number;
+  }
+  /**
    * Request info of a request.
    *
    * @typedef RequestInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
-  export interface RequestInfo {}
+  export interface RequestInfo {
+    /**
+     * The Window of caller.
+     *
+     * @type { ?WindowRect }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    windowRect?: WindowRect
+  }
 
   /**
    * The modal bullet box requests the result code.
