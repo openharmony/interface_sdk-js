@@ -3445,6 +3445,33 @@ declare interface DragEvent {
    * @since 10
    */
   getPreviewRect(): Rectangle;
+
+  /**
+   * Get the x axis velocity of drag gesture.
+   * @returns { number } - get x axis velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getVelocityX(): number;
+
+  /**
+   * Get the y axis velocity of drag gesture.
+   * @returns { number } - get y axis velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getVelocityY(): number;
+
+  /**
+   * Get the velocity of drag gesture.
+   * @returns { number } - get velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getVelocity(): number;
 }
 
 /**
