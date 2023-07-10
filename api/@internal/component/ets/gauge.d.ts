@@ -15,173 +15,273 @@
 
 /**
  * Defines the Gauge component.
+ *
+ * @interface GaugeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the Gauge component.
- * @form
+ *
+ * @interface GaugeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the Gauge component.
- * @form
+ *
+ * @interface GaugeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface GaugeInterface {
   /**
    * value:Current data value.
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
+   *
+   * @param { { value: number; min?: number; max?: number } } options
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * value:Current data value.
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
-   * @form
+   *
+   * @param { { value: number; min?: number; max?: number } } options
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * value:Current data value.
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
-   * @form
+   *
+   * @param { { value: number; min?: number; max?: number } } options
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (options: { value: number; min?: number; max?: number }): GaugeAttribute;
 }
 
 /**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * @form
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
- * @form
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Sets the value for the current profile.
+   *
+   * @param { number } value
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the value for the current profile.
-   * @form
+   *
+   * @param { number } value
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the value for the current profile.
-   * @form
+   *
+   * @param { number } value
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   value(value: number): GaugeAttribute;
 
   /**
    * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
-   * @form
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
-   * @form
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   startAngle(angle: number): GaugeAttribute;
 
   /**
    * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
-   * @form
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
-   * @form
+   *
+   * @param { number } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   endAngle(angle: number): GaugeAttribute;
 
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
+   *
+   * @param { Array<any> } colors
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
-   * @form
+   *
+   * @param { Array<any> } colors
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
-   * @form
+   *
+   * @param { Array<any> } colors
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   colors(colors: Array<any>): GaugeAttribute;
 
   /**
    * Sets the thickness of the ring chart.
+   *
+   * @param { Length } length
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the thickness of the ring chart.
-   * @form
+   *
+   * @param { Length } length
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the thickness of the ring chart.
-   * @form
+   *
+   * @param { Length } length
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   strokeWidth(length: Length): GaugeAttribute;
 }
 
 /**
  * Defines Gauge Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Gauge Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Gauge Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Gauge: GaugeInterface;
 
 /**
  * Defines Gauge Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Gauge Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Gauge Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const GaugeInstance: GaugeAttribute;
+
