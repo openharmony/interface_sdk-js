@@ -38,6 +38,7 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since 10
    */
   enum AssetStatus {
@@ -45,6 +46,7 @@ declare namespace relationalStore {
      * ASSET_NORMAL: means the status of asset is normal.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     ASSET_NORMAL,
@@ -53,6 +55,7 @@ declare namespace relationalStore {
      * ASSET_ABNORMAL: means the asset needs to be inserted.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     ASSET_INSERT,
@@ -61,6 +64,7 @@ declare namespace relationalStore {
      * ASSET_ABNORMAL: means the asset needs to be updated.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     ASSET_UPDATE,
@@ -69,6 +73,7 @@ declare namespace relationalStore {
      * ASSET_ABNORMAL: means the asset needs to be deleted.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     ASSET_DELETE,
@@ -77,6 +82,7 @@ declare namespace relationalStore {
      * ASSET_ABNORMAL: means the status of asset is abnormal.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     ASSET_ABNORMAL,
@@ -85,6 +91,7 @@ declare namespace relationalStore {
      * ASSET_DOWNLOADING: means the status of asset is downloading.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     ASSET_DOWNLOADING
@@ -95,6 +102,7 @@ declare namespace relationalStore {
    *
    * @interface Asset
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since 10
    */
   interface Asset {
@@ -102,6 +110,7 @@ declare namespace relationalStore {
      * The name of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     name: string;
@@ -110,6 +119,7 @@ declare namespace relationalStore {
      * The uri of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     uri: string;
@@ -118,6 +128,7 @@ declare namespace relationalStore {
      * The path of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     path: string;
@@ -126,6 +137,7 @@ declare namespace relationalStore {
      * The create time of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     createTime: string;
@@ -134,6 +146,7 @@ declare namespace relationalStore {
      * The modify time of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     modifyTime: string;
@@ -142,6 +155,7 @@ declare namespace relationalStore {
      * The size of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     size: string;
@@ -150,6 +164,7 @@ declare namespace relationalStore {
      * The status of asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 10
      */
     status?: AssetStatus;
@@ -159,6 +174,7 @@ declare namespace relationalStore {
    * Indicates several assets in one column
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since 10
    */
   type Assets = Asset[];
@@ -252,6 +268,7 @@ declare namespace relationalStore {
      * Specifies the security level of the database.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 9
      */
     securityLevel: SecurityLevel;
@@ -468,6 +485,7 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since 9
    */
   enum SecurityLevel {
@@ -476,6 +494,7 @@ declare namespace relationalStore {
      * There are some low impact, when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 9
      */
     S1 = 1,
@@ -485,6 +504,7 @@ declare namespace relationalStore {
      * There are some major impact, when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 9
      */
     S2 = 2,
@@ -494,6 +514,7 @@ declare namespace relationalStore {
      * There are some severity impact, when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 9
      */
     S3 = 3,
@@ -503,6 +524,7 @@ declare namespace relationalStore {
      * There are some critical impact, when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 9
      */
     S4 = 4
