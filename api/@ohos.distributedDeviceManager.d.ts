@@ -66,29 +66,29 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * The status of the nearby devices.
+   * The state of the nearby devices.
    * @enum { DeviceStateChange }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10
    */
   enum DeviceStateChange {
     /**
-     * This status indicates the device is online but the status is unknown,The distributed function cannot used until
-     * status changes to AVAILABLE.
+     * This state indicates the device is online but the state is unknown,The distributed function cannot used until
+     * state changes to AVAILABLE.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     UNKNOWN = 0,
 
     /**
-     * This status indicates the device has been synchronized to the database, Now the distributed function can be used.
+     * This state indicates the device has been synchronized to the database, Now the distributed function can be used.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
     AVAILABLE = 1,
 
     /**
-     * This status indicates the device is offline.
+     * This state indicates the device is offline.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -250,7 +250,7 @@ declare namespace distributedDeviceManager {
      * Start to discover nearby devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { { [key: string]: [value: number] } } discoverParameter - Identifies the type of target discovered.
+     * @param { { [key: string]: Object } } discoverParameter - Identifies the type of target discovered.
      * The type of discoverParameter is map. Currently, only one json-format string is supported:
      *         "device" : 1 - Indicates discover the nearby devices.
      * @param { { [key: string]: Object } } filterOptions - FilterOptions to filter discovery device.
@@ -273,7 +273,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    startDiscovering(discoverParameter: { [key: string]: [value: number] }, filterOptions?: { [key: string]: Object }): void;
+    startDiscovering(discoverParameter: { [key: string]: Object }, filterOptions?: { [key: string]: Object }): void;
 
     /**
      * Stop discovering nearby devices.
@@ -332,7 +332,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } action - The reply action of user operation.
-     * @param { string } pinCodeStr - Indicates the input pin code of the user.
+     * @param { string } actionResult - Indicates the user operation result.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - Input parameter error.
@@ -340,16 +340,16 @@ declare namespace distributedDeviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 10
      */
-    replyUiAction(action: number, pinCodeStr: string): void;
+    replyUiAction(action: number, actionResult: string): void;
 
     /**
-     * Register a device status callback so that the application can be notified upon device status changes based on
+     * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'deviceStateChange' } type - Device status change.
+     * @param { 'deviceStateChange' } type - Device state change.
      * @param { Callback<{ action: DeviceStateChange, device: DeviceBasicInfo }> } callback
-     * Indicates the device status callback to register.
+     * Indicates the device state callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -358,12 +358,12 @@ declare namespace distributedDeviceManager {
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange, device: DeviceBasicInfo }>): void;
 
     /**
-     * UnRegister device status callback based on the application bundle name.
+     * UnRegister device state callback based on the application bundle name.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'deviceStateChange' } type - Device status change.
+     * @param { 'deviceStateChange' } type - Device state change.
      * @param { Callback<{ action: DeviceStateChange, device: DeviceBasicInfo }> } callback
-     * Indicates the device status callback to unregister.
+     * Indicates the device state callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
