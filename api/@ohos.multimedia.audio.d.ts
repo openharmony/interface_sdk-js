@@ -883,6 +883,34 @@ declare namespace audio {
      * @since 8
      */
     rendererInfo: AudioRendererInfo;
+    /**
+     * Privacy configuration.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    privacyType?: AudioPrivacyType;
+  }
+
+  /**
+   * Enumerates audio stream privacy type for playback capture.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  enum AudioPrivacyType {
+    /**
+     * Privacy type that stream can be captured by third party applications.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    PRIVACY_TYPE_PUBLIC = 0,
+
+    /**
+     * Privacy type that stream can not be captured.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    PRIVACY_TYPE_PRIVATE = 1,
   }
 
   /**
@@ -3256,6 +3284,12 @@ declare namespace audio {
      */
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
+     * Playback capture source type.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
+    /**
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
@@ -3303,6 +3337,43 @@ declare namespace audio {
      * @since 8
      */
     capturerInfo: AudioCapturerInfo;
+    /**
+     * Playback capture config.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    playbackCaptureConfig?: AudioPlaybackCaptureConfig;
+  }
+
+  /**
+   * Describe playback capture filtering options
+   * @typedef CaptureFilterOptions
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  interface CaptureFilterOptions {
+    /**
+     * Filter by stream usages. If you want to capture voice streams, additional permission is needed.
+     * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    usages: Array<StreamUsage>;
+  }
+
+  /**
+   * Describe playback capture config object.
+   * @typedef AudioPlaybackCaptureConfig
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  interface AudioPlaybackCaptureConfig {
+    /**
+     * Add filter options to decide which streams to be captured.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    filterOptions: CaptureFilterOptions;
   }
 
   /**
