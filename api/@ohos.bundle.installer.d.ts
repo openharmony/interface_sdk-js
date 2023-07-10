@@ -433,7 +433,7 @@ declare namespace installer {
    */
   export interface VerifyCodeParam {
     /**
-     * Indicates the moduleName which hopes to be processed with code-signature.
+     * Indicates the moduleName which hopes to be processed with code signature.
      *
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
