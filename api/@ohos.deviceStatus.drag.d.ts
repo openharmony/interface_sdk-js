@@ -37,7 +37,7 @@ declare namespace drag {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
-    MSG_DRAG_STATE_START = 0,
+    MSG_DRAG_STATE_START = 1,
 
     /**
      * Dragging ends.
@@ -45,7 +45,7 @@ declare namespace drag {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
-    MSG_DRAG_STATE_STOP = 1,
+    MSG_DRAG_STATE_STOP = 2,
 
     /**
      * Dragging is canceled.
@@ -53,7 +53,7 @@ declare namespace drag {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
-    MSG_DRAG_STATE_CANCEL = 2,
+    MSG_DRAG_STATE_CANCEL = 3,
   }
 
   /**
