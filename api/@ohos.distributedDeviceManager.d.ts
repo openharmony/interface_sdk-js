@@ -273,7 +273,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    startDiscovering(discoverParam?: { [key: string]: Object }, filterOptions?: { [key: string]: Object }): void;
+    startDiscovering(discoverParam: { [key: string]: Object }, filterOptions?: { [key: string]: Object }): void;
 
     /**
      * Stop discovering nearby devices.
