@@ -2194,6 +2194,15 @@ declare namespace socket {
      * @since 10
      */
     cipherSuite?: string;
+
+    /**
+     * Whether the connection is bidirectional authentication. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 10
+     */
+    bidirectionAuthentication?: boolean;
   }
 
   /**
