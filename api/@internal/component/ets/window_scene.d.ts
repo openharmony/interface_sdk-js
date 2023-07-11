@@ -15,6 +15,8 @@
 
 /**
  * Defines the interface of WindowScene.
+ *
+ * @interface WindowSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -22,10 +24,11 @@
 interface WindowSceneInterface {
   /**
    * Called when the WindowScene is used.
+   *
    * @param { number } persistentId - indicates the persistent identifier of WindowScene.
+   * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @returns { WindowSceneAttribute }
    * @since 10
    */
   (persistentId: number): WindowSceneAttribute;
@@ -33,6 +36,8 @@ interface WindowSceneInterface {
 
 /**
  * Defines the attribute functions of WindowScene.
+ *
+ * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -42,6 +47,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
 
 /**
  * Defines the WindowScene component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -50,6 +56,7 @@ declare const WindowScene: WindowSceneInterface;
 
 /**
  * Defines the WindowScene instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
