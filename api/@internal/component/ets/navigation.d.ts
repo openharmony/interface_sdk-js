@@ -438,6 +438,87 @@ interface NavigationInterface {
 }
 
 /**
+ * Defines the status of toolbar item and it is used in the ToolbarItem interface.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ToolbarItemStatus {
+  /**
+   * Normal state of toolbar item.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NORMAL = 0,
+
+  /**
+   * Disable state of toolbar item.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DISABLED = 1,
+
+  /**
+   * Active state of toolbar item.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ACTIVE = 2,
+}
+
+/**
+ * Defines configurable parameters for toolbar item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ToolbarItem {
+  /**
+   * The value of navigation toolbar item.
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  value: ResourceStr;
+
+  /**
+   * The icon of navigation toolbar item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  icon?: ResourceStr;
+
+  /**
+   * Trigger by navigation toolbar item click.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  action?: () => void;
+
+  /**
+   * The state of navigation toolbar item.
+   * @type { ?ToolbarItemStatus }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  status?: ToolbarItemStatus;
+
+  /**
+   * The icon of navigation toolbar item in active state.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  activeIcon?: ResourceStr;
+}
+
+/**
  * Declare Navigation view properties.
  * @since 8
  */
@@ -596,13 +677,21 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Tool bar
    * @since 8
+   * @deprecated since 10
+   * @useinstead toolbarConfiguration
    */
+  toolBar(value: object | CustomBuilder): NavigationAttribute;
+
   /**
-   * Tool bar
+   * Configure toolbar with default style parameter or custom parameter.
+   * @param { Array<ToolbarItem> | CustomBuilder } value - Toolbar configuration parameters.
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @crossplatform
    * @since 10
    */
-  toolBar(value: object | CustomBuilder): NavigationAttribute;
+  toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder): NavigationAttribute;
 
   /**
    * Hide tool bar
