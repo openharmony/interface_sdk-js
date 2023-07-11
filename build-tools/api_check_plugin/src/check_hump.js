@@ -112,7 +112,7 @@ function checkAPIFileName(sourcefile, fileName) {
 
     if (moduleName !== "" && exportAssignment === moduleName && !checkSmallHump(lastModuleName)) {
       checkResult = `This API file should be named by small hump.`;
-    } else if (moduleName === "" && exportAssignment !== moduleName && !checkSmallHump(lastModuleName)) {
+    } else if (moduleName === "" && exportAssignment !== moduleName && !checkLargeHump(lastModuleName)) {
       checkResult = `This API file should be named by large hump.`;
     }
     if (checkResult !== "" && filterApiVersion(sourcefile, '10')) {
