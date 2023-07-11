@@ -82,6 +82,8 @@ public class UpdateReportPanel implements Disposable {
 
     private Map<String, String> changeLogs = new HashMap<>();
 
+    private List<UpdateCheckReportDto> reportDtos = new ArrayList<>();
+
     /**
      * UpdateReportPanel
      *
@@ -270,6 +272,7 @@ public class UpdateReportPanel implements Disposable {
         public Report() {
             LOGGER.info(LOG_TAG, "Start loading report window");
             DataUpdateNotifier.getInstance().addUpdateListener(this);
+            this.getReportResult();
             this.initReport(0);
             LOGGER.info(LOG_TAG, "Loading report window end");
         }
@@ -286,42 +289,44 @@ public class UpdateReportPanel implements Disposable {
             LOGGER.info(LOG_TAG, "Loading report window end");
         }
 
-        private List<UpdateCheckReportDto> getReportResult(int changeType) {
-            List<UpdateCheckReportDto> updateCheckReports = new ArrayList<>();
+        private void getReportResult() {
             try {
                 File resultJsonFile = new File(project.getBasePath(),
                         ConstString.get("check.report.json"));
                 List<UpdateCheckReportDto> updateCheckReportDtos =
                         FileUtils.readJsonFileToJavaList(resultJsonFile.toString(),
                         UpdateCheckReportDto.class);
-                if (updateCheckReportDtos == null) {
-                    return updateCheckReports;
-                }
-                if (changeType == 0) {
-                    return updateCheckReportDtos;
-                }
-                for (UpdateCheckReportDto dto : updateCheckReportDtos) {
-                    if (dto.getChangeType() == changeType) {
-                        updateCheckReports.add(dto);
-                    }
-                }
-                return updateCheckReports;
+                reportDtos = updateCheckReportDtos;
+                LOGGER.info(LOG_TAG, "Report size:" + updateCheckReportDtos.size());
             } catch (IOException e) {
                 LOGGER.error(LOG_TAG, e.getMessage());
-                return updateCheckReports;
             }
+        }
+
+        private List<UpdateCheckReportDto> screenResult(int changeType) {
+            List<UpdateCheckReportDto> updateCheckReports = new ArrayList<>();
+            if (changeType == 0) {
+                return reportDtos;
+            }
+            for (UpdateCheckReportDto dto : reportDtos) {
+                if (dto != null && dto.getChangeType() == changeType) {
+                    updateCheckReports.add(dto);
+                }
+            }
+            return updateCheckReports;
         }
 
         private void update() {
             LOGGER.info(LOG_TAG, "Start reload report window");
             dataList.clear();
+            this.getReportResult();
             this.initReport(0);
             fireTableDataChanged();
             LOGGER.info(LOG_TAG, "Reload report window end");
         }
 
         private void initReport(int changeType) {
-            List<UpdateCheckReportDto> reportResult = this.getReportResult(changeType);
+            List<UpdateCheckReportDto> reportResult = this.screenResult(changeType);
             if (reportResult == null) {
                 return;
             }
