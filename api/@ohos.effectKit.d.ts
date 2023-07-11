@@ -175,7 +175,7 @@ declare namespace effectKit {
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
    * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates,
-   * its range is [0, 1], default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
+   * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 10
@@ -194,7 +194,7 @@ declare namespace effectKit {
    * @param { image.PixelMap } source - the source pixelmap.
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates,
-   * its range is [0, 1], default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
+   * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 10
    */
