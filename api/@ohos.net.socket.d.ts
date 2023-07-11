@@ -14,8 +14,8 @@
  */
 
 import type { AsyncCallback, Callback, ErrorCallback } from './@ohos.base';
-import type connection from './@ohos.net.connection';
 import type cert from './@ohos.security.cert';
+import connection from './@ohos.net.connection';
 
 /**
  * Provides TCP and UDP Socket APIs.
@@ -31,7 +31,7 @@ import type cert from './@ohos.security.cert';
  * @since 10
  */
 declare namespace socket {
-  export type NetAddress = connection.NetAddress;
+  export import  NetAddress = connection.NetAddress;
   /**
    * Deposit certificate
    * @syscap SystemCapability.Communication.NetStack
