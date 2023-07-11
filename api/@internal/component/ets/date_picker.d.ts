@@ -260,7 +260,11 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
+   * @useinstead datePicker/DatePickerAttribute#onDateChange
    */
+  onChange(callback: (value: DatePickerResult) => void): DatePickerAttribute;
+  
   /**
    * This event is triggered when a DatePicker date or time is selected.
    *
@@ -270,7 +274,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @crossplatform
    * @since 10
    */
-  onChange(callback: (value: DatePickerResult) => void): DatePickerAttribute;
+  onDateChange(callback: (value: Date) => void): DatePickerAttribute;
 }
 
 /**
@@ -402,14 +406,8 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Called when the OK button in the dialog is clicked.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
+   * @deprecated since 10
+   * @useinstead datePicker/DatePickerDialogOptions#onDateAccept
    */
   onAccept?: (value: DatePickerResult) => void;
 
@@ -436,7 +434,21 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
+   * @useinstead datePicker/DatePickerDialogOptions#onDateChange
    */
+  onChange?: (value: DatePickerResult) => void;
+  
+  /**
+   * Called when the OK button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onDateAccept?: (value: Date) => void;
+
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
    *
@@ -445,7 +457,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @crossplatform
    * @since 10
    */
-  onChange?: (value: DatePickerResult) => void;
+  onDateChange?: (value: Date) => void;
 }
 
 /**
