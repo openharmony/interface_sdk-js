@@ -5288,6 +5288,16 @@ declare class CommonMethod<T> {
   backdropBlur(value: number): T;
 
   /**
+   * Composite the contents of this view and its children into an offscreen cache before display in the screen.
+   * @param { boolean } value if this view and its children need to composite into an offscreen cache.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  renderGroup(value: boolean): T;
+
+  /**
    * Sets the translation effect during page transition.
    * The value is the start point of entry and end point of exit.
    * When this parameter is set together with slide, slide takes effect by default.
