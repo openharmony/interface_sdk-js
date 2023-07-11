@@ -31,7 +31,7 @@ import connection from './@ohos.net.connection';
  * @since 10
  */
 declare namespace socket {
-  export import  NetAddress = connection.NetAddress;
+  export import NetAddress = connection.NetAddress;
   /**
    * Deposit certificate
    * @syscap SystemCapability.Communication.NetStack
