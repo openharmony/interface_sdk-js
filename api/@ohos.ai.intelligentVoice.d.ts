@@ -22,7 +22,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 declare namespace intelligentVoice {
   /**
    * Obtains an {@link IntelligentVoiceManager} instance.
-   * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+   * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
    * @returns { IntelligentVoiceManager } this {@link IntelligentVoiceManager} object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 22700101 - No memory.
@@ -40,7 +40,7 @@ declare namespace intelligentVoice {
   interface IntelligentVoiceManager {
     /**
      * Obtains capability information.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Array<IntelligentVoiceEngineType> } array of supported IntelligentVoiceEngineType.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -50,7 +50,7 @@ declare namespace intelligentVoice {
     /**
      * Subscribes service change events. When the state of intelligent voice service changes,
      * the callback is invoked.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } type - Type of the event to listen for. Only the serviceChange event is supported.
      * @param { Callback<ServiceChangeType>Callback<ServiceChangeType> } callback - Callback is invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
@@ -60,7 +60,7 @@ declare namespace intelligentVoice {
     on(type: 'serviceChange', callback: Callback<ServiceChangeType>): void;
     /**
      * Unsubscribes service change events.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } type - Type of the event to listen for. Only the serviceChange event is supported.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -149,7 +149,7 @@ declare namespace intelligentVoice {
 
   /**
    * Obtains an {@link EnrollIntelligentVoiceEngine} instance. This method uses an asynchronous callback to return the EnrollIntelligentVoiceEngine instance.
-   * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+   * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
    * @param { EnrollIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates enroll intelligent voice engine descriptor.
    * @param { AsyncCallback<EnrollIntelligentVoiceEngine> } callback - the callback used to return the EnrollIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
@@ -163,7 +163,7 @@ declare namespace intelligentVoice {
 
   /**
    * Obtains an {@link EnrollIntelligentVoiceEngine} instance. This method uses a promise to return the EnrollIntelligentVoiceEngine instance.
-   * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+   * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
    * @param { EnrollIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates enroll intelligent voice engine descriptor.
    * @returns { Promise<EnrollIntelligentVoiceEngine>; } the promise used to return the EnrollIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
@@ -177,7 +177,7 @@ declare namespace intelligentVoice {
 
   /**
    * Obtains an {@link WakeupIntelligentVoiceEngine} instance. This method uses an asynchronous callback to return the WakeupIntelligentVoiceEngine instance.
-   * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+   * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
    * @param { WakeupIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates wakeup intelligent voice engine descriptor.
    * @param { AsyncCallback<WakeupIntelligentVoiceEngine> } callback - the callback used to return the WakeupIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
@@ -191,7 +191,7 @@ declare namespace intelligentVoice {
 
   /**
    * Obtains an {@link WakeupIntelligentVoiceEngine} instance. This method uses a promise to return the WakeupIntelligentVoiceEngine instance.
-   * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+   * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
    * @param { WakeupIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates wakeup intelligent voice engine descriptor.
    * @returns { Promise<WakeupIntelligentVoiceEngine> } the promise used to return the WakeupIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
@@ -440,7 +440,7 @@ declare namespace intelligentVoice {
   interface EnrollIntelligentVoiceEngine {
     /**
      * Obtains the supported regions, This method uses an asynchronous callback to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<Array<string>> } callback - the callback used to return the supported regions.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -449,7 +449,7 @@ declare namespace intelligentVoice {
     getSupportedRegions(callback: AsyncCallback<Array<string>>): void;
     /**
      * Obtains the supported regions, This method uses a promise to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<Array<string>> } the promise used to return the supported regions.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -458,7 +458,7 @@ declare namespace intelligentVoice {
     getSupportedRegions(): Promise<Array<string>>;
     /**
      * Initials the engine, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { EnrollEngineConfig } config - config indicates enroll engine configuration.
      * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -470,7 +470,7 @@ declare namespace intelligentVoice {
     init(config: EnrollEngineConfig, callback: AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo>): void;
     /**
      * Initials the engine, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { EnrollEngineConfig } config - config indicates enroll engine configuration.
      * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -482,7 +482,7 @@ declare namespace intelligentVoice {
     init(config: EnrollEngineConfig): Promise<EnrollIntelligentVoiceEngineCallbackInfo>;
     /**
      * Starts the engine, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { boolean } isLast - isLast indicates if it is the last time to start.
      * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -493,7 +493,7 @@ declare namespace intelligentVoice {
     start(isLast: boolean, callback: AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo>): void;
     /**
      * Starts the engine, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { boolean } isLast - isLast indicates if it is the last time to start.
      * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -504,7 +504,7 @@ declare namespace intelligentVoice {
     start(isLast: boolean): Promise<EnrollIntelligentVoiceEngineCallbackInfo>;
     /**
      * Stops the engine, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<void> } callback  - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -513,7 +513,7 @@ declare namespace intelligentVoice {
     stop(callback: AsyncCallback<void>): void;
     /**
      * Stops the engine, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -522,7 +522,7 @@ declare namespace intelligentVoice {
     stop(): Promise<void>;
     /**
      * commit enroll, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -531,7 +531,7 @@ declare namespace intelligentVoice {
     commit(callback: AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo>): void;
     /**
      * commit enroll, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -540,7 +540,7 @@ declare namespace intelligentVoice {
     commit(): Promise<EnrollIntelligentVoiceEngineCallbackInfo>;
     /**
      * Sets wakeup hap information, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { WakeupHapInfo } info - info indicates wakeup hap information.
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -552,7 +552,7 @@ declare namespace intelligentVoice {
     setWakeupHapInfo(info: WakeupHapInfo, callback: AsyncCallback<void>): void;
     /**
      * Sets wakeup hap information, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { WakeupHapInfo } info - info indicates wakeup hap information.
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -564,7 +564,7 @@ declare namespace intelligentVoice {
     setWakeupHapInfo(info: WakeupHapInfo): Promise<void>;
     /**
      * Sets sensibility, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { SensibilityType } sensibility - sensibility to set.
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -576,7 +576,7 @@ declare namespace intelligentVoice {
     setSensibility(sensibility: SensibilityType, callback: AsyncCallback<void>): void;
     /**
      * Sets sensibility, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { SensibilityType } sensibility - sensibility to set.
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -588,7 +588,7 @@ declare namespace intelligentVoice {
     setSensibility(sensibility: SensibilityType): Promise<void>;
     /**
      * Sets an intelligent voice parameter. This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter to set.
      * @param { string } value - the value of the intelligent voice parameter to set.
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
@@ -601,7 +601,7 @@ declare namespace intelligentVoice {
     setParameter(key: string, value: string, callback: AsyncCallback<void>): void;
     /**
      * Sets an intelligent voice parameter. This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter to set.
      * @param { string } value - the value of the intelligent voice parameter to set.
      * @returns { Promise<void> } the promise used to return the result.
@@ -614,7 +614,7 @@ declare namespace intelligentVoice {
     setParameter(key: string, value: string): Promise<void>;
     /**
      * Obtains the value of an intelligent voice parameter. This method uses an asynchronous callback to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter whose value is to be obtained.
      * @param { AsyncCallback<string> } callback - the callback used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
@@ -626,7 +626,7 @@ declare namespace intelligentVoice {
     getParameter(key: string, callback: AsyncCallback<string>): void;
     /**
      * Obtains the value of an intelligent voice parameter. This method uses an asynchronous callback to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter whose value is to be obtained.
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
@@ -638,7 +638,7 @@ declare namespace intelligentVoice {
     getParameter(key: string): Promise<string>;
     /**
      * Releases the engine, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -647,7 +647,7 @@ declare namespace intelligentVoice {
     release(callback: AsyncCallback<void>): void;
     /**
      * Releases the engine, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -665,7 +665,7 @@ declare namespace intelligentVoice {
   interface WakeupIntelligentVoiceEngine {
     /**
      * Obtains the supported regions, This method uses an asynchronous callback to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<Array<string>> } callback - the callback used to return the supported regions.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -674,7 +674,7 @@ declare namespace intelligentVoice {
     getSupportedRegions(callback: AsyncCallback<Array<string>>): void;
     /**
      * Obtains the supported regions, This method uses a promise to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<Array<string>> } the promise used to return the supported regions.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -683,7 +683,7 @@ declare namespace intelligentVoice {
     getSupportedRegions(): Promise<Array<string>>;
     /**
      * Sets wakeup hap information, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { WakeupHapInfo } info - info indicates wakeup hap information.
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -695,7 +695,7 @@ declare namespace intelligentVoice {
     setWakeupHapInfo(info: WakeupHapInfo, callback: AsyncCallback<void>): void;
     /**
      * Sets wakeup hap information, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { WakeupHapInfo } info - info indicates wakeup hap information.
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -707,7 +707,7 @@ declare namespace intelligentVoice {
     setWakeupHapInfo(info: WakeupHapInfo): Promise<void>;
     /**
      * Sets sensibility, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { SensibilityType } sensibility - sensibility to set.
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -719,7 +719,7 @@ declare namespace intelligentVoice {
     setSensibility(sensibility: SensibilityType, callback: AsyncCallback<void>): void;
     /**
      * Sets sensibility, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { SensibilityType } sensibility - sensibility to set.
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -731,7 +731,7 @@ declare namespace intelligentVoice {
     setSensibility(sensibility: SensibilityType): Promise<void>;
     /**
      * Sets an intelligent voice parameter. This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter to set.
      * @param { string } value - the value of the intelligent voice parameter to set.
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
@@ -744,7 +744,7 @@ declare namespace intelligentVoice {
     setParameter(key: string, value: string, callback: AsyncCallback<void>): void;
     /**
      * Sets an intelligent voice parameter. This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter to set.
      * @param { string } value - the value of the intelligent voice parameter to set.
      * @returns { Promise<void> } the promise used to return the result.
@@ -757,7 +757,7 @@ declare namespace intelligentVoice {
     setParameter(key: string, value: string): Promise<void>;
     /**
      * Obtains the value of an intelligent voice parameter. This method uses an asynchronous callback to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter whose value is to be obtained.
      * @param { AsyncCallback<string> } callback - the callback used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
@@ -769,7 +769,7 @@ declare namespace intelligentVoice {
     getParameter(key: string, callback: AsyncCallback<string>): void;
     /**
      * Obtains the value of an intelligent voice parameter. This method uses an asynchronous callback to return the query result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter whose value is to be obtained.
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
@@ -781,7 +781,7 @@ declare namespace intelligentVoice {
     getParameter(key: string): Promise<string>;
     /**
      * Releases the engine, This method uses an asynchronous callback to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -790,7 +790,7 @@ declare namespace intelligentVoice {
     release(callback: AsyncCallback<void>): void;
     /**
      * Releases the engine, This method uses a promise to return the result.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -800,7 +800,7 @@ declare namespace intelligentVoice {
     /**
      * Subscribes wakeup intelligent voice events. When wakeup intelligent voice events reach,
      * the callback is invoked.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
      * @param { Callback<WakeupIntelligentVoiceEngineCallbackInfo> } callback - the callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
@@ -810,7 +810,7 @@ declare namespace intelligentVoice {
     on(type: 'wakeupIntelligentVoiceEvent', callback: Callback<WakeupIntelligentVoiceEngineCallbackInfo>): void;
     /**
      * Unsubscribes wakeup intelligent voice events.
-     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
