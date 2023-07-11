@@ -378,7 +378,7 @@ declare namespace intelligentVoice {
   }
 
   /**
-   * Describes enrol intelligent voice engine callback information.
+   * Describes enroll intelligent voice engine callback information.
    * @typedef EnrollIntelligentVoiceEngineCallbackInfo
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @since 10
