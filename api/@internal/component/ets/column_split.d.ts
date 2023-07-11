@@ -88,6 +88,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
    * Called when the ColumnSplit split line style is set.
    * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
+   * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
