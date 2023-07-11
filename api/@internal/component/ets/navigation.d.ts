@@ -468,6 +468,7 @@ declare enum ToolbarItemStatus {
 
 /**
  * Defines configurable parameters for toolbar item.
+ * @interface ToolbarItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
