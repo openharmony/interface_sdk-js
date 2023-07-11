@@ -48,6 +48,35 @@ interface ColumnSplitInterface {
 }
 
 /**
+ * Provides an interface for the style of a divider including start margin and end margin
+ * @interface ColumnSplitDividerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+interface ColumnSplitDividerStyle {
+  /**
+   * Define the start margin of the divider
+   * @type { Dimension }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  startMargin?: Dimension;
+
+  /**
+   * Define the end margin of the divider
+   * @type { Dimension }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  endMargin?: Dimension;
+}
+
+/**
  * Defines the ColumnSplit component attribute functions.
  *
  * @extends CommonMethod
@@ -81,6 +110,17 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * @since 10
    */
   resizeable(value: boolean): ColumnSplitAttribute;
+
+  /**
+   * Called when the ColumnSplit split line style is set.
+   * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
+   * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
+   * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  divider(value: ColumnSplitDividerStyle | null): ColumnSplitAttribute;
 }
 
 /**
