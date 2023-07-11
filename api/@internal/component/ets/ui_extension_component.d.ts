@@ -14,8 +14,8 @@
  */
 
 /**
- * This interface is used for send data to the UIExtensionAbility.
- * It is returned from onRemoteReady callback of class UIExtensionDataSession
+ * This interface is used for send data to the UIExtensionAbility.<br/>
+ * It is returned from onRemoteReady callback of UIExtensionComponent<br/>
  * when UIExtensionAbility connects successfully
  * @interface UIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24,8 +24,8 @@
  */
 declare interface UIExtensionProxy {
   /**
-   * this function is called to send data to the UIExtensionAbility.
-   * @param { { [key:string]: Object } } data - data send to UIExtensionAbility
+   * This function is for sending data to the UIExtensionAbility.
+   * @param { { [key:string]: Object } } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
@@ -34,46 +34,8 @@ declare interface UIExtensionProxy {
 }
 
 /**
- * This class is used for data IPC to the UIExtensionAbility.
- * when UIExtensionAbility connects successfully
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
- */
-interface UIExtensionDataSessionInterface {
-  /**
-   * Default initialization method for UIExtensionDataSessionInterface
-   * @returns { UIExtensionDataSessionInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
-   */
-  (): UIExtensionDataSessionInterface;
-
-  /**
-   * callback called when data received form UIExtensionAbility
-   * @param { (data: { [key: string]: Object }) => void } callback - called when data received form UIExtensionAbility
-   * @returns { UIExtensionDataSessionInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
-   */
-  onReceive(callback: (data: { [key: string]: Object }) => void): UIExtensionDataSessionInterface;
-
-  /**
-   * callback called when remote UIExtensionAbility object is ready for receive data
-   * @param { (proxy: UIExtensionProxy) => void } callback - callback called when remote UIExtensionAbility object is
-   * <br/>ready for receive data
-   * @returns { UIExtensionDataSessionInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
-   */
-  onRemoteReady(callback: (proxy: UIExtensionProxy) => void): UIExtensionDataSessionInterface;
-}
-
-/**
- * Provide an interface for the ui extension component, which is used to render UI of a remote UIExtensionAbility
+ * Provide an interface for the UIExtensionComponent, which is used
+ * <br/>to render UI of a remote UIExtensionAbility
  * @interface UIExtensionComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -81,91 +43,90 @@ interface UIExtensionDataSessionInterface {
  */
 interface UIExtensionComponentInterface {
   /**
-   * Construct the ui extension component.
-   * Called when the ui extension component is used.
-   * @param { Want } want - indicates want of the UIExtensionAbility
-   * @param { UIExtensionDataSession }[options] session - indicates session used to data RPC to the UIExtensionAbility
+   * Construct the UIExtensionComponent.<br/>
+   * Called when the UIExtensionComponent is used.
+   * @param { Want } want - indicates the want of UIExtensionAbility
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
    */
-  (want: import('../api/@ohos.app.ability.Want').default, session?: UIExtensionDataSession): UIExtensionComponentAttribute;
+  (
+    want: import('../api/@ohos.app.ability.Want').default
+  ): UIExtensionComponentAttribute;
 }
 
 /**
- * Define the attribute functions of ui extension component.
+ * Define the attribute functions of UIExtensionComponent.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
  */
 declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
   /**
-   * Called when the provider sends data
-   * @param { (code: number, want?: Want) => void } callback - called when the UIExtensionAbility is terminated with
-   * <br/>result data.
+   * @param { Callback<UIExtensionProxy> } callback
+   * - callback called when remote UIExtensionAbility object is
+   * <br/>ready for receive data
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
    */
-  onResult(callback: (
-    /**
-     * result code.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 10
-     */
-    code: number,
-    /**
-     * result want.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 10
-     */
-    want?: import('../api/@ohos.app.ability.Want').default) => void): UIExtensionComponentAttribute;
+  onRemoteReady(
+    callback: import('../api/@ohos.base').Callback<UIExtensionProxy>
+  ): UIExtensionComponentAttribute;
 
   /**
-   * Called when the connect to the UIExtension is broken.
-   * @param { (releaseCode: number) => void } callback - called when the connect to the UIExtension is broken.
+   * @param { Callback<{ [key: string]: Object }> } callback
+   * - called when data received from UIExtensionAbility
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
    */
-  onRelease(callback: (
-    /**
-     * release code if disconnected from UIExtensionAbility, 0 means the UIExtensionAbility is terminate by itself,
-     * <br/>otherwise the connect is broken abnormal.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 10
-     */
-    releaseCode: number) => void): UIExtensionComponentAttribute;
+  onReceive(
+    callback: import('../api/@ohos.base').Callback<{ [key: string]: Object }>
+  ): UIExtensionComponentAttribute;
 
   /**
-   * Called when some error occurred except disconnected from UIExtensionAbility.
-   * @param { (errCode: number, errMsg: string) => void } callback - the callback
+   * @param { Callback<{ code: number, want?: Want }> } callback
+   * - called when the UIExtensionAbility is terminated with result data.
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
    */
-  onError(callback: (
-    /**
-     * error code
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 10
-     */
-    errCode: number,
-    /**
-     * error message
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 10
-     */
-    errMsg: string) => void): UIExtensionComponentAttribute;
+  onResult(
+    callback: import('../api/@ohos.base').Callback<{
+      code: number;
+      want?: import('../api/@ohos.app.ability.Want').default;
+    }>
+  ): UIExtensionComponentAttribute;
+
+  /**
+   * @param { Callback<number> } callback
+   * - number returned from callback function if disconnected from UIExtensionAbility, 0 means the
+   * <br/>UIExtensionAbility is terminate by itself, otherwise the connect is broken abnormal.
+   * @returns { UIExtensionComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  onRelease(
+    callback: import('../api/@ohos.base').Callback<number>
+  ): UIExtensionComponentAttribute;
+
+  /**
+   * @param { ErrorCallback } callback
+   * - called when some error occurred except disconnected from UIExtensionAbility.
+   * @returns { UIExtensionComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  onError(
+    callback: import('../api/@ohos.base').ErrorCallback
+  ): UIExtensionComponentAttribute;
 }
 
 /**
@@ -183,11 +144,3 @@ declare const UIExtensionComponent: UIExtensionComponentInterface;
  * @since 10
  */
 declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;
-
-/**
- * Defines UIExtensionDataSession.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
- */
-declare const UIExtensionDataSession: UIExtensionDataSessionInterface;
