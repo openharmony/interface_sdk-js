@@ -14,8 +14,8 @@
  */
 
 import type { AsyncCallback, Callback, ErrorCallback } from './@ohos.base';
+import connection from "./@ohos.net.connection";
 import type cert from './@ohos.security.cert';
-import connection from './@ohos.net.connection';
 
 /**
  * Provides TCP and UDP Socket APIs.
