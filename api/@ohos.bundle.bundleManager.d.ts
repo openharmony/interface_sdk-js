@@ -1082,7 +1082,8 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   *  ExtensionAbilityInfo objects that will be returned.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1103,7 +1104,8 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   *  ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1126,7 +1128,8 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   *  ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1179,7 +1182,8 @@ declare namespace bundleManager {
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
+   * @param { string } hapFilePath - Indicates the path storing the HAP.
+   *  The path should be the relative path to the data directory of the current application.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle archive info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1196,7 +1200,8 @@ declare namespace bundleManager {
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
+   * @param { string } hapFilePath - Indicates the path storing the HAP.
+   *  The path should be the relative path to the data directory of the current application.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @returns { Promise<BundleInfo> } Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
