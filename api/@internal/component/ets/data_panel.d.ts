@@ -113,7 +113,7 @@ declare class LinearGradient {
  * @crossplatform
  * @since 10
  */
-declare interface DataPanelShadowOption {
+declare interface DataPanelShadowOptions {
 
   /**
    * Current shadow radius.
@@ -320,12 +320,12 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
 
   /**
    * Set the shadow width of the data ratio chart.
-   * @param { DataPanelShadowOption } value - the track shadow width of the data ratio chart.
+   * @param { DataPanelShadowOptions } value - the track shadow width of the data ratio chart.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  trackShadow(value: DataPanelShadowOption): DataPanelAttribute;
+  trackShadow(value: DataPanelShadowOptions): DataPanelAttribute;
 }
 
 /**
