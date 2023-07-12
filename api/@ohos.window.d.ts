@@ -3672,6 +3672,7 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
    * @StageModelOnly
    * @since 9
    */
@@ -3680,6 +3681,7 @@ declare namespace window {
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     SHOWN = 1,
@@ -3687,6 +3689,7 @@ declare namespace window {
      * The window stage gains focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     ACTIVE,
@@ -3694,6 +3697,7 @@ declare namespace window {
      * The window stage loses focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     INACTIVE,
@@ -3701,6 +3705,7 @@ declare namespace window {
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 9
      */
     HIDDEN
