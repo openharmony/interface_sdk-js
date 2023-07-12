@@ -718,6 +718,12 @@ declare namespace audio {
      */
     STREAM_USAGE_MEDIA = 1,
     /**
+     * Music usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_MUSIC = 1,
+    /**
      * Voice communication usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
@@ -736,11 +742,29 @@ declare namespace audio {
      */
     STREAM_USAGE_ALARM = 4,
     /**
+     * Voice message usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_VOICE_MESSAGE = 5,
+    /**
      * Notification or ringtone usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
      */
     STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
+    /**
+     * Ringtone usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_RINGTONE = 6,
+    /**
+     * Notification usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_NOTIFICATION = 7,
     /**
      * Accessibility usage, such as screen reader.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -754,6 +778,51 @@ declare namespace audio {
      * @since 10
      */
     STREAM_USAGE_SYSTEM = 9,
+    /**
+     * Movie or video usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_MOVIE = 10,
+    /**
+     * Game sound effect usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_GAME = 11,
+    /**
+     * Audiobook usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_AUDIOBOOK = 12,
+    /**
+     * Navigation usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_NAVIGATION = 13,
+    /**
+     * DTMF dial tone usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    STREAM_USAGE_DTMF = 14,
+    /**
+     * Enforced tone usage, such as camera shutter.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    STREAM_USAGE_ENFORCED_TONE = 15,
+    /**
+     * Ultrasonic playing usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    STREAM_USAGE_ULTRASONIC = 16,
   }
 
   /**
@@ -815,10 +884,19 @@ declare namespace audio {
   interface AudioRendererInfo {
     /**
      * Content type.
+     * @type { ContentType }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.AudioRendererInfo#usage
      */
-    content: ContentType;
+    /**
+     * Content type.
+     * @type { ?ContentType }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    content?: ContentType;
     /**
      * Stream usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
