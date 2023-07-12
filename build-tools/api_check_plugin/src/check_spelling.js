@@ -58,8 +58,9 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
       }
       const minLev = Math.min(...levArr);
       const indexArr = overwriteIndexOf(minLev, levArr);
+      const MAX_LENGTH = 5;
       for (let i = 0; i < indexArr.length; i++) {
-        if (i === 5) {
+        if (i === MAX_LENGTH) {
           break;
         }
         suggest.push(dictionariesArr[indexArr[i]]);

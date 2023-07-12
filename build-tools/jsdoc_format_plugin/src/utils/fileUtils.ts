@@ -41,7 +41,7 @@ export class FileUtils {
     return files;
   }
 
-  static writeStringToFile(str: string, filePath: string) {
+  static writeStringToFile(str: string, filePath: string): void {
     const parentDir = path.dirname(filePath);
     if (!FileUtils.isExists(parentDir)) {
       fs.mkdirSync(parentDir, { recursive: true });

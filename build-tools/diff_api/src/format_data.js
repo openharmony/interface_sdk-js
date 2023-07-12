@@ -62,8 +62,9 @@ function getLink(url, fileName) {
 
 function getVersionsData(versionUrl, callback) {
   let json = '';
+  const SUCCESS_CODE =200;
   const request = https.get(versionUrl, { timeout: 2000 }, function (res) {
-    if (res.statusCode !== 200) {
+    if (res.statusCode !== SUCCESS_CODE) {
       return;
     }
     res.on('data', function (d) {
@@ -88,13 +89,14 @@ async function formatExcelData(orderVersionArr, url) {
   let allMergeData = [];
   const versionUrl = getLink(url, orderVersionArr[0]);
   let oldestVersionData = [];
+  const MAX_LENGTH =2;
   await downloadFiles(versionUrl).then(versionData => {
     oldestVersionData = JSON.parse(versionData);
   }).catch(err => {
     console.log('ERROR CODE:', err.code);
   });
 
-  if (orderVersionArr.length < 2) {
+  if (orderVersionArr.length < MAX_LENGTH) {
     return allMergeData;
   }
 

@@ -296,8 +296,9 @@ function getNewAddApi(oldMethodTexts, diffApis, subsystemMap, fileNameMap, diffM
   }
 }
 function collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, diffMethodTextSet) {
-  let startDiffOld = ''
-  let startDiffNew = ''
+  let startDiffOld = '';
+  let startDiffNew = '';
+  const NOTE_NUMBER = 2 ;
   if (newApi.methodName == '') {
     startDiffOld = '类名：' + oldApi.className + '\n'
     startDiffNew = '类名：' + newApi.className + '\n'
@@ -315,7 +316,7 @@ function collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, 
     collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffApis, newApi.promiseMethodText,
       oldApi.promiseMethodText, subsystemMap, fileNameMap);
   }
-  if (!newApi.funType && !oldApi.funType && newApi.methodText !== oldApi.methodText && newApi.note < 2) {
+  if (!newApi.funType && !oldApi.funType && newApi.methodText !== oldApi.methodText && newApi.note < NOTE_NUMBER) {
     diffMethodTextSet.add(newApi.methodText);
     collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffApis, newApi.methodText,
       oldApi.methodText, subsystemMap, fileNameMap);
@@ -681,7 +682,8 @@ async function exportDiffApiInfo(exportType, compileApiInfos, exportFileName) {
     for (let i = 0; i < compileApiInfos.length; i++) {
       let apiData = compileApiInfos[i];
       let fileName = apiData.dtsPath ? path.basename(apiData.dtsPath) : apiData.packageName;
-      sheet.getRow(i + 2).values = [apiData.flag, apiData.diffOld, apiData.diffNew, fileName,
+      const ADD_NUMBER = 2;
+      sheet.getRow(i + ADD_NUMBER).values = [apiData.flag, apiData.diffOld, apiData.diffNew, fileName,
         apiData.subsystem];
     }
     const buffer = await workbook.xlsx.writeBuffer();

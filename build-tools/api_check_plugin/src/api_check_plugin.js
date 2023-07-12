@@ -55,8 +55,8 @@ function tsTransform(uFiles, callback) {
         compilerOptions: {
           target: ts.ScriptTarget.ES2017,
         },
-        fileName: fileName,
-        transformers: { before: [callback(filePath)] },
+        fileName,
+        transformers: { before: [callback(filePath)] }
       });
     }
   });
@@ -113,17 +113,18 @@ function scanEntry(url, prId) {
     // scan entry
     checkAPICodeStyle(url);
   }
-  result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
+  result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;
 
 function reqGitApi(scanResult, prId) {
   const administrators = new Set();
+  const SUCCESS_CODE = 200;
   rules.administrators.forEach((administrator) => {
     administrators.add(administrator.user);
   });
-  if (ApiCheckResult.format_check_result || !prId || prId === 'NA') {
+  if (ApiCheckResult.formatCheckResult || !prId || prId === 'NA') {
     return scanResult;
   }
   const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;
@@ -132,7 +133,7 @@ function reqGitApi(scanResult, prId) {
       'Content-Type': 'application/json;charset=UFT-8',
     },
   });
-  if (res.statusCode !== 200) {
+  if (res.statusCode !== SUCCESS_CODE) {
     throw `The giteeAPI access failed, StatusCode:${res.statusCode}`;
   }
   let resBody = new TextDecoder('utf-8').decode(res.body);
@@ -143,15 +144,15 @@ function reqGitApi(scanResult, prId) {
   }
   for (let i = 0; i < resultBody.length; i++) {
     const comment = resultBody[i];
-    if (!(comment && comment['user'] && comment['user']['id'] && comment.body)) {
+    if (!(comment && comment.user && comment.user.id && comment.body)) {
       continue;
     }
-    let userId = String(comment['user']['id']);
+    let userId = String(comment.user.id);
     if (userId == rules.ciId && /^代码有更新,重置PR验证状态$/.test(comment.body)) {
       break;
     }
     if (administrators.has(userId) && /^approve api check$/.test(comment.body)) {
-      ApiCheckResult.format_check_result = true;
+      ApiCheckResult.formatCheckResult = true;
       scanResult = ['api_check: true'];
       break;
     }

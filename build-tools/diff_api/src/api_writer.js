@@ -57,7 +57,8 @@ exports.ExcelReporter = {
       const messageObj = getDiffMessage(diffInfo);
       const syscap = diffInfo.syscap ? diffInfo.syscap : '';
       const subsystem = diffInfo.packageName === 'ArkUI' ? 'ACE开发框架' : subsystemMap.get(syscap);
-      sheet.getRow(index + 2).values = [
+      const ADD_NUMBER = 2;
+      sheet.getRow(index + ADD_NUMBER).values = [
         diffInfo.status,
         messageObj.oldMessage,
         messageObj.newMessage,

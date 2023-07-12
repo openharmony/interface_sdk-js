@@ -61,7 +61,7 @@ function checkApiOrder(comments) {
       let errorInfo = ErrorValueInfo.ERROR_ORDER;
       checkOrderRusult.push({
         checkResult: false,
-        errorInfo: errorInfo,
+        errorInfo
       });
     }
   });
@@ -77,7 +77,7 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
     errorInfo: '',
   };
   const tagName = tag.tag;
-  const docTags = [...rules.decorators['customDoc'], ...rules.decorators['jsDoc']];
+  const docTags = [...rules.decorators.customDoc, ...rules.decorators.jsDoc];
   const decoratorRuleSet = new Set(docTags);
   if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind) && isIllegalTagWhitetFile) {
     APITagNameResult.checkResult = false;

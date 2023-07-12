@@ -49,6 +49,7 @@ function getName(node) {
   } else if (node.name.text) {
     return node.name.text.toString();
   }
+  return;
 }
 
 function isConstantDecorator(node, name) {

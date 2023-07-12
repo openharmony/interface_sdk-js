@@ -33,7 +33,7 @@ exports.initEnv = function (version) {
       resolve();
       return;
     }
-    const workingBranch = version ? version : 'mas' + 'ter';
+    const workingBranch = version || 'mas' + 'ter';
     const url = `${urlPrefix}${workingBranch}${urlSuffix}`;
     updatePermissionConfig(url, (content) => {
       if (content) {
@@ -46,7 +46,7 @@ exports.initEnv = function (version) {
 }
 
 function updatePermissionConfig(url, callback) {
-  let requestText = undefined;
+  let requestText;
   const https = require('https');
   const request = https.get(url, { timeout: 2000 }, (res) => {
     res.on('data', (chunk) => {

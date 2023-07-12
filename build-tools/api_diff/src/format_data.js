@@ -110,9 +110,12 @@ function getSingleVersionData(versionUrl) {
     for (let i = 2; i < oneSubsystemDataArr.length; i++) {
       const regx = /(?<!\\)\|/g;
       let oneDataArr = oneSubsystemDataArr[i].split(regx);
-      const diffOld = oneDataArr[1].replace(/\\/g, '').trim();
-      const diffNew = oneDataArr[2].replace(/\\/g, '').trim();
-      const packageName = oneDataArr[3].trim();
+      const OLD_INDEX = 1;
+      const NEW_INDEX = 2;
+      const PACKAGE_INDEX = 3;
+      const diffOld = oneDataArr[OLD_INDEX].replace(/\\/g, '').trim();
+      const diffNew = oneDataArr[NEW_INDEX].replace(/\\/g, '').trim();
+      const packageName = oneDataArr[PACKAGE_INDEX].trim();
       if (oneDataArr.length === 5) {
         oneVersionData.push(collectData(diffOld, diffNew, subsystem, packageName));
       }
