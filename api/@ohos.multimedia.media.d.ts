@@ -384,47 +384,6 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
-     * Select audio or subtitle track.
-     * By default, the first audio stream with data is played, and the subtitle track is not played.
-     * After the settings take effect, the original track will become invalid and users will be notified
-     * of the {@link #trackChange} event.
-     * @param { number } index Track index, reference {@link #getTrackDescription}.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     selectTrack(index: number): void;
-
-    /**
-     * Deselect the current audio or subtitle track.
-     * After audio is deselected, the default track will be played, and after subtitles are deselected,
-     * they will not be played.
-     * @param { number } index Subtitle index that needs to be cancelled.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     deselectTrack(index: number): void;
-
-    /**
-     * Obtain the current audio or subtitle track.
-     * @param { MediaType } trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
-     * @param { AsyncCallback<number> } callback Async callback return the current track.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
-
-    /**
-     * Obtain the current audio or subtitle track.
-     * @param { MediaType } trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
-     * @returns { Promise<number> } A Promise instance used to return the current track.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     getCurrentTrack(trackType: MediaType): Promise<number>;
-
-    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -685,23 +644,6 @@ declare namespace media {
      */
     on(type: 'error', callback: ErrorCallback): void;
     off(type: 'error'): void;
-
-    /**
-     * Register listens for audio or subtitle track change event.
-     * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} finished.
-     * @param { 'trackChange' } type Type of the playback event to listen for.
-     * @param { function } callback Callback used to listen for the playback event return audio or subtitle track.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
-    /**
-     * Unregister listens for audio or subtitle track change event.
-     * @param { 'trackChange' } type Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     off(type: 'trackChange'): void;
   }
 
   /**
@@ -2489,13 +2431,6 @@ declare namespace media {
      * @since 8
      */
     MD_KEY_AUD_SAMPLE_RATE = "sample_rate",
-
-    /**
-     * key for language, value type is string
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 10
-     */
-     MD_KEY_LANGUAGE = "language",
   }
 
   /**
