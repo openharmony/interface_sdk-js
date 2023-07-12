@@ -26,6 +26,7 @@ export interface ContinueMissionInfo {
    * Indicates the original deviceId to continue mission.
    *
    * @type string
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */
@@ -34,6 +35,7 @@ export interface ContinueMissionInfo {
    * Indicates the target deviceId to continue mission.
    *
    * @type string
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */
@@ -42,6 +44,7 @@ export interface ContinueMissionInfo {
    * Indicates the bundle to continue.
    *
    * @type string
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */
@@ -50,8 +53,9 @@ export interface ContinueMissionInfo {
    * Indicates the extended param.
    *
    * @type object
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */
-  wantParam: { [key: string]: any };
+  wantParam: { [key: string]: Object };
 }
