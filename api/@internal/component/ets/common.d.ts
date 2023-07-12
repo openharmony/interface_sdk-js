@@ -7116,3 +7116,10 @@ declare module "AnimateToParam" {
     export { AnimateParam };
   }
 }
+
+declare module 'DragControllerParam' {
+  module 'DragControllerParam' {
+    // @ts-ignore
+    export type { CustomBuilder, DragItemInfo, DragEvent };
+  }
+}
