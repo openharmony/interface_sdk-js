@@ -76,7 +76,7 @@ declare enum PanelType {
    * @crossplatform
    * @since 10
    */
-  Minibar,
+  Minibar = 0,
 
   /**
    * Permanent content display class.
@@ -89,7 +89,7 @@ declare enum PanelType {
    * @crossplatform
    * @since 10
    */
-  Foldable,
+  Foldable = 1,
 
   /**
    * Temporary content display area.
@@ -102,7 +102,33 @@ declare enum PanelType {
    * @crossplatform
    * @since 10
    */
-  Temporary,
+  Temporary = 2,
+
+  /**
+   * Custom content display area.
+   * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  CUSTOM = 3,
+}
+
+/**
+ * Enum for custom content display area.
+ * @enum number
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum PanelHeight {
+  /**
+   * The Panel adapt to the content height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  WRAP_CONTENT = 0,
 }
 
 /**
@@ -168,6 +194,16 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * @since 10
    */
   dragBar(value: boolean): PanelAttribute;
+
+  /**
+   * Sets the height. It is valid only when PanelType is set to Custom.
+   * @param {Dimension | PanelHeight} value - value - Content height to set.
+   * @returns { PanelAttribute } Returns the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  customHeight(value: Dimension | PanelHeight): PanelAttribute;
 
   /**
    * Called when the height in the full state is specified.
