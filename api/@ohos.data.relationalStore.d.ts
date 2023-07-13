@@ -280,6 +280,15 @@ declare namespace relationalStore {
      * @since 9
      */
     encrypt?: boolean;
+
+    /**
+     * The data group id of application.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    dataGroupId?: string;
   }
 
   /**
@@ -2063,14 +2072,16 @@ declare namespace relationalStore {
    */
   interface RdbStore {
     /**
-     * Obtains the RdbStore version. The version number must be an integer greater than 0.
+     * Set RdbStore version. The version number must be an integer greater than 0.
+     * Obtains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     /**
-     * Obtains the RdbStore version. The version number must be an integer greater than 0.
+     * Set RdbStore version. The version number must be an integer greater than 0.
+     * Obtains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -2947,12 +2958,12 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } type - indicates the tables distributed type {@link DistributedType}.
+     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { number } type - Indicates the tables distributed type {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
-     * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @param { DistributedConfig } config - Indicates the distributed config of the tables. {@link DistributedConfig}.
+     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2963,12 +2974,12 @@ declare namespace relationalStore {
      * Set table to be a distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } type - indicates the distribution type of the tables. {@link DistributedType}.
+     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { number } type - Indicates the distribution type of the tables. {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @param { DistributedConfig } config - Indicates the distributed config of the tables. {@link DistributedConfig}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -3152,18 +3163,33 @@ declare namespace relationalStore {
      * Registers an observer for the database. When data in the distributed database changes,
      * the callback will be invoked.
      *
-     * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
-     * {Array<string>}: the observer of data change events in the distributed database.
-     * {Array<ChangeInfo>}: the change info of data change events in the distributed database.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * {Array<string>}: The observer of data change events in the distributed database.
+     * {Array<ChangeInfo>}: The change info of data change events in the distributed database.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
+
+    /**
+     * Registers an observer for the database.
+     *
+     * @param { string } event - Indicates the subscription event.
+     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
+     * @param { Callback } observer - {void} The observer of data change events in the database.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    on(event: string, supportShared: boolean, observer: Callback): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -3187,13 +3213,41 @@ declare namespace relationalStore {
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the data change observer already registered.
      * {Array<ChangeInfo>}: the change info already registered.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     off(event: 'dataChange', type: SubscribeType, observer?: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
+
+    /**
+     * Remove specified observer of specified type from the database.
+     *
+     * @param { string } event - Indicates the subscription event.
+     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
+     * @param {Callback<void>} observer - {void}: the data change observer already registered.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    off(event: string, supportShared: boolean, observer?: Callback<void>): void;
+
+    /**
+     * Notifies the registered observers of a change to the data resource specified by Uri.
+     *
+     * @param { string } event - Indicates the subscription event.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    emit(event: string): void;
   }
 
   /**
@@ -3290,6 +3344,23 @@ declare namespace relationalStore {
   function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
 
   /**
+   * Deletes the database with a specified store config.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 10
+   */
+  function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
+
+  /**
    * Deletes the database with a specified name.
    *
    * @param { Context } context - Indicates the context of application or capability.
@@ -3315,6 +3386,23 @@ declare namespace relationalStore {
    * @since 10
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
+
+  /**
+   * Deletes the database with a specified store config.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 10
+   */
+  function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
 }
 
 export default relationalStore;
