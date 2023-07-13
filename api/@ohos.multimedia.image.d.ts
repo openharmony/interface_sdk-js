@@ -2644,7 +2644,7 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
-    getDelayTime(): Promise<Array<number>>;
+    getDelayTimeList(): Promise<Array<number>>;
 
     /**
      * Obtains the array of delay time in an image. This method uses a callback to to return the array.
@@ -2661,7 +2661,7 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
-    getDelayTime(callback: AsyncCallback<Array<number>>): void;
+    getDelayTimeList(callback: AsyncCallback<Array<number>>): void;
 
     /**
      * Obtains the count of frame in an image. This method uses a promise to return the number.
