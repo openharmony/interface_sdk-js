@@ -3164,7 +3164,8 @@ declare namespace relationalStore {
      * the callback will be invoked.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
      * {Array<string>}: The observer of data change events in the distributed database.
      * {Array<ChangeInfo>}: The change info of data change events in the distributed database.
