@@ -6189,6 +6189,7 @@ declare class CommonMethod<T> {
    * @param {number} value - set the degree of spherical effect, value range [0, 1].
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @crossplatform
    * @since 10
    */
@@ -6199,6 +6200,7 @@ declare class CommonMethod<T> {
    * @param {number} value - set the degree to which the component lights up, value range [0, 1].
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @crossplatform
    * @since 10
    */
@@ -6208,6 +6210,7 @@ declare class CommonMethod<T> {
    * Set the edge pixel stretch effect of the Component.
    * @param {PixelStretchEffectOptions} options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @crossplatform
    * @since 10
    */
