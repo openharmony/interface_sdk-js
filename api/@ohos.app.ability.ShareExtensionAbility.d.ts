@@ -14,7 +14,6 @@
  */
 
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
-import UIExtensionContext from "./application/UIExtensionContext";
 
 /**
  * The class of Share extension ability.
@@ -25,12 +24,4 @@ import UIExtensionContext from "./application/UIExtensionContext";
  * @since 10
  */
 export default class ShareExtensionAbility extends UIExtensionAbility {
-  /**
-   * Indicates extension ability context.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 10
-   */
-  context: UIExtensionContext;
 }
