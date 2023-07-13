@@ -1,0 +1,118 @@
+[
+  {
+    "apiType": "interface",
+    "name": "Test",
+    "syscap": "",
+    "since": -1,
+    "isForm": false,
+    "isCrossPlatForm": false,
+    "isSystemApi": false,
+    "isStageModelOnly": false,
+    "isFaModelOnly": false,
+    "deprecatedVersion": -1,
+    "useinstead": "",
+    "childApis": [
+      {
+        "apiType": "method",
+        "name": "on('play')",
+        "syscap": "",
+        "since": -1,
+        "isForm": false,
+        "isCrossPlatForm": false,
+        "isSystemApi": false,
+        "isStageModelOnly": false,
+        "isFaModelOnly": false,
+        "deprecatedVersion": -1,
+        "useinstead": "",
+        "callForm": "on(type: 'play', callback: Callback<void>): void",
+        "params": [
+          {
+            "apiType": "param",
+            "name": "type",
+            "syscap": "",
+            "since": -1,
+            "isForm": false,
+            "isCrossPlatForm": false,
+            "isSystemApi": false,
+            "isStageModelOnly": false,
+            "isFaModelOnly": false,
+            "deprecatedVersion": -1,
+            "useinstead": "",
+            "type": "string",
+            "isRequired": true
+          },
+          {
+            "apiType": "param",
+            "name": "callback",
+            "syscap": "",
+            "since": -1,
+            "isForm": false,
+            "isCrossPlatForm": false,
+            "isSystemApi": false,
+            "isStageModelOnly": false,
+            "isFaModelOnly": false,
+            "deprecatedVersion": -1,
+            "useinstead": "",
+            "type": "Callback<void>",
+            "isRequired": true
+          }
+        ],
+        "returnValue": "",
+        "isStatic": false,
+        "permission": "",
+        "errorCodes": []
+      },
+      {
+        "apiType": "method",
+        "name": "off('play')",
+        "syscap": "",
+        "since": -1,
+        "isForm": false,
+        "isCrossPlatForm": false,
+        "isSystemApi": false,
+        "isStageModelOnly": false,
+        "isFaModelOnly": false,
+        "deprecatedVersion": -1,
+        "useinstead": "",
+        "callForm": "off(type: 'play', callback: Callback<void>): void",
+        "params": [
+          {
+            "apiType": "param",
+            "name": "type",
+            "syscap": "",
+            "since": -1,
+            "isForm": false,
+            "isCrossPlatForm": false,
+            "isSystemApi": false,
+            "isStageModelOnly": false,
+            "isFaModelOnly": false,
+            "deprecatedVersion": -1,
+            "useinstead": "",
+            "type": "string",
+            "isRequired": true
+          },
+          {
+            "apiType": "param",
+            "name": "callback",
+            "syscap": "",
+            "since": -1,
+            "isForm": false,
+            "isCrossPlatForm": false,
+            "isSystemApi": false,
+            "isStageModelOnly": false,
+            "isFaModelOnly": false,
+            "deprecatedVersion": -1,
+            "useinstead": "",
+            "type": "Callback<void>",
+            "isRequired": true
+          }
+        ],
+        "returnValue": "",
+        "isStatic": false,
+        "permission": "",
+        "errorCodes": []
+      }
+    ],
+    "parentClasses": []
+  }
+]

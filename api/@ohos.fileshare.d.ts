@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,6 +27,7 @@ declare namespace fileShare {
   /**
    * Provides grant uri permission for app
    *
+   * @permission ohos.permission.WRITE_MEDIA
    * @param { string } uri uri
    * @param { string } bundleName bundleName
    * @param { wantConstant.Flags } flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
@@ -49,6 +50,7 @@ declare namespace fileShare {
   /**
    * Provides grant uri permission for app
    *
+   * @permission ohos.permission.WRITE_MEDIA
    * @param { string } uri uri
    * @param { string } bundleName bundleName
    * @param { wantConstant.Flags } flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
@@ -61,11 +63,7 @@ declare namespace fileShare {
    * @systemapi
    * @since 9
    */
-  function grantUriPermission(
-    uri: string,
-    bundleName: string,
-    flag: wantConstant.Flags
-  ): Promise<void>;
+  function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 }
 
 export default fileShare;

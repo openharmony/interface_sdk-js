@@ -128,8 +128,50 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6
+   * @deprecated since 10
+   * @useinstead telephony.sms#sendShortMessage
    */
   function sendMessage(options: SendMessageOptions): void;
+
+  /**
+   * Sends a text or data SMS message.
+   *
+   * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
+   * maximum length is exceeded, the SMS message is split into multiple parts and sent separately.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { SendMessageOptions } options - Indicates the parameters and callback for sending the SMS message.
+   * @param { AsyncCallback<void> } callback - The callback of sendShortMessage.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function sendShortMessage(options: SendMessageOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sends a text or data SMS message.
+   *
+   * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
+   * maximum length is exceeded, the SMS message is split into multiple parts and sent separately.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { SendMessageOptions } options - Indicates the parameters and callback for sending the SMS message.
+   * @returns { Promise<void> } The promise returned by the sendShortMessage.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function sendShortMessage(options: SendMessageOptions): Promise<void>;
 
   /**
    * Sets the default SIM card for sending SMS messages. You can obtain the default SIM card by
@@ -658,6 +700,39 @@ declare namespace sms {
    * @since 8
    */
   function encodeMms(mms: MmsInformation): Promise<Array<number>>;
+
+  /**
+   * Obtains the default SIM ID for sending SMS messages.
+   *
+   * @param { AsyncCallback<number> } callback - Returns the SIM ID of the default sms sim and
+   * SIM ID will increase from 1.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8301001 - SIM card is not activated.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function getDefaultSmsSimId(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the default SIM ID for sending SMS messages.
+   *
+   * @returns { Promise<number> } Returns the SIM ID of the default sms sim and
+   * SIM ID will increase from 1.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8301001 - SIM card is not activated.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function getDefaultSmsSimId(): Promise<number>;
 
   /**
    * Defines the MMS message information.
@@ -1490,16 +1565,6 @@ declare namespace sms {
     contentLocation: string;
 
     /**
-     * Indicates the content location for the attachment.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Telephony.SmsMms
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    contentLocation: string;
-
-    /**
      * Indicates the content disposition for the attachment.
      *
      * @type { DispositionType }
@@ -2127,7 +2192,7 @@ declare namespace sms {
     /**
      * Indicates the new status for the updating SIM message options.
      *
-     * @type { number }
+     * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
      * @since 7

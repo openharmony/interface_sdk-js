@@ -13,17 +13,33 @@
  * limitations under the License.
  */
 
-function checkEntryLocalText(url) {
-  let execSync = require("child_process").execSync;
-  execSync("npm install");
+function checkEntryLocalText(url, prId) {
   const path = require("path");
-  const { writeResultFile, excelApiCheckResult, apiCheckArr, removeDir } =
+  let result = [];
+  try {
+    let execSync = require("child_process").execSync;
+    execSync("cd ../../diff_api && npm install && cd ../api_check_plugin && npm install");
+    const { excelApiCheckResult, apiCheckArr, removeDir } =
     require(path.resolve(__dirname, "../src/utils"));
-  const { scanEntry } = require("../src/api_check_plugin");
-  result = scanEntry(url);
-  removeDir(path.resolve(__dirname, "../node_modules"));
-  writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
-  excelApiCheckResult(apiCheckArr);
+    const { scanEntry } = require("../src/api_check_plugin");
+    result = scanEntry(url, prId);
+    excelApiCheckResult(apiCheckArr);
+    removeDir(path.resolve(__dirname, "../../diff_api/node_modules"));
+    removeDir(path.resolve(__dirname, "../node_modules"));
+  } catch (error) {
+    result.push(`API_CHECK_ERROR :${error}`);
+    console.error(`API_CHECK_ERROR :${error}`);
+  } finally {
+    const { apiCheckInfoArr, removeDuplicateObj } = require('../src/utils');
+    const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
+    apiCheckResultArr.forEach(errorInfo => {
+      result.unshift(errorInfo);
+    });
+    const { writeResultFile } = require('../src/utils');
+    writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
+  }
 }
 
-checkEntryLocalText("./mdFiles.txt");
+// 修改为实际的prId
+const prId = 'xxx';
+checkEntryLocalText("./mdFiles.txt", prId);

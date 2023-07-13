@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,18 +14,26 @@
  */
 
 /**
- * @name ActionResult
- * @since 3
+ * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
+ * @since 3
  */
 export interface ActionResult {
   /**
    * Bundle name of the application to be redirected to after the notification is clicked.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 3
    */
   bundleName: string;
 
   /**
    * Ability name of the application to be redirected to after the notification is clicked.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 3
    */
   abilityName: string;
 
@@ -35,41 +43,59 @@ export interface ActionResult {
    * pages/index/index
    * pages/detail/detail
    * 2. Particular path. If the value is a slash (/), the home page is displayed.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 3
    */
   uri: string;
 }
 
 /**
- * @name ShowNotificationOptions
- * @since 3
+ * @typedef ShowNotificationOptions
  * @syscap SystemCapability.Notification.Notification
+ * @since 3
  */
 export interface ShowNotificationOptions {
   /**
    * Notification title.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 3
    */
   contentTitle?: string;
 
   /**
    * Notification content.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 3
    */
   contentText?: string;
 
   /**
    * Action triggered after the notification is clicked.
+   *
+   * @type { ?ActionResult }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 3
    */
   clickAction?: ActionResult;
 }
 
 /**
- * @name Notification
- * @since 3
  * @syscap SystemCapability.Notification.Notification
+ * @since 3
  */
 export default class Notification {
   /**
    * Displays the notification.
-   * @param options Options.
+   *
+   * @param { ShowNotificationOptions } [options] - Options.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 3
    */
   static show(options?: ShowNotificationOptions): void;
 }

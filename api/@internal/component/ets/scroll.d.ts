@@ -65,6 +65,47 @@ declare enum ScrollDirection {
 }
 
 /**
+ * ScrollAlign.
+ * @enum { number } ScrollAlign
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum ScrollAlign {
+  /**
+   * Start position alignment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  START,
+
+  /**
+   * Center alignment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  CENTER,
+
+  /**
+   * End position alignment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  END,
+
+  /**
+   * Scroll the minimum distance to fully display the specified item.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  AUTO,
+}
+
+/**
  * @since 7
  */
 /**
@@ -109,10 +150,13 @@ declare class Scroller {
 
     /**
      * Descriptive animation.
+     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
-    animation?: { duration: number; curve: Curve };
+    animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
   });
 
   /**
@@ -163,11 +207,12 @@ declare class Scroller {
    * Called when sliding to the specified index.
    * @param { number } value - Index to jump to.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  scrollToIndex(value: number, smooth?:boolean);
+  scrollToIndex(value: number, smooth?:boolean, align?: ScrollAlign);
 
   /**
    * Called when the setting slides by offset.
@@ -179,6 +224,59 @@ declare class Scroller {
    * @since 10
    */
   scrollBy(dx: Length, dy: Length);
+
+  /**
+   * Indicates whether the component scrolls to the end position.
+   * @returns {boolean} Returns whether the component scrolls to the end position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  isAtEnd(): boolean;
+}
+
+/*
+ * Define scroll snap options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ScrollSnapOptions {
+  /**
+   * Set scroll snap alignment.
+   * @type { ScrollSnapAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  snapAlign: ScrollSnapAlign;
+
+  /**
+   * Set snap positions. When the type of snapPositions is Dimension, Scroll content is paginated by an integer
+   * multiple of snapPositions. When the type of snapPositions is Array<number>, Scroll content is paginated based
+   * on the array of snapPositions.
+   * @type { Dimension | Array<Dimension> }
+   * @default "100%"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  snapPagination?: Dimension | Array<Dimension>;
+
+  /**
+   * Set whether the beginning of the Scroll content counts an a snap.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableSnapToStart?: boolean;
+
+  /**
+   * Set whether the end of the Scroll content counts an a snap.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableSnapToEnd?: boolean;
 }
 
 /**
@@ -330,6 +428,46 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @since 10
    */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ScrollAttribute;
+
+  /**
+   * Called to setting the nested scroll options.
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nestedScroll(value: NestedScrollOptions): ScrollAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean }
+   * @default true
+   * @returns { ScrollAttribute } The attribute of the scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enableScrollInteraction(value: boolean): ScrollAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): ScrollAttribute;
+
+  /**
+   * Called to setting the scroll snap options.
+   * @param { ScrollSnapOptions } value - options for scroll snap.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollSnap(value: ScrollSnapOptions): ScrollAttribute;
 }
 
 /**

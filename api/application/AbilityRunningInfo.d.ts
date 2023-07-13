@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,57 +19,75 @@ import abilityManager from '../@ohos.app.ability.abilityManager';
 /**
  * The class of an ability running information.
  *
- * @since 8
+ * @typedef AbilityRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide this for inner system use
- * @permission N/A
+ * @systemapi
+ * @since 8
  */
 export interface AbilityRunningInfo {
   /**
-  * @default ability element name
-  * @since 8
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * Ability matching information.
+   *
+   * @type { ElementName }
+   * @default ability element name
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
   ability: ElementName;
 
   /**
-  * @default process id
-  * @since 8
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * Process ID.
+   *
+   * @type { number }
+   * @default process id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
   pid: number;
 
   /**
-  * @default user id
-  * @since 8
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * User ID.
+   *
+   * @type { number }
+   * @default user id
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
   uid: number;
 
   /**
-  * @default the name of the process
-  * @since 8
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * Process name.
+   *
+   * @type { string }
+   * @default the name of the process
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
   processName: string;
 
   /**
-  * @default ability start time
-  * @since 8
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * Ability startup time.
+   *
+   * @type { number }
+   * @default ability start time
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
   startTime: number;
 
   /**
-  * @default Enumerates state of the ability state info
-  * @since 8
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi hide this for inner system use
-  */
+   * Ability status.
+   *
+   * @type { abilityManager.AbilityState }
+   * @default Enumerates state of the ability state info
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
   abilityState: abilityManager.AbilityState;
 }

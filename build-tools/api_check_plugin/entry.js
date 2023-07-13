@@ -15,31 +15,34 @@
 
 const path = require('path');
 const fs = require('fs');
+const SECOND_PARAM = 2;
 
 function checkEntry(prId) {
   let result = ['api_check: false'];
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
-  let buffer = new Buffer.from("");
-  let i = 0, execute = false;
+  const MAX_TIMES = 3;
+  let buffer = new Buffer.from('');
+  let i = 0;
+  let execute = false;
   try {
     const execSync = require('child_process').execSync;
     do {
       try {
-        buffer = execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install', {
-          timeout: 120000
+        buffer = execSync('cd interface/sdk-js/build-tools/diff_api && npm install && cd ../api_check_plugin && npm install', {
+          timeout: 120000,
         });
         execute = true;
-      } catch (error) {
-      }
-    } while (++i < 3 && !execute);
+      } catch (error) {}
+    } while (++i < MAX_TIMES && !execute);
     if (!execute) {
-      throw "npm install timeout";
+      throw 'npm install timeout';
     }
     const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath);
+    result = scanEntry(mdFilesPath, prId);
     result = reqGitApi(result, prId);
+    removeDir(path.resolve(__dirname, '../diff_api/node_modules'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
@@ -48,7 +51,7 @@ function checkEntry(prId) {
   } finally {
     const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
     const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
-    apiCheckResultArr.forEach(errorInfo => {
+    apiCheckResultArr.forEach((errorInfo) => {
       result.unshift(errorInfo);
     });
     writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
@@ -59,7 +62,7 @@ function removeDir(url) {
   let statObj = fs.statSync(url);
   if (statObj.isDirectory()) {
     let dirs = fs.readdirSync(url);
-    dirs = dirs.map(dir => path.join(url, dir));
+    dirs = dirs.map((dir) => path.join(url, dir));
     for (let i = 0; i < dirs.length; i++) {
       removeDir(dirs[i]);
     }
@@ -69,8 +72,9 @@ function removeDir(url) {
   }
 }
 
-function writeResultFile(resultData, outputPath, option) {
-  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, 2), option, err => {
+function writeResultFile(resultData, outputPath, option) {  
+  const STANDARD_INDENT = 2;
+  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, STANDARD_INDENT), option, (err) => {
     if (err) {
       console.error(`ERROR FOR CREATE FILE:${err}`);
     } else {
@@ -79,4 +83,4 @@ function writeResultFile(resultData, outputPath, option) {
   });
 }
 
-checkEntry(process.argv[2]);
+checkEntry(process.argv[SECOND_PARAM]);

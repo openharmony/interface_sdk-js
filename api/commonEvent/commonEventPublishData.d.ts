@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,15 +15,17 @@
 
 /**
  * containing the common event content and attributes
- * @name CommonEventPublishData
- * @since 7
+ *
+ * @typedef CommonEventPublishData
  * @syscap SystemCapability.Notification.CommonEvent
- * @permission N/A
+ * @since 7
  */
 export interface CommonEventPublishData {
   /**
    * bundle name
-   * @default -
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   bundleName?: string;
@@ -31,7 +33,9 @@ export interface CommonEventPublishData {
   /**
    * The custom result code of the common event.
    *
+   * @type { ?number }
    * @default 0
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   code?: number;
@@ -39,7 +43,8 @@ export interface CommonEventPublishData {
   /**
    * The custom result data of the common event.
    *
-   * @default ""
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   data?: string;
@@ -47,7 +52,8 @@ export interface CommonEventPublishData {
   /**
    * The permissions for subscribers. Only subscribers with required permissions can receive published common events.
    *
-   * @default -
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   subscriberPermissions?: Array<string>;
@@ -55,7 +61,9 @@ export interface CommonEventPublishData {
   /**
    * Whether the type of a common event is ordered or not.
    *
+   * @type { ?boolean }
    * @default false
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   isOrdered?: boolean;
@@ -63,7 +71,9 @@ export interface CommonEventPublishData {
   /**
    * Whether the type of a common event is sticky or not.
    *
+   * @type { ?boolean }
    * @default false
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   isSticky?: boolean;
@@ -71,7 +81,8 @@ export interface CommonEventPublishData {
   /**
    * The description of the parameters in a common event.
    *
-   * @default -
+   * @type { ?object }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   parameters?: { [key: string]: any };

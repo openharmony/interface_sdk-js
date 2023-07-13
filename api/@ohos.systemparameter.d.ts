@@ -16,62 +16,72 @@
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
-* The interface of system parameters class.
-*
-* @since 6
-* @syscap SystemCapability.Startup.SystemInfo
-* @systemapi Hide this for inner system use.
-*/
+ * The interface of system parameters class.
+ *
+ * @namespace systemParameter
+ * @syscap SystemCapability.Startup.SystemInfo
+ * @systemapi Hide this for inner system use.
+ * @since 6
+ */
 declare namespace systemParameter {
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param key Key of the system attribute.
-   * @param def Default value.
-   * @returns if the parameter is empty or doesn't exist, empty string will be returned.
+   * @param { string } key Key of the system attribute.
+   * @param { string } def Default value.
+   * @returns { string } if the parameter is empty or doesn't exist, empty string will be returned.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
    * @since 6
+   * @deprecated since 9
    */
   function getSync(key: string, def?: string): string;
 
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param key Key of the system attribute.
-   * @param callback Callback function.
+   * @param { string } key Key of the system attribute.
+   * @param { AsyncCallback<string> } callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
    * @since 6
+   * @deprecated since 9
    */
   function get(key: string, callback: AsyncCallback<string>): void;
 
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param key Key of the system attribute.
-   * @param def Default value.
-   * @param callback Callback function.
+   * @param { string } key Key of the system attribute.
+   * @param { string } def Default value.
+   * @param { AsyncCallback<string> } callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
    * @since 6
+   * @deprecated since 9
    */
   function get(key: string, def: string, callback: AsyncCallback<string>): void;
 
   /**
    * Gets the value of the attribute with the specified key.
    *
-   * @param key Key of the system attribute.
-   * @param def Default value.
-   * @returns Promise, which is used to obtain the result asynchronously.
+   * @param { string } key Key of the system attribute.
+   * @param { string } def Default value.
+   * @returns { Promise<string> } , which is used to obtain the result asynchronously.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
    * @since 6
+   * @deprecated since 9
    */
   function get(key: string, def?: string): Promise<string>;
 
   /**
    * Sets a value for the attribute with the specified key.
    *
-   * @param key Key of the system attribute.
-   * @param value System attribute value to set.
+   * @param { string } key Key of the system attribute.
+   * @param { string } value value System attribute value to set.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
    * @since 6
    */
   function setSync(key: string, value: string): void;
@@ -79,22 +89,26 @@ declare namespace systemParameter {
   /**
    * Sets a value for the attribute with the specified key.
    *
-   * @param key Key of the system attribute.
-   * @param value System attribute value to set.
-   * @param callback Callback function.
+   * @param { string } key Key of the system attribute.
+   * @param { string } value System attribute value to set.
+   * @param { AsyncCallback<void> } callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
    * @since 6
+   * @deprecated since 9
    */
   function set(key: string, value: string, callback: AsyncCallback<void>): void;
 
   /**
    * Sets a value for the attribute with the specified key.
    *
-   * @param key Key of the system attribute.
-   * @param value Default value.
-   * @returns Promise, which is used to obtain the result asynchronously.
+   * @param { string } key Key of the system attribute.
+   * @param { string } value Default value.
+   * @returns { Promise<void> } which is used to obtain the result asynchronously.
    * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
    * @since 6
+   * @deprecated since 9
    */
   function set(key: string, value: string): Promise<void>;
 }

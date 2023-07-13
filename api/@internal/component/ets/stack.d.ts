@@ -15,99 +15,147 @@
 
 /**
  * Provides ports for stacking containers.
+ *
+ * @interface StackInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides ports for stacking containers.
- * @form
+ *
+ * @interface StackInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Provides ports for stacking containers.
- * @form
+ *
+ * @interface StackInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface StackInterface {
   /**
    * Set the value.
+   *
+   * @param { ?({ alignContent?: Alignment }) } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set the value.
-   * @form
+   *
+   * @param { ?({ alignContent?: Alignment }) } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set the value.
-   * @form
+   *
+   * @param { ?({ alignContent?: Alignment }) } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (value?: { alignContent?: Alignment }): StackAttribute;
 }
 
 /**
+ * @extends CommonMethod
  * @since 7
  */
 /**
- * @form
+ * @extends CommonMethod
  * @since 9
+ * @form
  */
 /**
- * @form
+ * @extends CommonMethod
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
    * Called when the occupancy of items in the container is set.
+   *
+   * @param { Alignment } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the occupancy of items in the container is set.
-   * @form
+   *
+   * @param { Alignment } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the occupancy of items in the container is set.
-   * @form
+   *
+   * @param { Alignment } value
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   alignContent(value: Alignment): StackAttribute;
 }
 
 /**
  * Defines Stack Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Stack Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Stack Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Stack: StackInterface;
 
 /**
  * Defines Stack Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Stack Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Stack Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const StackInstance: StackAttribute;

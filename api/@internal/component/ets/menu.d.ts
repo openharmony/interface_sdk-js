@@ -15,20 +15,32 @@
 
 /**
  * Defines the Menu Component.
+ *
+ * @interface MenuInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the Menu Component.
+ *
+ * @interface MenuInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface MenuInterface {
   /**
    * Creates the menu component.
+   *
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Creates the menu component.
+   *
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -37,17 +49,25 @@ interface MenuInterface {
 
 /**
  * Defines the Menu component attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the Menu component attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
    * Sets the Menu text size.
+   *
    * @param { Length } value - Indicates the font size of menu item.
+   * @returns { MenuAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @deprecated since 10
@@ -58,7 +78,9 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
    * Sets the font style.
    * Family and style are not supported currently and will be fixed in future.
+   *
    * @param { Font } value - Indicates the font style of menu item.
+   * @returns { MenuAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -67,7 +89,9 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
 
   /**
    * Sets the Menu font color.
+   *
    * @param { ResourceColor } value - Indicates the font color of menu item.
+   * @returns { MenuAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -77,10 +101,14 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
 
 /**
  * Defines Menu Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines Menu Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -88,10 +116,14 @@ declare const Menu: MenuInterface;
 
 /**
  * Defines Menu Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines Menu Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

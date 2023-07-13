@@ -17,10 +17,11 @@ import ts from 'typescript';
 import { Code } from '../utils/constant';
 import { LogReportStringUtils } from '../utils/stringUtils';
 import { CommentHelper, LogResult } from './coreImpls';
-import {
-  comment, Context, ISourceCodeProcessor, JSDocModifyType, MethodNodeType,
-  ModifyLogResult, ProcessResult, ErrorInfo
+import type {
+  Context, ISourceCodeProcessor, MethodNodeType,
+  ModifyLogResult, ProcessResult
 } from './typedef';
+import { comment, JSDocModifyType, ErrorInfo } from './typedef';
 
 export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
 
@@ -43,7 +44,7 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
     };
   }
 
-  logReportProcess(node: MethodNodeType, comments: Array<comment.CommentInfo>) {
+  logReportProcess(node: MethodNodeType, comments: Array<comment.CommentInfo>): void {
     const apiName: string = node.name ? node.name.getText() : '';
     const description: string = LogReportStringUtils.createErrorInfo(ErrorInfo.AYYNCHRONOUS_FUNCTION_JSDOC_COPY, [`${apiName}`]);
     const modifyLogResult: ModifyLogResult = LogResult.createModifyResult(node, comments, description, this.context,
@@ -51,7 +52,7 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
     this.context?.getLogReporter().addModifyResult(modifyLogResult);
   }
 
-  nodeVisitor(cNode: ts.Node, preNode: PreNode) {
+  nodeVisitor(cNode: ts.Node, preNode: PreNode): void {
     if (ts.isModuleDeclaration(cNode) && cNode.body && ts.isModuleBlock(cNode.body)) {
       const preNode: PreNode = new PreNode('', []);
       ts.forEachChild(cNode.body, (child) => {
@@ -103,7 +104,7 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
     }
   }
 
-  isAsynchronousFunction(node: MethodNodeType) {
+  isAsynchronousFunction(node: MethodNodeType): boolean {
     if (node.type && (node.type.kind === ts.SyntaxKind.TypeReference) &&
       (node.type as ts.TypeReferenceNode).typeName.getText() === 'Promise') {
       return true;

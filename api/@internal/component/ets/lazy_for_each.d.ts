@@ -15,20 +15,30 @@
 
 /**
  * Data Change Listener.
+ *
+ * @interface DataChangeListener
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Data Change Listener.
+ *
+ * @interface DataChangeListener
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface DataChangeListener {
   /**
    * Data ready.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Data ready.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,6 +46,9 @@ declare interface DataChangeListener {
 
   /**
    * Data added.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 8
    * @useinstead onDataAdd
@@ -44,10 +57,16 @@ declare interface DataChangeListener {
 
   /**
    * Data added.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Data added.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -55,6 +74,10 @@ declare interface DataChangeListener {
 
   /**
    * Data moved.
+   *
+   * @param { number } from
+   * @param { number } to
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 8
    * @useinstead onDataMove
@@ -63,10 +86,18 @@ declare interface DataChangeListener {
 
   /**
    * Data moved.
+   *
+   * @param { number } from
+   * @param { number } to
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Data moved.
+   *
+   * @param { number } from
+   * @param { number } to
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -74,6 +105,9 @@ declare interface DataChangeListener {
 
   /**
    * Data deleted.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 8
    * @useinstead onDataDelete
@@ -82,10 +116,16 @@ declare interface DataChangeListener {
 
   /**
    * Data deleted.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Data deleted.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -93,6 +133,9 @@ declare interface DataChangeListener {
 
   /**
    * Call when has data change.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 8
    * @useinstead onDataChange
@@ -101,10 +144,16 @@ declare interface DataChangeListener {
 
   /**
    * Call when has data change.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Call when has data change.
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -113,20 +162,32 @@ declare interface DataChangeListener {
 
 /**
  * Developers need to implement this interface to provide data to LazyForEach component.
+ *
+ * @interface IDataSource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Developers need to implement this interface to provide data to LazyForEach component.
+ *
+ * @interface IDataSource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface IDataSource {
   /**
    * Total data count.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Total data count.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -134,10 +195,18 @@ declare interface IDataSource {
 
   /**
    * Return the data of index.
+   *
+   * @param { number } index
+   * @returns { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Return the data of index.
+   *
+   * @param { number } index
+   * @returns { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -145,10 +214,16 @@ declare interface IDataSource {
 
   /**
    * Register data change listener.
+   *
+   * @param { DataChangeListener } listener
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Register data change listener.
+   *
+   * @param { DataChangeListener } listener
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -156,10 +231,16 @@ declare interface IDataSource {
 
   /**
    * Unregister data change listener.
+   *
+   * @param { DataChangeListener } listener
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Unregister data change listener.
+   *
+   * @param { DataChangeListener } listener
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -168,20 +249,38 @@ declare interface IDataSource {
 
 /**
  * Lazy loading.
+ *
+ * @interface LazyForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Lazy loading.
+ *
+ * @interface LazyForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface LazyForEachInterface {
   /**
    * Enter the value to obtain the LazyForEach.
+   *
+   * @param { IDataSource } dataSource
+   * @param { (item: any, index?: number) => void } itemGenerator
+   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @returns { LazyForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Enter the value to obtain the LazyForEach.
+   *
+   * @param { IDataSource } dataSource
+   * @param { (item: any, index?: number) => void } itemGenerator
+   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @returns { LazyForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -194,10 +293,14 @@ interface LazyForEachInterface {
 
 /**
  * Defines LazyForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines LazyForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

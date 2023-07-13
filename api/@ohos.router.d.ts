@@ -19,23 +19,40 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * @namespace router
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 8
+ */
+/**
+ * @namespace router
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
  */
 declare namespace router {
 
   /**
    * Router Mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Router Mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 9
+   * @since 10
    */
   export enum RouterMode {
     /**
      * Default route mode.
      * The page will be added to the top of the page stack.
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Default route mode.
+     * The page will be added to the top of the page stack.
+     * @crossplatform
+     * @since 10
      */
     Standard,
 
@@ -44,8 +61,15 @@ declare namespace router {
      * If the target page already has the same url page in the page stack,
      * the same url page closest to the top of the stack will be moved to the top of the stack.
      * If the target page url does not exist in the page stack, route will use default route mode.
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Single route mode.
+     * If the target page already has the same url page in the page stack,
+     * the same url page closest to the top of the stack will be moved to the top of the stack.
+     * If the target page url does not exist in the page stack, route will use default route mode.
+     * @crossplatform
+     * @since 10
      */
     Single,
   }
@@ -64,8 +88,9 @@ declare namespace router {
      *      pages/index/index
      *      pages/detail/detail
      * 2. Particular path. If the URI is a slash (/), the home page is displayed.
+     *
+     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @type {string}
      * @since 8
      */
     url: string;
@@ -74,8 +99,9 @@ declare namespace router {
      * Data that needs to be passed to the destination page during navigation.
      * After the destination page is displayed, the parameter can be directly used for the page.
      * For example, this.data1 (data1 is the key value of the params used for page navigation.)
+     *
+     * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @type {Object}
      * @since 8
      */
     params?: Object;
@@ -84,8 +110,13 @@ declare namespace router {
   /**
    * @typedef RouterState
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * @typedef RouterState
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   interface RouterState {
 
@@ -93,24 +124,40 @@ declare namespace router {
      * Index of the current page in the stack.
      * NOTE: The index starts from 1 from the bottom to the top of the stack.
      * @type {number}
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Index of the current page in the stack.
+     * NOTE: The index starts from 1 from the bottom to the top of the stack.
+     * @type {number}
+     * @crossplatform
+     * @since 10
      */
     index: number;
 
     /**
      * Name of the current page, that is, the file name.
      * @type {string}
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Name of the current page, that is, the file name.
+     * @type {string}
+     * @crossplatform
+     * @since 10
      */
     name: string;
 
     /**
      * Path of the current page.
      * @type {string}
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * Path of the current page.
+     * @type {string}
+     * @crossplatform
+     * @since 10
      */
     path: string;
   }
@@ -118,22 +165,33 @@ declare namespace router {
   /**
    * @typedef EnableAlertOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 8
+   */
+  /**
+   * @typedef EnableAlertOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   interface EnableAlertOptions {
 
     /**
      * dialog context.
      * @type {string}
-     * @crossplatform
      * @since 8
+     */
+    /**
+     * dialog context.
+     * @type {string}
+     * @crossplatform
+     * @since 10
      */
     message: string;
   }
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -144,6 +202,18 @@ declare namespace router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { RouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
@@ -152,10 +222,22 @@ declare namespace router {
    * @throws { BusinessError } 100003 - if the pages are pushed too much.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 9
+   * @since 10
    */
   function pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { RouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
@@ -166,25 +248,50 @@ declare namespace router {
    * @throws { BusinessError } 100003 - if the pages are pushed too much.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 9
+   * @since 10
    */
   function pushUrl(options: RouterOptions): Promise<void>;
 
   /**
-  * Navigates to a specified page in the application based on the page URL and parameters.
-  * @param { RouterOptions } options - Options.
-  * @param { RouterMode } mode - RouterMode.
-  * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-  * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
-  * @throws { BusinessError } 100001 - if UI execution context not found.
-  * @throws { BusinessError } 100002 - if the uri is not exist.
-  * @throws { BusinessError } 100003 - if the pages are pushed too much.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @since 9
-  */
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
@@ -196,12 +303,13 @@ declare namespace router {
    * @throws { BusinessError } 100003 - if the pages are pushed too much.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 9
+   * @since 10
    */
   function pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 8
@@ -212,6 +320,7 @@ declare namespace router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
@@ -224,6 +333,7 @@ declare namespace router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
@@ -236,6 +346,7 @@ declare namespace router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
@@ -249,6 +360,7 @@ declare namespace router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
@@ -262,41 +374,69 @@ declare namespace router {
 
   /**
    * Returns to the previous page or a specified page.
+   *
+   * @param { RouterOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Returns to the previous page or a specified page.
    * @param { RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 8
+   * @since 10
    */
   function back(options?: RouterOptions): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Clears all historical pages and retains only the current page at the top of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 8
+   * @since 10
    */
   function clear(): void;
 
   /**
    * Obtains the number of pages in the current stack.
+   *
+   * @returns { string } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Obtains the number of pages in the current stack.
    * @returns { string } Number of pages in the stack. The maximum value is 32.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 8
+   * @since 10
    */
   function getLength(): string;
 
   /**
    * Obtains information about the current page state.
+   *
+   * @returns { RouterState } Page state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Obtains information about the current page state.
    * @returns { RouterState }Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 8
+   * @since 10
    */
   function getState(): RouterState;
 
   /**
    * Pop up dialog to ask whether to back
+   *
    * @param { EnableAlertOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -307,17 +447,27 @@ declare namespace router {
 
   /**
    * Pop up alert dialog to ask whether to back
+   *
+   * @param { EnableAlertOptions } options - Options.
+   * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Pop up alert dialog to ask whether to back
    * @param { EnableAlertOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 9
+   * @since 10
    */
   function showAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
    * Cancel enableAlertBeforeBackPage
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    * @deprecated since 9
@@ -327,20 +477,179 @@ declare namespace router {
 
   /**
    * Hide alert before back page
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Hide alert before back page
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 9
+   * @since 10
    */
   function hideAlertBeforeBackPage(): void;
 
   /**
    * Obtains information about the current page params.
+   *
+   * @returns { Object } Page params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Obtains information about the current page params.
    * @returns { Object }Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 8
+   * @since 10
    */
   function getParams(): Object;
+
+  /**
+   * @typedef NamedRouterOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  interface NamedRouterOptions {
+    /**
+     * Name of the destination named route.
+     *
+     * @type { string }
+     * @crossplatform
+     * @since 10
+     */
+    name: string;
+
+    /**
+     * Data that needs to be passed to the destination page during navigation.
+     *
+     * @type { ?Object }
+     * @crossplatform
+     * @since 10
+     */
+    params?: Object;
+  }
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function pushNamedRoute(options: NamedRouterOptions): Promise<void>;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function replaceNamedRoute(options: NamedRouterOptions): Promise<void>;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { NamedRouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
 }
 
 export default router;

@@ -18,6 +18,8 @@
  *    two configurations are supported:
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
@@ -25,17 +27,21 @@
  *    two configurations are supported:
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
  *    two configurations are supported:
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type CanvasFillRule = "evenodd" | "nonzero";
 
@@ -45,6 +51,8 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "round": Segment ends in a circle
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
@@ -53,8 +61,10 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "round": Segment ends in a circle
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
@@ -62,9 +72,11 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "round": Segment ends in a circle
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type CanvasLineCap = "butt" | "round" | "square";
 
@@ -77,6 +89,8 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  *    so that they intersect at a point.
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
@@ -88,8 +102,10 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  *    so that they intersect at a point.
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
@@ -100,9 +116,11 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  *    so that they intersect at a point.
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
@@ -111,6 +129,8 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "inherit": (Default) Inherit current Canvas component settings
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
@@ -118,17 +138,21 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "inherit": (Default) Inherit current Canvas component settings
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Indicates the attribute of the current text direction. The options are as follows:
  * "inherit": (Default) Inherit current Canvas component settings
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
@@ -141,6 +165,8 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "right": The text is right-aligned.
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
@@ -152,8 +178,10 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "right": The text is right-aligned.
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Describes the alignment mode for drawing text. The options are as follows:
@@ -164,9 +192,11 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "right": The text is right-aligned.
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
@@ -180,6 +210,8 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  *    baseline, the ideographic baseline is at the bottom of the character itself.
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
@@ -192,8 +224,10 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  *    baseline, the ideographic baseline is at the bottom of the character itself.
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Text baseline, which supports the following configurations:
@@ -205,9 +239,11 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  *    baseline, the ideographic baseline is at the bottom of the character itself.
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top";
 
@@ -216,6 +252,8 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "high": height
  * "low": (default)low
  * "medium": medium
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
@@ -223,245 +261,297 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "high": height
  * "low": (default)low
  * "medium": medium
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Sets the image smoothness attribute. The options are as follows:
  * "high": height
  * "low": (default)low
  * "medium": medium
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class CanvasGradient {
   /**
    * Add a breakpoint defined by offset and color to the gradient
-   * @param number Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param string CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
+   *
+   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
+   * @param { string } color - CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
    *    a SYNTAX_ERR error is thrown.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Add a breakpoint defined by offset and color to the gradient
-   * @param number Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param string CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
+   *
+   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
+   * @param { string } color - CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
    *    a SYNTAX_ERR error is thrown.
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Add a breakpoint defined by offset and color to the gradient
-   * @param number Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param string CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
+   *
+   * @param { number } offset - Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
+   * @param { string } color - CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
    *    a SYNTAX_ERR error is thrown.
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   addColorStop(offset: number, color: string): void;
 }
 
 /**
  * Path object, which provides basic methods for drawing paths.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Path object, which provides basic methods for drawing paths.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Path object, which provides basic methods for drawing paths.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class CanvasPath {
   /**
    * Draw an arc path
-   * @param x The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param y The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param radius Radius of the arc.
-   * @param startAngle Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
-   * @param endAngle The end point of the arc, in radians.
-   * @param counterclockwise If the value is true, the arc is drawn counterclockwise. Otherwise,
+   *
+   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
+   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
+   * @param { number } radius - Radius of the arc.
+   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
+   * @param { number } endAngle - The end point of the arc, in radians.
+   * @param { ?boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draw an arc path
-   * @param x The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param y The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param radius Radius of the arc.
-   * @param startAngle Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
-   * @param endAngle The end point of the arc, in radians.
-   * @param counterclockwise If the value is true, the arc is drawn counterclockwise. Otherwise,
+   *
+   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
+   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
+   * @param { number } radius - Radius of the arc.
+   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
+   * @param { number } endAngle - The end point of the arc, in radians.
+   * @param { ?boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draw an arc path
-   * @param x The x-axis coordinate of the center (center of the circle) of the arc.
-   * @param y The y-axis coordinate of the center (center of the circle) of the arc.
-   * @param radius Radius of the arc.
-   * @param startAngle Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
-   * @param endAngle The end point of the arc, in radians.
-   * @param counterclockwise If the value is true, the arc is drawn counterclockwise. Otherwise,
+   *
+   * @param { number } x - The x-axis coordinate of the center (center of the circle) of the arc.
+   * @param { number } y - The y-axis coordinate of the center (center of the circle) of the arc.
+   * @param { number } radius - Radius of the arc.
+   * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
+   * @param { number } endAngle - The end point of the arc, in radians.
+   * @param { ?boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
    * Draw arc paths based on control points and radius
-   * @param x1 The x-axis coordinate of the first control point.
-   * @param y1 The y-axis coordinate of the first control point.
-   * @param x2 The x-axis coordinate of the second control point.
-   * @param y2 The y-axis coordinate of the second control point.
-   * @param radius Radius of the arc.
+   *
+   * @param { number } x1 - The x-axis coordinate of the first control point.
+   * @param { number } y1 - The y-axis coordinate of the first control point.
+   * @param { number } x2 - The x-axis coordinate of the second control point.
+   * @param { number } y2 - The y-axis coordinate of the second control point.
+   * @param { number } radius - Radius of the arc.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draw arc paths based on control points and radius
-   * @param x1 The x-axis coordinate of the first control point.
-   * @param y1 The y-axis coordinate of the first control point.
-   * @param x2 The x-axis coordinate of the second control point.
-   * @param y2 The y-axis coordinate of the second control point.
-   * @param radius Radius of the arc.
-   * @form
+   *
+   * @param { number } x1 - The x-axis coordinate of the first control point.
+   * @param { number } y1 - The y-axis coordinate of the first control point.
+   * @param { number } x2 - The x-axis coordinate of the second control point.
+   * @param { number } y2 - The y-axis coordinate of the second control point.
+   * @param { number } radius - Radius of the arc.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draw arc paths based on control points and radius
-   * @param x1 The x-axis coordinate of the first control point.
-   * @param y1 The y-axis coordinate of the first control point.
-   * @param x2 The x-axis coordinate of the second control point.
-   * @param y2 The y-axis coordinate of the second control point.
-   * @param radius Radius of the arc.
-   * @form
+   *
+   * @param { number } x1 - The x-axis coordinate of the first control point.
+   * @param { number } y1 - The y-axis coordinate of the first control point.
+   * @param { number } x2 - The x-axis coordinate of the second control point.
+   * @param { number } y2 - The y-axis coordinate of the second control point.
+   * @param { number } radius - Radius of the arc.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
   /**
    * Drawing Cubic Bessel Curve Paths
-   * @param cp1x The x-axis coordinate of the first control point.
-   * @param cp1y The y-axis coordinate of the first control point.
-   * @param cp2x The x-axis coordinate of the second control point.
-   * @param cp2y The y-axis coordinate of the second control point.
-   * @param x x-axis coordinate of the end point.
-   * @param y y-axis coordinate of the end point.
+   *
+   * @param { number } cp1x - The x-axis coordinate of the first control point.
+   * @param { number } cp1y - The y-axis coordinate of the first control point.
+   * @param { number } cp2x - The x-axis coordinate of the second control point.
+   * @param { number } cp2y - The y-axis coordinate of the second control point.
+   * @param { number } x - x-axis coordinate of the end point.
+   * @param { number } y - y-axis coordinate of the end point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Drawing Cubic Bessel Curve Paths
-   * @param cp1x The x-axis coordinate of the first control point.
-   * @param cp1y The y-axis coordinate of the first control point.
-   * @param cp2x The x-axis coordinate of the second control point.
-   * @param cp2y The y-axis coordinate of the second control point.
-   * @param x x-axis coordinate of the end point.
-   * @param y y-axis coordinate of the end point.
-   * @form
+   *
+   * @param { number } cp1x - The x-axis coordinate of the first control point.
+   * @param { number } cp1y - The y-axis coordinate of the first control point.
+   * @param { number } cp2x - The x-axis coordinate of the second control point.
+   * @param { number } cp2y - The y-axis coordinate of the second control point.
+   * @param { number } x - x-axis coordinate of the end point.
+   * @param { number } y - y-axis coordinate of the end point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Drawing Cubic Bessel Curve Paths
-   * @param cp1x The x-axis coordinate of the first control point.
-   * @param cp1y The y-axis coordinate of the first control point.
-   * @param cp2x The x-axis coordinate of the second control point.
-   * @param cp2y The y-axis coordinate of the second control point.
-   * @param x x-axis coordinate of the end point.
-   * @param y y-axis coordinate of the end point.
-   * @form
+   *
+   * @param { number } cp1x - The x-axis coordinate of the first control point.
+   * @param { number } cp1y - The y-axis coordinate of the first control point.
+   * @param { number } cp2x - The x-axis coordinate of the second control point.
+   * @param { number } cp2y - The y-axis coordinate of the second control point.
+   * @param { number } x - x-axis coordinate of the end point.
+   * @param { number } y - y-axis coordinate of the end point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
    * Returns the pen point to the start point of the current sub-path
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Returns the pen point to the start point of the current sub-path
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Returns the pen point to the start point of the current sub-path
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   closePath(): void;
 
   /**
    * Draw an Elliptic Path
-   * @param x x-axis coordinate of the center of the ellipse.
-   * @param y y-axis coordinate of the center of the ellipse.
-   * @param radiusX Radius of the major axis of the ellipse.
-   * @param radiusY Radius of the minor axis of the ellipse.
-   * @param rotation The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param startAngle The angle of the starting point to be drawn, measured from the x-axis in radians
+   *
+   * @param { number } x - x-axis coordinate of the center of the ellipse.
+   * @param { number } y - y-axis coordinate of the center of the ellipse.
+   * @param { number } radiusX - Radius of the major axis of the ellipse.
+   * @param { number } radiusY - Radius of the minor axis of the ellipse.
+   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
+   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
    *    (not angular degrees).
-   * @param endAngle The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param counterclockwise If the value is true, the ellipse is drawn counterclockwise. Otherwise,
+   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
+   * @param { ?boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draw an Elliptic Path
-   * @param x x-axis coordinate of the center of the ellipse.
-   * @param y y-axis coordinate of the center of the ellipse.
-   * @param radiusX Radius of the major axis of the ellipse.
-   * @param radiusY Radius of the minor axis of the ellipse.
-   * @param rotation The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param startAngle The angle of the starting point to be drawn, measured from the x-axis in radians
+   *
+   * @param { number } x - x-axis coordinate of the center of the ellipse.
+   * @param { number } y - y-axis coordinate of the center of the ellipse.
+   * @param { number } radiusX - Radius of the major axis of the ellipse.
+   * @param { number } radiusY - Radius of the minor axis of the ellipse.
+   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
+   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
    *    (not angular degrees).
-   * @param endAngle The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param counterclockwise If the value is true, the ellipse is drawn counterclockwise. Otherwise,
+   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
+   * @param { ?boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draw an Elliptic Path
-   * @param x x-axis coordinate of the center of the ellipse.
-   * @param y y-axis coordinate of the center of the ellipse.
-   * @param radiusX Radius of the major axis of the ellipse.
-   * @param radiusY Radius of the minor axis of the ellipse.
-   * @param rotation The rotation angle of the ellipse, in radians (not angular degrees).
-   * @param startAngle The angle of the starting point to be drawn, measured from the x-axis in radians
+   *
+   * @param { number } x - x-axis coordinate of the center of the ellipse.
+   * @param { number } y - y-axis coordinate of the center of the ellipse.
+   * @param { number } radiusX - Radius of the major axis of the ellipse.
+   * @param { number } radiusY - Radius of the minor axis of the ellipse.
+   * @param { number } rotation - The rotation angle of the ellipse, in radians (not angular degrees).
+   * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
    *    (not angular degrees).
-   * @param endAngle The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param counterclockwise If the value is true, the ellipse is drawn counterclockwise. Otherwise,
+   * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
+   * @param { ?boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   ellipse(
     x: number,
@@ -476,615 +566,847 @@ declare class CanvasPath {
 
   /**
    * Connect sub-path using straight lines
-   * @param x The x-axis coordinate of the end point of the line.
-   * @param y The y-axis coordinate of the end point of the line.
+   *
+   * @param { number } x - The x-axis coordinate of the end point of the line.
+   * @param { number } y - The y-axis coordinate of the end point of the line.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Connect sub-path using straight lines
-   * @param x The x-axis coordinate of the end point of the line.
-   * @param y The y-axis coordinate of the end point of the line.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the end point of the line.
+   * @param { number } y - The y-axis coordinate of the end point of the line.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Connect sub-path using straight lines
-   * @param x The x-axis coordinate of the end point of the line.
-   * @param y The y-axis coordinate of the end point of the line.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the end point of the line.
+   * @param { number } y - The y-axis coordinate of the end point of the line.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   lineTo(x: number, y: number): void;
 
   /**
    * Moves the start point of a new sub-path to the (x, y) coordinate.
-   * @param x The x-axis coordinate of the point.
-   * @param y The y-axis coordinate of the point.
+   *
+   * @param { number } x - The x-axis coordinate of the point.
+   * @param { number } y - The y-axis coordinate of the point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Moves the start point of a new sub-path to the (x, y) coordinate.
-   * @param x The x-axis coordinate of the point.
-   * @param y The y-axis coordinate of the point.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the point.
+   * @param { number } y - The y-axis coordinate of the point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Moves the start point of a new sub-path to the (x, y) coordinate.
-   * @param x The x-axis coordinate of the point.
-   * @param y The y-axis coordinate of the point.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the point.
+   * @param { number } y - The y-axis coordinate of the point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   moveTo(x: number, y: number): void;
 
   /**
    * Draw quadratic Bezier curve paths
-   * @param cpx The x-axis coordinate of the control point.
-   * @param cpy The y-axis coordinate of the control point.
-   * @param x x-axis coordinate of the end point.
-   * @param y y-axis coordinate of the end point.
+   *
+   * @param { number } cpx - The x-axis coordinate of the control point.
+   * @param { number } cpy - The y-axis coordinate of the control point.
+   * @param { number } x - x-axis coordinate of the end point.
+   * @param { number } y - y-axis coordinate of the end point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draw quadratic Bezier curve paths
-   * @param cpx The x-axis coordinate of the control point.
-   * @param cpy The y-axis coordinate of the control point.
-   * @param x x-axis coordinate of the end point.
-   * @param y y-axis coordinate of the end point.
-   * @form
+   *
+   * @param { number } cpx - The x-axis coordinate of the control point.
+   * @param { number } cpy - The y-axis coordinate of the control point.
+   * @param { number } x - x-axis coordinate of the end point.
+   * @param { number } y - y-axis coordinate of the end point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draw quadratic Bezier curve paths
-   * @param cpx The x-axis coordinate of the control point.
-   * @param cpy The y-axis coordinate of the control point.
-   * @param x x-axis coordinate of the end point.
-   * @param y y-axis coordinate of the end point.
-   * @form
+   *
+   * @param { number } cpx - The x-axis coordinate of the control point.
+   * @param { number } cpy - The y-axis coordinate of the control point.
+   * @param { number } x - x-axis coordinate of the end point.
+   * @param { number } y - y-axis coordinate of the end point.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
   /**
    * Draw Rectangular Paths
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draw Rectangular Paths
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draw Rectangular Paths
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   rect(x: number, y: number, w: number, h: number): void;
 }
 
 /**
  * 2D path object for path drawing
+ *
+ * @extends CanvasPath
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * 2D path object for path drawing
- * @form
+ *
+ * @extends CanvasPath
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * 2D path object for path drawing
- * @form
+ *
+ * @extends CanvasPath
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class Path2D extends CanvasPath {
   /**
    * Adds a path according to the specified path variable.
-   * @param path Indicates the path object to be added.
-   * @param transform Transformation matrix of the new trail
+   *
+   * @param { Path2D } path - Indicates the path object to be added.
+   * @param { ?Matrix2D } transform - Transformation matrix of the new trail
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds a path according to the specified path variable.
-   * @param path Indicates the path object to be added.
-   * @param transform Transformation matrix of the new trail
-   * @form
+   *
+   * @param { Path2D } path - Indicates the path object to be added.
+   * @param { ?Matrix2D } transform - Transformation matrix of the new trail
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Adds a path according to the specified path variable.
-   * @param path Indicates the path object to be added.
-   * @param transform Transformation matrix of the new trail
-   * @form
+   *
+   * @param { Path2D } path - Indicates the path object to be added.
+   * @param { ?Matrix2D } transform - Transformation matrix of the new trail
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
 
   /**
    * Create an empty path object.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Create an empty path object.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Create an empty path object.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor();
 
   /**
    * Create a copy of a path object
-   * @param path Path object to be copied
+   *
+   * @param { Path2D } path - Path object to be copied
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Create a copy of a path object
-   * @param path Path object to be copied
-   * @form
+   *
+   * @param { Path2D } path - Path object to be copied
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Create a copy of a path object
-   * @param path Path object to be copied
-   * @form
+   *
+   * @param { Path2D } path - Path object to be copied
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(path: Path2D);
 
   /**
    * Create a new path according to the description.
-   * @param d Indicates the path string that compiles with the SVG path description specifications.
+   *
+   * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Create a new path according to the description.
-   * @param d Indicates the path string that compiles with the SVG path description specifications.
-   * @form
+   *
+   * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Create a new path according to the description.
-   * @param d Indicates the path string that compiles with the SVG path description specifications.
-   * @form
+   *
+   * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(d: string);
 }
 
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ *
+ * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ *
+ * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
  * @since 9
+ * @form
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ *
+ * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
+   *
+   * @param { ?Matrix2D } transform - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param transform transformation matrix
    * @since 8
    */
   /**
    * Adds the matrix transformation effect to the current template.
+   *
+   * @param { ?Matrix2D } transform - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param transform transformation matrix
-   * @form
    * @since 9
+   * @form
    */
   /**
    * Adds the matrix transformation effect to the current template.
+   *
+   * @param { ?Matrix2D } transform - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param transform transformation matrix
-   * @form
    * @crossplatform
    * @since 10
+   * @form
    */
   setTransform(transform?: Matrix2D): void;
 }
 
 /**
  * Size information of the text
+ *
+ * @interface TextMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Size information of the text
- * @form
+ *
+ * @interface TextMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Size information of the text
- * @form
+ *
+ * @interface TextMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface TextMetrics {
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
    *    the rectangular boundary of the rendered text.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
    *    the rectangular boundary of the rendered text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
    *    the rectangular boundary of the rendered text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly actualBoundingBoxAscent: number;
 
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
    *    the rectangular boundary of the rendered text.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
    *    the rectangular boundary of the rendered text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
    *    the rectangular boundary of the rendered text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly actualBoundingBoxDescent: number;
 
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the left of the text rectangle boundary.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the left of the text rectangle boundary.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the left of the text rectangle boundary.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly actualBoundingBoxLeft: number;
 
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the right of the text rectangle boundary.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the right of the text rectangle boundary.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the right of the text rectangle boundary.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly actualBoundingBoxRight: number;
 
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
    *    the wireframe.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
    *    the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
    *    the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly alphabeticBaseline: number;
 
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
    *    em square in the wireframe.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
    *    em square in the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
    *    em square in the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly emHeightAscent: number;
 
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *    em box in the wireframe.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *    em box in the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *    em box in the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly emHeightDescent: number;
 
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
    *    highest rectangle boundary of all fonts rendering text.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
    *    highest rectangle boundary of all fonts rendering text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
    *    highest rectangle boundary of all fonts rendering text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly fontBoundingBoxAscent: number;
 
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *   rectangular boundary of all fonts rendering text.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *   rectangular boundary of all fonts rendering text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *   rectangular boundary of all fonts rendering text.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly fontBoundingBoxDescent: number;
 
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the hanging baseline of the wireframe.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the hanging baseline of the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the hanging baseline of the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly hangingBaseline: number;
 
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the ideographic baseline of the wireframe.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the ideographic baseline of the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the ideographic baseline of the wireframe.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly ideographicBaseline: number;
 
   /**
    * Indicates the width of a character string. The value is of the double type.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Indicates the width of a character string. The value is of the double type.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Indicates the width of a character string. The value is of the double type.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly width: number;
 
   /**
    * Indicates the height of a character string. The value is of the double type.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Indicates the height of a character string. The value is of the double type.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Indicates the height of a character string. The value is of the double type.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly height: number;
 }
 
 /**
  * Bitmap image object that can be drawn onto the current Canvas
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Bitmap image object that can be drawn onto the current Canvas
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Bitmap image object that can be drawn onto the current Canvas
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class ImageBitmap {
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly height: number;
 
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly width: number;
 
   /**
    * Releases all graphics resources associated with an ImageBitmap.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Releases all graphics resources associated with an ImageBitmap.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Releases all graphics resources associated with an ImageBitmap.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   close(): void;
 
   /**
    * Create an ImageBitmap object based on the transferred image path.
-   * @param src Path of the image object.
+   *
+   * @param { string } src - Path of the image object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Create an ImageBitmap object based on the transferred image path.
-   * @param src Path of the image object.
-   * @form
+   *
+   * @param { string } src - Path of the image object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Create an ImageBitmap object based on the transferred image path.
-   * @param src Path of the image object.
-   * @form
+   *
+   * @param { string } src - Path of the image object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(src: string);
 
   /**
    * Transfer a PixelMap object to construct an ImageBitmap object.
-   * @param data PixelMap object
+   *
+   * @param { PixelMap } data - PixelMap object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Transfer a PixelMap object to construct an ImageBitmap object.
-   * @param data PixelMap object
+   *
+   * @param { PixelMap } data - PixelMap object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -1093,185 +1415,263 @@ declare class ImageBitmap {
 
 /**
  * Image data object
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Image data object
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Image data object
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class ImageData {
   /**
    * Array containing image pixel data
+   *
+   * @type { Uint8ClampedArray }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Array containing image pixel data
-   * @form
+   *
+   * @type { Uint8ClampedArray }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Array containing image pixel data
-   * @form
+   *
+   * @type { Uint8ClampedArray }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly data: Uint8ClampedArray;
 
   /**
    * Width of the image.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Width of the image.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Width of the image.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly height: number;
 
   /**
    * Height of the image.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Height of the image.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Height of the image.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly width: number;
 
   /**
    * Create an ImageData object based on the input parameters.
-   * @param width Width of the image.
-   * @param height Height of the image.
-   * @param data Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   *
+   * @param { number } width - Width of the image.
+   * @param { number } height - Height of the image.
+   * @param { ?Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Create an ImageData object based on the input parameters.
-   * @param width Width of the image.
-   * @param height Height of the image.
-   * @param data Data of the image. If this parameter is not specified, the default value is a black rectangular image.
-   * @form
+   *
+   * @param { number } width - Width of the image.
+   * @param { number } height - Height of the image.
+   * @param { ?Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Create an ImageData object based on the input parameters.
-   * @param width Width of the image.
-   * @param height Height of the image.
-   * @param data Data of the image. If this parameter is not specified, the default value is a black rectangular image.
-   * @form
+   *
+   * @param { number } width - Width of the image.
+   * @param { number } height - Height of the image.
+   * @param { ?Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray);
 }
 
 /**
  * This object allows you to set properties when creating a rendering context
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * This object allows you to set properties when creating a rendering context
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * This object allows you to set properties when creating a rendering context
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class RenderingContextSettings {
   /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
-   * @form
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
-   * @form
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   antialias?: boolean;
 
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
-   * @param antialias Indicates whether anti-aliasing is enabled for canvas
+   *
+   * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
-   * @param antialias Indicates whether anti-aliasing is enabled for canvas
-   * @form
+   *
+   * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
-   * @param antialias Indicates whether anti-aliasing is enabled for canvas
-   * @form
+   *
+   * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(antialias?: boolean);
 }
 
 /**
  * Canvas renderer for drawing shapes, text, images and other objects
+ *
+ * @extends CanvasPath
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Canvas renderer for drawing shapes, text, images and other objects
- * @form
+ *
+ * @extends CanvasPath
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Canvas renderer for drawing shapes, text, images and other objects
- * @form
+ *
+ * @extends CanvasPath
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    The default value is 1.0. If the value is out of range, the assignment is invalid.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    The default value is 1.0. If the value is out of range, the assignment is invalid.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   globalAlpha: number;
 
@@ -1308,6 +1708,9 @@ declare class CanvasRenderer extends CanvasPath {
    * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
    *    the top layer are used.
    * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
@@ -1343,8 +1746,11 @@ declare class CanvasRenderer extends CanvasPath {
    * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
    *    the top layer are used.
    * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Type of composition operation applied when drawing a new shape. The following types are supported:
@@ -1379,111 +1785,132 @@ declare class CanvasRenderer extends CanvasPath {
    * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
    *    the top layer are used.
    * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   globalCompositeOperation: string;
 
   /**
    * Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @form
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @form
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
   /**
    * Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @form
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @form
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
    *Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param sx x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param sy y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param sw Width of the rectangle (cropping) selection box of the image.
-   * @param sh Height of the rectangle (cropping) selection box of the image.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
+   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    *Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param sx x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param sy y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param sw Width of the rectangle (cropping) selection box of the image.
-   * @param sh Height of the rectangle (cropping) selection box of the image.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @form
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
+   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    *Draw an image on a canvas
-   * @param image Picture objects drawn to the canvas.
-   * @param sx x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param sy y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
-   * @param sw Width of the rectangle (cropping) selection box of the image.
-   * @param sh Height of the rectangle (cropping) selection box of the image.
-   * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
-   * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
-   * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
-   * @form
+   *
+   * @param { ImageBitmap | PixelMap } image - Picture objects drawn to the canvas.
+   * @param { number } sx - x coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangle (cropping) selection box of the image.
+   * @param { number } sw - Width of the rectangle (cropping) selection box of the image.
+   * @param { number } sh - Height of the rectangle (cropping) selection box of the image.
+   * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
+   * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   drawImage(
     image: ImageBitmap | PixelMap,
@@ -1499,141 +1926,183 @@ declare class CanvasRenderer extends CanvasPath {
 
   /**
    * Clear the sub-path list and start a new path.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Clear the sub-path list and start a new path.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Clear the sub-path list and start a new path.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   beginPath(): void;
 
   /**
    * Sets the currently created path as the current clipping path
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   *
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the currently created path as the current clipping path
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the currently created path as the current clipping path
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   clip(fillRule?: CanvasFillRule): void;
 
   /**
    * Tailoring according to the specified path
-   * @param path Path to be cut.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   *
+   * @param { Path2D } path - Path to be cut.
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Tailoring according to the specified path
-   * @param path Path to be cut.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { Path2D } path - Path to be cut.
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Tailoring according to the specified path
-   * @param path Path to be cut.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { Path2D } path - Path to be cut.
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
 
   /**
    * Fills existing paths according to the current fill style.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   *
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Fills existing paths according to the current fill style.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Fills existing paths according to the current fill style.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   fill(fillRule?: CanvasFillRule): void;
 
   /**
    * Fills the specified path according to the current fill style
-   * @param path Path to be filled.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   *
+   * @param { Path2D } path - Path to be filled.
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Fills the specified path according to the current fill style
-   * @param path Path to be filled.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { Path2D } path - Path to be filled.
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Fills the specified path according to the current fill style
-   * @param path Path to be filled.
-   * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
-   * @form
+   *
+   * @param { Path2D } path - Path to be filled.
+   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
 
   /**
    * Draws an existing path according to the current stroke style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draws an existing path according to the current stroke style.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draws an existing path according to the current stroke style.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   stroke(): void;
 
   /**
    * Draws the specified path according to the current stroke style
-   * @param path Specified stroke path object
+   *
+   * @param { Path2D } path - Specified stroke path object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draws the specified path according to the current stroke style
-   * @param path Specified stroke path object
-   * @form
+   *
+   * @param { Path2D } path - Specified stroke path object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Draws the specified path according to the current stroke style
-   * @param path Specified stroke path object
-   * @form
+   *
+   * @param { Path2D } path - Specified stroke path object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   stroke(path: Path2D): void;
 
@@ -1642,7 +2111,9 @@ declare class CanvasRenderer extends CanvasPath {
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
-   * @param path Specified stroke path object
+   *
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
@@ -1650,21 +2121,24 @@ declare class CanvasRenderer extends CanvasPath {
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
-   * @param path Specified stroke path object
-   * @form
+   *
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
    * @crossplatform
    * @since 10
+   * @form
    */
   fillStyle: string | number | CanvasGradient | CanvasPattern;
 
@@ -1673,7 +2147,9 @@ declare class CanvasRenderer extends CanvasPath {
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
-   * @param path Specified stroke path object
+   *
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
@@ -1681,134 +2157,163 @@ declare class CanvasRenderer extends CanvasPath {
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
-   * @param path Specified stroke path object
-   * @form
+   *
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
    * @crossplatform
    * @since 10
+   * @form
    */
   strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
-   * @param x0 The x-axis coordinate of the start point.
-   * @param y0 The y-axis coordinate of the start point.
-   * @param x1 x-axis coordinate of the end point.
-   * @param y1 y-axis coordinate of the end point.
+   *
+   * @param { number } x0 - The x-axis coordinate of the start point.
+   * @param { number } y0 - The y-axis coordinate of the start point.
+   * @param { number } x1 - x-axis coordinate of the end point.
+   * @param { number } y1 - y-axis coordinate of the end point.
+   * @returns { CanvasGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
-   * @param x0 The x-axis coordinate of the start point.
-   * @param y0 The y-axis coordinate of the start point.
-   * @param x1 x-axis coordinate of the end point.
-   * @param y1 y-axis coordinate of the end point.
-   * @form
+   *
+   * @param { number } x0 - The x-axis coordinate of the start point.
+   * @param { number } y0 - The y-axis coordinate of the start point.
+   * @param { number } x1 - x-axis coordinate of the end point.
+   * @param { number } y1 - y-axis coordinate of the end point.
+   * @returns { CanvasGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
-   * @param x0 The x-axis coordinate of the start point.
-   * @param y0 The y-axis coordinate of the start point.
-   * @param x1 x-axis coordinate of the end point.
-   * @param y1 y-axis coordinate of the end point.
-   * @form
+   *
+   * @param { number } x0 - The x-axis coordinate of the start point.
+   * @param { number } y0 - The y-axis coordinate of the start point.
+   * @param { number } x1 - x-axis coordinate of the end point.
+   * @param { number } y1 - y-axis coordinate of the end point.
+   * @returns { CanvasGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
   /**
    * Creates a template object using the specified image
-   * @param image Objects as duplicate image sources
-   * @param repetition Specifies how to repeat images. The following four modes are supported:
+   *
+   * @param { ImageBitmap } image - Objects as duplicate image sources
+   * @param { string | null } repetition - Specifies how to repeat images. The following four modes are supported:
    * "repeat": Repeated images in both X and Y directions
    * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
    * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
    * "no-repeat": Non-repeating images in both X and Y directions
+   * @returns { CanvasPattern | null }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Creates a template object using the specified image
-   * @param image Objects as duplicate image sources
-   * @param repetition Specifies how to repeat images. The following four modes are supported:
+   *
+   * @param { ImageBitmap } image - Objects as duplicate image sources
+   * @param { string | null } repetition - Specifies how to repeat images. The following four modes are supported:
    * "repeat": Repeated images in both X and Y directions
    * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
    * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
    * "no-repeat": Non-repeating images in both X and Y directions
-   * @form
+   * @returns { CanvasPattern | null }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
-
   /**
    * Creates a template object using the specified image
-   * @param image Objects as duplicate image sources
-   * @param repetition Specifies how to repeat images. The following four modes are supported:
+   *
+   * @param { ImageBitmap } image - Objects as duplicate image sources
+   * @param { string | null } repetition - Specifies how to repeat images. The following four modes are supported:
    * "repeat": Repeated images in both X and Y directions
    * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
    * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
    * "no-repeat": Non-repeating images in both X and Y directions
    * "clamp": Replicate the edge color if the shader draws outside of its original bounds.
    * "mirror": Repeat the shader's image horizontally and vertically, alternating mirror images so that adjacent images always seam.
+   * @returns { CanvasPattern | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
    * @crossplatform
    * @since 10
+   * @form
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
   /**
    * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
-   * @param x0 The x-axis coordinate of the start circle.
-   * @param y0 The y-axis coordinate of the start circle.
-   * @param r0 Radius of the starting circle.
-   * @param x1 The x-axis coordinate of the end circle.
-   * @param y1 The y-axis coordinate of the end circle.
-   * @param r1 Radius of the end circle.
+   *
+   * @param { number } x0 - The x-axis coordinate of the start circle.
+   * @param { number } y0 - The y-axis coordinate of the start circle.
+   * @param { number } r0 - Radius of the starting circle.
+   * @param { number } x1 - The x-axis coordinate of the end circle.
+   * @param { number } y1 - The y-axis coordinate of the end circle.
+   * @param { number } r1 - Radius of the end circle.
+   * @returns { CanvasGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
-   * @param x0 The x-axis coordinate of the start circle.
-   * @param y0 The y-axis coordinate of the start circle.
-   * @param r0 Radius of the starting circle.
-   * @param x1 The x-axis coordinate of the end circle.
-   * @param y1 The y-axis coordinate of the end circle.
-   * @param r1 Radius of the end circle.
-   * @form
+   *
+   * @param { number } x0 - The x-axis coordinate of the start circle.
+   * @param { number } y0 - The y-axis coordinate of the start circle.
+   * @param { number } r0 - Radius of the starting circle.
+   * @param { number } x1 - The x-axis coordinate of the end circle.
+   * @param { number } y1 - The y-axis coordinate of the end circle.
+   * @param { number } r1 - Radius of the end circle.
+   * @returns { CanvasGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
-   * @param x0 The x-axis coordinate of the start circle.
-   * @param y0 The y-axis coordinate of the start circle.
-   * @param r0 Radius of the starting circle.
-   * @param x1 The x-axis coordinate of the end circle.
-   * @param y1 The y-axis coordinate of the end circle.
-   * @param r1 Radius of the end circle.
-   * @form
+   *
+   * @param { number } x0 - The x-axis coordinate of the start circle.
+   * @param { number } y0 - The y-axis coordinate of the start circle.
+   * @param { number } r0 - Radius of the starting circle.
+   * @param { number } x1 - The x-axis coordinate of the end circle.
+   * @param { number } y1 - The y-axis coordinate of the end circle.
+   * @param { number } r1 - Radius of the end circle.
+   * @returns { CanvasGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
    * Creates a gradient around a point with given coordinates.
-   * @param startAngle The angle at which to begin the gradient, in radians.
+   *
+   * @param { number } startAngle - The angle at which to begin the gradient, in radians.
    *                   Angle measurements start horizontally the right of the center and move around clockwise.
-   * @param x The x-axis coordinate of the center of the gradient.
-   * @param y The y-axis coordinate of the center of the gradient.
-   * @returns CanvasGradient A CanvasGradient object that draws a conic gradient around the given coordinates.
+   * @param { number } x - The x-axis coordinate of the center of the gradient.
+   * @param { number } y - The y-axis coordinate of the center of the gradient.
+   * @returns { CanvasGradient } A CanvasGradient object that draws a conic gradient around the given coordinates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1843,6 +2348,9 @@ declare class CanvasRenderer extends CanvasPath {
    * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
    *    When the value is 0%, there is no change in the image.
    * none: Turn off filter effects
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
@@ -1869,8 +2377,11 @@ declare class CanvasRenderer extends CanvasPath {
    * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
    *    When the value is 0%, there is no change in the image.
    * none: Turn off filter effects
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
@@ -1896,101 +2407,137 @@ declare class CanvasRenderer extends CanvasPath {
    * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
    *    When the value is 0%, there is no change in the image.
    * none: Turn off filter effects
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   filter: string;
 
   /**
    * Creates a new, empty ImageData object of the specified size
-   * @param sw Width of the ImageData object.
-   * @param sh Height of the ImageData object.
+   *
+   * @param { number } sw - Width of the ImageData object.
+   * @param { number } sh - Height of the ImageData object.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Creates a new, empty ImageData object of the specified size
-   * @param sw Width of the ImageData object.
-   * @param sh Height of the ImageData object.
-   * @form
+   *
+   * @param { number } sw - Width of the ImageData object.
+   * @param { number } sh - Height of the ImageData object.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Creates a new, empty ImageData object of the specified size
-   * @param sw Width of the ImageData object.
-   * @param sh Height of the ImageData object.
-   * @form
+   *
+   * @param { number } sw - Width of the ImageData object.
+   * @param { number } sh - Height of the ImageData object.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   createImageData(sw: number, sh: number): ImageData;
 
   /**
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
-   * @param imagedata ImageData object to be copied.
+   *
+   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
-   * @param imagedata ImageData object to be copied.
-   * @form
+   *
+   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
-   * @param imagedata ImageData object to be copied.
-   * @form
+   *
+   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   createImageData(imagedata: ImageData): ImageData;
 
   /**
    * Obtains the pixel data of a specified area on the current canvas.
-   * @param sx x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param sy y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param sw The width of the rectangular area of the image data to be extracted.
-   * @param sh The height of the rectangular area of the image data to be extracted.
+   *
+   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
+   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
+   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Obtains the pixel data of a specified area on the current canvas.
-   * @param sx x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param sy y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param sw The width of the rectangular area of the image data to be extracted.
-   * @param sh The height of the rectangular area of the image data to be extracted.
-   * @form
+   *
+   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
+   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
+   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Obtains the pixel data of a specified area on the current canvas.
-   * @param sx x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param sy y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
-   * @param sw The width of the rectangular area of the image data to be extracted.
-   * @param sh The height of the rectangular area of the image data to be extracted.
-   * @form
+   *
+   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the image data to be extracted.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
+   * @param { number } sw - The width of the rectangular area of the image data to be extracted.
+   * @param { number } sh - The height of the rectangular area of the image data to be extracted.
+   * @returns { ImageData }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
    * Obtains the PixelMap of a specified area on the current canvas.
-   * @param sx x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param sw The width of the rectangular area of the PixelMap to be extracted.
-   * @param sh The height of the rectangular area of the PixelMap to be extracted.
+   *
+   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param { number } sw - The width of the rectangular area of the PixelMap to be extracted.
+   * @param { number } sh - The height of the rectangular area of the PixelMap to be extracted.
+   * @returns { PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Obtains the PixelMap of a specified area on the current canvas.
-   * @param sx x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
-   * @param sw The width of the rectangular area of the PixelMap to be extracted.
-   * @param sh The height of the rectangular area of the PixelMap to be extracted.
+   *
+   * @param { number } sx - x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param { number } sy - y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param { number } sw - The width of the rectangular area of the PixelMap to be extracted.
+   * @param { number } sh - The height of the rectangular area of the PixelMap to be extracted.
+   * @returns { PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -1998,64 +2545,39 @@ declare class CanvasRenderer extends CanvasPath {
 
   /**
    * Draws the specified ImageData object onto the canvas
-   * @param imagedata ImageData object to be drawn.
-   * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param dy Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   *
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Draws the specified ImageData object onto the canvas
-   * @param imagedata ImageData object to be drawn.
-   * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param dy Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @form
-   * @since 9
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
+   *
    * @param { ImageData } imagedata - ImageData object to be drawn.
    * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    * @form
+   */
+  /**
+   * Draws the specified ImageData object onto the canvas
+   *
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   putImageData(imagedata: ImageData, dx: number | string, dy: number | string): void;
 
   /**
    * Draws the specified ImageData object onto the canvas
-   * @param imagedata ImageData object to be drawn.
-   * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param dy Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param dirtyX Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param dirtyY Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param dirtyWidth Width of the rectangular area in the source image data.
-   *    The default is the width of the image data.
-   * @param dirtyHeight Height of the rectangular area in the source image data.
-   *    The default is the height of the image data.
-   * @since 8
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
-   * @param imagedata ImageData object to be drawn.
-   * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
-   * @param dy Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @param dirtyX Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (x coordinate) of the entire image data.
-   * @param dirtyY Position of the upper left corner of the rectangular area in the source image data.
-   *    The default is the upper left corner (y coordinate) of the entire image data.
-   * @param dirtyWidth Width of the rectangular area in the source image data.
-   *    The default is the width of the image data.
-   * @param dirtyHeight Height of the rectangular area in the source image data.
-   *    The default is the height of the image data.
-   * @form
-   * @since 9
-   */
-  /**
-   * Draws the specified ImageData object onto the canvas
+   *
    * @param { ImageData } imagedata - ImageData object to be drawn.
    * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
@@ -2067,10 +2589,45 @@ declare class CanvasRenderer extends CanvasPath {
    *    The default is the width of the image data.
    * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
    *    The default is the height of the image data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Draws the specified ImageData object onto the canvas
+   *
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (x coordinate) of the entire image data.
+   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (y coordinate) of the entire image data.
+   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
+   *    The default is the width of the image data.
+   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
+   *    The default is the height of the image data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    * @form
+   */
+  /**
+   * Draws the specified ImageData object onto the canvas
+   *
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (x coordinate) of the entire image data.
+   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (y coordinate) of the entire image data.
+   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
+   *    The default is the width of the image data.
+   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
+   *    The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   putImageData(
     imagedata: ImageData,
@@ -2085,683 +2642,963 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
    *    The value false indicates that the image is not smooth.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
    *    The value false indicates that the image is not smooth.
-   * @form
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
    *    The value false indicates that the image is not smooth.
-   * @form
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   imageSmoothingEnabled: boolean;
 
   /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
+   *
+   * @type { ImageSmoothingQuality }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
-   * @form
+   *
+   * @type { ImageSmoothingQuality }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
-   * @form
+   *
+   * @type { ImageSmoothingQuality }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
+   *
+   * @type { CanvasLineCap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
-   * @form
+   *
+   * @type { CanvasLineCap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
-   * @form
+   *
+   * @type { CanvasLineCap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   lineCap: CanvasLineCap;
 
   /**
    * Dotted line offset attribute. The default value is 0.0.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Dotted line offset attribute. The default value is 0.0.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Dotted line offset attribute. The default value is 0.0.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   lineDashOffset: number;
 
   /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
+   *
+   * @type { CanvasLineJoin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
-   * @form
+   *
+   * @type { CanvasLineJoin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
-   * @form
+   *
+   * @type { CanvasLineJoin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   lineJoin: CanvasLineJoin;
 
   /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   lineWidth: number;
 
   /**
    * The value of this parameter cannot be 0 or a negative number.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The value of this parameter cannot be 0 or a negative number.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * The value of this parameter cannot be 0 or a negative number.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   miterLimit: number;
 
   /**
    * Gets the current segment style.
+   *
+   * @returns { number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Gets the current segment style.
-   * @form
+   *
+   * @returns { number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Gets the current segment style.
-   * @form
+   *
+   * @returns { number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   getLineDash(): number[];
 
   /**
    * Sets the dashed line mode for line drawing.
-   * @param segments A set of numbers that describe the length of alternating drawn lines segments and
+   *
+   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
    *    spacing (coordinate space units).
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the dashed line mode for line drawing.
-   * @param segments A set of numbers that describe the length of alternating drawn lines segments and
+   *
+   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
    *    spacing (coordinate space units).
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the dashed line mode for line drawing.
-   * @param segments A set of numbers that describe the length of alternating drawn lines segments and
+   *
+   * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
    *    spacing (coordinate space units).
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   setLineDash(segments: number[]): void;
 
   /**
    * Clears the drawing content of a rectangular area.
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Clears the drawing content of a rectangular area.
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Clears the drawing content of a rectangular area.
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
   /**
    * Fills a specified rectangular area
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Fills a specified rectangular area
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Fills a specified rectangular area
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   fillRect(x: number, y: number, w: number, h: number): void;
 
   /**
    * Stroke Specify Rectangular Area
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Stroke Specify Rectangular Area
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Stroke Specify Rectangular Area
-   * @param x The x-axis coordinate of the start point of the rectangle.
-   * @param y The y-axis coordinate of the start point of the rectangle.
-   * @param w Width of the rectangle.
-   * @param h Height of the rectangle.
-   * @form
+   *
+   * @param { number } x - The x-axis coordinate of the start point of the rectangle.
+   * @param { number } y - The y-axis coordinate of the start point of the rectangle.
+   * @param { number } w - Width of the rectangle.
+   * @param { number } h - Height of the rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
   /**
    * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Shadow blur radius. The default value is 0. The value cannot be a negative number.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Shadow blur radius. The default value is 0. The value cannot be a negative number.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   shadowBlur: number;
 
   /**
    * Shadow color. The default value is transparent black.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Shadow color. The default value is transparent black.
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Shadow color. The default value is transparent black.
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   shadowColor: string;
 
   /**
    * Horizontal offset distance of the shadow. The default value is 0.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Horizontal offset distance of the shadow. The default value is 0.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Horizontal offset distance of the shadow. The default value is 0.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   shadowOffsetX: number;
 
   /**
    * Vertical offset distance of the shadow. The default value is 0.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Vertical offset distance of the shadow. The default value is 0.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Vertical offset distance of the shadow. The default value is 0.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   shadowOffsetY: number;
 
   /**
    * Top of the stack pop-up state in the drawing state stack
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Top of the stack pop-up state in the drawing state stack
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Top of the stack pop-up state in the drawing state stack
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   restore(): void;
 
   /**
    * Saves the current drawing state to the drawing state stack
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Saves the current drawing state to the drawing state stack
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Saves the current drawing state to the drawing state stack
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   save(): void;
 
   /**
    * Fills the specified text at the specified location
-   * @param text Text string to be drawn.
-   * @param x The x-axis coordinate of the start point of the text.
-   * @param y The y-axis coordinate of the start point of the text.
-   * @param maxWidth Maximum width of the drawing.
+   *
+   * @param { string } text - Text string to be drawn.
+   * @param { number } x - The x-axis coordinate of the start point of the text.
+   * @param { number } y - The y-axis coordinate of the start point of the text.
+   * @param { ?number } maxWidth - Maximum width of the drawing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Fills the specified text at the specified location
-   * @param text Text string to be drawn.
-   * @param x The x-axis coordinate of the start point of the text.
-   * @param y The y-axis coordinate of the start point of the text.
-   * @param maxWidth Maximum width of the drawing.
-   * @form
+   *
+   * @param { string } text - Text string to be drawn.
+   * @param { number } x - The x-axis coordinate of the start point of the text.
+   * @param { number } y - The y-axis coordinate of the start point of the text.
+   * @param { ?number } maxWidth - Maximum width of the drawing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Fills the specified text at the specified location
-   * @param text Text string to be drawn.
-   * @param x The x-axis coordinate of the start point of the text.
-   * @param y The y-axis coordinate of the start point of the text.
-   * @param maxWidth Maximum width of the drawing.
-   * @form
+   *
+   * @param { string } text - Text string to be drawn.
+   * @param { number } x - The x-axis coordinate of the start point of the text.
+   * @param { number } y - The y-axis coordinate of the start point of the text.
+   * @param { ?number } maxWidth - Maximum width of the drawing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   fillText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
-   * @param text Text string to be measured.
+   *
+   * @param { string } text - Text string to be measured.
+   * @returns { TextMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
-   * @param text Text string to be measured.
-   * @form
+   *
+   * @param { string } text - Text string to be measured.
+   * @returns { TextMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
-   * @param text Text string to be measured.
-   * @form
+   *
+   * @param { string } text - Text string to be measured.
+   * @returns { TextMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   measureText(text: string): TextMetrics;
 
   /**
    * Stroke specified text at specified position
-   * @param text Text string to be stroked.
-   * @param x The x-axis coordinate of the start point of the text.
-   * @param y The y-axis-axis coordinate of the start point of the text.
-   * @param maxWidth Maximum width of the stroke.
+   *
+   * @param { string } text - Text string to be stroked.
+   * @param { number } x - The x-axis coordinate of the start point of the text.
+   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
+   * @param { ?number } maxWidth - Maximum width of the stroke.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Stroke specified text at specified position
-   * @param text Text string to be stroked.
-   * @param x The x-axis coordinate of the start point of the text.
-   * @param y The y-axis-axis coordinate of the start point of the text.
-   * @param maxWidth Maximum width of the stroke.
-   * @form
+   *
+   * @param { string } text - Text string to be stroked.
+   * @param { number } x - The x-axis coordinate of the start point of the text.
+   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
+   * @param { ?number } maxWidth - Maximum width of the stroke.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Stroke specified text at specified position
-   * @param text Text string to be stroked.
-   * @param x The x-axis coordinate of the start point of the text.
-   * @param y The y-axis-axis coordinate of the start point of the text.
-   * @param maxWidth Maximum width of the stroke.
-   * @form
+   *
+   * @param { string } text - Text string to be stroked.
+   * @param { number } x - The x-axis coordinate of the start point of the text.
+   * @param { number } y - The y-axis-axis coordinate of the start point of the text.
+   * @param { ?number } maxWidth - Maximum width of the stroke.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   strokeText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   direction: CanvasDirection;
 
   /**
    * Font style. The default value is 10px sans-serif.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Font style. The default value is 10px sans-serif.
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Font style. The default value is 10px sans-serif.
-   * @form
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   font: string;
 
   /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
+   *
+   * @type { CanvasTextAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
-   * @form
+   *
+   * @type { CanvasTextAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
-   * @form
+   *
+   * @type { CanvasTextAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   textAlign: CanvasTextAlign;
 
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
+   *
+   * @type { CanvasTextBaseline }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
-   * @form
+   *
+   * @type { CanvasTextBaseline }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
-   * @form
+   *
+   * @type { CanvasTextBaseline }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   textBaseline: CanvasTextBaseline;
 
   /**
    * Obtains the currently applied transformation matrix.
+   *
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Obtains the currently applied transformation matrix.
-   * @form
+   *
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
+   */
+  /**
+   * Obtains the currently applied transformation matrix.
+   *
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   getTransform(): Matrix2D;
 
   /**
    * Resets the current transformation matrix using the identity matrix
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Resets the current transformation matrix using the identity matrix
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Resets the current transformation matrix using the identity matrix
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   resetTransform(): void;
 
   /**
    * Adds the effect of a rotation
-   * @param angle The radian of clockwise rotation, which can be converted to an angle value using the formula:
+   *
+   * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
    *    degree * Math.PI / 180
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds the effect of a rotation
-   * @param angle The radian of clockwise rotation, which can be converted to an angle value using the formula:
+   *
+   * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
    *    degree * Math.PI / 180
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Adds the effect of a rotation
-   * @param angle The radian of clockwise rotation, which can be converted to an angle value using the formula:
+   *
+   * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
    *    degree * Math.PI / 180
-   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   rotate(angle: number): void;
 
   /**
    * Increases the scaling effect of the X and Y axes.
-   * @param x Horizontal scaling factor
-   * @param y Vertical scaling factor
+   *
+   * @param { number } x - Horizontal scaling factor
+   * @param { number } y - Vertical scaling factor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Increases the scaling effect of the X and Y axes.
-   * @param x Horizontal scaling factor
-   * @param y Vertical scaling factor
-   * @form
+   *
+   * @param { number } x - Horizontal scaling factor
+   * @param { number } y - Vertical scaling factor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Increases the scaling effect of the X and Y axes.
-   * @param x Horizontal scaling factor
-   * @param y Vertical scaling factor
-   * @form
+   *
+   * @param { number } x - Horizontal scaling factor
+   * @param { number } y - Vertical scaling factor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   scale(x: number, y: number): void;
 
   /**
    * Adds 2D transformation effects, including rotation, translation, and scaling.
    *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
-   * @param a Horizontal Zoom
-   * @param b Vertical Tilt
-   * @param c Horizontal Tilt
-   * @param d Vertical Zoom
-   * @param e Horizontal movement
-   * @param f Vertical movement
+   *
+   * @param { number } a - Horizontal Zoom
+   * @param { number } b - Vertical Tilt
+   * @param { number } c - Horizontal Tilt
+   * @param { number } d - Vertical Zoom
+   * @param { number } e - Horizontal movement
+   * @param { number } f - Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds 2D transformation effects, including rotation, translation, and scaling.
    *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
-   * @param a Horizontal Zoom
-   * @param b Vertical Tilt
-   * @param c Horizontal Tilt
-   * @param d Vertical Zoom
-   * @param e Horizontal movement
-   * @param f Vertical movement
-   * @form
+   *
+   * @param { number } a - Horizontal Zoom
+   * @param { number } b - Vertical Tilt
+   * @param { number } c - Horizontal Tilt
+   * @param { number } d - Vertical Zoom
+   * @param { number } e - Horizontal movement
+   * @param { number } f - Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
+   */
+  /**
+   * Adds 2D transformation effects, including rotation, translation, and scaling.
+   *    The current transformation matrix will not be overwritten. Multiple transformations will be superimposed.
+   *
+   * @param { number } a - Horizontal Zoom
+   * @param { number } b - Vertical Tilt
+   * @param { number } c - Horizontal Tilt
+   * @param { number } d - Vertical Zoom
+   * @param { number } e - Horizontal movement
+   * @param { number } f - Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
-   * @param transform 2D transformation matrix. For details, see {@link Matrix2D}.
+   *
+   * @param { ?Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
-   * @param transform 2D transformation matrix. For details, see {@link Matrix2D}.
-   * @form
+   *
+   * @param { ?Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
+   */
+  /**
+   * The 2D transformation effect is added. The current transformation matrix is not overwritten and
+   *    the transformations are superimposed for multiple times.
+   *
+   * @param { ?Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   setTransform(transform?: Matrix2D): void;
 
   /**
    * Adds the 2D transformation effect, including rotation, translation, and scaling,
    *    and overwrites the current transformation matrix.
-   * @param a Horizontal Zoom
-   * @param b Vertical Tilt
-   * @param c Horizontal Tilt
-   * @param d Vertical Zoom
-   * @param e Horizontal movement
-   * @param f Vertical movement
+   *
+   * @param { number } a - Horizontal Zoom
+   * @param { number } b - Vertical Tilt
+   * @param { number } c - Horizontal Tilt
+   * @param { number } d - Vertical Zoom
+   * @param { number } e - Horizontal movement
+   * @param { number } f - Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds the 2D transformation effect, including rotation, translation, and scaling,
    *    and overwrites the current transformation matrix.
-   * @param a Horizontal Zoom
-   * @param b Vertical Tilt
-   * @param c Horizontal Tilt
-   * @param d Vertical Zoom
-   * @param e Horizontal movement
-   * @param f Vertical movement
-   * @form
+   *
+   * @param { number } a - Horizontal Zoom
+   * @param { number } b - Vertical Tilt
+   * @param { number } c - Horizontal Tilt
+   * @param { number } d - Vertical Zoom
+   * @param { number } e - Horizontal movement
+   * @param { number } f - Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Adds the 2D transformation effect, including rotation, translation, and scaling,
    *    and overwrites the current transformation matrix.
-   * @param a Horizontal Zoom
-   * @param b Vertical Tilt
-   * @param c Horizontal Tilt
-   * @param d Vertical Zoom
-   * @param e Horizontal movement
-   * @param f Vertical movement
-   * @form
+   *
+   * @param { number } a - Horizontal Zoom
+   * @param { number } b - Vertical Tilt
+   * @param { number } c - Horizontal Tilt
+   * @param { number } d - Vertical Zoom
+   * @param { number } e - Horizontal movement
+   * @param { number } f - Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
    * Increases the translation effect of the X and Y axes
-   * @param x Horizontal movement distance
-   * @param y Vertical travel distance
+   *
+   * @param { number } x - Horizontal movement distance
+   * @param { number } y - Vertical travel distance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Increases the translation effect of the X and Y axes
-   * @param x Horizontal movement distance
-   * @param y Vertical travel distance
-   * @form
+   *
+   * @param { number } x - Horizontal movement distance
+   * @param { number } y - Vertical travel distance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Increases the translation effect of the X and Y axes
-   * @param x Horizontal movement distance
-   * @param y Vertical travel distance
-   * @form
+   *
+   * @param { number } x - Horizontal movement distance
+   * @param { number } y - Vertical travel distance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   translate(x: number, y: number): void;
 
   /**
    * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
-   * @param value PixelMap object
+   *
+   * @param { ?PixelMap } value - PixelMap object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
-   * @param value PixelMap object
+   *
+   * @param { ?PixelMap } value - PixelMap object
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -2769,344 +3606,486 @@ declare class CanvasRenderer extends CanvasPath {
 
   /**
    * transfer ImageBitmap to content.
-   * @param ImageBitmap
+   *
+   * @param { ImageBitmap } bitmap
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * transfer ImageBitmap to content.
-   * @param ImageBitmap
-   * @form
+   *
+   * @param { ImageBitmap } bitmap
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * transfer ImageBitmap to content.
-   * @param ImageBitmap
-   * @form
+   *
+   * @param { ImageBitmap } bitmap
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 }
 
 /**
  * Draw context object for the Canvas component.
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Draw context object for the Canvas component.
- * @form
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Draw context object for the Canvas component.
- * @form
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly height: number;
 
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly width: number;
 
   /**
    * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
-   * @form
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
-   * @form
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   toDataURL(type?: string, quality?: any): string;
 
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
+   *
+   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @form
+   *
+   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @form
+   *
+   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(settings?: RenderingContextSettings);
 }
 
 /**
  * Draw context object for the OffscreenCanvas component.
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Draw context object for the OffscreenCanvas component.
- * @form
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Draw context object for the OffscreenCanvas component.
- * @form
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *
+   * @param { ?string } type - Image format. The default value is image/png.
+   * @param { ?any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *
+   * @param { ?string } type - Image format. The default value is image/png.
+   * @param { ?any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
-   * @form
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   *
+   * @param { ?string } type - Image format. The default value is image/png.
+   * @param { ?any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
-   * @form
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   toDataURL(type?: string, quality?: any): string;
 
   /**
    * transfer the content to ImageBitmap
+   *
+   * @returns { ImageBitmap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * transfer the content to ImageBitmap
-   * @form
+   *
+   * @returns { ImageBitmap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * transfer the content to ImageBitmap
-   * @form
+   *
+   * @returns { ImageBitmap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   transferToImageBitmap(): ImageBitmap;
 
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   * @param width the width of the OffscreenCanvas
-   * @param height the height of the OffscreenCanvas
-   * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
+   *
+   * @param { number } width - the width of the OffscreenCanvas
+   * @param { number } height - the height of the OffscreenCanvas
+   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   * @param width the width of the OffscreenCanvas
-   * @param height the height of the OffscreenCanvas
-   * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @form
+   *
+   * @param { number } width - the width of the OffscreenCanvas
+   * @param { number } height - the height of the OffscreenCanvas
+   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
-   * @param width the width of the OffscreenCanvas
-   * @param height the height of the OffscreenCanvas
-   * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
-   * @form
+   *
+   * @param { number } width - the width of the OffscreenCanvas
+   * @param { number } height - the height of the OffscreenCanvas
+   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings);
 }
 
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
- * @form
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
- * @form
+ *
+ * @extends CanvasRenderer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class OffscreenCanvas extends CanvasRenderer {
   /**
    * Height of the off-screen canvas.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Height of the off-screen canvas.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Height of the off-screen canvas.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   height: number;
 
   /**
    * Width of the off-screen canvas.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Width of the off-screen canvas.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Width of the off-screen canvas.
-   * @form
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   width: number;
 
   /**
    * Exports rendered content as an ImageBitmap object
+   *
+   * @returns { ImageBitmap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Exports rendered content as an ImageBitmap object
-   * @form
+   *
+   * @returns { ImageBitmap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Exports rendered content as an ImageBitmap object
-   * @form
+   *
+   * @returns { ImageBitmap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   transferToImageBitmap(): ImageBitmap;
 
   /**
    * Creates the context from the current OffscreenCanvas.
-   * @param { string } contextType - The context type, only "2d" be supported now.
+   *
+   * @param { "2d" } contextType - The context type, only "2d" be supported now.
    *  "2d": Creates a {@link OffscreenCanvasRenderingContext2D} object representing a two-dimensional rendering context.
-   * @param { RenderingContextSettings } option - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { ?RenderingContextSettings } options - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  getContext(contextType: "2d", option?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
+  getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
-   * @param width Width of the off-screen canvas.
-   * @param height Height of the off-screen canvas.
+   *
+   * @param { number } width - Width of the off-screen canvas.
+   * @param { number } height - Height of the off-screen canvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
-   * @param width Width of the off-screen canvas.
-   * @param height Height of the off-screen canvas.
-   * @form
+   *
+   * @param { number } width - Width of the off-screen canvas.
+   * @param { number } height - Height of the off-screen canvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
-   * @param width Width of the off-screen canvas.
-   * @param height Height of the off-screen canvas.
-   * @form
+   *
+   * @param { number } width - Width of the off-screen canvas.
+   * @param { number } height - Height of the off-screen canvas.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(width: number, height: number);
 }
 
 /**
  *TextTimer component, which provides the text timer capability.
+ *
+ * @interface CanvasInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  *TextTimer component, which provides the text timer capability.
- * @form
+ *
+ * @interface CanvasInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  *TextTimer component, which provides the text timer capability.
- * @form
+ *
+ * @interface CanvasInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface CanvasInterface {
   /**
    * Construct a canvas component.
-   * @param context Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   *
+   * @param { ?CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Construct a canvas component.
-   * @param context Canvas context object. For details, see {@link CanvasRenderingContext2D}.
-   * @form
+   *
+   * @param { ?CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Construct a canvas component.
-   * @param context Canvas context object. For details, see {@link CanvasRenderingContext2D}.
-   * @form
+   *
+   * @param { ?CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (context?: CanvasRenderingContext2D): CanvasAttribute;
 }
@@ -3114,52 +4093,76 @@ interface CanvasInterface {
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
+   *
+   * @param { () => void } event
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
-   * @form
+   *
+   * @param { () => void } event
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
-   * @form
+   *
+   * @param { () => void } event
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   onReady(event: () => void): CanvasAttribute;
 }
 
 /**
  * Defines Canvas Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Canvas Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Canvas Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Canvas: CanvasInterface;
 
 /**
  * Defines Canvas Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Canvas Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Canvas Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const CanvasInstance: CanvasAttribute;

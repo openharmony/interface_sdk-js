@@ -20,7 +20,7 @@ import type * as _BusinessAbilityInfo from './bundleManager/BusinessAbilityInfo'
  * This module is used to obtain business ability information of various applications installed on the current device.
  *
  * @namespace businessAbilityRouter
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 10
  */
@@ -29,7 +29,7 @@ declare namespace businessAbilityRouter {
    * This enumeration value is used to identify various types of business ability info
    *
    * @enum { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -37,7 +37,7 @@ declare namespace businessAbilityRouter {
     /**
      * Indicates business ability info with type of share
      *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10
      */
@@ -46,7 +46,7 @@ declare namespace businessAbilityRouter {
     /**
      * Indicates business ability info with type of unspecified
      *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10
      */
@@ -57,7 +57,7 @@ declare namespace businessAbilityRouter {
    * This filter value is used to filter business ability info
    *
    * @typedef BusinessAbilityFilter
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -66,7 +66,7 @@ declare namespace businessAbilityRouter {
      * Indicates the type of business ability info
      *
      * @type { BusinessType }
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10
      */
@@ -76,7 +76,7 @@ declare namespace businessAbilityRouter {
      * Indicates the supported mime type of business ability info
      *
      * @type { ?string }
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10
      */
@@ -86,7 +86,7 @@ declare namespace businessAbilityRouter {
      * Indicates the supported uri of business ability info
      *
      * @type { ?string }
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 10
      */
@@ -94,31 +94,36 @@ declare namespace businessAbilityRouter {
   }
 
   /**
-   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required
+   * for cross user access.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BusinessAbilityFilter } filter - Indicates the filter containing the business ability info to be queried.
-   * @param { AsyncCallback<Array<BusinessAbilityInfo>> } callback - The callback of querying business ability info result.
+   * @param { AsyncCallback<Array<BusinessAbilityInfo>> } callback - The callback of querying business ability info
+   *                                                                 result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
-  function queryBusinessAbilityInfo(filter: BusinessAbilityFilter,
-      callback: AsyncCallback<Array<BusinessAbilityInfo>>): void;
+  function queryBusinessAbilityInfo(
+    filter: BusinessAbilityFilter,
+    callback: AsyncCallback<Array<BusinessAbilityInfo>>
+  ): void;
 
   /**
-   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the business ability info of by the given filter. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required
+   * for cross user access.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BusinessAbilityFilter } filter - Indicates the filter containing the business ability info to be queried.
    * @returns { Promise<Array<BusinessAbilityInfo>> } Returns a list of business ability info objects.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
@@ -127,7 +132,7 @@ declare namespace businessAbilityRouter {
   /**
    * Obtains business ability info.
    *
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
