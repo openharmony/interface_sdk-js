@@ -83,6 +83,33 @@ declare namespace preferences {
   const MAX_VALUE_LENGTH: 8192;
 
   /**
+   * Manages preferences file configurations.
+   *
+   * @interface Options
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  interface Options {
+    /**
+     * The preferences file name.
+     *
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @since 10
+     */
+    name: string;
+
+    /**
+     * Application Group Id.
+     *
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @since 10
+     */
+    dataGroupId?: string;
+  }
+
+  /**
    * Obtains a {@link Preferences} instance matching a specified preferences file name.
    * <p>The {@link references} instance loads all data of the preferences file and
    * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
@@ -117,6 +144,25 @@ declare namespace preferences {
    * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
    *
    * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @param { AsyncCallback<Preferences> } callback - The {@link Preferences} instance matching the specified
+   *        preferences file name.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function getPreferences(context: Context, options: Options, callback: AsyncCallback<Preferences>): void;
+
+  /**
+   * Obtains a {@link Preferences} instance matching a specified preferences file name.
+   * <p>The {@link references} instance loads all data of the preferences file and
+   * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
@@ -137,6 +183,24 @@ declare namespace preferences {
    * @since 10
    */
   function getPreferences(context: Context, name: string): Promise<Preferences>;
+
+  /**
+   * Obtains a {@link Preferences} instance matching a specified preferences file name.
+   * <p>The {@link references} instance loads all data of the preferences file and
+   * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function getPreferences(context: Context, options: Options): Promise<Preferences>;
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -182,6 +246,28 @@ declare namespace preferences {
    * will occur.
    *
    * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @param { AsyncCallback<void> } callback - Indicates the callback function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function deletePreferences(context: Context, options: Options, callback: AsyncCallback<void>): void;
+
+  /**
+   * Deletes a {@link Preferences} instance matching a specified preferences file name
+   * from the cache which is performed by removePreferencesFromCache and deletes the
+   * preferences file.
+   * <p>When deleting the {@link Preferences} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+   * will occur.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
@@ -207,6 +293,28 @@ declare namespace preferences {
    * @since 10
    */
   function deletePreferences(context: Context, name: string): Promise<void>;
+
+  /**
+   * Deletes a {@link Preferences} instance matching a specified preferences file name
+   * from the cache which is performed by removePreferencesFromCache and deletes the
+   * preferences file.
+   * <p>When deleting the {@link Preferences} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+   * will occur.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @returns { Promise<void> } A promise object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function deletePreferences(context: Context, options: Options): Promise<void>;
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -247,6 +355,26 @@ declare namespace preferences {
    * will occur.
    *
    * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @param { AsyncCallback<void> } callback - Indicates the callback function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function removePreferencesFromCache(context: Context, options: Options, callback: AsyncCallback<void>): void;
+
+  /**
+   * Deletes a {@link Preferences} instance matching a specified preferences file name
+   * from the cache.
+   * <p>When deleting the {@link Preferences} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+   * will occur.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the preferences file name.
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
@@ -269,6 +397,26 @@ declare namespace preferences {
    * @since 10
    */
   function removePreferencesFromCache(context: Context, name: string): Promise<void>;
+
+  /**
+   * Deletes a {@link Preferences} instance matching a specified preferences file name
+   * from the cache.
+   * <p>When deleting the {@link Preferences} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+   * will occur.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @returns { Promise<void> } A promise object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function removePreferencesFromCache(context: Context, options: Options): Promise<void>;
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -734,6 +882,18 @@ declare namespace preferences {
     on(type: 'change', callback: Callback<{ key: string }>): void;
 
     /**
+     * Registers an observer to listen for the change of a {@link Preferences} object.
+     *
+     * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
+     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @since 10
+     */
+    on(type: 'multiProcessChange', callback: Callback<{ key: string }>): void;
+
+    /**
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
@@ -753,6 +913,17 @@ declare namespace preferences {
      * @since 10
      */
     off(type: 'change', callback?: Callback<{ key: string }>): void;
+
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
+     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @since 10
+     */
+    off(type: 'multiProcessChange', callback?: Callback<{ key: string }>): void;
   }
 }
 
