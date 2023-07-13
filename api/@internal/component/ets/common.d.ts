@@ -3596,7 +3596,7 @@ declare interface SheetOptions extends BindOptions {
    * @crossplatform
    * @since 10
    */
-  backgroundMask?: ResourceColor;
+  maskColor?: ResourceColor;
 }
 
 /**
