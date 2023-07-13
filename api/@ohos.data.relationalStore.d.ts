@@ -3181,7 +3181,7 @@ declare namespace relationalStore {
      *
      * @param { string } event - Indicates the subscription event.
      * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
-     * @param { Callback<void> } observer - The observer of data change events in the database.
+     * @param { Callback } observer - {void} The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
@@ -3189,7 +3189,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    on(event: string, supportShared: boolean, observer: Callback<void>): void;
+    on(event: string, supportShared: boolean, observer: Callback): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -3226,7 +3226,7 @@ declare namespace relationalStore {
      *
      * @param { string } event - Indicates the subscription event.
      * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
-     * @param Callback<void> observer - {void}: the data change observer already registered.
+     * @param {Callback<void>} observer - {void}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
@@ -3277,22 +3277,6 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - Only supported in Stage mode.
    * @throws { BusinessError } 14801002 - The dataGroupId not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -3315,22 +3299,6 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
-   */
-  /**
-   * Obtains a RDB store.
-   * You can set parameters of the RDB store as required. In general, this method is recommended
-   * to obtain a rdb store.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
-   * @since 10
    */
   /**
    * Obtains a RDB store.
