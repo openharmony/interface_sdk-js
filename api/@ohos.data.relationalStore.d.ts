@@ -3277,8 +3277,6 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -3312,8 +3310,6 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
