@@ -1398,6 +1398,50 @@ declare namespace call {
   function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
 
   /**
+   * Set call barring password.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { string } oldPassword - Indicates the call restriction old password.
+   * @param { string } newPassword - Indicates the call restriction new password.
+   * @param { AsyncCallback<void> } callback - The callback of setCallRestrictionPassword.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setCallRestrictionPassword(slotId: number, oldPassword: string, newPassword: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set call barring password.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { string } oldPassword - Indicates the call restriction old password.
+   * @param { string } newPassword - Indicates the call restriction new password.
+   * @returns { Promise<void> } The promise returned by the setCallRestrictionPassword.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setCallRestrictionPassword(slotId: number, oldPassword: string, newPassword: string): Promise<void>;
+
+  /**
    * Get call forwarding information.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
@@ -1649,6 +1693,44 @@ declare namespace call {
    * @since 8
    */
   function joinConference(mainCallId: number, callNumberList: Array<string>): Promise<void>;
+
+  /**
+   * Kick out call from the conference call.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { number } callId - Indicates the identifier of the call which kick out.
+   * @param { AsyncCallback<void> } callback - The callback of kickOutFromConference.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function kickOutFromConference(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Kick out call from the conference call.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { number } callId - Indicates the identifier of the call which kick out.
+   * @returns { Promise<void> } The promise returned by the kickOutFromConference.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function kickOutFromConference(callId: number): Promise<void>;
 
   /**
    * Update Ims call mode.
