@@ -15,8 +15,8 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
-import { Context } from './application/Context';
-import { PermissionRequestResult } from './security/PermissionRequestResult';
+import type Context from './application/Context';
+import type PermissionRequestResult from './security/PermissionRequestResult';
 
 /**
  * @namespace abilityAccessCtrl
