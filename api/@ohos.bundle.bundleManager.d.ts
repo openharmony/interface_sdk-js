@@ -397,6 +397,14 @@ declare namespace bundleManager {
     PRINT = 15,
 
     /**
+     * Indicates extension info with type of share
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    SHARE = 16,
+
+    /**
      * Indicates extension info with type of push
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -419,6 +427,14 @@ declare namespace bundleManager {
      * @since 10
      */
     APP_ACCOUNT_AUTHORIZATION = 19,
+
+    /**
+     * Indicates extension info with type of action
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    ACTION = 20,
 
     /**
      * Indicates extension info with type of unspecified
