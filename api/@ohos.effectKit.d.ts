@@ -171,16 +171,17 @@ declare namespace effectKit {
    * @param image.PixelMap.
    * @returns Returns the ColorPicker.
    */
+  function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 10
    */
-  function createColorPicker(source: image.PixelMap, region?: Array<number>): Promise<ColorPicker>;
+  function createColorPicker(source: image.PixelMap, region: Array<number>): Promise<ColorPicker>;
 
   /**
    * Create a color picker to get color of an image.
@@ -189,16 +190,17 @@ declare namespace effectKit {
    * @param image.PixelMap.
    * @returns Returns the ColorPicker.
    */
+  function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
-   * @param { Array<number> } region - at least 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
+   * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 10
    */
-  function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>, region?: Array<number>): void;
+  function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void;
 }
 
 export default effectKit;
