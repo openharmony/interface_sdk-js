@@ -349,6 +349,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Adds a record with mimeType and value to a PasteData object.
+     * @param { string } mimeType - indicates the MIME type of value.
+     * @param { ValueType } value - content to be saved.
+     * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 10
+     */
     addRecord(mimeType: string, value: ValueType): void;
 
     /**
