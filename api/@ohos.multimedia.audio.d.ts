@@ -2011,22 +2011,24 @@ declare namespace audio {
 
     /**
      * Gets information of audio effects.
-     * @param { ContentType } content - Content type.
      * @param { StreamUsage } usage - Stream usage.
      * @param { AsyncCallback<AudioEffectInfoArray> } callback - Callback used to return the information of audio effects.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
-    getAudioEffectInfoArray(content: ContentType, usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void;
+    getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void;
     /**
      * Gets information of audio effects.
-     * @param { ContentType } content - Content type.
      * @param { StreamUsage } usage - Stream usage.
      * @returns { Promise<AudioEffectInfoArray> } Promise used to return the information of audio effects.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
-    getAudioEffectInfoArray(content: ContentType, usage: StreamUsage): Promise<AudioEffectInfoArray>;
+    getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>;
 
     /**
      * Listens for audio renderer change events. When there is any audio renderer change,
