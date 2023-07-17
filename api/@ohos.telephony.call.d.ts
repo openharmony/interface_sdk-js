@@ -2090,6 +2090,41 @@ declare namespace call {
   function inputDialerSpecialCode(inputCode: string): Promise<void>;
 
   /**
+   * Remove missed incoming call notification.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE and ohos.permission.READ_CALL_LOG and
+   * ohos.permission.WRITE_CALL_LOG
+   * @param { AsyncCallback<void> } callback - The callback of removeMissedIncomingCallNotification.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function removeMissedIncomingCallNotification(callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove missed incoming call notification.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE and ohos.permission.READ_CALL_LOG and
+   * ohos.permission.WRITE_CALL_LOG
+   * @returns { Promise<void> } The promise returned by the removeMissedIncomingCallNotification.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function removeMissedIncomingCallNotification(): Promise<void>;
+
+  /**
    * Indicates the mode of the ims call.
    *
    * @enum { number }
