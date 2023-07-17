@@ -67,7 +67,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * The state of the nearby devices.
-   * @enum { DeviceStateChange }
+   * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 10
    */
@@ -150,7 +150,6 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { AsyncCallback<Array<DeviceBasicInfo>> } callback - Indicates the callback to be
      * invoked upon getAvailableDeviceList.
-     * @returns Returns a list of available devices.
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -250,9 +249,9 @@ declare namespace distributedDeviceManager {
      * Start to discover nearby devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { { [key: string]: Object } } discoverParam - Identifies the type of target discovered:
+     * @param { object } discoverParam - Identifies the type of target discovered:
      *       discoverTargetType : 1     - Discovery target as a device by default, the value is 1.
-     * @param { { [key: string]: Object } } filterOptions - FilterOptions to filter discovery device.
+     * @param { object } filterOptions - FilterOptions to filter discovery device.
      * The type of filterOptions is map. The map are as follows:
      *       availableStatus: 0-1       - Discover devices only are credible, The value is 0 indicates device isn't credible;
      *                                      0: Devices are offline, client need to bind the device by calling bindTarget() and then connect to it.
@@ -293,7 +292,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } deviceId - id of device to bind.
-     * @param { { [key: string]: Object } } bindParam - parameters of device to bind, The parameter type is map,such as:
+     * @param { object } bindParam - parameters of device to bind, The parameter type is map,such as:
      *      "bindType" : 1-4,         - This value is type of bind, the values are as follows:
      *                                  1 - The bind type is pin code .
      *                                  2 - The bind type is QR code.
@@ -376,8 +375,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverSuccess' } type - Successfully discovered device.
-     * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
-     * Indicates the device discovery callback to register.
+     * @param { Callback<{ device: DeviceBasicInfo }> } callback - Indicates the device discovery callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -390,8 +388,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverSuccess' } type - Successfully discovered device.
-     * @param { Callback<{ subscribeId: number, device: DeviceBasicInfo }> } callback
-     * Indicates the device discovery callback to unregister.
+     * @param { Callback<{ device: DeviceBasicInfo }> } callback - Indicates the device discovery callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -430,7 +427,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverFailure' } type - Discovery Device Failure.
-     * @param { Callback<{ subscribeId: number, reason: number }> } callback
+     * @param { Callback<{ reason: number }> } callback
      * Indicates the device found result callback to register.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
@@ -444,7 +441,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverFailure' } type - Discovery Device Failure.
-     * @param { Callback<{ subscribeId: number, reason: number }> } callback
+     * @param { Callback<{ reason: number }> } callback
      * Indicates the device found result callback to unregister.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
