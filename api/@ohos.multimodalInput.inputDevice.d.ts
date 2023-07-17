@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { Callback, AsyncCallback } from './basic';
+import type { Callback, AsyncCallback } from './@ohos.base';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
