@@ -32,8 +32,20 @@ const changeErrors = [];
  */
 function checkHistoryJSDoc(newNodeJSDocs, oldNodeJSDocs) {
   for (let i = 0; i < oldNodeJSDocs.length; i++) {
-    if (JSON.stringify(oldNodeJSDocs[i]) !== JSON.stringify(newNodeJSDocs[i])) {
+    const oldDescription = oldNodeJSDocs[i].description;
+    const oldTags = oldNodeJSDocs[i].tags;
+    const newDescription = newNodeJSDocs[i].description;
+    const newTags = newNodeJSDocs[i].tags;
+    if (oldDescription !== newDescription || oldTags.length !== newTags.length) {
       return false;
+    }
+    for (let j = 0; j < oldTags.length; j++) {
+      const oldTag = oldTags[j];
+      const newTag = newTags[j];
+      if (oldTag.tag !== newTag.tag || oldTag.name !== newTag.name || oldTag.type !== newTag.type ||
+        oldTag.optional !== newTag.optional || oldTag.description !== newTag.description) {
+        return false;
+      }
     }
   }
   return true;
