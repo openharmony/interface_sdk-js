@@ -246,6 +246,8 @@ declare enum WebDarkMode {
 
 /**
  * Enum type supplied to {@link captureMode} for setting the web capture mode.
+ * 
+ * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 10
  */
@@ -286,6 +288,8 @@ declare interface WebMediaOptions {
 
 /**
  * Defines the screen capture configuration.
+ * 
+ * @interface ScreenCaptureConfig
  * @syscap SystemCapability.Web.Webview.Core
  * @since 10
  */
@@ -472,41 +476,26 @@ declare class FileSelectorParam {
 
   /**
     * Gets the title of this file selector.
-    * Gets the title of this file selector.
-    * @returns Return the title of this file selector.
-   * Gets the title of this file selector.
-    * @returns Return the title of this file selector.
-   *
-   * @returns { string } Return the title of this file selector.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
+    * @returns { string } Return the title of this file selector.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 9
+    */
   getTitle(): string;
 
   /**
     * Gets the FileSelectorMode of this file selector.
-    * Gets the FileSelectorMode of this file selector.
-    * @returns Return the FileSelectorMode of this file selector.
-   * Gets the FileSelectorMode of this file selector.
-    * @returns Return the FileSelectorMode of this file selector.
-   *
-   * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
+    * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 9
+    */
   getMode(): FileSelectorMode;
 
   /**
     * Gets an array of acceptable MMIE type.
-    * Gets an array of acceptable MMIE type.
-    * @returns Return an array of acceptable MMIE type.
-   * Gets an array of acceptable MMIE type.
-    * @returns Return an array of acceptable MMIE type.
-   *
-   * @returns { Array<string> } Return an array of acceptable MMIE type.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
+    * @returns { Array<string> } Return an array of acceptable MMIE type.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 9
+    */
   getAcceptType(): Array<string>;
 
   /**
@@ -738,6 +727,8 @@ declare enum ProtectedResourceType {
 
   /**
    * The audio capture resource, such as microphone.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE'
@@ -809,6 +800,8 @@ declare class ScreenCaptureHandler {
 
   /**
    * Gets the source of the webpage that attempted to access the restricted resource.
+   * 
+   * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
@@ -1981,23 +1974,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    *
-   * @param { {object: object;
+   * @param { { object: object;
    * name: string;methodList: Array<string>;
-   * controller: WebController | WebviewController;} } javaScriptProxy - The JavaScript object to be injected.
+   * controller: WebController } } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
- * Injects the JavaScript object into window and invoke the function in window.
- * Injects the JavaScript object into window and invoke the function in window.
- * @param javaScriptProxy The JavaScript object to be injected.
    * Injects the JavaScript object into window and invoke the function in window.
- * @param javaScriptProxy The JavaScript object to be injected.
    *
-   * @param { {object: object;
+   * @param { { object: object;
    * name: string;methodList: Array<string>;
-   * controller: WebController | WebviewController;} } javaScriptProxy - The JavaScript object to be injected.
+   * controller: WebController | WebviewController } } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2143,7 +2132,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the end of web page loading.
    *
-   * @param { (event?: { url: string }) => void } callback The triggered function at the end of web page loading.
+   * @param { function } callback The triggered function at the end of web page loading.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2153,7 +2142,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the begin of web page loading.
    *
-   * @param { (event?: { url: string }) => void } callback The triggered function at the begin of web page loading.
+   * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2163,7 +2152,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the page loading progress changes.
    *
-   * @param { (event?: { newProgress: number }) => void } callback The triggered function when the page loading progress changes.
+   * @param { function } callback The triggered function when the page loading progress changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2173,7 +2162,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the title of the main application document changes.
    *
-   * @param { (event?: { title: string }) => void } callback The triggered function when the title of the main application document changes.
+   * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2183,7 +2172,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when requesting to hide the geolocation.
    *
-   * @param { () => void } callback The triggered function when requesting to hide the geolocation permission.
+   * @param { function } callback The triggered function when requesting to hide the geolocation permission.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2193,8 +2182,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when requesting to show the geolocation permission.
    *
-   * @param { (event?: { origin: string;
-   * geolocation: JsGeolocation }) => void } callback The triggered function when requesting to show the geolocation permission.
+   * @param { function } callback The triggered function when requesting to show the geolocation permission.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2204,7 +2192,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web gets the focus.
    *
-   * @param { () => void } callback The triggered function when the Web gets the focus.
+   * @param { function } callback The triggered function when the Web gets the focus.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2214,8 +2202,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web wants to display a JavaScript alert() dialog.
    *
-   * @param { (event?: { url: string; message: string;
-   * result: JsResult }) => boolean } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
+   * @param { function } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2225,8 +2212,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
    *
-   * @param { (event?: { url: string; message: string;
-   * result: JsResult }) => boolean } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2236,8 +2222,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page wants to display a JavaScript confirm() dialog.
    *
-   * @param { (event?: { url: string; message: string;
-   * result: JsResult }) => boolean } callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
+   * @param { function } callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2247,8 +2232,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page wants to display a JavaScript prompt() dialog.
    *
-   * @param { (event?: { url: string; message: string; value: string;
-   * result: JsResult }) => boolean } callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
+   * @param { function } callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2258,7 +2242,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page receives a JavaScript console message.
    *
-   * @param { (event?: { message: ConsoleMessage }) => boolean } callback The triggered function when the web page receives a JavaScript console message.
+   * @param { function } callback The triggered function when the web page receives a JavaScript console message.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2268,8 +2252,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page receives a web resource loading error.
    *
-   * @param { (event?: { request: WebResourceRequest;
-   * error: WebResourceError }) => void } callback The triggered function when the web page receives a web resource loading error.
+   * @param { function } callback The triggered function when the web page receives a web resource loading error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2279,8 +2262,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page receives a web resource loading HTTP error.
    *
-   * @param { (event?: { request: WebResourceRequest;
-   * response: WebResourceResponse }) => void } callback The triggered function when the web page receives a web resource loading HTTP error.
+   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2291,11 +2273,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when starting to download.
    *
-   * @param { (event?: {url: string;
-   * userAgent: string;
-   * contentDisposition: string;
-   * mimetype: string;
-   * contentLength: number;}) => void } callback The triggered function when starting to download.
+   * @param { function } callback The triggered function when starting to download.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2306,7 +2284,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web page refreshes accessed history.
    *
-   * @param { (event?: { url: string; isRefreshed: boolean }) => void } callback The triggered callback when the Web page refreshes accessed history.
+   * @param { function } callback The triggered callback when the Web page refreshes accessed history.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2316,7 +2294,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the URL loading is intercepted.
    *
-   * @param { (event?: { data: string | WebResourceRequest }) => boolean } callback The triggered callback when the URL loading is intercepted.
+   * @param { function } callback The triggered callback when the URL loading is intercepted.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2328,7 +2306,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web page receives an ssl Error.
    *
-   * @param { (event?: { handler: Function; error: object }) => void } callback The triggered callback when the Web page receives an ssl Error.
+   * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2340,7 +2318,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the render process exits.
    *
-   * @param { (event?: { renderExitReason: RenderExitReason }) => void } callback The triggered when the render process exits.
+   * @param { function } callback The triggered when the render process exits.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2350,8 +2328,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the file selector shows.
    *
-   * @param { (event?: { result: FileSelectorResult;
-   * fileSelector: FileSelectorParam }) => boolean } callback The triggered when the file selector shows.
+   * @param { function } callback The triggered when the file selector shows.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2362,7 +2339,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the render process exits.
    *
-   * @param { (event?: { detail: object }) => boolean } callback The triggered when the render process exits.
+   * @param { function } callback The triggered when the render process exits.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2374,7 +2351,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the file selector shows.
    *
-   * @param { (event?: { callback: Function; fileSelector: object }) => void } callback The triggered when the file selector shows.
+   * @param { function } callback The triggered when the file selector shows.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -2386,7 +2363,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the url loading.
    *
-   * @param { (event: { url: string }) => void } callback The triggered when the url loading.
+   * @param { function } callback The triggered when the url loading.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2396,7 +2373,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web component exit the full screen mode.
    *
-   * @param { () => void } callback The triggered function when the web component exit the full screen mode.
+   * @param { function } callback The triggered function when the web component exit the full screen mode.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2406,7 +2383,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web component enter the full screen mode.
    *
-   * @param { (event: { handler: FullScreenExitHandler }) => void } callback The triggered function when the web component enter the full screen mode.
+   * @param { function } callback The triggered function when the web component enter the full screen mode.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2416,7 +2393,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the scale of WebView changed.
    *
-   * @param { (event: { oldScale: number; newScale: number }) => void } callback The triggered when the scale of WebView changed.
+   * @param { function } callback The triggered when the scale of WebView changed.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2426,8 +2403,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the browser needs credentials from the user.
    *
-   * @param { (event?: { handler: HttpAuthHandler;
-   * host: string; realm: string }) => boolean } callback The triggered when the browser needs credentials from the user.
+   * @param { function } callback The triggered when the browser needs credentials from the user.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2437,8 +2413,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the resources loading is intercepted.
    *
-   * @param { (event?: { request: WebResourceRequest })
-   * => WebResourceResponse } callback The triggered callback when the resources loading is intercepted.
+   * @param { function } callback The triggered callback when the resources loading is intercepted.
    * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2448,8 +2423,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the host application that web content from the specified origin is attempting to access the resources.
    *
-   * @param { (event?: { request: PermissionRequest })
-   * => void } callback The triggered callback when the host application that web content from the specified origin is
+   * @param { function } callback The triggered callback when the host application that web content from the specified origin is
    *     attempting to access the resources.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2459,8 +2433,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the host application that web content from the specified origin is requesting to capture screen.
-   * @param callback The triggered callback when the host application that web content from the specified origin is
+   * @param { function } callback The triggered callback when the host application that web content from the specified origin is
    *     requesting to capture screen.
+   * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
@@ -2469,8 +2444,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when called to allow custom display of the context menu.
    *
-   * @param { (event?: { param: WebContextMenuParam;
-   * result: WebContextMenuResult }) => boolean } callback The triggered callback when called to allow custom display of the context menu.
+   * @param { function } callback The triggered callback when called to allow custom display of the context menu.
    * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2490,8 +2464,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Notify search result to host application through onSearchResultReceive.
    *
-   * @param { (event?: { activeMatchOrdinal: number;
-   * numberOfMatches: number; isDoneCounting: boolean }) => void } callback Function Triggered when the host application call searchAllAsync
+   * @param { function } callback Function Triggered when the host application call searchAllAsync
    * or searchNext api on WebController and the request is valid.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2502,8 +2475,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the scroll bar slides to the specified position.
    *
-   * @param { (event: { xOffset: number;
-   * yOffset: number }) => void } callback Function Triggered when the scroll bar slides to the specified position.
+   * @param { function } callback Function Triggered when the scroll bar slides to the specified position.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2513,7 +2485,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web page receives an ssl Error.
    *
-   * @param { (event: { handler: SslErrorHandler; error: SslError }) => void } callback The triggered callback when the Web page receives an ssl Error.
+   * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2523,11 +2495,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web page needs ssl client certificate from the user.
    *
-   * @param { (event: {handler: ClientAuthenticationHandler;
-   * host: string;
-   * port: number;
-   * keyTypes: Array<string>;
-   * issuers: Array<string>;}) => void } callback The triggered callback when needs ssl client certificate from the user.
+   * @param { function } callback The triggered callback when needs ssl client certificate from the user.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2538,10 +2506,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when web page requires the user to create a window.
    *
-   * @param { (event: {isAlert: boolean;
-   * isUserTrigger: boolean;
-   * targetUrl: string;
-   * handler: ControllerHandler;}) => void } callback The triggered callback when web page requires the user to create a window.
+   * @param { function } callback The triggered callback when web page requires the user to create a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2552,7 +2517,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when web page requires the user to close a window.
    *
-   * @param { () => void } callback The triggered callback when web page requires the user to close a window.
+   * @param { function } callback The triggered callback when web page requires the user to close a window.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2572,7 +2537,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Key events notify the application before the WebView consumes them.
    *
-   * @param { (event: KeyEvent) => boolean } callback Key event info.
+   * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2651,10 +2616,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
   * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
-  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
-  * @param size Font size.
-   * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
-  * @param size Font size.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -2665,10 +2626,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
   * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
-  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
-  * @param size Font size.
-   * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
-  * @param size Font size.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -2679,10 +2636,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
-  * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
-  * @param size Font size.
-   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
-  * @param size Font size.
    * 
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -2724,7 +2677,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the application receive the url of an apple-touch-icon.
    *
-   * @param { (event: { url: string; precomposed: boolean }) => void } callback The triggered callback when the application receive an new url of an
+   * @param { function } callback The triggered callback when the application receive an new url of an
    * apple-touch-icon.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2736,7 +2689,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the application receive a new favicon for the current web page.
    *
-   * @param { (event: { favicon: PixelMap }) => void } callback The triggered callback when the application receive a new favicon for the
+   * @param { function } callback The triggered callback when the application receive a new favicon for the
    * current web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2747,7 +2700,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when previous page will no longer be drawn and next page begin to draw.
    *
-   * @param { (event: { url: string }) => void } callback The triggered callback when previous page will no longer be drawn and next
+   * @param { function } callback The triggered callback when previous page will no longer be drawn and next
    * page begin to draw.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2758,7 +2711,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the form could be resubmitted.
    *
-   * @param { (event: { handler: DataResubmissionHandler }) => void } callback The triggered callback to decision whether resend form data or not.
+   * @param { function } callback The triggered callback to decision whether resend form data or not.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -2790,7 +2743,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the playing state of audio on web page changed.
    *
-   * @param { (event: { playing: boolean }) => void } callback The playing state of audio on web page.
+   * @param { function } callback The playing state of audio on web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -2800,8 +2753,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the first content rendering of web page.
    *
-   * @param { (event?: { navigationStartTick: number;
-   * firstContentfulPaintMs: number }) => void } callback
+   * @param { function } callback
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -2812,7 +2764,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the resources loading is intercepted.
    *
-   * @param { (event: { data: WebResourceRequest }) => boolean } callback The triggered callback when the resources loading is intercepted.
+   * @param { function } callback The triggered callback when the resources loading is intercepted.
    * @returns { WebAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -2822,14 +2774,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
    * This callback can not use the interface about manipulating web pages.
-   * @param callback The triggered callback when web controller initialization success.
+   * @param { function } callback The triggered callback when web controller initialization success.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   onControllerAttached(callback: () => void): WebAttribute;
 
   /**
    * Triggered when the over scrolling.
-   * @param callback Function Triggered when the over scrolling.
+   * @param { function } callback Function Triggered when the over scrolling.
+   * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
