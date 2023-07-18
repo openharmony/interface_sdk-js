@@ -475,7 +475,6 @@ declare namespace camera {
      * Enable the camera to prelaunch and start.
      * The user clicks on the system camera icon, pulls up the camera application, and calls it simultaneously.
      *
-     * @throws { BusinessError } 7400102 - Operation not allow.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
