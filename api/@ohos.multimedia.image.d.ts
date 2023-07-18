@@ -2775,7 +2775,7 @@ declare namespace image {
      * Obtains the count of frame in an image. This method uses a callback to to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-	 * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980096 - If the operation failed.
      * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980113 - If the image format unkonown.
