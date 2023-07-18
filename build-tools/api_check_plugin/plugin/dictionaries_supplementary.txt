@@ -110,6 +110,7 @@ coincides
 collaborated
 collapses
 collations
+collectable
 colno
 complies
 compresses
