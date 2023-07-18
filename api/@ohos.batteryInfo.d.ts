@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -99,7 +99,6 @@ declare namespace batteryInfo {
    * Battery capacity level of the current device.
    *
    * @constant
-   * @type { BatteryCapacityLevel }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9
    */
@@ -109,7 +108,6 @@ declare namespace batteryInfo {
    * Estimated remaining time for the current device to be fully charged, in ms.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -120,7 +118,6 @@ declare namespace batteryInfo {
    * Battery total energy of the current device, in mAh.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -131,7 +128,6 @@ declare namespace batteryInfo {
    * Battery immediate current of the current device, in mA.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -142,7 +138,6 @@ declare namespace batteryInfo {
    * Battery remaining energy of the current device, in mAh.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -152,6 +147,7 @@ declare namespace batteryInfo {
   /**
    * Charger type of a device.
    *
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -189,6 +185,7 @@ declare namespace batteryInfo {
   /**
    * Battery charging status of a device.
    *
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -226,6 +223,7 @@ declare namespace batteryInfo {
   /**
    * Battery health status of a device.
    *
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
