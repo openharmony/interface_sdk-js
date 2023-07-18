@@ -31,7 +31,8 @@ const changeErrors = [];
  * @returns {boolean}
  */
 function checkHistoryJSDoc(newNodeJSDocs, oldNodeJSDocs) {
-  for (let i = 0; i < oldNodeJSDocs.length; i++) {
+  let checkEndJSDocIndex = isNewApi(oldNodeJSDocs) ? 1 : 0;
+  for (let i = 0; i < oldNodeJSDocs.length - checkEndJSDocIndex; i++) {
     const oldDescription = oldNodeJSDocs[i].description;
     const oldTags = oldNodeJSDocs[i].tags;
     const newDescription = newNodeJSDocs[i].description;
@@ -77,7 +78,7 @@ function checkApiChangeVersion(currentJSDoc, lastJSDoc, node) {
   const currentVersion = getJSDocVersion(currentJSDoc);
   const lastVersion = getJSDocVersion(lastJSDoc);
   const checkApiVersion = getCheckApiVersion();
-  if (lastVersion === 0 || lastVersion >= currentVersion || currentVersion !== checkApiVersion) {
+  if (lastVersion === 0 || currentVersion !== checkApiVersion) {
     changeErrors.push({
       node: node,
       errorInfo: ErrorValueInfo.ERROR_CHANGES_VERSION,
@@ -200,13 +201,12 @@ function checkApiDeprecatedStatus(historyJSDocs) {
 }
 
 /**
- * 检查JSDoc变更
+ * 检查JSDoc变更内容
+ * @param {array} newNodeJSDocs 修改后API节点JSDoc数组
+ * @param {array} oldNodeJSDocs 修改前API节点JSDoc数组
  * @param {object} change api_diff获取的变更数据
  */
-function checkJSDocChangeEntry(change) {
-  const newNodeJSDocs = parseJsDoc(change.newNode);
-  const oldNodeJSDocs = parseJsDoc(change.oldNode);
-
+function checkJSDocChangeInfo(newNodeJSDocs, oldNodeJSDocs, change) {
   if (checkApiDeprecatedStatus(oldNodeJSDocs)) {
     changeErrors.push({
       node: change.newNode,
@@ -214,7 +214,7 @@ function checkJSDocChangeEntry(change) {
       LogType: LogType.LOG_JSDOC
     });
   }
-  if (newNodeJSDocs.length !== oldNodeJSDocs.length + 1) {
+  if (newNodeJSDocs.length !== oldNodeJSDocs.length + 1 && !isNewApi(oldNodeJSDocs)) {
     changeErrors.push({
       node: change.newNode,
       errorInfo: ErrorValueInfo.ERROR_CHANGES_JSDOC_NUMBER,
@@ -229,6 +229,17 @@ function checkJSDocChangeEntry(change) {
   } else {
     checkCurrentJSDocChange(newNodeJSDocs, change.statusCode, change.newNode);
   }
+}
+
+/**
+ * 检查JSDoc变更
+ * @param {object} change api_diff获取的变更数据
+ */
+function checkJSDocChangeEntry(change) {
+  const newNodeJSDocs = parseJsDoc(change.newNode);
+  const oldNodeJSDocs = parseJsDoc(change.oldNode);
+
+  checkJSDocChangeInfo(newNodeJSDocs, oldNodeJSDocs, change);
 }
 
 /**
@@ -274,8 +285,8 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
         errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE,
         LogType: LogType.LOG_API
       });
-      // 变更后参数范围大于变更前
-    } else if (currentParamType.length > historyParamType.length) {
+      // 变更后参数范围大于等于变更前
+    } else if (currentParamType.length >= historyParamType.length) {
       for (let j = 0; j < historyParamType.length; j++) {
         if (!new Set(currentParamType).has(historyParamType[j])) {
           changeErrors.push({
@@ -346,22 +357,34 @@ function analysisParameters(params) {
 }
 
 /**
+ * 判断是否为新增接口或已变更为最新版本接口
+ * @param {array} oldNodeJSDocs 修改前API节点JSDoc数组
+ */
+function isNewApi(oldNodeJSDocs) {
+  const checkApiVersion = getCheckApiVersion();
+  const oldNodeVersion = getJSDocVersion(oldNodeJSDocs[oldNodeJSDocs.length - 1]);
+
+  if (oldNodeVersion === checkApiVersion) {
+    return true;
+  }
+  return false;
+}
+
+/**
  * 检查API变更
  * @param {object} change api_diff获取的变更数据
  */
 function checkApiChangeEntry(change) {
-
+  // 检查JSDoc
   const newNodeJSDocs = parseJsDoc(change.newNode);
   const oldNodeJSDocs = parseJsDoc(change.oldNode);
-  if (oldNodeJSDocs.length === 1 && newNodeJSDocs.length === 1) {
-    const currentVersion = getJSDocVersion(newNodeJSDocs[0]);
-    const lastVersion = getJSDocVersion(oldNodeJSDocs[0]);
-    const checkApiVersion = getCheckApiVersion();
-    if (currentVersion === checkApiVersion && lastVersion === checkApiVersion) {
-      return;
-    }
-  }
 
+  checkJSDocChangeInfo(newNodeJSDocs, oldNodeJSDocs, change);
+
+  // 新增接口不检查接口变更
+  if (isNewApi(oldNodeJSDocs) && oldNodeJSDocs.length === 1) {
+    return;
+  }
   const currentParameters = analysisParameters(change.newNode.parameters);
   const lastParameters = analysisParameters(change.oldNode.parameters);
 
