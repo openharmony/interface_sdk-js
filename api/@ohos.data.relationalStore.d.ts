@@ -3278,7 +3278,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -3313,7 +3313,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -3357,7 +3357,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -3401,7 +3401,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
