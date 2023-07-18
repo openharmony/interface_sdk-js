@@ -58,14 +58,12 @@ declare namespace window {
      * App.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @FAModelOnly
      * @since 7
      */
     /**
      * App.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @FAModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3672,41 +3670,73 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Window stage callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @StageModelOnly
+   * @since 10
    */
   enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     SHOWN = 1,
     /**
      * The window stage gains focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The window stage gains focus.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     ACTIVE,
     /**
      * The window stage loses focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The window stage loses focus.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     INACTIVE,
     /**
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The window stage is running in the background.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     HIDDEN
   }
