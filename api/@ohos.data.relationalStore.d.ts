@@ -3181,7 +3181,7 @@ declare namespace relationalStore {
      * Registers an observer for the database.
      *
      * @param { string } event - Indicates the subscription event.
-     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
+     * @param { boolean } interProcess - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback } observer - {void} The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3190,7 +3190,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    on(event: string, supportShared: boolean, observer: Callback): void;
+    on(event: string, interProcess: boolean, observer: Callbackk<void>): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -3226,7 +3226,7 @@ declare namespace relationalStore {
      * Remove specified observer of specified type from the database.
      *
      * @param { string } event - Indicates the subscription event.
-     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
+     * @param { boolean } interProcess - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param {Callback<void>} observer - {void}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3235,7 +3235,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    off(event: string, supportShared: boolean, observer?: Callback<void>): void;
+    off(event: string, interProcess: boolean, observer?: Callback<void>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -3279,7 +3279,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -3314,7 +3314,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -3358,7 +3358,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -3402,7 +3402,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 14801002 - The dataGroupId is not valid.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
