@@ -28,9 +28,9 @@ declare namespace mdns {
 
   /**
    * Adds an mDNS service.
-   * @param { Context } context Indicates the context of application or capability.
-   * @param { LocalServiceInfo } serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
-   * @param { AsyncCallback<LocalServiceInfo> } callback Returns the callback of addLocalService.
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { LocalServiceInfo } serviceInfo - Information about the mDNS service. {@link LocalServiceInfo}
+   * @param { AsyncCallback<LocalServiceInfo> } callback - the callback of addLocalService.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -45,8 +45,8 @@ declare namespace mdns {
 
   /**
    * Adds an mDNS service.
-   * @param { Context } context Indicates the context of application or capability.
-   * @param { LocalServiceInfo } serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { LocalServiceInfo } serviceInfo - Information about the mDNS service. {@link LocalServiceInfo}
    * @returns { Promise<LocalServiceInfo> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -61,9 +61,9 @@ declare namespace mdns {
 
   /**
    * Removes an mDNS service.
-   * @param { Context } context Indicates the context of application or capability.
-   * @param { LocalServiceInfo } serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
-   * @param { AsyncCallback<LocalServiceInfo> } callback Returns the callback of removeLocalService.
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { LocalServiceInfo } serviceInfo - Information about the mDNS service. {@link LocalServiceInfo}
+   * @param { AsyncCallback<LocalServiceInfo> } callback - the callback of removeLocalService.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -78,8 +78,8 @@ declare namespace mdns {
 
   /**
    * Removes an mDNS service.
-   * @param { Context } context Indicates the context of application or capability.
-   * @param { LocalServiceInfo } serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { LocalServiceInfo } serviceInfo - Information about the mDNS service. {@link LocalServiceInfo}
    * @returns { Promise<LocalServiceInfo> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -94,8 +94,8 @@ declare namespace mdns {
 
   /**
    * Create an mDNS based discovery service with context and serviceType.
-   * @param { Context } context Indicates the context of application or capability.
-   * @param { string } serviceType The service type being discovered.
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } serviceType - The service type being discovered.
    * @returns { DiscoveryService } the DiscoveryService of the createDiscoveryService.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.MDNS
@@ -105,9 +105,9 @@ declare namespace mdns {
 
   /**
    * Resolves an mDNS service.
-   * @param { Context } context Indicates the context of application or capability.
-   * @param { LocalServiceInfo } serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
-   * @param { AsyncCallback<LocalServiceInfo> } callback Returns the callback of resolveLocalService.
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { LocalServiceInfo } serviceInfo - Information about the mDNS service. {@link LocalServiceInfo}
+   * @param { AsyncCallback<LocalServiceInfo> } callback - the callback of resolveLocalService.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -122,8 +122,8 @@ declare namespace mdns {
 
   /**
    * Resolves an mDNS service.
-   * @param { Context } context Indicates the context of application or capability.
-   * @param { LocalServiceInfo } serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { LocalServiceInfo } serviceInfo - Information about the mDNS service. {@link LocalServiceInfo}
    * @returns { Promise<LocalServiceInfo> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -145,41 +145,75 @@ declare namespace mdns {
   export interface DiscoveryService {
     /**
      * Enables listening for discoveryStart events of mDNS services.
-     * @param { 'discoveryStart' } type Indicates Event name.
-     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback of on.
+     * @param { 'discoveryStart' } type - Indicates Event name.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
-    on(type: 'discoveryStart',
-      callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    on(type: 'discoveryStart', callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+
+    /**
+     * Cancels listening for discoveryStart events of mDNS services.
+     * @param { 'discoveryStart' } type - Indicates Event name.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'discoveryStart', callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
      * Enables listening for discoveryStop events of mDNS services.
-     * @param { 'discoveryStop' } type Indicates Event name.
-     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback of on.
+     * @param { 'discoveryStop' } type - Indicates Event name.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
-    on(type: 'discoveryStop',
-      callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+    on(type: 'discoveryStop', callback: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
+
+    /**
+     * Cancels listening for discoveryStop events of mDNS services.
+     * @param { 'discoveryStop' } type - Indicates Event name.
+     * @param { Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'discoveryStop', callback?: Callback<{ serviceInfo: LocalServiceInfo, errorCode?: MdnsError }>): void;
 
     /**
      * Enables listening for serviceFound events of mDNS services.
-     * @param { 'serviceFound' } type Indicates Event name.
-     * @param { Callback<LocalServiceInfo> } callback - the callback of on.
+     * @param { 'serviceFound' } type - Indicates Event name.
+     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     on(type: 'serviceFound', callback: Callback<LocalServiceInfo>): void;
 
     /**
+     * Cancels listening for serviceFound events of mDNS services.
+     * @param { 'serviceFound' } type - Indicates Event name.
+     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'serviceFound', callback?: Callback<LocalServiceInfo>): void;
+
+    /**
      * Enables listening for serviceLost events of mDNS services.
-     * @param { 'serviceLost' } type Indicates Event name.
-     * @param { Callback<LocalServiceInfo> } callback - the callback of on.
+     * @param { 'serviceLost' } type - Indicates Event name.
+     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.MDNS
      * @since 10
      */
     on(type: 'serviceLost', callback: Callback<LocalServiceInfo>): void;
+
+    /**
+     * Cancels listening for serviceLost events of mDNS services.
+     * @param { 'serviceLost' } type - Indicates Event name.
+     * @param { Callback<LocalServiceInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.MDNS
+     * @since 10
+     */
+    off(type: 'serviceLost', callback?: Callback<LocalServiceInfo>): void;
 
     /**
      * Starts searching for mDNS services on the LAN.
