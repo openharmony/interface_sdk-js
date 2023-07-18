@@ -45,27 +45,13 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
-  /**
-   * The type of a window.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   enum WindowType {
     /**
      * App.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @FAModelOnly
      * @since 7
-     */
-    /**
-     * App.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     TYPE_APP,
     /**
@@ -610,13 +596,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    /**
-     * Window type
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     type: WindowType;
 
     /**
@@ -982,13 +961,6 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates window type
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     windowType: WindowType;
 
