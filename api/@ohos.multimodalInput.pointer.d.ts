@@ -601,6 +601,18 @@ declare namespace pointer {
   function setPointerColor(color: Color): Promise<void>;
 
   /**
+   * Set the color of pointer.
+   *
+   * @param { Color } color - Indicates the color of pointer.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerColor(color: Color): void;
+
+  /**
    * Get the color of pointer.
    *
    * @param { AsyncCallback<Color> } callback - Callback used to return the result.
@@ -623,6 +635,18 @@ declare namespace pointer {
    * @since 10
    */
   function getPointerColor(): Promise<Color>;
+
+  /**
+   * Get the color of pointer.
+   *
+   * @returns { Color } Returns the pointer color through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerColor(): Color;
 
   /**
    * Set the size of pointer.
@@ -651,6 +675,18 @@ declare namespace pointer {
   function setPointerSize(size: number): Promise<void>;
 
   /**
+   * Set the size of pointer.
+   *
+   * @param { number } size - Indicates the size of pointer.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSize(size: number): void;
+
+  /**
    * Get the size of pointer.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
@@ -673,6 +709,18 @@ declare namespace pointer {
    * @since 10
    */
   function getPointerSize(): Promise<number>;
+
+  /**
+   * Get the size of pointer.
+   *
+   * @returns { number } Returns the pointer size through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerSize(): number;
 
   /**
    * Sets mouse primary button.
