@@ -156,17 +156,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  deleteAreaDistance?: Length;
-
-  /**
-   * Set whether to use default delete animation.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  useDefaultDeleteAnimation?: boolean;
+  actionAreaDistance?: Length;
 
   /**
    * Called when ListItem need to be deleted.
@@ -175,7 +165,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onDelete?: () => void;
+  onAction?: () => void;
 
   /**
    * Called when swipe entry delete area.
@@ -184,7 +174,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onEnterDeleteArea?: () => void;
+  onEnterActionArea?: () => void;
 
   /**
    * Called when swipe exit delete area.
@@ -193,7 +183,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onExitDeleteArea?: () => void;
+  onExitActionArea?: () => void;
 }
 
 /**
