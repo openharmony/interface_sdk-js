@@ -27,14 +27,14 @@ declare namespace accessibility {
   /**
    * The type of the Ability app.
    *
-   * @type { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' }
+   *{ 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   /**
    * The type of the Ability app.
    *
-   * @type { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' }
+   * { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
