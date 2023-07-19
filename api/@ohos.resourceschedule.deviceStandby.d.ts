@@ -23,37 +23,6 @@ import { AsyncCallback } from './@ohos.base';
  * @since 10
  */
 declare namespace deviceStandby {
-  /**
-   * Returns true if the device is currently in idle mode.
-   *
-   * @param { AsyncCallback<boolean> } callback - the callback of isDeviceInStandby.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
-   * @since 10
-   */
-  function isDeviceInStandby(callback: AsyncCallback<boolean>): void;
-
-  /**
-   * Returns true if the device is currently in idle mode.
-   *
-   * @returns { Promise<boolean> } the promise returned by isDeviceInStandby.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Inner transact failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 18700001 - Caller information verification failed.
-   * @syscap SystemCapability.ResourceSchedule.DeviceStandby
-   * @since 10
-   */
-  function isDeviceInStandby(): Promise<boolean>;
 
   /**
    * Returns the information about the specified exempted application.
