@@ -1468,14 +1468,14 @@ declare namespace huks {
      */
     HUKS_STORAGE_PERSISTENT = 1,
     /**
-     * Key only exists and can be used in HUKS, opposite to HUKS_STORAGE_KEY_EXPORT_ALLOWED
+     * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
     /**
-     * Allow key to be exported, opposite to HUKS_STORAGE_ONLY_USED_IN_HUKS
+     * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
      * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
@@ -1505,7 +1505,7 @@ declare namespace huks {
    */
   export enum HuksRsaPssSaltLenType {
     /**
-     * Salt length matches digest
+     * Salt length that matches the digest length.
      * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
@@ -1513,7 +1513,7 @@ declare namespace huks {
     HUKS_RSA_PSS_SALT_LEN_DIGEST = 0,
 
     /**
-     * Set salt length to maximum possible
+     * Maximum salt length.
      * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
@@ -1730,7 +1730,7 @@ declare namespace huks {
     HUKS_TAG_UNWRAP_ALGORITHM_SUITE = HuksTagType.HUKS_TAG_TYPE_UINT | 26,
 
     /**
-     * Tag for key existence scope. Choose from enum HUKS_STORAGE_ONLY_USED_IN_HUKS and HUKS_STORAGE_KEY_EXPORT_ALLOWED
+     * Key storage type, which can be HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
      * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
@@ -1738,7 +1738,7 @@ declare namespace huks {
     HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 29,
 
     /**
-     * Rsa salt len type type. Choose from HuksRsaPssSaltLenType
+     * RSA salt length type. For details, see HuksRsaPssSaltLenType.
      * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
