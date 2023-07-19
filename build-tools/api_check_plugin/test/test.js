@@ -17,15 +17,15 @@ function checkEntryLocalText(url, prId) {
   const path = require('path');
   let result = [];
   try {
-    let execSync = require('child_process').execSync;
-    execSync('cd ../../diff_api && npm install && cd ../api_check_plugin && npm install');
+    let execSync = require("child_process").execSync;
+    execSync("cd ../../api_diff && npm install && cd ../api_check_plugin && npm install");
     const { excelApiCheckResult, apiCheckArr, removeDir } =
     require(path.resolve(__dirname, '../src/utils'));
     const { scanEntry } = require('../src/api_check_plugin');
     result = scanEntry(url, prId);
     excelApiCheckResult(apiCheckArr);
-    removeDir(path.resolve(__dirname, '../../diff_api/node_modules'));
-    removeDir(path.resolve(__dirname, '../node_modules'));
+    removeDir(path.resolve(__dirname, "../../api_diff/node_modules"));
+    removeDir(path.resolve(__dirname, "../node_modules"));
   } catch (error) {
     result.push(`API_CHECK_ERROR :${error}`);
     console.error(`API_CHECK_ERROR :${error}`);
