@@ -1058,6 +1058,17 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
+    /**
+     * Gets information about the current OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the current OS account; returns {@code null} if the query fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
     getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
@@ -1070,6 +1081,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     */
+    /**
+     * Gets information about the current OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
+     * @returns { Promise<OsAccountInfo> } Returns information about the current OS account; returns {@code null} if the query fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
      */
     getCurrentOsAccount(): Promise<OsAccountInfo>;
 
