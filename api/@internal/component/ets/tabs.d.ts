@@ -167,7 +167,7 @@ interface TabsInterface {
   /**
    * Called when the view is switched.
    *
-   * @param { ?({ barPosition?: BarPosition; index?: number; controller?: TabsController }) } value
+   * @param { object } value
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -175,7 +175,7 @@ interface TabsInterface {
   /**
    * Called when the view is switched.
    *
-   * @param { ?({ barPosition?: BarPosition; index?: number; controller?: TabsController }) } value
+   * @param { object } value
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -242,12 +242,14 @@ interface DividerStyle {
  * Defines the tabs attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the tabs attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -392,7 +394,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when the tab is switched.
    *
-   * @param { (index: number) => void } event
+   * @param { function } event
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -400,7 +402,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when the tab is switched.
    *
-   * @param { (index: number) => void } event
+   * @param { function } event
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

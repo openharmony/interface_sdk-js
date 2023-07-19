@@ -91,7 +91,7 @@ interface TextClockInterface {
    * The valid value is an integer ranging from - 14 to 12,
    * Where a negative value indicates the eastern time zone, for example, -8.
    *
-   * @param { { timeZoneOffset?: number; controller?: TextClockController } } options
+   * @param { object } options
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -102,7 +102,7 @@ interface TextClockInterface {
    * The valid value is an integer ranging from - 14 to 12,
    * Where a negative value indicates the eastern time zone, for example, -8.
    *
-   * @param { { timeZoneOffset?: number; controller?: TextClockController } } options
+   * @param { object } options
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -144,7 +144,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * You can listen to this callback,
    * Use the format attribute method to customize data display in the callback.
    *
-   * @param { (value: number) => void } event Listening date event callback.
+   * @param { function } event Listening date event callback.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -157,7 +157,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * You can listen to this callback,
    * Use the format attribute method to customize data display in the callback.
    *
-   * @param { (value: number) => void } event Listening date event callback.
+   * @param { function } event Listening date event callback.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

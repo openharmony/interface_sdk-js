@@ -245,7 +245,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
    * Called when the text decoration of the text is set.
    *
-   * @param { { type: TextDecorationType; color?: ResourceColor } } value
+   * @param { object } value
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -253,7 +253,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
    * Called when the text decoration of the text is set.
    *
-   * @param { { type: TextDecorationType; color?: ResourceColor } } value
+   * @param { object } value
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -262,7 +262,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
    * Called when the text decoration of the text is set.
    *
-   * @param { { type: TextDecorationType; color?: ResourceColor } } value
+   * @param { object } value
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

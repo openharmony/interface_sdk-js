@@ -345,7 +345,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the panel show close icon.
-   * @default false
+   *
    * @param { boolean } value - used to set whether to display the close icon.
    * @returns { PanelAttribute } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -356,7 +356,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
    * Called when the state of the slidable panel changes.
    *
-   * @param { (width: number,height: number,mode: PanelMode) => void } event
+   * @param { function } event
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -364,7 +364,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
    * Called when the state of the slidable panel changes.
    *
-   * @param { (width: number,height: number,mode: PanelMode) => void } event
+   * @param { function } event
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -395,7 +395,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
    * Called when height of the panel is changed
    *
-   * @param { (value: number) => void } callback
+   * @param { function } callback
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -403,7 +403,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
    * Called when height of the panel is changed
    *
-   * @param { (value: number) => void } callback
+   * @param { function } callback
    * @returns { PanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
