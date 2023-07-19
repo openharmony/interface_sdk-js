@@ -20,7 +20,6 @@ import { DataAbilityHelper } from './ability/dataAbilityHelper';
  *
  * @since 7
  * @syscap SystemCapability.Applications.settings.Core
- * @permission N/A
  */
 declare namespace settings {
   /**
