@@ -61,7 +61,7 @@ declare namespace businessAbilityRouter {
    * @systemapi
    * @since 10
    */
-  export declare interface BusinessAbilityFilter {
+  export interface BusinessAbilityFilter {
     /**
      * Indicates the type of business ability info
      *
