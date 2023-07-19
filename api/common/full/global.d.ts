@@ -131,7 +131,7 @@ export declare class Image {
   /**
    * Image width.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -139,7 +139,7 @@ export declare class Image {
   /**
    * Image height.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -147,7 +147,7 @@ export declare class Image {
   /**
    * Called when an image is successfully loaded. This function has no parameter.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -155,7 +155,7 @@ export declare class Image {
   /**
    * Called when an image fails to be loaded. This function has no parameter.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -235,7 +235,7 @@ export declare class OffscreenCanvas {
   /**
    * Gets the context object for off-screen drawing.
    *
-   * @param { '2d' } contextId creates a CanvasRenderingContext2D object representing a two-dimensional rendering context.
+   * @param { "2d" } contextId creates a CanvasRenderingContext2D object representing a two-dimensional rendering context.
    * @param { CanvasRenderingContext2DSettings } options object representing a three-dimensional rendering context.
    * @returns { OffscreenCanvasRenderingContext2D } a render canvas for the offScreen Canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
