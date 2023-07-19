@@ -285,27 +285,12 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
-  /**
-   * Rectangle
-   *
-   * @interface Rect
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   interface Rect {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     left: number;
 
@@ -315,13 +300,6 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     top: number;
 
     /**
@@ -330,13 +308,6 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * Width of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     width: number;
 
     /**
@@ -344,13 +315,6 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Height of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     height: number;
   }
