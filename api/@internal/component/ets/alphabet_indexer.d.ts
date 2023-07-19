@@ -80,7 +80,7 @@ interface AlphabetIndexerInterface {
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
    *
-   * @param { { arrayValue: Array<string>; selected: number } } value
+   * @param { object } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -89,7 +89,7 @@ interface AlphabetIndexerInterface {
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
    *
-   * @param { { arrayValue: Array<string>; selected: number } } value
+   * @param { object } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -117,7 +117,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -420,7 +420,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -428,7 +428,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -439,7 +439,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback and return the strings which display on pop-up.
    *
-   * @param { (index: number) => Array<string> } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -447,7 +447,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback and return the strings which display on pop-up.
    *
-   * @param { (index: number) => Array<string> } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -458,7 +458,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Pop-up selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -466,7 +466,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Pop-up selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

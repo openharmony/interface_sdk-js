@@ -364,7 +364,7 @@ declare class CanvasPath {
    * @param { number } radius - Radius of the arc.
    * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
    * @param { number } endAngle - The end point of the arc, in radians.
-   * @param { ?boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
+   * @param { boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -377,7 +377,7 @@ declare class CanvasPath {
    * @param { number } radius - Radius of the arc.
    * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
    * @param { number } endAngle - The end point of the arc, in radians.
-   * @param { ?boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
+   * @param { boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -391,7 +391,7 @@ declare class CanvasPath {
    * @param { number } radius - Radius of the arc.
    * @param { number } startAngle - Start point of an arc, which starts to be calculated in the x-axis direction. The unit is radian.
    * @param { number } endAngle - The end point of the arc, in radians.
-   * @param { ?boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
+   * @param { boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -513,7 +513,7 @@ declare class CanvasPath {
    * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
    *    (not angular degrees).
    * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param { ?boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
+   * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -529,7 +529,7 @@ declare class CanvasPath {
    * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
    *    (not angular degrees).
    * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param { ?boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
+   * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -546,7 +546,7 @@ declare class CanvasPath {
    * @param { number } startAngle - The angle of the starting point to be drawn, measured from the x-axis in radians
    *    (not angular degrees).
    * @param { number } endAngle - The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
-   * @param { ?boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
+   * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -722,7 +722,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { ?Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -730,7 +730,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { ?Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -739,7 +739,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { ?Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -851,14 +851,14 @@ declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { ?Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { ?Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -866,7 +866,7 @@ declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { ?Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1518,7 +1518,7 @@ declare class ImageData {
    *
    * @param { number } width - Width of the image.
    * @param { number } height - Height of the image.
-   * @param { ?Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1527,7 +1527,7 @@ declare class ImageData {
    *
    * @param { number } width - Width of the image.
    * @param { number } height - Height of the image.
-   * @param { ?Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -1537,7 +1537,7 @@ declare class ImageData {
    *
    * @param { number } width - Width of the image.
    * @param { number } height - Height of the image.
-   * @param { ?Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1950,14 +1950,14 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Sets the currently created path as the current clipping path
    *
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the currently created path as the current clipping path
    *
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -1965,7 +1965,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Sets the currently created path as the current clipping path
    *
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1977,7 +1977,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Tailoring according to the specified path
    *
    * @param { Path2D } path - Path to be cut.
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1985,7 +1985,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Tailoring according to the specified path
    *
    * @param { Path2D } path - Path to be cut.
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -1994,7 +1994,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Tailoring according to the specified path
    *
    * @param { Path2D } path - Path to be cut.
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2005,14 +2005,14 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Fills existing paths according to the current fill style.
    *
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Fills existing paths according to the current fill style.
    *
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -2020,7 +2020,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Fills existing paths according to the current fill style.
    *
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2032,7 +2032,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Fills the specified path according to the current fill style
    *
    * @param { Path2D } path - Path to be filled.
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2040,7 +2040,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Fills the specified path according to the current fill style
    *
    * @param { Path2D } path - Path to be filled.
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -2049,7 +2049,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Fills the specified path according to the current fill style
    *
    * @param { Path2D } path - Path to be filled.
-   * @param { ?CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3140,7 +3140,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be drawn.
    * @param { number } x - The x-axis coordinate of the start point of the text.
    * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { ?number } maxWidth - Maximum width of the drawing.
+   * @param { number } maxWidth - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3150,7 +3150,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be drawn.
    * @param { number } x - The x-axis coordinate of the start point of the text.
    * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { ?number } maxWidth - Maximum width of the drawing.
+   * @param { number } maxWidth - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -3161,7 +3161,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be drawn.
    * @param { number } x - The x-axis coordinate of the start point of the text.
    * @param { number } y - The y-axis coordinate of the start point of the text.
-   * @param { ?number } maxWidth - Maximum width of the drawing.
+   * @param { number } maxWidth - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3204,7 +3204,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be stroked.
    * @param { number } x - The x-axis coordinate of the start point of the text.
    * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { ?number } maxWidth - Maximum width of the stroke.
+   * @param { number } maxWidth - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3214,7 +3214,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be stroked.
    * @param { number } x - The x-axis coordinate of the start point of the text.
    * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { ?number } maxWidth - Maximum width of the stroke.
+   * @param { number } maxWidth - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -3225,7 +3225,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be stroked.
    * @param { number } x - The x-axis coordinate of the start point of the text.
    * @param { number } y - The y-axis-axis coordinate of the start point of the text.
-   * @param { ?number } maxWidth - Maximum width of the stroke.
+   * @param { number } maxWidth - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3489,7 +3489,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
    *
-   * @param { ?Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3497,7 +3497,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
    *
-   * @param { ?Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -3506,7 +3506,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
    *
-   * @param { ?Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3590,14 +3590,14 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
    *
-   * @param { ?PixelMap } value - PixelMap object
+   * @param { PixelMap } value - PixelMap object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
    *
-   * @param { ?PixelMap } value - PixelMap object
+   * @param { PixelMap } value - PixelMap object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3746,14 +3746,14 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
-   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
-   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -3761,7 +3761,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
-   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3798,8 +3798,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    *
-   * @param { ?string } type - Image format. The default value is image/png.
-   * @param { ?any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3808,8 +3808,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    *
-   * @param { ?string } type - Image format. The default value is image/png.
-   * @param { ?any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3819,8 +3819,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    *
-   * @param { ?string } type - Image format. The default value is image/png.
-   * @param { ?any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   * @param { string } type - Image format. The default value is image/png.
+   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3861,7 +3861,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *
    * @param { number } width - the width of the OffscreenCanvas
    * @param { number } height - the height of the OffscreenCanvas
-   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3870,7 +3870,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *
    * @param { number } width - the width of the OffscreenCanvas
    * @param { number } height - the height of the OffscreenCanvas
-   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -3880,7 +3880,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *
    * @param { number } width - the width of the OffscreenCanvas
    * @param { number } height - the height of the OffscreenCanvas
-   * @param { ?RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3997,7 +3997,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    *
    * @param { "2d" } contextType - The context type, only "2d" be supported now.
    *  "2d": Creates a {@link OffscreenCanvasRenderingContext2D} object representing a two-dimensional rendering context.
-   * @param { ?RenderingContextSettings } options - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @param { RenderingContextSettings } options - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4063,7 +4063,7 @@ interface CanvasInterface {
   /**
    * Construct a canvas component.
    *
-   * @param { ?CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -4071,7 +4071,7 @@ interface CanvasInterface {
   /**
    * Construct a canvas component.
    *
-   * @param { ?CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -4080,7 +4080,7 @@ interface CanvasInterface {
   /**
    * Construct a canvas component.
    *
-   * @param { ?CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4094,7 +4094,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -4102,7 +4102,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -4111,7 +4111,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

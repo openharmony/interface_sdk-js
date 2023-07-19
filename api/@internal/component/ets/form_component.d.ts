@@ -191,7 +191,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * This function is triggered after card information is obtained.
    * For details about the form information, see the definition of the original capability subsystem.
    *
-   * @param { (info: { id: number }) => void } callback
+   * @param { function } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -202,7 +202,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card loading error.
    *
-   * @param { (info: { errcode: number; msg: string }) => void } callback
+   * @param { function } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -213,7 +213,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card to be redirected.
    *
-   * @param { (info: any) => void } callback
+   * @param { function } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -224,7 +224,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Uninstall Card.
    *
-   * @param { (info: { id: number }) => void } callback
+   * @param { function } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -235,7 +235,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card to be loaded.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

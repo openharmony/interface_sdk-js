@@ -611,7 +611,7 @@ interface GridRowInterface {
   /**
    * Defines the constructor of GridRow.
    *
-   * @param { ?GridRowOptions } option
+   * @param { GridRowOptions } option
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -620,7 +620,7 @@ interface GridRowInterface {
   /**
    * Defines the constructor of GridRow.
    *
-   * @param { ?GridRowOptions } option
+   * @param { GridRowOptions } option
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -634,7 +634,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   /**
    * Callback triggered when the breakpoint changes
    *
-   * @param { (breakpoints: string) => void } callback
+   * @param { function } callback
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -643,7 +643,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   /**
    * Callback triggered when the breakpoint changes
    *
-   * @param { (breakpoints: string) => void } callback
+   * @param { function } callback
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -656,7 +656,6 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * Cross axis alignment of each line in GridRow.
    *
    * @param { ItemAlign } value - element alignment
-   * @default ItemAlign.Start
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
