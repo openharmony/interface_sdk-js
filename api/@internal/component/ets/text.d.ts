@@ -70,15 +70,18 @@ interface TextInterface {
 
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -329,7 +332,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the overflow mode of the font is set.
    *
-   * @param { { overflow: TextOverflow } } value
+   * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -337,7 +340,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the overflow mode of the font is set.
    *
-   * @param { { overflow: TextOverflow } } value
+   * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -346,7 +349,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the overflow mode of the font is set.
    *
-   * @param { { overflow: TextOverflow } } value
+   * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -416,7 +419,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the text decoration of the text is set.
    *
-   * @param { { type: TextDecorationType; color?: ResourceColor } } value
+   * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -424,7 +427,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the text decoration of the text is set.
    *
-   * @param { { type: TextDecorationType; color?: ResourceColor } } value
+   * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -433,7 +436,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the text decoration of the text is set.
    *
-   * @param { { type: TextDecorationType; color?: ResourceColor } } value
+   * @param { object } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

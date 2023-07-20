@@ -79,12 +79,14 @@ interface PatternLockInterface {
  * Provides methods for attribute pattern lock component.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Provides methods for attribute pattern lock component.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -244,7 +246,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * Called when the pattern input completed.
    *
-   * @param { (input: Array<number>) => void } callback
+   * @param { function } callback
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -252,7 +254,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * Called when the pattern input completed.
    *
-   * @param { (input: Array<number>) => void } callback
+   * @param { function } callback
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

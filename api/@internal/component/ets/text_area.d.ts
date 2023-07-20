@@ -16,10 +16,13 @@
 /**
  * Provides the method of switching the cursor position.
  *
+ * @extends TextContentControllerBase
  * @since 8
  */
 /**
  * Provides the method of switching the cursor position.
+ *
+ * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -70,6 +73,7 @@ declare class TextAreaController extends TextContentControllerBase {
 
   /**
    * Exit edit state.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -185,12 +189,14 @@ interface TextAreaInterface {
  * Defines the attribute functions of TextArea.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the attribute functions of TextArea.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -370,7 +376,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the inputFilter of text is set.
    *
    * @param { ResourceStr } value
-   * @param { ?((value: string) => void) } error
+   * @param { function } error
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -379,7 +385,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the inputFilter of text is set.
    *
    * @param { ResourceStr } value
-   * @param { ?((value: string) => void) } error
+   * @param { function } error
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -390,7 +396,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the input changes.
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -398,7 +404,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the input changes.
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -408,7 +414,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the text selection changes.
-   * @param { (selectionStart: number, selectionEnd: number) => void } callback - callback of the listened event.
+   *
+   * @param { function } callback - callback of the listened event.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -418,7 +425,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the content scrolls.
-   * @param { (totalOffsetX: number, totalOffsetY: number) => void } callback - callback of the listened event.
+   *
+   * @param { function } callback - callback of the listened event.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -426,11 +434,10 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): TextAreaAttribute;
 
-
   /**
    * Called when judging whether the text editing change finished.
    *
-   * @param { (isEditing: boolean) => void } callback - Triggered when the text area status changes.
+   * @param { function } callback - Triggered when the text area status changes.
    * If the value of isEditing is true, text area is in progress.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -442,7 +449,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -450,7 +457,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -461,7 +468,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -469,7 +476,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -480,7 +487,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -488,7 +495,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -517,10 +524,10 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Sets whether request keyboard or not when on focus.
-   * @param { boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @param { boolean } value
    * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -558,7 +565,9 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Define bar state of the text area.
-   * @param { BarState }
+   *
+   * @param { BarState } value
+   * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -566,8 +575,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Controls whether the selection menu pops up.
+   *
    * @param { boolean } value
-   * @default false
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -577,7 +586,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Define max lines of the text area.
-   * @param { number }
+   *
+   * @param { number } value
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
