@@ -270,7 +270,7 @@ interface ButtonInterface {
    * Create Button with inner text label.
    *
    * @param { ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -279,7 +279,7 @@ interface ButtonInterface {
    * Create Button with inner text label.
    *
    * @param { ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -289,7 +289,7 @@ interface ButtonInterface {
    * Create Button with inner text label.
    *
    * @param { ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

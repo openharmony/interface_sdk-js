@@ -42,8 +42,8 @@ interface ForEachInterface {
    * Set the value, array, and key.
    *
    * @param { Array<any> } arr
-   * @param { (item: any, index?: number) => void } itemGenerator
-   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -52,8 +52,8 @@ interface ForEachInterface {
    * Set the value, array, and key.
    *
    * @param { Array<any> } arr
-   * @param { (item: any, index?: number) => void } itemGenerator
-   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -63,8 +63,8 @@ interface ForEachInterface {
    * Set the value, array, and key.
    *
    * @param { Array<any> } arr
-   * @param { (item: any, index?: number) => void } itemGenerator
-   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -27,7 +27,7 @@ interface HyperlinkInterface {
    * content: Hyperlinks in the hyperlink component display text.
    *
    * @param { string | Resource } address
-   * @param { ?(string | Resource) } content
+   * @param { string | Resource } content
    * @returns { HyperlinkAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7

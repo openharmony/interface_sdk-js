@@ -197,7 +197,7 @@ interface FlexInterface {
   /**
    * Defines the constructor of Flex.
    *
-   * @param { ?FlexOptions } value
+   * @param { FlexOptions } value
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -205,7 +205,7 @@ interface FlexInterface {
   /**
    * Defines the constructor of Flex.
    *
-   * @param { ?FlexOptions } value
+   * @param { FlexOptions } value
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -214,7 +214,7 @@ interface FlexInterface {
   /**
    * Defines the constructor of Flex.
    *
-   * @param { ?FlexOptions } value
+   * @param { FlexOptions } value
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

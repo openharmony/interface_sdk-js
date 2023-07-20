@@ -94,7 +94,7 @@ interface NavigatorInterface {
   /**
    * Called when the route jumps.
    * 
-   * @param { ?({ target: string; type?: NavigationType }) } value
+   * @param { object } value
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -102,7 +102,7 @@ interface NavigatorInterface {
   /**
    * Called when the route jumps.
    * 
-   * @param { ?({ target: string; type?: NavigationType }) } value
+   * @param { object } value
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

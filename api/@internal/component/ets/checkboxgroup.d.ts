@@ -263,7 +263,7 @@ interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    *
-   * @param { ?CheckboxGroupOptions } options
+   * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -271,7 +271,7 @@ interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    *
-   * @param { ?CheckboxGroupOptions } options
+   * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -280,7 +280,7 @@ interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    *
-   * @param { ?CheckboxGroupOptions } options
+   * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -414,7 +414,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * Called when the selection status changes.
    *
-   * @param { (event: CheckboxGroupResult) => void } callback
+   * @param { function } callback
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -422,7 +422,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * Called when the selection status changes.
    *
-   * @param { (event: CheckboxGroupResult) => void } callback
+   * @param { function } callback
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -431,7 +431,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * Called when the selection status changes.
    *
-   * @param { (event: CheckboxGroupResult) => void } callback
+   * @param { function } callback
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -180,7 +180,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * Called when the gridItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -188,7 +188,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * Called when the gridItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
