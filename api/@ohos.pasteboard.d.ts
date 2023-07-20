@@ -843,7 +843,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of data is not PasteData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
-     * @syscap SystemCapability.MiscServices.Pasteboard\
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi
      * @since 9
      */
