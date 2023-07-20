@@ -59,7 +59,7 @@ function checkEntry(prId) {
 }
 
 function removeDir(url) {
-  let statObj = fs.statSync(url);
+  const statObj = fs.statSync(url);
   if (statObj.isDirectory()) {
     let dirs = fs.readdirSync(url);
     dirs = dirs.map((dir) => path.join(url, dir));

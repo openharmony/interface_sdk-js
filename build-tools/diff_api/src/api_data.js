@@ -55,7 +55,7 @@ function addApiInfo(apiMap, packageName, className, apiName, apiSignature, api) 
   let classApi = dtsMap.get(className);
   if (!classApi) {
     classApi = {
-      children: new Map()
+      children: new Map(),
     };
     dtsMap.set(className, classApi);
   }
@@ -94,8 +94,8 @@ function isTypeDeclaration(api) {
  * @returns {string}
  */
 function getNodeSignature(astNode, packageName, className) {
-  if (ts.isInterfaceDeclaration(astNode) || ts.isClassDeclaration(astNode)
-    || ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode)) {
+  if (ts.isInterfaceDeclaration(astNode) || ts.isClassDeclaration(astNode) ||
+    ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode)) {
     return `${packageName}#${className}`;
   }
   let signature = '';
@@ -296,7 +296,7 @@ const ApiType = {
   NamespaceType: { name: '命名空间', code: 10 },
   TypeAliasDeclaration: { name: '类型成员', code: 11 },
   Constructor: { name: '构造器', code: 12 },
-  CallSignature: { name: '类方法', code: 13 }
+  CallSignature: { name: '类方法', code: 13 },
 };
 
 exports.ApiDigestInfo = ApiDigestInfo;
@@ -304,5 +304,5 @@ exports.ApiType = ApiType;
 exports.apiDataHelper = {
   addApiInfo: addApiInfo,
   addApiDigestInfo: addApiDigestInfo,
-  getNodeSignature: getNodeSignature
-}
+  getNodeSignature: getNodeSignature,
+};

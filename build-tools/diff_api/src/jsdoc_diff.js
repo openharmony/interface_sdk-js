@@ -62,7 +62,7 @@ class TagItem {
   }
 
   addApiLevel(level) {
-    this.setProperty('apiLevel', level)
+    this.setProperty('apiLevel', level);
   }
 
   getApiLevel() {
@@ -171,7 +171,7 @@ function matchSyscapInFile(api) {
     if (/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(fileContent)) {
       fileContent.replace(/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
         syscap = sysCapInfo.replace(/\@syscap/g, '').trim();
-      })
+      });
     }
   }
   return syscap;
@@ -186,7 +186,7 @@ function matchSyscapInFile(api) {
 function getApiSyscap(api) {
   let curApi = api;
   while (curApi && !ts.isSourceFile(curApi.node)) {
-    const jsdocTagItem = getTagItemFromJSDoc(curApi);;
+    const jsdocTagItem = getTagItemFromJSDoc(curApi);
     if (jsdocTagItem.getSyscap()) {
       return jsdocTagItem.getSyscap();
     }
@@ -204,7 +204,7 @@ function getApiSyscap(api) {
 function getApiUseInstead(api) {
   let curApi = api;
   while (curApi) {
-    const jsdocTagItem = getTagItemFromJSDoc(curApi);;
+    const jsdocTagItem = getTagItemFromJSDoc(curApi);
     if (jsdocTagItem.getUseInstead()) {
       return jsdocTagItem.getUseInstead();
     }
@@ -237,7 +237,7 @@ function wrapApiChanges(api, statusCode, oldMessage, newMessage, hint, oldNode, 
     hint: hint,
     oldNode: oldNode,
     newNode: newNode,
-    syscap: syscap
+    syscap: syscap,
   };
 }
 
@@ -378,7 +378,7 @@ function diffCrossplatform(diffReporter, oldTagItem, newTagItem, oldApi, newApi,
       hint,
       oldApi.node,
       newApi.node
-    ))
+    ));
   }
 }
 
@@ -406,7 +406,7 @@ function diffForm(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint) {
       hint,
       oldApi.node,
       newApi.node
-    ))
+    ));
   }
 }
 
@@ -433,7 +433,7 @@ function diffSyscap(diffReporter, oldApi, newApi, hint) {
       hint,
       oldApi.node,
       newApi.node
-    ))
+    ));
   }
 }
 
@@ -449,7 +449,7 @@ function diffSyscap(diffReporter, oldApi, newApi, hint) {
  */
 function diffSinceVersion(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint) {
   const oldVersion = oldTagItem.getSinceVersion();
-  const newVersion = newTagItem.getSinceVersion()
+  const newVersion = newTagItem.getSinceVersion();
   if (!isArrayEquals(oldVersion, newVersion)) {
     diffReporter.addChangedApi(wrapApiChanges(
       newApi, StatusCode.VERSION_CHNAGES, arrayToString(oldVersion),
@@ -462,7 +462,7 @@ function diffSinceVersion(diffReporter, oldTagItem, newTagItem, oldApi, newApi, 
       hint,
       oldApi.node,
       newApi.node
-    ))
+    ));
   }
 }
 
@@ -489,7 +489,7 @@ function diffDeprecated(diffReporter, oldApi, newApi, hint) {
       hint,
       oldApi.node,
       newApi.node
-    ))
+    ));
   }
 }
 
@@ -520,7 +520,7 @@ function diffPermission(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hi
       hint,
       oldApi.node,
       newApi.node
-    ))
+    ));
   }
 }
 
@@ -556,7 +556,7 @@ function diffErrorCode(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hin
       hint,
       oldApi.node,
       newApi.node
-    ))
+    ));
   }
 }
 
@@ -704,7 +704,7 @@ function createTagItemFromJSDoc(jsdocs) {
   const firstJsDoc = jsdocs[0];
   if (singleJSDoc.tags) {
     singleJSDoc.tags.forEach((tagObject) => {
-      const handler = tagHandlerMap.get(tagObject.tag.toLowerCase())
+      const handler = tagHandlerMap.get(tagObject.tag.toLowerCase());
       if (handler) {
         handler(tagObject, tagItem);
       }
@@ -722,5 +722,5 @@ function createTagItemFromJSDoc(jsdocs) {
 }
 
 exports.JSDocDiffer = {
-  collectJSDocDiffs: compareJSDocs
-}
+  collectJSDocDiffs: compareJSDocs,
+};

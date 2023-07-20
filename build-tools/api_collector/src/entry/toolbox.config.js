@@ -15,8 +15,8 @@
 
 const AppApiCollectorPlugin = require('../index');
 const getToolConfiguration = function () {
-    return {
-        plugins: [ new AppApiCollectorPlugin() ]
-    };
+  return {
+    plugins: [new AppApiCollectorPlugin()],
+  };
 };
 exports.getToolConfiguration = getToolConfiguration;

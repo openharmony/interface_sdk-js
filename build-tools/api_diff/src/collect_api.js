@@ -27,64 +27,65 @@ function getSubsystemJson(jsonDir) {
   let fileContent = fs.readFileSync(jsonDir, 'utf-8');
   let subsystems = JSON.parse(fileContent);
   const subsystemMap = new Map();
-  const fileNameMap = new Map()
+  const fileNameMap = new Map();
   subsystems.forEach(element => {
     subsystemMap.set(element.syscap, element.subsystem);
-    fileNameMap.set(element.syscap, element.fileName)
+    fileNameMap.set(element.syscap, element.fileName);
   });
-  return { subsystemMap, fileNameMap }
+  return { subsystemMap, fileNameMap };
 }
 
 // 对比新旧版本文件列表
 function compileFiles(newFiles, oldFiles) {
-  const newFileNames = []
-  const oldFileNames = []
+  const newFileNames = [];
+  const oldFileNames = [];
   newFiles.forEach(file => {
-    const fileName = path.basename(file).replace(/.d.ts$/g, '.ts')
-    newFileNames.push(fileName)
+    const fileName = path.basename(file).replace(/.d.ts$/g, '.ts');
+    newFileNames.push(fileName);
   });
   oldFiles.forEach(file => {
-    const fileName = path.basename(file).replace(/.d.ts$/g, '.ts')
-    oldFileNames.push(fileName)
+    const fileName = path.basename(file).replace(/.d.ts$/g, '.ts');
+    oldFileNames.push(fileName);
   });
 
-  const compileApiInfos = []    //保存有差异的信息
+  //保存有差异的信息
+  const compileApiInfos = [];
   // 旧版本不存在新版本中的文件，表示新增
   newFileNames.forEach(fileName => {
-    let index = oldFileNames.indexOf(fileName)
+    let index = oldFileNames.indexOf(fileName);
     if (index < 0) {
       compileApiInfos.push({
         flag: '新版本新增',
         fileName: fileName,
-        filePath: newFiles[newFileNames.indexOf(fileName)]
-      })
+        filePath: newFiles[newFileNames.indexOf(fileName)],
+      });
     }
-  })
+  });
   // 新版本不在在旧版本中的文件，表示删除
   oldFileNames.forEach(fileName => {
-    let index = newFileNames.indexOf(fileName)
+    let index = newFileNames.indexOf(fileName);
     if (index < 0) {
       compileApiInfos.push({
         flag: '新版本删除',
         fileName: fileName,
-        filePath: oldFiles[oldFileNames.indexOf(fileName)]
-      })
+        filePath: oldFiles[oldFileNames.indexOf(fileName)],
+      });
     }
-  })
+  });
 
-  return compileApiInfos
+  return compileApiInfos;
 }
 
 // 根据文件列表获取api信息数组
 function getFilesApi(files) {
-  const fileContentList = []
+  const fileContentList = [];
   files.forEach(file => {
     let fileContent = fs.readFileSync(file, 'utf-8');
     fileContentList.push({
       fileName: path.basename(file).replace(/.d.ts$/g, '.ts'),
       fileContent: fileContent,
-      fileRoot: file
-    })
+      fileRoot: file,
+    });
 
   });
   const api = parse(fileContentList);
@@ -95,14 +96,14 @@ function getDIffApisWithCompile(newFiles, oldFiles) {
   const newFilesApi = getFilesApi(newFiles);
   const oldFilesApi = getFilesApi(oldFiles);
   // 去掉dtspath后的
-  const tmpNewApis = []
+  const tmpNewApis = [];
   newFilesApi.forEach(newApi => {
-    tmpNewApis.push(JSON.stringify(getApiInfoDeleteDtsPath(newApi)))
-  })
-  const tmpOldApis = []
+    tmpNewApis.push(JSON.stringify(getApiInfoDeleteDtsPath(newApi)));
+  });
+  const tmpOldApis = [];
   oldFilesApi.forEach(oldApi => {
-    tmpOldApis.push(JSON.stringify(getApiInfoDeleteDtsPath(oldApi)))
-  })
+    tmpOldApis.push(JSON.stringify(getApiInfoDeleteDtsPath(oldApi)));
+  });
 
   let hasFunTypeNewApis = [];
   let hasFunTypeOldApis = [];
@@ -115,7 +116,7 @@ function getDIffApisWithCompile(newFiles, oldFiles) {
   oldDiffApis = collectSameTypeFun(hasFunTypeOldApis);
   const subsystemMap = getSubsystemJson(subsystemDir).subsystemMap;
   const fileNameMap = getSubsystemJson(subsystemDir).fileNameMap;
-  const diffApis = []
+  const diffApis = [];
   getDiffApisBaseNew(newDiffApis, oldDiffApis, diffApis, subsystemMap, fileNameMap);
   getDiffApisBaseOld(newDiffApis, oldDiffApis, diffApis, subsystemMap, fileNameMap);
   return diffApis;
@@ -149,10 +150,10 @@ function collectSameTypeFun(apiArr) {
     let sameNameFun = '';
     // 标记既不是Promise也不是callback的同名函数
     let number = 0;
-    let sameNamePromiseText = ''
+    let sameNamePromiseText = '';
     apiArr.forEach(newApi => {
       if (api.dtsPath.replace(newDir, '') === newApi.dtsPath.replace(newDir, '') && api.className === newApi.className &&
-				api.methodName === newApi.methodName && api.apiType == 'Method' && api.funType === newApi.funType) {
+        api.methodName === newApi.methodName && api.apiType === 'Method' && api.funType === newApi.funType) {
         if (sameNameFun.indexOf(newApi.methodText) < 0 && api.funType === 'callback') {
           sameNameFun += `\n${newApi.methodText}`;
           api.callbackMethodText = sameNameFun;
@@ -164,8 +165,8 @@ function collectSameTypeFun(apiArr) {
           api.note = number;
         }
       }
-    })
-  })
+    });
+  });
   return apiArr;
 }
 
@@ -183,11 +184,11 @@ function addMethodType(baseApi) {
 function getMethodType(content, callback) {
   ts.transpileModule(content, {
     compilerOptions: {
-      "target": ts.ScriptTarget.ES2017
+      'target': ts.ScriptTarget.ES2017,
     },
-    fileName: "index.ets",
-    transformers: { before: [callback()] }
-  })
+    fileName: 'index.ets',
+    transformers: { before: [callback()] },
+  });
 }
 
 function filterType() {
@@ -196,7 +197,7 @@ function filterType() {
     return (node) => {
       getType(node);
       return node;
-    }
+    };
     function getType(node) {
       // add function type(callback or Promise)
       if (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node)) {
@@ -204,7 +205,7 @@ function filterType() {
       }
       return ts.visitEachChild(node, getType, context);
     }
-  }
+  };
 }
 
 function getFunType(node) {
@@ -212,11 +213,11 @@ function getFunType(node) {
     methodType = node.type.typeName.escapedText;
   } else if (node.parameters.length > 0) {
     const parameter = node.parameters[node.parameters.length - 1];
-    if (parameter.name.escapedText == 'callback') {
+    if (parameter.name.escapedText === 'callback') {
       methodType = parameter.name.escapedText;
     }
   } else {
-    methodType = ''
+    methodType = '';
   }
 }
 
@@ -246,13 +247,13 @@ function getDiffApisBaseNew(newDiffApis, oldDiffApis, diffApis, subsystemMap, fi
       if (newApi.dtsPath.replace(newDir, '') === oldApi.dtsPath.replace(oldDir, '')) {
         tmpApis.push(oldApi);
       }
-    })
+    });
     if (tmpApis.length === 0) {
       collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, diffOld);
     } else {
-      if (newApi.apiType == 'import') {
+      if (newApi.apiType === 'import') {
         collectImportDiff(tmpApis, newApi, diffApis, subsystemMap, notes, fileNameMap);
-      } else if (newApi.apiType == 'export') {
+      } else if (newApi.apiType === 'export') {
         collectExportDiff(tmpApis, newApi, diffApis, subsystemMap, notes, fileNameMap);
       } else {
         let oldSameClassApis = handleApiByClassName(tmpApis, newApi, newDiffApis).oldSameClassApi;
@@ -261,50 +262,50 @@ function getDiffApisBaseNew(newDiffApis, oldDiffApis, diffApis, subsystemMap, fi
         getNewAddApi(oldMethodTexts, diffApis, subsystemMap, fileNameMap, diffMethodTextSet, newApi);
       }
     }
-  })
+  });
 }
 function collectSameClassDiff(oldSameClassApis, newApi, diffNew, diffOld, diffApis, subsystemMap, fileNameMap, diffMethodTextSet) {
   const notes = '';
   if (oldSameClassApis.length === 0) {
     flag = '新增';
-    if (newApi.methodName == '') {
+    if (newApi.methodName === '') {
       diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className;
     } else {
       diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className +
-				'\n方法 or 属性：' + newApi.methodText;
+        '\n方法 or 属性：' + newApi.methodText;
     }
     let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
-    diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap))
+    diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
   } else {
     oldSameClassApis.forEach(oldApi => {
       if (newApi.methodName === oldApi.methodName && newApi.apiType.toString() === oldApi.apiType.toString()) {
         collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, diffMethodTextSet);
       }
-    })
+    });
 
   }
 }
 function getNewAddApi(oldMethodTexts, diffApis, subsystemMap, fileNameMap, diffMethodTextSet, newApi) {
   if (!oldMethodTexts.has(newApi.methodText.replace(/\r|\n|\s+|\,|\;/g, '')) &&
-		!diffMethodTextSet.has(newApi.methodText)) {
+    !diffMethodTextSet.has(newApi.methodText)) {
     const notes = '';
     const flag = '新增';
     const diffNew = '类名：' + newApi.className + '\n方法or属性：' + newApi.methodText;
     const diffOld = 'NA';
     let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
-    diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap))
+    diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
   }
 }
 function collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, diffMethodTextSet) {
   let startDiffOld = '';
   let startDiffNew = '';
-  const NOTE_NUMBER = 2 ;
-  if (newApi.methodName == '') {
-    startDiffOld = '类名：' + oldApi.className + '\n'
-    startDiffNew = '类名：' + newApi.className + '\n'
+  const NOTE_NUMBER = 2;
+  if (newApi.methodName === '') {
+    startDiffOld = '类名：' + oldApi.className + '\n';
+    startDiffNew = '类名：' + newApi.className + '\n';
   } else {
-    startDiffOld = '类名：' + oldApi.className + '\n方法 or 属性：' + oldApi.methodText + '\n'
-    startDiffNew = '类名：' + newApi.className + '\n方法 or 属性：' + newApi.methodText + '\n'
+    startDiffOld = '类名：' + oldApi.className + '\n方法 or 属性：' + oldApi.methodText + '\n';
+    startDiffNew = '类名：' + newApi.className + '\n方法 or 属性：' + newApi.methodText + '\n';
   }
   if (isCallbackTypeFun(newApi, oldApi, 'callback')) {
     diffMethodTextSet.add(newApi.methodText);
@@ -331,7 +332,7 @@ function collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, 
 }
 function isCallbackTypeFun(newApi, oldApi, funType) {
   if (newApi.funType === funType && oldApi.funType === funType &&
-		newApi.callbackMethodText !== oldApi.callbackMethodText) {
+    newApi.callbackMethodText !== oldApi.callbackMethodText) {
     return true;
   } else {
     return false;
@@ -339,7 +340,7 @@ function isCallbackTypeFun(newApi, oldApi, funType) {
 }
 function isPromiseTypeFun(newApi, oldApi, funType) {
   if (newApi.funType === funType && oldApi.funType === funType &&
-		newApi.promiseMethodText !== oldApi.promiseMethodText) {
+    newApi.promiseMethodText !== oldApi.promiseMethodText) {
     return true;
   } else {
     return false;
@@ -401,11 +402,11 @@ function collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, d
   const flag = '新增';
   let diffNew = '';
   if (newApi.apiType === 'import') {
-    diffNew = '模块名: ' + newApi.packageName + '\nimport 信息: ' + newApi.headimport
+    diffNew = '模块名: ' + newApi.packageName + '\nimport 信息: ' + newApi.headimport;
   } else if (newApi.apiType === 'export') {
-    diffNew = '模块名: ' + newApi.packageName + '\nexport 信息: ' + newApi.endexport
+    diffNew = '模块名: ' + newApi.packageName + '\nexport 信息: ' + newApi.endexport;
   } else if (newApi.methodName === '') {
-    diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className
+    diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className;
   } else {
     diffNew = '模块名: ' + newApi.packageName + '\n类名: ' + newApi.className + '\n方法 or 属性: ' + newApi.methodText;
   }
@@ -414,31 +415,31 @@ function collectNewFileApi(newApi, subsystemMap, notes, fileNameMap, diffApis, d
 }
 
 function collectImportDiff(tmpApis, newApi, diffApis, subsystemMap, notes, fileNameMap) {
-  const tmpApis2 = []
+  const tmpApis2 = [];
   tmpApis.forEach(oldApi => {
-    if (oldApi.apiType == 'import' && newApi.headimport == oldApi.headimport) {
-      tmpApis2.push(oldApi)
+    if (oldApi.apiType === 'import' && newApi.headimport === oldApi.headimport) {
+      tmpApis2.push(oldApi);
     }
-  })
+  });
 
-  if (tmpApis2.length == 0) {
-    flag = '新增'
-    diffNew = '模块名: ' + newApi.packageName + '\nimport 信息: ' + newApi.headimport
+  if (tmpApis2.length === 0) {
+    flag = '新增';
+    diffNew = '模块名: ' + newApi.packageName + '\nimport 信息: ' + newApi.headimport;
   }
   let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
-  diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap))
+  diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
 }
 
 function collectExportDiff(tmpApis, newApi, diffApis, subsystemMap, notes, fileNameMap) {
-  const tmpApis3 = []
+  const tmpApis3 = [];
   tmpApis.forEach(oldApi => {
-    if (oldApi.apiType == 'export' && newApi.endexport == oldApi.endexport) {
-      tmpApis3.push(oldApi)
+    if (oldApi.apiType === 'export' && newApi.endexport === oldApi.endexport) {
+      tmpApis3.push(oldApi);
     }
-  })
-  if (tmpApis3.length == 0) {
-    flag = '新增'
-    diffNew = '模块名: ' + newApi.packageName + '\nexport 信息: ' + newApi.endexport
+  });
+  if (tmpApis3.length === 0) {
+    flag = '新增';
+    diffNew = '模块名: ' + newApi.packageName + '\nexport 信息: ' + newApi.endexport;
   }
   let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
   diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
@@ -446,7 +447,7 @@ function collectExportDiff(tmpApis, newApi, diffApis, subsystemMap, notes, fileN
 
 function handleApiByClassName(tmpApis, newApi, newDiffApis) {
   const oldSameClassApi = [];
-  const newSameClassApi = []
+  const newSameClassApi = [];
   const oldMethodTexts = new Set([]);
   const newMethodTexts = new Set([]);
   let equalClassName = 'N/A';
@@ -456,13 +457,13 @@ function handleApiByClassName(tmpApis, newApi, newDiffApis) {
       equalClassName = oldApi.className;
       oldMethodTexts.add(oldApi.methodText.replace(/\r|\n|\s+|\,|\;/g, ''));
     }
-  })
+  });
   newDiffApis.forEach(apiText => {
-    if (apiText.className == equalClassName) {
+    if (apiText.className === equalClassName) {
       newMethodTexts.add(apiText.methodText.replace(/\r|\n|\s+|\,|\;/g, ''));
       newSameClassApi.push(apiText);
     }
-  })
+  });
   return { oldSameClassApi, oldMethodTexts, newMethodTexts };
 }
 
@@ -477,9 +478,9 @@ function collectVersionDiff(newVersion, oldVersion, startDiffNew, startDiffOld, 
 
 function collectModelDiff(newModel, oldModel, startDiffNew, startDiffOld, diffApis,
   subsystemMap, notes, fileNameMap, newApi) {
-  flag = 'model有变化'
-  diffOld = startDiffOld + 'model:' + oldModel
-  diffNew = startDiffNew + 'model:' + newModel
+  flag = 'model有变化';
+  diffOld = startDiffOld + 'model:' + oldModel;
+  diffNew = startDiffNew + 'model:' + newModel;
   let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
   diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
 }
@@ -553,9 +554,9 @@ function getPermissionFlag(permissionOld, permissionNew) {
   let permissionNews = permissionNew.replace(/\r|\n|\s+|\.|\//g, '');
   if (permissionOlds === permissionNews) {
     return '格式变化';
-  } else if (permissionOld == 'N/A') {
+  } else if (permissionOld === 'N/A') {
     return '新增(权限)';
-  } else if (permissionNew == 'N/A') {
+  } else if (permissionNew === 'N/A') {
     return '删除(权限)';
   } else {
     return '权限有变化';
@@ -563,7 +564,7 @@ function getPermissionFlag(permissionOld, permissionNew) {
 }
 
 function getDiffApisBaseOld(newDiffApis, oldDiffApis, diffApis, subsystemMap, fileNameMap) {
-  const notes = ''
+  const notes = '';
   oldDiffApis.forEach(oldApi => {
     let flag = '';
     let diffOld = '';
@@ -573,7 +574,7 @@ function getDiffApisBaseOld(newDiffApis, oldDiffApis, diffApis, subsystemMap, fi
       if (oldApi.dtsPath.replace(oldDir, '') === newApi.dtsPath.replace(newDir, '')) {
         tmpApis.push(newApi);
       }
-    })
+    });
     if (tmpApis.length === 0) {
       flag = deleteFileApi(oldApi, flag, diffOld).flag;
       diffOld = deleteFileApi(oldApi, flag, diffOld).diffOld;
@@ -583,7 +584,7 @@ function getDiffApisBaseOld(newDiffApis, oldDiffApis, diffApis, subsystemMap, fi
         diffOld = deleteImportApi(flag, diffOld, tmpApis, oldApi).diffOld;
       } else if (oldApi.apiType === 'export') {
         flag = deleteExportApi(flag, diffOld, tmpApis, oldApi).flag;
-        diffOld = deleteExportApi(flag, diffOld, tmpApis, oldApi).diffOld
+        diffOld = deleteExportApi(flag, diffOld, tmpApis, oldApi).diffOld;
       } else {
         flag = collectDeleteApis(tmpApis, oldApi, flag, diffOld).flag;
         diffOld = collectDeleteApis(tmpApis, oldApi, flag, diffOld).diffOld;
@@ -593,19 +594,19 @@ function getDiffApisBaseOld(newDiffApis, oldDiffApis, diffApis, subsystemMap, fi
       let sysCapInfo = getSubsystemBySyscap(oldApi, oldApi.sysCap);
       diffApis.push(getApiInfoWithFlag(oldApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
     }
-  })
+  });
 }
 
 function collectDeleteApis(tmpApis, oldApi, flag, diffOld) {
-  const newSameClassApis = []
+  const newSameClassApis = [];
   tmpApis.forEach(newApi => {
     if (oldApi.className === newApi.className) {
       newSameClassApis.push(newApi);
     }
-  })
+  });
   if (newSameClassApis.length === 0) {
-    flag = '删除'
-    if (oldApi.methodName == '') {
+    flag = '删除';
+    if (oldApi.methodName === '') {
       diffOld = '模块名: ' + oldApi.packageName + '\n类名: ' + oldApi.className;
     } else {
       diffOld = '模块名: ' + oldApi.packageName + '\n类名: ' + oldApi.className + '\n方法 or 属性：' + oldApi.methodText;
@@ -616,10 +617,10 @@ function collectDeleteApis(tmpApis, oldApi, flag, diffOld) {
       if (oldApi.methodName === newApi.methodName && oldApi.apiType.toString() === newApi.apiType.toString()) {
         count++;
       }
-    })
+    });
 
     if (count === 0) {
-      flag = '删除'
+      flag = '删除';
       if (oldApi.methodName === '') {
         diffOld = '模块名：' + oldApi.packageName + '\n类名:' + oldApi.className;
       } else {
@@ -631,16 +632,16 @@ function collectDeleteApis(tmpApis, oldApi, flag, diffOld) {
 }
 
 function deleteImportApi(flag, diffOld, tmpApis, oldApi) {
-  const tmpApis2 = []
+  const tmpApis2 = [];
   tmpApis.forEach(newApi => {
     if (newApi.apiType === 'import' && newApi.headimport === oldApi.headimport) {
-      tmpApis2.push(newApi)
+      tmpApis2.push(newApi);
     }
-  })
+  });
 
   if (tmpApis2.length === 0) {
-    flag = '删除'
-    diffOld = '模块名: ' + oldApi.packageName + '\nimport 信息: ' + oldApi.headimport
+    flag = '删除';
+    diffOld = '模块名: ' + oldApi.packageName + '\nimport 信息: ' + oldApi.headimport;
   }
   return { flag, diffOld };
 }
@@ -651,7 +652,7 @@ function deleteExportApi(flag, diffOld, tmpApis, oldApi) {
     if (newApi.apiType === 'export' && newApi.endexport === oldApi.endexport) {
       tmpApis3.push(newApi);
     }
-  })
+  });
   if (tmpApis3.length === 0) {
     flag = '删除';
     diffOld = '模块名: ' + oldApi.packageName + '\nexport 信息: ' + oldApi.endexport;
@@ -660,13 +661,13 @@ function deleteExportApi(flag, diffOld, tmpApis, oldApi) {
 }
 
 function deleteFileApi(oldApi, flag, diffOld) {
-  flag = '删除'
+  flag = '删除';
   if (oldApi.apiType === 'import') {
-    diffOld = '模块名: ' + oldApi.packageName + '\nimport 信息: ' + oldApi.headimport
+    diffOld = '模块名: ' + oldApi.packageName + '\nimport 信息: ' + oldApi.headimport;
   } else if (oldApi.apiType === 'export') {
-    diffOld = '模块名: ' + oldApi.packageName + '\nexport 信息: ' + oldApi.endexport
+    diffOld = '模块名: ' + oldApi.packageName + '\nexport 信息: ' + oldApi.endexport;
   } else if (oldApi.methodName === '') {
-    diffOld = '模块名: ' + oldApi.packageName + '\n类名: ' + oldApi.className
+    diffOld = '模块名: ' + oldApi.packageName + '\n类名: ' + oldApi.className;
   } else {
     diffOld = '模块名: ' + oldApi.packageName + '\n类名: ' + oldApi.className + '\n方法 or 属性：' + oldApi.methodText;
   }
@@ -675,10 +676,10 @@ function deleteFileApi(oldApi, flag, diffOld) {
 
 // 输出新旧版本所有api对比结果
 async function exportDiffApiInfo(exportType, compileApiInfos, exportFileName) {
-  if (exportType == 'excel') {
+  if (exportType === 'excel') {
     const workbook = new ExcelJS.Workbook();
     const sheet = workbook.addWorksheet('api差异', { viers: [{ xSplit: 1 }] });
-    sheet.getRow(1).values = ['操作标记*', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统']
+    sheet.getRow(1).values = ['操作标记*', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统'];
     for (let i = 0; i < compileApiInfos.length; i++) {
       let apiData = compileApiInfos[i];
       let fileName = apiData.dtsPath ? path.basename(apiData.dtsPath) : apiData.packageName;
@@ -691,21 +692,20 @@ async function exportDiffApiInfo(exportType, compileApiInfos, exportFileName) {
       if (err) {
         return;
       }
-    })
-  } else if (exportType == 'json') {
+    });
+  } else if (exportType === 'json') {
     fs.writeFile(exportFileName, JSON.stringify(compileApiInfos), function (err) {
       if (err) {
-        console.log('Write failed:' + err)
+        console.log('Write failed:' + err);
         return;
       }
-      console.log(exportFileName + 'Write completed.')
-    })
+      console.log(exportFileName + 'Write completed.');
+    });
   }
 }
 
 function exportDiffMd(subsystem, diffInfos) {
-  let finalContent = `| 操作 | 旧版本 | 新版本 | d.ts文件 |
-| ---- | ------ | ------ | -------- |\n`
+  let finalContent = '| 操作 | 旧版本 | 新版本 | d.ts文件 |\n' + '| ---- | ------ | ------ | -------- |\n';
   for (let i = 0; i < diffInfos.length; i++) {
     let apiData = diffInfos[i];
     let fileName = apiData.dtsPath ? path.basename(apiData.dtsPath) : apiData.packageName;
@@ -715,7 +715,7 @@ function exportDiffMd(subsystem, diffInfos) {
   }
   const mdFilesDir = `${__dirname.replace('src', '')}diff合集`;
   if (!fs.existsSync(mdFilesDir)) {
-    fs.mkdirSync('../diff合集')
+    fs.mkdirSync('../diff合集');
   }
 
   fs.writeFile(`../diff合集/js-apidiff-${subsystem}.md`, finalContent, function (err) {
@@ -724,7 +724,7 @@ function exportDiffMd(subsystem, diffInfos) {
       return;
     }
     console.log('WRITE SUCCESSED');
-  })
+  });
 
 }
 
@@ -745,10 +745,10 @@ function diffBySbusystem(compileApiInfos) {
       flagArr.forEach(flag => {
         diffInfos.forEach(diffInfo => {
           if (diffInfo.flag === flag) {
-            sortDiffInfos.push(diffInfo)
+            sortDiffInfos.push(diffInfo);
           }
-        })
-      })
+        });
+      });
       exportDiffMd(subsystem.fileName, sortDiffInfos);
     }
 
@@ -770,50 +770,50 @@ function readZipFile(dir, zipFiles) {
       }
     });
   } catch (error) {
-    console.error('ETS ERROR:' + error)
+    console.error('ETS ERROR:' + error);
   }
 }
 
 function unCompressAllZipFilesAndCompile(newDir, oldDir) {
-  const zipFiles = []
-  readZipFile(newDir, zipFiles)
-  readZipFile(oldDir, zipFiles)
-  let count = 0
-  let countfile = 0
+  const zipFiles = [];
+  readZipFile(newDir, zipFiles);
+  readZipFile(oldDir, zipFiles);
+  let count = 0;
+  let countfile = 0;
   zipFiles.forEach(async element => {
-    let filePath = element.replace(path.basename(element), '')
+    let filePath = element.replace(path.basename(element), '');
     compressing.zip.uncompress(element, filePath).then((data) => {
-      console.log("uncompress success:", data, '--' + element);
+      console.log('uncompress success:', data, '--' + element);
       count++;
-      if ((count + countfile) == zipFiles.length) {
-        compileAndExportToFile()
+      if ((count + countfile) === zipFiles.length) {
+        compileAndExportToFile();
       }
     }).catch(error => {
-      console.log(("uncompress error:", error))
-    })
+      console.log(('uncompress error:', error));
+    });
   });
 }
 
 function compileAndExportToFile() {
-  const newFiles = []
-  const oldFiles = []
-  readFile(oldDir, oldFiles)
-  readFile(newDir, newFiles)
+  const newFiles = [];
+  const oldFiles = [];
+  readFile(oldDir, oldFiles);
+  readFile(newDir, newFiles);
   let diffApis = getDIffApisWithCompile(newFiles, oldFiles);
   let noRepeatDiffApi = [];
   let diffApisSet = new Set();
   diffApis.map(api => diffApisSet.add(JSON.stringify(api)));
   diffApisSet.forEach(item => {
-    noRepeatDiffApi.push(JSON.parse(item))
-  })
+    noRepeatDiffApi.push(JSON.parse(item));
+  });
   for (let i = 0; i < allMergeData.length; i++) {
     for (let j = 0; j < noRepeatDiffApi.length; j++) {
-      if (allMergeData[i].packageName === noRepeatDiffApi[j].packageName && noRepeatDiffApi[j].flag === '删除'
-				&& allMergeData[i].diffOld === noRepeatDiffApi[j].methodText) {
+      if (allMergeData[i].packageName === noRepeatDiffApi[j].packageName && noRepeatDiffApi[j].flag === '删除' &&
+        allMergeData[i].diffOld === noRepeatDiffApi[j].methodText) {
         noRepeatDiffApi.splice(j, 1);
         j--;
       } else if (allMergeData[i].packageName === noRepeatDiffApi[j].packageName &&
-				noRepeatDiffApi[j].flag === '新增' && allMergeData[i].diffNew === noRepeatDiffApi[j].methodText) {
+        noRepeatDiffApi[j].flag === '新增' && allMergeData[i].diffNew === noRepeatDiffApi[j].methodText) {
         noRepeatDiffApi.splice(j, 1);
         j--;
       }
@@ -822,7 +822,7 @@ function compileAndExportToFile() {
 
   }
   let afterMergeData = noRepeatDiffApi.concat(allMergeData);
-  exportDiffApiInfo('excel', afterMergeData, "Js_Api_Diff.xlsx")
+  exportDiffApiInfo('excel', afterMergeData, 'Js_Api_Diff.xlsx');
   diffBySbusystem(afterMergeData);
 }
 
@@ -830,4 +830,4 @@ const subsystemDir = __dirname.replace('\\src', '') + '\\subsystem.json';
 const urlObject = fs.readFileSync(__dirname.replace('\\src', '') + '\\url.json', 'utf-8');
 const oldDir = JSON.parse(urlObject).oldDir;
 const newDir = JSON.parse(urlObject).newDir;
-unCompressAllZipFilesAndCompile(newDir, oldDir)
+unCompressAllZipFilesAndCompile(newDir, oldDir);

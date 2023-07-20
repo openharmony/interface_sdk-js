@@ -26,41 +26,41 @@ class AppApiCollectorPlugin {
     return {
       name: 'api-collector',
       version: '0.1.0',
-      description: `collect api from app's source code.`,
+      description: 'collect api from app\'s source code.',
       commands: [
         {
           isRequiredOption: false,
-          options: ['--app <string>', 'app root directory']
+          options: ['--app <string>', 'app root directory'],
         },
         {
           isRequiredOption: false,
-          options: ['--appDir <string>', 'a path that contains multiple applications']
+          options: ['--appDir <string>', 'a path that contains multiple applications'],
         },
         {
           isRequiredOption: false,
-          options: ['--sdk <string>', 'sdk path, need to specify the ets directory, e.g sdk-root/version/ets']
+          options: ['--sdk <string>', 'sdk path, need to specify the ets directory, e.g sdk-root/version/ets'],
         },
         {
           isRequiredOption: false,
-          options: ['--sdkRoot <string>', 'sdk root path']
+          options: ['--sdkRoot <string>', 'sdk root path'],
         },
         {
           isRequiredOption: false,
-          options: ['--output <string>', 'the path to output the report']
+          options: ['--output <string>', 'the path to output the report'],
         },
         {
           isRequiredOption: false,
-          options: ['--format <json,excel>', 'format of the output report']
+          options: ['--format <json,excel>', 'format of the output report'],
         },
         {
           isRequiredOption: false,
-          options: ['--scanTest', 'scan ohosTest']
+          options: ['--scanTest', 'scan ohosTest'],
         },
         {
           isRequiredOption: false,
-          options: ['--debug', 'output debug logs']
+          options: ['--debug', 'output debug logs'],
         }
-      ]
+      ],
     };
   }
 
@@ -76,7 +76,7 @@ class AppApiCollectorPlugin {
     } else if (argv.dir) {
       await this.scanNonProject(argv);
     } else {
-      Logger.info(this.logTag, `see --help`);
+      Logger.info(this.logTag, 'see --help');
     }
     Logger.info(this.logTag, `elapsed time ${Date.now() - startTime}`);
     if (argv.debug) {
@@ -94,13 +94,13 @@ class AppApiCollectorPlugin {
       const collector = new MultiProjectApiCollector(argv);
       await collector.setLibPath(this.findLibPath()).setIncludeTest(argv.scanTest).start();
     } else {
-      Logger.error(this.logTag, `--appDir and --sdkRoot are used together, replace --sdk with --sdkRoot`);
+      Logger.error(this.logTag, '--appDir and --sdkRoot are used together, replace --sdk with --sdkRoot');
     }
   }
 
   async scanNonProject(argv) {
     if (!argv.sdk) {
-      Logger.error(this.logTag, `the --sdk is required when scanning non-project`);
+      Logger.error(this.logTag, 'the --sdk is required when scanning non-project');
       return;
     }
     const apiCollector = new ApiCollector(argv);
@@ -136,7 +136,7 @@ class AppApiCollectorPlugin {
       const apiPath = path.resolve(argv.sdk, 'api');
       const componentPath = path.resolve(argv.sdk, 'component');
       if (!fs.existsSync(apiPath) || !fs.existsSync(componentPath)) {
-        Logger.error(this.logTag, `--sdk option need to specify the ets directory`);
+        Logger.error(this.logTag, '--sdk option need to specify the ets directory');
         return false;
       }
     }

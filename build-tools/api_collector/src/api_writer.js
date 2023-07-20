@@ -73,7 +73,7 @@ class ApiExcelWriter {
     subscribeSheet.getRow(1).values = ['类名', '接口名', '接口类型', '方法声明', '接口路径'];
     let lineNumber = 0;
     this.apiInfos.forEach((apiInfo, index) => {
-      const typeName = apiInfo.qualifiedTypeName ? apiInfo.qualifiedTypeName : (apiInfo.typeName ? apiInfo.typeName : "unnamed");
+      const typeName = apiInfo.qualifiedTypeName ? apiInfo.qualifiedTypeName : (apiInfo.typeName ? apiInfo.typeName : 'unnamed');
       if (!apiInfoSet.has(formatInfo(apiInfo, typeName))) {
         subscribeSheet.getRow(lineNumber + 2).values = [
           typeName,
@@ -81,7 +81,7 @@ class ApiExcelWriter {
           apiInfo.apiType,
           apiInfo.apiText.replace(/\;$/g, ''),
           apiInfo.dtsPath
-        ]
+        ];
         lineNumber++;
         apiInfoSet.add(formatInfo(apiInfo, typeName));
       }
@@ -101,7 +101,7 @@ class ApiExcelWriter {
         apiInfo.propertyName,
         apiInfo.apiRawText,
         `${apiInfo.sourceFileName}(${apiInfo.pos})`
-      ]
+      ];
     });
     const buffer = await workbook.xlsx.writeBuffer();
     const outputFile = path.resolve(this.outputDir, 'app_api.xlsx');
@@ -148,7 +148,7 @@ class ApiWriter {
 }
 
 function formatInfo(apiInfo, typeName) {
-  return `${typeName}_${apiInfo.propertyName}_${apiInfo.apiText}_ ${apiInfo.dtsPath}`
+  return `${typeName}_${apiInfo.propertyName}_${apiInfo.apiText}_ ${apiInfo.dtsPath}`;
 }
 
 exports.ApiJsonWriter = ApiJsonWriter;

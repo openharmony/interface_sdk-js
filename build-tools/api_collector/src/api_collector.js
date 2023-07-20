@@ -38,12 +38,12 @@ class ProgramFactory {
       ets: this.getETSOptions([]),
       allowJs: false,
       lib: [...apiLibs, ...componentLibs, ...esLibs],
-      module: ts.ModuleKind.CommonJS
+      module: ts.ModuleKind.CommonJS,
     };
     this.compilerHost = this.createCompilerHost({
       resolveModuleName: (moduleName) => {
         return this.resolveModuleName(moduleName, apiLibs);
-      }
+      },
     }, compilerOption);
 
     if (this.libPath && fs.existsSync(this.libPath)) {
@@ -55,7 +55,7 @@ class ProgramFactory {
     return ts.createProgram({
       rootNames: [...rootNames],
       options: compilerOption,
-      host: this.compilerHost
+      host: this.compilerHost,
     });
   }
 
@@ -87,7 +87,7 @@ class ProgramFactory {
           },
           readFile: (fileName) => {
             ts.sys.readFile(fileName);
-          }
+          },
         });
         if (moduleLookupLocaton.resolvedModule) {
           resolvedModules.push(moduleLookupLocaton.resolvedModule);
@@ -106,7 +106,7 @@ class ApiCollector {
   constructor(argv) {
     const appProject = argv.app ? argv.app : (argv.dir ? argv.dir : undefined);
     if (!appProject) {
-      throw `app not found`;
+      throw 'app not found';
     }
     this.project = new Project(appProject, argv.dir !== undefined);
     this.sdk = new Sdk(this.project, argv.sdk, argv.sdkRoot);
@@ -148,7 +148,7 @@ class ApiCollector {
 
     if (this.debugFlag) {
       program.getSourceFiles().forEach((sf) => {
-        Logger.info("ApiCollector", sf.fileName);
+        Logger.info('ApiCollector', sf.fileName);
       });
     }
 
@@ -178,7 +178,7 @@ class ApiCollector {
 
   getApiWriter() {
     if (!this.apiWriter) {
-      this.apiWriter = new ApiWriter(this.outputPath, this.formatFlag)
+      this.apiWriter = new ApiWriter(this.outputPath, this.formatFlag);
     }
     return this.apiWriter;
   }

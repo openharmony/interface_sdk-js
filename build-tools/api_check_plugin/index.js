@@ -43,7 +43,7 @@ exports.initEnv = function (version) {
       resolve();
     });
   });
-}
+};
 
 function updatePermissionConfig(url, callback) {
   let requestText;

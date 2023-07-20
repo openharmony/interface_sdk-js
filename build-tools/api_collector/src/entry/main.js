@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-const commander = require("commander");
-const toolbox_config = require("./toolbox.config");
+const commander = require('commander');
+const toolbox_config = require('./toolbox.config');
 class ToolBoxCommander {
   program = new commander.Command();
   constructor() {}
