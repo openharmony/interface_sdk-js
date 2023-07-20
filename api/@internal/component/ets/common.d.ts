@@ -1903,11 +1903,11 @@ declare interface RotateOptions {
   centerZ?: number;
 
   /**
-   * The param of camera distance, value range (1, ∞).
+   * The param of camera distance, value range (-∞, ∞).
    * @type { ?number }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @default 1.0
+   * @default 0
    * @crossplatform
    * @since 10
    */
