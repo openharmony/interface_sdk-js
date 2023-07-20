@@ -99,12 +99,14 @@ declare namespace common {
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
    * @since 9
    */
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
    * @crossplatform
    * @since 10
    */
