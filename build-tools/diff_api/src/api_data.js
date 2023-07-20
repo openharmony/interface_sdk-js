@@ -59,7 +59,8 @@ function addApiInfo(apiMap, packageName, className, apiName, apiSignature, api) 
     };
     dtsMap.set(className, classApi);
   }
-  if ((isTypeDeclaration(api) || className === '') && !classApi.type) {
+
+  if (isTypeDeclaration(api) && !classApi.type) {
     classApi.type = api;
     return;
   }
@@ -80,7 +81,7 @@ function addApiInfo(apiMap, packageName, className, apiName, apiSignature, api) 
 }
 
 function isTypeDeclaration(api) {
-  const types = [ApiType.ClassType.code, ApiType.InterfaceType.code, ApiType.EnumType.code, ApiType.NamespaceType.code];
+  const types = [ApiType.ClassType.code, ApiType.InterfaceType.code, ApiType.EnumType.code, ApiType.NamespaceType.code, ApiType.SourceFile.code];
   return types.includes(api.getApiType().code);
 }
 
@@ -95,7 +96,7 @@ function isTypeDeclaration(api) {
  */
 function getNodeSignature(astNode, packageName, className) {
   if (ts.isInterfaceDeclaration(astNode) || ts.isClassDeclaration(astNode) ||
-    ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode)) {
+    ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode) || ts.isSourceFile(astNode)) {
     return `${packageName}#${className}`;
   }
   let signature = '';
@@ -297,6 +298,7 @@ const ApiType = {
   TypeAliasDeclaration: { name: '类型成员', code: 11 },
   Constructor: { name: '构造器', code: 12 },
   CallSignature: { name: '类方法', code: 13 },
+  SourceFile: { name: 'sourfile', code: 14 }
 };
 
 exports.ApiDigestInfo = ApiDigestInfo;
