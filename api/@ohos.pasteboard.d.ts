@@ -79,7 +79,6 @@ declare namespace pasteboard {
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -91,7 +90,6 @@ declare namespace pasteboard {
    * @param { Want } want - To save the want of content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -103,7 +101,6 @@ declare namespace pasteboard {
    * @param { string } text - To save the text of content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 6
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -115,7 +112,6 @@ declare namespace pasteboard {
    * @param { string } uri - To save the uri of content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -129,7 +125,6 @@ declare namespace pasteboard {
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
    * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 9
    */
   function createData(mimeType: string, value: ValueType): PasteData;
@@ -139,7 +134,6 @@ declare namespace pasteboard {
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -151,7 +145,6 @@ declare namespace pasteboard {
    * @param { Want } want - To save the want of content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -163,7 +156,6 @@ declare namespace pasteboard {
    * @param { string } text - To save the text of content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -175,7 +167,6 @@ declare namespace pasteboard {
    * @param { string } uri - To save the uri of content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -189,7 +180,6 @@ declare namespace pasteboard {
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
    * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 9
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
@@ -198,7 +188,6 @@ declare namespace pasteboard {
    * get SystemPasteboard
    * @returns { SystemPasteboard } The system clipboard object
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @systemapi
    * @since 6
    */
   function getSystemPasteboard(): SystemPasteboard;
@@ -349,10 +338,9 @@ declare namespace pasteboard {
      * Converts data in PasteData to text format.
      * @param { AsyncCallback<string> } callback - the callback of convertToText.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#toPlainText
+     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
      */
     convertToText(callback: AsyncCallback<string>): void;
 
@@ -360,10 +348,9 @@ declare namespace pasteboard {
      * Converts data in PasteData to text format.
      * @returns { Promise<string> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#toPlainText
+     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
      */
     convertToText(): Promise<string>;
 
@@ -371,7 +358,6 @@ declare namespace pasteboard {
      * Converts data in PasteData to text format.
      * @returns { string } the string returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     toPlainText(): string;
@@ -388,7 +374,6 @@ declare namespace pasteboard {
      * Adds a Record for HTML text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_HTML in DataProperty.
      * @param { string } htmlText - To save the Html text content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
@@ -399,7 +384,6 @@ declare namespace pasteboard {
      * Adds an want Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_WANT in DataProperty.
      * @param { Want } want - To save the want content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
@@ -410,7 +394,6 @@ declare namespace pasteboard {
      * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
      * @param { PasteDataRecord } record - The content of a new record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     addRecord(record: PasteDataRecord): void;
@@ -419,7 +402,6 @@ declare namespace pasteboard {
      * Adds a Record for plain text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_PLAIN in DataProperty.
      * @param { string } text - To save the text of content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
@@ -430,7 +412,6 @@ declare namespace pasteboard {
      * Adds a URI Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_URI in DataProperty.
      * @param { string } uri - To save the uri of content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
@@ -443,7 +424,6 @@ declare namespace pasteboard {
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 10
      */
     addRecord(mimeType: string, value: ValueType): void;
@@ -452,7 +432,6 @@ declare namespace pasteboard {
      * MIME types of all content on the pasteboard.
      * @returns { Array<string> } type of array
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getMimeTypes(): Array<string>;
@@ -461,7 +440,6 @@ declare namespace pasteboard {
      * HTML text of the primary record in a PasteData object.
      * @returns { string } type of htmltext
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getPrimaryHtml(): string;
@@ -470,7 +448,6 @@ declare namespace pasteboard {
      * the want of the primary record in a PasteData object.
      * @returns { want } type of want
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getPrimaryWant(): Want;
@@ -479,7 +456,6 @@ declare namespace pasteboard {
      * the MIME type of the primary record in a PasteData object.
      * @returns { string } type of mimetype
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getPrimaryMimeType(): string;
@@ -488,7 +464,6 @@ declare namespace pasteboard {
      * the plain text of the primary record in a PasteData object.
      * @returns { string } type of text
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 6
      */
     getPrimaryText(): string;
@@ -497,7 +472,6 @@ declare namespace pasteboard {
      * the URI of the primary record in a PasteData object.
      * @returns { string } type of uri
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getPrimaryUri(): string;
@@ -506,7 +480,6 @@ declare namespace pasteboard {
      * Gets the primary PixelMap record in a PasteData object.
      * @returns { image.PixelMap } pixelMap
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     getPrimaryPixelMap(): image.PixelMap;
@@ -515,7 +488,6 @@ declare namespace pasteboard {
      * DataProperty of a PasteData object.
      * @returns { PasteDataProperty } PasteDataProperty type of PasteDataProperty
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getProperty(): PasteDataProperty;
@@ -525,7 +497,6 @@ declare namespace pasteboard {
      * @param { PasteDataProperty } property - save property to PasteData object.
      * @throws { BusinessError } 401 - if type of property is not PasteDataProperty.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     setProperty(property: PasteDataProperty): void;
@@ -535,7 +506,6 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getRecord
@@ -549,7 +519,6 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of index is not number.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     getRecord(index: number): PasteDataRecord;
@@ -558,7 +527,6 @@ declare namespace pasteboard {
      * the number of records in a PasteData object.
      * @returns { number } The number of the clipboard contents
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getRecordCount(): number;
@@ -567,7 +535,6 @@ declare namespace pasteboard {
      * the user-defined tag of a PasteData object.
      * @returns { string } type of tag
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     getTag(): string;
@@ -577,7 +544,6 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasType
@@ -590,7 +556,6 @@ declare namespace pasteboard {
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @throws { BusinessError } 401 - if type of path is not string.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     hasType(mimeType: string): boolean;
@@ -600,7 +565,6 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @returns { boolean } The query returns True on success, or False on failure.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#removeRecord
@@ -613,7 +577,6 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of index is not number.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     removeRecord(index: number): void;
@@ -624,7 +587,6 @@ declare namespace pasteboard {
      * @param { PasteDataRecord } record - the content of a new record.
      * @returns { boolean } The query returns True on success, or False on failure.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#replaceRecord
@@ -638,7 +600,6 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of index is not number or type of record is not PasteDataRecord.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
@@ -657,7 +618,6 @@ declare namespace pasteboard {
      * @param { () => void } callback - the callback to add.
      * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     on(type: 'update', callback: () => void): void;
@@ -669,7 +629,6 @@ declare namespace pasteboard {
      * callbacks for this application will be cleared. Otherwise, it indicates that the specified callback will be cleared.
      * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      */
     off(type: 'update', callback?: () => void): void;
@@ -678,7 +637,6 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#clearData
@@ -689,7 +647,6 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @returns { Promise<void> } the promise returned by the clearData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#clearData
@@ -701,7 +658,6 @@ declare namespace pasteboard {
      * @param { AsyncCallback<void> } callback - the callback of clearData.
      * @throws { BusinessError } 401 - if callback is not AsyncCallback<void>.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     clearData(callback: AsyncCallback<void>): void;
@@ -710,7 +666,6 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @returns { Promise<void> } the promise returned by the clearData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     clearData(): Promise<void>;
@@ -719,7 +674,6 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getData
@@ -730,7 +684,6 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getData
@@ -743,7 +696,6 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     getData(callback: AsyncCallback<PasteData>): void;
@@ -753,7 +705,6 @@ declare namespace pasteboard {
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     getData(): Promise<PasteData>;
@@ -762,7 +713,6 @@ declare namespace pasteboard {
      * Checks whether there is content in the pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of setPasteData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasData
@@ -773,7 +723,6 @@ declare namespace pasteboard {
      * Checks whether there is content in the pasteboard.
      * @returns { Promise<boolean> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasData
@@ -785,7 +734,6 @@ declare namespace pasteboard {
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<boolean>.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     hasData(callback: AsyncCallback<boolean>): void;
@@ -794,7 +742,6 @@ declare namespace pasteboard {
      * Checks whether there is content in the system pasteboard.
      * @returns { Promise<boolean> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     hasData(): Promise<boolean>;
@@ -804,7 +751,6 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setPasteData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#setData
@@ -816,7 +762,6 @@ declare namespace pasteboard {
      * @param { PasteData } data - Containing the contents of the clipboard content object.
      * @returns { Promise<void> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#setData
@@ -831,7 +776,6 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
@@ -844,7 +788,6 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 9
      */
     setData(data: PasteData): Promise<void>;
