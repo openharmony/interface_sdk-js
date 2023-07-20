@@ -52,7 +52,7 @@ export interface ContinueMissionInfo {
   /**
    * Indicates the extended param.
    *
-   * @type { [key: string]: Object }
+   * @type { object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10

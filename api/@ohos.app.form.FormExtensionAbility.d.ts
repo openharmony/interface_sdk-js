@@ -142,7 +142,7 @@ export default class FormExtensionAbility {
    * Called when the system shares the form.
    *
    * @param { string } formId - Indicates the ID of the form.
-   * @returns { [key: string]: Object } Returns the wantParams object.
+   * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly
@@ -154,7 +154,7 @@ export default class FormExtensionAbility {
    * Called when the system acquire the form data.
    *
    * @param { string } formId - Indicates the ID of the form.
-   * @returns { [key: string]: Object } Returns the wantParams object.
+   * @returns { object } Returns the wantParams object.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly

@@ -114,7 +114,7 @@ declare namespace reminderAgent {
   /**
    * Cancels all the reminders of current application.
    *
-   * @return { Promise<void> }
+   * @returns { Promise<void> }
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7
    * @deprecated since 9
