@@ -15,13 +15,15 @@
 
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
- *@interface CanvasPattern
+ *
+ * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
- *@interface CanvasPattern
+ *
+ * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -30,14 +32,14 @@ export interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param {Matrix2D}transform transformation matrix
+   * @param { Matrix2D } transform transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param {Matrix2D}transform transformation matrix
+   * @param { Matrix2D } transform transformation matrix
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -62,14 +64,14 @@ export class Matrix2D {
   /**
    * Horizontal Zoom
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Horizontal Zoom
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -79,14 +81,14 @@ export class Matrix2D {
   /**
    * Vertical Tilt
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Vertical Tilt
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -96,14 +98,14 @@ export class Matrix2D {
   /**
    * Horizontal Tilt
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Horizontal Tilt
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -113,14 +115,14 @@ export class Matrix2D {
   /**
    * Vertical Zoom
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Vertical Zoom
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -130,14 +132,14 @@ export class Matrix2D {
   /**
    * Horizontal movement
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Horizontal movement
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -147,14 +149,14 @@ export class Matrix2D {
   /**
    * Vertical movement
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Vertical movement
    *
-   * @type {number}
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -203,7 +205,7 @@ export class Matrix2D {
    * The matrix is superimposed in right multiplication mode. When the input parameter is empty,
    * the matrix is superimposed.
    *
-   * @param {Matrix2D}other Matrix to be superimposed
+   * @param { Matrix2D } other Matrix to be superimposed
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -212,7 +214,7 @@ export class Matrix2D {
    * The matrix is superimposed in right multiplication mode. When the input parameter is empty,
    * the matrix is superimposed.
    *
-   * @param {Matrix2D}other Matrix to be superimposed
+   * @param { Matrix2D } other Matrix to be superimposed
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -223,8 +225,8 @@ export class Matrix2D {
   /**
    * Adds the rotation effect of the X and Y axes to the current matrix.
    *
-   * @param {number}rx Rotation effect of the X axis
-   * @param {number}ry Rotation effect of the Y-axis
+   * @param { number } rx Rotation effect of the X axis
+   * @param { number } ry Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -232,8 +234,8 @@ export class Matrix2D {
   /**
    * Adds the rotation effect of the X and Y axes to the current matrix.
    *
-   * @param {number}rx Rotation effect of the X axis
-   * @param {number}ry Rotation effect of the Y-axis
+   * @param { number } rx Rotation effect of the X axis
+   * @param { number } ry Rotation effect of the Y-axis
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -244,8 +246,8 @@ export class Matrix2D {
   /**
    * Adds the translation effect of the X and Y axes to the current matrix.
    *
-   * @param {number}tx X-axis translation effect
-   * @param {number}ty Y-axis translation effect
+   * @param { number } tx X-axis translation effect
+   * @param { number } ty Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -253,8 +255,8 @@ export class Matrix2D {
   /**
    * Adds the translation effect of the X and Y axes to the current matrix.
    *
-   * @param {number}tx X-axis translation effect
-   * @param {number}ty Y-axis translation effect
+   * @param { number } tx X-axis translation effect
+   * @param { number } ty Y-axis translation effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -265,8 +267,8 @@ export class Matrix2D {
   /**
    * Adds the scaling effect of the X and Y axes to the current matrix.
    *
-   * @param {number}sx X-axis scaling effect
-   * @param {number}sy Y-axis scaling effect
+   * @param { number } sx X-axis scaling effect
+   * @param { number } sy Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -274,8 +276,8 @@ export class Matrix2D {
   /**
    * Adds the scaling effect of the X and Y axes to the current matrix.
    *
-   * @param {number}sx X-axis scaling effect
-   * @param {number}sy Y-axis scaling effect
+   * @param { number } sx X-axis scaling effect
+   * @param { number } sy Y-axis scaling effect
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
