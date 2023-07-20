@@ -3271,7 +3271,7 @@ declare namespace relationalStore {
    * You can set parameters of the RDB store as required. In general, this method is recommended
    * to obtain a rdb store.
    *
-   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error.
@@ -3291,7 +3291,7 @@ declare namespace relationalStore {
    * You can set parameters of the RDB store as required. In general, this method is recommended
    * to obtain a rdb store.
    *
-   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error.
