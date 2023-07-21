@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,779 +20,778 @@
  * @since 10
  */
 declare namespace calendarManager {
+  /**
+   * Create calendar instance.
+   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+   * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+   * @returns { Promise<Calendar> } the promise with calendar corresponding to account
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
+
+  /**
+   * Create calendar instance.
+   *
+   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+   * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+   * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
+
+  /**
+   * Delete calendar instance.
+   *
+   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+   * @param { Calendar } calendar - calendar to be deleted
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function deleteCalendar(calendar: Calendar): Promise<void>;
+
+  /**
+   * Delete calendar instance.
+   *
+   * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+   * @param { Calendar } calendar - calendar to be deleted
+   * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void;
+
+  /**
+   * Get calendar instance from database.
+   *
+   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+   * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+   * @returns { Promise<Calendar> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
+
+  /**
+   * Get calendar instance from database by specified account.
+   *
+   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+   * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+   * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
+
+  /**
+   * Get default calendar instance from database.
+   *
+   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+   * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function getCalendar(callback: AsyncCallback<Calendar>): void;
+
+  /**
+   * Get all calendar instance.
+   *
+   * @permission ohos.permission.READ_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
+   * @returns { Promise<Calendar[]> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function getAllCalendars(): Promise<Calendar[]>;
+
+  /**
+   * Get all calendar instance.
+   *
+   * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+   * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  function getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
+
+  /**
+   * Describes a calendar instance.
+   * @interface Calendar
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  export interface Calendar {
     /**
-     * Create calendar instance.
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
-     * @returns { Promise<Calendar> } the promise with calendar corresponding to account
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Id of the calendar
+     * @type { number }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
+    readonly id: number
 
     /**
-     * Create calendar instance.
-     *
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
-     * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Add a single event.
+     * @param { Event } event - Indicates the information about a single event.
+     * @returns { Promise<number> } The event ID.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
+    addEvent(event: Event): Promise<number>;
 
     /**
-     * Delete calendar instance.
-     *
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { Calendar } calendar - calendar to be deleted
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Add a single event.
+     * @param { Event } event - a single event to add.
+     * @param { AsyncCallback<number> } callback - callback of addEvent.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function deleteCalendar(calendar: Calendar): Promise<void>;
+    addEvent(event: Event, callback: AsyncCallback<number>): void;
 
     /**
-     * Delete calendar instance.
-     *
-     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { Calendar } calendar - calendar to be deleted
-     * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Add multiple events.
+     * @param { Event[] } events - multiple events to add.
+     * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void
+    addEvents(events: Event[]): Promise<void>;
 
     /**
-     * Get calendar instance from database.
-     *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
-     * @returns { Promise<Calendar> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Add multiple events.
+     * @param { Event[] } events - Indicates the information about multiple events.
+     * @param { AsyncCallback<number> } callback - The callback of addEvents
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
+    addEvents(events: Event[], callback: AsyncCallback<void>): void;
 
     /**
-     * Get calendar instance from database by specified account.
-     *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
-     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Delete a single event.
+     * @param { number } id - Indicates the ID of an event.
+     * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
+    deleteEvent(id: number): Promise<void>;
 
     /**
-     * Get default calendar instance from database.
-     *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Delete a single event.
+     * @param { number } id - Indicates the ID of an event.
+     * @param {AsyncCallback<void>} callback - The callback of deleteEvent.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function getCalendar(callback: AsyncCallback<Calendar>): void;
+    deleteEvent(id: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Get all calendar instance.
-     *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @returns { Promise<Calendar[]> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Delete multiple events.
+     * @param { number[] } ids - The id array of multiple events.
+     * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function getAllCalendars(): Promise<Calendar[]>;
+    deleteEvents(ids: number[]): Promise<void>;
 
     /**
-     * Get all calendar instance.
-     *
-     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * Delete multiple events.
+     * @param { number[] } ids - Indicates the IDs of multiple events.
+     * @param {AsyncCallback<number>} callback - The callback of deleteEvents.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    function getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
+    deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
 
     /**
-     * Describes a calendar instance.
-     * @interface Calendar
+     * Update a single event.
+     * @param { Event } event - Indicates the information about a single event.
+     * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    export interface Calendar {
-        /**
-         * Id of the calendar
-         * @type { number }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        readonly id: number
-
-        /**
-         * Add a single event.
-         * @param { Event } event - Indicates the information about a single event.
-         * @returns { Promise<number> } The event ID.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        addEvent(event: Event): Promise<number>;
-
-        /**
-         * Add a single event.
-         * @param { Event } event - a single event to add.
-         * @param { AsyncCallback<number> } callback - callback of addEvent.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        addEvent(event: Event, callback: AsyncCallback<number>): void;
-
-        /**
-         * Add multiple events.
-         * @param { Event[] } events - multiple events to add.
-         * @returns { Promise<void> } The promise returned by function.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        addEvents(events: Event[]): Promise<void>;
-
-        /**
-         * Add multiple events.
-         * @param { Event[] } events - Indicates the information about multiple events.
-         * @param { AsyncCallback<number> } callback - The callback of addEvents
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        addEvents(events: Event[], callback: AsyncCallback<void>): void;
-
-        /**
-         * Delete a single event.
-         * @param { number } id - Indicates the ID of an event.
-         * @returns { Promise<void> } The promise returned by function.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        deleteEvent(id: number): Promise<void>;
-
-        /**
-         * Delete a single event.
-         * @param { number } id - Indicates the ID of an event.
-         * @param {AsyncCallback<void>} callback - The callback of deleteEvent.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        deleteEvent(id: number, callback: AsyncCallback<void>): void;
-
-        /**
-         * Delete multiple events.
-         * @param { number[] } ids - The id array of multiple events.
-         * @returns { Promise<void> } The promise returned by function.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        deleteEvents(ids: number[]): Promise<void>;
-
-        /**
-         * Delete multiple events.
-         * @param { number[] } ids - Indicates the IDs of multiple events.
-         * @param {AsyncCallback<number>} callback - The callback of deleteEvents.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
-
-        /**
-         * Update a single event.
-         * @param { Event } event - Indicates the information about a single event.
-         * @returns { Promise<void> } The promise returned by function.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        updateEvent(event: Event): Promise<void>;
-
-        /**
-         * Update a single event.
-         * @param { Event } event - Indicates the information about a single event.
-         * @param { AsyncCallback<void> } callback - The callback of updateEvent.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        updateEvent(event: Event, callback: AsyncCallback<void>): void;
-
-        /**
-         * Query events based on filter conditions.
-         * @param { ?EventFilter } eventFilter - Indicates the filtering conditions of events.
-         * @param { ?(keyof Event)[] } eventKey - Expected column to be returned.
-         * @returns { Promise<Event[]> } Information about events that match the filter conditions.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>;
-
-        /**
-         * Query events based on filter conditions.
-         * @param { EventFilter } eventFilter - Indicates the filtering conditions of events.
-         * @param { (keyof Event)[] } eventKey - Expected column to be returned.
-         * @param { AsyncCallback<Event[]> } callback - The callback of getEvents.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>):void;
-
-        /**
-         * Query all events with all column from current calendar instance.
-         * @param { AsyncCallback<Event[]> } callback - The callback of getEvents with all events.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        getEvents(callback: AsyncCallback<Event[]>):void;
-
-        /**
-         * Get calendar configure.
-         * @returns { CalendarConfig } configure of current calendar.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        getConfig(): CalendarConfig;
-
-        /**
-         * Set calendar configure.
-         * @param { CalendarConfigure } config - calendar config to set
-         * @returns { Promise<void> } The promise returned by function.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        setConfig(config: CalendarConfig): Promise<void>;
-
-        /**
-         * Set calendar configure.
-         * @param { CalendarConfigure } config - calendar config to set
-         * @param { AsyncCallback<void> } callback - callback of setConfig
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        setConfig(config: CalendarConfig, callback: AsyncCallback<void>): void;
-
-        /**
-         * Get calendar account.
-         * @returns { CalendarAccount } calendar account of current calendar.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        getAccount(): CalendarAccount;
-    }
+    updateEvent(event: Event): Promise<void>;
 
     /**
-     * Describes a calendar account.
-     * @interface CalendarAccount
+     * Update a single event.
+     * @param { Event } event - Indicates the information about a single event.
+     * @param { AsyncCallback<void> } callback - The callback of updateEvent.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    interface CalendarAccount {
-        /**
-         * Name of the calendar
-         * @type { string }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        readonly name: string;
-
-        /**
-         * Type of the calendar
-         * @type { CalendarType }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        type: CalendarType;
-
-        /**
-         * DisplayName of the calendar
-         * @type { ?string }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        displayName?: string
-    }
+    updateEvent(event: Event, callback: AsyncCallback<void>): void;
 
     /**
-     * Describes a calendar configuration.
-     * @interface CalendarConfig
+     * Query events based on filter conditions.
+     * @param { ?EventFilter } eventFilter - Indicates the filtering conditions of events.
+     * @param { ?(keyof Event)[] } eventKey - Expected column to be returned.
+     * @returns { Promise<Event[]> } Information about events that match the filter conditions.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    interface CalendarConfig {
-
-        /**
-         * Whether the calendar can remind
-         * @type { ?boolean }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        enableRemind?: boolean;
-
-        /**
-         * Color of the calendar
-         * @type { ?ResourceColor }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        color?: ResourceColor;
-    }
+    getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>;
 
     /**
-     * Describes an event information.
-     * @interface Event
+     * Query events based on filter conditions.
+     * @param { EventFilter } eventFilter - Indicates the filtering conditions of events.
+     * @param { (keyof Event)[] } eventKey - Expected column to be returned.
+     * @param { AsyncCallback<Event[]> } callback - The callback of getEvents.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    interface Event {
-        /**
-         * Id of the event
-         * @type { ?number }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        id?: number;
-
-        /**
-         * Type of the event
-         * @type { EventType }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        type: EventType;
-
-        /**
-         * Title of the event
-         * @type { ?string }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        title?: string;
-
-        /**
-         * Location of the event
-         * @type { ?Location }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        location?: Location;
-
-        /**
-         * start time of the event
-         * @type { number }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        start: number;
-
-        /**
-         * end time of the event
-         * @type { number }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        end: number;
-
-        /**
-         * Whether the event is allDay
-         * @type { ?boolean }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        isAllDay?: boolean;
-
-        /**
-         * Attendees of the event
-         * @type { ?Attendee[] }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        attendee?: Attendee[];
-
-        /**
-         * TimeZone of the event
-         * @type { ?string }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        timeZone?: string;
-
-        /**
-         * Reminder time of the event
-         * @type { ?number[] }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        remind?: number[];
-
-        /**
-         * RecurrenceRule of the event
-         * @type { ?RecurrenceRule }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        recurrenceRule?: RecurrenceRule;
-
-        /**
-         * Description of the event
-         * @type { ?string }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        description?: string;
-
-        /**
-         * Service of the event
-         * @type { ?EventService }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        service?: EventService;
-    }
+    getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>):void;
 
     /**
-     * Enum for all calendar type.
-     * @enum { string }
+     * Query all events with all column from current calendar instance.
+     * @param { AsyncCallback<Event[]> } callback - The callback of getEvents with all events.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    enum CalendarType {
-        /**
-         * Local calendar
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        LOCAL = 'local',
-
-        /**
-         * Email calendar
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        EMAIL = 'email',
-
-        /**
-         * Birthday calendar
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        BIRTHDAY = 'birthday',
-
-        /**
-         * CalDAV calendar
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        CALDAV = 'caldav',
-
-        /**
-         * Subscribed calendar
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        SUBSCRIBED = 'subscribed'
-    }
+    getEvents(callback: AsyncCallback<Event[]>):void;
 
     /**
-     * Location of an event.
-     * @interface Location
+     * Get calendar configure.
+     * @returns { CalendarConfig } configure of current calendar.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    interface Location {
-        /**
-         * Location of the event
-         * @type { ?string }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        location?: string;
-
-        /**
-         * Longitude of the location
-         * @type { ?number }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        longitude?: number;
-
-        /**
-         * Latitude of the location
-         * @type { ?number }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        latitude?: number;
-    }
+    getConfig(): CalendarConfig;
 
     /**
-     * Provides the abilities to retrive event filter.
+     * Set calendar configure.
+     * @param { CalendarConfigure } config - calendar config to set
+     * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    class EventFilter {
-        /**
-         * Filter events by event id.
-         * @param {number[]} ids id array to retrieve
-         * @returns { EventFilter } Returns the EventFilter with ids.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        static filterById(ids: number[]): EventFilter;
-
-        /**
-         * Filter events by event start time and end time.
-         * @param { number } start - start time of query range
-         * @param { number } end - end time of query range
-         * @returns { EventFilter } Returns the EventFilter with time range.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        static filterByTime(start: number, end: number): EventFilter;
-
-        /**
-         * Filter events by event title.
-         * @param { string } title - event title to qeury
-         * @returns {EventFilter } Returns the EventFilter with title.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        static filterByTitle(title: string): EventFilter;
-    }
+    setConfig(config: CalendarConfig): Promise<void>;
 
     /**
-     * Enum for supported events type.
-     * @enum { number }
+     * Set calendar configure.
+     * @param { CalendarConfigure } config - calendar config to set
+     * @param { AsyncCallback<void> } callback - callback of setConfig
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    enum EventType {
-        /**
-         * normal event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        NORMAL = 0,
-
-        /**
-         * important event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        IMPORTANT = 1,
-    }
+    setConfig(config: CalendarConfig, callback: AsyncCallback<void>): void;
 
     /**
-     * Defines the recurrence rule of event
-     * @interface RecurrenceRule
+     * Get calendar account.
+     * @returns { CalendarAccount } calendar account of current calendar.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    export interface RecurrenceRule {
-        /**
-         * RecurrenceType of recurrence event.
-         * @type { RecurrenceType }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        recurrenceType: RecurrenceType;
+    getAccount(): CalendarAccount;
+  }
 
-        /**
-         * Expiration time of recurrence event.
-         * @type { ?number }
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        expire?: number;
-    }
-
+  /**
+   * Describes a calendar account.
+   * @interface CalendarAccount
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  interface CalendarAccount {
     /**
-     * Enum for the recurrence type by different period
-     * @enum { number }
+     * Name of the calendar
+     * @type { string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    export enum RecurrenceType {
-        /**
-         * Repeat event by every year.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        YEAR = 0,
-
-        /**
-         * Repeat event by every month.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        MONTH = 1,
-
-        /**
-         * Repeat event by every week.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        WEEK = 2,
-
-        /**
-         * Recurrence event by every day.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        DAY = 3,
-    }
+    readonly name: string;
 
     /**
-     * Defines the attendee information
-     * @interface Attendee
+     * Type of the calendar
+     * @type { CalendarType }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    export interface Attendee {
-        /**
-         * Name of the Attendee.
-         * @since 10
-         * @syscap SystemCapability.Applications.CalendarData
-         */
-        name: string;
-
-        /**
-         * Email of the Attendee.
-         * @since 10
-         * @syscap SystemCapability.Applications.CalendarData
-         */
-        email: string;
-    }
+    type: CalendarType;
 
     /**
-     * Defines event service information
-     * @interface EventService
+     * DisplayName of the calendar
+     * @type { ?string }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    export interface EventService {
-        /**
-         * Type of the EventService.
-         * @since 10
-         * @syscap SystemCapability.Applications.CalendarData
-         */
-        type: ServiceType;
+    displayName?: string
+  }
 
-        /**
-         * Uri of the EventService.
-         * @since 10
-         * @syscap SystemCapability.Applications.CalendarData
-         */
-        uri: string;
-
-        /**
-         * Description of the EventService.
-         * @type { ?string }
-         * @since 10
-         * @syscap SystemCapability.Applications.CalendarData
-         */
-        description?: string;
-    }
-
+  /**
+   * Describes a calendar configuration.
+   * @interface CalendarConfig
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  interface CalendarConfig {
     /**
-     * Defines event service type
-     * @enum { string }
+     * Whether the calendar can remind
+     * @type { ?boolean }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    export enum ServiceType {
-        /**
-         * Meeting event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        MEETING = 'Meeting',
+    enableRemind?: boolean;
 
-        /**
-         * Watch drama event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        WATCHING = 'Watching',
+    /**
+     * Color of the calendar
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    color?: ResourceColor;
+  }
 
-        /**
-         * Repayment event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        REPAYMENT = 'Repayment',
+  /**
+   * Describes an event information.
+   * @interface Event
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  interface Event {
+    /**
+     * Id of the event
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    id?: number;
 
-        /**
-         * Live event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        LIVE = 'Live',
+    /**
+     * Type of the event
+     * @type { EventType }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    type: EventType;
 
-        /**
-         * Shopping event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        SHOPPING = 'Shopping',
+    /**
+     * Title of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    title?: string;
 
-        /**
-         * trip event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        TRIP = 'Trip',
+    /**
+     * Location of the event
+     * @type { ?Location }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    location?: Location;
 
-        /**
-         * Class event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        CLASS = 'Class',
+    /**
+     * start time of the event
+     * @type { number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    start: number;
 
-        /**
-         * Sports game event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        SPORTS_GAME = 'SportsEvents',
+    /**
+     * end time of the event
+     * @type { number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    end: number;
 
-        /**
-         * Sports exercise event.
-         * @syscap SystemCapability.Applications.CalendarData
-         * @since 10
-         */
-        SPORTS_EXERCISE = 'SportsExercise',
-    }
+    /**
+     * Whether the event is allDay
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    isAllDay?: boolean;
+
+    /**
+     * Attendees of the event
+     * @type { ?Attendee[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    attendee?: Attendee[];
+
+    /**
+     * TimeZone of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    timeZone?: string;
+
+    /**
+     * Reminder time of the event
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    remind?: number[];
+
+    /**
+     * RecurrenceRule of the event
+     * @type { ?RecurrenceRule }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    recurrenceRule?: RecurrenceRule;
+
+    /**
+     * Description of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    description?: string;
+
+    /**
+     * Service of the event
+     * @type { ?EventService }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    service?: EventService;
+  }
+
+  /**
+   * Enum for all calendar type.
+   * @enum { string }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  enum CalendarType {
+    /**
+     * Local calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    LOCAL = 'local',
+
+    /**
+     * Email calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    EMAIL = 'email',
+
+    /**
+     * Birthday calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    BIRTHDAY = 'birthday',
+
+    /**
+     * CalDAV calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    CALDAV = 'caldav',
+
+    /**
+     * Subscribed calendar
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    SUBSCRIBED = 'subscribed'
+  }
+
+  /**
+   * Location of an event.
+   * @interface Location
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  interface Location {
+    /**
+     * Location of the event
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    location?: string;
+
+    /**
+     * Longitude of the location
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    longitude?: number;
+
+    /**
+     * Latitude of the location
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    latitude?: number;
+  }
+
+  /**
+   * Provides the abilities to retrive event filter.
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  class EventFilter {
+    /**
+     * Filter events by event id.
+     * @param {number[]} ids id array to retrieve
+     * @returns { EventFilter } Returns the EventFilter with ids.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    static filterById(ids: number[]): EventFilter;
+
+    /**
+     * Filter events by event start time and end time.
+     * @param { number } start - start time of query range
+     * @param { number } end - end time of query range
+     * @returns { EventFilter } Returns the EventFilter with time range.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    static filterByTime(start: number, end: number): EventFilter;
+
+    /**
+     * Filter events by event title.
+     * @param { string } title - event title to query
+     * @returns {EventFilter } Returns the EventFilter with title.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    static filterByTitle(title: string): EventFilter;
+  }
+
+  /**
+   * Enum for supported events type.
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  enum EventType {
+    /**
+     * normal event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    NORMAL = 0,
+
+    /**
+     * important event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    IMPORTANT = 1,
+  }
+
+  /**
+   * Defines the recurrence rule of event
+   * @interface RecurrenceRule
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  export interface RecurrenceRule {
+    /**
+     * RecurrenceType of recurrence event.
+     * @type { RecurrenceType }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    recurrenceType: RecurrenceType;
+
+    /**
+     * Expiration time of recurrence event.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    expire?: number;
+  }
+
+  /**
+   * Enum for the recurrence type by different period
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  export enum RecurrenceType {
+    /**
+     * Repeat event by every year.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    YEAR = 0,
+
+    /**
+     * Repeat event by every month.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    MONTH = 1,
+
+    /**
+     * Repeat event by every week.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    WEEK = 2,
+
+    /**
+     * Recurrence event by every day.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    DAY = 3,
+  }
+
+  /**
+   * Defines the attendee information
+   * @interface Attendee
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  export interface Attendee {
+    /**
+     * Name of the Attendee.
+     * @since 10
+     * @syscap SystemCapability.Applications.CalendarData
+     */
+    name: string;
+
+    /**
+     * Email of the Attendee.
+     * @since 10
+     * @syscap SystemCapability.Applications.CalendarData
+     */
+    email: string;
+  }
+
+  /**
+   * Defines event service information
+   * @interface EventService
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  export interface EventService {
+    /**
+     * Type of the EventService.
+     * @since 10
+     * @syscap SystemCapability.Applications.CalendarData
+     */
+    type: ServiceType;
+
+    /**
+     * Uri of the EventService.
+     * @since 10
+     * @syscap SystemCapability.Applications.CalendarData
+     */
+    uri: string;
+
+    /**
+     * Description of the EventService.
+     * @type { ?string }
+     * @since 10
+     * @syscap SystemCapability.Applications.CalendarData
+     */
+    description?: string;
+  }
+
+  /**
+   * Defines event service type
+   * @enum { string }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @since 10
+   */
+  export enum ServiceType {
+    /**
+     * Meeting event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    MEETING = 'Meeting',
+
+    /**
+     * Watch drama event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    WATCHING = 'Watching',
+
+    /**
+     * Repayment event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    REPAYMENT = 'Repayment',
+
+    /**
+     * Live event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    LIVE = 'Live',
+
+    /**
+     * Shopping event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    SHOPPING = 'Shopping',
+
+    /**
+     * trip event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    TRIP = 'Trip',
+
+    /**
+     * Class event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    CLASS = 'Class',
+
+    /**
+     * Sports game event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    SPORTS_GAME = 'SportsEvents',
+
+    /**
+     * Sports exercise event.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
+     */
+    SPORTS_EXERCISE = 'SportsExercise',
+  }
 }
 
 export default calendarManager;
