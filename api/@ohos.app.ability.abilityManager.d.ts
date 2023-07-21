@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
@@ -216,8 +217,8 @@ declare namespace abilityManager {
    * Acquire the shared data from target ability.
    *
    * @param { number } missionId - The missionId of target ability.
-   * @param { AsyncCallback<{ object }> } callback - The callback is used to return the params of sharing
-   *                                                              data and result code.
+   * @param { AsyncCallback<{ [key: string]: Object }> } callback - The callback is used to return the params of sharing
+   *                                                 data and result code.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -231,7 +232,7 @@ declare namespace abilityManager {
    * Acquire the shared data from target ability.
    *
    * @param { number } missionId - The missionId of target ability.
-   * @returns { Promise<{ object }> } The promise returned by the function.
+   * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -240,6 +241,36 @@ declare namespace abilityManager {
    * @since 10
    */
   function acquireShareData(missionId: number): Promise<{ [key: string]: Object }>;
+
+  /**
+   * Notify the result of save as to target ability.
+   * @param { AbilityResult } parameter - Indicates the result to return.
+   * @param { number } requestCode - Request code defined by the user.
+   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function notifySaveAsResult(parameter: AbilityResult, requestCode: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Notify the result of save as to target ability.
+   * @param { AbilityResult } parameter - Indicates the result to return.
+   * @param { number } requestCode - Request code defined by the user.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
 
   /**
    * The class of an ability running information.

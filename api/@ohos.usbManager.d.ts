@@ -118,6 +118,7 @@ declare namespace usbManager {
    * @param { FunctionType } funcs - numeric mask combination of the supported function list.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
+   * @throws {BusinessError} 14400002 - Permission denied.The HDC is disabled by the system.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9

@@ -27,9 +27,11 @@
         "DataPanel",
         "DatePicker",
         "Divider",
+        "EffectComponent",
         "Ellipse",
         "Flex",
         "FormComponent",
+        "FormLink",
         "Gauge",
         "GeometryView",
         "Grid",
@@ -205,6 +207,11 @@
             "instance": "DividerInstance"
           },
           {
+            "name": "EffectComponent",
+            "type": "EffectComponentAttribute",
+            "instance": "EffectComponentInstance"
+          },
+          {
             "name": "Ellipse",
             "type": "EllipseAttribute",
             "instance": "EllipseInstance"
@@ -218,6 +225,11 @@
             "name": "FormComponent",
             "type": "FormComponentAttribute",
             "instance": "FormComponentInstance"
+          },
+          {
+            "name": "FormLink",
+            "type": "FormLinkAttribute",
+            "instance": "FormLinkInstance"
           },
           {
             "name": "Gauge",

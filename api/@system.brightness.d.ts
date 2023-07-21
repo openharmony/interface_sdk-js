@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,8 @@
  */
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @interface BrightnessResponse
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -22,7 +23,7 @@ export interface BrightnessResponse {
   /**
    * Screen brightness, which ranges from 1 to 255.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -30,7 +31,8 @@ export interface BrightnessResponse {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @interface GetBrightnessOptions
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -38,7 +40,7 @@ export interface GetBrightnessOptions {
   /**
    * Called when the current screen brightness is obtained.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -47,7 +49,7 @@ export interface GetBrightnessOptions {
   /**
    * Called when the current screen brightness fails to be obtained.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -56,7 +58,7 @@ export interface GetBrightnessOptions {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -64,7 +66,8 @@ export interface GetBrightnessOptions {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @interface SetBrightnessOptions
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -76,7 +79,7 @@ export interface SetBrightnessOptions {
    * If the value contains decimals, the integral part of the value will be used.
    * For example, if value is 8.1 is set, value 8 will be used.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -85,7 +88,7 @@ export interface SetBrightnessOptions {
   /**
    * Called when the setting is successful.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -94,7 +97,7 @@ export interface SetBrightnessOptions {
   /**
    * Called when the setting fails.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -103,7 +106,7 @@ export interface SetBrightnessOptions {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -111,7 +114,8 @@ export interface SetBrightnessOptions {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @interface BrightnessModeResponse
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -121,7 +125,7 @@ export interface BrightnessModeResponse {
    * 0: The screen brightness is manually adjusted.
    * 1: The screen brightness is automatically adjusted.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -129,7 +133,8 @@ export interface BrightnessModeResponse {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @interface GetBrightnessModeOptions
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -137,7 +142,7 @@ export interface GetBrightnessModeOptions {
   /**
    * Called when the screen brightness adjustment mode is obtained.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -146,7 +151,7 @@ export interface GetBrightnessModeOptions {
   /**
    * Called when the screen brightness adjustment mode fails to be obtained.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -155,7 +160,7 @@ export interface GetBrightnessModeOptions {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -163,7 +168,8 @@ export interface GetBrightnessModeOptions {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @interface SetBrightnessModeOptions
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -173,7 +179,7 @@ export interface SetBrightnessModeOptions {
    * 0: The screen brightness is manually adjusted.
    * 1: The screen brightness is automatically adjusted.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -182,7 +188,7 @@ export interface SetBrightnessModeOptions {
   /**
    * Called when the setting is successful.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -191,7 +197,7 @@ export interface SetBrightnessModeOptions {
   /**
    * Called when the setting fails.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -200,7 +206,7 @@ export interface SetBrightnessModeOptions {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -208,7 +214,8 @@ export interface SetBrightnessModeOptions {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @interface SetKeepScreenOnOptions
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -216,7 +223,7 @@ export interface SetKeepScreenOnOptions {
   /**
    * Whether to always keep the screen on.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -225,7 +232,7 @@ export interface SetKeepScreenOnOptions {
   /**
    * Called when the setting is successful.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -234,7 +241,7 @@ export interface SetKeepScreenOnOptions {
   /**
    * Called when the setting fails.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -243,7 +250,7 @@ export interface SetKeepScreenOnOptions {
   /**
    * Called when the execution is completed.
    *
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -251,7 +258,7 @@ export interface SetKeepScreenOnOptions {
 }
 
 /**
- * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3
  * @deprecated since 7
  */
@@ -259,8 +266,8 @@ export default class Brightness {
   /**
    * Obtains the current screen brightness.
    *
-   * @param options Options.
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @param { GetBrightnessOptions } options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -269,8 +276,8 @@ export default class Brightness {
   /**
    * Sets the screen brightness.
    *
-   * @param options Options.
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @param { SetBrightnessOptions } options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -279,8 +286,8 @@ export default class Brightness {
   /**
    * Obtains the screen brightness adjustment mode.
    *
-   * @param options Options.
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @param { GetBrightnessModeOptions } options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -289,8 +296,8 @@ export default class Brightness {
   /**
    * Sets the screen brightness adjustment mode.
    *
-   * @param options Options.
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @param { SetBrightnessModeOptions } options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */
@@ -299,8 +306,8 @@ export default class Brightness {
   /**
    * Sets whether to always keep the screen on.
    *
-   * @param options Options.
-   * @syscap SystemCapability.PowerManager.DisplayPowerManager
+   * @param { SetKeepScreenOnOptions } options Options.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
    */

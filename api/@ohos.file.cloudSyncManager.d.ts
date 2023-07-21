@@ -18,71 +18,75 @@ import type { AsyncCallback } from './@ohos.base';
 /**
  * This module provides the capabilities to manage the state and data of cloud file synchronization.
  *
- * @since 10
+ * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+ * @since 10
  */
 declare namespace cloudSyncManager {
   /**
    * Modify switch state of the application's cloud synchronization capability.
    *
-   * @since 10
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @systemapi
-   * @param {string} accountId - Current account id
-   * @param {string} bundleName - Name of bundle whose switchStatus is changing
-   * @param {boolean} status - New switch status
-   * @returns {Promise<void>} - Return Promise
+   * @param { string } accountId - Current account id
+   * @param { string } bundleName - Name of bundle whose switchStatus is changing
+   * @param { boolean } status - New switch status
+   * @returns { Promise<void> } - Return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 10
    */
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
   /**
    * Modify switch state of the application's cloud synchronization capability.
    *
-   * @since 10
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @systemapi
-   * @param {string} accountId - Current account id
-   * @param {string} bundleName - Name of bundle whose switchStatus is changing
-   * @param {boolean} status - New switch status
-   * @param {AsyncCallback<void>} [callback] - Callback function
-   * @returns {void} Return void
+   * @param { string } accountId - Current account id
+   * @param { string } bundleName - Name of bundle whose switchStatus is changing
+   * @param { boolean } status - New switch status
+   * @param { AsyncCallback<void> } [callback] - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 10
    */
-  function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean, callback: AsyncCallback<void>): void;
+  function changeAppCloudSwitch(
+    accountId: string,
+    bundleName: string,
+    status: boolean,
+    callback: AsyncCallback<void>
+  ): void;
 
   /**
    * Notify the change of data in cloud.
    *
-   * @since 10
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @systemapi
-   * @param {string} accountId - Current account id
-   * @param {string} bundleName - Name of bundle whose switchStatus is changing
-   * @returns {Promise<void>} Return Promise
+   * @param { string } accountId - Current account id
+   * @param { string } bundleName - Name of bundle whose switchStatus is changing
+   * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 10
    */
   function notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
   /**
    * Notify the change of data in cloud.
    *
-   * @since 10
-   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
-   * @systemapi
-   * @param {string} accountId - Current account id
-   * @param {string} bundleName - Name of bundle whose switchStatus is changing
-   * @param {AsyncCallback<void>} [callback] - Callback function
-   * @returns {void} Return void
+   * @param { string } accountId - Current account id
+   * @param { string } bundleName - Name of bundle whose switchStatus is changing
+   * @param { AsyncCallback<void> } [callback] - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 10
    */
   function notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 

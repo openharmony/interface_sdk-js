@@ -16,6 +16,9 @@
 
 /**
  * Declare item ceiling attribute.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  * @useinstead list/StickyStyle
@@ -23,18 +26,24 @@
 declare enum Sticky {
   /**
    * No sticky.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   None,
 
   /**
    * Normal mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   Normal,
 
   /**
    * Set opacity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   Opacity,
@@ -42,24 +51,33 @@ declare enum Sticky {
 
 /**
  * Declare whether the ListItem element is editable.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  */
 declare enum EditMode {
   /**
    * Unrestricted operations.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   None,
 
   /**
    * Deletable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   Deletable,
 
   /**
    * Movable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   Movable,
@@ -67,20 +85,30 @@ declare enum EditMode {
 
 /**
  * Sliding effect
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Sliding effect
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum SwipeEdgeEffect {
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -88,10 +116,14 @@ declare enum SwipeEdgeEffect {
 
   /**
    * Sliding to the edge has no effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sliding to the edge has no effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -100,6 +132,7 @@ declare enum SwipeEdgeEffect {
 
 /**
  * Defines the swipe action item for SwipeActionOptions.
+ *
  * @interface SwipeActionItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -108,7 +141,8 @@ declare interface SwipeActionItem {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
    * slides down (when list direction Horizontal).
-   * @type { CustomBuilder }
+   *
+   * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -116,7 +150,8 @@ declare interface SwipeActionItem {
 
   /**
    * Defines distance for the delete area.
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @default 56vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -125,7 +160,8 @@ declare interface SwipeActionItem {
 
   /**
    * Set whether to use default delete animation.
-   * @type { boolean }
+   *
+   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -134,7 +170,8 @@ declare interface SwipeActionItem {
 
   /**
    * Called when ListItem need to be deleted.
-   * @type { () => void }
+   *
+   * @type { ?(() => void) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -142,7 +179,8 @@ declare interface SwipeActionItem {
 
   /**
    * Called when swipe entry delete area.
-   * @type { () => void }
+   *
+   * @type { ?(() => void) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -150,7 +188,8 @@ declare interface SwipeActionItem {
 
   /**
    * Called when swipe exit delete area.
-   * @type { () => void }
+   *
+   * @type { ?(() => void) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -159,10 +198,16 @@ declare interface SwipeActionItem {
 
 /**
  * Defines the SwipeActionOption of swipeAction attribute method.
+ *
+ * @interface SwipeActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the SwipeActionOption of swipeAction attribute method.
+ *
+ * @interface SwipeActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -170,16 +215,18 @@ declare interface SwipeActionOptions {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
    * slides down (when list direction Horizontal).
-   * @type { CustomBuilder }
+   *
+   * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
    * slides down (when list direction Horizontal).
-   * @crossplatform
-   * @type { CustomBuilder | SwipeActionItem }
+   *
+   * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   start?: CustomBuilder | SwipeActionItem;
@@ -187,26 +234,34 @@ declare interface SwipeActionOptions {
   /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
    * slides up (when list direction Horizontal).
-   * @type { CustomBuilder }
+   *
+   * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
    * slides up (when list direction Horizontal).
-   * @crossplatform
-   * @type { CustomBuilder | SwipeActionItem }
+   *
+   * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   end?: CustomBuilder | SwipeActionItem;
 
   /**
    * Sets whether sliding to a boundary has a spring effect.
+   *
+   * @type { ?SwipeEdgeEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets whether sliding to a boundary has a spring effect.
+   *
+   * @type { ?SwipeEdgeEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -214,66 +269,132 @@ declare interface SwipeActionOptions {
 }
 
 /**
+ * Defines the list item style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ListItemStyle {
+  /**
+   * Show custom style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE = 0,
+
+  /**
+   * Show default style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CARD = 1,
+}
+
+/**
+ * Defines the list item options.
+ *
+ * @interface ListItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ListItemOptions {
+  /**
+   * Describes the ListItem style.
+   *
+   * @type { ?ListItemStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  style?: ListItemStyle;
+}
+
+/**
+ * Values in the list
+ *
+ * @interface ListItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @form
+ * Values in the list
+ *
+ * @interface ListItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
- * @form
+ * Values in the list
+ *
+ * @interface ListItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
- */
-/**
- * Values in the list
- * @since 7
- */
-/**
- * Values in the list
  * @form
- * @since 9
- */
-/**
- * Values in the list
- * @form
- * @crossplatform
- * @since 10
  */
 interface ListItemInterface {
   /**
    * Called when an interface is used.
+   *
+   * @param { ?ListItemOptions } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  (value?: ListItemOptions): ListItemAttribute;
+
+  /**
+   * Called when an interface is used.
+   * 
+   * @param { ?string } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when an interface is used.
-   * @form
+   *
+   * @param { ?string } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  /**
-   * Called when an interface is used.
+   * @deprecated since 10
+   * @useinstead listItem/ListItemInterface
    * @form
-   * @crossplatform
-   * @since 10
    */
   (value?: string): ListItemAttribute;
 }
 
 /**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @form
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
- * @form
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when setting whether item is ceiling effect.
+   *
+   * @param { Sticky } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    * @useinstead list/List#sticky
@@ -282,6 +403,10 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 
   /**
    * Called when judging whether it is editable.
+   *
+   * @param { boolean | EditMode } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    */
@@ -289,29 +414,60 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 
   /**
    * Called when judging whether it is selectable.
+   *
+   * @param { boolean } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when judging whether it is selectable.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when judging whether it is selectable.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   selectable(value: boolean): ListItemAttribute;
 
   /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   * 
+   * @param { boolean } value if the listItem is selected.
+   * @returns { ListItemAttribute } the attribute of the listItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  selected(value: boolean): ListItemAttribute;
+
+  /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
-   * @param value items defines in the SwipeActionOption.
+   *
+   * @param { SwipeActionOptions } value items defines in the SwipeActionOption.
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
-   * @param value items defines in the SwipeActionOption.
+   *
+   * @param { SwipeActionOptions } value items defines in the SwipeActionOption.
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -319,52 +475,77 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 
   /**
    * Called when the listItem is selected.
+   *
+   * @param { (isSelected: boolean) => void } event
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the listItem is selected.
-   * @form
+   *
+   * @param { (isSelected: boolean) => void } event
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the listItem is selected.
-   * @form
+   *
+   * @param { (isSelected: boolean) => void } event
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
 /**
  * Defines ListItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines ListItem Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines ListItem Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const ListItemInstance: ListItemAttribute;
 
 /**
  * Defines ListItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines ListItem Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines ListItem Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const ListItem: ListItemInterface;
+

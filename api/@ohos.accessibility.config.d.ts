@@ -26,6 +26,24 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace config {
   /**
+   * @constant
+   * Indicates the configuration of audio mono.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 10
+   */
+  const audioMono: Config<boolean>;
+  /**
+   * @constant
+   * Indicates the configuration of audio balance.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 10
+   */
+  const audioBalance: Config<number>;
+  /**
    * Indicates the configuration of high-contrast text.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -305,7 +323,9 @@ declare namespace config {
   /**
    * Indicates the type of daltonization color filter.
    *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
+   * @since 9
    */
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
 }

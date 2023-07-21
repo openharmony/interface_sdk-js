@@ -15,20 +15,30 @@
 
 /**
  * Defines the ColorMode of device.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the ColorMode of device.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum ColorMode {
   /**
    * Light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@ declare enum ColorMode {
 
   /**
    * Dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -48,20 +62,30 @@ declare enum ColorMode {
 
 /**
  * Defines the LayoutDirection of device.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the LayoutDirection of device.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum LayoutDirection {
   /**
    * Elements are laid out from left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Elements are laid out from left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -69,10 +93,14 @@ declare enum LayoutDirection {
 
   /**
    * Elements are laid out from right to left.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Elements are laid out from right to left.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -80,10 +108,14 @@ declare enum LayoutDirection {
 
   /**
    * Elements are laid out from auto.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Elements are laid out from auto.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -92,42 +124,60 @@ declare enum LayoutDirection {
 
 /**
  * Defines the base class of storage.
- * @since 7
+ *
  * @systemapi
+ * @since 7
  */
 declare class Storage {
   /**
    * Constructor parameters.
-   * @since 7
+   *
+   * @param { boolean } needCrossThread
+   * @param { string } file
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   constructor(needCrossThread?: boolean, file?: string);
 
   /**
    * Called when data is obtained.
-   * @since 7
+   *
+   * @param { string } key
+   * @returns { string | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   get(key: string): string | undefined;
 
   /**
    * Called when setting.
-   * @since 7
+   *
+   * @param { string } key
+   * @param { any } val
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   set(key: string, val: any): void;
 
   /**
    * Called when data is cleared.
-   * @since 7
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   clear(): void;
 
   /**
    * Called when data is deleted.
-   * @since 7
+   *
+   * @param { string } key
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 7
    */
   delete(key: string): void;
 }

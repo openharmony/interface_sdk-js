@@ -15,20 +15,30 @@
 
 /**
  * Declare the graphic format of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Declare the graphic format of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum BarMode {
   /**
    * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@ declare enum BarMode {
 
   /**
    * The width of all TabBars is evenly allocated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The width of all TabBars is evenly allocated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -48,20 +62,30 @@ declare enum BarMode {
 
 /**
  * Declare the location of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Declare the location of the bar chart.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum BarPosition {
   /**
    * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -69,10 +93,14 @@ declare enum BarPosition {
 
   /**
    * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -89,10 +117,14 @@ declare enum BarPosition {
 declare class TabsController {
   /**
    * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -100,10 +132,16 @@ declare class TabsController {
 
   /**
    * Called when the tab is switched.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the tab is switched.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -112,20 +150,34 @@ declare class TabsController {
 
 /**
  * Provides an interface for switching views.
+ *
+ * @interface TabsInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides an interface for switching views.
+ *
+ * @interface TabsInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface TabsInterface {
   /**
    * Called when the view is switched.
+   *
+   * @param { ?({ barPosition?: BarPosition; index?: number; controller?: TabsController }) } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the view is switched.
+   *
+   * @param { ?({ barPosition?: BarPosition; index?: number; controller?: TabsController }) } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -135,6 +187,7 @@ interface TabsInterface {
 /**
  * Provides an interface for the style of an divider including stroke width, color, start margin
  * and end margin
+ *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -143,6 +196,7 @@ interface TabsInterface {
 interface DividerStyle {
   /**
    * Define the stroke width of the divider
+   *
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -153,7 +207,8 @@ interface DividerStyle {
 
   /**
    * Define the color of the divider
-   * @type { ResourceColor }
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -162,7 +217,8 @@ interface DividerStyle {
 
   /**
    * Define the start margin of the divider
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -172,7 +228,8 @@ interface DividerStyle {
 
   /**
    * Define the end margin of the divider
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -183,20 +240,32 @@ interface DividerStyle {
 
 /**
  * Defines the tabs attribute functions.
+ *
+ * @extends CommonMethod
  * @since 7
  */
 /**
  * Defines the tabs attribute functions.
+ *
+ * @extends CommonMethod
  * @crossplatform
  * @since 10
  */
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when determining whether the tab is vertical.
+   *
+   * @param { boolean } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when determining whether the tab is vertical.
+   *
+   * @param { boolean } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -204,10 +273,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when determining the location of the bar chart.
+   *
+   * @param { BarPosition } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when determining the location of the bar chart.
+   *
+   * @param { BarPosition } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -215,10 +292,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when judging whether page switching can be performed by sliding left and right.
+   *
+   * @param { boolean } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when judging whether page switching can be performed by sliding left and right.
+   *
+   * @param { boolean } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -226,10 +311,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when the graphic format of the bar chart is selected.
+   *
+   * @param { BarMode } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the graphic format of the bar chart is selected.
+   *
+   * @param { BarMode } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -238,11 +331,19 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when the width of the bar graph is set.
    * Notice: barWidth only supports Number type on 7, supports Length type since 8.
+   *
+   * @param { Length } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the width of the bar graph is set.
    * Notice: barWidth only supports Number type on 7, supports Length type since 8.
+   *
+   * @param { Length } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -251,11 +352,19 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when the height of the bar graph is set.
    * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+   *
+   * @param { Length } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the height of the bar graph is set.
    * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+   *
+   * @param { Length } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -263,10 +372,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when the animation duration of the bar graph is set.
+   *
+   * @param { number } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the animation duration of the bar graph is set.
+   *
+   * @param { number } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -274,10 +391,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when the tab is switched.
+   *
+   * @param { (index: number) => void } event
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the tab is switched.
+   *
+   * @param { (index: number) => void } event
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -285,6 +410,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Set whether the edges of tab bar are fading.
+   *
    * @param { boolean } value - indicates whether the edges of tab bar are fading.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -295,6 +421,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Set the divider between tab bar and tab content.
+   *
    * @param { DividerStyle | null } value - indicates the style of the indicator.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -305,6 +432,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Set whether the tab bar overlaps with the tab content.
+   *
    * @param { boolean } value - indicates whether the tab bar overlaps with the tab content.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -314,6 +442,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Set the background color of the tab bar.
+   *
    * @param { ResourceColor } value - indicates the background color of the tab bar.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -324,10 +453,14 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
 /**
  * Defines Tabs Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Tabs Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -335,10 +468,14 @@ declare const Tabs: TabsInterface;
 
 /**
  * Defines Tabs Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Tabs Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

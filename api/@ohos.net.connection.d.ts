@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
-import http from "./@ohos.net.http";
-import socket from "./@ohos.net.socket";
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type http from './@ohos.net.http';
+import type socket from './@ohos.net.socket';
 
 /**
  * Provides interfaces to manage and use data networks.
@@ -37,8 +37,8 @@ declare namespace connection {
 
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -46,8 +46,8 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -60,8 +60,7 @@ declare namespace connection {
    * Obtains the data network that is activated by default.
    * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<NetHandle> } callback Returns the {@link NetHandle} object;
-   * returns {@code null} if the default network is not activated.
+   * @param { AsyncCallback<NetHandle> } callback - the callback of getDefaultNet.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -103,7 +102,7 @@ declare namespace connection {
    * Obtains the list of data networks that are activated.
    * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<Array<NetHandle>> } callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
+   * @param { AsyncCallback<Array<NetHandle>> } callback - the callback of getAllNets.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -131,8 +130,8 @@ declare namespace connection {
    * Queries the connection properties of a network.
    * This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle Indicates the network to be queried.
-   * @param { AsyncCallback<ConnectionProperties> } callback Returns the {@link ConnectionProperties} object.
+   * @param { NetHandle } netHandle - Indicates the network to be queried.
+   * @param { AsyncCallback<ConnectionProperties> } callback - the callback of getConnectionProperties.{@link ConnectionProperties}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -147,7 +146,7 @@ declare namespace connection {
    * Queries the connection properties of a network.
    * This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle Indicates the network to be queried.
+   * @param { NetHandle } netHandle - Indicates the network to be queried.
    * @returns { Promise<ConnectionProperties> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -163,8 +162,8 @@ declare namespace connection {
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
    * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle Indicates the handle. See {@link NetHandle}.
-   * @param { AsyncCallback<NetCapabilities> } callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
+   * @param { NetHandle } netHandle - Indicates the handle. See {@link NetHandle}.
+   * @param { AsyncCallback<NetCapabilities> } callback - the callback of getNetCapabilities.{@link NetCapabilities}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -179,7 +178,7 @@ declare namespace connection {
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
    * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle Indicates the handle. See {@link NetHandle}.
+   * @param { NetHandle } netHandle - Indicates the handle. See {@link NetHandle}.
    * @returns { Promise<NetCapabilities> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -194,7 +193,7 @@ declare namespace connection {
   /**
    * Checks whether data traffic usage on the current network is metered.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback Returns {@code true} if data traffic usage on the current network is metered;
+   * @param { AsyncCallback<boolean> } callback - Returns {@code true} if data traffic usage on the current network is metered;
    * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -221,7 +220,7 @@ declare namespace connection {
   /**
    * Checks whether the default data network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback Returns {@code true} if the default data network is activated;
+   * @param { AsyncCallback<boolean> } callback - Returns {@code true} if the default data network is activated;
    * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -233,7 +232,7 @@ declare namespace connection {
   /**
    * Checks whether the default data network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback Returns {@code true} if the default data network is activated;
+   * @param { AsyncCallback<boolean> } callback - Returns {@code true} if the default data network is activated;
    * returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -337,7 +336,7 @@ declare namespace connection {
   /**
    * Reports the network state is connected.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle Indicates the network whose state is to be reported.
+   * @param { NetHandle } netHandle - Indicates the network whose state is to be reported.
    * @param { AsyncCallback<void> } callback - the callback of reportNetConnected.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -352,7 +351,7 @@ declare namespace connection {
   /**
    * Reports the network state is connected.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle Indicates the network whose state is to be reported.
+   * @param { NetHandle } netHandle - Indicates the network whose state is to be reported.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -367,7 +366,7 @@ declare namespace connection {
   /**
    * Reports the network state is disconnected.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle Indicates the network whose state is to be reported.
+   * @param { NetHandle } netHandle - Indicates the network whose state is to be reported.
    * @param { AsyncCallback<void> } callback - the callback of reportNetDisconnected.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -382,7 +381,7 @@ declare namespace connection {
   /**
    * Reports the network state is disconnected.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
-   * @param { NetHandle } netHandle Indicates the network whose state is to be reported.
+   * @param { NetHandle } netHandle - Indicates the network whose state is to be reported.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -397,8 +396,8 @@ declare namespace connection {
   /**
    * Resolves the host name to obtain all IP addresses based on the default data network.
    * @permission ohos.permission.INTERNET
-   * @param { string } host Indicates the host name or the domain.
-   * @param { AsyncCallback<Array<NetAddress>> } callback Returns the NetAddress list.
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { AsyncCallback<Array<NetAddress>> } callback - Returns the NetAddress list.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -412,7 +411,7 @@ declare namespace connection {
   /**
    * Resolves the host name to obtain all IP addresses based on the default data network.
    * @permission ohos.permission.INTERNET
-   * @param { string } host Indicates the host name or the domain.
+   * @param { string } host - Indicates the host name or the domain.
    * @returns { Promise<Array<NetAddress>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -426,7 +425,7 @@ declare namespace connection {
 
   /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
-   * @param { AsyncCallback<NetHandle> } callback Returns the {@link NetHandle} bound to the process;
+   * @param { AsyncCallback<NetHandle> } callback - Returns the {@link NetHandle} bound to the process;
    * returns {@code null} if no {@link NetHandle} is bound to the process.For details, see {@link NetHandle}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -452,8 +451,8 @@ declare namespace connection {
    * <p>All the sockets created from the process will be bound to the {@code NetHandle},
    * and the resolution of all host names will be managed by the {@code NetHandle}.</p>
    * @permission ohos.permission.INTERNET
-   * @param { NetHandle } netHandle Indicates the handle. For details, see {@link NetHandle}.
-   * @param { AsyncCallback<void> } callback Returns the callback of setAppNet.
+   * @param { NetHandle } netHandle - Indicates the handle. For details, see {@link NetHandle}.
+   * @param { AsyncCallback<void> } callback - the callback of setAppNet.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -469,7 +468,7 @@ declare namespace connection {
    * <p>All the sockets created from the process will be bound to the {@code NetHandle},
    * and the resolution of all host names will be managed by the {@code NetHandle}.</p>
    * @permission ohos.permission.INTERNET
-   * @param { NetHandle } netHandle Indicates the handle. For details, see {@link NetHandle}.
+   * @param { NetHandle } netHandle - Indicates the handle. For details, see {@link NetHandle}.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -482,9 +481,40 @@ declare namespace connection {
   function setAppNet(netHandle: NetHandle): Promise<void>;
 
   /**
+   * Obtains the default {@link HttpProxy} proxy settings.
+   *
+   * If a global proxy is set, the global proxy parameters are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
+   * In other cases, the proxy settings of default network are returned.
+   *
+   * @param { AsyncCallback<HttpProxy> } callback - Returns the default {@link HttpProxy} settings.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
+
+  /**
+   * Obtains the default {@link HttpProxy} proxy settings.
+   *
+   * If a global proxy is set, the global proxy parameters are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
+   * In other cases, the proxy settings of default network are returned.
+   *
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
+  function getDefaultHttpProxy(): Promise<HttpProxy>;
+
+  /**
    * Obtains the network independent global {@link HttpProxy} proxy settings.
-   * @param { AsyncCallback<HttpProxy> } callback Returns the proxy settings. For details, see {@link HttpProxy}.
+   * @param { AsyncCallback<HttpProxy> } callback - Returns the proxy settings. For details, see {@link HttpProxy}.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -497,6 +527,7 @@ declare namespace connection {
    * Obtains the network independent global {@link HttpProxy} proxy settings.
    * @returns { Promise<HttpProxy> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -508,15 +539,16 @@ declare namespace connection {
   /**
    * Set a network independent global {@link HttpProxy} proxy settings.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { HttpProxy } httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
-   * @param { AsyncCallback<void> } callback Returns the callback of setGlobalHttpProxy.
+   * @param { HttpProxy } httpProxy - Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @param { AsyncCallback<void> } callback - the callback of setGlobalHttpProxy.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use. 
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
@@ -524,10 +556,11 @@ declare namespace connection {
   /**
    * Set a network independent global {@link HttpProxy} proxy settings.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { HttpProxy } httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @param { HttpProxy } httpProxy - Indicates the global proxy settings. For details, see {@link HttpProxy}.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
@@ -553,15 +586,15 @@ declare namespace connection {
   export interface NetConnection {
     /**
      * Registers a listener for netAvailable events.
-     * @param { 'netAvailable' } type Indicates Event name.
-     * @param { Callback<NetHandle> } callback - the callback of on.
+     * @param { 'netAvailable' } type - Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
     /**
      * Registers a listener for netAvailable events.
-     * @param { 'netAvailable' } type Indicates Event name.
-     * @param { Callback<NetHandle> } callback - the callback of on.
+     * @param { 'netAvailable' } type - Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
@@ -570,8 +603,8 @@ declare namespace connection {
 
     /**
      * Registers a listener for netBlockStatusChange events.
-     * @param { 'netBlockStatusChange' } type Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - the callback of on.
+     * @param { 'netBlockStatusChange' } type - Indicates Event name.
+     * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
@@ -579,15 +612,15 @@ declare namespace connection {
 
     /**
      * Registers a listener for **netCapabilitiesChange** events.
-     * @param { 'netCapabilitiesChange' } type Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback of on.
+     * @param { 'netCapabilitiesChange' } type - Indicates Event name.
+     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
     /**
      * Registers a listener for **netCapabilitiesChange** events.
-     * @param { 'netCapabilitiesChange' } type Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback of on.
+     * @param { 'netCapabilitiesChange' } type - Indicates Event name.
+     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
@@ -596,8 +629,8 @@ declare namespace connection {
 
     /**
      * Registers a listener for netConnectionPropertiesChange events.
-     * @param { 'netConnectionPropertiesChange' } type Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback of on.
+     * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
+     * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
@@ -605,15 +638,15 @@ declare namespace connection {
 
     /**
      * Registers a listener for **netLost** events.
-     * @param { 'netLost' } type Indicates Event name.
-     * @param { Callback<NetHandle> } callback - the callback of on.
+     * @param { 'netLost' } type - Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
     /**
      * Registers a listener for **netLost** events.
-     * @param { 'netLost' } type Indicates Event name.
-     * @param { Callback<NetHandle> } callback - the callback of on.
+     * @param { 'netLost' } type - Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
@@ -622,15 +655,15 @@ declare namespace connection {
 
     /**
      * Registers a listener for netUnavailable events.
-     * @param { 'netUnavailable' } type Indicates Event name.
-     * @param { Callback<void> } callback - the callback of on.
+     * @param { 'netUnavailable' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
     /**
      * Registers a listener for netUnavailable events.
-     * @param { 'netUnavailable' } type Indicates Event name.
-     * @param { Callback<void> } callback - the callback of on.
+     * @param { 'netUnavailable' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
@@ -749,7 +782,7 @@ declare namespace connection {
      * <p>Binds a TCPSocket or UDPSocket to the current network. All data flows from
      * the socket will use this network, without being subject to {@link setAppNet}.</p>
      * Before using this method, ensure that the socket is disconnected.
-     * @param { TCPSocket | UDPSocket } socketParam Indicates the TCPSocket or UDPSocket object.
+     * @param { TCPSocket | UDPSocket } socketParam - Indicates the TCPSocket or UDPSocket object.
      * @param { AsyncCallback<void> } callback - the callback of bindSocket.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -764,7 +797,7 @@ declare namespace connection {
      * <p>Binds a TCPSocket or UDPSocket to the current network. All data flows from
      * the socket will use this network, without being subject to {@link setAppNet}.</p>
      * Before using this method, ensure that the socket is disconnected.
-     * @param { TCPSocket | UDPSocket } socketParam Indicates the TCPSocket or UDPSocket object.
+     * @param { TCPSocket | UDPSocket } socketParam - Indicates the TCPSocket or UDPSocket object.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -778,8 +811,8 @@ declare namespace connection {
     /**
      * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
      * @permission ohos.permission.INTERNET
-     * @param { string } host Indicates the host name or the domain.
-     * @param { AsyncCallback<Array<NetAddress>> } callback Returns the NetAddress list.
+     * @param { string } host - Indicates the host name or the domain.
+     * @param { AsyncCallback<Array<NetAddress>> } callback - the callback of getAddressesByName.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -793,7 +826,7 @@ declare namespace connection {
     /**
      * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
      * @permission ohos.permission.INTERNET
-     * @param { string } host Indicates the host name or the domain.
+     * @param { string } host - Indicates the host name or the domain.
      * @returns { Promise<Array<NetAddress>> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -808,8 +841,8 @@ declare namespace connection {
     /**
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
      * @permission ohos.permission.INTERNET
-     * @param { string } host Indicates the host name or the domain.
-     * @param { AsyncCallback<NetAddress> } callback Returns the first NetAddress.
+     * @param { string } host - Indicates the host name or the domain.
+     * @param { AsyncCallback<NetAddress> } callback - the callback of getAddressByName.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -823,7 +856,7 @@ declare namespace connection {
     /**
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
      * @permission ohos.permission.INTERNET
-     * @param { string } host Indicates the host name or the domain.
+     * @param { string } host - Indicates the host name or the domain.
      * @returns { Promise<NetAddress> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.

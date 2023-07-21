@@ -17,6 +17,7 @@ import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
+import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
 
 /**
@@ -138,6 +139,30 @@ export default class ApplicationContext extends Context {
    * @since 9
    */
   off(type: 'environment', callbackId: number): Promise<void>;
+
+  /**
+   * Register applicationStateChange callback.
+   *
+   * @param { 'applicationStateChange' } type - applicationStateChange.
+   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
+
+  /**
+   * Unregister applicationStateChange callback.
+   *
+   * @param { 'applicationStateChange' } type - applicationStateChange.
+   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
   /**
    * Get information about running processes

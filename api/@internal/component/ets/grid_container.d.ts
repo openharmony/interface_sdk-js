@@ -15,6 +15,9 @@
 
 /**
  * Defines the size type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
@@ -22,30 +25,40 @@
 declare enum SizeType {
   /**
    * Select a value based on the device type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   Auto,
 
   /**
    * Select a value based on the device type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   XS,
 
   /**
    * Small width type device.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   SM,
 
   /**
    * Medium width type device.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   MD,
 
   /**
    * Large width type device.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   LG,
@@ -53,6 +66,9 @@ declare enum SizeType {
 
 /**
  * Defines the options of GridContainer.
+ *
+ * @interface GridContainerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/[GridColOptions] and grid_row/[GridRowOptions]
@@ -60,6 +76,9 @@ declare enum SizeType {
 declare interface GridContainerOptions {
   /**
    * Sets the total number of columns in the current layout.
+   *
+   * @type { ?(number | "auto") }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    */
@@ -67,6 +86,9 @@ declare interface GridContainerOptions {
 
   /**
    * Select the device width type.
+   *
+   * @type { ?SizeType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    */
@@ -74,6 +96,9 @@ declare interface GridContainerOptions {
 
   /**
    * Grid layout column spacing.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    */
@@ -81,6 +106,9 @@ declare interface GridContainerOptions {
 
   /**
    * Spacing on both sides of the grid layout.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    */
@@ -89,6 +117,9 @@ declare interface GridContainerOptions {
 
 /**
  * Defines the GridContainer component.
+ *
+ * @interface GridContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/[GridColInterface] and grid_row/[GridRowInterface]
@@ -96,6 +127,9 @@ declare interface GridContainerOptions {
 interface GridContainerInterface {
   /**
    * Defines the constructor of GridContainer.
+   *
+   * @param { ?GridContainerOptions } value
+   * @returns { GridContainerAttribute }
    * @since 7
    * @deprecated since 9
    */
@@ -104,6 +138,9 @@ interface GridContainerInterface {
 
 /**
  * Defines the grid container attribute from inheritance Column
+ *
+ * @extends ColumnAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
@@ -112,6 +149,8 @@ declare class GridContainerAttribute extends ColumnAttribute {}
 
 /**
  * Defines GridContainer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
@@ -120,6 +159,8 @@ declare const GridContainer: GridContainerInterface
 
 /**
  * Defines GridContainer Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]

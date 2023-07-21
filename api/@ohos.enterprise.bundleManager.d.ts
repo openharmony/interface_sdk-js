@@ -573,6 +573,107 @@ declare namespace bundleManager {
    * @since 10
    */
   function getDisallowedUninstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
+
+  /**
+   * Uninstall an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - indicates the bundle name of the application to be uninstalled.
+   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function uninstall(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Uninstall an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+   * @param { number } userId - userId indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function uninstall(admin: Want, bundleName: string, userId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Uninstall an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+   * @param { boolean } isKeepData - isKeepData indicates whether keep the data.
+   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function uninstall(admin: Want, bundleName: string, isKeepData: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Uninstall an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - indicates the bundle name of the application to be uninstalled.
+   * @param { number } userId - userId indicates the user ID or do not pass user ID.
+   * @param { boolean } isKeepData - isKeepData indicates whether keep the data.
+   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function uninstall(admin: Want, bundleName: string, userId: number, isKeepData: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Uninstall an application.
+   *
+   * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - indicates the bundle name of the application to be uninstalled.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @param { boolean } [isKeepData] - isKeepData indicates whether keep the data.
+   * @returns { Promise<void> } the promise of uninstalling application result.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean): Promise<void>;
 }
 
 export default bundleManager;

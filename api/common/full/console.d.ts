@@ -14,37 +14,57 @@
  */
 
 /**
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 3
-*/
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 3
+ */
 export declare class console {
   /**
    * Prints "debug" logs.
-   * @param message Text to print.
+   *
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
    */
   static debug(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "log" logs.
-   * @param message Text to print.
+   *
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
    */
   static log(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "info" logs.
-   * @param message Text to print.
+   *
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
    */
   static info(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "warn" logs.
-   * @param message Text to print.
+   *
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
    */
   static warn(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "error" logs.
-   * @param message Text to print.
+   *
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
    */
   static error(message: string, ...arguments: any[]): void;
 }

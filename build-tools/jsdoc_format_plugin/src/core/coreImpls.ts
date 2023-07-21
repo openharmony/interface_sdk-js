@@ -21,10 +21,11 @@ import { ConstantValue, Instruct, StringResourceId } from '../utils/constant';
 import { FileUtils } from '../utils/fileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { StringResource, StringUtils } from '../utils/stringUtils';
-import {
-  comment, Context, Options, LogReporter, rawInfo, sourceParser, CheckLogResult,
-  ModifyLogResult, LogWriter, JSDocModifyType, JSDocCheckErrorType
+import type {
+  Context, LogReporter, CheckLogResult, ModifyLogResult, LogWriter, JSDocModifyType,
+  JSDocCheckErrorType
 } from './typedef';
+import { comment, Options, sourceParser, rawInfo } from './typedef';
 import ts, { CommentRange, TransformationContext, TransformationResult } from 'typescript';
 
 export class ContextImpl implements Context {
@@ -219,8 +220,10 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     const handledComments: Set<string> = new Set();
     function nodeVisitor(node: ts.Node, parentNode: comment.CommentNode | undefined, sourceFile: ts.SourceFile) {
       const currentCommentNode = thiz.getCommentNode(node, parentNode, sourceFile);
+      const NOTE_LENGTH = 0;
       thiz.skipHandledComments(handledComments, currentCommentNode);
-      const hasComment: boolean = currentCommentNode.commentInfos ? currentCommentNode.commentInfos.length > 0 : false;
+      const hasComment: boolean = currentCommentNode.commentInfos ?
+        currentCommentNode.commentInfos.length > NOTE_LENGTH : false;
       const { line, character } = node.getSourceFile().getLineAndCharacterOfPosition(node.getStart());
       if (thiz.shouldNotifyCallback(node, hasComment, onlyVisitHasComment)) {
         LogUtil.d('SourceCodeParserImpl', `kind: ${node.kind}, line: ${line + 1}, ${JSON.stringify(currentCommentNode.commentInfos)}`);
@@ -241,7 +244,7 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     return forEachSourceFile;
   }
 
-  private skipHandledComments(handledComments: Set<string>, commentNode: comment.CommentNode) {
+  private skipHandledComments(handledComments: Set<string>, commentNode: comment.CommentNode): void {
     const unHandledComments: Array<comment.CommentInfo> = [];
     commentNode.commentInfos?.forEach((info) => {
       const key = `${info.pos}:${info.end}`;
@@ -324,7 +327,7 @@ export class CommentHelper {
    * @param commentKind 
    * @returns 
    */
-  static setComment(node: ts.Node, commentInfos: Array<comment.CommentInfo>, commentKind?: number) {
+  static setComment(node: ts.Node, commentInfos: Array<comment.CommentInfo>, commentKind?: number): void {
     if (commentInfos.length === 0) {
       return;
     }
@@ -357,7 +360,7 @@ export class CommentHelper {
    * 
    * @param node 
    */
-  private static ignoreOriginalComment(node: ts.Node) {
+  private static ignoreOriginalComment(node: ts.Node): void {
     // ignore the original comment
     ts.setEmitFlags(node, ts.EmitFlags.NoLeadingComments);
   }
@@ -385,6 +388,7 @@ export class CommentHelper {
     };
     let commentString = comment;
     let parsedComments = parse(commentString);
+    const START_POSITION_INDEX = 2;
     // 无法被解析的注释,可能以 /* 开头或是单行注释
     if (parsedComments.length === 0) {
       // 注释是 /// <reference path="" /> 或 单行注释
@@ -392,7 +396,7 @@ export class CommentHelper {
         commentKind === ts.SyntaxKind.SingleLineCommentTrivia) {
         commentInfo.isMultiLine = false;
         // 注释内容需丢弃 "//"
-        commentInfo.text = commentString.substring(2, commentString.length);
+        commentInfo.text = commentString.substring(START_POSITION_INDEX, commentString.length);
       }
       return commentInfo;
     }
@@ -445,7 +449,7 @@ export class CommentHelper {
     }
   }
 
-  private static fixReferenceComment(commentInfo: comment.CommentInfo, parsedCommentInfos: Array<comment.CommentInfo>) {
+  private static fixReferenceComment(commentInfo: comment.CommentInfo, parsedCommentInfos: Array<comment.CommentInfo>): void {
     if (commentInfo.isMultiLine || commentInfo.isApiComment
       || !StringUtils.hasSubstring(commentInfo.text, this.REFERENCE_COMMENT_REGEXP)) {
       return;
@@ -458,7 +462,7 @@ export class CommentHelper {
    *
    * @param commentInfos
    */
-  private static fixLicenseComment(node: ts.Node, commentInfos: comment.CommentInfo[]) {
+  private static fixLicenseComment(node: ts.Node, commentInfos: comment.CommentInfo[]): void {
     if (commentInfos.length === 0) {
       return;
     }
@@ -545,9 +549,10 @@ class CommentWriter {
     const parsedComment: comment.ParsedComment | undefined = commentInfo.parsedComment;
     // 如果没有解析过的注释对象(可能是license)，使用原始注释内容
     let plainComment = parsedComment ? this.restoreParsedComment(parsedComment, commentInfo.commentTags) : commentInfo.text;
+    const START_POSITION_INDEX = 2;
     if (commentInfo.isMultiLine) {
       // 删除起始 /* 和末尾 */ 符号
-      plainComment = plainComment.substring(2, plainComment.length - 2);
+      plainComment = plainComment.substring(START_POSITION_INDEX, plainComment.length - 2);
     }
     return plainComment;
   }
@@ -594,14 +599,14 @@ class CommentWriter {
     return stringify(parsedComment);
   }
 
-  private addNewEmptyLineIfNeeded(newSourceArray: Array<comment.CommentSource>, lastSource: comment.CommentSource) {
+  private addNewEmptyLineIfNeeded(newSourceArray: Array<comment.CommentSource>, lastSource: comment.CommentSource): void {
     if (this.shouldInsertNewEmptyLine(lastSource.tokens)) {
       // 注释还原成字符串时， number, source 属性不会被用到 
       newSourceArray.push({ number: 0, source: '', tokens: this.getNewLineToken() });
     }
   }
 
-  private addTags(newSourceArray: Array<comment.CommentSource>, commentTags: Array<comment.CommentTag>) {
+  private addTags(newSourceArray: Array<comment.CommentSource>, commentTags: Array<comment.CommentTag>): void {
     commentTags.forEach((commentTag) => {
       // tag的描述为多行,复用原始的描述信息
       const tokenSourceLen = commentTag.tokenSource.length;
@@ -806,7 +811,7 @@ export class InputParameter {
   test: boolean = false;
   options: Options = new Options();
 
-  parse() {
+  parse(): void {
     const program = new Command();
     program
       .name('jsdoc-tool')
@@ -831,7 +836,7 @@ export class InputParameter {
     this.checkInput();
   }
 
-  private checkInput() {
+  private checkInput(): void {
     this.inputFilePath = path.resolve(this.inputFilePath);
     this.outputFilePath = this.outputFilePath ? path.resolve(this.outputFilePath) : undefined;
 
@@ -875,7 +880,7 @@ export class InputParameter {
     this.options.isTest = this.test;
   }
 
-  private checkFileExists(filePath: string) {
+  private checkFileExists(filePath: string): void {
     if (!FileUtils.isExists(filePath)) {
       throw `${StringResource.getString(StringResourceId.INPUT_FILE_NOT_FOUND)}: ${filePath}`;
     }
@@ -893,7 +898,7 @@ export class InputParameter {
 export class RawSourceCodeInfoImpl extends rawInfo.RawSourceCodeInfo {
   rawInfoMap: Map<string, rawInfo.RawNodeInfo> = new Map();
 
-  addRawNodeInfo(ndoeSignature: string, node: ts.Node, line: number, character: number) {
+  addRawNodeInfo(ndoeSignature: string, node: ts.Node, line: number, character: number): void {
     this.rawInfoMap.set(ndoeSignature, {
       line: line,
       character: character,
@@ -945,7 +950,7 @@ export class LogReporterImpl implements LogReporter {
     ['moduleName', '模块名称']
   ]);
 
-  constructor() {}
+  constructor() { }
 
   setWriter(writer: LogWriter): void {
     this.writer = writer;
@@ -1045,7 +1050,8 @@ export namespace logWriter {
       if (modifyResults) {
         results.modifyResults = modifyResults;
       }
-      const jsonText: string = JSON.stringify(results, null, 2);
+      const SPACE_NUMBER = 2;
+      const jsonText: string = JSON.stringify(results, null, SPACE_NUMBER);
       const fileName: string = `${filePath}.json`;
       fs.writeFileSync(fileName, jsonText);
     }

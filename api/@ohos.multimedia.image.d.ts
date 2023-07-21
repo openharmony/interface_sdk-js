@@ -15,6 +15,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager.d.ts';
+import type rpc from './@ohos.rpc';
 
 /**
  * @namespace image
@@ -451,7 +452,199 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
-    F_NUMBER = 'FNumber'
+    F_NUMBER = 'FNumber',
+
+    /**
+     * Date time
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    DATE_TIME = 'DateTime',
+
+    /**
+     * GPS time stamp
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    GPS_TIME_STAMP = 'GPSTimeStamp',
+ 
+    /**
+     * GPS date stamp
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    GPS_DATE_STAMP = 'GPSDateStamp',
+ 
+    /**
+     * Image description
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    IMAGE_DESCRIPTION = 'ImageDescription',
+ 
+    /**
+     * Make
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    MAKE = 'Make',
+ 
+    /**
+     * Model
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    MODEL = 'Model',
+ 
+    /**
+     * Photo mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    PHOTO_MODE = 'PhotoMode',
+ 
+    /**
+     * Sensitivity type
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    SENSITIVITY_TYPE = 'SensitivityType',
+ 
+    /**
+     * Standard output sensitivity
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    STANDARD_OUTPUT_SENSITIVITY = 'StandardOutputSensitivity',
+ 
+    /**
+     * Recommended exposure index
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
+ 
+    /**
+     * ISO speed
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    ISO_SPEED = 'ISOSpeedRatings',
+ 
+    /**
+     * Aperture value
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    APERTURE_VALUE = 'ApertureValue',
+ 
+    /**
+     * Exposure bias value
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    EXPOSURE_BIAS_VALUE = 'ExposureBiasValue',
+ 
+    /**
+     * Metering mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    METERING_MODE = 'MeteringMode',
+ 
+    /**
+     * Light source
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    LIGHT_SOURCE = 'LightSource',
+ 
+    /**
+     * Flash
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    FLASH = 'Flash',
+ 
+    /**
+     * Focal length
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    FOCAL_LENGTH = 'FocalLength',
+ 
+    /**
+     * User comment
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    USER_COMMENT = 'UserComment',
+ 
+    /**
+     * Pixel x dimension
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    PIXEL_X_DIMENSION = 'PixelXDimension',
+ 
+    /**
+     * Pixel y dimension
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    PIXEL_Y_DIMENSION = 'PixelYDimension',
+ 
+    /**
+     * White balance
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    WHITE_BALANCE = 'WhiteBalance',
+ 
+    /**
+     * Focal length in 35mm film
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    FOCAL_LENGTH_IN_35_MM_FILM = 'FocalLengthIn35mmFilm',
+ 
+    /**
+     * Capture mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    CAPTURE_MODE = 'HwMnoteCaptureMode',
+ 
+    /**
+     * Physical aperture
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    PHYSICAL_APERTURE = 'HwMnotePhysicalAperture'
   }
 
   /**
@@ -2174,6 +2367,30 @@ declare namespace image {
      * @since 10
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
+
+    /**
+     * Marshalling pixelmap and write into MessageSequence.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @throws { BusinessError } 62980115 - If the input parameter invalid.
+     * @throws { BusinessError } 62980097 - If the ipc error.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    marshalling(sequence: rpc.MessageSequence): void;
+
+    /**
+     * Creates a PixelMap object based on MessageSequence parameter.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 62980115 - If the input parameter invalid.
+     * @throws { BusinessError } 62980097 - If the ipc error.
+     * @throws { BusinessError } 62980096 - If fail to create async work.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    unmarshalling(sequence: rpc.MessageSequence): Promise<PixelMap>;
 
     /**
      * Set color space of pixel map.

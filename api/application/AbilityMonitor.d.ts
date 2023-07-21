@@ -23,6 +23,15 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
+/**
+ * Provide methods for matching monitored Ability objects that meet specified conditions.
+ * The most recently matched Ability objects will be saved in the AbilityMonitor object.
+ *
+ * @interface AbilityMonitor
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 10
+ */
 export interface AbilityMonitor {
   /**
    * The name of the ability to monitor.
@@ -30,6 +39,14 @@ export interface AbilityMonitor {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * The name of the ability to monitor.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   abilityName: string;
 
@@ -40,6 +57,14 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
+  /**
+   * The name of the module to monitor.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
   moduleName?: string;
 
   /**
@@ -47,6 +72,13 @@ export interface AbilityMonitor {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Called back when the ability is created for initialization.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   onAbilityCreate?: (ability: UIAbility) => void;
 
@@ -56,6 +88,13 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
+  /**
+   * Called back when the state of the ability changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
   onAbilityForeground?: (ability: UIAbility) => void;
 
   /**
@@ -63,6 +102,13 @@ export interface AbilityMonitor {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Called back when the state of the ability changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   onAbilityBackground?: (ability: UIAbility) => void;
 
@@ -72,6 +118,13 @@ export interface AbilityMonitor {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
+  /**
+   * Called back before the ability is destroyed.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
   onAbilityDestroy?: (ability: UIAbility) => void;
 
   /**
@@ -79,6 +132,13 @@ export interface AbilityMonitor {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Called back when an ability window stage is created.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   onWindowStageCreate?: (ability: UIAbility) => void;
 
@@ -95,6 +155,13 @@ export interface AbilityMonitor {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Called back when an ability window stage is destroyed.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   onWindowStageDestroy?: (ability: UIAbility) => void;
 }

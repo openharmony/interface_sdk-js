@@ -6,6 +6,7 @@
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.PowerManager.PowerManager.Lite",
     "SystemCapability.PowerManager.BatteryManager.Lite",
+    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.Customization.ConfigPolicy",
     "SystemCapability.HiviewDFX.HiLogLite",
     "SystemCapability.HiviewDFX.HiviewLite",
@@ -14,6 +15,7 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.Cloud.AAID",
     "SystemCapability.Cloud.OAID",
     "SystemCapability.Cloud.VAID"

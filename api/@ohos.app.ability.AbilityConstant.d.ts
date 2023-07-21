@@ -186,13 +186,17 @@ declare namespace AbilityConstant {
    */
   export enum LastExitReason {
     /**
-     * Unknown reason.
+     * Exit reason : Unknown. The reason for the last exit of the target application is not recorded in the application
+     *               framework.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
     /**
+     * Exit reason : Unknown. The reason for the last exit of the target application is not recorded in the application
+     *               framework.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @crossplatform
@@ -201,22 +205,78 @@ declare namespace AbilityConstant {
     UNKNOWN = 0,
 
     /**
-     * Ability is not responding.
+     * Exit reason : Ability is not responding.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
+     * @deprecated since 10
+     * @useinstead AbilityConstant.LastExitReason#APP_FREEZE
      */
     ABILITY_NOT_RESPONDING = 1,
 
     /**
-     * Exit normally.
+     * Exit reason : normally. App exit due to user active close.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    NORMAL = 2
+    NORMAL = 2,
+
+    /**
+     * Exit reason : cpp crash. The app exit due to native exception signal.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    CPP_CRASH = 3,
+
+    /**
+     * Exit reason : js error. App exit due to js error.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    JS_ERROR = 4,
+
+    /**
+     * Exit reason : app freeze. App exit due to appFreeze error.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    APP_FREEZE = 5,
+
+    /**
+     * Exit reason : performance control. App exit due to system performance issues, such as device low memory.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    PERFORMANCE_CONTROL = 6,
+
+    /**
+     * Exit reason : resource control. App exit due to resource usage violation, such as exceed cpu/io/memory usage.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    RESOURCE_CONTROL = 7,
+
+    /**
+     * Exit reason : upgrade. App exit due to upgrade.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    UPGRADE = 8
   }
 
   /**
@@ -446,6 +506,34 @@ declare namespace AbilityConstant {
      * @since 9
      */
     APP_RECOVERY = 1
+  }
+
+  /**
+   * Continue state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  export enum ContinueState {
+    /**
+     * Mission continuable active.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    ACTIVE = 0,
+
+    /**
+     * Mission continuable inactive.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    INACTIVE = 1
   }
 }
 
