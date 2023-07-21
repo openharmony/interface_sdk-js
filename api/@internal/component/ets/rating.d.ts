@@ -41,7 +41,7 @@ interface RatingInterface {
   /**
    * Called when a score bar is created.
    *
-   * @param { { rating: number; indicator?: boolean } } options
+   * @param { object } options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -49,7 +49,7 @@ interface RatingInterface {
   /**
    * Called when a score bar is created.
    *
-   * @param { { rating: number; indicator?: boolean } } options
+   * @param { object } options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -58,7 +58,7 @@ interface RatingInterface {
   /**
    * Called when a score bar is created.
    *
-   * @param { { rating: number; indicator?: boolean } } options
+   * @param { object } options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -72,12 +72,14 @@ interface RatingInterface {
  * Defines the rating attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the rating attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -85,6 +87,7 @@ interface RatingInterface {
  * Defines the rating attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -151,7 +154,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when a picture is set.
    *
-   * @param { { backgroundUri: string; foregroundUri: string; secondaryUri?: string } } value
+   * @param { object } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -159,7 +162,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when a picture is set.
    *
-   * @param { { backgroundUri: string; foregroundUri: string; secondaryUri?: string } } value
+   * @param { object } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -168,7 +171,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when a picture is set.
    *
-   * @param { { backgroundUri: string; foregroundUri: string; secondaryUri?: string } } value
+   * @param { object } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -180,7 +183,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when the star rating of the operation scoring bar changes.
    *
-   * @param { (value: number) => void } callback
+   * @param { function } callback
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -188,7 +191,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when the star rating of the operation scoring bar changes.
    *
-   * @param { (value: number) => void } callback
+   * @param { function } callback
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -197,7 +200,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when the star rating of the operation scoring bar changes.
    *
-   * @param { (value: number) => void } callback
+   * @param { function } callback
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

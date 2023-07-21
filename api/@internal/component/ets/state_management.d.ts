@@ -125,6 +125,7 @@ declare enum LayoutDirection {
 /**
  * Defines the base class of storage.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
  */

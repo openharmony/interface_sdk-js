@@ -22,10 +22,10 @@ module.exports = {
   target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist', 'build'),
-    filename: bundleName
+    filename: bundleName,
   },
   // 调整webpack打包时模块的入口的优先级
   resolve: {
-    mainFields: ['main', 'module', 'browser']
-  }
-}
+    mainFields: ['main', 'module', 'browser'],
+  },
+};

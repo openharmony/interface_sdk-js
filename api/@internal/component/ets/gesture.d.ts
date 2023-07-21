@@ -708,7 +708,7 @@ interface TapGestureInterface {
    * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
    * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
    *
-   * @param { ?{ count?: number; fingers?: number } } value
+   * @param { object } value
    * @returns { TapGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -718,7 +718,7 @@ interface TapGestureInterface {
    * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
    * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
    *
-   * @param { ?{ count?: number; fingers?: number } } value
+   * @param { object } value
    * @returns { TapGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -729,7 +729,7 @@ interface TapGestureInterface {
   /**
    * Tap gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { TapGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -737,7 +737,7 @@ interface TapGestureInterface {
   /**
    * Tap gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { TapGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -768,7 +768,7 @@ interface LongPressGestureInterface {
    * repeat: Indicates whether to trigger event callback continuously.
    * duration: Minimum press and hold time, in milliseconds.
    *
-   * @param { ?{ fingers?: number; repeat?: boolean; duration?: number } } value
+   * @param { object } value
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -779,7 +779,7 @@ interface LongPressGestureInterface {
    * repeat: Indicates whether to trigger event callback continuously.
    * duration: Minimum press and hold time, in milliseconds.
    *
-   * @param { ?{ fingers?: number; repeat?: boolean; duration?: number } } value
+   * @param { object } value
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -790,7 +790,7 @@ interface LongPressGestureInterface {
   /**
    * LongPress gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -798,7 +798,7 @@ interface LongPressGestureInterface {
   /**
    * LongPress gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -809,7 +809,7 @@ interface LongPressGestureInterface {
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -817,7 +817,7 @@ interface LongPressGestureInterface {
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -828,7 +828,7 @@ interface LongPressGestureInterface {
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { event: () => void } event
+   * @param { function } event
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -836,7 +836,7 @@ interface LongPressGestureInterface {
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { event: () => void } event
+   * @param { function } event
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -862,14 +862,14 @@ declare class PanGestureOptions {
   /**
    * Constructor parameters.
    *
-   * @param { ?{ fingers?: number; direction?: PanDirection; distance?: number } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Constructor parameters.
    *
-   * @param { ?{ fingers?: number; direction?: PanDirection; distance?: number } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -947,7 +947,7 @@ interface PanGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
+   * @param { object } value
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -955,7 +955,7 @@ interface PanGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
+   * @param { object } value
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -966,7 +966,7 @@ interface PanGestureInterface {
   /**
    * Pan gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -974,7 +974,7 @@ interface PanGestureInterface {
   /**
    * Pan gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -985,7 +985,7 @@ interface PanGestureInterface {
   /**
    * Callback when the Pan gesture is moving.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -993,7 +993,7 @@ interface PanGestureInterface {
   /**
    * Callback when the Pan gesture is moving.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1004,7 +1004,7 @@ interface PanGestureInterface {
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1012,7 +1012,7 @@ interface PanGestureInterface {
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1023,7 +1023,7 @@ interface PanGestureInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1031,7 +1031,7 @@ interface PanGestureInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1059,7 +1059,7 @@ interface SwipeGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; direction?: SwipeDirection; speed?: number } } value
+   * @param { object } value
    * @returns { SwipeGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1067,7 +1067,7 @@ interface SwipeGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; direction?: SwipeDirection; speed?: number } } value
+   * @param { object } value
    * @returns { SwipeGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1078,7 +1078,7 @@ interface SwipeGestureInterface {
   /**
    * Slide gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { SwipeGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1086,7 +1086,7 @@ interface SwipeGestureInterface {
   /**
    * Slide gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { SwipeGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1114,7 +1114,7 @@ interface PinchGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; distance?: number } } value
+   * @param { object } value
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1122,7 +1122,7 @@ interface PinchGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; distance?: number } } value
+   * @param { object } value
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1133,7 +1133,7 @@ interface PinchGestureInterface {
   /**
    * Pan gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1141,7 +1141,7 @@ interface PinchGestureInterface {
   /**
    * Pan gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1152,7 +1152,7 @@ interface PinchGestureInterface {
   /**
    * Callback when the Pan gesture is moving.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1160,7 +1160,7 @@ interface PinchGestureInterface {
   /**
    * Callback when the Pan gesture is moving.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1171,7 +1171,7 @@ interface PinchGestureInterface {
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1179,7 +1179,7 @@ interface PinchGestureInterface {
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1190,7 +1190,7 @@ interface PinchGestureInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1198,7 +1198,7 @@ interface PinchGestureInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1226,7 +1226,7 @@ interface RotationGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; angle?: number } } value
+   * @param { object } value
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1234,7 +1234,7 @@ interface RotationGestureInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ fingers?: number; angle?: number } } value
+   * @param { object } value
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1245,7 +1245,7 @@ interface RotationGestureInterface {
   /**
    * Pan gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1253,7 +1253,7 @@ interface RotationGestureInterface {
   /**
    * Pan gesture recognition success callback.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1264,7 +1264,7 @@ interface RotationGestureInterface {
   /**
    * Callback when the Pan gesture is moving.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1272,7 +1272,7 @@ interface RotationGestureInterface {
   /**
    * Callback when the Pan gesture is moving.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1283,7 +1283,7 @@ interface RotationGestureInterface {
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1291,7 +1291,7 @@ interface RotationGestureInterface {
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    *
-   * @param { (event?: GestureEvent) => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1302,7 +1302,7 @@ interface RotationGestureInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1310,7 +1310,7 @@ interface RotationGestureInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1359,7 +1359,7 @@ interface GestureGroupInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { GestureGroupInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1367,7 +1367,7 @@ interface GestureGroupInterface {
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { GestureGroupInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -289,28 +289,36 @@ declare enum ScrollSnapAlign {
   /**
    * Default no item scroll snap alignment effect. When scroll end,
    * list item will stop without limit.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 10
    */
   NONE,
 
   /**
    * The first item in view will be aligned at the start of list.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 10
    */
   START,
 
   /**
    * The middle item in view will be aligned at the center of list.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 10
    */
   CENTER,
 
   /**
    * The last item in view will be aligned at the end of list.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @since 10
    */
   END,
@@ -429,7 +437,7 @@ interface ListInterface {
   /**
    * Called when interface data is called.
    *
-   * @param { ?{ initialIndex?: number; space?: number | string; scroller?: Scroller } } value
+   * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -437,7 +445,7 @@ interface ListInterface {
   /**
    * Called when interface data is called.
    *
-   * @param { ?{ initialIndex?: number; space?: number | string; scroller?: Scroller } } value
+   * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -446,7 +454,7 @@ interface ListInterface {
   /**
    * Called when interface data is called.
    *
-   * @param { ?{ initialIndex?: number; space?: number | string; scroller?: Scroller } } value
+   * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -488,7 +496,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when need to decide how much lanes the list will show.
    *
    * @param { number | LengthConstrain } value
-   * @param { ?Dimension } gutter
+   * @param { Dimension } gutter
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -608,12 +616,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the ListItem split line style is set.
    *
-   * @param { {
-   *   strokeWidth: Length;
-   *   color?: ResourceColor;
-   *   startMargin?: Length;
-   *   endMargin?: Length;
-   * } | null } value
+   * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -621,12 +624,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the ListItem split line style is set.
    *
-   * @param { {
-   *   strokeWidth: Length;
-   *   color?: ResourceColor;
-   *   startMargin?: Length;
-   *   endMargin?: Length;
-   * } | null } value
+   * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -635,12 +633,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the ListItem split line style is set.
    *
-   * @param { {
-   *   strokeWidth: Length;
-   *   color?: ResourceColor;
-   *   startMargin?: Length;
-   *   endMargin?: Length;
-   * } | null } value
+   * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -791,7 +784,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * 
    * @param { ScrollSnapAlign } value - options of the list alignment effect.
    * @returns { ListAttribute } the attribute of the list.
-   * @default ScrollSnapAlign.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
@@ -811,8 +803,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when setting whether to enable scroll by gesture or mouse.
    *
-   * @param { boolean }
-   * @default true
+   * @param { boolean } value
    * @returns { ListAttribute } The attribute of the list
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -824,7 +815,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called to setting the friction.
    *
    * @param { number | Resource } value - options for scrolling friction.
-   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -835,7 +825,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the offset and status callback of the slide are set.
    *
-   * @param { (scrollOffset: number, scrollState: ScrollState) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -843,7 +833,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the offset and status callback of the slide are set.
    *
-   * @param { (scrollOffset: number, scrollState: ScrollState) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -852,7 +842,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the offset and status callback of the slide are set.
    *
-   * @param { (scrollOffset: number, scrollState: ScrollState) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -864,7 +854,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the start and end positions of the display change.
    *
-   * @param { (start: number, end: number, center: number) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -872,7 +862,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the start and end positions of the display change.
    *
-   * @param { (start: number, end: number, center: number) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -881,7 +871,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the start and end positions of the display change.
    *
-   * @param { (start: number, end: number, center: number) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -893,7 +883,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the list begins to arrive.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -901,7 +891,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the list begins to arrive.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -910,7 +900,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the list begins to arrive.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -922,7 +912,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the list reaches the end.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -930,7 +920,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the list reaches the end.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -939,7 +929,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the list reaches the end.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -951,7 +941,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the slider start.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -960,7 +950,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the slider start.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -972,7 +962,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the slider stops.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -980,7 +970,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the slider stops.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -989,7 +979,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the slider stops.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1001,7 +991,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when a list item is deleted.
    *
-   * @param { (index: number) => boolean } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1012,7 +1002,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when a list item is moved.
    *
-   * @param { (from: number, to: number) => boolean } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1020,7 +1010,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when a list item is moved.
    *
-   * @param { (from: number, to: number) => boolean } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1032,7 +1022,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => ((() => any) | void) } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1041,7 +1031,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => ((() => any) | void) } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1052,7 +1042,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    *
-   * @param { (event: ItemDragInfo) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1060,7 +1050,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    *
-   * @param { (event: ItemDragInfo) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1071,7 +1061,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1079,7 +1069,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1090,7 +1080,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1098,7 +1088,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1110,7 +1100,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -1119,7 +1109,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1130,7 +1120,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1139,7 +1129,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event
+   * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

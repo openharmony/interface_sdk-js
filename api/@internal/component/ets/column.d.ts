@@ -43,7 +43,7 @@ interface ColumnInterface {
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
    *
-   * @param { ?{ space?: string | number } } value
+   * @param { object } value
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -53,7 +53,7 @@ interface ColumnInterface {
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
    *
-   * @param { ?{ space?: string | number } } value
+   * @param { object } value
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -64,7 +64,7 @@ interface ColumnInterface {
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
    *
-   * @param { ?{ space?: string | number } } value
+   * @param { object } value
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

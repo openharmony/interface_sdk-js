@@ -420,8 +420,8 @@ declare abstract class SubscribedAbstractProperty<T> {
   private info_?;
 
   /**
-   * @param { ?IPropertySubscriber } subscribeMe
-   * @param { ?string } info
+   * @param { IPropertySubscriber } subscribeMe
+   * @param { string } info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7

@@ -47,7 +47,6 @@ declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
    * Called when the alignment of image span is set.
    *
    * @param { ImageSpanAlignment } value - The alignment type of image span.
-   * @default ImageSpanAlignment.BOTTOM
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -59,7 +58,6 @@ declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value - Image display mode.
-   * @default ImageFit.Cover
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

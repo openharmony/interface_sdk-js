@@ -1647,7 +1647,7 @@ declare class CalendarAttribute {
   /**
    * Click a date to return the information about the date you clicked.
    *
-   * @param { (event: { year: number; month: number; day: number }) => void } event
+   * @param { function } event
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1656,7 +1656,7 @@ declare class CalendarAttribute {
   /**
    * Click a date to return the information about the date you clicked.
    *
-   * @param { (event: { year: number; month: number; day: number }) => void } event
+   * @param { function } event
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1668,13 +1668,7 @@ declare class CalendarAttribute {
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
    *
-   * @param { (event: {
-   *   year: number;
-   *   month: number;
-   *   currentYear: number;
-   *   currentMonth: number;
-   *   monthState: number;
-   * }) => void } event
+   * @param { function } event
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1683,13 +1677,7 @@ declare class CalendarAttribute {
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
    *
-   * @param { (event: {
-   *   year: number;
-   *   month: number;
-   *   currentYear: number;
-   *   currentMonth: number;
-   *   monthState: number;
-   * }) => void } event
+   * @param { function } event
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

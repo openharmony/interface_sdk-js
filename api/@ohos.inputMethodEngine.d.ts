@@ -18,7 +18,7 @@
 import { AsyncCallback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import LocalStorage from 'StateManagement';
+import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
 
 /**

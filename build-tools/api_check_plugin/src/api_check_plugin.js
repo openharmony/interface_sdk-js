@@ -28,7 +28,7 @@ const { checkEventSubscription } = require('./check_event_subscription');
 const { checkAnyInAPI } = require('./check_any');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList } = require('./utils');
 const ts = requireTypescriptModule();
-let result = require('../check_result.json');
+const result = require('../check_result.json');
 const rules = require('../code_style_rule.json');
 const { checkApiChanges } = require('./check_diff_changes');
 
@@ -55,8 +55,8 @@ function tsTransform(uFiles, callback) {
         compilerOptions: {
           target: ts.ScriptTarget.ES2017,
         },
-        fileName,
-        transformers: { before: [callback(filePath)] }
+        fileName: fileName,
+        transformers: { before: [callback(filePath)] },
       });
     }
   });
@@ -128,7 +128,7 @@ function reqGitApi(scanResult, prId) {
     return scanResult;
   }
   const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;
-  let res = request('GET', commentRequestPath, {
+  const res = request('GET', commentRequestPath, {
     headers: {
       'Content-Type': 'application/json;charset=UFT-8',
     },
@@ -136,9 +136,9 @@ function reqGitApi(scanResult, prId) {
   if (res.statusCode !== SUCCESS_CODE) {
     throw `The giteeAPI access failed, StatusCode:${res.statusCode}`;
   }
-  let resBody = new TextDecoder('utf-8').decode(res.body);
-  let comments = JSON.parse(`{"resultBody": ${resBody}}`);
-  let resultBody = comments.resultBody;
+  const resBody = new TextDecoder('utf-8').decode(res.body);
+  const comments = JSON.parse(`{"resultBody": ${resBody}}`);
+  const resultBody = comments.resultBody;
   if (!resultBody || resultBody.length === 0 || !(resultBody instanceof Array)) {
     throw 'The format of data returned by giteeAPI is incorrect';
   }
@@ -147,8 +147,8 @@ function reqGitApi(scanResult, prId) {
     if (!(comment && comment.user && comment.user.id && comment.body)) {
       continue;
     }
-    let userId = String(comment.user.id);
-    if (userId == rules.ciId && /^代码有更新,重置PR验证状态$/.test(comment.body)) {
+    const userId = String(comment.user.id);
+    if (userId === rules.ciId && /^代码有更新,重置PR验证状态$/.test(comment.body)) {
       break;
     }
     if (administrators.has(userId) && /^approve api check$/.test(comment.body)) {

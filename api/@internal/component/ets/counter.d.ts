@@ -93,7 +93,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listen to the event that the value increases.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -101,7 +101,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listen to the event that the value increases.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -110,7 +110,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listen to the event that the value increases.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -122,7 +122,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listens to the number decrease event.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -130,7 +130,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listens to the number decrease event.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -139,7 +139,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listens to the number decrease event.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

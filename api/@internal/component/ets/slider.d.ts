@@ -547,12 +547,14 @@ interface SliderInterface {
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -560,6 +562,7 @@ interface SliderInterface {
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -770,7 +773,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Called when the selection value changes.
    *
-   * @param { (value: number, mode: SliderChangeMode) => void } callback
+   * @param { function } callback
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -778,7 +781,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Called when the selection value changes.
    *
-   * @param { (value: number, mode: SliderChangeMode) => void } callback
+   * @param { function } callback
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -787,7 +790,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Called when the selection value changes.
    *
-   * @param { (value: number, mode: SliderChangeMode) => void } callback
+   * @param { function } callback
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

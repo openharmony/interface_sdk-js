@@ -171,7 +171,7 @@ declare interface SwipeActionItem {
   /**
    * Called when ListItem need to be deleted.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -180,7 +180,7 @@ declare interface SwipeActionItem {
   /**
    * Called when swipe entry delete area.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -189,7 +189,7 @@ declare interface SwipeActionItem {
   /**
    * Called when swipe exit delete area.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -339,7 +339,7 @@ interface ListItemInterface {
   /**
    * Called when an interface is used.
    *
-   * @param { ?ListItemOptions } value
+   * @param { ListItemOptions } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -351,7 +351,7 @@ interface ListItemInterface {
   /**
    * Called when an interface is used.
    * 
-   * @param { ?string } value
+   * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -359,7 +359,7 @@ interface ListItemInterface {
   /**
    * Called when an interface is used.
    *
-   * @param { ?string } value
+   * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -476,7 +476,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when the listItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -484,7 +484,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when the listItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -493,7 +493,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when the listItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

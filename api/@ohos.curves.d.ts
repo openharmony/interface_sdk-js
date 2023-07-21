@@ -151,7 +151,7 @@ declare namespace curves {
   /**
    * Constructs a custom curve when called.
    *
-   * @param { (fraction: number) => number } interpolate - fraction range is [0,1], the return number must between [0,1].
+   * @param { function } interpolate - fraction range is [0,1], the return number must between [0,1].
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

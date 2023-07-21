@@ -94,7 +94,7 @@ function collectAllApiDiffs(newApiMap, oldApiMap, diffReporter, oldDir, newDir) 
     collectApiDiffFromPackageMap(oldPackageMap, packageName, newApiMap, {
       diffReporter: diffReporter,
       oldDir: oldDir,
-      newDir: newDir
+      newDir: newDir,
     });
   });
   newApiMap.forEach((newPackageMap, _) => {
@@ -104,7 +104,7 @@ function collectAllApiDiffs(newApiMap, oldApiMap, diffReporter, oldDir, newDir) 
           diffReporter.addNewApi(apis[0], getSycap(apis[0]));
           const diffInfo = formatDiffInfo(apis[0], StatusCode.NEW_API, '', apis[0].getRawText(), '', apis[0].node, getSycap(apis[0]));
           diffReporter.addDiffInfo(diffInfo);
-        })
+        });
       });
     });
   });
@@ -129,10 +129,10 @@ function collectApiDiffFromPackageMap(oldPackageMap, packageName, newApiMap, ext
           const diffInfo = formatDiffInfo(apis[0], StatusCode.DELETE, apis[0].getRawText(), '',
             apis[0].node, '', getSycap(apis[0]));
           ext.diffReporter.addDiffInfo(diffInfo);
-        })
+        });
       });
       dtsPath = classNameMap.type.path;
-    })
+    });
     ext.diffReporter.addDeletedPackage(packageName, dtsPath);
   } else {
     // 比较相同dts文件
@@ -163,7 +163,7 @@ function getSycap(api) {
       if (tagInfo.tag === 'syscap') {
         syscap = tagInfo.name;
       }
-    })
+    });
     if (syscap) {
       return syscap;
     }
@@ -175,10 +175,11 @@ function getSycap(api) {
     if (/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(fileContent)) {
       fileContent.replace(/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
         syscap = sysCapInfo.replace(/\@syscap/g, '').trim();
-      })
+      });
     }
     return syscap;
   }
+  return syscap;
 }
 
 /**
@@ -201,7 +202,7 @@ function collectApiDiffFromClassMap(oldClassApi, className, newPackageMap, ext) 
       newMessage: '',
       oldNode: '',
       newNode: '',
-      syscap: getSycap(oldClassApi.type)
+      syscap: getSycap(oldClassApi.type),
     });
     oldClassApi.children.forEach((apisMap, _) => {
       apisMap.forEach((apis, _) => {
@@ -209,7 +210,7 @@ function collectApiDiffFromClassMap(oldClassApi, className, newPackageMap, ext) 
         const diffInfo = formatDiffInfo(apis[0], StatusCode.DELETE, apis[0].getRawText(), '',
           apis[0].node, '', getSycap(apis[0]));
         ext.diffReporter.addDiffInfo(diffInfo);
-      })
+      });
     });
   } else {
     // 有相同的类
@@ -233,7 +234,7 @@ function collectApiDiffFromApiNameMap(oldSignatureMap, apiName, newClassMap, ext
     // 方法被删除
     oldSignatureMap.forEach((oldApis, _) => {
       ext.diffReporter.addDeletedApi(oldApis[0], getSycap(oldApis[0]));
-    })
+    });
   } else {
     const newSignatureMap = newClassMap.get(apiName);
     const sameApiNameNumber = oldSignatureMap.size;
@@ -253,7 +254,7 @@ function collectClassApiDiffs(oldClassApi, newClassApi, ext) {
         statusCode: StatusCode.CLASS_CHANGES,
         oldMessage: oldClassDigestInfo.getRawText(),
         newMessage: newClassDigestInfo.getRawText(),
-        hint: ''
+        hint: '',
       });
     } else {
       collectJSDocDiffs(oldClassDigestInfo, newClassDigestInfo, ext.diffReporter);
@@ -297,10 +298,10 @@ function getFunctionDiff(oldApis, newClassMap, ext, sameApiNameNumber) {
       ext.diffReporter.addDiffInfo(diffInfo);
       collectJSDocDiffs(oldApis[0], apiDigestInfo[0], ext.diffReporter);
       newClassMap.delete(apiSignautre);
-    })
+    });
   } else if (sameApiNameNumber > 1) {
     let oldApiType = judgeApiType(oldApis[0].getAstNode());
-    let newApiTypeMap = new Map()
+    let newApiTypeMap = new Map();
     getEveryNewApiType(newClassMap, newApiTypeMap);
     if (newApiTypeMap.get(oldApiType) !== undefined && newApiTypeMap.get(oldApiType).size > 1) {
       ext.diffReporter.addDeletedApi(oldApis[0], getSycap(oldApis[0]));
@@ -331,8 +332,8 @@ function formatDiffInfo(api, statusCode, oldMessage, newMessage, oldNode, newNod
     hint: '',
     oldNode: oldNode,
     newNode: newNode,
-    syscap: syscap
-  }
+    syscap: syscap,
+  };
 }
 
 /**
@@ -359,7 +360,7 @@ function getEveryNewApiType(newClassMap, newApiTypeMap) {
       otherTypeApiSignautreSet.add(apiSignautre);
       newApiTypeMap.set(apiType, otherTypeApiSignautreSet);
     }
-  })
+  });
 }
 
 /**
@@ -375,7 +376,7 @@ function judgeApiType(node) {
     if (param.type && param.type.typeName && param.type.typeName.escapedText === 'AsyncCallback') {
       apiType = 'callback';
     }
-  })
+  });
   if (node.type && node.type.typeName && node.type.typeName.escapedText === 'Promise') {
     apiType = 'Promise';
   }
@@ -410,5 +411,5 @@ async function compareSdks(oldDir, newDir) {
 }
 
 exports.ApiDiffer = {
-  compareSdks: compareSdks
-}
+  compareSdks: compareSdks,
+};

@@ -83,7 +83,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * @param { import('../api/@ohos.base').Callback<{ [key: string]: Object }> } callback
+   * @param { function } callback
    * - called when data received from UIExtensionAbility
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -95,7 +95,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * @param { import('../api/@ohos.base').Callback<{code: number;want?: import('../api/@ohos.app.ability.Want').default;}> } callback
+   * @param { function } callback
    * - called when the UIExtensionAbility is terminated with result data.
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

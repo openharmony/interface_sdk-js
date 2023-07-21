@@ -41,7 +41,7 @@ interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
    *
-   * @param { ?(number | string) } min
+   * @param { number | string } min
    * @returns { BlankAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -49,7 +49,7 @@ interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
    *
-   * @param { ?(number | string) } min
+   * @param { number | string } min
    * @returns { BlankAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -58,7 +58,7 @@ interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
    *
-   * @param { ?(number | string) } min
+   * @param { number | string } min
    * @returns { BlankAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -58,7 +58,7 @@ interface PolygonInterface {
   /**
    * Called when drawing a polygon.
    *
-   * @param { ?({ width?: string | number; height?: string | number }) } value
+   * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -66,7 +66,7 @@ interface PolygonInterface {
   /**
    * Called when drawing a polygon.
    *
-   * @param { ?({ width?: string | number; height?: string | number }) } value
+   * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -75,7 +75,7 @@ interface PolygonInterface {
   /**
    * Called when drawing a polygon.
    *
-   * @param { ?({ width?: string | number; height?: string | number }) } value
+   * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

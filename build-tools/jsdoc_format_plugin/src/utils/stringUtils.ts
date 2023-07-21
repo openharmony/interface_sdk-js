@@ -75,7 +75,7 @@ export class StringUtils {
     return src.substring(0, index) + replacement + src.substring(index + replacement.length);
   }
 
-  static formatString(pattern: string, args: Array<any>): string {
+  static formatString(pattern: string, args: Array<number>): string {
     let newStr = pattern;
     for (let index = 0; index < args.length; index++) {
       newStr = newStr.replace(`$${index}`, `${args[index]}`);

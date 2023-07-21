@@ -42,7 +42,7 @@ export interface LocaleResponse {
    * ltr: The text direction is from left to right.
    * rtl: The text direction is from right to left.
    *
-   * @type { 'ltr' | 'rtl' }
+   * @type { "ltr" | "rtl" }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */

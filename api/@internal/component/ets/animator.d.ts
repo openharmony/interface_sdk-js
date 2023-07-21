@@ -221,7 +221,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, which is triggered when the animation starts to play.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -232,7 +232,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, triggered when the animation pauses.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -243,7 +243,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, triggered when the animation is replayed.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -254,7 +254,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, which is triggered when the animation is canceled.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -265,7 +265,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, which is triggered when the animation playback is complete.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -276,7 +276,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * The callback input parameter is the interpolation during animation playback.
    *
-   * @param { (value: number) => void } event
+   * @param { function } event
    * @returns { AnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

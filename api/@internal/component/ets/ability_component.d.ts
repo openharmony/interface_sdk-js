@@ -26,7 +26,7 @@ interface AbilityComponentInterface {
    * Construct the ability component.
    * Called when the ability component is used.
    *
-   * @param { { want: import('../api/@ohos.app.ability.Want').default } } value
+   * @param { object } value
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -47,7 +47,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
   /**
    * Called when the component is connected to ability.
    *
-   * @param { () => void } callback - A callback instance used when connected.
+   * @param { function } callback - A callback instance used when connected.
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -57,7 +57,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
   /**
    * Called when the component is disconnected.
    *
-   * @param { () => void } callback - A callback instance used when disconnected.
+   * @param { function } callback - A callback instance used when disconnected.
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

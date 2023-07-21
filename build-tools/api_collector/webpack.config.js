@@ -23,7 +23,7 @@ const { copyESLibs } = require('./scripts/copylibs');
 class PackPlugin {
 
   apply(compiler) {
-    compiler.hooks['done'].tap('PackPlugin', (stats) => {
+    compiler.hooks.done.tap('PackPlugin', (stats) => {
       const bundleName = 'api-collector.js';
       const bundlejsPath = path.resolve(__dirname, 'dist', 'build', bundleName);
       if (!fs.existsSync(bundlejsPath)) {
@@ -32,12 +32,12 @@ class PackPlugin {
       }
       copyESLibs();
       const libsPath = path.resolve(__dirname, 'libs');
-      const readme = path.resolve(__dirname, 'reademe.md')
+      const readme = path.resolve(__dirname, 'reademe.md');
       const outputName = path.resolve(__dirname, 'dist', `apiCollector-${packageJson.version}.zip`);
       const outputZipStream = fs.createWriteStream(outputName);
       const archive = archiver('zip');
       archive.pipe(outputZipStream);
-      archive.file(bundlejsPath, { name: bundleName })
+      archive.file(bundlejsPath, { name: bundleName });
       archive.file(readme, { name: 'README.md' });
       archive.directory(libsPath, 'libs');
       archive.finalize();
@@ -51,18 +51,18 @@ module.exports = {
   target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist', 'build'),
-    filename: 'api-collector.js'
+    filename: 'api-collector.js',
   },
   // webpack v4+ 优先使用 package.json 中的 module 字段，json5 配置了 module 字段并且
   // 通过 default 导出，因此在打包之后会出现 JSON5.parse 找不到(实际上为JSON5.default.parse)
   // 优先选择 main 字段
   resolve: {
-    mainFields: ['main', 'module', 'browser']
+    mainFields: ['main', 'module', 'browser'],
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.bundleMode': true
+      'process.env.bundleMode': true,
     }),
     new PackPlugin()
-  ]
-}
+  ],
+};

@@ -25,7 +25,7 @@ async function mergeDataBetweenVersion(oldVersion, newVersion, allVersionUrl) {
     versionArr = JSON.parse(versionNumbers);
   }).catch(err => {
     console.log('ERROR CODE:', err.code);
-  })
+  });
 
   if (versionArr.length === 0) {
     return [];
@@ -52,8 +52,8 @@ function downloadFiles(allVersionUrl) {
       } else {
         reject({ code: -1 });
       }
-    })
-  })
+    });
+  });
 }
 
 function getLink(url, fileName) {
@@ -62,14 +62,14 @@ function getLink(url, fileName) {
 
 function getVersionsData(versionUrl, callback) {
   let json = '';
-  const SUCCESS_CODE =200;
+  const SUCCESS_CODE = 200;
   const request = https.get(versionUrl, { timeout: 2000 }, function (res) {
     if (res.statusCode !== SUCCESS_CODE) {
       return;
     }
     res.on('data', function (d) {
       json += d;
-    })
+    });
   }).on('error', function (e) {
     console.log('ERROR:', e.message);
   }).on('close', () => {
@@ -89,7 +89,7 @@ async function formatExcelData(orderVersionArr, url) {
   let allMergeData = [];
   const versionUrl = getLink(url, orderVersionArr[0]);
   let oldestVersionData = [];
-  const MAX_LENGTH =2;
+  const MAX_LENGTH = 2;
   await downloadFiles(versionUrl).then(versionData => {
     oldestVersionData = JSON.parse(versionData);
   }).catch(err => {
@@ -105,7 +105,7 @@ async function formatExcelData(orderVersionArr, url) {
       oldestData.version = orderVersionArr[0];
       allMergeData.push(oldestData);
     }
-  })
+  });
   await mergeAllData(orderVersionArr, url, allMergeData);
   return allMergeData;
 }
@@ -145,7 +145,7 @@ function mergeTwoVersionData(allMergeData, newVersionData, currentVersion) {
     const data = allMergeData[i];
     for (let j = 0; j < newVersionData.length; j++) {
       if (!indexListSet.has(j) && data.newDtsName === newVersionData[j].oldDtsName &&
-        compareApiText(data.newApi, newVersionData[j].oldApi,) && data.newApi !== data.oldApi) {
+        compareApiText(data.newApi, newVersionData[j].oldApi) && data.newApi !== data.oldApi) {
         allMergeData[i].newApi = newVersionData[j].newApi;
         allMergeData[i].version = currentVersion;
         indexListSet.add(j);
@@ -158,7 +158,7 @@ function mergeTwoVersionData(allMergeData, newVersionData, currentVersion) {
       data.version = currentVersion;
       allMergeData.push(data);
     }
-  })
+  });
 }
 
 /**
@@ -205,7 +205,7 @@ function covertToMap(dataInChangelogs) {
       dataArr.push(data);
       dataMap.set(dataSignature, dataArr);
     }
-  })
+  });
   return dataMap;
 }
 
@@ -219,7 +219,7 @@ function addChangelogLink(changelogsData, diffsData, diffs) {
     changelogsData.forEach(changelogData => {
       diffData.changelogs.add({
         version: changelogData.version,
-        url: changelogData.changelog
+        url: changelogData.changelog,
       });
 
       if (changelogData.oldType !== changelogData.newType) {
@@ -254,8 +254,8 @@ function addChangelogLink(changelogsData, diffsData, diffs) {
         diffData.oldMessage = changelogData.oldApi;
         diffData.newMessage = changelogData.newApi;
       }
-    })
-  })
+    });
+  });
   return diffsData;
 }
 
@@ -274,11 +274,11 @@ function mergeDiffsAndChangelogs(changelogs, diffs) {
         }
         diffsData.forEach(diffData => {
           diffData.changelog.add(changelogData.changelog);
-        })
+        });
         changelogs.delete(dataSignature);
       });
     }
-  })
+  });
 
   changelogs.forEach((changelogData, signature) => {
     changelogData.forEach(changelogApi => {
@@ -287,8 +287,8 @@ function mergeDiffsAndChangelogs(changelogs, diffs) {
       } else {
         diffs.set(signature, [formatChangelogApi(changelogApi)]);
       }
-    })
-  })
+    });
+  });
 
   return diffs;
 }
@@ -300,16 +300,16 @@ function formatChangelogApi(changelogApi) {
     className: changelogApi.newType,
     rawText: changelogApi.newApi,
     dtsName: filePathObj.dtsPath,
-    hint: "",
+    hint: '',
     changelogs: [{
       version: changelogApi.version,
-      url: changelogApi.changelog
+      url: changelogApi.changelog,
     }],
     statusCode: StatusCode.CHANGELOG,
     status: StatusMessages[StatusCode.CHANGELOG],
     oldMessage: changelogApi.oldApi,
-    newMessage: changelogApi.newApi
-  }
+    newMessage: changelogApi.newApi,
+  };
 }
 
 function handleDtsName(dtsName) {
@@ -317,7 +317,7 @@ function handleDtsName(dtsName) {
   let dtsPath = dtsName;
   if (dtsName.indexOf('api/@internal/component/ets') > -1) {
     packageName === 'ArkUI';
-    dtsPath.replace('api/@internal/component/ets', 'component')
+    dtsPath.replace('api/@internal/component/ets', 'component');
   } else if (dtsName.indexOf('api/@internal/ets') > -1) {
     packageName = dtsName.replace('api/@internal/ets', 'api/@internal/full');
     dtsPath = packageName;

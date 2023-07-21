@@ -51,7 +51,7 @@ declare namespace Profiler {
   /**
    * Registers vsync callback for profiler.
    *
-   * @param { (info: string) => void } callback the callback info is json string with ui update info.
+   * @param { function } callback the callback info is json string with ui update info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 8
