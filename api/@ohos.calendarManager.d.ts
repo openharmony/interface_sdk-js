@@ -152,6 +152,7 @@ declare namespace calendarManager {
     /**
      * Id of the calendar
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
@@ -320,6 +321,7 @@ declare namespace calendarManager {
     /**
      * Name of the calendar
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
@@ -350,12 +352,12 @@ declare namespace calendarManager {
    */
   interface CalendarConfig {
     /**
-     * Whether the calendar can remind
+     * Whether the calendar provides a reminder
      * @type { ?boolean }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    enableRemind?: boolean;
+    enableReminder?: boolean;
 
     /**
      * Color of the calendar
@@ -411,7 +413,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    start: number;
+    startTimer: number;
 
     /**
      * end time of the event
@@ -419,7 +421,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    end: number;
+    endTimer: number;
 
     /**
      * Whether the event is allDay
@@ -451,7 +453,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    remind?: number[];
+    reminderTime?: number[];
 
     /**
      * RecurrenceRule of the event
@@ -618,12 +620,12 @@ declare namespace calendarManager {
    */
   export interface RecurrenceRule {
     /**
-     * RecurrenceType of recurrence event.
-     * @type { RecurrenceType }
+     * RecurrenceFrequency of recurrence event.
+     * @type { RecurrenceFrequency }
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    recurrenceType: RecurrenceType;
+    RecurrenceFrequency: RecurrenceFrequency;
 
     /**
      * Expiration time of recurrence event.
@@ -640,34 +642,34 @@ declare namespace calendarManager {
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
-  export enum RecurrenceType {
+  export enum RecurrenceFrequency {
     /**
-     * Repeat event by every year.
+     * The event repeats every year.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    YEAR = 0,
+    YEARLY = 0,
 
     /**
-     * Repeat event by every month.
+     * The event repeats every month.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    MONTH = 1,
+    MONTHLY = 1,
 
     /**
-     * Repeat event by every week.
+     * The event repeats every week.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    WEEK = 2,
+    WEEKLY = 2,
 
     /**
-     * Recurrence event by every day.
+     * The event repeats every day.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    DAY = 3,
+    DAILY = 3,
   }
 
   /**
@@ -679,15 +681,17 @@ declare namespace calendarManager {
   export interface Attendee {
     /**
      * Name of the Attendee.
-     * @since 10
+     * @type { string }
      * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
      */
     name: string;
 
     /**
      * Email of the Attendee.
-     * @since 10
+     * @type { string }
      * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
      */
     email: string;
   }
@@ -701,23 +705,25 @@ declare namespace calendarManager {
   export interface EventService {
     /**
      * Type of the EventService.
-     * @since 10
+     * @type { ServiceType }
      * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
      */
     type: ServiceType;
 
     /**
      * Uri of the EventService.
-     * @since 10
+     * @type { string }
      * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
      */
     uri: string;
 
     /**
      * Description of the EventService.
      * @type { ?string }
-     * @since 10
      * @syscap SystemCapability.Applications.CalendarData
+     * @since 10
      */
     description?: string;
   }
@@ -783,7 +789,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    SPORTS_GAME = 'SportsEvents',
+    SPORTS_EVENTS = 'SportsEvents',
 
     /**
      * Sports exercise event.
