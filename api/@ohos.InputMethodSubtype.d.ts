@@ -32,6 +32,7 @@ export default interface InputMethodSubtype {
   /**
    * The label id of input method subtype.
    *
+   * @type { ?number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 
 /**
@@ -252,11 +252,11 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * Subscribe input window show event.
+     * Subscribes to input window show events.
      *
      * @param { 'imeShow' } type - Indicates the event type.
      * @param { function } callback - the callback of 'imeShow'.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
@@ -276,11 +276,11 @@ declare namespace inputMethod {
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * Subscribe input window hide event.
+     * Subscribes to input window hidden events.
      *
      * @param { 'imeHide' } type - Indicates the event type.
      * @param { function } callback - the callback of 'imeHide'.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
@@ -768,6 +768,17 @@ declare namespace inputMethod {
     on(type: 'selectByRange', callback: Callback<Range>): void;
 
     /**
+     * Unregister the callback of selectedByRange.
+     *
+     * @param { 'selectByRange' } type - event type, fixed as 'selectByRange'.
+     * @param { Callback<Range> } [callback] - the callback of 'selectByRange',
+     *        when subscriber unsubscribes all callback functions of event 'selectByRange', this parameter can be left blank.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'selectByRange', callback?: Callback<Range>): void;
+
+    /**
      * Register a callback and when IME sends select event witch movement of cursor,
      * the callback will be invoked.
      *
@@ -782,22 +793,15 @@ declare namespace inputMethod {
     on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
     /**
-     * Unregister the callback of selectedByRange.
-     *
-     * @param { 'selectByRange' } type - event type, fixed as 'selectByRange'.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    off(type: 'selectByRange'): void;
-
-    /**
      * Unregister the callback of selectedByMovement.
      *
      * @param { 'selectByMovement' } type - event type, fixed as 'selectByMovement'.
+     * @param { Callback<Movement> } [callback] - the callback of 'selectByMovement',
+     *        when subscriber unsubscribes all callback functions of event 'selectByMovement', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'selectByMovement'): void;
+    off(type: 'selectByMovement', callback?: Callback<Movement>): void;
 
     /**
      * Register a callback and when IME sends insert text event, the callback will be invoked.
@@ -816,10 +820,12 @@ declare namespace inputMethod {
      * Unregister the callback of insertText.
      *
      * @param { 'insertText' } type - event type, fixed as 'insertText'.
+     * @param { function } [callback] - the callback of 'insertText',
+     *        when subscriber unsubscribes all callback functions of event 'insertText', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'insertText'): void;
+    off(type: 'insertText', callback?: (text: string) => void): void;
 
     /**
      * Register a callback and when IME sends delete left event with length,
@@ -840,10 +846,12 @@ declare namespace inputMethod {
      * Unregister the callback of deleteLeft.
      *
      * @param { 'deleteLeft' } type - event type, fixed as 'deleteLeft'.
+     * @param { function } [callback] - the callback of 'deleteLeft',
+     *        when subscriber unsubscribes all callback functions of event 'deleteLeft', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'deleteLeft'): void;
+    off(type: 'deleteLeft', callback?: (length: number) => void): void;
 
     /**
      * Register a callback and when IME sends delete right event with length,
@@ -864,10 +872,12 @@ declare namespace inputMethod {
      * Unregister the callback of deleteRight.
      *
      * @param { 'deleteRight' } type - event type, fixed as 'deleteRight'.
+     * @param { function } [callback] - the callback of 'deleteRight',
+     *        when subscriber unsubscribes all callback functions of event 'deleteRight', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'deleteRight'): void;
+    off(type: 'deleteRight', callback?: (length: number) => void): void;
 
     /**
      * Register a callback and when IME sends keyboard status, the callback will be invoked.
@@ -886,10 +896,12 @@ declare namespace inputMethod {
      * Unregister the callback of sendKeyboardStatus.
      *
      * @param { 'sendKeyboardStatus' } type - event type, fixed as 'sendKeyboardStatus'.
+     * @param { function } [callback] - the callback of 'sendKeyboardStatus',
+     *        when subscriber unsubscribes all callback functions of event 'sendKeyboardStatus', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'sendKeyboardStatus'): void;
+    off(type: 'sendKeyboardStatus', callback?: (keyBoardStatus: KeyboardStatus) => void): void;
 
     /**
      * Register a callback and when IME sends functionKey, the callback will be invoked.
@@ -909,10 +921,12 @@ declare namespace inputMethod {
      * Unregister the callback of sendFunctionKey.
      *
      * @param { 'sendFunctionKey' } type - event type, fixed as 'sendFunctionKey'.
+     * @param { function } [callback] - the callback of 'sendFunctionKey',
+     *        when subscriber unsubscribes all callback functions of event 'sendFunctionKey', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'sendFunctionKey'): void;
+    off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void;
 
     /**
      * Register a callback and when IME sends move cursor, the callback will be invoked.
@@ -932,10 +946,12 @@ declare namespace inputMethod {
      * Unregister the callback of moveCursor.
      *
      * @param { 'moveCursor' } type - event type, fixed as 'moveCursor'.
+     * @param { function } [callback] - the callback of 'moveCursor',
+     *        when subscriber unsubscribes all callback functions of event 'moveCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'moveCursor'): void;
+    off(type: 'moveCursor', callback?: (direction: Direction) => void): void;
 
     /**
      * Register a callback and when IME sends extend action code, the callback will be invoked.
@@ -954,10 +970,12 @@ declare namespace inputMethod {
      * Unregister the callback of handleExtendAction.
      *
      * @param { 'handleExtendAction' } type - event type, fixed as 'handleExtendAction'.
+     * @param { function } [callback] - the callback of 'handleExtendAction',
+     *        when subscriber unsubscribes all callback functions of event 'handleExtendAction', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'handleExtendAction'): void;
+    off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void;
 
     /**
      * Register a callback and when input method ability gets left text of cursor, the callback will be invoked.
@@ -1087,6 +1105,7 @@ declare namespace inputMethod {
     /**
      * The label id of input method
      *
+     * @type { ?number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
