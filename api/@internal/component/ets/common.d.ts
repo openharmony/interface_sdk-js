@@ -4563,9 +4563,9 @@ declare enum DragBehavior {
  * @crossplatform
  * @since 10
  */
-declare type UnifiedData = import('../api/@ohos.data.UDMF').UnifiedData;
-declare type Summary = import('../api/@ohos.data.UDMF').Summary;
-declare type UnifiedDataType = import('../api/@ohos.data.UDMF').UnifiedDataType;
+declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').UnifiedData;
+declare type Summary = import('../api/@ohos.data.unifiedDataChannel').Summary;
+declare type UnifiedDataType = import('../api/@ohos.data.uniformTypeDescriber').UnifiedDataType;
 
 /**
  * Enum for Drag Result.

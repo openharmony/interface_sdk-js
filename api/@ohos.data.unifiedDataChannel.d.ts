@@ -16,126 +16,14 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * UDMF - Unified Data Management Framework
+ * unifiedDataChannel - Unified Data Channel
  *
- * @namespace UDMF
+ * @namespace unifiedDataChannel
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  */
-declare namespace UDMF {
+declare namespace unifiedDataChannel {
   /**
-   * the data type supported by unified data
-   *
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  enum UnifiedDataType {
-    /**
-     * indicate the data type is text
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    TEXT = 'Text',
-    /**
-     * indicate the data type is plain text
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    PLAIN_TEXT = 'Text.PlainText',
-    /**
-     * indicate the data type is hyperlink
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    HYPERLINK = 'Text.Hyperlink',
-    /**
-     * indicate the data type is html
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    HTML = 'Text.HTML',
-    /**
-     * indicate the data type is File
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    FILE = 'File',
-    /**
-     * indicate the data type is image
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    IMAGE = 'File.Media.Image',
-    /**
-     * indicate the data type is video
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    VIDEO = 'File.Media.Video',
-    /**
-     * indicate the data type is audio
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    AUDIO = 'File.Media.Audio',
-    /**
-     * indicate the data type is Folder
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    FOLDER = 'File.Folder',
-    /**
-     * indicate the data type is system defined record(this kind of data is provided and bound to OpenHarmony,
-     * also can be parsed by system provided API)
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    SYSTEM_DEFINED_RECORD = 'SystemDefinedType',
-    /**
-     * indicate the data type is system defined form(this kind of data is provided and bound to OpenHarmony,
-     * also can be parsed by system provided API)
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    SYSTEM_DEFINED_FORM = 'SystemDefinedType.Form',
-    /**
-     * indicate the data type is system defined app item(this kind of data is provided and bound to OpenHarmony,
-     * also can be parsed by system provided API)
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    SYSTEM_DEFINED_APP_ITEM = 'SystemDefinedType.AppItem',
-    /**
-     * indicate the data type is system defined pixel map(this kind of data is provided and bound to OpenHarmony,
-     * also can be parsed by system provided API)
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    SYSTEM_DEFINED_PIXEL_MAP = 'SystemDefinedType.PixelMap',
-    /**
-     * indicate the data type is application defined data(this kind of data is provided and bound to OpenHarmony,
-     * also can be parsed by system provided API)
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    APPLICATION_DEFINED_RECORD = 'ApplicationDefinedType'
-  }
-
-  /**
-   * describe the unified data, which can at most contains 512 unified data records, and its maximum memory is 512M.
+   * describe the unified data.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
@@ -592,7 +480,7 @@ declare namespace UDMF {
   };
 
   /**
-   * Insert data into UDMF by Intention
+   * Insert data into unified data channel by Intention
    *
    * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
    * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
@@ -605,7 +493,7 @@ declare namespace UDMF {
   function insertData(options: Options, data: UnifiedData, callback: AsyncCallback<string>): void;
 
   /**
-   * Insert data into UDMF by Intention
+   * Insert data into unified data channel by Intention
    *
    * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
    * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
@@ -618,7 +506,7 @@ declare namespace UDMF {
   function insertData(options: Options, data: UnifiedData): Promise<string>;
 
   /**
-   * Update data to UDMF by Unique Identifier
+   * Update data to unified data channel by Unique Identifier
    *
    * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
    * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
@@ -631,7 +519,7 @@ declare namespace UDMF {
   function updateData(options: Options, data: UnifiedData, callback: AsyncCallback<void>): void;
 
   /**
-   * Update data to UDMF by Unique Identifier
+   * Update data to unified data channel by Unique Identifier
    *
    * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
    * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
@@ -644,7 +532,7 @@ declare namespace UDMF {
   function updateData(options: Options, data: UnifiedData): Promise<void>;
 
   /**
-   * Query data of UDMF by Intention or Unique Identifier
+   * Query data of unified data channel by Intention or Unique Identifier
    *
    * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
    * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
@@ -656,7 +544,7 @@ declare namespace UDMF {
   function queryData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
 
   /**
-   * Query data of UDMF by Intention or Unique Identifier
+   * Query data of unified data channel by Intention or Unique Identifier
    *
    * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
@@ -668,7 +556,7 @@ declare namespace UDMF {
   function queryData(options: Options): Promise<Array<UnifiedData>>;
 
   /**
-   * Delete data of UDMF by Intention or Unique Identifier
+   * Delete data of unified data channel by Intention or Unique Identifier
    *
    * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
    * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
@@ -680,7 +568,7 @@ declare namespace UDMF {
   function deleteData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
 
   /**
-   * Delete data of UDMF by Intention or Unique Identifier
+   * Delete data of unified data channel by Intention or Unique Identifier
    *
    * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
    * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
@@ -692,4 +580,4 @@ declare namespace UDMF {
   function deleteData(options: Options): Promise<Array<UnifiedData>>;
 }
 
-export default UDMF;
+export default unifiedDataChannel;
