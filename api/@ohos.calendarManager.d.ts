@@ -625,7 +625,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    RecurrenceFrequency: RecurrenceFrequency;
+    recurrenceFrequency: RecurrenceFrequency;
 
     /**
      * Expiration time of recurrence event.
