@@ -16,7 +16,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This module provides the capabilities to control cloud file synchronization.
+ * Provides the capabilities to control cloud file synchronization.
  *
  * @namespace cloudSync
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -169,7 +169,7 @@ declare namespace cloudSync {
      */
     state: SyncState;
     /**
-     * The error type of sync failed.
+     * The error type of sync.
      *
      * @type { ErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -241,7 +241,7 @@ declare namespace cloudSync {
      */
     start(): Promise<void>;
     /**
-     * Start the gallery sync task.
+     * Start the gallery sync task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { AsyncCallback<void> } [callback] - Callback function.
@@ -270,7 +270,7 @@ declare namespace cloudSync {
      */
     stop(): Promise<void>;
     /**
-     * Stop the gallery sync task.
+     * Stop the gallery sync task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { AsyncCallback<void> } [callback] - Callback function.
@@ -285,7 +285,7 @@ declare namespace cloudSync {
   }
 
   /**
-   * Describes the State type in downloading.
+   * Describes the State type of download.
    *
    * @enum { number }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -436,7 +436,7 @@ declare namespace cloudSync {
      */
     start(uri: string): Promise<void>;
     /**
-     * Start the download task.
+     * Start the download task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { string } uri - uri of file.
@@ -466,7 +466,7 @@ declare namespace cloudSync {
      */
     stop(uri: string): Promise<void>;
     /**
-     * Stop the download task.
+     * Stop the download task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { string } uri - uri of file.
