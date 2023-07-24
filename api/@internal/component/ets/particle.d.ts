@@ -68,7 +68,7 @@ interface ParticleOptions<
   scale?: ParticlePropertyOptions<number, SCALE_UPDATER>;
 
   /**
-   * particle velocity.
+   * Particle velocity.
    * @type { speed: [number, number]; angle: [number, number] }
    * @default {speed:[0,0];angle:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -105,7 +105,7 @@ interface ParticleOptions<
 }
 
 /**
- * Defines the point particle parameters.
+ * Defines the parameters for a point-like particle.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -122,7 +122,7 @@ interface PointParticleParameters {
 }
 
 /**
- * Defines the image particle parameters.
+ * Defines the parameters for an image-like particle.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -147,7 +147,7 @@ interface ImageParticleParameters {
   size: [Dimension, Dimension];
 
   /**
-   * Sets the zoom type of an image.
+   * Image fit.
    * @type { ImageFit }
    * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -157,9 +157,15 @@ interface ImageParticleParameters {
   objectFit?: ImageFit;
 }
 
+/**
+ * Defines the particle configs.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 interface ParticleConfigs {
   /**
-   * Sets point type of Particle.
+   * Point-like Particle.
    * @type { PointParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -168,7 +174,7 @@ interface ParticleConfigs {
   [ParticleType.POINT]: PointParticleParameters;
 
   /**
-   * Sets image type of Particle.
+   * Image-like Particle.
    * @type { PointParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -184,6 +190,13 @@ interface ParticleConfigs {
  * @since 10
  */
 interface EmitterOptions<PARTICLE extends ParticleType> {
+  /**
+   * Set particle config.
+   * @type { object } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */      
   particle: {
     /**
      * Particle type.
@@ -223,7 +236,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   };
 
   /**
-   * Rate of emitter, number of particles produced per second.
+   * Emitting rate, that is, the number of particles produced per second.
    * @type { number }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -244,7 +257,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
   /**
    * Position of emitter.
-   * The first element  means X-axis location.
+   * The first element means X-axis location.
    * The second element means the Y-axis location.
    * @type { [Dimension, Dimension] }
    * @default [0,0]
@@ -255,8 +268,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   position?: [Dimension, Dimension];
 
   /**
-   * Position of emitter.
-   * The first element  means emitter width.
+   * Size of emitter.
+   * The first element means emitter width.
    * The second element means emitter height.
    * @type { [Dimension, Dimension] }
    * @default ['100%','100%']
@@ -273,9 +286,9 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  * @crossplatform
  * @since 10
  */
-interface ParticlePropertyUpdatorConfigs<T> {
+interface ParticlePropertyUpdaterConfigs<T> {
   /**
-   * No effecet of particle updater.
+   * No effect of particle updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -283,8 +296,8 @@ interface ParticlePropertyUpdatorConfigs<T> {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * Random effecet of particle updater.
-   * The first element  means emitter width.
+   * Random effect of particle updater.
+   * The first element means emitter width.
    * The second element means emitter height.
    * @type { [T, T] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -294,7 +307,7 @@ interface ParticlePropertyUpdatorConfigs<T> {
   [ParticleUpdater.RANDOM]: [T, T];
 
   /**
-   * Curve effecet of particle updater.
+   * Curve effect of particle updater.
    * @type { Array<ParticlePropertyAnimation<T>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -311,7 +324,7 @@ interface ParticlePropertyUpdatorConfigs<T> {
  */
 interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
-   * Particle property range.
+   * Initial range, within which the initial value are randomly generated.
    * @type { [T, T] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -321,15 +334,15 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 
   /**
    * Particle property updater.
-   * @type { type: UPDATER; config: ParticlePropertyUpdatorConfigs<TYPE>[UPDATER] }
-   * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdatorConfigs<UPDATER.NONE>[UPDATER.NONE]}
+   * @type { type: UPDATER; config: ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
+   * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdaterConfigs<UPDATER.NONE>[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   updater?: {
     type: UPDATER;
-    config: ParticlePropertyUpdatorConfigs<TYPE>[UPDATER];
+    config: ParticlePropertyUpdaterConfigs<TYPE>[UPDATER];
   };
 }
 
@@ -339,9 +352,9 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
  * @crossplatform
  * @since 10
  */
-interface ParticleColorPropertyUpdatorConfigs {
+interface ParticleColorPropertyUpdaterConfigs {
   /**
-   * No effecet of particle color Property updater.
+   * No effect of particle color property updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -349,7 +362,8 @@ interface ParticleColorPropertyUpdatorConfigs {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * Random effecet of particle color Property updater.
+   * Random effect of particle color property updater.
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -362,7 +376,9 @@ interface ParticleColorPropertyUpdatorConfigs {
   };
 
   /**
-   * Curve effecet of particle color Property updater.
+   * Curve effect of particle color property updater.
+   * 
+   * @type { Array<ParticlePropertyAnimation<ResourceColor>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -378,7 +394,7 @@ interface ParticleColorPropertyUpdatorConfigs {
  */
 interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   /**
-   * Particle color property range.
+   * Initial color range, within which the initial color is randomly generated.
    * @type { [ResourceColor, ResourceColor] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -388,15 +404,15 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 
   /**
    * Particle color property updater.
-   * @type { ?{type: UPDATER;config: ParticleColorPropertyUpdatorConfigs[UPDATER];} }
-   * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdatorConfigs[UPDATER.NONE]}
+   * @type { ?{type: UPDATER;config: ParticleColorPropertyUpdaterConfigs[UPDATER];} }
+   * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */    
   updater?: {
     type: UPDATER;
-    config: ParticleColorPropertyUpdatorConfigs[UPDATER];
+    config: ParticleColorPropertyUpdaterConfigs[UPDATER];
   };
 }
 
@@ -408,7 +424,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
  */
 interface ParticlePropertyAnimation<T> {
   /**
-   * particle scale beginning position.
+   * Start position of the particle animation. 
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -417,7 +433,7 @@ interface ParticlePropertyAnimation<T> {
   from: T;
 
   /**
-   * Particle scale ending position.
+   * End position of the particle animation.
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -426,25 +442,25 @@ interface ParticlePropertyAnimation<T> {
   to: T;
 
   /**
-   * Particle scale start milis.
+   * Start millis of the particle animation.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  startMilis: number;
+  startMillis: number;
 
   /**
-   * Particle scale end milis.
+   * End millis of the particle animation. 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  endMilis: number;
+  endMillis: number;
 
   /**
-   * Particle scale animation curve.
+   * Curve of the particle animation.
    * @type { ?(Curve | ICurve) }
    * @crossplatform
    * @since 10
@@ -461,7 +477,8 @@ interface ParticlePropertyAnimation<T> {
 interface ParticleInterface {
   /**
    * ImageAnimator is returned.
-   * @param { Array<ParticleOptions<PARTICLE,COLOR_UPDATER,OPACITY_UPDATER,SCALE_UPDATER,ACC_SPEED_UPDATER,ACC_ANGLE_UPDATER,SPIN_UPDATER>> } particles - list of ParticleOptions.
+   * @param { Array<ParticleOptions<PARTICLE,COLOR_UPDATER,OPACITY_UPDATER,SCALE_UPDATER,ACC_SPEED_UPDATER,ACC_ANGLE_UPDATER,SPIN_UPDATER>> } 
+   * particles - list of ParticleOptions.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -477,21 +494,21 @@ interface ParticleInterface {
     SPIN_UPDATER extends ParticleUpdater
   >(value: {
     particles: Array<
-      ParticleOptions<
-        PARTICLE,
-        COLOR_UPDATER,
-        OPACITY_UPDATER,
-        SCALE_UPDATER,
-        ACC_SPEED_UPDATER,
-        ACC_ANGLE_UPDATER,
-        SPIN_UPDATER
-      >
+    ParticleOptions<
+    PARTICLE,
+    COLOR_UPDATER,
+    OPACITY_UPDATER,
+    SCALE_UPDATER,
+    ACC_SPEED_UPDATER,
+    ACC_ANGLE_UPDATER,
+    SPIN_UPDATER
+    >
     >;
   }): ParticleAttribute;
 }
 
 /**
- * The type of particle.
+ * Enumerates the particle types.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -499,24 +516,24 @@ interface ParticleInterface {
  */
 declare enum ParticleType {
   /**
-   * Indicating particle type a point.
+   * Point-like particle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  POINT = "point",
+  POINT = 'point',
 
   /**
-   * Indicating particle type a Image.
+   * Image-like particle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  IMAGE = "image",
+  IMAGE = 'image',
 }
 
 /**
- * The type of particle.
+ * Enumerates the emitter shapes of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -524,32 +541,32 @@ declare enum ParticleType {
  */
 declare enum ParticleEmitterShape {
   /**
-   * Indicating emitter shape a rectangle.
+   * Rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  RECTANGLE = "rectangle",
+  RECTANGLE = 'rectangle',
 
   /**
-   * Indicating emitter shape a circle.
+   * Circle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  CIRCLE = "circle",
+  CIRCLE = 'circle',
 
   /**
-   * Indicating emitter shape a ellipsis.
+   * Ellipse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  ELLIPSIS = "ellipsis",
+  ELLIPSE = 'ellipse',
 }
 
 /**
- * The type of particle.
+ * Enumerates the updater types of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -557,28 +574,28 @@ declare enum ParticleEmitterShape {
  */
 declare enum ParticleUpdater {
   /**
-   * Indicating none updater type.
+   * No updater is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */  
-  NONE = "none",
+  NONE = 'none',
 
   /**
-   * Indicating random updater type.
+   * Random updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  RANDOM = "random",
+  RANDOM = 'random',
 
   /**
-   * Indicating curve updater type.
+   * Curve updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  CURVE = "curve",
+  CURVE = 'curve',
 }
 
 /**
