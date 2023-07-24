@@ -103,14 +103,14 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    OPENHARMONY_APP_ITEM = 'openharmony.appitem',
+    OPENHARMONY_APP_ITEM = 'openharmony.app-item',
     /**
      * indicate the data type is OpenHarmony system defined pixel map(the data is provided and bound to OpenHarmony system)
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    OPENHARMONY_PIXEL_MAP = 'openharmony.pixelmap'
+    OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map'
   }
 }
 
