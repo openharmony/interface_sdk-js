@@ -394,7 +394,7 @@ declare namespace networkManager {
   /**
    * Firewall rule
    *
-   * @typedef RemoveFilterRule
+   * @typedef FirewallRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -493,7 +493,7 @@ declare namespace networkManager {
   /**
    * Domain filter rule
    *
-   * @typedef RemoveFilterRule
+   * @typedef DomainFilterRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -937,7 +937,6 @@ declare namespace networkManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { FirewallRule } firewallRule - firewall rule that needs to be added.
-   * @returns { void } nothing is returned if the call succeed.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -958,7 +957,6 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { FirewallRule } firewallRule - matching rule used to remove firewall rule.
    *    if firewallRule or firewallRule#direction,firewallRule#action is empty, multiple firewall rule can be removed.
-   * @returns { void } nothing is returned if the call succeed.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -997,7 +995,6 @@ declare namespace networkManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { DomainFilterRule } domainFilterRule - domain filter rule that needs to be added.
-   * @returns { void } nothing is returned if the call succeed.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -1018,7 +1015,6 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { DomainFilterRule } domainFilterRule - matching rule used to remove domain filter rule.
    *    if domainFilterRule or domainFilterRule#action is empty, multiple domain filter rule can be removed.
-   * @returns { void } nothing is returned if the call succeed.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
