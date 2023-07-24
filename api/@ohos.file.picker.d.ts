@@ -16,7 +16,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * This module provides the capabilities to use different pickers.
+ * Provide the capabilities to use different pickers.
  *
  * @namespace picker
  * @syscap SystemCapability.FileManagement.UserFileService
@@ -133,7 +133,7 @@ declare namespace picker {
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
-     * Pull up the photo picker based on the default mode.
+     * Pull up the photo picker based on the selection mode.
      *
      * @param { AsyncCallback<PhotoSelectResult> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -162,7 +162,7 @@ declare namespace picker {
     save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the photo picker based on the default mode.
+     * Pull up the photo picker based on the save mode.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -227,7 +227,7 @@ declare namespace picker {
     select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the document picker based on the default mode.
+     * Pull up the document picker based on the selection mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -259,7 +259,7 @@ declare namespace picker {
     save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the document picker based on the default mode.
+     * Pull up the document picker based on the save mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -325,7 +325,7 @@ declare namespace picker {
     select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the audio picker based on the default mode.
+     * Pull up the audio picker based on the selection mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -357,7 +357,7 @@ declare namespace picker {
     save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the audio picker based on the default mode.
+     * Pull up the audio picker based on the save mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback

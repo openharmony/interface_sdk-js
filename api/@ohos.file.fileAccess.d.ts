@@ -665,7 +665,7 @@ declare namespace fileAccess {
   }
 
   /**
-   * CopyResult describe the return information of the copy operation.
+   * Describes the return information of the copy operation.
    *
    * @interface CopyResult
    * @permission ohos.permission.FILE_ACCESS_MANAGER
@@ -732,7 +732,7 @@ declare namespace fileAccess {
    */
   enum FileKey {
     /**
-     * The key represents the file name, which is generic
+     * The key represents the file name.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -742,7 +742,7 @@ declare namespace fileAccess {
     DISPLAY_NAME = 'display_name',
 
     /**
-     * The key represents the date of the file creation, which is generic
+     * The key represents the date of the file creation.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -752,7 +752,7 @@ declare namespace fileAccess {
     DATE_ADDED = 'date_added',
 
     /**
-     * The key represents the modify date of the file, which is generic
+     * The key represents the modify date of the file.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -762,7 +762,7 @@ declare namespace fileAccess {
     DATE_MODIFIED = 'date_modified',
 
     /**
-     * The key represents the relative path, which is generic
+     * The key represents the relative path.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
@@ -772,7 +772,7 @@ declare namespace fileAccess {
     RELATIVE_PATH = 'relative_path',
 
     /**
-     * The key represents the file size, which is generic
+     * The key represents the file size.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
