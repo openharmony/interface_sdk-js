@@ -374,18 +374,24 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
     event: (
       /**
        * Width of content area.
+       *
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 7
        */
       width: number,
 
       /**
        * Height of content area.
+       *
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 7
        */
       height: number,
 
       /**
        * Initial state.
+       *
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 7
        */
       mode: PanelMode,
