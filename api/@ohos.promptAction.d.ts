@@ -243,6 +243,36 @@ declare namespace promptAction {
      * @since 10
      */
     buttons?: [Button, Button?, Button?];
+
+    /**
+     * Mask Region of dialog. The size cannot exceed the main window.
+     *
+     * @type { ?Rectangle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    maskRect?: Rectangle;
+
+    /**
+     * Defines the dialog alignment of the screen.
+     *
+     * @type { ?DialogAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    alignment?: DialogAlignment;
+
+    /**
+     * Defines the dialog offset.
+     *
+     * @type { ?Offset }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    offset?: Offset;
   }
 
   /**

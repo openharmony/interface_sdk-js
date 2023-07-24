@@ -323,6 +323,16 @@ declare interface AlertDialogParam {
    * @since 10
    */
   gridCount?: number;
+
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
 }
 
 /**
