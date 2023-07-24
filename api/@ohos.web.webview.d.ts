@@ -1780,6 +1780,27 @@ declare namespace webview {
      * @since 10
      */
     static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
+
+    /**
+     * Set custom user agent.
+     * @param { string } userAgent - User custom agent information.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    setCustomUserAgent(userAgent: string): void;
+
+    /**
+     * Get custom user agent.
+     * @returns { string } Get custom User agent information.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    getCustomUserAgent(): string;
   }
 }
 
