@@ -629,7 +629,6 @@ declare namespace pointer {
    *
    * @returns { Promise<Color> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -641,7 +640,6 @@ declare namespace pointer {
    *
    * @returns { Color } Returns the pointer color through sync mode.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -703,7 +701,6 @@ declare namespace pointer {
    *
    * @returns { Promise<number> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
@@ -715,7 +712,6 @@ declare namespace pointer {
    *
    * @returns { number } Returns the pointer size through sync mode.
    * @throws { BusinessError } 202 - SystemAPI permission error.
-   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
    * @since 10
