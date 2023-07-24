@@ -26,7 +26,7 @@ function checkExtendsValue(tag, node, fileName) {
   const tagValue = tag.name;
   // 获取api中的extends信息，校验标签合法性及值规范
   if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
-    const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
+    const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].getText() : '';
     if (tagValue !== apiValue) {
       extendsResult.checkResult = false;
       extendsResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS;
