@@ -42,9 +42,10 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ForkJoinPool;
 
@@ -74,21 +75,21 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
 
     private static final int BEHAVIOR_CHANGE = 17;
 
-    private static final int REPORT_DEPRECATED = 2;
+    private static final String REPORT_DEPRECATED = "api已废弃";
 
-    private static final int REPORT_NEW_ERROR_CODE = 3;
+    private static final String REPORT_NEW_ERROR_CODE = "api新增(错误码)";
 
-    private static final int REPORT_PERMISSION_CHANGE = 5;
+    private static final String REPORT_PERMISSION_CHANGE = "api权限有变化";
 
-    private static final int REPORT_SYSTEM_API_CHANGES = 4;
+    private static final String REPORT_SYSTEM_API_CHANGES = "api访问级别有变化";
 
-    private static final int REPORT_MODEL_CHANGE = 6;
+    private static final String REPORT_MODEL_CHANGE = "api模型使用限制变化";
 
-    private static final int REPORT_CHANGELOG = 8;
+    private static final String REPORT_CHANGELOG = "api底层行为变更";
 
-    private static final int REPORT_FUNCTION_CHANGES = 7;
+    private static final String REPORT_FUNCTION_CHANGES = "api函数有变化";
 
-    private static final int REPORT_DELETE = 1;
+    private static final String REPORT_DELETE = "api删除";
 
     private static final int DIFF_ADD_NEW_API = 3;
 
@@ -530,7 +531,9 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
         MessageBox.showDialog(this.project,
                 ConstString.get("report.successfully"),
                 ConstString.get("check.view.report"));
-        DataUpdateNotifier.getInstance().notifyDataChange();
+        DataUpdateNotifier
+                .getInstance()
+                .notifyDataChange(new LinkedHashMap<String, Boolean>(), "executeAgain");
     }
 
     private void onCancel(@Nullable ActionEvent event) {

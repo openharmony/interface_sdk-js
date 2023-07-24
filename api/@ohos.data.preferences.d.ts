@@ -104,6 +104,7 @@ declare namespace preferences {
      * Application Group Id.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @StageModelOnly
      * @since 10
      */
     dataGroupId?: string;
@@ -149,8 +150,8 @@ declare namespace preferences {
    *        preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -194,8 +195,8 @@ declare namespace preferences {
    * @returns { Promise<Preferences> } The {@link Preferences} instance matching the specified preferences file name.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -251,8 +252,8 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -308,8 +309,8 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -359,8 +360,8 @@ declare namespace preferences {
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -410,8 +411,8 @@ declare namespace preferences {
    * @returns { Promise<void> } A promise object.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
-   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -887,7 +888,7 @@ declare namespace preferences {
      * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 10
      */

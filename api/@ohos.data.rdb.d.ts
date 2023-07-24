@@ -204,7 +204,8 @@ declare namespace rdb {
     /**
      * Updates data in the database based on a a specified instance object of RdbPredicates.
      *
-     * @param { ValuesBucket } values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+     * @param { ValuesBucket } values - Indicates Indicates the row of data to be updated in the database.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -217,7 +218,8 @@ declare namespace rdb {
     /**
      * Updates data in the database based on a a specified instance object of RdbPredicates.
      *
-     * @param { ValuesBucket } values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+     * @param { ValuesBucket } values - Indicates Indicates the row of data to be updated in the database.
+     * The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } Return the number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -448,7 +450,8 @@ declare namespace rdb {
      * the callback will be invoked.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: The observer of data change events in the distributed database.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
@@ -461,7 +464,8 @@ declare namespace rdb {
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: The data change observer already registered.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8

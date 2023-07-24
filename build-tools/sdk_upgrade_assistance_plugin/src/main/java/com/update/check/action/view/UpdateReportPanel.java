@@ -20,7 +20,6 @@ import com.update.check.action.DataUpdateNotifier;
 import com.update.check.dto.ApiDiffResultDto;
 import com.update.check.log.Logger;
 import com.update.check.utils.FileUtils;
-import com.update.check.utils.ResourceFileUtil;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.CaretModel;
@@ -37,28 +36,34 @@ import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
+
 import javax.swing.JPanel;
+import javax.swing.JButton;
 import javax.swing.JTable;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.AbstractTableModel;
 import java.awt.Desktop;
-import java.awt.event.ItemEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * UpdateReportPanel
@@ -76,13 +81,15 @@ public class UpdateReportPanel implements Disposable {
 
     private JLabel sumLabel;
 
-    private JComboBox chooseType;
+    private JButton chooseTypeButton;
 
     private Project project;
 
     private Map<String, String> changeLogs = new HashMap<>();
 
     private List<UpdateCheckReportDto> reportDtos = new ArrayList<>();
+
+    private LinkedHashMap<String, Boolean> arrayTypes = new LinkedHashMap<>();
 
     /**
      * UpdateReportPanel
@@ -104,7 +111,7 @@ public class UpdateReportPanel implements Disposable {
     /**
      * loadPanel
      *
-     * @param project project
+     * @param project    project
      * @param toolWindow toolWindow
      */
     public static void loadPanel(@NotNull Project project, @NotNull ToolWindow toolWindow) {
@@ -125,23 +132,36 @@ public class UpdateReportPanel implements Disposable {
         return this.rootPanel;
     }
 
+    private void filterType() {
+        this.updateChooseType();
+        this.setUpdateReportStyle();
+    }
+
+    private void updateChooseType() {
+        List<UpdateCheckReportDto> typeDto = reportDtos.stream().distinct()
+                .filter(distinctByKey(UpdateCheckReportDto::getChangeType))
+                .collect(Collectors.toList());
+        arrayTypes.clear();
+        arrayTypes.put(ConstString.get("check.choose.all"), true);
+        if (typeDto.size() == 0) {
+            return;
+        }
+        for (UpdateCheckReportDto dto : typeDto) {
+            if (dto == null) {
+                break;
+            }
+            arrayTypes.put(dto.getChangeType(), true);
+        }
+    }
+
     private void setTableStyle() {
         LOGGER.info(LOG_TAG, "Start rendering JTable");
-        DefaultComboBoxModel<String> types = new DefaultComboBoxModel<>(ResourceFileUtil.getChooseTypes());
-        this.setUpdateReportStyle();
-        chooseType.setModel(types);
-        this.chooseType.addItemListener(e -> {
-            if (e.getStateChange() == ItemEvent.SELECTED) {
-                Report chooseReport = new Report(this.chooseType.getSelectedIndex());
-                this.updateReport.setModel(chooseReport);
-                this.updateReport.setRowSelectionAllowed(true);
-                this.updateReport.setColumnSelectionAllowed(true);
-                TableColumn tc = this.updateReport.getColumnModel().getColumn(0);
-                tc.setCellEditor(this.updateReport.getDefaultEditor(Boolean.class));
-                tc.setCellRenderer(this.updateReport.getDefaultRenderer(Boolean.class));
-                tc.setPreferredWidth(100);
-                tc.setMaxWidth(100);
-                tc.setMinWidth(100);
+        this.filterType();
+        this.chooseTypeButton.setText(ConstString.get("check.choose.type"));
+        this.chooseTypeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ShowTypeDialog.showDialog(project, arrayTypes);
             }
         });
         LOGGER.info(LOG_TAG, "Rendering JTable end");
@@ -155,6 +175,11 @@ public class UpdateReportPanel implements Disposable {
         // add addMouseListener
         this.updateReport.setRowSelectionAllowed(true);
         this.updateReport.setColumnSelectionAllowed(true);
+        this.setUpdateStyle();
+        this.setListenerToReportPanel();
+    }
+
+    private void setUpdateStyle() {
         TableColumn tc = this.updateReport.getColumnModel().getColumn(0);
         tc.setCellEditor(this.updateReport.getDefaultEditor(Boolean.class));
         tc.setCellRenderer(this.updateReport.getDefaultRenderer(Boolean.class));
@@ -165,7 +190,6 @@ public class UpdateReportPanel implements Disposable {
         tableColumn.setPreferredWidth(200);
         tableColumn.setMaxWidth(200);
         tableColumn.setMinWidth(200);
-        this.setListenerToReportPanel();
     }
 
     private void setListenerToReportPanel() {
@@ -266,26 +290,12 @@ public class UpdateReportPanel implements Disposable {
 
         /**
          * Report
-         *
-         *
          */
         public Report() {
             LOGGER.info(LOG_TAG, "Start loading report window");
             DataUpdateNotifier.getInstance().addUpdateListener(this);
             this.getReportResult();
-            this.initReport(0);
-            LOGGER.info(LOG_TAG, "Loading report window end");
-        }
-
-        /**
-         * Report
-         *
-         * @param changeType changeType
-         */
-        public Report(int changeType) {
-            LOGGER.info(LOG_TAG, "Start loading report window");
-            dataList.clear();
-            this.initReport(changeType);
+            this.initReport(new LinkedHashMap<>());
             LOGGER.info(LOG_TAG, "Loading report window end");
         }
 
@@ -295,7 +305,7 @@ public class UpdateReportPanel implements Disposable {
                         ConstString.get("check.report.json"));
                 List<UpdateCheckReportDto> updateCheckReportDtos =
                         FileUtils.readJsonFileToJavaList(resultJsonFile.toString(),
-                        UpdateCheckReportDto.class);
+                                UpdateCheckReportDto.class);
                 reportDtos = updateCheckReportDtos;
                 LOGGER.info(LOG_TAG, "Report size:" + updateCheckReportDtos.size());
             } catch (IOException e) {
@@ -303,30 +313,47 @@ public class UpdateReportPanel implements Disposable {
             }
         }
 
-        private List<UpdateCheckReportDto> screenResult(int changeType) {
-            List<UpdateCheckReportDto> updateCheckReports = new ArrayList<>();
-            if (changeType == 0) {
+        private List<UpdateCheckReportDto> screenResult(LinkedHashMap<String, Boolean> changeTypes) {
+            if (changeTypes.size() == 0) {
                 return reportDtos;
             }
-            for (UpdateCheckReportDto dto : reportDtos) {
-                if (dto != null && dto.getChangeType() == changeType) {
-                    updateCheckReports.add(dto);
+            List<String> chooseTypes = new ArrayList<>();
+            for (Map.Entry<String, Boolean> entry : changeTypes.entrySet()) {
+                if (entry.getValue()) {
+                    chooseTypes.add(entry.getKey());
                 }
             }
-            return updateCheckReports;
+            return this.multipleChoice(chooseTypes);
         }
 
-        private void update() {
+        private List<UpdateCheckReportDto> multipleChoice(List<String> chooseTypes) {
+            List<UpdateCheckReportDto> multipleChoice = new ArrayList<>();
+            for (String changeType : chooseTypes) {
+                for (UpdateCheckReportDto dto : reportDtos) {
+                    if (dto != null && dto.getChangeType().equals(changeType)) {
+                        multipleChoice.add(dto);
+                    }
+                }
+            }
+            return multipleChoice;
+        }
+
+        private void update(LinkedHashMap<String, Boolean> chooseType, String type) {
             LOGGER.info(LOG_TAG, "Start reload report window");
             dataList.clear();
-            this.getReportResult();
-            this.initReport(0);
+            if ("executeAgain".equals(type)) {
+                this.getReportResult();
+                updateChooseType();
+            } else {
+                arrayTypes = chooseType;
+            }
+            this.initReport(chooseType);
             fireTableDataChanged();
             LOGGER.info(LOG_TAG, "Reload report window end");
         }
 
-        private void initReport(int changeType) {
-            List<UpdateCheckReportDto> reportResult = this.screenResult(changeType);
+        private void initReport(LinkedHashMap<String, Boolean> changeTypes) {
+            List<UpdateCheckReportDto> reportResult = this.screenResult(changeTypes);
             if (reportResult == null) {
                 return;
             }
@@ -409,9 +436,14 @@ public class UpdateReportPanel implements Disposable {
         }
 
         @Override
-        public void onUpdate() {
-            update();
+        public void onUpdate(LinkedHashMap<String, Boolean> chooseType, String type) {
+            update(chooseType, type);
         }
+    }
+
+    private <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return object -> seen.putIfAbsent(keyExtractor.apply(object), Boolean.TRUE) == null;
     }
 
 }
