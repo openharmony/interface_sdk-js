@@ -4557,15 +4557,29 @@ declare enum DragBehavior {
 }
 
 /**
- * Import the UnifiedData, Summary, UniformDataType type object for ui component.
+ * Import the UnifiedData type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').UnifiedData;
-declare type Summary = import('../api/@ohos.data.unifiedDataChannel').Summary;
-declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').UniformDataType;
+declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData;
+
+/**
+ * Import the Summary type object for ui component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Summary;
+
+/**
+ * Import the UniformDataType type object for ui component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType;
 
 /**
  * Enum for Drag Result.
@@ -4814,7 +4828,7 @@ declare interface DragEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').IntentionCode;
+declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').default.IntentionCode;
 /**
  * KeyEvent object description:
  *
