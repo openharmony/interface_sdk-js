@@ -156,18 +156,14 @@ declare class Scroller {
   /**
    * Called when the setting slides to the specified position.
    *
-   * @param { {xOffset: number | string;
-   * yOffset: number | string;
-   * animation?: { duration: number; curve: Curve };} } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the setting slides to the specified position.
    *
-   * @param { {xOffset: number | string;
-   * yOffset: number | string;
-   * animation?: { duration: number; curve: Curve };} } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -175,6 +171,9 @@ declare class Scroller {
   scrollTo(value: {
     /**
      * The X-axis offset.
+     *
+     * @type { number | string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -182,6 +181,9 @@ declare class Scroller {
 
     /**
      * The Y-axis offset.
+     *
+     * @type { number | string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -189,7 +191,8 @@ declare class Scroller {
 
     /**
      * Descriptive animation.
-     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
+     *
+     * @type { ?object } The object type provides custom animation parameters
      * and the boolean type enables default spring animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -218,7 +221,7 @@ declare class Scroller {
   /**
    * Called when page turning mode is set.
    *
-   * @param { { next: boolean; direction?: Axis } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
@@ -228,14 +231,14 @@ declare class Scroller {
   /**
    * Called when page turning mode is set.
    *
-   * @param { { next: boolean } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when page turning mode is set.
    *
-   * @param { { next: boolean } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -276,7 +279,7 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
-  scrollToIndex(value: number, smooth?:boolean, align?: ScrollAlign);
+  scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign);
 
   /**
    * Called when the setting slides by offset.
@@ -316,6 +319,7 @@ declare class Scroller {
 declare interface ScrollSnapOptions {
   /**
    * Set scroll snap alignment.
+   *
    * @type { ScrollSnapAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -326,8 +330,9 @@ declare interface ScrollSnapOptions {
    * Set snap positions. When the type of snapPositions is Dimension, Scroll content is paginated by an integer
    * multiple of snapPositions. When the type of snapPositions is Array<number>, Scroll content is paginated based
    * on the array of snapPositions.
+   *
    * @type { ?(Dimension | Array<Dimension>) }
-   * @default "100%"
+   * @default 100%
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -335,6 +340,7 @@ declare interface ScrollSnapOptions {
 
   /**
    * Set whether the beginning of the Scroll content counts an a snap.
+   *
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -344,6 +350,7 @@ declare interface ScrollSnapOptions {
 
   /**
    * Set whether the end of the Scroll content counts an a snap.
+   *
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -392,12 +399,14 @@ interface ScrollInterface {
  * Defines the scroll attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the scroll attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -424,7 +433,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when the setting slides to the specified position.
    *
-   * @param { (xOffset: number, yOffset: number) => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -432,7 +441,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when the setting slides to the specified position.
    *
-   * @param { (xOffset: number, yOffset: number) => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -443,7 +452,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling to the edge of the container.
    *
-   * @param { (side: Edge) => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -451,7 +460,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling to the edge of the container.
    *
-   * @param { (side: Edge) => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -462,7 +471,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling start.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -470,7 +479,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling start.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -481,7 +490,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling has stopped.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -493,7 +502,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling has stopped.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -501,7 +510,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling has stopped.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -588,7 +597,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -596,7 +605,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -616,8 +625,8 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
 
   /**
    * Called when setting whether to enable scroll by gesture or mouse.
-   * @param { boolean }
-   * @default true
+   *
+   * @param { boolean } value
    * @returns { ScrollAttribute } The attribute of the scroll
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -627,8 +636,8 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
 
   /**
    * Called to setting the friction.
+   *
    * @param { number | Resource } value - options for scrolling friction.
-   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -638,6 +647,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
 
   /**
    * Called to setting the scroll snap options.
+   *
    * @param { ScrollSnapOptions } value - options for scroll snap.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

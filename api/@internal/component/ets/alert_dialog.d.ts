@@ -250,14 +250,14 @@ declare interface AlertDialogParam {
   /**
    * Execute Cancel Function.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Execute Cancel Function.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -335,16 +335,14 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
    * Invoke the commit function.
    *
-   * @type { ?{value: ResourceStr; fontColor?: ResourceColor; backgroundColor?: ResourceColor;
-   * action: () => void;} }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Invoke the commit function.
    *
-   * @type { ?{value: ResourceStr; fontColor?: ResourceColor; backgroundColor?: ResourceColor;
-   * action: () => void;} }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -404,14 +402,14 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -439,16 +437,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
    *
-   * @type { {value: ResourceStr; fontColor?: ResourceColor; backgroundColor?: ResourceColor; 
-   * action: () => void;} }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * First button.
    *
-   * @type { {value: ResourceStr; fontColor?: ResourceColor; backgroundColor?: ResourceColor; 
-   * action: () => void;} }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -508,14 +504,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -526,16 +522,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * Second button.
    *
-   * @type { {value: ResourceStr; fontColor?: ResourceColor; backgroundColor?: ResourceColor; 
-   * action: () => void;} }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Second button.
    *
-   * @type { {value: ResourceStr; fontColor?: ResourceColor; backgroundColor?: ResourceColor; 
-   * action: () => void;} }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -595,14 +589,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
