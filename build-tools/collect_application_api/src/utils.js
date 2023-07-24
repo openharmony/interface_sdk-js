@@ -77,8 +77,11 @@ class Project {
         return;
       }
       const expArray = line.match(propertyRegExp);
-      if (expArray && expArray.length === 3) {
-        map.set(expArray[1].trim(), expArray[2].trim());
+      const MATCHED_RESULT_NUMBER = 3;
+      const KEY_INDEX = 1;
+      const VALUE_INDEX = 2;
+      if (expArray && expArray.length === MATCHED_RESULT_NUMBER) {
+        map.set(expArray[KEY_INDEX].trim(), expArray[VALUE_INDEX].trim());
       }
     });
     return map;

@@ -17,9 +17,9 @@ import ts from 'typescript';
 import { Code } from '../utils/constant';
 import type {
   Context, ISourceCodeProcessor, JsDocCheckResult, JsDocModificationInterface, ProcessResult,
-  LogReporter, IllegalTagsInfo, rawInfo, CheckLogResult, ModifyLogResult
+  LogReporter, IllegalTagsInfo, rawInfo, CheckLogResult, ModifyLogResult, comment
 } from './typedef';
-import { comment, JSDocModifyType, ErrorInfo, JSDocCheckErrorType } from './typedef';
+import { JSDocModifyType, ErrorInfo, JSDocCheckErrorType } from './typedef';
 import { CommentHelper, LogResult } from './coreImpls';
 const apiChecker = require('api-checker');
 

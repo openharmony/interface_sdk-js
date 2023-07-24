@@ -238,7 +238,7 @@ function getModuleDigestInfo(module, parentApiDigest, ext) {
   return wrapApiDigestInfo(module, className, className, ApiType.NamespaceType, rawText, ext);
 }
 
-function getSourceFile(sourceFile, parentApiDigest, ext){
+function getSourceFile(sourceFile, parentApiDigest, ext) {
   const className = 'sourcefile';
   const rawText = 'sourcefile';
   return wrapApiDigestInfo(sourceFile, className, className, ApiType.SourceFile, rawText, ext);

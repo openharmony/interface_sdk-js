@@ -72,10 +72,12 @@ class ApiExcelWriter {
     const subscribeSheet = subscribeWorkbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
     subscribeSheet.getRow(1).values = ['类名', '接口名', '接口类型', '方法声明', '接口路径'];
     let lineNumber = 0;
+    const STARTING_LINE_NUMBER = 2;
     this.apiInfos.forEach((apiInfo, index) => {
       const typeName = apiInfo.qualifiedTypeName ? apiInfo.qualifiedTypeName : (apiInfo.typeName ? apiInfo.typeName : 'unnamed');
+      
       if (!apiInfoSet.has(formatInfo(apiInfo, typeName))) {
-        subscribeSheet.getRow(lineNumber + 2).values = [
+        subscribeSheet.getRow(lineNumber + STARTING_LINE_NUMBER).values = [
           typeName,
           apiInfo.propertyName,
           apiInfo.apiType,
@@ -95,7 +97,7 @@ class ApiExcelWriter {
     this.apiInfos.forEach((apiInfo, index) => {
       const typeName = apiInfo.componentName ? apiInfo.componentName :
         (apiInfo.typeName ? apiInfo.typeName : apiInfo.qualifiedTypeName);
-      sheet.getRow(index + 2).values = [
+      sheet.getRow(index + STARTING_LINE_NUMBER).values = [
         path.basename(apiInfo.packageName, '.d.ts').replace('@', ''),
         typeName,
         apiInfo.propertyName,
