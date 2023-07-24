@@ -2228,7 +2228,7 @@ declare namespace camera {
 
     /**
      * Checks whether PhotoOutput supports quick thumbnail.
-     * This method is valid after CaptureSession.addIutput() and CaptureSession.addOutput(photoOutput) are called.
+     * This method is valid after CaptureSession.addInput() and CaptureSession.addOutput(photoOutput) are called.
      *
      * @returns { boolean } Whether quick thumbnail is supported.
      * @throws { BusinessError } 7400104 - session is not running.
@@ -2240,7 +2240,7 @@ declare namespace camera {
 
     /**
      * Enables or disables quick thumbnail.
-     * The method must be called after CaptureSession.addIutput() and CaptureSession.addOutput(photoOutput) are called.
+     * The method must be called after CaptureSession.addInput() and CaptureSession.addOutput(photoOutput) are called.
      * To avoid stream reconfiguration and performance loss,
      * you are advised to call the method before CaptureSession.commitConfig().
      * 
