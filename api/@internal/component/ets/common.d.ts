@@ -4557,7 +4557,7 @@ declare enum DragBehavior {
 }
 
 /**
- * Import the UnifiedData, Summary, UnifiedDataType type object for ui component.
+ * Import the UnifiedData, Summary, UniformDataType type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -4565,7 +4565,7 @@ declare enum DragBehavior {
  */
 declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').UnifiedData;
 declare type Summary = import('../api/@ohos.data.unifiedDataChannel').Summary;
-declare type UnifiedDataType = import('../api/@ohos.data.uniformTypeDescriber').UnifiedDataType;
+declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').UniformDataType;
 
 /**
  * Enum for Drag Result.
@@ -8226,15 +8226,15 @@ declare class CommonMethod<T> {
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * Allowed drop unifiedData type for this node.
+   * Allowed drop uniformData type for this node.
    *
-   * @param { Array<UnifiedDataType> } value - the unifiedData type for this node.
+   * @param { Array<UniformDataType> } value - the uniformData type for this node.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  allowDrop(value: Array<UnifiedDataType>): T;
+  allowDrop(value: Array<UniformDataType>): T;
 
   /**
    * Enable the selectable area can be dragged.
