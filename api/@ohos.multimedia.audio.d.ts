@@ -651,51 +651,58 @@ declare namespace audio {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 7
+   * @deprecated since 10
+   * @useinstead ohos.multimedia.audio.StreamUsage
    */
   enum ContentType {
     /**
      * Unknown content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_UNKNOWN
      */
     CONTENT_TYPE_UNKNOWN = 0,
     /**
      * Speech content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_VOICE_COMMUNICATION
      */
     CONTENT_TYPE_SPEECH = 1,
     /**
      * Music content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_MUSIC
      */
     CONTENT_TYPE_MUSIC = 2,
     /**
      * Movie content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_MOVIE
      */
     CONTENT_TYPE_MOVIE = 3,
     /**
      * Notification content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_NOTIFICATION
      */
     CONTENT_TYPE_SONIFICATION = 4,
     /**
      * Ringtone content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_RINGTONE
      */
     CONTENT_TYPE_RINGTONE = 5,
-    /**
-     * Ultrasonic content.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 10
-     */
-    CONTENT_TYPE_ULTRASONIC = 9
   }
 
   /**
@@ -715,6 +722,11 @@ declare namespace audio {
      * Media usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_MUSIC or
+     *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_MOVIE or
+     *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_GAME or
+     *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_AUDIOBOOK
      */
     STREAM_USAGE_MEDIA = 1,
     /**
@@ -751,6 +763,8 @@ declare namespace audio {
      * Notification or ringtone usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_RINGTONE
      */
     STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
     /**
