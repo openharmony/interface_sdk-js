@@ -188,6 +188,7 @@ declare type PX = `${number}px`;
 
 /**
  * Defines the length property with number or number in units of vp.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -227,6 +228,7 @@ declare type Degree = `${number}deg`;
 
 /**
  * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -279,69 +281,105 @@ declare type ResourceStr = string | Resource;
 declare type Padding = {
   /**
    * top property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * top property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: Length;
 
   /**
    * right property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: Length;
 
   /**
    * bottom property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: Length;
 
   /**
    * left property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: Length;
 };
@@ -387,53 +425,77 @@ declare type Margin = Padding;
 declare type EdgeWidths = {
   /**
    * top property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: Length;
 
   /**
    * right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: Length;
 
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: Length;
 
   /**
    * left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: Length;
 };
@@ -456,53 +518,77 @@ declare type EdgeWidths = {
 declare type BorderRadiuses = {
   /**
    * top-left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top-left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   topLeft?: Length;
 
   /**
    * top-right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top-right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   topRight?: Length;
 
   /**
    * bottom-left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom-left property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottomLeft?: Length;
 
   /**
    * bottom-right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom-right property.
-   * @form
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottomRight?: Length;
 };
@@ -525,53 +611,77 @@ declare type BorderRadiuses = {
 declare type EdgeColors = {
   /**
    * top property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: ResourceColor;
 
   /**
    * right property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: ResourceColor;
 
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: ResourceColor;
 
   /**
    * left property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: ResourceColor;
 };
@@ -594,53 +704,77 @@ declare type EdgeColors = {
 declare type EdgeStyles = {
   /**
    * top property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: BorderStyle;
 
   /**
    * right property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: BorderStyle;
 
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: BorderStyle;
 
   /**
    * left property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @type { ?BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: BorderStyle;
 };
@@ -661,19 +795,33 @@ declare type EdgeStyles = {
 declare type Offset = {
   /**
    * dx property.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * dx property.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-   dx: Length;
+  dx: Length;
 
   /**
    * dy property.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * dy property.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -721,27 +869,39 @@ declare type ResourceColor = Color | number | string | Resource;
 declare type LengthConstrain = {
   /**
    * minimum length.
-   * @form
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * minimum length.
-   * @form
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   minLength: Length;
 
   /**
    * maximum length.
-   * @form
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * maximum length.
-   * @form
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   maxLength: Length;
 };

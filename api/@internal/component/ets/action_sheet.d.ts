@@ -66,14 +66,14 @@ interface SheetInfo {
   /**
    * Callback method after the operation.
    *
-   * @type { () => void }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback method after the operation.
    *
-   * @type { () => void }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -135,14 +135,14 @@ interface ActionSheetOptions
   /**
    * Invoke the commit function.
    *
-   * @type { ?{value: string | Resource; action: () => void;} }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoke the commit function.
    *
-   * @type { ?{value: string | Resource; action: () => void;} }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -168,14 +168,14 @@ interface ActionSheetOptions
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -186,14 +186,14 @@ interface ActionSheetOptions
   /**
    * Execute Cancel Function.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Execute Cancel Function.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -254,14 +254,14 @@ interface ActionSheetOptions
   /**
    * Offset of the pop-up window relative to the alignment position.
    *
-   * @type { ?{ dx: number | string | Resource; dy: number | string | Resource } }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Offset of the pop-up window relative to the alignment position.
    *
-   * @type { ?{ dx: number | string | Resource; dy: number | string | Resource } }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
