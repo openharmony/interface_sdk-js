@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from "./@ohos.base";
+import { Callback } from './@ohos.base';
 
 /**
  * Declares a namespace that provides APIs to report the device status.
