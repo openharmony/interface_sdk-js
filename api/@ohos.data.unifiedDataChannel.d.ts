@@ -20,6 +20,7 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @namespace unifiedDataChannel
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @since 10
  */
 declare namespace unifiedDataChannel {
   /**
@@ -442,6 +443,7 @@ declare namespace unifiedDataChannel {
   /**
    * describe the sharing channel that UDMF support
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */

@@ -18,11 +18,13 @@
  *
  * @namespace uniformTypeDescriptor
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @since 10
  */
 declare namespace uniformTypeDescriptor {
   /**
    * the data type supported by uniform type descriptor
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
