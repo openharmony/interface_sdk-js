@@ -29,6 +29,7 @@ import { NotificationSlot as _NotificationSlot } from './notification/notificati
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
+import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
  * Manages notifications.
@@ -1260,6 +1261,21 @@ declare namespace notificationManager {
   /**
    * Request permission to send notification.
    *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 10
+   */
+  function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
+
+  /**
+   * Request permission to send notification.
+   *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1269,6 +1285,21 @@ declare namespace notificationManager {
    * @since 9
    */
   function requestEnableNotification(): Promise<void>;
+
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 10
+   */
+  function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
   /**
    * Sets whether the device supports distributed notification.
