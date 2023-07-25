@@ -16,7 +16,7 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * Provide methods for sharing data across unified data channels.
+ * Provide methods for sharing data between different applications across unified data channels.
  *
  * @namespace unifiedDataChannel
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
