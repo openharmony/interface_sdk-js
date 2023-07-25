@@ -14,7 +14,7 @@
  */
 
 /**
- * uniformTypeDescriptor - Uniform type descriptor
+ * Provide methods for uniform data type definition and query.
  *
  * @namespace uniformTypeDescriptor
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -22,7 +22,7 @@
  */
 declare namespace uniformTypeDescriptor {
   /**
-   * the data type supported by uniform type descriptor
+   * The data type supported by uniform type descriptor
    *
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -30,84 +30,84 @@ declare namespace uniformTypeDescriptor {
    */
   enum UniformDataType {
     /**
-     * indicate the data type is text
+     * Indicate the data type is text
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     TEXT = 'general.text',
     /**
-     * indicate the data type is plain text
+     * Indicate the data type is plain text
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     PLAIN_TEXT = 'general.plain-text',
     /**
-     * indicate the data type is hyperlink
+     * Indicate the data type is hyperlink
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     HYPERLINK = 'general.hyperlink',
     /**
-     * indicate the data type is html
+     * Indicate the data type is html
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     HTML = 'general.html',
     /**
-     * indicate the data type is File
+     * Indicate the data type is File
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     FILE = 'general.file',
     /**
-     * indicate the data type is image
+     * Indicate the data type is image
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     IMAGE = 'general.image',
     /**
-     * indicate the data type is video
+     * Indicate the data type is video
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     VIDEO = 'general.video',
     /**
-     * indicate the data type is audio
+     * Indicate the data type is audio
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     AUDIO = 'general.audio',
     /**
-     * indicate the data type is Folder
+     * Indicate the data type is Folder
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     FOLDER = 'general.folder',
     /**
-     * indicate the data type is OpenHarmony system defined form(the data is provided and bound to OpenHarmony system)
+     * Indicate the data type is OpenHarmony system defined form(the data is provided and bound to OpenHarmony system)
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     OPENHARMONY_FORM = 'openharmony.form',
     /**
-     * indicate the data type is OpenHarmony system defined app item(the data is provided and bound to OpenHarmony system)
+     * Indicate the data type is OpenHarmony system defined app item(the data is provided and bound to OpenHarmony system)
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     OPENHARMONY_APP_ITEM = 'openharmony.app-item',
     /**
-     * indicate the data type is OpenHarmony system defined pixel map(the data is provided and bound to OpenHarmony system)
+     * Indicate the data type is OpenHarmony system defined pixel map(the data is provided and bound to OpenHarmony system)
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10

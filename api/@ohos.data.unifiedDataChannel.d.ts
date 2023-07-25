@@ -16,7 +16,7 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * unifiedDataChannel - Unified Data Channel
+ * Provide methods for sharing data across unified data channels.
  *
  * @namespace unifiedDataChannel
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -24,14 +24,14 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace unifiedDataChannel {
   /**
-   * describe the unified data.
+   * Describe the unified data.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
   class UnifiedData {
     /**
-     * create unified data with a record
+     * Create unified data with a record
      *
      * @param { UnifiedRecord } record - Record will add into unified data.
      * @throws { BusinessError } 401 - Parameter error.
@@ -40,7 +40,7 @@ declare namespace unifiedDataChannel {
      */
     constructor(record: UnifiedRecord);
     /**
-     * add a record into unified data
+     * Add a record into unified data
      *
      * @param { UnifiedRecord } record - Record will add into unified data.
      * @throws { BusinessError } 401 - Parameter error.
@@ -49,7 +49,7 @@ declare namespace unifiedDataChannel {
      */
     addRecord(record: UnifiedRecord): void;
     /**
-     * get all records of unified data
+     * Get all records of unified data
      *
      * @returns { Array<UnifiedRecord> } Return the records of unified data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -59,21 +59,21 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * the data abstract supported by unified data
+   * The data abstract supported by unified data
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
   class Summary {
     /**
-     * a map for each type and data size, key is data type, value is the corresponding data size
+     * A map for each type and data size, key is data type, value is the corresponding data size
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     summary: { [key: string]: number };
     /**
-     * total data size of data in Bytes
+     * Total data size of data in Bytes
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -82,14 +82,14 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified record
+   * Describe the unified record
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
   class UnifiedRecord {
     /**
-     * get type of unified record
+     * Get type of unified record
      *
      * @returns { string } Return the type of unified data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -99,7 +99,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified text data
+   * Describe the unified text data
    *
    * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -107,7 +107,7 @@ declare namespace unifiedDataChannel {
    */
   class Text extends UnifiedRecord {
     /**
-     * indicates the details of unified text
+     * Indicates the details of unified text
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -116,7 +116,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified plain text data
+   * Describe the unified plain text data
    *
    * @extends Text
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -124,14 +124,14 @@ declare namespace unifiedDataChannel {
    */
   class PlainText extends Text {
     /**
-     * indicates the content of text
+     * Indicates the content of text
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     textContent: string;
     /**
-     * indicates the abstract of text
+     * Indicates the abstract of text
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -140,7 +140,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified link data
+   * Describe the unified link data
    *
    * @extends Text
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -148,14 +148,14 @@ declare namespace unifiedDataChannel {
    */
   class Hyperlink extends Text {
     /**
-     * indicates the url of a link
+     * Indicates the url of a link
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     url: string;
     /**
-     * indicates the description of a link
+     * Indicates the description of a link
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -164,7 +164,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified html data
+   * Describe the unified html data
    *
    * @extends Text
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -172,14 +172,14 @@ declare namespace unifiedDataChannel {
    */
   class HTML extends Text {
     /**
-     * indicates the content of html, with html tags
+     * Indicates the content of html, with html tags
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     htmlContent: string;
     /**
-     * indicates the plain content of html
+     * Indicates the plain content of html
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -188,7 +188,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified file data
+   * Describe the unified file data
    *
    * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -196,14 +196,14 @@ declare namespace unifiedDataChannel {
    */
   class File extends UnifiedRecord {
     /**
-     * indicates the details of unified File
+     * Indicates the details of unified File
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     details?: { [key: string]: string };
     /**
-     * indicates the uri of file
+     * Indicates the uri of file
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -212,7 +212,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified image data
+   * Describe the unified image data
    *
    * @extends File
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -220,7 +220,7 @@ declare namespace unifiedDataChannel {
    */
   class Image extends File {
     /**
-     * indicates the uri of image
+     * Indicates the uri of image
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -229,7 +229,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified video data
+   * Describe the unified video data
    *
    * @extends File
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -237,7 +237,7 @@ declare namespace unifiedDataChannel {
    */
   class Video extends File {
     /**
-     * indicates the uri of video
+     * Indicates the uri of video
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -246,7 +246,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified audio data
+   * Describe the unified audio data
    *
    * @extends File
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -254,7 +254,7 @@ declare namespace unifiedDataChannel {
    */
   class Audio extends File {
     /**
-     * indicates the uri of audio
+     * Indicates the uri of audio
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -263,7 +263,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the unified folder data
+   * Describe the unified folder data
    *
    * @extends File
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -271,7 +271,7 @@ declare namespace unifiedDataChannel {
    */
   class Folder extends File {
     /**
-     * indicates the uri of folder
+     * Indicates the uri of folder
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -280,7 +280,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe system defined type data(this kind of data is provided and bound to OpenHarmony,
+   * Describe system defined type data(this kind of data is provided and bound to OpenHarmony,
    * also can be parsed by system provided API)
    *
    * @extends UnifiedRecord
@@ -289,7 +289,7 @@ declare namespace unifiedDataChannel {
    */
   class SystemDefinedRecord extends UnifiedRecord {
     /**
-     * indicates the details of system defined data
+     * Indicates the details of system defined data
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -298,7 +298,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe system defined form data(this kind of data is provided and bound to OpenHarmony,
+   * Describe system defined form data(this kind of data is provided and bound to OpenHarmony,
    * also can be parsed by system provided API)
    *
    * @extends SystemDefinedRecord
@@ -307,35 +307,35 @@ declare namespace unifiedDataChannel {
    */
   class SystemDefinedForm extends SystemDefinedRecord {
     /**
-     * indicates the id of form
+     * Indicates the id of form
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     formId: number;
     /**
-     * indicates the name of form
+     * Indicates the name of form
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     formName: string;
     /**
-     * indicates the bundle name of form
+     * Indicates the bundle name of form
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     bundleName: string;
     /**
-     * indicates the ability name of form
+     * Indicates the ability name of form
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     abilityName: string;
     /**
-     * indicates the module of form
+     * Indicates the module of form
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -344,7 +344,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe system defined app item data(this kind of data is provided and bound to OpenHarmony,
+   * Describe system defined app item data(this kind of data is provided and bound to OpenHarmony,
    * also can be parsed by system provided API)
    *
    * @extends SystemDefinedRecord
@@ -353,42 +353,42 @@ declare namespace unifiedDataChannel {
    */
   class SystemDefinedAppItem extends SystemDefinedRecord {
     /**
-     * indicates the app id
+     * Indicates the app id
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     appId: string;
     /**
-     * indicates the app name
+     * Indicates the app name
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     appName: string;
     /**
-     * indicates the id of app icon
+     * Indicates the id of app icon
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     appIconId: string;
     /**
-     * indicates the id of app label
+     * Indicates the id of app label
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     appLabelId: string;
     /**
-     * indicates the bundle name of app
+     * Indicates the bundle name of app
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     bundleName: string;
     /**
-     * indicates the ability name of app
+     * Indicates the ability name of app
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -397,7 +397,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe system defined pixel map data(this kind of data is provided and bound to OpenHarmony,
+   * Describe system defined pixel map data(this kind of data is provided and bound to OpenHarmony,
    * also can be parsed by system provided API)
    *
    * @extends SystemDefinedRecord
@@ -406,7 +406,7 @@ declare namespace unifiedDataChannel {
    */
   class SystemDefinedPixelMap extends SystemDefinedRecord {
     /**
-     * indicates the raw data of pixel map
+     * Indicates the raw data of pixel map
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -415,7 +415,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe application defined data(this kind of data is provided and bound to OpenHarmony,
+   * Describe application defined data(this kind of data is provided and bound to OpenHarmony,
    * also can be parsed by system provided API)
    *
    * @extends UnifiedRecord
@@ -424,7 +424,7 @@ declare namespace unifiedDataChannel {
    */
   class ApplicationDefinedRecord extends UnifiedRecord {
     /**
-     * indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
      * return error otherwise
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -432,7 +432,7 @@ declare namespace unifiedDataChannel {
      */
     applicationDefinedType: string;
     /**
-     * indicates the raw data of application defined data
+     * Indicates the raw data of application defined data
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -441,7 +441,7 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the sharing channel that UDMF support
+   * Describe the sharing channel that UDMF support
    *
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -449,7 +449,7 @@ declare namespace unifiedDataChannel {
    */
   enum Intention {
     /**
-     * indicates the intention of data hub
+     * Indicates the intention of data hub
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -458,14 +458,14 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * describe the optional arguments of data operation
+   * Describe the optional arguments of data operation
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
   type Options = {
     /**
-     * indicates the target Intention
+     * Indicates the target Intention
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
@@ -473,7 +473,7 @@ declare namespace unifiedDataChannel {
     intention?: Intention;
 
     /**
-     * indicates the unique identifier of target UnifiedData
+     * Indicates the unique identifier of target UnifiedData
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
