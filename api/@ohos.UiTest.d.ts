@@ -1086,7 +1086,7 @@ declare class On {
    * @since 9
    * @test
    */
-   /**
+  /**
    * Specifies the id of the target Component.
    *
    * @param { string } id The id value.
