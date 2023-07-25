@@ -992,9 +992,10 @@ declare namespace userAuth {
     navigationButtonText?: string;
 
     /**
-     * Full screen or not.
+     * Display type of widget.
      *
      * @type { ?WindowModeType }
+     * @default WindowModeType.DIALOG_BOX
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 10
