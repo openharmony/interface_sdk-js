@@ -33,19 +33,19 @@ declare namespace ble {
   type ProfileConnectionState = constant.ProfileConnectionState;
 
   /**
-   * create a JavaScript Gatt server instance.
+   * create a Gatt server instance.
    *
-   * @returns { GattServer } Returns a JavaScript Gatt server instance {@code GattServer}.
+   * @returns { GattServer } Returns a Gatt server instance {@code GattServer}.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
    */
   function createGattServer(): GattServer;
 
   /**
-   * create a JavaScript Gatt client device instance.
+   * create a Gatt client device instance.
    *
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { GattClientDevice } Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
+   * @returns { GattClientDevice } Returns a Gatt client device instance {@code GattClientDevice}.
    * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
