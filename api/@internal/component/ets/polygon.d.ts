@@ -15,18 +15,27 @@
 
 /**
  * Provides the polygon drawing interface.
+ *
+ * @interface PolygonInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides the polygon drawing interface.
- * @form
+ *
+ * @interface PolygonInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Provides the polygon drawing interface.
- * @form
+ *
+ * @interface PolygonInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface PolygonInterface {
   /**
@@ -48,18 +57,30 @@ interface PolygonInterface {
 
   /**
    * Called when drawing a polygon.
+   *
+   * @param { object } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when drawing a polygon.
-   * @form
+   *
+   * @param { object } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when drawing a polygon.
-   * @form
+   *
+   * @param { object } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 }
@@ -67,52 +88,76 @@ interface PolygonInterface {
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
+   *
+   * @param { Array<any> } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the vertex coordinate list of a polygon is set.
-   * @form
+   *
+   * @param { Array<any> } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the vertex coordinate list of a polygon is set.
-   * @form
+   *
+   * @param { Array<any> } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   points(value: Array<any>): PolygonAttribute;
 }
 
 /**
  * Defines Polygon Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines CheckboxGroup Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines CheckboxGroup Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Polygon: PolygonInterface;
 
 /**
  * Defines Polygon Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Polygon Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Polygon Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const PolygonInstance: PolygonAttribute;

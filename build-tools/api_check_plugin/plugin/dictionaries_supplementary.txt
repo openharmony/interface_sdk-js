@@ -32,6 +32,7 @@ apecified
 appselect
 arcs
 arfcn
+arkui
 arrarybuffer
 arraybuffer
 arrlist
@@ -63,6 +64,7 @@ bevels
 bgra
 bidirectionally
 bitrates
+blocklist
 bms
 bolder
 bonded
@@ -291,12 +293,15 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hogp
+hsp
 hspa
 hspap
 htmltext
 huks
 hwid
 icq
+id
 idm
 ifaces
 ima
@@ -370,6 +375,7 @@ lenum
 lfloat
 libraryname
 lifted
+lifts
 lintptr
 listened
 llbackfn
@@ -482,6 +488,7 @@ owningproperties
 ows
 oximeter
 p2p
+paginated
 paramcheck
 parameterf
 parameteri
@@ -518,6 +525,9 @@ pread
 precisiontype
 precomposed
 precon
+preconnect
+preconnected
+preconnectable
 preempted
 preferentially
 preloads
@@ -525,6 +535,7 @@ premises
 premultiplied
 premultiply
 prepares
+preresolve
 presently
 prevgroup
 prikey
@@ -599,6 +610,7 @@ sae
 sak
 satellites
 scdma
+scene
 sco
 scrambling
 screenlock
@@ -716,6 +728,7 @@ trashed
 traversed
 traverses
 truncates
+trustlist
 tsbundle
 ttls
 tunneled
@@ -842,5 +855,7 @@ zooms
 zpass
 commonevent
 clouddata
+unadjustable
 unprepare
 unchained
+sar

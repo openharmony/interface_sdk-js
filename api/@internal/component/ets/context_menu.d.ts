@@ -15,20 +15,28 @@
 
 /**
  * Defines Close contextMenu.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Close contextMenu.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class ContextMenu {
   /**
    * Invoking method close.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoking method close.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */

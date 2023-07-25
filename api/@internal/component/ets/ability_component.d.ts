@@ -15,47 +15,69 @@
 
 /**
  * Provide an interface for the ability component.
- * @since 9
+ *
+ * @interface AbilityComponentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 interface AbilityComponentInterface {
   /**
    * Construct the ability component.
    * Called when the ability component is used.
-   * @since 9
+   *
+   * @param { object } value
+   * @returns { AbilityComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   (value: { want: import('../api/@ohos.app.ability.Want').default }): AbilityComponentAttribute;
 }
 
 /**
  * Define the attribute functions of ability component.
- * @since 9
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
    * Called when the component is connected to ability.
-   * @since 9
+   *
+   * @param { function } callback - A callback instance used when connected.
+   * @returns { AbilityComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   onConnect(callback: () => void): AbilityComponentAttribute;
   /**
    * Called when the component is disconnected.
-   * @since 9
+   *
+   * @param { function } callback - A callback instance used when disconnected.
+   * @returns { AbilityComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
 
 /**
  * Defines AbilityComponent Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 declare const AbilityComponent: AbilityComponentInterface;
 
 /**
  * Defines AbilityComponent Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 declare const AbilityComponentInstance: AbilityComponentAttribute;

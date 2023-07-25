@@ -22,14 +22,15 @@ function requireTypescriptModule() {
     return require('typescript');
   }
   const tsPathArray = [
-    path.resolve(__dirname, "../node_modules/typescript"),
-    path.resolve(__dirname, "../../node_modules/typescript")
+    path.resolve(__dirname, '../node_modules/typescript'),
+    path.resolve(__dirname, '../../node_modules/typescript')
   ];
   if (fs.existsSync(tsPathArray[0])) {
     return require(tsPathArray[0]);
   } else if (fs.existsSync(tsPathArray[1])) {
     return require(tsPathArray[1]);
   }
+  return null;
 }
 exports.requireTypescriptModule = requireTypescriptModule;
 const ts = requireTypescriptModule();
@@ -71,7 +72,7 @@ function hasAPINote(node) {
 exports.hasAPINote = hasAPINote;
 
 function removeDir(url) {
-  let statObj = fs.statSync(url);
+  const statObj = fs.statSync(url);
   if (statObj.isDirectory()) {
     let dirs = fs.readdirSync(url);
     dirs = dirs.map(dir => path.join(url, dir));
@@ -86,7 +87,8 @@ function removeDir(url) {
 exports.removeDir = removeDir;
 
 function writeResultFile(resultData, outputPath, option) {
-  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, 2), option, err => {
+  const STANDARD_INDENT = 2;
+  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, STANDARD_INDENT), option, err => {
     if (err) {
       console.error(`ERROR FOR CREATE FILE:${err}`);
     } else {
@@ -97,8 +99,8 @@ function writeResultFile(resultData, outputPath, option) {
 exports.writeResultFile = writeResultFile;
 
 function overwriteIndexOf(item, array) {
-  let indexArr = [];
-  for (var i = 0; i < array.length; i++) {
+  const indexArr = [];
+  for (let i = 0; i < array.length; i++) {
     if (array[i] === item) {
       indexArr.push(i);
     }
@@ -110,83 +112,87 @@ exports.overwriteIndexOf = overwriteIndexOf;
 const ErrorType = {
   UNKNOW_DECORATOR: {
     id: 0,
-    description: 'unknow decorator'
+    description: 'unknow decorator',
   },
   MISSPELL_WORDS: {
     id: 1,
-    description: 'misspell words'
+    description: 'misspell words',
   },
   NAMING_ERRORS: {
     id: 2,
-    description: 'naming errors'
+    description: 'naming errors',
   },
   UNKNOW_PERMISSION: {
     id: 3,
-    description: 'unknow permission'
+    description: 'unknow permission',
   },
   UNKNOW_SYSCAP: {
     id: 4,
-    description: 'unknow syscap'
+    description: 'unknow syscap',
   },
   UNKNOW_DEPRECATED: {
     id: 5,
-    description: 'unknow deprecated'
+    description: 'unknow deprecated',
   },
   WRONG_ORDER: {
     id: 6,
-    description: 'wrong order'
+    description: 'wrong order',
   },
   WRONG_VALUE: {
     id: 7,
-    description: 'wrong value'
+    description: 'wrong value',
   },
   WRONG_SCENE: {
     id: 8,
-    description: 'wrong scene'
+    description: 'wrong scene',
   },
   PARAMETER_ERRORS: {
     id: 9,
-    description: 'wrong parameter'
+    description: 'wrong parameter',
   },
   API_PAIR_ERRORS: {
     id: 10,
-    description: 'limited api pair errors'
+    description: 'limited api pair errors',
   },
   ILLEGAL_ANY: {
     id: 11,
-    description: 'illegal any'
-  }
+    description: 'illegal any',
+  },
+  API_CHANGE_ERRORS: {
+    id: 12,
+    description: 'api change errors',
+  },
 };
 exports.ErrorType = ErrorType;
 
 const LogType = {
   LOG_API: 'Api',
   LOG_JSDOC: 'JsDoc',
-  LOG_FILE: 'File'
+  LOG_FILE: 'File',
 };
 exports.LogType = LogType;
 
 const ErrorLevel = {
   HIGH: 3,
   MIDDLE: 2,
-  LOW: 1
+  LOW: 1,
 };
 exports.ErrorLevel = ErrorLevel;
 
 const FileType = {
   API: 'Api',
-  JSDOC: 'JsDoc'
+  JSDOC: 'JsDoc',
 };
 exports.FileType = FileType;
 
-let apiCheckArr = [];
+const apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
 
-let apiCheckInfoArr = [];
+const apiCheckInfoArr = [];
 exports.apiCheckInfoArr = apiCheckInfoArr;
 
 class ApiCheckResultClass {
-  format_check_result = true;
+  formatCheckResult = true;
 }
 exports.ApiCheckResult = new ApiCheckResultClass();
 
@@ -212,8 +218,8 @@ exports.excelApiCheckResult = excelApiCheckResult;
 
 function getApiInfo(node) {
   const notesStr = getAPINote(node);
-  let apiInfo = {};
-  let versionArr = [];
+  const apiInfo = {};
+  const versionArr = [];
   if (notesStr !== '') {
     if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
@@ -223,7 +229,7 @@ function getApiInfo(node) {
     }
     if (/\@since\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@since\s*(\d+)/g, (versionInfo) => {
-        versionArr.push(versionInfo)
+        versionArr.push(versionInfo);
         apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
       apiInfo.humpVersion = versionArr[0].replace(/\@since/g, '').trim();
@@ -281,13 +287,13 @@ function parseJsDoc(node) {
 }
 exports.parseJsDoc = parseJsDoc;
 
-let systemPermissionFile = path.resolve(__dirname, '../../../../../',
-  "base/global/system_resources/systemres/main/config.json");
+const systemPermissionFile = path.resolve(__dirname, '../../../../../',
+  'base/global/system_resources/systemres/main/config.json');
 
 exports.systemPermissionFile = systemPermissionFile;
 
 exports.checkOption = {
-  permissionContent: undefined
+  permissionContent: undefined,
 };
 
 const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'deprecated',
@@ -321,7 +327,26 @@ const ErrorValueInfo = {
   ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] [$$] tag is redundant. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL: 'the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
   ERROR_USE_INTERFACE: 'the validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
-  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API'
+  ERROR_EVENT_NAME_STRING: 'The event name should be string.',
+  ERROR_EVENT_NAME_NULL: 'The event name cannot be Null value.',
+  ERROR_EVENT_NAME_SMALL_HUMP: 'The event name should be named by small hump. (Received [\'$$\'])',
+  ERROR_EVENT_CALLBACK_OPTIONAL: 'The callback parameter of off function should be optional.',
+  ERROR_EVENT_CALLBACK_MISSING: 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
+  ERROR_EVENT_ON_AND_OFF_PAIR: 'The on and off event subscription methods do not appear in pair.',
+  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API',
+  ERROR_CHANGES_VERSION: 'Please check if the changed API version number is 10.',
+  ERROR_CHANGES_API_HISTORY_PARAM_REQUIRED_CHANGE: 'Forbid changes: Optional parameters cannot be changed to required parameters.',
+  ERROR_CHANGES_API_HISTORY_PARAM_RANGE_CHANGE: 'Forbid changes: Parameters type range cannot be reduced.',
+  ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE: 'Forbid changes: Parameters Parameter must be defined by type.',
+  ERROR_CHANGES_API_HISTORY_PARAM_TYPE_CHANGE: 'Forbid changes: Parameters type cannot be modified.',
+  ERROR_CHANGES_API_HISTORY_PARAM_POSITION_CHANGE: 'Forbid changes: Parameters position not be allowed to be modified.',
+  ERROR_CHANGES_API_NEW_REQUIRED_PARAM: 'Forbid changes: Required parameters cannot be created.',
+  ERROR_CHANGES_API_DELETE_PARAM: 'Forbid changes: Parameters cannot be deleted.',
+  ERROR_CHANGES_DEPRECATED: 'Forbid changes: The api has deprecated tag.',
+  ERROR_CHANGES_JSDOC_NUMBER: 'Forbid changes: API changes must add a new section of JSDoc.',
+  ERROR_CHANGES_JSDOC_CHANGE: 'Forbid changes: Previous JSDoc cannot be changed.',
+  ERROR_CHANGES_JSDOC_TRROWS: 'Forbid changes: Throws tag cannot be created.',
+  ERROR_CHANGES_JSDOC_PERMISSION: 'Forbid changes: Permission tag cannot be created or modified.',
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
@@ -340,7 +365,7 @@ exports.createErrorInfo = createErrorInfo;
  * judge if it is an API file for Arkui
  */
 function isArkUIApiFile(fileName) {
-  if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
+  if (fileName.indexOf('component\\ets\\') >= 0 || fileName.indexOf('component/ets/') >= 0) {
     return true;
   }
   return false;
@@ -350,26 +375,26 @@ exports.isArkUIApiFile = isArkUIApiFile;
 function isWhiteListFile(fileName, whiteList) {
   for (let i = 0; i < whiteList.length; i++) {
     if (path.normalize(fileName).indexOf(path.normalize(whiteList[i])) !== -1) {
-      return true
+      return true;
     }
   }
-  return false
+  return false;
 }
 exports.isWhiteListFile = isWhiteListFile;
 
 function getCheckApiVersion() {
-  const packageJsonPath = path.join(__dirname, "../package.json");
+  const packageJsonPath = path.join(__dirname, '../package.json');
   let packageJson;
   let checkApiVersion;
   try {
-    const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
+    const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
     packageJson = JSON.parse(packageJsonContent);
     checkApiVersion = packageJson.checkApiVersion;
   } catch (error) {
     throw `Failed to read package.json or parse JSON content: ${error}`;
   }
   if (!checkApiVersion) {
-    throw `Please configure the correct API version to be verified`;
+    throw 'Please configure the correct API version to be verified';
   }
   return checkApiVersion;
 }
@@ -379,15 +404,14 @@ const OptionalSymbols = {
   QUERY: '?',
   LEFT_BRACKET: '[',
   RIGHT_BRACKET: ']',
-  LEFT_BRACE:'{',
-  RIGHT_BRACE:'}'
+  LEFT_BRACE: '{',
+  RIGHT_BRACE: '}',
 };
 exports.OptionalSymbols = OptionalSymbols;
 
-
 function removeDuplicateObj(array) {
-  let newArr = [];
-  let errorInfoSet = new Set();
+  const newArr = [];
+  const errorInfoSet = new Set();
   for (const errorInfo of array) {
     if (!errorInfoSet.has(JSON.stringify(errorInfo))) {
       errorInfoSet.add(JSON.stringify(errorInfo));
@@ -397,3 +421,18 @@ function removeDuplicateObj(array) {
   return newArr;
 };
 exports.removeDuplicateObj = removeDuplicateObj;
+
+// check the api version
+function checkVersionNeedCheck(node) {
+  const apiVersion = getApiVersion(node);
+  const apiCheckVersion = getCheckApiVersion();
+  if (parseInt(apiVersion) >= parseInt(apiCheckVersion)) {
+    return true;
+  }
+  return false;
+}
+exports.checkVersionNeedCheck = checkVersionNeedCheck;
+
+const FUNCTION_TYPES = [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor];
+exports.FUNCTION_TYPES = FUNCTION_TYPES;

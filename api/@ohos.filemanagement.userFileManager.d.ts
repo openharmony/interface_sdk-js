@@ -145,6 +145,7 @@ declare namespace userFileManager {
   /**
    * Indicates the type of file asset member.
    *
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @since 9
    */
@@ -153,6 +154,7 @@ declare namespace userFileManager {
   /**
    * Indicates the type of notify event.
    *
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @since 9
    */

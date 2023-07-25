@@ -200,7 +200,7 @@ declare namespace cloudSync {
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
-     * @param { (pg: SyncProgress) => void } callback - callback function with a `SyncProgress` argument.
+     * @param { function } callback - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - The input parameter is invalid.
@@ -395,7 +395,7 @@ declare namespace cloudSync {
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
-     * @param { (pg: DownloadProgress) => void } callback - callback function with a `DownloadProgress` argument.
+     * @param { function } callback - callback function with a `DownloadProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - The input parameter is invalid.

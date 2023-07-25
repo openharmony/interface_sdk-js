@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const path = require("path");
+const path = require('path');
 
 const ApiStatusCode = {
   DELETE: 0,
@@ -28,7 +28,7 @@ const ApiStatusCode = {
   SYSTEM_API_CHNAGES: 9,
   PERMISSION_DELETE: 10,
   PERMISSION_NEW: 11,
-  PERMISSION_CHNAGES: 12,
+  PERMISSION_CHANGES: 12,
   MODEL_CHNAGES: 13,
   TYPE_CHNAGES: 14,
   CLASS_CHANGES: 15,
@@ -38,8 +38,8 @@ const ApiStatusCode = {
   FORM_CHANGED: 19,
   CROSSPLATFORM_CHANGED: 20,
   NEW_DTS: 21,
-  NEW_CLASS: 22
-}
+  NEW_CLASS: 22,
+};
 
 const StatusMessages = [];
 StatusMessages[ApiStatusCode.DELETE] = '删除';
@@ -56,7 +56,7 @@ StatusMessages[ApiStatusCode.SYSCAP_CHANGES] = 'SysCap有变化';
 StatusMessages[ApiStatusCode.SYSTEM_API_CHNAGES] = '访问级别有变化';
 StatusMessages[ApiStatusCode.PERMISSION_DELETE] = '删除(权限)';
 StatusMessages[ApiStatusCode.PERMISSION_NEW] = '新增(权限)';
-StatusMessages[ApiStatusCode.PERMISSION_CHNAGES] = '权限有变化';
+StatusMessages[ApiStatusCode.PERMISSION_CHANGES] = '权限有变化';
 StatusMessages[ApiStatusCode.MODEL_CHNAGES] = 'model有变化';
 StatusMessages[ApiStatusCode.TYPE_CHNAGES] = 'type有变化';
 StatusMessages[ApiStatusCode.CLASS_CHANGES] = '类型有变化';
@@ -76,7 +76,7 @@ function reportDeletedClass(api, syscap) {
     .setStatusMessage(StatusMessages[ApiStatusCode.DELETE_CLASS] + `(${api.getApiType().name})`)
     .setOldMessage('')
     .setNewMessage('')
-    .setSyscap(syscap)
+    .setSyscap(syscap);
   return reporterData;
 }
 
@@ -91,7 +91,7 @@ function reportDeletedPackage(packageName, dtsName) {
   return reporterData;
 }
 
-function reportNewPackage(packageName, dtsName,syscap) {
+function reportNewPackage(packageName, dtsName, syscap) {
   const reporterData = new ReporterData(undefined);
   reporterData.setStatusCode(ApiStatusCode.NEW_DTS)
     .setPackageName(packageName)
@@ -150,7 +150,7 @@ class ReporterData {
     this.changelogs = new Set();
   }
 
-  setDtsPath(dtsPath){
+  setDtsPath(dtsPath) {
     this.dtsPath = dtsPath;
     return this;
   }

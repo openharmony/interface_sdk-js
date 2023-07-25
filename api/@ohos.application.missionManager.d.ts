@@ -35,7 +35,7 @@ declare namespace missionManager {
    * Register the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { MissionListener } listener Indicates the MissionListener to be registered.
+   * @param { MissionListener } listener - Indicates the MissionListener to be registered.
    * @returns { number } The index number of the MissionListener.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -49,8 +49,8 @@ declare namespace missionManager {
    * Unregister the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } listenerId Indicates the listener id to be unregistered.
-   * @param { AsyncCallback<void> } callback Execution result callback function.
+   * @param { number } listenerId - Indicates the listener id to be unregistered.
+   * @param { AsyncCallback<void> } callback - Execution result callback function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -63,7 +63,7 @@ declare namespace missionManager {
    * Unregister the missionListener to ams.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } listenerId Indicates the listener id to be unregistered.
+   * @param { number } listenerId - Indicates the listener id to be unregistered.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -77,9 +77,9 @@ declare namespace missionManager {
    * Get the missionInfo with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the device to be queried.
-   * @param { number } missionId Indicates mission id to be queried.
-   * @param { AsyncCallback<MissionInfo> } callback Execute the result callback function to return task information.
+   * @param { string } deviceId - Indicates the device to be queried.
+   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { AsyncCallback<MissionInfo> } callback - Execute the result callback function to return task information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -92,8 +92,8 @@ declare namespace missionManager {
    * Get the missionInfo with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the device to be queried.
-   * @param { number } missionId Indicates mission id to be queried.
+   * @param { string } deviceId - Indicates the device to be queried.
+   * @param { number } missionId - Indicates mission id to be queried.
    * @returns { Promise<MissionInfo> } the {@link MissionInfo} of the given id.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -107,10 +107,10 @@ declare namespace missionManager {
    * Get the missionInfo with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the device to be queried.
-   * @param { number } numMax Indicates the maximum number of returned missions.
-   * @param { AsyncCallback<Array<MissionInfo>> } callback Execute the result callback function to return an array of
-   * task information.
+   * @param { string } deviceId - Indicates the device to be queried.
+   * @param { number } numMax - Indicates the maximum number of returned missions.
+   * @param { AsyncCallback<Array<MissionInfo>> } callback - Execute the result callback function to return an array of
+   *                                                         task information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -123,8 +123,8 @@ declare namespace missionManager {
    * Get the missionInfo with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the device to be queried.
-   * @param { number } numMax Indicates the maximum number of returned missions.
+   * @param { string } deviceId - Indicates the device to be queried.
+   * @param { number } numMax - Indicates the maximum number of returned missions.
    * @returns { Promise<Array<MissionInfo>> } The array of the {@link MissionInfo}.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -138,10 +138,10 @@ declare namespace missionManager {
    * Get the mission snapshot with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the device to be queried.
-   * @param { number } missionId Indicates mission id to be queried.
-   * @param { AsyncCallback<MissionSnapshot> } callback Execute the result callback function to return task snapshot
-   * information.
+   * @param { string } deviceId - Indicates the device to be queried.
+   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { AsyncCallback<MissionSnapshot> } callback - Execute the result callback function to return task snapshot
+   *                                                      information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -154,8 +154,8 @@ declare namespace missionManager {
    * Get the mission snapshot with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { string } deviceId Indicates the device to be queried.
-   * @param { number } missionId Indicates mission id to be queried.
+   * @param { string } deviceId - Indicates the device to be queried.
+   * @param { number } missionId - Indicates mission id to be queried.
    * @returns { Promise<MissionSnapshot> } The {@link MissionSnapshot} of the given id.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -169,8 +169,8 @@ declare namespace missionManager {
    * Lock the mission.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be locked.
-   * @param { AsyncCallback<void> } callback Execution result callback function.
+   * @param { number } missionId - Indicates mission id to be locked.
+   * @param { AsyncCallback<void> } callback - Execution result callback function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -183,7 +183,7 @@ declare namespace missionManager {
    * Lock the mission.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be locked.
+   * @param { number } missionId - Indicates mission id to be locked.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -197,8 +197,8 @@ declare namespace missionManager {
    * Unlock the mission.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be unlocked.
-   * @param { AsyncCallback<void> } callback Execution result callback function.
+   * @param { number } missionId - Indicates mission id to be unlocked.
+   * @param { AsyncCallback<void> } callback - Execution result callback function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -211,7 +211,7 @@ declare namespace missionManager {
    * Unlock the mission.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be unlocked.
+   * @param { number } missionId - Indicates mission id to be unlocked.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -225,8 +225,8 @@ declare namespace missionManager {
    * Clear the given mission in the ability manager service.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be cleared.
-   * @param { AsyncCallback<void> } callback Execution result callback function.
+   * @param { number } missionId - Indicates mission id to be cleared.
+   * @param { AsyncCallback<void> } callback - Execution result callback function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -239,7 +239,7 @@ declare namespace missionManager {
    * Clear the given mission in the ability manager service.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be cleared.
+   * @param { number } missionId - Indicates mission id to be cleared.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -253,7 +253,7 @@ declare namespace missionManager {
    * Clear all missions in the ability manager service.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { AsyncCallback<void> } callback Returns the callback result in the form of a callback.
+   * @param { AsyncCallback<void> } callback - Returns the callback result in the form of a callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -279,8 +279,8 @@ declare namespace missionManager {
    * Schedule the given mission to foreground.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be moved to foreground.
-   * @param { AsyncCallback<void> } callback Execution result callback function.
+   * @param { number } missionId - Indicates mission id to be moved to foreground.
+   * @param { AsyncCallback<void> } callback - Execution result callback function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -293,9 +293,9 @@ declare namespace missionManager {
    * Schedule the given mission to foreground.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be moved to foreground.
-   * @param { StartOptions } options Indicates the start options.
-   * @param { AsyncCallback<void> } callback Execution result callback function.
+   * @param { number } missionId - Indicates mission id to be moved to foreground.
+   * @param { StartOptions } options - Indicates the start options.
+   * @param { AsyncCallback<void> } callback - Execution result callback function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8
@@ -308,8 +308,8 @@ declare namespace missionManager {
    * Schedule the given mission to foreground.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
-   * @param { number } missionId Indicates mission id to be moved to foreground.
-   * @param { StartOptions } [options] Indicates the start options.
+   * @param { number } missionId - Indicates mission id to be moved to foreground.
+   * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi

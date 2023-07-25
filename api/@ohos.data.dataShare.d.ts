@@ -18,7 +18,6 @@ import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
-import type { Ashmem } from './@ohos.rpc';
 
 /**
  * This module provides the dataShare capability for consumer.
@@ -176,14 +175,14 @@ declare namespace dataShare {
     key: string;
     /**
      * Specifies the published data
-     * If the data is large, use Ashmem.
+     * If the data is large, use ArrayBuffer.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
      * @since 10
      */
-    data: string | Ashmem;
+    data: string | ArrayBuffer;
     /**
      * Specifies the subscriber id
      *

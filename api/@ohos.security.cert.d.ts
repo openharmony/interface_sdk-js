@@ -17,8 +17,8 @@ import type { AsyncCallback } from './@ohos.base';
 import cryptoFramework from '@ohos.security.cryptoFramework';
 
 /**
- * Provides a set of cert operation, shields the underlying differences,
- * encapsulates the relevant algorithm library, and provides a unified functional interface upward.
+ * Provides a series of capabilities related to certificates,
+ * which supports parsing, verification, and output of certificates, extensions, and CRLs.
  *
  * @namespace cert
  * @syscap SystemCapability.Security.Cert
@@ -73,37 +73,49 @@ declare namespace cert {
      */
     ERR_CRYPTO_OPERATION = 19030001,
 
-    /* Indicates that the certificate signature verification failed.
+    /**
+     * Indicates that the certificate signature verification failed.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_CERT_SIGNATURE_FAILURE = 19030002,
 
-    /* Indicates that the certificate has not taken effect.
+    /**
+     * Indicates that the certificate has not taken effect.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_CERT_NOT_YET_VALID = 19030003,
 
-    /* Indicates that the certificate has expired.
+    /**
+     * Indicates that the certificate has expired.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_CERT_HAS_EXPIRED = 19030004,
 
-    /* Indicates that we failed to obtain the certificate issuer..
+    /**
+     * Indicates a failure to obtain the certificate issuer.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY = 19030005,
 
-    /* The key cannot be used for signing a certificate.
+    /**
+     * The key cannot be used for signing a certificate.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_KEYUSAGE_NO_CERTSIGN = 19030006,
 
-    /* The key cannot be used for digital signature.
+    /**
+     * The key cannot be used for digital signature.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
@@ -169,6 +181,121 @@ declare namespace cert {
      * @since 9
      */
     FORMAT_PEM = 1
+  }
+
+  /**
+   * Enum for the certificate item type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  enum CertItemType {
+    /**
+     * Indicates to get certificate TBS(to be signed) value.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    CERT_ITEM_TYPE_TBS = 0,
+
+    /**
+     * Indicates to get certificate public key.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    CERT_ITEM_TYPE_PUBLIC_KEY = 1,
+
+    /**
+     * Indicates to get certificate issuer unique id value.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    CERT_ITEM_TYPE_ISSUER_UNIQUE_ID = 2,
+
+    /**
+     * Indicates to get certificate subject unique id value.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    CERT_ITEM_TYPE_SUBJECT_UNIQUE_ID = 3,
+
+    /**
+     * Indicates to get certificate extensions value.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    CERT_ITEM_TYPE_EXTENSIONS = 4
+  }
+
+  /**
+   * Enumerates for the certificate extension object identifier (OID) types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  enum ExtensionOidType {
+    /**
+     * Indicates to obtain all types of OIDs, including critical and uncritical types.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    EXTENSION_OID_TYPE_ALL = 0,
+
+    /**
+     * Indicates to obtain OIDs of the critical type.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    EXTENSION_OID_TYPE_CRITICAL = 1,
+
+    /**
+     * Indicates to obtain OIDs of the uncritical type.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    EXTENSION_OID_TYPE_UNCRITICAL = 2
+  }
+
+  /**
+   * Enum for the certificate extension entry type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  enum ExtensionEntryType {
+    /**
+     * Indicates to get extension entry.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    EXTENSION_ENTRY_TYPE_ENTRY = 0,
+
+    /**
+     * Indicates to get extension entry critical.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    EXTENSION_ENTRY_TYPE_ENTRY_CRITICAL = 1,
+
+    /**
+     * Indicates to get extension entry value.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    EXTENSION_ENTRY_TYPE_ENTRY_VALUE = 2
   }
 
   /**
@@ -484,10 +611,25 @@ declare namespace cert {
      * @since 9
      */
     getIssuerAltNames(): DataArray;
+
+    /**
+     * Get certificate item value.
+     *
+     * @param { CertItemType } itemType
+     * @returns { DataBlob } cert item value.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getItem(itemType: CertItemType): DataBlob;
   }
 
   /**
-   * Provides the x509 cert func.
+   * Provides to create X509 certificate object.
+   * The returned object provides the data parsing or verification capability.
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @param { AsyncCallback<X509Cert> } callback - the callback of createX509Cert.
@@ -500,7 +642,8 @@ declare namespace cert {
   function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback<X509Cert>): void;
 
   /**
-   * Provides the x509 cert func.
+   * Provides to create X509 certificate object.
+   * The returned object provides the data parsing or verification capability.
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @returns { Promise<X509Cert> } the promise of X509 cert instance.
@@ -511,6 +654,98 @@ declare namespace cert {
    * @since 9
    */
   function createX509Cert(inStream: EncodingBlob): Promise<X509Cert>;
+
+  /**
+   * The CertExtension interface is used to parse and verify certificate extension.
+   *
+   * @typedef CertExtension
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  interface CertExtension {
+    /**
+     * Get certificate extension encoded data.
+     *
+     * @returns { EncodingBlob } cert extension encoded data.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getEncoded(): EncodingBlob;
+
+    /**
+     * Get certificate extension oid list.
+     *
+     * @param { ExtensionOidType } valueType
+     * @returns { DataArray } cert extension OID list value.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getOidList(valueType: ExtensionOidType): DataArray;
+
+    /**
+     * Get certificate extension entry.
+     *
+     * @param { ExtensionEntryType } valueType
+     * @param { DataBlob } oid
+     * @returns { DataBlob } cert extension entry value.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getEntry(valueType: ExtensionEntryType, oid: DataBlob): DataBlob;
+
+    /**
+     * Check whether the certificate is a CA(The keyusage contains signature usage and the value of cA in BasicConstraints is true).
+     * If not a CA, return -1, otherwise return the path length constraint in BasicConstraints.
+     * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
+     *
+     * @returns { number } path length constraint.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    checkCA(): number;
+  }
+
+  /**
+   * Provides to create certificate extension object.
+   * The returned object provides the data parsing or verification capability.
+   *
+   * @param { EncodingBlob } inStream - indicate the input cert extensions data.
+   * @param { AsyncCallback<CertExtension> } callback - the callback of of certificate extension instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  function createCertExtension(inStream: EncodingBlob, callback: AsyncCallback<CertExtension>): void;
+
+  /**
+   * Provides to create certificate extension object.
+   * The returned object provides the data parsing or verification capability.
+   *
+   * @param { EncodingBlob } inStream - indicate the input cert extensions data.
+   * @returns { Promise<CertExtension> } the promise of certificate extension instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  function createCertExtension(inStream: EncodingBlob): Promise<CertExtension>;
 
   /**
    * Interface of X509CrlEntry.
@@ -816,7 +1051,8 @@ declare namespace cert {
   }
 
   /**
-   * Provides the x509 CRL func.
+   * Provides to create X509 CRL object.
+   * The returned object provides the data parsing or verification capability.
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @param { AsyncCallback<X509Crl> } callback - the callback of createX509Crl to return x509 CRL instance.
@@ -829,7 +1065,8 @@ declare namespace cert {
   function createX509Crl(inStream: EncodingBlob, callback: AsyncCallback<X509Crl>): void;
 
   /**
-   * Provides the x509 CRL func.
+   * Provides to create X509 CRL object.
+   * The returned object provides the data parsing or verification capability.
    *
    * @param { EncodingBlob } inStream - indicates the input CRL data.
    * @returns { Promise<X509Crl> } the promise of x509 CRL instance.
@@ -901,7 +1138,7 @@ declare namespace cert {
   }
 
   /**
-   * Provides the cert chain validator func.
+   * Provides to create certificate chain object. The returned object provides the verification capability.
    *
    * @param { string } algorithm - indicates the cert chain validator type.
    * @returns { CertChainValidator } the cert chain validator instance.

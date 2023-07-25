@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to subscribe to sensor data.
@@ -84,6 +84,22 @@ declare namespace sensor {
      * @since 9
      */
     HUMIDITY = 13,
+
+    /**
+     * Color sensor.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @systemapi
+     * @since 10
+     */
+    COLOR = 14,
+
+    /**
+     * Sar sensor.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @systemapi
+     * @since 10
+     */
+    SAR = 15,
 
     /**
      * Orientation sensor.
@@ -176,6 +192,32 @@ declare namespace sensor {
      */
     ACCELEROMETER_UNCALIBRATED = 281
   }
+
+  /**
+   * Subscribe to color sensor data.
+   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
+   * @param { Callback<ColorResponse> } callback - callback color data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function on(type: SensorId.COLOR, callback: Callback<ColorResponse>, options?: Options): void;
+
+  /**
+   * Subscribe to SAR sensor data.
+   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
+   * @param { Callback<SarResponse> } callback - callback sar data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function on(type: SensorId.SAR, callback: Callback<SarResponse>, options?: Options): void;
 
   /**
    * Subscribe to accelerometer sensor data.
@@ -710,6 +752,29 @@ declare namespace sensor {
    * @since 9
    */
   function once(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
+
+  /**
+   * Unsubscribe to color sensor data.
+   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
+   * @param { Callback<ColorResponse> } callback - callback color data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function off(type: SensorId.COLOR, callback?: Callback<ColorResponse>): void;
+
+  /**
+   * Unsubscribe to sar sensor data.
+   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
+   * @param { Callback<SarResponse> } callback - callback sar data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function off(type: SensorId.SAR, callback?: Callback<SarResponse>): void;
+
   /**
    * Unsubscribe to accelerometer sensor data.
    * @permission ohos.permission.ACCELEROMETER
@@ -3243,6 +3308,48 @@ declare namespace sensor {
      * @since 8
      */
     value: number;
+  }
+
+  /**
+   * Color sensor event data.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  interface ColorResponse extends Response {
+    /**
+     * Indicates the intensity of light, in lux.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     * @systemapi
+     */
+    lightIntensity: number;
+    /**
+     * Indicates the color temperature, in kelvin.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     * @systemapi
+     */
+    colorTemperature: number;
+  }
+
+  /**
+   * Sar sensor event data.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  interface SarResponse extends Response {
+    /**
+     * Indicates the specific absorption rate, in W/kg.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     * @systemapi
+     */
+    absorptionRatio: number;
   }
 }
 

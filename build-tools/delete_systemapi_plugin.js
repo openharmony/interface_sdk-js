@@ -54,7 +54,7 @@ function collectDeclaration(url) {
  */
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
-    if (/\.json/.test(url) || /index\-full\.d\.ts/.test(url) || /common\.d\.ts/.test(url)) {
+    if (/\.json/.test(url) || /index\-full\.d\.ts/.test(url) || /common\.d\.ts/.test(url) || /\.d\.ets/.test(url)) {
       // 特殊类型文件处理
       const content = fs.readFileSync(url, 'utf-8');
       writeFile(url, content);

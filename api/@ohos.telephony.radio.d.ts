@@ -68,7 +68,7 @@ declare namespace radio {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<psRadioTech: RadioTechnology, csRadioTech: RadioTechnology> } Returns
+   * @returns { Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } Returns
    * the enumeration of RadioTechnology. The values are as follows:
    * <ul>
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
@@ -1316,6 +1316,95 @@ declare namespace radio {
   function getNROptionMode(slotId: number): Promise<NROptionMode>;
 
   /**
+   * Set the type and state for the specified network capability.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
+   * @param { AsyncCallback<void> } callback - The callback of setNetworkCapability.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setNetworkCapability(slotId: number, type: NetworkCapabilityType, state: NetworkCapabilityState,
+    callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the type and state for the specified network capability.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
+   * @returns { Promise<void> } The promise returned by the setNetworkCapability.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setNetworkCapability(slotId: number, type: NetworkCapabilityType, state: NetworkCapabilityState): Promise<void>;
+
+  /**
+   * Get the network capability state according to the specified capability type.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
+   * @param { AsyncCallback<NetworkCapabilityState> } callback - Indicates the callback for getting
+   * the network capability state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getNetworkCapability(slotId: number, type: NetworkCapabilityType,
+    callback: AsyncCallback<NetworkCapabilityState>): void;
+
+  /**
+   * Get the network capability state according to the specified capability type.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
+   * @returns { Promise<NetworkCapabilityState> } Returns the callback for getting the network capability state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getNetworkCapability(slotId: number, type: NetworkCapabilityType): Promise<NetworkCapabilityState>;
+
+  /**
    * Indicates the preferred network.
    *
    * @enum { number }
@@ -2058,7 +2147,6 @@ declare namespace radio {
    *
    * @interface CellInformation
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
    * @since 8
    */
   export interface CellInformation {
@@ -2568,6 +2656,7 @@ declare namespace radio {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8
+     * @deprecated since 10
      */
     NR_OPTION_UNKNOWN,
 
@@ -2577,6 +2666,7 @@ declare namespace radio {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8
+     * @deprecated since 10
      */
     NR_OPTION_NSA_ONLY,
 
@@ -2586,6 +2676,7 @@ declare namespace radio {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8
+     * @deprecated since 10
      */
     NR_OPTION_SA_ONLY,
 
@@ -2595,6 +2686,7 @@ declare namespace radio {
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8
+     * @deprecated since 10
      */
     NR_OPTION_NSA_AND_SA,
   }
@@ -3003,6 +3095,62 @@ declare namespace radio {
      * @since 9
      */
     TYPE_SMS,
+  }
+
+  /**
+   * Enum for network capability type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum NetworkCapabilityType {
+    /**
+     * Indicates LTE network switch type.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    SERVICE_TYPE_LTE,
+
+    /**
+     * Indicates NR network switch type.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    SERVICE_TYPE_NR,
+  }
+
+  /**
+   * Enum for network capability state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum NetworkCapabilityState {
+    /**
+     * Indicates turn off network switch.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    SERVICE_CAPABILITY_OFF,
+
+    /**
+     * Indicates turn on network switch.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    SERVICE_CAPABILITY_ON,
   }
 }
 

@@ -14,7 +14,7 @@
  */
 
 const excel = require('exceljs');
-const path = require("path");
+const path = require('path');
 const fs = require('fs');
 const { StatusCode, StatusMessages } = require('./reporter');
 
@@ -36,16 +36,16 @@ exports.JSONReporter = {
     const outputFile = path.resolve(dest, `diff(${oldVersion}_${newVersion}).json`);
     fs.writeFileSync(outputFile, JSON.stringify(diffs));
     console.log(`report is in ${outputFile}`);
-  }
-}
+  },
+};
 
 exports.ChangelogReporter = {
   write: function (diffs, dest) {
-    const outputFile = path.resolve(dest, `changelog.json`);
+    const outputFile = path.resolve(dest, 'changelog.json');
     fs.writeFileSync(outputFile, JSON.stringify(diffs));
     console.log(`report is in ${outputFile}`);
-  }
-}
+  },
+};
 
 exports.ExcelReporter = {
   write: async function (diffs, dest, oldVersion, newVersion) {
@@ -57,20 +57,21 @@ exports.ExcelReporter = {
       const messageObj = getDiffMessage(diffInfo);
       const syscap = diffInfo.syscap ? diffInfo.syscap : '';
       const subsystem = diffInfo.packageName === 'ArkUI' ? 'ACE开发框架' : subsystemMap.get(syscap);
-      sheet.getRow(index + 2).values = [
+      const ADD_NUMBER = 2;
+      sheet.getRow(index + ADD_NUMBER).values = [
         diffInfo.status,
         messageObj.oldMessage,
         messageObj.newMessage,
         diffInfo.dtsName,
         subsystem
-      ]
+      ];
     });
     const buffer = await workbook.xlsx.writeBuffer();
-    const outputFile = path.resolve(dest, `diff.xlsx`);
+    const outputFile = path.resolve(dest, 'diff.xlsx');
     fs.writeFileSync(outputFile, buffer);
     console.log(`report is in ${outputFile}`);
-  }
-}
+  },
+};
 
 exports.MarkDownReporter = {
   write: function (diffs, dest) {
@@ -80,15 +81,15 @@ exports.MarkDownReporter = {
         if (diffInfo.syscap === syscap) {
           diffsInSameSystem.push(diffInfo);
         }
-      })
+      });
       if (diffsInSameSystem.length === 0) {
         return;
       }
 
       sortDiffInfoByStatus(diffsInSameSystem, fileName, dest);
-    })
-  }
-}
+    });
+  },
+};
 
 function sortDiffInfoByStatus(diffsInSameSystem, fileName, dest) {
   const sortDiffInfos = [];
@@ -103,7 +104,7 @@ function sortDiffInfoByStatus(diffsInSameSystem, fileName, dest) {
 }
 
 function exportDiffMd(fileName, diffInfos, dest) {
-  let finalContent = `| 操作 | 旧版本 | 新版本 | d.ts文件 |\n`+`| ---- | ------ | ------ | -------- |\n`
+  let finalContent = '| 操作 | 旧版本 | 新版本 | d.ts文件 |\n' + '| ---- | ------ | ------ | -------- |\n';
   for (let i = 0; i < diffInfos.length; i++) {
     let apiData = diffInfos[i];
     const messageObj = getDiffMessage(apiData);
@@ -113,7 +114,7 @@ function exportDiffMd(fileName, diffInfos, dest) {
   }
   const mdFilesDir = `${dest}\\diff合集`;
   if (!fs.existsSync(mdFilesDir)) {
-    fs.mkdirSync(mdFilesDir)
+    fs.mkdirSync(mdFilesDir);
   }
 
   fs.writeFileSync(`${dest}\\diff合集\\js-apidiff-${fileName}.md`, finalContent);
@@ -136,7 +137,7 @@ function getDiffMessage(diffInfo) {
     oldMessage = `类名：${diffInfo.className};\n方法or属性：${diffInfo.oldMessage}`;
     newMessage = `类名：${diffInfo.className};\n方法or属性：${diffInfo.newMessage}`;
   } else if (diffInfo.statusCode === StatusCode.DEPRECATED_CHNAGES) {
-    const useinsteadInfo = diffInfo.hint.replace('useinstead:', '')
+    const useinsteadInfo = diffInfo.hint.replace('useinstead:', '');
     oldMessage = `类名：${diffInfo.className};\n方法or属性：${diffInfo.rawText}\n旧版本信息：${diffInfo.oldMessage}`;
     newMessage = `类名：${diffInfo.className};\n方法or属性：${diffInfo.rawText}\n新版本信息：${diffInfo.newMessage}\n代替接口：${useinsteadInfo}`;
   } else {

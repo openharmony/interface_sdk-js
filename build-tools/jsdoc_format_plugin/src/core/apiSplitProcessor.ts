@@ -15,10 +15,11 @@
 
 import ts from 'typescript';
 import { Code } from '../utils/constant';
-import {
-  comment, Context, ISourceCodeProcessor, ModifyLogResult, ErrorInfo,
-  ProcessResult, sourceParser, JSDocModifyType, MethodNodeType, ApiSplitProcessorInterface
+import type {
+  comment, Context, ISourceCodeProcessor, ModifyLogResult, ProcessResult, sourceParser,
+  MethodNodeType, ApiSplitProcessorInterface
 } from './typedef';
+import { ErrorInfo, JSDocModifyType } from './typedef';
 import { CommentHelper, LogResult } from './coreImpls';
 import { LogReportStringUtils } from '../utils/stringUtils';
 
@@ -53,7 +54,7 @@ export class ApiSplitProcessor implements ISourceCodeProcessor, sourceParser.ITr
  */
 class ApiSplitProcessorHelper {
 
-  static splitEventValues(node: ts.Node) {
+  static splitEventValues(node: ts.Node): string[] {
     let eventValues: Array<string> = [];
     if (ts.isFunctionDeclaration(node) || ts.isMethodDeclaration(node) || ts.isMethodSignature(node)) {
       let functionName: string = '';
@@ -82,7 +83,7 @@ class ApiSplitProcessorHelper {
     return eventValues;
   }
 
-  static logReportProcess(node: MethodNodeType, context?: Context) {
+  static logReportProcess(node: MethodNodeType, context?: Context): void {
     const apiName: string = `${node.name?.getText()}(${node.parameters[0].type?.getFullText()})`;
     const description: string = LogReportStringUtils.createErrorInfo(ErrorInfo.EVENT_SUBSCRIPTION_SPLITTION, [`${apiName}`]);
     const comments: Array<comment.CommentInfo> = CommentHelper.getNodeLeadingComments(node, node.getSourceFile());
@@ -91,7 +92,7 @@ class ApiSplitProcessorHelper {
     context?.getLogReporter().addModifyResult(modifyLogResult);
   }
 
-  static createNewParams(node: MethodNodeType, eventValue: string, typeParam: ts.ParameterDeclaration) {
+  static createNewParams(node: MethodNodeType, eventValue: string, typeParam: ts.ParameterDeclaration): ts.ParameterDeclaration[] {
     const literalTypeNode = ts.factory.createLiteralTypeNode(ts.factory.createStringLiteral(eventValue));
     const newTypeParam: ts.ParameterDeclaration = ts.factory.createParameterDeclaration(typeParam.modifiers,
       typeParam.dotDotDotToken, typeParam.name, typeParam.questionToken, literalTypeNode, typeParam.initializer);
@@ -224,6 +225,7 @@ class ApiSplitProcessorHelper {
       return ts.factory.updateModuleDeclaration(moduleDeclaration, moduleDeclaration.modifiers,
         moduleDeclaration.name, newModuleBlock);
     }
+    return undefined;
   }
 
   static processClassDeclaration(node: ts.Node, context: Context | undefined): ts.Node | undefined {

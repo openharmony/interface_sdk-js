@@ -26,6 +26,39 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace deviceSettings {
   /**
+   * User certificate data.
+   *
+   * @typedef CertBlob
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  export interface CertBlob {
+    /**
+     * The certificate content
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    inData: Uint8Array;
+
+    /**
+     * The certificate alias
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    alias: string;
+  }
+
+  /**
    * Gets the device screen off time.
    * This function can be called by a super administrator.
    *
@@ -62,6 +95,90 @@ declare namespace deviceSettings {
    * @since 10
    */
   function getScreenOffTime(admin: Want): Promise<number>;
+
+  /**
+   * Install user certificate.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { CertBlob } certificate - certificate file content and alias.
+   * @param { AsyncCallback<string> } callback - The callback carries the uri of the certificate used to uninstall
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201001 - manage certificate failed
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function installUserCertificate(admin: Want, certificate: CertBlob, callback: AsyncCallback<string>): void;
+
+  /**
+   * Install user certificate.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { CertBlob } certificate - certificate file content and alias.
+   * @returns { Promise<string> } the promise carries the uri of the certificate used to uninstall
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201001 - manage certificate failed
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function installUserCertificate(admin: Want, certificate: CertBlob): Promise<string>;
+
+  /**
+   * Uninstall user certificate.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } certUri - uri of the certificate.
+   * @param { AsyncCallback<void> } callback - the callback of uninstallUserCertificate.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201001 - manage certificate failed
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function uninstallUserCertificate(admin: Want, certUri: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Uninstall user certificate.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } certUri - uri of the certificate.
+   * @returns { Promise<void> } the promise returned by the uninstallUserCertificate.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201001 - manage certificate failed
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function uninstallUserCertificate(admin: Want, certUri: string): Promise<void>;
 }
 
 export default deviceSettings;

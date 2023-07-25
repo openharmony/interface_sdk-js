@@ -15,15 +15,15 @@
 const fs = require('fs');
 const rules = require('../../code_style_rule.json');
 const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption, ErrorValueInfo,
-  createErrorInfo, OptionalSymbols } = require('../../src/utils');
+  createErrorInfo, OptionalSymbols, parseJsDoc } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
 function checkExtendsValue(tag, node, fileName) {
-  let extendsResult = {
+  const extendsResult = {
     checkResult: true,
     errorInfo: '',
   };
-  let tagValue = tag.name;
+  const tagValue = tag.name;
   // 获取api中的extends信息，校验标签合法性及值规范
   if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
     const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
@@ -37,7 +37,7 @@ function checkExtendsValue(tag, node, fileName) {
 exports.checkExtendsValue = checkExtendsValue;
 
 function checkEnumValue(tag, node, fileName) {
-  let enumResult = {
+  const enumResult = {
     checkResult: true,
     errorInfo: '',
   };
@@ -55,7 +55,7 @@ function checkEnumValue(tag, node, fileName) {
 exports.checkEnumValue = checkEnumValue;
 
 function checkSinceValue(tag, node, fileName) {
-  let sinceResult = {
+  const sinceResult = {
     checkResult: true,
     errorInfo: '',
   };
@@ -70,7 +70,7 @@ function checkSinceValue(tag, node, fileName) {
 exports.checkSinceValue = checkSinceValue;
 
 function checkReturnsValue(tag, node, fileName) {
-  let returnsResult = {
+  const returnsResult = {
     checkResult: true,
     errorInfo: '',
   };
@@ -92,7 +92,7 @@ exports.checkReturnsValue = checkReturnsValue;
 
 function checkParamValue(tag, node, fileName, tagIndex) {
   const tagNameValue = tag.name;
-  const tagTypeValue = tag.type;
+  const tagTypeValue = tag.type.replace(/\n|\r|\s/g, '');
   let paramResult = {
     checkResult: true,
     errorInfo: '',
@@ -108,7 +108,7 @@ function checkParamValue(tag, node, fileName, tagIndex) {
         } else if (ts.isTypeLiteralNode(apiParamInfos[tagIndex].type)) {
           apiType = 'object';
         } else {
-          apiType = apiParamInfos[tagIndex].type?.getText();
+          apiType = apiParamInfos[tagIndex].type?.getText().replace(/\n|\r|\s/g, '');
         }
       }
       let errorInfo = '';
@@ -133,19 +133,28 @@ function checkParamValue(tag, node, fileName, tagIndex) {
 exports.checkParamValue = checkParamValue;
 
 function checkThrowsValue(tag, node, fileName, tagIndex) {
-  let throwsResult = {
+  const throwsResult = {
     checkResult: true,
     errorInfo: '',
   };
   const tagNameValue = tag.name;
   const tagTypeValue = tag.type;
   let errorInfo = '';
-  if (tagTypeValue !== 'BusinessError') {
+  let hasDeprecated = false;
+  const comments = parseJsDoc(node).length > 0 ? [parseJsDoc(node).pop()] : [];
+  comments.forEach(comment => {
+    comment.tags.forEach(tag => {
+      if (tag.tag === 'deprecated') {
+        hasDeprecated = true;
+      }
+    });
+  });
+  if (tagTypeValue !== 'BusinessError' && !hasDeprecated) {
     throwsResult.checkResult = false;
     errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE1_THROWS, [tagIndex + 1]);
   }
 
-  if (isNaN(tagNameValue)) {
+  if (isNaN(tagNameValue) && !hasDeprecated) {
     if (errorInfo !== '') {
       errorInfo += '\n';
     }
@@ -160,20 +169,20 @@ function checkThrowsValue(tag, node, fileName, tagIndex) {
 exports.checkThrowsValue = checkThrowsValue;
 
 /**
- * 
+ *
  * 1.引用不同文件的api接口
  * xxx.xxx#xxx
- * 
+ *
  * 2.引用不同文件的模块接口
  * xxx.xxx
- * 
+ *
  * 3.引用不同文件的api事件接口
  * xxx.xxx#event:xxx
  */
 function checkModule(moduleValue) {
-  return /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*$/.test(moduleValue) ||
-    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#[A-Za-z_]+\b$/.test(moduleValue) ||
-    /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#event:[A-Za-z_]+\b$/.test(moduleValue);
+  return /^[A-Za-z0-9_]+\b(\.[A-Za-z0-9_]+\b)*$/.test(moduleValue) ||
+    /^[A-Za-z0-9_]+\b(\.[A-Za-z0-9_]+\b)*\#[A-Za-z0-9_]+\b$/.test(moduleValue) ||
+    /^[A-Za-z0-9_]+\b(\.[A-Za-z0-9_]+\b)*\#event:[A-Za-z0-9_]+\b$/.test(moduleValue);
 }
 
 function splitUseinsteadValue(useinsteadValue) {
@@ -182,31 +191,38 @@ function splitUseinsteadValue(useinsteadValue) {
   }
   const splitResult = {
     checkResult: true,
-    errorInfo: ''
-  }
+    errorInfo: '',
+  };
   // 拆分字符串
   const splitArray = useinsteadValue.split(/\//g);
-  if (splitArray.length === 1) {
-    // 同一文件
-    splitResult.checkResult = checkModule(splitArray[0]);
+  const MODEL_COUNT = 1;
+  const MODEL_COUNTS = 2;
+  const FILENAME_MODEL_COUNT = 1;
+  if (splitArray.length === MODEL_COUNT) {
+    if (splitArray[0].indexOf(OptionalSymbols.LEFT_BRACKET) === -1 &&
+      splitArray[0].indexOf(OptionalSymbols.RIGHT_BRACKET) === -1) {
+      // 同一文件
+      splitResult.checkResult = checkModule(splitArray[0]);
+    }
 
-  } else if (splitArray.length === 2) {
+  } else if (splitArray.length === MODEL_COUNTS) {
     // 不同文件
     const fileNameArray = splitArray[0].split('.');
-    if (fileNameArray.length === 1) {
+    if (fileNameArray.length === FILENAME_MODEL_COUNT) {
       // arkui
-      if (!/^[A-Za-z_]+\b$/.test(fileNameArray[0]) || !checkModule(splitArray[1])) {
+      if (!/^[A-Za-z0-9_]+\b$/.test(fileNameArray[0]) || !checkModule(splitArray[1])) {
         splitResult.checkResult = false;
       }
     } else {
       // 非arkui
       let checkFileName = true;
       for (let i = 0; i < fileNameArray.length; i++) {
-        if (fileNameArray[0] !== 'ohos' || !/^[A-Za-z_]+\b$/.test(fileNameArray[i])) {
+        if (fileNameArray[0] !== 'ohos' || !/^[A-Za-z0-9_]+\b$/.test(fileNameArray[i])) {
           checkFileName = false;
         }
       }
-      if (!checkFileName || !checkModule(splitArray[1])) {
+      if (!checkFileName || (!checkModule(splitArray[1]) && splitArray[1].indexOf(OptionalSymbols.LEFT_BRACKET) === -1 &&
+        splitArray[1].indexOf(OptionalSymbols.RIGHT_BRACKET) === -1)) {
         splitResult.checkResult = false;
       }
     }
@@ -241,11 +257,11 @@ function checkUseinsteadValue(tag, node, fileName) {
 exports.checkUseinsteadValue = checkUseinsteadValue;
 
 function checkTypeValue(tag, node, fileName) {
-  let typeResult = {
+  const typeResult = {
     checkResult: true,
     errorInfo: '',
   };
-  const tagTypeValue = tag.type;
+  const tagTypeValue = tag.type.replace(/\n|\r|\s/g, '');
   let apiTypeValue = '';
   if (commentNodeWhiteList.includes(node.kind)) {
     if (node.type) {
@@ -258,7 +274,7 @@ function checkTypeValue(tag, node, fileName) {
       }
     }
     apiTypeValue = node.questionToken ? OptionalSymbols.QUERY.concat(apiTypeValue) : apiTypeValue;
-    if (apiTypeValue !== tagTypeValue) {
+    if (apiTypeValue.replace(/\n|\r|\s/g, '') !== tagTypeValue) {
       typeResult.checkResult = false;
       typeResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPE;
     }
@@ -268,7 +284,7 @@ function checkTypeValue(tag, node, fileName) {
 exports.checkTypeValue = checkTypeValue;
 
 function checkDefaultValue(tag, node, fileName) {
-  let defaultResult = {
+  const defaultResult = {
     checkResult: true,
     errorInfo: '',
   };
@@ -309,12 +325,12 @@ function checkPermissionTag(tag, node, fileName) {
   const permissionRuleSet = getPermissionList();
   let hasPermissionError = false;
   let errorInfo = '';
-  let permissionResult = {
+  const permissionResult = {
     checkResult: true,
     errorInfo: '',
   };
   const tagValue = tag.name + tag.description;
-  const permissionArr = tagValue.replace(/\s/g, '').replace(/(or|and|\(|\))/g, '$').split('$');
+  const permissionArr = tagValue.replace(/\s|\(|\)/g, '').replace(/(or|and)/g, '$').split('$');
   permissionArr.forEach(permissionStr => {
     if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr) && permissionStr !== 'N/A') ||
       permissionStr === '') {
@@ -331,7 +347,7 @@ function checkPermissionTag(tag, node, fileName) {
 exports.checkPermissionTag = checkPermissionTag;
 
 function checkDeprecatedTag(tag, node, fileName) {
-  let deprecatedResult = {
+  const deprecatedResult = {
     checkResult: true,
     errorInfo: '',
   };
@@ -347,7 +363,7 @@ function checkDeprecatedTag(tag, node, fileName) {
 exports.checkDeprecatedTag = checkDeprecatedTag;
 
 function checkSyscapTag(tag, node, fileName) {
-  let syscapResult = {
+  const syscapResult = {
     checkResult: true,
     errorInfo: '',
   };
@@ -362,13 +378,13 @@ function checkSyscapTag(tag, node, fileName) {
 exports.checkSyscapTag = checkSyscapTag;
 
 function checkNamespaceTag(tag, node, fileName) {
-  let namespaceResult = {
+  const namespaceResult = {
     checkResult: true,
     errorInfo: '',
   };
   const tagValue = tag.name;
   if (commentNodeWhiteList.includes(node.kind)) {
-    let apiValue = node.name?.escapedText;
+    const apiValue = node.name?.escapedText;
     if (apiValue !== undefined && tagValue !== apiValue) {
       namespaceResult.checkResult = false;
       namespaceResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_NAMESPACE;
@@ -379,13 +395,13 @@ function checkNamespaceTag(tag, node, fileName) {
 exports.checkNamespaceTag = checkNamespaceTag;
 
 function checkInterfaceTypedefTag(tag, node, fileName) {
-  let interfaceResult = {
+  const interfaceResult = {
     checkResult: true,
     errorInfo: '',
   };
   const tagValue = tag.name;
   if (commentNodeWhiteList.includes(node.kind)) {
-    let apiValue = node.name?.escapedText;
+    const apiValue = node.name?.escapedText;
     if (apiValue !== undefined && tagValue !== apiValue) {
       interfaceResult.checkResult = false;
       if (tag.tag === 'interface') {
@@ -400,20 +416,20 @@ function checkInterfaceTypedefTag(tag, node, fileName) {
 exports.checkInterfaceTypedefTag = checkInterfaceTypedefTag;
 
 const JsDocValueChecker = {
-  'extends': checkExtendsValue,
-  'enum': checkEnumValue,
-  'since': checkSinceValue,
-  'returns': checkReturnsValue,
-  'param': checkParamValue,
-  'throws': checkThrowsValue,
-  'useinstead': checkUseinsteadValue,
-  'type': checkTypeValue,
-  'default': checkDefaultValue,
-  'permission': checkPermissionTag,
-  'deprecated': checkDeprecatedTag,
-  'syscap': checkSyscapTag,
-  'namespace': checkNamespaceTag,
-  'interface': checkInterfaceTypedefTag,
-  'typedef': checkInterfaceTypedefTag
+  extends: checkExtendsValue,
+  enum: checkEnumValue,
+  since: checkSinceValue,
+  returns: checkReturnsValue,
+  param: checkParamValue,
+  throws: checkThrowsValue,
+  useinstead: checkUseinsteadValue,
+  type: checkTypeValue,
+  default: checkDefaultValue,
+  permission: checkPermissionTag,
+  deprecated: checkDeprecatedTag,
+  syscap: checkSyscapTag,
+  namespace: checkNamespaceTag,
+  interface: checkInterfaceTypedefTag,
+  typedef: checkInterfaceTypedefTag,
 };
 exports.JsDocValueChecker = JsDocValueChecker;

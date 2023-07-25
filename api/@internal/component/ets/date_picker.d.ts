@@ -15,20 +15,32 @@
 
 /**
  * Defines the struct of DatePickerResult.
+ *
+ * @interface DatePickerResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the struct of DatePickerResult.
+ *
+ * @interface DatePickerResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface DatePickerResult {
   /**
    * Application year
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Application year
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +48,16 @@ declare interface DatePickerResult {
 
   /**
    * Application month
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Application month
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -47,10 +65,16 @@ declare interface DatePickerResult {
 
   /**
    * Application day
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Application day
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -59,20 +83,32 @@ declare interface DatePickerResult {
 
 /**
  * Defines the options of DatePicker.
+ *
+ * @interface DatePickerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the options of DatePicker.
+ *
+ * @interface DatePickerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface DatePickerOptions {
   /**
    * Specifies the start date of the date selector.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Specifies the start date of the date selector.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -80,10 +116,16 @@ declare interface DatePickerOptions {
 
   /**
    * Specifies the end date for the date selector.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Specifies the end date for the date selector.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -91,10 +133,16 @@ declare interface DatePickerOptions {
 
   /**
    * Specifies the date selector check date or time selector check time.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Specifies the date selector check date or time selector check time.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -103,20 +151,34 @@ declare interface DatePickerOptions {
 
 /**
  * Defines the DatePicker Component.
+ *
+ * @interface DatePickerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the DatePicker Component.
+ *
+ * @interface DatePickerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface DatePickerInterface {
   /**
    * Defines the DatePicker constructor.
+   *
+   * @param { DatePickerOptions } options
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines the DatePicker constructor.
+   *
+   * @param { DatePickerOptions } options
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -125,20 +187,34 @@ interface DatePickerInterface {
 
 /**
  * Defines the DatePicker attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the DatePicker attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+   *
+   * @param { boolean } value
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+   *
+   * @param { boolean } value
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -146,7 +222,9 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
 
   /**
    * Sets the text style of disappearing items
+   *
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+   * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -155,7 +233,9 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
 
   /**
    * Sets the text style of normal items
+   *
    * @param { PickerTextStyle } value - indicates the text style of normal items.
+   * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -164,7 +244,9 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
 
   /**
    * Sets the text style of selected items
+   *
    * @param { PickerTextStyle } value - indicates the text style of selected items.
+   * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -173,10 +255,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
 
   /**
    * This event is triggered when a DatePicker date or time is selected.
+   *
+   * @param { function } callback
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * This event is triggered when a DatePicker date or time is selected.
+   *
+   * @param { function } callback
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -185,28 +275,51 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
 
 /**
  * Defines the DatePickerDialogOptions for Data Picker Dialog.
+ *
+ * @interface DatePickerDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the DatePickerDialogOptions for Data Picker Dialog.
+ *
+ * @interface DatePickerDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface DatePickerDialogOptions extends DatePickerOptions {
   /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   lunar?: boolean;
 
   /**
+   * Whether to show the switch to display the lunar.
+   * 
+   * @param { boolean } value - indicates whether to show the switch to display the lunar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  lunarSwitch?: boolean;
+
+  /**
    * Indicates whether to show the time selector.
-   * @type { boolean }
+   *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -215,7 +328,8 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Indicates whether to display the 24-hour clock.
-   * @type { boolean }
+   *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -224,7 +338,8 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Text style of disappearing items
-   * @type { PickerTextStyle }
+   *
+   * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -233,7 +348,8 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Text style of normal items
-   * @type { PickerTextStyle }
+   *
+   * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -242,7 +358,8 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Text style of selected items
-   * @type { PickerTextStyle }
+   *
+   * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -251,10 +368,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Called when the OK button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the OK button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -262,10 +385,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Called when the Cancel button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -273,10 +402,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -285,20 +420,30 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
 /**
  * Defines DatePickerDialog which uses show method to show DatePicker dialog.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines DatePickerDialog which uses show method to show DatePicker dialog.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class DatePickerDialog {
   /**
    * Invoking method display.
+   *
+   * @param { DatePickerDialogOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoking method display.
+   *
+   * @param { DatePickerDialogOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -307,10 +452,14 @@ declare class DatePickerDialog {
 
 /**
  * Defines DatePicker Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines DatePicker Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -318,10 +467,14 @@ declare const DatePicker: DatePickerInterface;
 
 /**
  * Defines DatePicker Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines DatePicker Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

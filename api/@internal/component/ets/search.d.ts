@@ -15,20 +15,30 @@
 
 /**
  * Provides the method of switching the cursor position.
+ *
+ * @extends TextContentControllerBase
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Provides the method of switching the cursor position.
+ *
+ * @extends TextContentControllerBase
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare class SearchController {
+declare class SearchController extends TextContentControllerBase {
   /**
    * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,19 +46,35 @@ declare class SearchController {
 
   /**
    * Called when the position of the insertion cursor is set.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the position of the insertion cursor is set.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   caretPosition(value: number): void;
+
+  /**
+   * Exit edit state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  stopEditing(): void;
 }
 
 /**
  * Enum for the style of cancel button
- * @enum {number}
+ *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -56,6 +82,7 @@ declare class SearchController {
 declare enum CancelButtonStyle {
   /**
    * The value of button style constant
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -64,6 +91,7 @@ declare enum CancelButtonStyle {
 
   /**
    * The value of button style invisible
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -72,6 +100,7 @@ declare enum CancelButtonStyle {
 
   /**
    * The value of button style input
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -81,10 +110,16 @@ declare enum CancelButtonStyle {
 
 /**
  * The construct function of search
+ *
+ * @interface SearchInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The construct function of search
+ *
+ * @interface SearchInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -92,33 +127,43 @@ interface SearchInterface {
   (options?: {
     /**
      * Text input in the search text box
-     * @type { string }
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     value?: string;
 
     /**
      * Text displayed when there is no input
+     *
      * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Text displayed when there is no input
-     * @type { ResourceStr }
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     placeholder?: ResourceStr;
 
     /**
      * Path to the search icon
-     * @type { string }
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     icon?: string;
 
     /**
      * Controller of the <Search> component
-     * @type { SearchController }
+     *
+     * @type { ?SearchController }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     controller?: SearchController
@@ -127,6 +172,8 @@ interface SearchInterface {
 
 /**
  * Defines the icon options
+ *
+ * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -134,7 +181,8 @@ interface SearchInterface {
 interface IconOptions {
   /**
    * Set the icon size
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -143,7 +191,8 @@ interface IconOptions {
 
   /**
    * Set the icon color
-   * @type { ResourceColor }
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -152,7 +201,8 @@ interface IconOptions {
 
   /**
    * Set the icon resource
-   * @type { ResourceStr }
+   *
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -162,6 +212,8 @@ interface IconOptions {
 
 /**
  * Defines the cursor style
+ *
+ * @interface CaretStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -169,7 +221,8 @@ interface IconOptions {
 interface CaretStyle {
   /**
    * Set the cursor width
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -178,7 +231,8 @@ interface CaretStyle {
 
   /**
    * Set the cursor color
-   * @type { ResourceColor }
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -188,14 +242,17 @@ interface CaretStyle {
 
 /**
  * Defines the SearchButton options
+ *
+ * @interface SearchButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-interface SearchButtonOption {
+interface SearchButtonOptions {
   /**
    * Set the SearchButton fontSize
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -204,7 +261,8 @@ interface SearchButtonOption {
 
   /**
    * Set the SearchButton fontColor
-   * @type { ResourceColor }
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -214,33 +272,46 @@ interface SearchButtonOption {
 
 /**
  * The attribute function of search
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The attribute function of search
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the search button text
+   *
    * @param { string } value - indicates the text of the search button.
+   * @param { SearchButtonOption } option
+   * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the search button text, fontSize and fontColor
+   *
    * @param { string } value - indicates the text of the search button.
-   * @param { SearchButtonOption } option - indicates the fontSize and fontColor of the search button.
+   * @param { SearchButtonOptions } option - indicates the fontSize and fontColor of the search button.
+   * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  searchButton(value: string, option?: SearchButtonOption): SearchAttribute;
+  searchButton(value: string, option?: SearchButtonOptions): SearchAttribute;
 
   /**
    * Set the text Color
+   *
    * @param { ResourceColor } value - indicates the color of the text.
+   * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -249,7 +320,9 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Set the search icon style
+   *
    * @param { IconOptions } value - indicates the style of the search icon.
+   * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -258,7 +331,9 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Set the cancel button style
-   * @param { {style?: CancelButtonStyle, icon?: IconOptions} } value - indicates the style of the cancel button.
+   *
+   * @param { object } value - indicates the style of the cancel button.
+   * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -267,7 +342,9 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Set the cursor style
+   *
    * @param { CaretStyle } value - indicates the style of the cursor.
+   * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -276,10 +353,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Set the place hold text color
+   *
+   * @param { ResourceColor } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the place hold text color
+   *
+   * @param { ResourceColor } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -287,10 +372,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Set the font used for place holder text
+   *
+   * @param { Font } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the font used for place holder text
+   *
+   * @param { Font } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -298,10 +391,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Set the font used for input text
+   *
+   * @param { Font } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the font used for input text
+   *
+   * @param { Font } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -309,10 +410,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Call the function when clicked the search button
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Call the function when clicked the search button
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -320,21 +429,59 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Call the function when editing the input text
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Call the function when editing the input text
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   onChange(callback: (value: string) => void): SearchAttribute;
 
   /**
+   * Called when the text selection changes.
+   *
+   * @param { function } callback - callback of the listened event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): SearchAttribute;
+
+  /**
+   * Called when the content scrolls.
+   *
+   * @param { function } callback - callback of the listened event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): SearchAttribute;
+
+  /**
    * Called when using the Clipboard menu
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when using the Clipboard menu
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -342,10 +489,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Called when using the Clipboard menu
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when using the Clipboard menu
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -353,10 +508,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Called when using the Clipboard menu
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when using the Clipboard menu
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -364,10 +527,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Called when the copy option is set.
+   *
+   * @param { CopyOptions } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when the copy option is set.
+   *
+   * @param { CopyOptions } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -375,10 +546,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Called when the text align is set.
+   *
+   * @param { TextAlign } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when the text align is set.
+   *
+   * @param { TextAlign } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -386,22 +565,37 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * Sets whether request keyboard or not when on focus.
-   * @param { boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @param { boolean } value
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   enableKeyboardOnFocus(value: boolean): SearchAttribute;
+
+  /**
+   * Controls whether the selection menu pops up.
+   *
+   * @param { boolean } value
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  selectionMenuHidden(value: boolean): SearchAttribute;
 }
 
 /**
  * Defines Search Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Search Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -409,10 +603,14 @@ declare const Search: SearchInterface;
 
 /**
  * Defines Search Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Search Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

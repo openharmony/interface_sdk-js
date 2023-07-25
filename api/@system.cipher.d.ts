@@ -17,7 +17,6 @@
  * Defines the cipher response.
  *
  * @typedef CipherResponse
- * @permission N/A
  * @syscap SystemCapability.Security.Cipher
  * @since 3
  */
@@ -25,7 +24,6 @@ export interface CipherResponse {
   /**
    * response text
    *
-   * @permission N/A
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -37,7 +35,6 @@ export interface CipherResponse {
  * Defines the rsa cipher options.
  *
  * @typedef CipherRsaOptions
- * @permission N/A
  * @syscap SystemCapability.Security.Cipher
  * @since 3
  */
@@ -48,7 +45,6 @@ export interface CipherRsaOptions {
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
    *
-   * @permission N/A
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -63,7 +59,6 @@ export interface CipherRsaOptions {
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
    *
-   * @permission N/A
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -75,7 +70,6 @@ export interface CipherRsaOptions {
    * During encryption, this parameter is a public key.
    * During decryption, it is a private key.
    *
-   * @permission N/A
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -86,7 +80,6 @@ export interface CipherRsaOptions {
    * RSA algorithm padding.
    * The default value is RSA/None/OAEPWithSHA256AndMGF1Padding.
    *
-   * @permission N/A
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -96,7 +89,6 @@ export interface CipherRsaOptions {
   /**
    * Called when data is encrypted or decrypted successfully.
    *
-   * @permission N/A
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -106,7 +98,6 @@ export interface CipherRsaOptions {
   /**
    * Called when data fails to be encrypted or decrypted.
    *
-   * @permission N/A
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -116,7 +107,6 @@ export interface CipherRsaOptions {
   /**
    * Called when the execution is completed.
    *
-   * @permission N/A
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -128,7 +118,6 @@ export interface CipherRsaOptions {
  * Defines the aes cipher options.
  *
  * @typedef CipherAesOptions
- * @permission N/A
  * @syscap SystemCapability.Security.Cipher
  * @since 3
  */
@@ -139,7 +128,6 @@ export interface CipherAesOptions {
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
    *
-   * @permission N/A
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -152,7 +140,6 @@ export interface CipherAesOptions {
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
    *
-   * @permission N/A
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -162,7 +149,6 @@ export interface CipherAesOptions {
   /**
    * Key used for encryption or decryption, which is a character string encrypted using Base64.
    *
-   * @permission N/A
    * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -173,7 +159,6 @@ export interface CipherAesOptions {
    * Encryption mode and padding of the AES algorithm.
    * The default value is AES/CBC/PKCS5Padding.
    *
-   * @permission N/A
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -185,7 +170,6 @@ export interface CipherAesOptions {
    * The value is a character string encoded using Base64.
    * The default value is the key value.
    *
-   * @permission N/A
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -196,7 +180,6 @@ export interface CipherAesOptions {
    * Offset of the initial vector for AES-based encryption and decryption.
    * The default value is 0.
    *
-   * @permission N/A
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -207,7 +190,6 @@ export interface CipherAesOptions {
    * Length of the initial vector for AES-based encryption and decryption.
    * The default value is 16.
    *
-   * @permission N/A
    * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -217,7 +199,6 @@ export interface CipherAesOptions {
   /**
    * Called when data is encrypted or decrypted successfully.
    *
-   * @permission N/A
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -227,7 +208,6 @@ export interface CipherAesOptions {
   /**
    * Called when data fails to be encrypted or decrypted.
    *
-   * @permission N/A
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -237,7 +217,6 @@ export interface CipherAesOptions {
   /**
    * Called when the execution is completed.
    *
-   * @permission N/A
    * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -248,7 +227,6 @@ export interface CipherAesOptions {
 /**
  * Defines the cipher functions.
  *
- * @permission N/A
  * @syscap SystemCapability.Security.Cipher
  * @since 3
  * @deprecated since 9
@@ -258,7 +236,6 @@ export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
    *
-   * @permission N/A
    * @param { CipherRsaOptions } options - RSA options
    * @syscap SystemCapability.Security.Cipher
    * @since 3
@@ -270,7 +247,6 @@ export default class Cipher {
   /**
    * Encrypts or decrypts data using AES.
    *
-   * @permission N/A
    * @param { CipherAesOptions } options - AES options
    * @syscap SystemCapability.Security.Cipher
    * @since 3

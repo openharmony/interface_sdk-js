@@ -836,7 +836,7 @@ declare namespace webview {
 
     /**
      * Receive message from other port.
-     * @param { (result: WebMessage) => void } callback - Callback function for receiving messages.
+     * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100006 - Can not register message event using this port.
      * @syscap SystemCapability.Web.Webview.Core
@@ -856,7 +856,7 @@ declare namespace webview {
 
     /**
      * Receive message from other port.
-     * @param { (result: WebMessageExt) => void } callback - Callback function for receiving messages.
+     * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100006 - Can not register message event using this port.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1756,6 +1756,51 @@ declare namespace webview {
      * @since 10
      */
     setAudioMuted(mute: boolean): void;
+
+    /**
+     * Prefetch the resources required by the page, but will not execute js or render the page.
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
+
+    /**
+     * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { boolean } preconnectable - Indicates whether to preconnect.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
+
+    /**
+     * Set custom user agent.
+     * @param { string } userAgent - User custom agent information.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    setCustomUserAgent(userAgent: string): void;
+
+    /**
+     * Get custom user agent.
+     * @returns { string } Get custom User agent information.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    getCustomUserAgent(): string;
   }
 }
 

@@ -15,6 +15,7 @@
 
 /**
  * Defines the list item group style.
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -22,6 +23,7 @@
 declare enum ListItemGroupStyle {
   /**
    * Show custom style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -29,6 +31,7 @@ declare enum ListItemGroupStyle {
 
   /**
    * Show default style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -37,20 +40,32 @@ declare enum ListItemGroupStyle {
 
 /**
  * Defines the list item group options.
+ *
+ * @interface ListItemGroupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the list item group options.
+ *
+ * @interface ListItemGroupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface ListItemGroupOptions {
   /**
    * Describes the ListItemGroup header.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Describes the ListItemGroup header.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -58,10 +73,16 @@ declare interface ListItemGroupOptions {
 
   /**
    * Describes the ListItemGroup footer.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Describes the ListItemGroup footer.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -69,10 +90,16 @@ declare interface ListItemGroupOptions {
 
   /**
    * Describes the ListItemGroup space.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Describes the ListItemGroup space.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -80,6 +107,7 @@ declare interface ListItemGroupOptions {
 
   /**
    * Describes the ListItemGroup style.
+   *
    * @type { ?ListItemGroupStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -89,20 +117,34 @@ declare interface ListItemGroupOptions {
 
 /**
  * Defines the ListItemGroup component
+ *
+ * @interface ListItemGroupInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the ListItemGroup component
+ *
+ * @interface ListItemGroupInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface ListItemGroupInterface {
   /**
    * Called when interface is called.
+   *
+   * @param { ListItemGroupOptions } options
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when interface is called.
+   *
+   * @param { ListItemGroupOptions } options
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -111,20 +153,44 @@ interface ListItemGroupInterface {
 
 /**
  * Defines the item group attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the item group attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
    * Called when the ListItemGroup split line style is set.
+   *
+   * @param { {
+   *   strokeWidth: Length;
+   *   color?: ResourceColor;
+   *   startMargin?: Length;
+   *   endMargin?: Length;
+   * } | null } value
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when the ListItemGroup split line style is set.
+   *
+   * @param { {
+   *   strokeWidth: Length;
+   *   color?: ResourceColor;
+   *   startMargin?: Length;
+   *   endMargin?: Length;
+   * } | null } value
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -140,10 +206,14 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
 
 /**
  * Defines ListItemGroup Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines ListItemGroup Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -151,10 +221,14 @@ declare const ListItemGroupInstance: ListItemGroupAttribute;
 
 /**
  * Defines ListItemGroup Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines ListItemGroup Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

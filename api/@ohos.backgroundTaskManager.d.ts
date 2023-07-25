@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-import { WantAgent } from "./@ohos.wantAgent";
+import { WantAgent } from './@ohos.wantAgent';
 import Context from './application/BaseContext';
 
 /**

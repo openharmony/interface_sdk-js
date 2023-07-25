@@ -82,6 +82,13 @@ function getTypeAliasDeclarationInfo(typeAliasDeclaration, parentApiDigest, ext)
   return wrapApiDigestInfo(typeAliasDeclaration, className, apiName, ApiType.TypeAliasDeclaration, rawText, ext);
 }
 
+function getCallSignature(callSignature, parentApiDigest, ext) {
+  const className = parentApiDigest.getClassName();
+  const rawText = callSignature.getText();
+  const apiName = callSignature.name ? callSignature.name.getText() : className;
+  return wrapApiDigestInfo(callSignature, className, apiName, ApiType.CallSignature, rawText, ext);
+}
+
 /**
  * 获取方法签名信息
  * 
@@ -246,7 +253,8 @@ const apiDigestMethodMap = new Map([
   [ts.SyntaxKind.MethodSignature, getMethodSignatureInfo],
   [ts.SyntaxKind.PropertySignature, getPropertySignatureInfo],
   [ts.SyntaxKind.MethodDeclaration, getMethodDeclarationInfo],
-  [ts.SyntaxKind.TypeAliasDeclaration, getTypeAliasDeclarationInfo]
+  [ts.SyntaxKind.TypeAliasDeclaration, getTypeAliasDeclarationInfo],
+  [ts.SyntaxKind.CallSignature, getCallSignature]
 ]);
 
 /**
@@ -313,8 +321,8 @@ function getDummyApiDigestInfo(astNode) {
  * @returns {Boolean} true or false
  */
 function shouldVisitChildren(astNode) {
-  return ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode) || ts.isInterfaceDeclaration(astNode)
-    || ts.isClassDeclaration(astNode) || ts.isModuleBlock(astNode) || ts.isSourceFile(astNode);
+  return ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode) || ts.isInterfaceDeclaration(astNode) ||
+    ts.isClassDeclaration(astNode) || ts.isModuleBlock(astNode) || ts.isSourceFile(astNode);
 }
 
 /**
@@ -335,7 +343,7 @@ function visitAstNode(astNode, apiMap, parentApiDigest, ext) {
   apiDigestInfo.setParent(parentApiDigest);
   if (shouldVisitChildren(astNode)) {
     astNode.forEachChild((child) => {
-      visitAstNode(child, apiMap, apiDigestInfo, ext)
+      visitAstNode(child, apiMap, apiDigestInfo, ext);
     });
   }
 }
@@ -360,12 +368,12 @@ function collectApi(filePath, rootDir, resultMap) {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const sourceFile = ts.createSourceFile(apiFileName, fileContent, ts.ScriptTarget.ES2017, true);
   const isArkUI = isInDirectory(path.resolve(rootDir, 'component'), filePath);
-  const packageName = isArkUI ? "ArkUI" : path.relative(rootDir, filePath);
+  const packageName = isArkUI ? 'ArkUI' : path.relative(rootDir, filePath);
   const dtsPath = path.relative(rootDir, filePath).replace(/\\/g, '/');
   visitAstNode(sourceFile, apiMap, undefined, new VisitExt(packageName, dtsPath));
   return apiMap;
 }
 
 exports.ApiCollector = {
-  collectApi: collectApi
-}
+  collectApi: collectApi,
+};

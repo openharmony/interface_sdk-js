@@ -40,8 +40,8 @@ function parseFiles(files) {
     fileContentList.push({
       fileName: path.basename(file).replace(/.d.ts$/g, '.ts'),
       fileContent: fileContent,
-      fileRoot: file
-    })
+      fileRoot: file,
+    });
   });
 
   const api = [];
@@ -51,30 +51,30 @@ function parseFiles(files) {
 
   fileContentList.forEach(item => {
     const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-    let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
-      item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ?
-      "ArkUI" : fileName.replace(/\@|.ts$/g, "");
+    let packageName = item.fileRoot.indexOf('build-tools\\ets-loader\\declarations') >= 0 ||
+      item.fileRoot.indexOf('build-tools/ets-loader/declarations') >= 0 ?
+      'ArkUI' : fileName.replace(/\@|.ts$/g, '');
     ts.transpileModule(item.fileContent, {
       compilerOptions: {
-        "target": ts.ScriptTarget.ES2017
+        'target': ts.ScriptTarget.ES2017,
       },
       fileName: fileName,
-      transformers: { before: [getReturnDeclarationArr(packageName, exportApi, returnDeclarationArr, fileName)] }
-    })
+      transformers: { before: [getReturnDeclarationArr(packageName, exportApi, returnDeclarationArr, fileName)] },
+    });
   });
 
   fileContentList.forEach(item => {
     const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-    let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
-      item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ? "ArkUI" :
-      fileName.replace(/\@|.ts$/g, "");
+    let packageName = item.fileRoot.indexOf('build-tools\\ets-loader\\declarations') >= 0 ||
+      item.fileRoot.indexOf('build-tools/ets-loader/declarations') >= 0 ? 'ArkUI' :
+      fileName.replace(/\@|.ts$/g, '');
     ts.transpileModule(item.fileContent, {
       compilerOptions: {
-        "target": ts.ScriptTarget.ES2017
+        'target': ts.ScriptTarget.ES2017,
       },
       fileName: fileName,
-      transformers: { before: [processDeclarationSourceFile(packageName, api, exportApi, returnDeclarationArr, hash)] }
-    })
+      transformers: { before: [processDeclarationSourceFile(packageName, api, exportApi, returnDeclarationArr, hash)] },
+    });
   });
   return api;
 }
@@ -84,7 +84,7 @@ exports.parseFiles = parseFiles;
 function visitAllNode(node, returnDeclarationArr, packageName) {
   if ((ts.isMethodDeclaration(node) || ts.isFunctionDeclaration(node)) && node && node.type &&
     ts.isTypeReferenceNode(node.type)) {
-    returnDeclarationArr.add(node.type.typeName.getText())
+    returnDeclarationArr.add(node.type.typeName.getText());
   }
 
   if (ts.isModuleDeclaration(node) && ts.isModuleBlock(node.body) && node.body && node.body.statements) {
@@ -93,10 +93,10 @@ function visitAllNode(node, returnDeclarationArr, packageName) {
         applicationModules.push({
           packageName: packageName,
           className: node.name.escapedText,
-          methodName: statement.name.escapedText
-        })
+          methodName: statement.name.escapedText,
+        });
       }
-    })
+    });
   }
   node.getChildren().forEach(item => visitAllNode(item, returnDeclarationArr, packageName));
 }
@@ -111,14 +111,14 @@ function getExportApi(node, packageName, exportApi) {
           deprecated: '',
           permission: 'N/A',
           sysCap: 'N/A',
-          model: ''
-        }
+          model: '',
+        };
         exportApi.push({
           packageName: packageName,
           className: stat.name.escapedText.toString(),
           methodName: '',
-          apiInfo: getApiInfo(stat, apiInfo)
-        })
+          apiInfo: getApiInfo(stat, apiInfo),
+        });
       }
     }
   });
@@ -130,9 +130,9 @@ const getReturnDeclarationArr = (packageName, exportApi, returnDeclarationArr, f
       visitAllNode(node, returnDeclarationArr, packageName);
       getExportApi(node, packageName, exportApi);
       return node;
-    }
-  }
-}
+    };
+  };
+};
 exports.applicationModules = applicationModules;
 
 function processDeclarationSourceFile(packageName, api, exportApi, returnDeclarationArr, hash) {
@@ -146,8 +146,8 @@ function processDeclarationSourceFile(packageName, api, exportApi, returnDeclara
           if (stat.type.types) {
             let typeObj = {
               name: stat.name.escapedText,
-              value: []
-            }
+              value: [],
+            };
             stat.type.types.forEach(type => {
               if (type.literal && type.literal.text) {
                 typeObj.value.push(type.literal.text);
@@ -158,7 +158,7 @@ function processDeclarationSourceFile(packageName, api, exportApi, returnDeclara
             }
           }
         }
-      })
+      });
 
       statements.forEach(stat => {
         let apiInfo = {
@@ -167,8 +167,8 @@ function processDeclarationSourceFile(packageName, api, exportApi, returnDeclara
           deprecated: '',
           permission: 'N/A',
           sysCap: 'N/A',
-          model: ''
-        }
+          model: '',
+        };
         if (ts.isInterfaceDeclaration(stat)) {
           collectInterfaceDeclaration(stat, packageName, api, exportApi, returnDeclarationArr, hash, apiInfo, currentTypeList);
         } else if (ts.isModuleDeclaration(stat)) {
@@ -184,49 +184,49 @@ function processDeclarationSourceFile(packageName, api, exportApi, returnDeclara
             var methodName = stat.name.escapedText ? stat.name.escapedText.toString() : stat.name.text.toString();
             let className = '';
             exportApi.forEach(item => {
-              if (item.methodName == methodName && item.packageName == packageName) {
-                className = item.className
+              if (item.methodName === methodName && item.packageName === packageName) {
+                className = item.className;
                 if (item.apiInfo) {
                   apiInfo = item.apiInfo;
                 }
               }
-            })
+            });
             addFunctionOnOffApi(packageName, className, methodName, getApiInfo(stat, apiInfo), 'Method', api,
               hash, currentClassFunSet, stat);
           }
         }
-      })
+      });
       return node;
-    }
-  }
+    };
+  };
 }
 
 function collectInterfaceDeclaration(stat, packageName, api, exportApi, returnDeclarationArr, hash, apiInfo, currentTypeList) {
   const className = stat.name.escapedText.toString();
   const interfaceChildren = stat.members;
   collectEachChildNode(interfaceChildren, packageName, className, 'Field', api, exportApi, returnDeclarationArr, hash,
-    getApiInfo(stat, apiInfo), currentTypeList)
+    getApiInfo(stat, apiInfo), currentTypeList);
 }
 
 function collectClassDeclaration(stat, packageName, api, exportApi, returnDeclarationArr, hash, apiInfo, currentTypeList) {
   const className = stat.name.escapedText.toString();
   const classChildren = stat.members;
   collectEachChildNode(classChildren, packageName, className, 'Field', api, exportApi, returnDeclarationArr, hash,
-    getApiInfo(stat, apiInfo), currentTypeList)
+    getApiInfo(stat, apiInfo), currentTypeList);
 }
 
 function collectEnumDeclaration(stat, packageName, api, exportApi, returnDeclarationArr, hash, apiInfo, currentTypeList) {
   const className = stat.name.escapedText.toString();
   const enumChildren = stat.members;
   collectEachChildNode(enumChildren, packageName, className, 'Enum', api, exportApi, returnDeclarationArr, hash,
-    getApiInfo(stat, apiInfo), currentTypeList)
+    getApiInfo(stat, apiInfo), currentTypeList);
 }
 
 function collectModuleDeclaration(stat, packageName, api, exportApi, returnDeclarationArr, hash, apiInfo, currentTypeList) {
   const className = stat.name.escapedText ? stat.name.escapedText.toString() : stat.name.text.toString();
   const moduleChildren = stat.body.statements;
   collectEachChildNode(moduleChildren, packageName, className, 'Field', api, exportApi, returnDeclarationArr, hash,
-    getApiInfo(stat, apiInfo), currentTypeList)
+    getApiInfo(stat, apiInfo), currentTypeList);
 }
 
 function collectEachChildNode(children, packageName, className, faterApiType, api, exportApi, returnDeclarationArr,
@@ -238,7 +238,7 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
         let typeObj = collectTypeApi(child, packageName, className, faterApiType, api, exportApi, returnDeclarationArr,
           hash, apiInfo);
         if (typeObj.value.length > 0) {
-          currentTypeList.push(typeObj)
+          currentTypeList.push(typeObj);
         }
       }
     }
@@ -252,10 +252,10 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
       exportApi.push({
         packageName: packageName,
         className: className,
-        methodName: child.getText().replace("export", '').replace('{', '').replace('}', '').replace(';', '').trim(),
-        apiInfo: faterApiInfo
-      })
-      return
+        methodName: child.getText().replace('export', '').replace('{', '').replace('}', '').replace(';', '').trim(),
+        apiInfo: faterApiInfo,
+      });
+      return;
     }
 
     if (ts.isInterfaceDeclaration(child)) {
@@ -291,11 +291,11 @@ function collectMethodOrFieldApis(child, packageName, className, faterApiInfo, a
     } else {
       methodName = className;
     }
-    apiType = 'Method'
+    apiType = 'Method';
   } else if (ts.isPropertyDeclaration(child) || ts.isPropertySignature(child)) {
     if (child.type && child.type.parameters) {
       methodName = child.name.escapedText;
-      apiType = 'Method'
+      apiType = 'Method';
     } else {
       methodName = child.name.escapedText;
       apiType = 'Field';
@@ -310,19 +310,19 @@ function collectMethodOrFieldApis(child, packageName, className, faterApiInfo, a
     addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
       hash, currentClassFunSet, child);
   } else {
-    if (child.getText().indexOf('constructor') == 0) {
+    if (child.getText().indexOf('constructor') === 0) {
       methodName = 'constructor';
       apiType = 'Method';
-    } else if (child.getText().indexOf("const") == 0) {
+    } else if (child.getText().indexOf('const') === 0) {
       const dataObj = collectFiledOrConstant(apiType, methodName, child, returnDeclarationArr);
       methodName = dataObj.name;
       apiType = dataObj.apiType;
     } else if (/\w+:\s*\w+/g.test(child.getText())) {
       apiType = 'Field';
-      methodName = child.getText().split(":")[0].trim()
+      methodName = child.getText().split(':')[0].trim();
     }
 
-    if (methodName != '') {
+    if (methodName !== '') {
       addApi(packageName, className, methodName, child.getText(),
         getApiInfo(child, faterApiInfo), apiType, api, hash);
     }
@@ -330,20 +330,20 @@ function collectMethodOrFieldApis(child, packageName, className, faterApiInfo, a
 }
 
 function collectFiledOrConstant(apiType, methodName, child, returnDeclarationArr) {
-  if (child.getText().replace("const", "").indexOf(":") > 0) {
-    if (returnDeclarationArr.has(child.getText().replace("const", "").split(":")[1].trim())) {
+  if (child.getText().replace('const', '').indexOf(':') > 0) {
+    if (returnDeclarationArr.has(child.getText().replace('const', '').split(':')[1].trim())) {
       apiType = 'Field';
     } else {
       apiType = 'Constant';
     }
-    methodName = child.getText().replace('const', "").split(":")[0].trim();
-  } else if (child.getText().replace("const", "").indexOf("=") > 0) {
-    if (returnDeclarationArr.has(child.getText().replace("const", "").split("=")[1].trim())) {
+    methodName = child.getText().replace('const', '').split(':')[0].trim();
+  } else if (child.getText().replace('const', '').indexOf('=') > 0) {
+    if (returnDeclarationArr.has(child.getText().replace('const', '').split('=')[1].trim())) {
       apiType = 'Field';
     } else {
       apiType = 'Constant';
     }
-    methodName = child.getText().replace('const', "").split("=")[0].trim();
+    methodName = child.getText().replace('const', '').split('=')[0].trim();
   }
   return { apiType, methodName };
 }
@@ -368,8 +368,8 @@ function collectSpecialApis(child, apiType, packageName, className, faterApiInfo
 function collectCommonTypesOfApi(packageName, className, faterApiInfo, apiType, api, hash, currentClassFunSet,
   child, currentTypeList, param) {
   if (param.type && param.type.literal && param.type.literal.text) {
-    const typeTextArr = param.getText().replace(/\s*/g, "").split(':');
-    if (typeTextArr[0] === "type" || typeTextArr[0] === "event") {
+    const typeTextArr = param.getText().replace(/\s*/g, '').split(':');
+    if (typeTextArr[0] === 'type' || typeTextArr[0] === 'event') {
       let methodName = child.name.escapedText + '_' + param.type.literal.text;
       addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
         hash, currentClassFunSet, child);
@@ -377,7 +377,7 @@ function collectCommonTypesOfApi(packageName, className, faterApiInfo, apiType, 
   } else if (param.type && param.type.types && param.type.types.length > 0) {
     param.type.types.forEach(type => {
       if (type.literal && type.literal.text) {
-        let methodName = child.name.escapedText + "_" + type.literal.text;
+        let methodName = child.name.escapedText + '_' + type.literal.text;
         addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
           hash, currentClassFunSet, child);
       }
@@ -396,16 +396,16 @@ function collectInCurrentTypeListApi(packageName, className, faterApiInfo, apiTy
   hash, currentClassFunSet, child, currentTypeList, param) {
   if (currentTypeList && currentTypeList.length > 0) {
     currentTypeList.forEach(type => {
-      if (type.name == param.type.typeName.escapedText) {
+      if (type.name === param.type.typeName.escapedText) {
         type.value.forEach(typeString => {
-          let methodName = child.name.escapedText + "_" + typeString;
+          let methodName = child.name.escapedText + '_' + typeString;
           addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
             hash, currentClassFunSet, child);
         });
       }
     });
   } else if (param.type.typeName.escapedText === 'InnerEvent') {
-    let methodName = child.name.escapedText + "_" + param.type.typeName.escapedText;
+    let methodName = child.name.escapedText + '_' + param.type.typeName.escapedText;
     addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
       hash, currentClassFunSet, child);
   } else {
@@ -419,8 +419,8 @@ function collectTypeApi(child, packageName, className, faterApiType, api, export
   hash, apiInfo) {
   let typeObj = {
     name: child.name.escapedText,
-    value: []
-  }
+    value: [],
+  };
 
   if (child.type.types) {
     child.type.types.forEach(type => {
@@ -432,7 +432,7 @@ function collectTypeApi(child, packageName, className, faterApiType, api, export
             getApiInfo(child, faterApiInfo), 'Type', api, hash);
         }
       } else {
-        if (type.getText() != '') {
+        if (type.getText() !== '') {
           typeObj.value.push(type.getText());
           if (typeCollection) {
             let faterApiInfo = JSON.parse(JSON.stringify(apiInfo));
@@ -447,7 +447,7 @@ function collectTypeApi(child, packageName, className, faterApiType, api, export
       member.type.types.forEach(type => {
         collectMembersApi(type, packageName, child, api, hash, typeObj, apiInfo, className);
       });
-    })
+    });
   }
   return typeObj;
 }
@@ -461,7 +461,7 @@ function collectMembersApi(type, packageName, child, api, hash, typeObj, apiInfo
         getApiInfo(child, faterApiInfo), 'Type', api, hash);
     }
   } else {
-    if (type.getText() != '') {
+    if (type.getText() !== '') {
       typeObj.value.push(type.getText());
       if (typeCollection) {
         let faterApiInfo = JSON.parse(JSON.stringify(apiInfo));
@@ -516,44 +516,44 @@ function addFunctionOnOffApi(packageName, className, methodName, apiInfo, apiTyp
 }
 
 function getApiInfo(node, apiInfo) {
-  const notesStr = node.getFullText().replace(node.getText(), "");
+  const notesStr = node.getFullText().replace(node.getText(), '');
 
-  if (notesStr !== "") {
+  if (notesStr !== '') {
     if (/\@[S|s][Y|y][S|s][T|t][E|e][M|m][A|a][P|p][I|i]/g.test(notesStr)) {
-      apiInfo.isSystemApi = '系统API'
+      apiInfo.isSystemApi = '系统API';
     }
     if (/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g, (versionInfo) => {
         apiInfo.version = versionInfo.replace(/\@[S|s][I|i][N|n][C|c][E|e]/g, '').trim();
-      })
+      });
     }
     if (/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g,
         versionInfo => {
           apiInfo.deprecated = versionInfo.replace(
             /\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*/g, '').trim();
-        })
+        });
     }
     if (/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
       notesStr.replace(/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
         apiInfo.model = modelInfo;
-      })
+      });
     } else if (/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
       notesStr.replace(/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
         apiInfo.model = modelInfo;
-      })
+      });
     }
     if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
       notesStr.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
         apiInfo.sysCap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
-      })
+      });
     }
     if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
       notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
         permissionInfo => {
           apiInfo.permission = permissionInfo.
             replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
-        })
+        });
     }
   }
   return apiInfo;
@@ -569,7 +569,7 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
       packageName: packageName,
       className: className,
       methodName: methodName,
-      methodText: methodText.replace(/export\s/g, ""),
+      methodText: methodText.replace(/export\s/g, ''),
       isSystemApi: apiInfo.isSystemApi,
       version: apiInfo.version,
       deprecated: apiInfo.deprecated,
@@ -581,8 +581,8 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
       pos: '',
       functionType: '',
       optionalArg: 0,
-      arguments: 0
-    })
+      arguments: 0,
+    });
   }
 }
 
@@ -590,12 +590,12 @@ async function getExcelBuffer(api) {
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
   sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '文件位置', '类型', 'SysCap',
-    '权限', '支持起始版本', '访问级别']
+    '权限', '支持起始版本', '访问级别'];
   for (let i = 1; i <= api.length; i++) {
     const apiData = api[i - 1];
     sheet.getRow(i + 1).values = [apiData.packageName, apiData.className, apiData.methodName,
       apiData.methodText, apiData.pos, apiData.apiType, apiData.sysCap, apiData.permission,
-      apiData.version, apiData.isSystemApi]
+      apiData.version, apiData.isSystemApi];
   }
   const buffer = await workbook.xlsx.writeBuffer();
   return buffer;
@@ -613,10 +613,10 @@ function readFile(dir, utFiles) {
         readFile(filePath, utFiles);
       } else {
         if (/\.d\.ts/.test(filePath)) {
-          utFiles.push(filePath)
+          utFiles.push(filePath);
         }
       }
-    })
+    });
   } catch (e) {
     console.error('ETS ERROR: ' + e);
   }
@@ -625,7 +625,7 @@ function readFile(dir, utFiles) {
 exports.readFile = readFile;
 
 async function excel(api) {
-  let buffer = await getExcelBuffer(api)
+  let buffer = await getExcelBuffer(api);
   fs.writeFile('../Js_Api.xlsx', buffer, function (err) {
     if (err) {
       console.error('WEITE FAILED: ', err);

@@ -29,6 +29,7 @@ import { NotificationSlot as _NotificationSlot } from './notification/notificati
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
+import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
  * Manages notifications.
@@ -1219,7 +1220,7 @@ declare namespace notificationManager {
   /**
    * Obtains whether the template is supported by the system.
    *
-   * @param { string } templateName Name of template to be Obtained.
+   * @param { string } templateName - Name of template to be Obtained.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the template is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1233,7 +1234,7 @@ declare namespace notificationManager {
   /**
    * Obtains whether the template is supported by the system.
    *
-   * @param { string } templateName Name of template to be Obtained.
+   * @param { string } templateName - Name of template to be Obtained.
    * @returns { Promise<boolean> } Returns whether the template is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1260,6 +1261,21 @@ declare namespace notificationManager {
   /**
    * Request permission to send notification.
    *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 10
+   */
+  function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
+
+  /**
+   * Request permission to send notification.
+   *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1269,6 +1285,21 @@ declare namespace notificationManager {
    * @since 9
    */
   function requestEnableNotification(): Promise<void>;
+
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 10
+   */
+  function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
   /**
    * Sets whether the device supports distributed notification.
@@ -1654,7 +1685,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } callback - callback - The callback of check notifications.
+   * @param { function } callback - callback - The callback of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1669,7 +1700,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { (checkInfo: NotificationCheckInfo) => NotificationCheckResult } [callback] - callback - The callback
+   * @param { function } [callback] - callback - The callback
    *                                                                                     of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.

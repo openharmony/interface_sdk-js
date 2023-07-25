@@ -22,10 +22,12 @@
 
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
+import type inspector from './@ohos.arkui.inspector';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
-import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
-import { AsyncCallback } from './@ohos.base';
+import type componentUtils from './@ohos.componentUtils';
+import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
+import type { AsyncCallback } from './@ohos.base';
 import { AnimateParam } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment } from 'AlertDialogParam';
@@ -35,6 +37,7 @@ import { TextPickerDialogOptions } from 'textPickerDialogParam';
 
 /**
  * class Font
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -42,16 +45,35 @@ import { TextPickerDialogOptions } from 'textPickerDialogParam';
 export class Font {
   /**
    * Register a customized font in the FontManager.
-   * @param options FontOptions
+   *
+   * @param { font.FontOptions } options FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   registerFont(options: font.FontOptions): void;
+
+  /**
+   * Gets a list of fonts supported by system.
+   * @returns { Array<string> } A list of font names
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getSystemFontList(): Array<string>;
+
+  /**
+   * Get font details according to the font name.
+   * @param { string } fontName font name
+   * @returns { font.FontInfo } Returns the font info
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getFontByName(fontName: string): font.FontInfo;
 }
 
 /**
  * class MediaQuery
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -59,6 +81,7 @@ export class Font {
 export class MediaQuery {
   /**
    * Sets the media query criteria and returns the corresponding listening handle
+   *
    * @param { string } condition - media conditions
    * @returns { mediaQuery.MediaQueryListener } the corresponding listening handle
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -69,7 +92,26 @@ export class MediaQuery {
 }
 
 /**
+ * class UIInspector
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+export class UIInspector {
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle
+   * @param { string } id - component id.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  createComponentObserver(id: string): inspector.ComponentObserver;
+}
+
+/**
  * class Router
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -77,6 +119,7 @@ export class MediaQuery {
 export class Router {
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
@@ -91,6 +134,7 @@ export class Router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
@@ -105,6 +149,7 @@ export class Router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
@@ -120,6 +165,7 @@ export class Router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
@@ -135,6 +181,7 @@ export class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
@@ -148,6 +195,7 @@ export class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
@@ -161,6 +209,7 @@ export class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
@@ -175,6 +224,7 @@ export class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
@@ -189,6 +239,7 @@ export class Router {
 
   /**
    * Returns to the previous page or a specified page.
+   *
    * @param { router.RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -198,6 +249,7 @@ export class Router {
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -206,6 +258,7 @@ export class Router {
 
   /**
    * Obtains the number of pages in the current stack.
+   *
    * @returns { string } Number of pages in the stack. The maximum value is 32.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -215,7 +268,8 @@ export class Router {
 
   /**
    * Obtains information about the current page state.
-   * @returns { router.RouterState }Page state.
+   *
+   * @returns { router.RouterState } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -224,6 +278,7 @@ export class Router {
 
   /**
    * Pop up alert dialog to ask whether to back.
+   *
    * @param { router.EnableAlertOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
    * @throws { BusinessError } 100001 - if UI execution context not found.
@@ -235,6 +290,7 @@ export class Router {
 
   /**
    * Hide alert before back page.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -243,7 +299,8 @@ export class Router {
 
   /**
    * Obtains information about the current page params.
-   * @returns { Object }Page params.
+   *
+   * @returns { Object } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -365,6 +422,7 @@ export class Router {
 
 /**
  * class PromptAction
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -372,8 +430,8 @@ export class Router {
 export class PromptAction {
   /**
    * Displays the notification text.
-   * @param { promptActionShowToastOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @param { promptAction.ShowToastOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of message is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -384,6 +442,7 @@ export class PromptAction {
 
   /**
    * Displays the dialog box.
+   *
    * @param { promptAction.ShowDialogOptions } options - Options.
    * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - the callback of showDialog.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -396,6 +455,7 @@ export class PromptAction {
 
   /**
    * Displays the dialog box.
+   *
    * @param { promptAction.ShowDialogOptions } options - Options.
    * @returns { Promise<promptAction.ShowDialogSuccessResponse> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -408,8 +468,9 @@ export class PromptAction {
 
   /**
    * Displays the menu.
-   * @param { ActionMenuOptions } options - Options.
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   *
+   * @param { promptAction.ActionMenuOptions } options - Options.
+   * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -420,6 +481,9 @@ export class PromptAction {
 
   /**
    * Displays the menu.
+   *
+   * @param { promptAction.ActionMenuOptions } options
+   * @returns { Promise<promptAction.ActionMenuSuccessResponse> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -428,7 +492,26 @@ export class PromptAction {
 }
 
 /**
+ * class ComponentUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+export class ComponentUtils {
+  /**
+   * Provide the ability to obtain the coordinates and size of component drawing areas.
+   *
+   * @param { string } id ID of the component whose attributes are to be obtained.
+   * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getRectangleById(id: string): componentUtils.ComponentInfo;
+}
+
+/**
  * class UIContext
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -436,7 +519,8 @@ export class PromptAction {
 export class UIContext {
   /**
    * get object font.
-   * @returns object Font.
+   *
+   * @returns { Font } object Font.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -445,16 +529,27 @@ export class UIContext {
 
   /**
    * get object mediaQuery.
-   * @returns object MediaQuery.
+   *
+   * @returns { MediaQuery } object MediaQuery.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   getMediaQuery(): MediaQuery;
+  
+  /**
+   * get object UIInspector.
+   * @returns { UIInspector } object UIInspector.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getUIInspector(): UIInspector;
 
   /**
    * get object router.
-   * @returns object Router.
+   *
+   * @returns { Router } object Router.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -463,7 +558,8 @@ export class UIContext {
 
   /**
    * get object PromptAction.
-   * @returns object PromptAction.
+   *
+   * @returns { PromptAction } object PromptAction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -471,8 +567,19 @@ export class UIContext {
   getPromptAction(): PromptAction;
 
   /**
+   * get object ComponentUtils.
+   * @returns { ComponentUtils } object ComponentUtils.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getComponentUtils(): ComponentUtils;
+
+  /**
    * Create an animator object for custom animation.
+   *
    * @param { AnimatorOptions } options - Options.
+   * @returns { AnimatorResult }
    * @throws { BusinessError } 401 - if parameter error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -482,7 +589,9 @@ export class UIContext {
 
   /**
    * Defining animation function
+   *
    * @param { AnimateParam } value - animateTo parameters.
+   * @param { function } event
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -491,6 +600,7 @@ export class UIContext {
 
   /**
    * alertDialog display.
+   *
    * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -500,6 +610,7 @@ export class UIContext {
 
   /**
    * actionSheet display.
+   *
    * @param { ActionSheetOptions } value - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -509,6 +620,7 @@ export class UIContext {
 
   /**
    * datePickerDialog display.
+   *
    * @param { DatePickerDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -518,6 +630,7 @@ export class UIContext {
 
   /**
    * timePickerDialog display.
+   *
    * @param { TimePickerDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -527,6 +640,7 @@ export class UIContext {
 
   /**
    * textPickerDialog display.
+   *
    * @param { TextPickerDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -536,7 +650,8 @@ export class UIContext {
 
   /**
    * Run custom functions inside the UIContext scope.
-   * @param callback The function called through UIContext.
+   *
+   * @param { function } callback The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

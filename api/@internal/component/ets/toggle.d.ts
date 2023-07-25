@@ -15,204 +15,306 @@
 
 /**
  * Declare the type of status button
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Declare the type of status button
- * @form
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Declare the type of status button
- * @form
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare enum ToggleType {
   /**
    * Checkbox
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Checkbox
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Checkbox
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   Checkbox,
 
   /**
    * Switch
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Switch
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Switch
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   Switch,
 
   /**
    * Button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Button
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Button
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   Button,
 }
 
 /**
  * Defines the toggle interface.
+ *
+ * @interface ToggleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the toggle interface.
- * @form
+ *
+ * @interface ToggleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the toggle interface.
- * @form
+ *
+ * @interface ToggleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface ToggleInterface {
   /**
    * Set parameters to obtain the toggle.
+   *
+   * @param { object } options
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set parameters to obtain the toggle.
-   * @form
+   *
+   * @param { object } options
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set parameters to obtain the toggle.
-   * @form
+   *
+   * @param { object } options
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
 }
 
 /**
  * Defines the toggle attribute functions
+ *
+ * @extends CommonMethod
  * @since 8
  */
 /**
  * Defines the toggle attribute functions
- * @form
+ *
+ * @extends CommonMethod
  * @since 9
+ * @form
  */
 /**
  * Defines the toggle attribute functions
- * @form
+ *
+ * @extends CommonMethod
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
    * Called when the selected state of the component changes.
+   *
+   * @param { function } callback
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the selected state of the component changes.
-   * @form
+   *
+   * @param { function } callback
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the selected state of the component changes.
-   * @form
+   *
+   * @param { function } callback
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the color of the selected button is set.
-   * @form
+   *
+   * @param { ResourceColor } value
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the color of the selected button is set.
-   * @form
+   *
+   * @param { ResourceColor } value
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
+   *
+   * @param { ResourceColor } color
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the color of the selected button is set.
-   * @form
+   *
+   * @param { ResourceColor } color
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the color of the selected button is set.
-   * @form
+   *
+   * @param { ResourceColor } color
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   switchPointColor(color: ResourceColor): ToggleAttribute;
 }
 
 /**
  * Defines Toggle Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Toggle Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Toggle Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Toggle: ToggleInterface;
 
 /**
  * Defines Toggle Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Toggle Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Toggle Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const ToggleInstance: ToggleAttribute;

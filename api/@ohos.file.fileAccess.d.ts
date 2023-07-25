@@ -217,6 +217,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     uri: string;
@@ -228,6 +229,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     relativePath: string;
@@ -239,6 +241,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     fileName: string;
@@ -250,6 +253,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     mode: number;
@@ -261,6 +265,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     size: number;
@@ -272,6 +277,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     mtime: number;
@@ -283,6 +289,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     mimeType: string;
@@ -457,6 +464,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     deviceType: number;
@@ -466,6 +474,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     uri: string;
@@ -477,6 +486,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     relativePath: string;
@@ -486,6 +496,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     displayName: string;
@@ -495,6 +506,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     deviceFlags: number;
@@ -683,6 +695,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     READ = 0o0,
@@ -692,6 +705,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     WRITE = 0o1,
@@ -701,6 +715,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     WRITE_READ = 0o2
@@ -721,6 +736,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     DISPLAY_NAME = 'display_name',
@@ -730,6 +746,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     DATE_ADDED = 'date_added',
@@ -739,6 +756,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     DATE_MODIFIED = 'date_modified',
@@ -748,6 +766,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     RELATIVE_PATH = 'relative_path',
@@ -757,6 +776,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     FILE_SIZE = 'size',
@@ -766,6 +786,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     WIDTH = 'width',
@@ -775,6 +796,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     HEIGHT = 'height',
@@ -784,9 +806,109 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     DURATION = 'duration'
+  }
+
+  /**
+   * Describes the notifyType.
+   *
+   * @enum { number } NotifyType
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  enum NotifyType {
+    /**
+     * Type for add notification
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_ADD,
+
+    /**
+     * Type for delete notification
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_DELETE,
+
+    /**
+     * The file was moved into the monitored directory.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_MOVED_TO,
+
+    /**
+     * The file in the monitored directory was moved.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_MOVED_FROM,
+
+    /**
+     * The monitored file or directory was moved.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_MOVE_SELF
+  }
+
+  /**
+   * The value of the notify callback function
+   *
+   * @interface NotifyMessage
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface NotifyMessage {
+    /**
+     * Indicates the change type.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { NotifyType }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    type: NotifyType;
+
+    /**
+     * Indicates the uris generated the change event.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    uris: Array<string>;
   }
 
   /**
@@ -1683,6 +1805,33 @@ declare namespace fileAccess {
      * @since 9
      */
     getRoots(callback: AsyncCallback<RootIterator>): void;
+
+    /**
+     * Turn on monitor the specified uri.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the file or directory to be monitored.
+     * @param { boolean } notifyForDescendants - Indicates Whether to monitor changes in descendants.
+     * @param { Callback<NotifyMessage> } callback - The callback is used to return the notify message.
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    registerObserver(uri: string, notifyForDescendants: boolean, callback: Callback<NotifyMessage>): void;
+
+    /**
+     * Turn off monitor the specified uri.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the file or directory the file that will cancel monitored.
+     * @param { Callback<NotifyMessage> } callback - The object bound to the uri.
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    unregisterObserver(uri: string, callback?: Callback<NotifyMessage>): void;
   }
 }
 

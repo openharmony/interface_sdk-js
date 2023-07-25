@@ -15,11 +15,11 @@
 
 import ts from 'typescript';
 import { Code } from '../utils/constant';
-import {
-  comment, Context, ISourceCodeProcessor, JsDocCheckResult, JsDocModificationInterface, ProcessResult,
-  LogReporter, IllegalTagsInfo, rawInfo, JSDocModifyType, JSDocCheckErrorType, CheckLogResult, ModifyLogResult,
-  ErrorInfo
+import type {
+  Context, ISourceCodeProcessor, JsDocCheckResult, JsDocModificationInterface, ProcessResult,
+  LogReporter, IllegalTagsInfo, rawInfo, CheckLogResult, ModifyLogResult
 } from './typedef';
+import { comment, JSDocModifyType, ErrorInfo, JSDocCheckErrorType } from './typedef';
 import { CommentHelper, LogResult } from './coreImpls';
 const apiChecker = require('api-checker');
 
@@ -89,7 +89,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     }
   }
   addInheritTags(node: comment.CommentNode, curNode: ts.Node, commentInfo: comment.CommentInfo,
-    newCommentInfos: comment.CommentInfo[], deprecatedCheckResult: boolean, jsdocNumber: number) {
+    newCommentInfos: comment.CommentInfo[], deprecatedCheckResult: boolean, jsdocNumber: number): void {
     const apiName: string = JSDocModificationManager.getApiName(curNode);
     INHERIT_TAGS_ARRAY.forEach((tagName: string) => {
       if (tagName !== 'deprecated' || (tagName === 'deprecated' && deprecatedCheckResult)) {
@@ -112,7 +112,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     });
   }
   addMissingTags(node: comment.CommentNode, curNode: ts.Node, curCommentInfo: comment.CommentInfo,
-    newCommentInfos: comment.CommentInfo[], missingTags: string[], jsdocNumber: number) {
+    newCommentInfos: comment.CommentInfo[], missingTags: string[], jsdocNumber: number): void {
     const apiName: string = JSDocModificationManager.getApiName(curNode);
     missingTags.forEach((tagName: string) => {
       const modifier = jsDocModifier.get(tagName);
@@ -141,7 +141,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     });
   }
   modifyTagsOrder(curNode: ts.Node, curCommentInfo: comment.CommentInfo, newCommentInfos: comment.CommentInfo[],
-    orderResult: boolean, jsdocNumber: number) {
+    orderResult: boolean, jsdocNumber: number): void {
     const apiName: string = JSDocModificationManager.getApiName(curNode);
     curCommentInfo.commentTags = JSDocModificationManager.modifyJsDocTagsOrder(curCommentInfo.commentTags);
     if (!orderResult) {
@@ -152,7 +152,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     }
   }
   exportIllegalInfo(curNode: ts.Node, newCommentInfos: comment.CommentInfo[],
-    illegalTags: IllegalTagsInfo[], jsdocNumber: number) {
+    illegalTags: IllegalTagsInfo[], jsdocNumber: number): void {
     const apiName: string = JSDocModificationManager.getApiName(curNode);
     illegalTags.forEach((illegalTag: IllegalTagsInfo) => {
       if (!illegalTag.checkResult) {

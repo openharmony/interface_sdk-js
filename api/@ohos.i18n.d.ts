@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BusinessError } from './basic';
+import { BusinessError } from './@ohos.base';
 
 /**
  * Provides international settings related APIs.
@@ -1603,7 +1603,7 @@ declare namespace i18n {
    */
   export class Normalizer {
     /**
-     * Get a Normalizer that is specified by id name.
+     * Get a Normalizer that is specified by normalize mode.
      *
      * @param { NormalizerMode } mode - specified the mode of Normalizer.
      * @returns { Normalizer } Transliterator that is specified by id name.
@@ -1630,6 +1630,7 @@ declare namespace i18n {
    *
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export enum SuggestionType {
@@ -1637,13 +1638,15 @@ declare namespace i18n {
      * No correlation between language and region.
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_NONE = 0,
     /**
-     * The language used in the region.
+     * The language related to the specified region
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_RELATED = 1,
@@ -1651,6 +1654,7 @@ declare namespace i18n {
      * The region is SIM card region.
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_SIM = 2,
@@ -1661,6 +1665,7 @@ declare namespace i18n {
    *
    * @interface SortOptions
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface SortOptions {
@@ -1669,6 +1674,7 @@ declare namespace i18n {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     locale?: string;
@@ -1678,6 +1684,7 @@ declare namespace i18n {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     isUseLocalName?: boolean;
@@ -1687,24 +1694,27 @@ declare namespace i18n {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     isSuggestedFirst?: boolean;
   }
 
   /**
-   * Provides the informations of one language or region.
+   * Provide information for a language or region
    *
    * @interface LocaleItem
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface LocaleItem {
     /**
-     * language or region code.
+     * language or region id.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     id: string;
@@ -1714,72 +1724,153 @@ declare namespace i18n {
      *
      * @type { SuggestionType }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     suggestionType: SuggestionType;
 
     /**
-     * The name of the language or region in specified language
+     * The display name of the language or region in specified language
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     displayName: string;
 
     /**
-     * The name of the language or region in local language
+     * The display name of the language or region in local language
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     localName?: string;
   }
-}
 
-/**
- * Provide some functions for settings and startup guide to select language or region.
- *
- * @syscap SystemCapability.Global.I18n
- * @systemapi Hide this for inner system use.
- * @since 10
- */
-export class SystemLocaleManager {
   /**
-   * A constructor used to create a SystemLocaleManager object.
+   * Provides the informations of one time zone city.
+   *
+   * @interface TimeZoneCityItem
+   * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface TimeZoneCityItem {
+    /**
+     * Time zone id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    zoneId: string;
+
+    /**
+     * City id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    cityId: string;
+
+    /**
+     * The display name of the city.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    cityDisplayName: string;
+
+    /**
+     * The time zone offset for the city.
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    offset: number;
+
+    /**
+     * The display name of the time zone for the city.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    zoneDisplayName: string;
+
+    /**
+     * The time zone raw offset for the city.
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    rawOffset?: number;
+  }
+
+  /**
+   * Provide some functions for settings and startup guide to select language or region.
    *
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  constructor();
+  export class SystemLocaleManager {
+    /**
+     * A constructor used to create a SystemLocaleManager object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    constructor();
 
-  /**
-   * Obtains sorted language array to setting or startup guide app.
-   *
-   * @param { Array<string> } languages - The languages whose name will be sort and displayed.
-   * @param { SortOptions } options - Specifies how to sort.
-   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
-   * @throws { BusinessError } 401 - check param failed
-   * @throws { BusinessError } 890001 - param value not valid
-   * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
+    /**
+     * Obtains sorted language array for setting or startup guide app.
+     *
+     * @param { Array<string> } languages - The languages whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
-  /**
-   * Obtains sorted region array to setting or startup guide app.
-   *
-   * @param { Array<string>  } regions - The regions whose name will be sort and displayed.
-   * @param { SortOptions } options - Specifies how to sort.
-   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
-   * @throws { BusinessError } 401 - check param failed
-   * @throws { BusinessError } 890001 - param value not valid
-   * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
+    /**
+     * Obtains sorted region array for setting or startup guide app.
+     *
+     * @param { Array<string>  } regions - The regions whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
+
+    /**
+     * Obtains sorted time zone city info array for showing time zone list
+     *
+     * @returns { Array<TimeZoneCityItem> } Time zone city information sorted by city name.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
+  }
 }
 export default i18n;

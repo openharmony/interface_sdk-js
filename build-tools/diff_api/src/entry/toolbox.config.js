@@ -15,10 +15,10 @@
 
 const { ApiDiffPlugin } = require('../index');
 const getToolConfiguration = function () {
-    return {
-        plugins: [
-            ApiDiffPlugin
-        ]
-    };
+  return {
+    plugins: [
+      ApiDiffPlugin
+    ],
+  };
 };
 exports.getToolConfiguration = getToolConfiguration;

@@ -113,7 +113,27 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
      */
-    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl'
+    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl',
+
+    /**
+     * Indicates the param of extra support continue page stack.
+     * The default value of the param is true,
+     * and the system will automatically flow the page stack information by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SUPPORT_CONTINUE_PAGE_STACK_KEY = 'ohos.extra.param.key.supportContinuePageStack',
+
+    /**
+     * Indicates the param of extra stop source ability on continue.
+     * The default value of the param is true,
+     * and the system will exit the source application by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit'
   }
 
   /**

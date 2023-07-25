@@ -68,7 +68,7 @@ declare namespace hiTraceMeter {
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8
    */
-  function finishTrace(name: string, taskId: number): void;
+   function finishTrace(name: string, taskId: number): void;
 
   /**
    * Records a trace for generating a count, such as clock pulse and the number of layers.

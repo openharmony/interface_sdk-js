@@ -71,11 +71,11 @@ export class StringUtils {
     return str.search(sub) !== -1;
   }
 
-  static replaceAt(src: string, index: number, replacement: string) {
+  static replaceAt(src: string, index: number, replacement: string): string {
     return src.substring(0, index) + replacement + src.substring(index + replacement.length);
   }
 
-  static formatString(pattern: string, args: Array<any>): string {
+  static formatString(pattern: string, args: Array<number>): string {
     let newStr = pattern;
     for (let index = 0; index < args.length; index++) {
       newStr = newStr.replace(`$${index}`, `${args[index]}`);

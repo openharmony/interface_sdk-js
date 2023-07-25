@@ -15,20 +15,30 @@
 
 /**
  * indexer align property.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * indexer align property.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
  declare enum IndexerAlign {
   /**
    * A dialog box is displayed on the right of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-   /**
+  /**
    * A dialog box is displayed on the right of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@
 
   /**
    * A dialog box is displayed on the left of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * A dialog box is displayed on the left of the index bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -48,10 +62,16 @@
 
 /**
  * Alphabet index bar.
+ *
+ * @interface AlphabetIndexerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Alphabet index bar.
+ *
+ * @interface AlphabetIndexerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -59,11 +79,19 @@ interface AlphabetIndexerInterface {
   /**
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
+   *
+   * @param { object } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
+   *
+   * @param { object } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -72,16 +100,26 @@ interface AlphabetIndexerInterface {
 
 /**
  * Defines the alphabet index bar attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the alphabet index bar attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
    * Index bar selection callback.
+   *
+   * @param { function } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 8
    * @useinstead onSelect
@@ -90,10 +128,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Definitions color.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Definitions color.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -101,10 +147,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Select the text color.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Select the text color.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -112,10 +166,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Font color of the pop-up prompt text.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Font color of the pop-up prompt text.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -123,10 +185,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Select the text background color.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Select the text background color.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -134,10 +204,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Background color of the pop-up window index.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Background color of the pop-up window index.
+   *
+   * @param { ResourceColor } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -145,13 +223,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Set the selected font color of non-alphabetic part of the pop-up window.
+   *
    * @param { ResourceColor } value - indicates the color of the selected font.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Set the selected font color of non-alphabetic part of the pop-up window.
+   *
    * @param { ResourceColor } value - indicates the color of the selected font.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -160,13 +242,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Set the unselected font color of non-alphabetic part of the pop-up window.
+   *
    * @param { ResourceColor } value - indicates the color of the unselected font.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Set the unselected font color of non-alphabetic part of the pop-up window.
+   *
    * @param { ResourceColor } value - indicates the color of the unselected font.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -175,13 +261,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Set the background color of non-alphabetic part of the pop-up window.
+   *
    * @param { ResourceColor } value - indicates the color of background.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Set the background color of non-alphabetic part of the pop-up window.
+   *
    * @param { ResourceColor } value - indicates the color of background.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -190,10 +280,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Whether to use pop-up index hints.
+   *
+   * @param { boolean } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Whether to use pop-up index hints.
+   *
+   * @param { boolean } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -201,10 +299,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Select the text text style,
+   *
+   * @param { Font } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Select the text text style,
+   *
+   * @param { Font } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -212,10 +318,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Select the text background color.
+   *
+   * @param { Font } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Select the text background color.
+   *
+   * @param { Font } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -224,14 +338,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Set the font style of non-alphabetic part of the prompt pop-up window.
    * Family and style are not supported currently and will be fixed in future.
+   *
    * @param { Font } value - indicates the style of the font.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Set the font style of non-alphabetic part of the prompt pop-up window.
    * Family and style are not supported currently and will be fixed in future.
+   *
    * @param { Font } value - indicates the style of the font.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -240,10 +358,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
+   *
+   * @param { string | number } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
+   *
+   * @param { string | number } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -251,10 +377,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Definitions fonts.
+   *
+   * @param { Font } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Definitions fonts.
+   *
+   * @param { Font } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -263,15 +397,20 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Alphabet index bar alignment style. The left and right alignment styles are supported,
    * which affects the pop-up position of the pop-up window.
+   *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
+   * @param { Length } offset
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Alphabet index bar alignment style. The left and right alignment styles are supported,
    * which affects the pop-up position of the pop-up window.
+   *
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
    * @param { Length } offset - indicates the horizontal space between pop-up window and indexer bar.
+   * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -280,10 +419,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Index bar selection callback.
+   *
+   * @param { function } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Index bar selection callback.
+   *
+   * @param { function } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -291,10 +438,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Index bar selection callback and return the strings which display on pop-up.
+   *
+   * @param { function } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Index bar selection callback and return the strings which display on pop-up.
+   *
+   * @param { function } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -302,10 +457,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Pop-up selection callback.
+   *
+   * @param { function } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Pop-up selection callback.
+   *
+   * @param { function } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -313,10 +476,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Sets the selected index.
+   *
+   * @param { number } index
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the selected index.
+   *
+   * @param { number } index
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -324,10 +495,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
   /**
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
+   *
+   * @param { Position } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
+   *
+   * @param { Position } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -336,10 +515,14 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
 
 /**
  * Defines AlphabetIndexer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines AlphabetIndexer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -347,10 +530,14 @@ declare const AlphabetIndexer: AlphabetIndexerInterface;
 
 /**
  * Defines AlphabetIndexer Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines AlphabetIndexer Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
