@@ -331,6 +331,7 @@
       "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
       "SystemCapability.Driver.ExternalDevice",
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
+      "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag"
     ]
   },
