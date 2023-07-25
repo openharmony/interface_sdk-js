@@ -9677,6 +9677,15 @@ declare class CustomComponent extends CommonAttribute {
   aboutToReuse?(params: { [key: string]: unknown }): void;
 
   /**
+   * aboutToRecycle Method
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  aboutToRecycle?(): void;
+
+  /**
    * Custom component override this method to layout each of its sub components.
    *
    * @param { Array<LayoutChild> } children
