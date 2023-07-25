@@ -238,6 +238,11 @@ function getModuleDigestInfo(module, parentApiDigest, ext) {
   return wrapApiDigestInfo(module, className, className, ApiType.NamespaceType, rawText, ext);
 }
 
+function getSourceFile(sourceFile, parentApiDigest, ext){
+  const className = 'sourcefile';
+  const rawText = 'sourcefile';
+  return wrapApiDigestInfo(sourceFile, className, className, ApiType.SourceFile, rawText, ext);
+}
 /**
  * 所有特定类型API的处理方法集合。
  */
@@ -254,7 +259,8 @@ const apiDigestMethodMap = new Map([
   [ts.SyntaxKind.PropertySignature, getPropertySignatureInfo],
   [ts.SyntaxKind.MethodDeclaration, getMethodDeclarationInfo],
   [ts.SyntaxKind.TypeAliasDeclaration, getTypeAliasDeclarationInfo],
-  [ts.SyntaxKind.CallSignature, getCallSignature]
+  [ts.SyntaxKind.CallSignature, getCallSignature],
+  [ts.SyntaxKind.SourceFile, getSourceFile],
 ]);
 
 /**
@@ -274,6 +280,9 @@ function parseJSDocs(jsdocText) {
  * @returns {string}
  */
 function getNodeLeadingJSDoc(astNode) {
+  if (astNode.kind === ts.SyntaxKind.SourceFile) {
+    return '';
+  }
   const sourceFile = astNode.getSourceFile();
   const leadingCommentRange = ts.getLeadingCommentRanges(sourceFile.getFullText(), astNode.getFullStart());
   if (!leadingCommentRange) {
