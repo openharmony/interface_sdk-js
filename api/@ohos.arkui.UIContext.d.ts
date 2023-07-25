@@ -30,7 +30,7 @@ import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { AsyncCallback } from './@ohos.base';
 import { AnimateParam } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment } from 'AlertDialogParam';
+import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
 import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
@@ -601,12 +601,12 @@ export class UIContext {
   /**
    * alertDialog display.
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } options - Options.
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons): void;
+  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 
   /**
    * actionSheet display.
