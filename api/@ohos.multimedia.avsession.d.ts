@@ -3001,7 +3001,7 @@ declare namespace avSession {
    * @since 10
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-    'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
 
   /**
    * The definition of command to be sent to the session
