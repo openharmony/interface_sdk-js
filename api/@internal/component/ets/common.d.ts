@@ -8724,7 +8724,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  reuseId(id: string)
+  reuseId(id: string): T;
 
   /**
    * Sets how content is drawn within nodes duration animation
