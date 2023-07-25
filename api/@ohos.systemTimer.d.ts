@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import { WantAgent } from './@ohos.app.ability.wantAgent';
 
 /**
  * Provides js api for systemTimer
