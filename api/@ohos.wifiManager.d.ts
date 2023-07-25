@@ -1475,6 +1475,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
+  /**
+   * Subscribe P2P peer device change events.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { "p2pPeerDeviceChange" } type - event name.
+   * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
+   */
   function on(type: "p2pPeerDeviceChange", callback: Callback<WifiP2pDevice[]>): void;
 
   /**
