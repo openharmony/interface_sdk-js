@@ -2047,46 +2047,46 @@ declare namespace audio {
     /**
      * Listens for audio renderer change events. When there is any audio renderer change,
      * registered clients will receive the callback.
-     * @param { "audioRendererChange" } type - Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
      * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
-    on(type: "audioRendererChange", callback: Callback<AudioRendererChangeInfoArray>): void;
+    on(type: 'audioRendererChange', callback: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
      * UnSubscribes to audio renderer change events.
-     * @param { "audioRendererChange" } type - Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
-    off(type: "audioRendererChange"): void;
+    off(type: 'audioRendererChange'): void;
 
     /**
      * Listens for audio capturer change events. When there is any audio capturer change,
      * registered clients will receive the callback.
-     * @param { "audioCapturerChange" } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
      * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
-    on(type: "audioCapturerChange", callback: Callback<AudioCapturerChangeInfoArray>): void;
+    on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
      * UnSubscribes to audio capturer change events.
-     * @param { "audioCapturerChange" } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
-    off(type: "audioCapturerChange"): void;
+    off(type: 'audioCapturerChange'): void;
 
     /**
      * Checks whether a stream is active. This method uses an asynchronous callback to return the query result.
@@ -3287,47 +3287,47 @@ declare namespace audio {
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
-     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
-    on(type: "markReach", frame: number, callback: Callback<number>): void;
+    on(type: 'markReach', frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from mark reached events.
-     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
-    off(type: "markReach"): void;
+    off(type: 'markReach'): void;
 
     /**
      * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
      * the callback is invoked.
-     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
      * @param { number } frame - Period during which frame rendering is listened. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
-    on(type: "periodReach", frame: number, callback: Callback<number>): void;
+    on(type: 'periodReach', frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from period reached events.
-     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
-    off(type: "periodReach"): void;
+    off(type: 'periodReach'): void;
 
     /**
      * Subscribes audio state change event callback.
-     * @param { "stateChange" } type - Type of the event to listen for. Only the stateChange event is supported.
+     * @param { 'stateChange' } type - Type of the event to listen for. Only the stateChange event is supported.
      * @param { Callback<AudioState> } callback - Callback invoked when state change.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
-    on(type: "stateChange", callback: Callback<AudioState>): void;
+    on(type: 'stateChange', callback: Callback<AudioState>): void;
 
     /**
      * Subscribes output device change event callback.
@@ -3632,47 +3632,47 @@ declare namespace audio {
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
-     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
-    on(type: "markReach", frame: number, callback: Callback<number>): void;
+    on(type: 'markReach', frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from the mark reached events.
-     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
-    off(type: "markReach"): void;
+    off(type: 'markReach'): void;
 
     /**
      * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
      * the callback is invoked.
-     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
      * @param { number } frame - Period during which frame capturing is listened. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
-    on(type: "periodReach", frame: number, callback: Callback<number>): void;
+    on(type: 'periodReach', frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from period reached events.
-     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
-    off(type: "periodReach"): void;
+    off(type: 'periodReach'): void;
 
     /**
      * Subscribes audio state change event callback.
-     * @param { "stateChange" } type - Type of the event to listen for. Only the stateChange event is supported.
+     * @param { 'stateChange' } type - Type of the event to listen for. Only the stateChange event is supported.
      * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
-    on(type: "stateChange", callback: Callback<AudioState>): void;
+    on(type: 'stateChange', callback: Callback<AudioState>): void;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
