@@ -1008,7 +1008,7 @@ declare interface AnimateParam {
   /**
    * Animation curve.
    *
-   * @type { ?(Curve | string | ICurve) }
+   * @type { ?(Curve | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1039,7 +1039,7 @@ declare interface AnimateParam {
    * @since 7
    */
   /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * Animation delay time, in ms.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1056,7 +1056,7 @@ declare interface AnimateParam {
    * @since 7
    */
   /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * Animation iterations.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1284,14 +1284,14 @@ declare interface sharedTransitionOptions {
    * @since 7
    */
   /**
-   * Animation duration, in ms.
+   * Animation curve.
    *
-   * @type { ?(Curve | string) }
+   * @type { ?(Curve | string | ICurve) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  curve?: Curve | string;
+  curve?: Curve | string | ICurve;
 
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
@@ -1301,7 +1301,7 @@ declare interface sharedTransitionOptions {
    * @since 7
    */
   /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * Animation delay time, in ms.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
