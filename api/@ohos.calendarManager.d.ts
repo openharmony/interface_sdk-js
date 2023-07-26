@@ -413,7 +413,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    startTimer: number;
+    startTime: number;
 
     /**
      * end time of the event
@@ -421,7 +421,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    endTimer: number;
+    endTime: number;
 
     /**
      * Whether the event is allDay

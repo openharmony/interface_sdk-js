@@ -576,6 +576,7 @@ remotedevice
 removable
 renderbuffer
 renderbuffertarget
+repayment
 repeates
 resizeable
 resmgr
