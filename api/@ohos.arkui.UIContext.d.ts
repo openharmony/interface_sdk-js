@@ -240,12 +240,12 @@ export class Router {
   /**
    * Returns to the previous page or a specified page.
    *
-   * @param { router.RouterOptions } options - Options.
+   * @param { ?router.RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  back(options: router.RouterOptions): void;
+  back(options?: router.RouterOptions): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
