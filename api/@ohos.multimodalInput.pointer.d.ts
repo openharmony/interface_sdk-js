@@ -610,7 +610,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setPointerColor(color: Color): void;
+  function setPointerColorSync(color: Color): void;
 
   /**
    * Get the color of pointer.
@@ -644,7 +644,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getPointerColor(): Color;
+  function getPointerColorSync(): Color;
 
   /**
    * Set the size of pointer.
@@ -682,7 +682,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function setPointerSize(size: number): void;
+  function setPointerSizeSync(size: number): void;
 
   /**
    * Get the size of pointer.
@@ -716,7 +716,7 @@ declare namespace pointer {
    * @systemapi hide for inner use.
    * @since 10
    */
-  function getPointerSize(): number;
+  function getPointerSizeSync(): number;
 
   /**
    * Sets mouse primary button.
