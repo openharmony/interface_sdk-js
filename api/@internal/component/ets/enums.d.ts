@@ -5538,6 +5538,7 @@ declare enum TextContentStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum ClickEffectLevel {
@@ -5547,6 +5548,7 @@ declare enum ClickEffectLevel {
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:410, damping:38.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   LIGHT,
@@ -5557,6 +5559,7 @@ declare enum ClickEffectLevel {
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:350, damping:35.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   MIDDLE,
@@ -5567,6 +5570,7 @@ declare enum ClickEffectLevel {
    * The animation type is interpolatingSpring, velocity:0, mass:1, stiffness:240, damping:28.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   HEAVY,

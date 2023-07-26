@@ -365,7 +365,18 @@
       "api/@ohos.contact.d.ts",
       "api/@ohos.settings.d.ts",
       "api/@ohos.telephony.call.d.ts",
-      "api/@ohos.rpc.d.ts"
+      "api/@ohos.rpc.d.ts",
+      "api/@ohos.sensor.d.ts",
+      "api/@ohos.vibrator.d.ts",
+      "api/@system.sensor.d.ts",
+      "api/@system.vibrator.d.ts",
+      "api/@ohos.animation.windowAnimationManager.d.ts",
+      "api/@ohos.application.WindowExtensionAbility.d.ts",
+      "api/@ohos.display.d.ts",
+      "api/@ohos.screen.d.ts",
+      "api/@ohos.screenshot.d.ts",
+      "api/@ohos.window.d.ts",
+      "api/application/WindowExtensionContext.d.ts"
     ],
     "checkIllegalTag": [
       "api/@ohos.abilityAccessCtrl.d.ts",
@@ -732,7 +743,18 @@
       "api/@ohos.contact.d.ts",
       "api/@ohos.settings.d.ts",
       "api/@ohos.telephony.call.d.ts",
-      "api/@ohos.rpc.d.ts"
+      "api/@ohos.rpc.d.ts",
+      "api/@ohos.sensor.d.ts",
+      "api/@ohos.vibrator.d.ts",
+      "api/@system.sensor.d.ts",
+      "api/@system.vibrator.d.ts",
+      "api/@ohos.animation.windowAnimationManager.d.ts",
+      "api/@ohos.application.WindowExtensionAbility.d.ts",
+      "api/@ohos.display.d.ts",
+      "api/@ohos.screen.d.ts",
+      "api/@ohos.screenshot.d.ts",
+      "api/@ohos.window.d.ts",
+      "api/application/WindowExtensionContext.d.ts"
     ],
     "checkOrderResult": [
       "api/@ohos.abilityAccessCtrl.d.ts",
@@ -1099,7 +1121,18 @@
       "api/@ohos.contact.d.ts",
       "api/@ohos.settings.d.ts",
       "api/@ohos.telephony.call.d.ts",
-      "api/@ohos.rpc.d.ts"
+      "api/@ohos.rpc.d.ts",
+      "api/@ohos.sensor.d.ts",
+      "api/@ohos.vibrator.d.ts",
+      "api/@system.sensor.d.ts",
+      "api/@system.vibrator.d.ts",
+      "api/@ohos.animation.windowAnimationManager.d.ts",
+      "api/@ohos.application.WindowExtensionAbility.d.ts",
+      "api/@ohos.display.d.ts",
+      "api/@ohos.screen.d.ts",
+      "api/@ohos.screenshot.d.ts",
+      "api/@ohos.window.d.ts",
+      "api/application/WindowExtensionContext.d.ts"
     ]
   }
 }

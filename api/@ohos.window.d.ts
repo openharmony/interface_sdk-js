@@ -45,14 +45,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
-  /**
-   * The type of a window.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   enum WindowType {
     /**
      * App.
@@ -60,14 +52,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @FAModelOnly
      * @since 7
-     */
-    /**
-     * App.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @FAModelOnly
-     * @crossplatform
-     * @since 10
      */
     TYPE_APP,
     /**
@@ -612,13 +596,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    /**
-     * Window type
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     type: WindowType;
 
     /**
@@ -984,13 +961,6 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates window type
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     windowType: WindowType;
 
@@ -2505,7 +2475,7 @@ declare namespace window {
      *
      * @returns { UIContext } the object of UIContext.
      * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1300002 - If window state is abnormally
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
@@ -2781,7 +2751,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
-    off(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+    off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
     /**
      * Bind dialog to the target window.
@@ -3675,12 +3645,28 @@ declare namespace window {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Window stage callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @StageModelOnly
+   * @since 10
+   */
   enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     SHOWN = 1,
     /**
@@ -3689,6 +3675,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * The window stage gains focus.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
+     */
     ACTIVE,
     /**
      * The window stage loses focus.
@@ -3696,12 +3689,26 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * The window stage loses focus.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
+     */
     INACTIVE,
     /**
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * The window stage is running in the background.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     HIDDEN
   }

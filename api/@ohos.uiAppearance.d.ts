@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provide APIs to set system uiAppearance.

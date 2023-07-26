@@ -32,7 +32,7 @@ function checkAPIDecorators(node, sourcefile, fileName) {
   let errorInfo = '';
   if (matchResult) {
     matchResult.forEach(decorator => {
-      const docTags = [...rules.decorators['customDoc'], ...rules.decorators['jsDoc']];
+      const docTags = [...rules.decorators.customDoc, ...rules.decorators.jsDoc];
       const decoratorRuleSet = new Set(docTags);
       const apiDecorator = decorator.replace(/^\*\s*\@/, '');
       if (!decoratorRuleSet.has(apiDecorator)) {

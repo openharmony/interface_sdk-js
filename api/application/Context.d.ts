@@ -310,7 +310,7 @@ export default class Context extends BaseContext {
    */
   getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void;
 
-   /**
+  /**
    * Get group dir by the groupId.
    *
    * @param { string } dataGroupID - Indicates the groupId.

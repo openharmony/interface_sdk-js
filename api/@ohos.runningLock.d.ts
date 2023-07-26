@@ -34,12 +34,12 @@ declare namespace runningLock {
      * This method requires the ohos.permission.RUNNING_LOCK permission.
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @param timeout Indicates the lock duration (ms). After the lock duration times out, the lock is automatically
+     * @param { number } timeout Indicates the lock duration (ms). After the lock duration times out, the lock is automatically
      * released and the system hibernates if no other {@link RunningLock} is set.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead { @link RunningLock#hold }
+     * @useinstead RunningLock#hold
      */
     lock(timeout: number): void;
 
@@ -60,18 +60,18 @@ declare namespace runningLock {
     /**
      * Checks whether a lock is held or in use.
      *
-     * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
+     * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead { @link RunningLock#isHolding }
+     * @useinstead RunningLock#isHolding
      */
     isUsed(): boolean;
 
     /**
      * Checks whether a lock is held or in use.
      *
-     * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
+     * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
      * @throws { BusinessError } 4900101 - If connecting to the service failed.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
@@ -86,7 +86,7 @@ declare namespace runningLock {
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead { @link RunningLock#unhold }
+     * @useinstead RunningLock#unhold
      */
     unlock(): void;
 
@@ -136,30 +136,26 @@ declare namespace runningLock {
   /**
    * Checks whether the specified {@link RunningLockType} is supported.
    *
-   * @param type Indicates the specified {@link RunningLockType}.
-   * @param callback Indicates the callback function contains the result whether the specified
+   * @param { RunningLockType } type Indicates the specified {@link RunningLockType}.
+   * @param { AsyncCallback<boolean> } callback Indicates the callback function contains the result whether the specified
    * {@link RunningLockType} is supported.
-   * @returns Returns true if the specified {@link RunningLockType} is supported;
-   * returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead { @link RunningLock#isSupported }
+   * @useinstead RunningLock#isSupported
    */
   function isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether the specified {@link RunningLockType} is supported.
    *
-   * @param type Indicates the specified {@link RunningLockType}.
-   * @param callback Indicates the callback function contains the result whether the specified
-   * {@link RunningLockType} is supported.
-   * @returns Returns true if the specified {@link RunningLockType} is supported;
+   * @param { RunningLockType } type Indicates the specified {@link RunningLockType}.
+   * @returns { Promise<boolean> } Returns true if the specified {@link RunningLockType} is supported;
    * returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead { @link RunningLock#isSupported }
+   * @useinstead RunningLock#isSupported
    */
   function isRunningLockTypeSupported(type: RunningLockType): Promise<boolean>;
 
@@ -181,15 +177,14 @@ declare namespace runningLock {
    * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
+   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
    * a suffix.
-   * @param type Indicates the {@link RunningLockType}.
-   * @param callback Indicates the callback contains the {@link RunningLock} object.
-   * @returns Returns the {@link RunningLock} object.
+   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
+   * @param { AsyncCallback<RunningLock> } callback Indicates the callback contains the {@link RunningLock} object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead { @link RunningLock#create }
+   * @useinstead RunningLock#create
    */
   function createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
@@ -199,15 +194,14 @@ declare namespace runningLock {
    * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
+   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
    * a suffix.
-   * @param type Indicates the {@link RunningLockType}.
-   * @param callback Indicates the callback contains the {@link RunningLock} object.
-   * @returns Returns the {@link RunningLock} object.
+   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
+   * @returns { Promise<RunningLock> } Returns the {@link RunningLock} object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead { @link RunningLock#create }
+   * @useinstead RunningLock#create
    */
   function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
 
@@ -220,7 +214,7 @@ declare namespace runningLock {
    * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or
    * class name and a suffix.
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
-   * @param { AsyncCallback<RunningLock>) } callback Indicates the callback of {@link RunningLock} object.
+   * @param { AsyncCallback<RunningLock> } callback Indicates the callback of {@link RunningLock} object.
    * @throws { BusinessError } 401 - If the name, type or callback is not valid.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9

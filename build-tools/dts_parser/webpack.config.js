@@ -35,37 +35,37 @@ module.exports = (env, argv) => {
           ],
           loader: 'ts-loader',
           options: {
-            onlyCompileBundledFiles: true
-          }
+            onlyCompileBundledFiles: true,
+          },
         },
         {
           test: /build\.json$/,
           use: [
             {
-              loader: path.resolve(__dirname, 'loader/flavor.js')
+              loader: path.resolve(__dirname, 'loader/flavor.js'),
             }
-          ]
+          ],
         }
-      ]
+      ],
     },
     resolve: {
-      extensions: ['.js', '.ts', '.json']
+      extensions: ['.js', '.ts', '.json'],
     },
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, './build')
+      path: path.resolve(__dirname, './build'),
     },
     optimization: {
       minimize: true,
-      minimizer: [new TerserPlugin({ extractComments: false })]
+      minimizer: [new TerserPlugin({ extractComments: false })],
     },
     plugins: [
       new webpack.BannerPlugin({
         banner: `version:${packageInfo.version}`,
         raw: false,
-        entryOnly: true
+        entryOnly: true,
       })
-    ]
+    ],
   };
   return config;
 };

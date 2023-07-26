@@ -40,16 +40,6 @@ declare namespace process {
    * @since 7
    * @test
    */
-  /**
-   * The childprocess object can be used to create a new process.
-   *
-   * @typedef ChildProcess
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
-   * @test
-   */
   export interface ChildProcess {
     /**
      * Return pid is the pid of the current process
@@ -57,15 +47,6 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
-     * @test
-     */
-    /**
-     * Return pid is the pid of the current process
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
      * @test
      */
     readonly pid: number;
@@ -78,15 +59,6 @@ declare namespace process {
      * @since 7
      * @test
      */
-    /**
-     * Return ppid is the pid of the current child process
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
-     * @test
-     */
     readonly ppid: number;
 
     /**
@@ -97,15 +69,6 @@ declare namespace process {
      * @since 7
      * @test
      */
-    /**
-     * Return exitCode is the exit code of the current child process
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
-     * @test
-     */
     readonly exitCode: number;
 
     /**
@@ -114,15 +77,6 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
-     * @test
-     */
-    /**
-     * Return boolean is whether the current process signal is sent successfully
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
      * @test
      */
     readonly killed: boolean;
@@ -136,16 +90,6 @@ declare namespace process {
      * @since 7
      * @test
      */
-    /**
-     * Return 'number' is the target process exit code
-     *
-     * @returns { Promise<number> } Return the target process exit code.
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
-     * @test
-     */
     wait(): Promise<number>;
 
     /**
@@ -155,16 +99,6 @@ declare namespace process {
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
-     * @test
-     */
-    /**
-     * Return it as 'Uint8Array' of the stdout until EOF
-     *
-     * @returns { Promise<Uint8Array> } Return subprocess standard output.
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
      * @test
      */
     getOutput(): Promise<Uint8Array>;
@@ -178,16 +112,6 @@ declare namespace process {
      * @since 7
      * @test
      */
-    /**
-     * Return it as 'Uint8Array of the stderr until EOF
-     *
-     * @returns { Promise<Uint8Array> } Return subprocess standard error output.
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
-     * @test
-     */
     getErrorOutput(): Promise<Uint8Array>;
 
     /**
@@ -198,34 +122,15 @@ declare namespace process {
      * @since 7
      * @test
      */
-    /**
-     * Close the target process
-     *
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
-     * @test
-     */
     close(): void;
 
     /**
      * Send a signal to process
      *
-     * @param { number | string } signal - signal Number or string represents the signal sent.
+     * @param { number | string } signal - Number or string represents the signal sent.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
-     * @test
-     */
-    /**
-     * Send a signal to process
-     *
-     * @param { number | string } signal - signal Number or string represents the signal sent.
-     * @syscap SystemCapability.Utils.Lang
-     * @systemapi Hide this for inner system use
-     * @crossplatform
-     * @since 10
      * @test
      */
     kill(signal: number | string): void;
@@ -252,7 +157,7 @@ declare namespace process {
     /**
      * Returns a boolean whether the specified uid belongs to a particular application.
      *
-     * @param { number } v - v An id.
+     * @param { number } v - An id.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
      * @throws { BusinessError } 401 - The type of v must be number.
      * @syscap SystemCapability.Utils.Lang
@@ -261,7 +166,7 @@ declare namespace process {
     /**
      * Returns a boolean whether the specified uid belongs to a particular application.
      *
-     * @param { number } v - v An id.
+     * @param { number } v - An id.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
      * @throws { BusinessError } 401 - The type of v must be number.
      * @syscap SystemCapability.Utils.Lang
@@ -273,7 +178,7 @@ declare namespace process {
     /**
      * Returns the uid based on the specified user name.
      *
-     * @param { string } v - v Process name.
+     * @param { string } v - Process name.
      * @returns { number } Return the uid based on the specified user name.
      * @throws { BusinessError } 401 - The type of v must be string.
      * @syscap SystemCapability.Utils.Lang
@@ -282,7 +187,7 @@ declare namespace process {
     /**
      * Returns the uid based on the specified user name.
      *
-     * @param { string } v - v Process name.
+     * @param { string } v - Process name.
      * @returns { number } Return the uid based on the specified user name.
      * @throws { BusinessError } 401 - The type of v must be string.
      * @syscap SystemCapability.Utils.Lang
@@ -294,7 +199,7 @@ declare namespace process {
     /**
      * Returns the thread priority based on the specified tid.
      *
-     * @param { number } v - v The tid of the process.
+     * @param { number } v - The tid of the process.
      * @returns { number } Return the thread priority based on the specified tid.
      * @throws { BusinessError } 401 - The type of v must be number.
      * @syscap SystemCapability.Utils.Lang
@@ -303,7 +208,7 @@ declare namespace process {
     /**
      * Returns the thread priority based on the specified tid.
      *
-     * @param { number } v - v The tid of the process.
+     * @param { number } v - The tid of the process.
      * @returns { number } Return the thread priority based on the specified tid.
      * @throws { BusinessError } 401 - The type of v must be number.
      * @syscap SystemCapability.Utils.Lang
@@ -315,7 +220,7 @@ declare namespace process {
     /**
      * Returns the system configuration at runtime.
      *
-     * @param { number } name - name Parameters defined by the system configuration.
+     * @param { number } name - Parameters defined by the system configuration.
      * @returns { number } Return the system configuration at runtime.
      * @throws { BusinessError } 401 - The type of name must be number.
      * @syscap SystemCapability.Utils.Lang
@@ -324,7 +229,7 @@ declare namespace process {
     /**
      * Returns the system configuration at runtime.
      *
-     * @param { number } name - name Parameters defined by the system configuration.
+     * @param { number } name - Parameters defined by the system configuration.
      * @returns { number } Return the system configuration at runtime.
      * @throws { BusinessError } 401 - The type of name must be number.
      * @syscap SystemCapability.Utils.Lang
@@ -336,7 +241,7 @@ declare namespace process {
     /**
      * Returns the system value for environment variables.
      *
-     * @param { string } name - name name Parameters defined by the system environment variables.
+     * @param { string } name - Parameters defined by the system environment variables.
      * @returns { string } Return the system value for environment variables.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
@@ -345,7 +250,7 @@ declare namespace process {
     /**
      * Returns the system value for environment variables.
      *
-     * @param { string } name - name name Parameters defined by the system environment variables.
+     * @param { string } name - Parameters defined by the system environment variables.
      * @returns { string } Return the system value for environment variables.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
@@ -357,7 +262,7 @@ declare namespace process {
     /**
      * Process exit
      *
-     * @param { number } code - code code Process exit code.
+     * @param { number } code - Process exit code.
      * @throws { BusinessError } 401 - The type of code must be number.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -365,7 +270,7 @@ declare namespace process {
     /**
      * Process exit
      *
-     * @param { number } code - code code Process exit code.
+     * @param { number } code - Process exit code.
      * @throws { BusinessError } 401 - The type of code must be number.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -376,8 +281,8 @@ declare namespace process {
     /**
      * Return whether the signal was sent successfully
      *
-     * @param { number } signal - signal signal Signal sent.
-     * @param { number } pid - pid pid Send signal to target pid.
+     * @param { number } signal - Signal sent.
+     * @param { number } pid - Send signal to target pid.
      * @returns { boolean } Return the result of the signal.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -386,8 +291,8 @@ declare namespace process {
     /**
      * Return whether the signal was sent successfully
      *
-     * @param { number } signal - signal signal Signal sent.
-     * @param { number } pid - pid pid Send signal to target pid.
+     * @param { number } signal - Signal sent.
+     * @param { number } pid - Send signal to target pid.
      * @returns { boolean } Return the result of the signal.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -406,16 +311,6 @@ declare namespace process {
    * @since 7
    * @test
    */
-  /**
-   * Returns the numeric valid group ID of the process
-   *
-   * @constant
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
-   * @test
-   */
   const egid: number;
 
   /**
@@ -427,16 +322,6 @@ declare namespace process {
    * @since 7
    * @test
    */
-  /**
-   * Return the numeric valid user identity of the process
-   *
-   * @constant
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
-   * @test
-   */
   const euid: number;
 
   /**
@@ -446,16 +331,6 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
-   * @test
-   */
-  /**
-   * Returns the numeric group id of the process
-   *
-   * @constant
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
    * @test
    */
   const gid: number;
@@ -486,16 +361,6 @@ declare namespace process {
    * @since 7
    * @test
    */
-  /**
-   * Return an array with supplementary group id
-   *
-   * @constant
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
-   * @test
-   */
   const groups: number[];
 
   /**
@@ -522,16 +387,6 @@ declare namespace process {
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
-   * @test
-   */
-  /**
-   * Return ppid is The pid of the current child process
-   *
-   * @constant
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
    * @test
    */
   const ppid: number;
@@ -565,7 +420,7 @@ declare namespace process {
   /**
    * Returns a boolean whether the specified uid belongs to a particular application.
    *
-   * @param { number } v - v v An id.
+   * @param { number } v - An id.
    * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -594,7 +449,7 @@ declare namespace process {
   /**
    * Returns the uid based on the specified user name.
    *
-   * @param { string } v - v v Process name.
+   * @param { string } v - Process name.
    * @returns { number } Return the uid based on the specified user name.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -606,7 +461,7 @@ declare namespace process {
   /**
    * Returns the thread priority based on the specified tid.
    *
-   * @param { number } v - v v The tid of the process.
+   * @param { number } v - The tid of the process.
    * @returns { number } Return the thread priority based on the specified tid.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -652,7 +507,7 @@ declare namespace process {
   /**
    * Returns the system configuration at runtime.
    *
-   * @param { number } name - name name Parameters defined by the system configuration.
+   * @param { number } name - Parameters defined by the system configuration.
    * @returns { number } Return the system configuration at runtime.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -664,7 +519,7 @@ declare namespace process {
   /**
    * Returns the system value for environment variables.
    *
-   * @param { string } name - name name name Parameters defined by the system environment variables.
+   * @param { string } name - Parameters defined by the system environment variables.
    * @returns { string } Return the system value for environment variables.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -676,24 +531,67 @@ declare namespace process {
   /**
    * User Stored Events
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    */
   /**
    * User Stored Events
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
   type EventListener = (evt: Object) => void;
+  
+  /**
+   * Provides the ConditionType type,including the timeout,the killSignal,the maxBuffer.
+   *
+   * @typedef ConditionType
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   * @test
+   */
+  interface ConditionType {
+	  
+    /**
+     * Maximum running time (in ms) of the child process.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     * @test
+     */
+    timeout?: number;
+	  
+    /**
+     * Signal sent to the child process when the running time of a child process exceeds the timeout period.
+     *
+     * @type { ?(number | string) }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     * @test
+     */
+    killSignal?: number | string;
+	  
+    /**
+     * Maximum buffer size for the standard input and output of the child process.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 10
+     * @test
+     */
+    maxBuffer?: number;
+  }
   /**
    * Return a child process object and spawns a new ChildProcess to run the command.
    *
-   * @param { string } command - command command String of the shell commands executed by the child process.
-   * @param { param } options - options options This is an object. The object contains three parameters. Timeout is the running time of the child
+   * @param { string } command - String of the shell commands executed by the child process.
+   * @param { ConditionType } options - This is an object. The object contains three parameters. Timeout is the running time of the child
    * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
    * maximum buffer area for standard input and output.
    * @returns { ChildProcess } Return a child process object.
@@ -702,23 +600,10 @@ declare namespace process {
    * @since 7
    * @test
    */
-  /**
-   * Return a child process object and spawns a new ChildProcess to run the command.
-   *
-   * @param { string } command - command command String of the shell commands executed by the child process.
-   * @param { param } options - options options This is an object. The object contains three parameters. Timeout is the running time of the child
-   * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
-   * maximum buffer area for standard input and output.
-   * @returns { ChildProcess } Return a child process object.
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
-   * @test
-   */
-  object;
-  param = { timeout?: number, killSignal?: number | string, maxBuffer?: number };
-  function runCmd(command: string, options?: param): ChildProcess;
+  function runCmd(
+    command: string,
+    options?: ConditionType
+  ): ChildProcess;
 
   /**
    * Abort current process
@@ -738,22 +623,11 @@ declare namespace process {
   /**
    * Register for an event
    *
-   * @param { string } type - type type Indicates the type of event registered.
-   * @param { EventListener } listener - listener listener Represents the registered event function
+   * @param { string } type - Indicates the type of event registered.
+   * @param { EventListener } listener - Represents the registered event function
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
-   * @test
-   */
-  /**
-   * Register for an event
-   *
-   * @param { string } type - type type Indicates the type of event registered.
-   * @param { EventListener } listener - listener listener Represents the registered event function
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
    * @test
    */
   function on(type: string, listener: EventListener): void;
@@ -761,22 +635,11 @@ declare namespace process {
   /**
    * Remove registered event
    *
-   * @param { string } type - type type Remove the type of registered event.
+   * @param { string } type - Remove the type of registered event.
    * @returns { boolean } Return removed result.
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
-   * @test
-   */
-  /**
-   * Remove registered event
-   *
-   * @param { string } type - type type Remove the type of registered event.
-   * @returns { boolean } Return removed result.
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
    * @test
    */
   function off(type: string): boolean;
@@ -784,7 +647,7 @@ declare namespace process {
   /**
    * Process exit
    *
-   * @param { number } code - code code Process exit code.
+   * @param { number } code - Process exit code.
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    * @deprecated since 9
@@ -801,35 +664,15 @@ declare namespace process {
    * @since 7
    * @test
    */
-  /**
-   * Return the current work directory;
-   *
-   * @returns { string } Return the current work directory.
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
-   * @test
-   */
   function cwd(): string;
 
   /**
    * Change current directory
    *
-   * @param { string } dir - dir dir The path you want to change.
+   * @param { string } dir - The path you want to change.
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7
-   * @test
-   */
-  /**
-   * Change current directory
-   *
-   * @param { string } dir - dir dir The path you want to change.
-   * @syscap SystemCapability.Utils.Lang
-   * @systemapi Hide this for inner system use
-   * @crossplatform
-   * @since 10
    * @test
    */
   function chdir(dir: string): void;
@@ -854,8 +697,8 @@ declare namespace process {
   /**
    * Return whether the signal was sent successfully
    *
-   * @param { number } signal - signal Signal sent.
-   * @param { number } pid - pid pid Send signal to target pid.
+   * @param { number } signal - Signal sent.
+   * @param { number } pid - Send signal to target pid.
    * @returns { boolean } Return the result of the signal.
    * @syscap SystemCapability.Utils.Lang
    * @since 7

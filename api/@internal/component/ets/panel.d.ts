@@ -15,20 +15,30 @@
 
 /**
  * Sets the initial state of the slidable panel.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Sets the initial state of the slidable panel.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum PanelMode {
   /**
    * Minimum state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Minimum state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@ declare enum PanelMode {
 
   /**
    * SHalf-screen-like status
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * SHalf-screen-like status
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -47,10 +61,14 @@ declare enum PanelMode {
 
   /**
    * Class Full Screen Status.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Class Full Screen Status.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -59,20 +77,30 @@ declare enum PanelMode {
 
 /**
  * Sets the type of sliding panel.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Sets the type of sliding panel.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum PanelType {
   /**
    * The switch between the minibar and full-screen display is provided.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The switch between the minibar and full-screen display is provided.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -81,11 +109,15 @@ declare enum PanelType {
   /**
    * Permanent content display class.
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Permanent content display class.
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -94,11 +126,15 @@ declare enum PanelType {
   /**
    * Temporary content display area.
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Temporary content display area.
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -133,20 +169,34 @@ declare enum PanelHeight {
 
 /**
  * Provides a sliding panel interface.
+ *
+ * @interface PanelInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides a sliding panel interface.
+ *
+ * @interface PanelInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface PanelInterface {
   /**
    * Called when the panel slidable panel pops up.
+   *
+   * @param { boolean } show
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the panel slidable panel pops up.
+   *
+   * @param { boolean } show
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -154,20 +204,33 @@ interface PanelInterface {
 }
 
 /**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Pane Attribute.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
    * Called when the initial state of the slidable panel is set.
+   *
+   * @param { PanelMode } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the initial state of the slidable panel is set.
+   *
+   * @param { PanelMode } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -175,10 +238,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the slidable panel type is set.
+   *
+   * @param { PanelType } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the slidable panel type is set.
+   *
+   * @param { PanelType } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -186,10 +257,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when determining whether dragbar exists.
+   *
+   * @param { boolean } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when determining whether dragbar exists.
+   *
+   * @param { boolean } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -207,10 +286,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the height in the full state is specified.
+   *
+   * @param { number | string } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the height in the full state is specified.
+   *
+   * @param { number | string } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -218,10 +305,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the height in the half state is specified.
+   *
+   * @param { number | string } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the height in the half state is specified.
+   *
+   * @param { number | string } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -229,10 +324,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the height in the mini state is specified.
+   *
+   * @param { number | string } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the height in the mini state is specified.
+   *
+   * @param { number | string } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -240,10 +343,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the panel slidable panel pops up.
+   *
+   * @param { boolean } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the panel slidable panel pops up.
+   *
+   * @param { boolean } value
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -251,10 +362,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the panel background mask is requested.
+   *
+   * @param { ResourceColor } color
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when the panel background mask is requested.
+   *
+   * @param { ResourceColor } color
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -262,7 +381,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the panel show close icon.
-   * @default false
+   *
    * @param { boolean } value - used to set whether to display the close icon.
    * @returns { PanelAttribute } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -272,10 +391,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when the state of the slidable panel changes.
+   *
+   * @param { function } event
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the state of the slidable panel changes.
+   *
+   * @param { function } event
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -283,18 +410,24 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
     event: (
       /**
        * Width of content area.
+       *
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 7
        */
       width: number,
 
       /**
        * Height of content area.
+       *
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 7
        */
       height: number,
 
       /**
        * Initial state.
+       *
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 7
        */
       mode: PanelMode,
@@ -303,10 +436,18 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
   /**
    * Called when height of the panel is changed
+   *
+   * @param { function } callback
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when height of the panel is changed
+   *
+   * @param { function } callback
+   * @returns { PanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -315,10 +456,14 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
 
 /**
  * Defines Panel Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Panel Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -326,10 +471,14 @@ declare const Panel: PanelInterface;
 
 /**
  * Defines Panel Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Panel Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

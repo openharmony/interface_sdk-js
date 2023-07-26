@@ -318,7 +318,7 @@ declare enum ProgressStatus {
  * @since 10
  * @form
  */
-declare interface ProgressStyleOptions {
+declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
   /**
    * Defines the strokeWidth property.
    *
@@ -399,6 +399,25 @@ declare interface ProgressStyleOptions {
 }
 
 /**
+ * Progress common style options.
+ *
+ * @interface CommonProgressStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface CommonProgressStyleOptions {
+  /**
+   * Enable smooth effect.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableSmoothEffect?: boolean;
+}
+
+/**
  * Defines the enable scan effect.
  *
  * @interface ScanEffectOptions
@@ -424,7 +443,7 @@ declare interface ScanEffectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface EclipseStyleOptions {
+declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
 
 }
 
@@ -435,7 +454,7 @@ declare interface EclipseStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface ScaleRingStyleOptions {
+declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
   /**
    * Defines the strokeWidth property.
    *
@@ -471,7 +490,7 @@ declare interface ScaleRingStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface RingStyleOptions extends ScanEffectOptions {
+declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
    * Defines the strokeWidth property.
    *
@@ -507,7 +526,7 @@ declare interface RingStyleOptions extends ScanEffectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface LinearStyleOptions extends ScanEffectOptions {
+declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
    * Defines the strokeWidth property.
    *
@@ -525,7 +544,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface CapsuleStyleOptions extends ScanEffectOptions {
+declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
    * Set the inner border color.
    *
@@ -831,12 +850,14 @@ interface ProgressInterface {
  * Defines the progress attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the progress attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */

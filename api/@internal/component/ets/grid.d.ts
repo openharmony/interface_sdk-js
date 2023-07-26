@@ -32,7 +32,7 @@ interface GridInterface {
   /**
    * Grid is returned when the parameter is transferred.
    *
-   * @param { ?Scroller } scroller
+   * @param { Scroller } scroller
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -40,7 +40,7 @@ interface GridInterface {
   /**
    * Grid is returned when the parameter is transferred.
    *
-   * @param { ?Scroller } scroller
+   * @param { Scroller } scroller
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -308,7 +308,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Set scrollbar position.
    *
-   * @param { (index: number, offset: number) => ComputedBarAttribute } event - callback of grid scroll,
+   * @param { function } event - callback of grid scroll,
    * index is the current first displayed item, offset is the grid offset,
    * return ComputedBarAttribute to update scrollbar position and height.
    * @returns { GridAttribute }
@@ -321,7 +321,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Sets the status of the scroll bar.
    *
-   * @param {(first: number, last: number) => void} callback of grid scroll,
+   * @param { function } event of grid scroll,
    * first is the index  of the starting sliding position, last is the index  of the ending sliding position.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -330,7 +330,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Sets the status of the scroll bar.
    *
-   * @param {(first: number, last: number) => void} callback of grid scroll,
+   * @param { function } event of grid scroll,
    * first is the index  of the starting sliding position, last is the index  of the ending sliding position,
    * return void to no return value.
    * @returns { GridAttribute }
@@ -496,7 +496,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => (() => any) | void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -505,7 +505,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => (() => any) | void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -516,7 +516,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    *
-   * @param { (event: ItemDragInfo) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -524,7 +524,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    *
-   * @param { (event: ItemDragInfo) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -535,7 +535,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -543,7 +543,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -554,7 +554,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -562,7 +562,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -574,7 +574,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -583,7 +583,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    *
-   * @param { (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -597,7 +597,6 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * Called when the sliding effect is set.
    *
    * @param { EdgeEffect } value - Scroll effect. For details, see EdgeEffect.
-   * @default EdgeEffect.None
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -618,8 +617,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when setting whether to enable scroll by gesture or mouse.
    *
-   * @param { boolean }
-   * @default true
+   * @param { boolean } value
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -631,7 +629,6 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * Called to setting the friction.
    *
    * @param { number | Resource } value - options for scrolling friction.
-   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -642,7 +639,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called When sliding the grid.
    *
-   * @param { (scrollOffset: number, scrollState: ScrollState) => void } event callback of grid scroll,
+   * @param { function } event callback of grid scroll,
    * scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -654,7 +651,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when the grid begins to arrive.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -665,7 +662,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when the grid reaches the end.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -676,7 +673,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when the slider start.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -687,7 +684,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when the slider stops.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -698,7 +695,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event callback of grid scroll,
+   * @param { function } event callback of grid scroll,
    * offset is the amount of sliding that is about to occur, state is current sliding state,
    * return number to actual sliding offset.
    * @returns { GridAttribute }

@@ -193,12 +193,14 @@ interface RadioInterface {
  * Provides methods for radio method component.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Provides methods for radio method component.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -206,6 +208,7 @@ interface RadioInterface {
  * Provides methods for radio method component.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -243,7 +246,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box selection status changes.
    *
-   * @param { (isChecked: boolean) => void } callback
+   * @param { function } callback
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -251,7 +254,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box selection status changes.
    *
-   * @param { (isChecked: boolean) => void } callback
+   * @param { function } callback
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -260,7 +263,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box selection status changes.
    *
-   * @param { (isChecked: boolean) => void } callback
+   * @param { function } callback
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

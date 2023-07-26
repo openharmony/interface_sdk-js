@@ -249,6 +249,39 @@ declare namespace geoLocationManager {
   function off(type: 'countryCodeChange', callback?: Callback<CountryCode>): void;
 
   /**
+   * Subscribe to changes in WiFi/BT scanning information,
+   * and use the WiFi/BT scanning information for localization.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
+   * @param { LocatingRequiredDataConfig } config - Indicates the locating required data configuration parameters.
+   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
+
+  /**
+   * Stop WiFi/BT scanning and unsubscribe from WiFi/BT scanning information changes.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
+
+  /**
    * Obtain current location.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
@@ -663,6 +696,22 @@ declare namespace geoLocationManager {
    * @since 9
    */
   function setLocationPrivacyConfirmStatus(type: LocationPrivacyType, isConfirmed: boolean): void;
+
+  /**
+   * Get WiFi/BT scanning information, and use the WiFi/BT scanning information for localization.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { LocatingRequiredDataConfig } config - Indicates the request parameters for obtaining the data required for locating.
+   * @returns { Promise<Array<LocatingRequiredData>> } The promise returned by the function, for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  function getLocatingRequiredData(config: LocatingRequiredDataConfig): Promise<Array<LocatingRequiredData>>;
 
   /**
    * Configuration parameters for simulating reverse geocoding.
@@ -1402,6 +1451,195 @@ declare namespace geoLocationManager {
   }
 
   /**
+   * Describes the request parameters for obtaining the data required for locating.
+   * @typedef LocatingRequiredDataConfig
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface LocatingRequiredDataConfig {
+    /**
+     * Indicates the type of locating required data.
+     *
+     * @type {LocatingRequiredDataType}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    type: LocatingRequiredDataType;
+
+    /**
+     * Indicates whether to start scanning.
+     *
+     * @type {boolean}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    needStartScan: boolean;
+
+    /**
+     * Indicates the interval between scans. The unit is millisecond.
+     * This parameter needs to be set only when scanning information is continuously monitored.
+     *
+     * @type {?number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    scanInterval?: number;
+
+    /**
+     * Indicates the timeout period of a single scan. The unit is millisecond. The default value is 10000.
+     * This parameter needs to be set only when getLocatingRequiredData is used.
+     *
+     * @type {?number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    scanTimeout?: number;
+  }
+
+  /**
+   * Describes the structure of the data required for locating.
+   * @typedef LocatingRequiredData
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface LocatingRequiredData {
+    /**
+     * WiFi scan info.
+     *
+     * @type {?WifiScanInfo}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    wifiData?: WifiScanInfo;
+
+    /**
+     * Bluetooth scan info.
+     *
+     * @type {?BluetoothScanInfo}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    bluetoothData?: BluetoothScanInfo;
+  }
+
+  /**
+   * Describes the scanned WiFi information.
+   * @typedef WifiScanInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface WifiScanInfo {
+    /**
+     * WiFi SSID: the maximum length is 32.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    ssid: string;
+
+    /**
+     * WiFi bssid(MAC): the length is 6.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    bssid: string;
+
+    /**
+     * Received signal strength indicator (RSSI).
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    rssi: number;
+
+    /**
+     * Frequency
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    frequency: number;
+
+    /**
+     * Time stamp.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    timestamp: number;
+  }
+
+  /**
+   * Describes the contents of the Bluetooth scan results.
+   *
+   * @typedef BluetoothScanInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface BluetoothScanInfo {
+    /**
+     * The local name of the device.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    deviceName: string;
+
+    /**
+     * Mac address of the scanned device.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    macAddress: string;
+
+    /**
+     * RSSI of the remote device.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    rssi: number;
+
+    /**
+     * Time stamp.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    timestamp: number;
+  }
+
+  /**
    * Enum for location priority.
    *
    * @enum { number }
@@ -1629,6 +1867,34 @@ declare namespace geoLocationManager {
      * @since 9
      */
     COUNTRY_CODE_FROM_NETWORK
+  }
+
+  /**
+   * Enum for locating required data type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export enum LocatingRequiredDataType {
+    /**
+     * Obtains WiFi scanning information for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    WIFI = 1,
+
+    /**
+     * Obtains BT scanning information for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    BLUETOOTH
   }
 }
 

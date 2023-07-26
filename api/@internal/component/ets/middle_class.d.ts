@@ -181,8 +181,8 @@ declare class TSButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ResourceStr } label
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -193,8 +193,8 @@ declare class TSButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ResourceStr } label
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -301,7 +301,7 @@ declare class TSCanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?CanvasRenderingContext2D } context
+   * @param { CanvasRenderingContext2D } context
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -345,7 +345,7 @@ declare class TSCheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?CheckboxOptions } options
+   * @param { CheckboxOptions } options
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -389,7 +389,7 @@ declare class TSCheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribu
   /**
    * Used for TS compiler.
    *
-   * @param { ?CheckboxGroupOptions } options
+   * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -433,7 +433,7 @@ declare class TSCircleAttribute extends CommonShapeMethod<CircleAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?CircleOptions } value
+   * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -467,7 +467,7 @@ declare class TSColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ space?: string | number } } value
+   * @param { object } value
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -641,7 +641,7 @@ declare class TSDatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?DatePickerOptions } options
+   * @param { DatePickerOptions } options
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -718,7 +718,7 @@ declare class TSEllipseAttribute extends CommonShapeMethod<EllipseAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -752,7 +752,7 @@ declare class TSFlexAttribute extends CommonMethod<FlexAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?FlexOptions } value
+   * @param { FlexOptions } value
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -796,8 +796,8 @@ declare class TSForEachInterface {
    * Used for TS compiler.
    *
    * @param { Array<any> } arr
-   * @param { (item: any, index?: number) => void } itemGenerator
-   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
    * @returns { ForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -929,7 +929,7 @@ declare class TSGridAttribute extends CommonMethod<GridAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?Scroller } scroller
+   * @param { Scroller } scroller
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1127,8 +1127,8 @@ declare class TSLazyForEachInterface {
    * Used for TS compiler.
    *
    * @param { IDataSource } dataSource
-   * @param { (item: any, index?: number) => void } itemGenerator
-   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1176,7 +1176,7 @@ declare class TSLineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1210,7 +1210,7 @@ declare class TSListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ initialIndex?: number; space?: number | string; scroller?: Scroller } } value
+   * @param { object } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1254,7 +1254,7 @@ declare class TSListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?string } value
+   * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1429,7 +1429,7 @@ declare class TSNavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ target: string; type?: NavigationType } } value
+   * @param { object } value
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1583,7 +1583,7 @@ declare class TSPathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ width?: number | string; height?: number | string; commands?: string } } value
+   * @param { object } value
    * @returns { PathAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1627,7 +1627,7 @@ declare class TSPatternLockAttribute extends CommonMethod<TSPatternLockAttribute
   /**
    * Used for TS compiler.
    *
-   * @param { ?PatternLockController } controller
+   * @param { PatternLockController } controller
    * @returns { TSPatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1671,7 +1671,7 @@ declare class TSPieceAttribute extends CommonMethod<PieceAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ content: string; icon?: string } } options
+   * @param { object } options
    * @returns { PieceAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1759,7 +1759,7 @@ declare class TSPolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1793,7 +1793,7 @@ declare class TSPolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1939,7 +1939,7 @@ declare class TSRatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ rating: number; indicator?: boolean } } options
+   * @param { object } options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1983,17 +1983,7 @@ declare class TSRectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ? (| {
-   *     width?: number | string;
-   *     height?: number | string;
-   *     radius?: number | string | Array<any>;
-   *     }
-   *   | {
-   *     width?: number | string;
-   *     height?: number | string;
-   *     radiusWidth?: number | string;
-   *     radiusHeight?: number | string;
-   *   }) } value
+   * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2084,7 +2074,7 @@ declare class TSRowAttribute extends CommonMethod<RowAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ space?: string | number } } value
+   * @param { object } value
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2171,7 +2161,7 @@ declare class TSScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?Scroller } scroller
+   * @param { Scroller } scroller
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2259,12 +2249,7 @@ declare class TSSearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{
-   * value?: string;
-   * placeholder?: string;
-   * icon?: string;
-   * controller?: SearchController;
-   * } } options
+   * @param { object } options
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2357,7 +2342,7 @@ declare class TSShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?PixelMap } value
+   * @param { PixelMap } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2444,7 +2429,7 @@ declare class TSSliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?SliderOptions } options
+   * @param { SliderOptions } options
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2512,7 +2497,7 @@ declare class TSStackAttribute extends CommonMethod<StackAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ alignContent?: Alignment } } value
+   * @param { object } value
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2556,7 +2541,7 @@ declare class TSStepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ index?: number } } value
+   * @param { object } value
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2643,7 +2628,7 @@ declare class TSSwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?SwiperController } controller
+   * @param { SwiperController } controller
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2730,7 +2715,7 @@ declare class TSTabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ barPosition?: BarPosition; index?: number; controller?: TabsController } } value
+   * @param { object } value
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2818,7 +2803,7 @@ declare class TSTextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?TextAreaOptions } value
+   * @param { TextAreaOptions } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2852,7 +2837,7 @@ declare class TSTextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ timeZoneOffset?: number; controller?: TextClockController } } options
+   * @param { object } options
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2896,7 +2881,7 @@ declare class TSTextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?TextInputOptions } value
+   * @param { TextInputOptions } value
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2930,7 +2915,7 @@ declare class TSTextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?TextPickerOptions } options
+   * @param { TextPickerOptions } options
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2974,7 +2959,7 @@ declare class TSTextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { ?TextTimerOptions } options
+   * @param { TextTimerOptions } options
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3223,7 +3208,7 @@ declare class TSTapGestureInterface {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ count?: number; fingers?: number } } value
+   * @param { object } value
    * @returns { TapGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3255,7 +3240,7 @@ declare class TSLongPressGestureInterface {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ fingers?: number; repeat?: boolean; duration?: number } } value
+   * @param { object } value
    * @returns { LongPressGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3287,12 +3272,7 @@ declare class TSPanGestureInterface {
   /**
    * Used for TS compiler.
    *
-   * @param { ?(| {
-   *     fingers?: number;
-   *     direction?: PanDirection;
-   *     distance?: number;
-   *   }
-   *   | PanGestureOptions) } value
+   * @param { object } value
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3332,7 +3312,7 @@ declare class TSSwipeGestureInterface {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ fingers?: number; direction?: SwipeDirection; speed?: number } } value
+   * @param { object } value
    * @returns { SwipeGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3364,7 +3344,7 @@ declare class TSPinchGestureInterface {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ fingers?: number; distance?: number } } value
+   * @param { object } value
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3396,7 +3376,7 @@ declare class TSRotationGestureInterface {
   /**
    * Used for TS compiler.
    *
-   * @param { ?{ fingers?: number; angle?: number } } value
+   * @param { object } value
    * @returns { RotationGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

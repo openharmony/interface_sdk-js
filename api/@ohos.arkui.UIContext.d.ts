@@ -500,7 +500,8 @@ export class PromptAction {
 export class ComponentUtils {
   /**
    * Provide the ability to obtain the coordinates and size of component drawing areas.
-   * @param id ID of the component whose attributes are to be obtained.
+   *
+   * @param { string } id ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -538,7 +539,7 @@ export class UIContext {
   
   /**
    * get object UIInspector.
-   * @returns object UIInspector.
+   * @returns { UIInspector } object UIInspector.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -567,7 +568,7 @@ export class UIContext {
 
   /**
    * get object ComponentUtils.
-   * @returns object ComponentUtils.
+   * @returns { ComponentUtils } object ComponentUtils.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -590,7 +591,7 @@ export class UIContext {
    * Defining animation function
    *
    * @param { AnimateParam } value - animateTo parameters.
-   * @param { () => void } event
+   * @param { function } event
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -650,7 +651,7 @@ export class UIContext {
   /**
    * Run custom functions inside the UIContext scope.
    *
-   * @param { () => void } callback The function called through UIContext.
+   * @param { function } callback The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

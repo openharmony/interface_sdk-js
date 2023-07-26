@@ -49,6 +49,7 @@ function getName(node) {
   } else if (node.name.text) {
     return node.name.text.toString();
   }
+  return;
 }
 
 function isConstantDecorator(node, name) {
@@ -63,8 +64,8 @@ function filterApiVersion(node, version) {
 function checkAPINameOfHump(node, sourcefile, fileName) {
   let checkResult = '';
   const apiInfo = getApiInfo(node);
-  if (ts.isEnumMember(node) || (ts.isVariableDeclaration(node) && !(fileName.indexOf("component\\ets\\") >= 0 ||
-    fileName.indexOf("component/ets/") >= 0))) {
+  if (ts.isEnumMember(node) || (ts.isVariableDeclaration(node) && !(fileName.indexOf('component\\ets\\') >= 0 ||
+    fileName.indexOf('component/ets/') >= 0))) {
     const name = getName(node);
     if (!checkAllUppercaseHump(name)) {
       checkResult = `This name [${name}] should be named by all uppercase.`;
@@ -87,7 +88,7 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
     }
   }
 
-  if (checkResult !== "" && filterApiVersion(node, '10') && (!apiInfo.deprecated || apiInfo.deprecated === '')) {
+  if (checkResult !== '' && filterApiVersion(node, '10') && (!apiInfo.deprecated || apiInfo.deprecated === '')) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }
@@ -95,9 +96,9 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
 exports.checkAPINameOfHump = checkAPINameOfHump;
 
 function checkAPIFileName(sourcefile, fileName) {
-  if (fileName.indexOf("component\\ets\\") < 0 && fileName.indexOf("component/ets/") < 0) {
-    let moduleName = "";
-    let exportAssignment = "";
+  if (fileName.indexOf('component\\ets\\') < 0 && fileName.indexOf('component/ets/') < 0) {
+    let moduleName = '';
+    let exportAssignment = '';
     sourcefile.statements.forEach(statement => {
       if (ts.isModuleDeclaration(statement) && statement.name && ts.isIdentifier(statement.name)) {
         moduleName = statement.name.escapedText.toString();
@@ -108,18 +109,17 @@ function checkAPIFileName(sourcefile, fileName) {
     });
     const basename = path.basename(fileName).replace(/\.d\.ts$/, '');
     const lastModuleName = basename.split('.').pop();
-    let checkResult = "";
+    let checkResult = '';
 
-    if (moduleName !== "" && exportAssignment === moduleName && !checkSmallHump(lastModuleName)) {
-      checkResult = `This API file should be named by small hump.`;
-    } else if (moduleName === "" && exportAssignment !== moduleName && !checkLargeHump(lastModuleName)) {
-      checkResult = `This API file should be named by large hump.`;
+    if (moduleName !== '' && exportAssignment === moduleName && !checkSmallHump(lastModuleName)) {
+      checkResult = 'This API file should be named by small hump.';
+    } else if (moduleName === '' && exportAssignment !== moduleName && !checkLargeHump(lastModuleName)) {
+      checkResult = 'This API file should be named by large hump.';
     }
-    if (checkResult !== "" && filterApiVersion(sourcefile, '10')) {
+    if (checkResult !== '' && filterApiVersion(sourcefile, '10')) {
       addAPICheckErrorLogs(sourcefile, sourcefile, fileName, ErrorType.NAMING_ERRORS, checkResult, LogType.LOG_FILE,
         ErrorLevel.MIDDLE);
     }
-    
   }
 }
 exports.checkAPIFileName = checkAPIFileName;

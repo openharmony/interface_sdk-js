@@ -951,8 +951,9 @@ declare namespace appAccount {
      * Obtains extra information of this application account.
      *
      * @param { string } name - Indicates the name of the application account.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns the extra information of the account; returns {@code null} in other scenarios,
-     *         for example, if the account does not exist.
+     * @param { AsyncCallback<string> } callback - Asynchronous callback interface.
+     *   Returns the extra information of the account; returns {@code null} in other scenarios,
+     *   for example, if the account does not exist.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7
      * @deprecated since 9
@@ -1281,7 +1282,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400004 - The number of token reaches the upper limit.
+     * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -1300,7 +1301,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400004 - The number of token reaches the upper limit.
+     * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -1581,7 +1582,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name of your application or third-party applications.
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<Array<AuthTokenInfo>> } callback - Asynchronous callback interface. Returns a list of auth tokens visible to the caller application.
+     * @param { AsyncCallback<Array<AuthTokenInfo>> } callback - Asynchronous callback interface.
+     *   Returns a list of auth tokens visible to the caller application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or owner.
@@ -1613,7 +1615,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name of your application.
      * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface. Returns the open authorization list of the specified authentication type.
+     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.
+     *   Returns the open authorization list of the specified authentication type.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -1643,7 +1646,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name of your application.
      * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.  Returns the open authorization list of the specified authentication type.
+     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.
+     *   Returns the open authorization list of the specified authentication type.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or authType.
@@ -1678,7 +1682,8 @@ declare namespace appAccount {
      * Only the owner of the authenticator has the permission to call this method.
      *
      * @param { string } sessionId - Indicates the id of a authentication session.
-     * @param { AsyncCallback<AuthenticatorCallback> } callback - Asynchronous callback interface. Returns the authenticator callback related to the session id.
+     * @param { AsyncCallback<AuthenticatorCallback> } callback - Asynchronous callback interface.
+     *   Returns the authenticator callback related to the session id.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -1706,7 +1711,8 @@ declare namespace appAccount {
      * Only the owner of the authenticator has the permission to call this method.
      *
      * @param { string } sessionId - Indicates the id of a authentication session.
-     * @param { AsyncCallback<AuthCallback> } callback - Asynchronous callback interface. Returns the authenticator callback related to the session id.
+     * @param { AsyncCallback<AuthCallback> } callback - Asynchronous callback interface.
+     *   Returns the authenticator callback related to the session id.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid sessionId.
@@ -1736,7 +1742,8 @@ declare namespace appAccount {
      * Gets the authenticator information of an application account.
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface. Returns the authenticator information of the application account.
+     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface.
+     *   Returns the authenticator information of the application account.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -1760,7 +1767,8 @@ declare namespace appAccount {
      * Queries the authenticator information of an application account.
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface. Returns the authenticator information of the application account.
+     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface.
+     *   Returns the authenticator information of the application account.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.

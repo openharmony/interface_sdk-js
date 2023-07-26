@@ -32,8 +32,8 @@ declare namespace wantAgent {
   /**
    * Obtains the bundle name of a WantAgent.
    *
-   * @param { WantAgent } agent whose bundle name to obtain.
-   * @param { AsyncCallback<string> } callback A callback method to obtain the package name of the WantAgent instance.
+   * @param { WantAgent } agent - whose bundle name to obtain.
+   * @param { AsyncCallback<string> } callback - A callback method to obtain the package name of the WantAgent instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -44,7 +44,7 @@ declare namespace wantAgent {
   /**
    * Obtains the bundle name of a WantAgent.
    *
-   * @param { WantAgent } agent whose bundle name to obtain.
+   * @param { WantAgent } agent - whose bundle name to obtain.
    * @returns { Promise<string> } Returns the bundle name of the {@link WantAgent} if any.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -56,8 +56,8 @@ declare namespace wantAgent {
   /**
    * Obtains the UID of a WantAgent.
    *
-   * @param { WantAgent } agent whose UID to obtain.
-   * @param { AsyncCallback<number> } callback Create a callback method for WantAgent.
+   * @param { WantAgent } agent - whose UID to obtain.
+   * @param { AsyncCallback<number> } callback - Create a callback method for WantAgent.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -68,7 +68,7 @@ declare namespace wantAgent {
   /**
    * Obtains the UID of a WantAgent.
    *
-   * @param { WantAgent } agent whose UID to obtain.
+   * @param { WantAgent } agent - whose UID to obtain.
    * @returns { Promise<number> } Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -80,8 +80,8 @@ declare namespace wantAgent {
   /**
    * Obtains the {@link Want} of an {@link WantAgent}.
    *
-   * @param { WantAgent } agent Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @param { AsyncCallback<Want> } callback Obtain the callback method for Want in WantAgent.
+   * @param { WantAgent } agent - Indicates the {@link WantAgent} whose UID is to be obtained.
+   * @param { AsyncCallback<Want> } callback - Obtain the callback method for Want in WantAgent.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 7
@@ -93,7 +93,7 @@ declare namespace wantAgent {
   /**
    * Obtains the {@link Want} of an {@link WantAgent}.
    *
-   * @param { WantAgent } agent Indicates the {@link WantAgent} whose UID is to be obtained.
+   * @param { WantAgent } agent - Indicates the {@link WantAgent} whose UID is to be obtained.
    * @returns { Promise<Want> } Returns the {@link Want} of the {@link WantAgent}.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -106,8 +106,8 @@ declare namespace wantAgent {
   /**
    * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    *
-   * @param { WantAgent } agent to cancel.
-   * @param { AsyncCallback<void> } callback Cancel the callback method for Want in WantAgent.
+   * @param { WantAgent } agent - to cancel.
+   * @param { AsyncCallback<void> } callback - Cancel the callback method for Want in WantAgent.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -118,7 +118,7 @@ declare namespace wantAgent {
   /**
    * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    *
-   * @param { WantAgent } agent to cancel.
+   * @param { WantAgent } agent - to cancel.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -130,10 +130,10 @@ declare namespace wantAgent {
   /**
    * Triggers a WantAgent.
    *
-   * @param { WantAgent } agent to trigger.
-   * @param { TriggerInfo } triggerInfo parameters.
-   * @param { Callback<CompleteData> } [callback] Indicates the callback method to be called after
-   *                                              the {@link WantAgent} is triggered.
+   * @param { WantAgent } agent - to trigger.
+   * @param { TriggerInfo } triggerInfo - parameters.
+   * @param { Callback<CompleteData> } [callback] - Indicates the callback method to be called after
+   *                                                the {@link WantAgent} is triggered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -144,9 +144,10 @@ declare namespace wantAgent {
   /**
    * Checks whether two WantAgent objects are equal.
    *
-   * @param { WantAgent } agent to compare.
-   * @param { WantAgent } otherAgent WantAgent Object.
-   * @param { AsyncCallback<boolean> } callback Callback method for determining whether two WantAgent instances are equal.
+   * @param { WantAgent } agent - to compare.
+   * @param { WantAgent } otherAgent - WantAgent Object.
+   * @param { AsyncCallback<boolean> } callback - Callback method for determining whether two WantAgent instances are
+   *                                              equal.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -157,8 +158,8 @@ declare namespace wantAgent {
   /**
    * Checks whether two WantAgent objects are equal.
    *
-   * @param { WantAgent } agent to compare.
-   * @param { WantAgent } otherAgent WantAgent Object.
+   * @param { WantAgent } agent - to compare.
+   * @param { WantAgent } otherAgent - WantAgent Object.
    * @returns { Promise<boolean> } Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -170,8 +171,8 @@ declare namespace wantAgent {
   /**
    * Obtains a WantAgent object.
    *
-   * @param { WantAgentInfo } info about the WantAgent object to obtain.
-   * @param { AsyncCallback<WantAgent> } callback Callback method for obtaining the user ID of WantAgent instance.
+   * @param { WantAgentInfo } info - about the WantAgent object to obtain.
+   * @param { AsyncCallback<WantAgent> } callback - Callback method for obtaining the user ID of WantAgent instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    * @deprecated since 9
@@ -182,7 +183,7 @@ declare namespace wantAgent {
   /**
    * Obtains a WantAgent object.
    *
-   * @param { WantAgentInfo } info about the WantAgent object to obtain.
+   * @param { WantAgentInfo } info - about the WantAgent object to obtain.
    * @returns { Promise<WantAgent> } Returns the created {@link WantAgent} object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -436,6 +437,9 @@ declare namespace wantAgent {
 
 /**
  * WantAgent object.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 7
  */
 export type WantAgent = object;
 

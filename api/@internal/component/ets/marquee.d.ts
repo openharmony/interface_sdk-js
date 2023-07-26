@@ -241,7 +241,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling starts.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -249,7 +249,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling starts.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -258,7 +258,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling starts.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -270,7 +270,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling to the bottom.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -278,7 +278,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling to the bottom.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -287,7 +287,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling to the bottom.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -299,7 +299,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling is complete.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -307,7 +307,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling is complete.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -316,7 +316,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling is complete.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -41,7 +41,7 @@ interface StackInterface {
   /**
    * Set the value.
    *
-   * @param { ?({ alignContent?: Alignment }) } value
+   * @param { object } value
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -49,7 +49,7 @@ interface StackInterface {
   /**
    * Set the value.
    *
-   * @param { ?({ alignContent?: Alignment }) } value
+   * @param { object } value
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -58,7 +58,7 @@ interface StackInterface {
   /**
    * Set the value.
    *
-   * @param { ?({ alignContent?: Alignment }) } value
+   * @param { object } value
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -70,15 +70,18 @@ interface StackInterface {
 
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form

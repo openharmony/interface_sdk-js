@@ -43,7 +43,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -53,7 +53,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -64,7 +64,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -78,7 +78,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -88,7 +88,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -99,7 +99,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './basic';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,

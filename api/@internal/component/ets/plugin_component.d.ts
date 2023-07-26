@@ -54,7 +54,7 @@ interface PluginComponentInterface {
   /**
    * Called when setting the plugin.
    *
-   * @param { { template: PluginComponentTemplate; data: any } } value
+   * @param { object } value
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -67,6 +67,7 @@ interface PluginComponentInterface {
  * Defines the plugin component attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
  */
@@ -74,7 +75,7 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
   /**
    * pluginComponent onComplete callback,
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -85,7 +86,7 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
   /**
    * pluginComponent onError callback,
    *
-   * @param { (info: { errcode: number; msg: string }) => void } callback
+   * @param { function } callback
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

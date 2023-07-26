@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './@ohos.base';
+import type { Callback } from './@ohos.base';
 
 /**
  * Enumerates the string value match pattern.
@@ -1086,7 +1086,7 @@ declare class On {
    * @since 9
    * @test
    */
-   /**
+  /**
    * Specifies the id of the target Component.
    *
    * @param { string } id The id value.

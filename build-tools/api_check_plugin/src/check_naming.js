@@ -12,24 +12,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const path = require("path");
+const path = require('path');
 const {
   ErrorType,
   ErrorLevel,
   FileType,
   getApiVersion,
-  getCheckApiVersion
-} = require("./utils");
-const { addAPICheckErrorLogs } = require("./compile_info");
-const nameDictionary = require("./name_dictionary.json");
-const nameScenarioScope = require("./name_scenario_scope.json");
+  getCheckApiVersion,
+} = require('./utils');
+const { addAPICheckErrorLogs } = require('./compile_info');
+const nameDictionary = require('./name_dictionary.json');
+const nameScenarioScope = require('./name_scenario_scope.json');
 
 function checkNaming(node, sourcefile, fileName) {
   const apiVersionToBeVerified = getCheckApiVersion();
   const apiVersion = Number(getApiVersion(node));
 
-  if (apiVersionToBeVerified.indexOf("^") === 0) {
-    let minCheckApiVersion = Number(apiVersionToBeVerified.substr(1));
+  if (apiVersionToBeVerified.indexOf('^') === 0) {
+    const minCheckApiVersion = Number(apiVersionToBeVerified.substr(1));
     checkApiVerion(minCheckApiVersion);
     if (apiVersion > minCheckApiVersion) {
       checkApiNaming(node, sourcefile, fileName);
@@ -43,13 +43,13 @@ function checkNaming(node, sourcefile, fileName) {
 exports.checkNaming = checkNaming;
 
 function checkApiNaming(node, sourcefile, fileName) {
-  let lowIdentifier = node.getText().toLowerCase();
+  const lowIdentifier = node.getText().toLowerCase();
   checkApiNamingWords(node, sourcefile, fileName, lowIdentifier);
   checkApiNamingScenario(node, sourcefile, fileName, lowIdentifier);
 }
 
 function checkApiNamingWords(node, sourcefile, fileName, lowIdentifier) {
-  let lowercaseNamingMap = getlowercaseNamingMap();
+  const lowercaseNamingMap = getlowercaseNamingMap();
   for (const [key, value] of lowercaseNamingMap) {
     const prohibitedWordIndex = lowIdentifier.indexOf(key);
     if (prohibitedWordIndex === -1) {
@@ -64,7 +64,7 @@ function checkApiNamingWords(node, sourcefile, fileName, lowIdentifier) {
       );
       break;
     } else {
-      let isIgnoreWord = checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier);
+      const isIgnoreWord = checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier);
       if (isIgnoreWord === false) {
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, errorInfo, FileType.LOG_API,
           ErrorLevel.MIDDLE
@@ -87,12 +87,12 @@ function checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier) {
 
 function checkApiVerion(apiVersion) {
   if (isNaN(parseInt(apiVersion))) {
-    throw `Please configure the correct API version to be verified`;
+    throw 'Please configure the correct API version to be verified';
   }
 }
 
 function checkApiNamingScenario(node, sourcefile, fileName, lowIdentifier) {
-  let lowercaseNamingScenarioMap = getlowercaseNamingScenarioMap();
+  const lowercaseNamingScenarioMap = getlowercaseNamingScenarioMap();
   for (const [key, value] of lowercaseNamingScenarioMap) {
     const prohibitedWordIndex = lowIdentifier.indexOf(key);
     if (
@@ -129,7 +129,7 @@ function getlowercaseNamingScenarioMap() {
 }
 
 function isInAllowedFiles(files, fileName) {
-  for (let item of files) {
+  for (const item of files) {
     const pattern = new RegExp(item);
     pattern.test(fileName);
     if (pattern.test(fileName)) {

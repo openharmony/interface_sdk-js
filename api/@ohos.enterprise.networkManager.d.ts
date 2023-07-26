@@ -15,6 +15,7 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
+import type connection from './@ohos.net.connection';
 
 /**
  * This module offers set network policies on the devices.
@@ -589,6 +590,84 @@ declare namespace networkManager {
    * @since 10
    */
   function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): Promise<void>;
+
+  /**
+   * Set a network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { connection.HttpProxy } httpProxy - network global proxy configuration information.
+   * @param { AsyncCallback<void> } callback - the callback of setGlobalProxy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set a network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { connection.HttpProxy } httpProxy - network global proxy configuration information.
+   * @returns { Promise<void> } the promise returned by the setGlobalProxy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy): Promise<void>;
+
+  /**
+   * Obtains the network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AsyncCallback<connection.HttpProxy> } callback - the callback carries the network global proxy configuration information.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function getGlobalProxy(admin: Want, callback: AsyncCallback<connection.HttpProxy>): void;
+
+  /**
+   * Obtains the network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Promise<connection.HttpProxy> } the promise carries the network global proxy configuration information.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function getGlobalProxy(admin: Want): Promise<connection.HttpProxy>;
 
   /**
    * Add iptables filter rule by {@link AddFilterRule}.

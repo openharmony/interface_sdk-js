@@ -120,7 +120,7 @@ interface CheckboxInterface {
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
    *
-   * @param { ?CheckboxOptions } options
+   * @param { CheckboxOptions } options
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -129,7 +129,7 @@ interface CheckboxInterface {
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
    *
-   * @param { ?CheckboxOptions } options
+   * @param { CheckboxOptions } options
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -139,7 +139,7 @@ interface CheckboxInterface {
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
    *
-   * @param { ?CheckboxOptions } options
+   * @param { CheckboxOptions } options
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -273,7 +273,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
    * Called when the selection status changes.
    *
-   * @param { (value: boolean) => void } callback
+   * @param { function } callback
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -281,7 +281,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
    * Called when the selection status changes.
    *
-   * @param { (value: boolean) => void } callback
+   * @param { function } callback
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -290,7 +290,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
    * Called when the selection status changes.
    *
-   * @param { (value: boolean) => void } callback
+   * @param { function } callback
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

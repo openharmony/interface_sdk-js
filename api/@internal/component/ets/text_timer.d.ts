@@ -347,7 +347,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Called when the timer value is returned.
    *
-   * @param { (utc: number, elapsedTime: number) => void } event
+   * @param { function } event
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -355,7 +355,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Called when the timer value is returned.
    *
-   * @param { (utc: number, elapsedTime: number) => void } event
+   * @param { function } event
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

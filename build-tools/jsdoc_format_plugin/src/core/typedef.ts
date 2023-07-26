@@ -250,7 +250,7 @@ export namespace comment {
     /**
      * 结构化的注释对象
      */
-    parsedComment: any;
+    parsedComment: comment.ParsedComment | undefined;
 
     /**
      * 注释起始位置
@@ -837,4 +837,17 @@ export type MethodNodeType = ts.FunctionDeclaration | ts.MethodDeclaration | ts.
 
 export interface ApiSplitProcessorInterface {
   (node: ts.Node, context: Context | undefined): ts.Node | undefined;
+}
+
+/**
+   * 注释信息
+   */
+export interface CommentData {
+  tag: string,
+  name: string,
+  type: string,
+  optional: boolean,
+  description: string,
+  source: Array<comment.CommentSource>,
+  default: string
 }

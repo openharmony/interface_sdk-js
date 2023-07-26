@@ -32,7 +32,7 @@ class Project {
     if (!this.profile) {
       const buildProfilePath = path.resolve(this.projectPath, 'build-profile.json5');
       if (!fs.existsSync(buildProfilePath)) {
-        Logger.error(this.logTag, `build-profile.json5 can't be found, is it an openharmony project?`);
+        Logger.error(this.logTag, 'build-profile.json5 can\'t be found, is it an openharmony project?');
         return this.profile;
       }
       const profileContent = fs.readFileSync(buildProfilePath, 'utf-8');
@@ -59,7 +59,7 @@ class Project {
     }
     const localPropertiesPath = path.resolve(this.projectPath, 'local.properties');
     if (!fs.existsSync(localPropertiesPath)) {
-      Logger.error(this.logTag, `unable to get the sdk path of the project, specify it using the --sdk or --sdkRoot`);
+      Logger.error(this.logTag, 'unable to get the sdk path of the project, specify it using the --sdk or --sdkRoot');
       return this.sdkPath;
     }
     const properties = this.parseProperty(localPropertiesPath);
@@ -77,7 +77,7 @@ class Project {
         return;
       }
       const expArray = line.match(propertyRegExp);
-      if (expArray && expArray.length == 3) {
+      if (expArray && expArray.length === 3) {
         map.set(expArray[1].trim(), expArray[2].trim());
       }
     });
@@ -145,6 +145,7 @@ class Project {
 }
 
 class Sdk {
+
   /**
    * 
    * @param {Project} project 应用工程对象
@@ -318,13 +319,13 @@ class Logger {
 
   static formatDate(time, format) {
     const date = new Date(time);
-    const year = date.getFullYear(),
-      month = date.getMonth() + 1,
-      day = date.getDate(),
-      hour = date.getHours(),
-      min = date.getMinutes(),
-      sec = date.getSeconds(),
-      mis = date.getMilliseconds();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours();
+    const min = date.getMinutes();
+    const sec = date.getSeconds();
+    const mis = date.getMilliseconds();
     let dateStr = format.replace('Y', `${year}`);
     dateStr = dateStr.replace('M', `${month}`);
     dateStr = dateStr.replace('D', `${day}`);
