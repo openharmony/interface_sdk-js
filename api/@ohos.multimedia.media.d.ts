@@ -2322,14 +2322,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4 = "mp4",
+    CFT_MPEG_4 = 'mp4',
 
     /**
      * A audio container format type m4a.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4A = "m4a",
+    CFT_MPEG_4A = 'm4a',
   }
 
   /**
@@ -2367,70 +2367,70 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_INDEX = "track_index",
+    MD_KEY_TRACK_INDEX = 'track_index',
 
     /**
      * key for track type, value type is number, see @MediaType.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_TYPE = "track_type",
+    MD_KEY_TRACK_TYPE = 'track_type',
 
     /**
      * key for codec mime type, value type is string.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_CODEC_MIME = "codec_mime",
+    MD_KEY_CODEC_MIME = 'codec_mime',
 
     /**
      * key for duration, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_DURATION = "duration",
+    MD_KEY_DURATION = 'duration',
 
     /**
      * key for bitrate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_BITRATE = "bitrate",
+    MD_KEY_BITRATE = 'bitrate',
 
     /**
      * key for video width, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_WIDTH = "width",
+    MD_KEY_WIDTH = 'width',
 
     /**
      * key for video height, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_HEIGHT = "height",
+    MD_KEY_HEIGHT = 'height',
 
     /**
      * key for video frame rate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_FRAME_RATE = "frame_rate",
+    MD_KEY_FRAME_RATE = 'frame_rate',
 
     /**
      * key for audio channel count, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_CHANNEL_COUNT = "channel_count",
+    MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
     /**
      * key for audio sample rate, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_SAMPLE_RATE = "sample_rate",
+    MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
   }
 
   /**
