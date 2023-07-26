@@ -215,6 +215,21 @@ declare namespace cloudSync {
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
+     * @param { function } callback - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 10
+     */
+    off(evt: 'progress', callback: (pg: SyncProgress) => void): void;
+    /**
+     * Unsubscribes all callbacks objects from sync progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { 'progress' } evt - event type.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - The input parameter is invalid.
@@ -407,6 +422,21 @@ declare namespace cloudSync {
     on(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
     /**
      * Unsubscribes from download progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { 'progress' } evt - event type.
+     * @param { function } callback - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 10
+     */
+    off(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
+    /**
+     * Unsubscribes all callbacks objects from download progress event.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
