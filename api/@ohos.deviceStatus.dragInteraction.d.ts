@@ -75,7 +75,8 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @param type Indicates the event type.
-   * @param callback Indicates the callback for which listening is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @param callback Indicates the callback for which listening is disabled. If this parameter is not specified,
+   * listening will be disabled for all registered callbacks.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
