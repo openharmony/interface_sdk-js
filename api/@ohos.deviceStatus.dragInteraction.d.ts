@@ -35,6 +35,7 @@ declare namespace dragInteraction {
      * Dragging starts.
      *
      * @since 10
+     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
     MSG_DRAG_STATE_START = 1,
@@ -43,6 +44,7 @@ declare namespace dragInteraction {
      * Dragging ends.
      *
      * @since 10
+     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
     MSG_DRAG_STATE_STOP = 2,
@@ -51,6 +53,7 @@ declare namespace dragInteraction {
      * Dragging is canceled.
      *
      * @since 10
+     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
     MSG_DRAG_STATE_CANCEL = 3,
