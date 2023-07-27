@@ -456,8 +456,20 @@ declare namespace cert {
      * @returns { number } X509 cert serial number.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509Cert.getCertSerialNumber
      */
     getSerialNumber(): number;
+
+    /**
+     * Get X509 cert serial number.
+     *
+     * @returns { bigint } X509 cert serial number.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getCertSerialNumber(): bigint;
 
     /**
      * Get X509 cert issuer name.
