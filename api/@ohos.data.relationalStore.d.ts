@@ -207,7 +207,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType; }
+  type ValuesBucket = { [key: string]: ValueType; };
 
   /**
    * The type of the priority key can be number or string
@@ -346,7 +346,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    success: number;
+    successful: number;
 
     /**
      * Describes the number of data failed to sync.
@@ -452,7 +452,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    NO_SPACE_FOR_ASSET,
+    NO_SPACE_FOR_ASSET
   }
 
   /**
@@ -654,7 +654,7 @@ declare namespace relationalStore {
 
   /**
    * Indicates the notify info
-   * 
+   *
    * @interface ChangeInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
@@ -2269,7 +2269,12 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
-    update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution, callback: AsyncCallback<number>): void;
+    update(
+      values: ValuesBucket,
+      predicates: RdbPredicates,
+      conflict: ConflictResolution,
+      callback: AsyncCallback<number>
+    ): void;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -2351,7 +2356,12 @@ declare namespace relationalStore {
      * @StageModelOnly
      * @since 10
      */
-    update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+    update(
+      table: string,
+      values: ValuesBucket,
+      predicates: dataSharePredicates.DataSharePredicates,
+      callback: AsyncCallback<number>
+    ): void;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -2600,7 +2610,12 @@ declare namespace relationalStore {
      * @StageModelOnly
      * @since 9
      */
-    query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+    query(
+      table: string,
+      predicates: dataSharePredicates.DataSharePredicates,
+      columns: Array<string>,
+      callback: AsyncCallback<ResultSet>
+    ): void;
 
     /**
      * Queries data in the database based on specified conditions.
@@ -2618,7 +2633,11 @@ declare namespace relationalStore {
      * @StageModelOnly
      * @since 9
      */
-    query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
+    query(
+      table: string,
+      predicates: dataSharePredicates.DataSharePredicates,
+      columns?: Array<string>
+    ): Promise<ResultSet>;
 
     /**
      * Queries data in the database based on SQL statement.
@@ -2682,7 +2701,7 @@ declare namespace relationalStore {
      * @since 10
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
-  
+
     /**
      * Obtains the modify time of rows corresponding to the primary keys.
      *
@@ -2713,7 +2732,12 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[], callback: AsyncCallback<ModifyTime>): void;
+    getModifyTime(
+      table: string,
+      columnName: string,
+      primaryKeys: PRIKeyType[],
+      callback: AsyncCallback<ModifyTime>
+    ): void;
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
      *
@@ -2930,7 +2954,7 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2944,7 +2968,7 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2958,33 +2982,59 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
-     * @param { number } type - Indicates the tables distributed type {@link DistributedType}.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
+     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - Indicates the distributed config of the tables. {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type: number, config: DistributedConfig, callback: AsyncCallback<void>): void;
+    setDistributedTables(tables: Array<string>, type: DistributedType, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - Indicates the table names you want to set.
+     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
+     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
+     * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
+     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    setDistributedTables(
+      tables: Array<string>,
+      type: DistributedType,
+      config: DistributedConfig,
+      callback: AsyncCallback<void>
+    ): void;
 
     /**
      * Set table to be a distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
-     * @param { number } type - Indicates the distribution type of the tables. {@link DistributedType}.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
+     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - Indicates the distributed config of the tables. {@link DistributedConfig}.
+     * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type?: number, config?: DistributedConfig): Promise<void>;
+    setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
     /**
      * Obtain distributed table name of specified remote device according to local table name.
@@ -3094,7 +3144,12 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
+    cloudSync(
+      mode: SyncMode,
+      tables: string[],
+      progress: Callback<ProgressDetails>,
+      callback: AsyncCallback<void>
+    ): void;
 
     /**
      * Sync data to cloud.
@@ -3126,7 +3181,13 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+    remoteQuery(
+      device: string,
+      table: string,
+      predicates: RdbPredicates,
+      columns: Array<string>,
+      callback: AsyncCallback<ResultSet>
+    ): void;
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
@@ -3150,7 +3211,7 @@ declare namespace relationalStore {
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *                          If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the observer of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3197,7 +3258,7 @@ declare namespace relationalStore {
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *                          If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3220,7 +3281,11 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    off(event: 'dataChange', type: SubscribeType, observer?: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
+    off(
+      event: 'dataChange',
+      type: SubscribeType,
+      observer?: Callback<Array<string>> | Callback<Array<ChangeInfo>>
+    ): void;
 
     /**
      * Remove specified observer of specified type from the database.
