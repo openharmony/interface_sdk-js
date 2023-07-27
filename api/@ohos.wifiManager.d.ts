@@ -396,19 +396,6 @@ declare namespace wifiManager {
   function getIpInfo(): IpInfo;
 
   /**
-   * Obtain the IPv6 information of the Wi-Fi connection.
-   * The IPv6 information includes the host IP address, gateway address, and DNS information.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Ipv6Info } Returns the IPv6 information of the Wi-Fi connection.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2501000 - Operation failed.
-   * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
-   */
-  function getIpv6Info(): Ipv6Info;
-
-  /**
    * Obtain the country code of the device.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { string } Returns the country code of this device.
@@ -2493,70 +2480,6 @@ declare namespace wifiManager {
      * @since 9
      */
     leaseDuration: number;
-  }
-
-/**
-   * Wi-Fi IPv6 information.
-   * @typedef Ipv6Info
-   * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
-   */
-  interface Ipv6Info {
-    /**
-     * The link IPv6 address of the Wi-Fi connection
-     *
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    linkIpv6Address: string;
-
-    /**
-     * The global IPv6 address of the Wi-Fi connection
-     *
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    globalIpv6Address: string;
-
-    /**
-     * The rand Global IPv6 address of the Wi-Fi connection
-     *
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    randomGlobalIpv6Address: string;
-
-    /**
-     * The gateway of the Wi-Fi connection
-     *
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    gateway: string;
-
-    /**
-     * The network mask of the Wi-Fi connection
-     *
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    netmask: string;
-
-    /**
-     * The primary DNS server IPV6 address of the Wi-Fi connection
-     *
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    primaryDNS: string;
-
-    /**
-     * The secondary DNS server IPV6 address of the Wi-Fi connection
-     *
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    secondDNS: string;
   }
 
   /**
