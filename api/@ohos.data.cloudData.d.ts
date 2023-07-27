@@ -216,7 +216,11 @@ declare namespace cloudData {
      * @systemapi
      * @since 10
      */
-    static clear(accountId: string, appActions: { [bundleName: string]: ClearAction }, callback: AsyncCallback<void>): void;
+    static clear(
+      accountId: string,
+      appActions: { [bundleName: string]: ClearAction },
+      callback: AsyncCallback<void>
+    ): void;
 
     /**
      * deletes cloud information from local data.
