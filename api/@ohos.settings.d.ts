@@ -366,6 +366,8 @@ declare namespace settings {
     /**
      * Indicates the bundle name of the application to debug.
      *
+     * @constant
+     * @syscap SystemCapability.Applications.settings.Core
      * @since 7
      */
     const DEBUG_APP_PACKAGE: string
@@ -834,6 +836,8 @@ declare namespace settings {
      *
      * <p>If the value is {@code true}, Bluetooth is enabled. If the value is {@code false}, Bluetooth is disabled.
      *
+     * @constant
+     * @syscap SystemCapability.Applications.settings.Core
      * @since 7
      */
     const BLUETOOTH_STATUS: string
@@ -1133,8 +1137,8 @@ declare namespace settings {
    * @param { string } defValue - Indicates the default value of the character string.
    * @returns { string } Returns settingsdata value.
    * @syscap SystemCapability.Applications.settings.Core
-   * @deprecated since 9
    * @famodelonly
+   * @deprecated since 9
    * @useinstead ohos.settings#getValueSync
    * @since 8
    */
@@ -1162,8 +1166,8 @@ declare namespace settings {
    * @param { string } value Indicates the value of the character string.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.settings.Core
-   * @deprecated since 9
    * @famodelonly
+   * @deprecated since 9
    * @useinstead ohos.settings#setValueSync
    * @since 8
    */
