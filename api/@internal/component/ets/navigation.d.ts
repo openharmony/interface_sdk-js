@@ -920,7 +920,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    * @deprecated since 10
-   * @useinstead toolbarConfiguration
+   * @useinstead navigation/NavigationAttribute#toolbarConfiguration
    */
   toolBar(value: object | CustomBuilder): NavigationAttribute;
 
