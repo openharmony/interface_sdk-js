@@ -207,7 +207,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType };
+  type ValuesBucket = { [key: string]: ValueType; };
 
   /**
    * The type of the priority key can be number or string
