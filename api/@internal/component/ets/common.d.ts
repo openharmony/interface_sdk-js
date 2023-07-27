@@ -8514,15 +8514,6 @@ declare class CommonMethod<T> {
    * @param { ShadowOptions | ShadowStyle } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @form
-   */
-  /**
-   * Add a shadow effect to the current component
-   *
-   * @param { ShadowOptions | ShadowStyle } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
