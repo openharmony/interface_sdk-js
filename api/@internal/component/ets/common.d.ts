@@ -8720,6 +8720,7 @@ declare class CommonMethod<T> {
    * Reuse id is used for identify the reuse type for each custom node.
    *
    * @param { string } id - The id for reusable custom node.
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
