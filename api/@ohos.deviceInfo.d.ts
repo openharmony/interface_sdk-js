@@ -132,7 +132,6 @@ declare namespace deviceInfo {
    *
    * @constant
    * @syscap SystemCapability.Startup.SystemInfo
-   * @crossplatform
    * @since 6
    */
   /**
@@ -140,6 +139,7 @@ declare namespace deviceInfo {
    *
    * @constant
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 10
    */
   const softwareModel: string;
@@ -533,6 +533,7 @@ declare namespace deviceInfo {
    * distributionOsName will return the ISV OS name
    * If ISV not specified, it will return an empty string
    *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
@@ -544,6 +545,7 @@ declare namespace deviceInfo {
    * distributionOSVersion will return the ISV OS version
    * If ISV not specified, it will return the same value as osFullName
    *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
@@ -555,6 +557,7 @@ declare namespace deviceInfo {
    * distributionOSVersion will return the ISV OS api version
    * If ISV not specified, it will return the same value as sdkApiVersion
    *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
@@ -566,6 +569,7 @@ declare namespace deviceInfo {
    * distributionOSVersion will return the ISV OS release type
    * If ISV not specified, it will return the same value as osReleaseType
    *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
