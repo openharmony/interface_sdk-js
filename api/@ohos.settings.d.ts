@@ -1138,9 +1138,9 @@ declare namespace settings {
    * @returns { string } Returns settingsdata value.
    * @syscap SystemCapability.Applications.settings.Core
    * @famodelonly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.settings#getValueSync
-   * @since 8
    */
   function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
 
@@ -1167,9 +1167,9 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.settings.Core
    * @famodelonly
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.settings#setValueSync
-   * @since 8
    */
   function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
 
