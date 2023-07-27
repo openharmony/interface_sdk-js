@@ -399,7 +399,7 @@ declare class NavPathStack {
    * @crossplatform
    * @since 10
    */
-  push(info: NavPathInfo): void;
+  pushPath(info: NavPathInfo): void;
 
   /**
    * Pushes the specified route page into the stack.
@@ -410,7 +410,7 @@ declare class NavPathStack {
    * @crossplatform
    * @since 10
    */
-  pushName(name: string, param: unknown): void;
+  pushPathByName(name: string, param: unknown): void;
 
   /**
    * Pops the top route page out of the stack.
@@ -431,7 +431,7 @@ declare class NavPathStack {
    * @crossplatform
    * @since 10
    */
-  popTo(name: string): number;
+  popToName(name: string): number;
 
   /**
    * Pops the specified route page out of the stack.
