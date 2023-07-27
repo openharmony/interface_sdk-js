@@ -346,7 +346,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    success: number;
+    successful: number;
 
     /**
      * Describes the number of data failed to sync.
@@ -2930,7 +2930,7 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2944,7 +2944,7 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2958,33 +2958,54 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
-     * @param { number } type - Indicates the tables distributed type {@link DistributedType}.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
+     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - Indicates the distributed config of the tables. {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type: number, config: DistributedConfig, callback: AsyncCallback<void>): void;
+    setDistributedTables(tables: Array<string>, type: DistributedType, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - Indicates the table names you want to set.
+     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
+     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
+     * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
+     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    setDistributedTables(tables: Array<string>, type: DistributedType, config: DistributedConfig, callback: AsyncCallback<void>): void;
 
     /**
      * Set table to be a distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
-     * @param { number } type - Indicates the distribution type of the tables. {@link DistributedType}.
+     * @param { Array<string> } tables - Indicates the table names you want to set.
+     * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - Indicates the distributed config of the tables. {@link DistributedConfig}.
+     * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type?: number, config?: DistributedConfig): Promise<void>;
+    setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
     /**
      * Obtain distributed table name of specified remote device according to local table name.
