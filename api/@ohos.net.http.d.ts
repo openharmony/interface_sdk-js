@@ -737,7 +737,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: "dataReceiveProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+    on(type: 'dataReceiveProgress', callback: Callback<{ receiveSize: number, totalSize: number }>): void;
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
@@ -746,7 +746,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: "dataReceiveProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+    off(type: 'dataReceiveProgress', callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
   /**
