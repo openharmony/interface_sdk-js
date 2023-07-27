@@ -732,7 +732,7 @@ declare namespace http {
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { "dataReceiveProgress" } type - Indicates Event name.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
      * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -741,7 +741,7 @@ declare namespace http {
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { "dataReceiveProgress" } type - Indicates Event name.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
      * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
