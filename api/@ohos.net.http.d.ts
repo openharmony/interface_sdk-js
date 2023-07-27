@@ -249,7 +249,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -288,7 +288,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -331,7 +331,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -371,7 +371,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -414,7 +414,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -454,7 +454,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -497,7 +497,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -539,7 +539,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -581,7 +581,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -1370,17 +1370,17 @@ declare namespace http {
     HTTP1_1,
 
     /**
-     * Protocol requestInStream
+     * Protocol http2
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
      */
     /**
-     * Protocol requestInStream
+     * Protocol http2
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    requestInStream
+    HTTP2
   }
 
   /**
