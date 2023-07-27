@@ -249,7 +249,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -288,7 +288,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -331,7 +331,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -371,7 +371,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -414,7 +414,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -454,7 +454,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -486,7 +486,7 @@ declare namespace http {
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
-     * @param { AsyncCallback<number> } callback - Returns the callback of request2 {@link ResponseCode},
+     * @param { AsyncCallback<number> } callback - Returns the callback of requestInStream {@link ResponseCode},
      * should use on_headersReceive and on_dataReceive to get http response.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -497,7 +497,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -522,14 +522,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    request2(url: string, callback: AsyncCallback<number>): void;
+    requestInStream(url: string, callback: AsyncCallback<number>): void;
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
      * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
-     * @param { AsyncCallback<number> } callback - the callback of request2.
+     * @param { AsyncCallback<number> } callback - the callback of requestInStream.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -539,7 +539,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -564,7 +564,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<number>): void;
+    requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<number>): void;
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
@@ -581,7 +581,7 @@ declare namespace http {
      * @throws { BusinessError } 2300007 - Couldn't connect to server.
      * @throws { BusinessError } 2300008 - Weird server reply.
      * @throws { BusinessError } 2300009 - Access denied to remote resource.
-     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300016 - Error in the requestInStream framing layer.
      * @throws { BusinessError } 2300018 - Transferred a partial file.
      * @throws { BusinessError } 2300023 - Failed writing received data to disk/application.
      * @throws { BusinessError } 2300025 - Upload failed.
@@ -606,7 +606,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    request2(url: string, options?: HttpRequestOptions): Promise<number>;
+    requestInStream(url: string, options?: HttpRequestOptions): Promise<number>;
 
     /**
      * Destroys an HTTP request.
@@ -732,21 +732,21 @@ declare namespace http {
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
-     * @param { "dataProgress" } type - Indicates Event name.
+     * @param { "dataReceiveProgress" } type - Indicates Event name.
      * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+    on(type: "dataReceiveProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
-     * @param { "dataProgress" } type - Indicates Event name.
+     * @param { "dataReceiveProgress" } type - Indicates Event name.
      * @param { Callback<{ receiveSize: number, totalSize: number }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+    off(type: "dataReceiveProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
   /**
@@ -1370,17 +1370,17 @@ declare namespace http {
     HTTP1_1,
 
     /**
-     * Protocol http2
+     * Protocol requestInStream
      * @syscap SystemCapability.Communication.NetStack
      * @since 9
      */
     /**
-     * Protocol http2
+     * Protocol requestInStream
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    HTTP2
+    requestInStream
   }
 
   /**
