@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import type { ApplicationInfo } from './ApplicationInfo';
-import type businessAbilityRouter from './../@ohos.app.businessAbilityRouter';
+import type { ApplicationInfo } from '../bundleManager/ApplicationInfo';
+import type businessAbilityRouter from '../@ohos.app.businessAbilityRouter';
 
 /**
  * Contains basic business ability information.
@@ -29,6 +29,7 @@ export interface BusinessAbilityInfo {
    * Indicates the name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -39,6 +40,7 @@ export interface BusinessAbilityInfo {
    * Indicates the name of the module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -49,6 +51,7 @@ export interface BusinessAbilityInfo {
    * Indicates the name of the business ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -59,6 +62,7 @@ export interface BusinessAbilityInfo {
    * Indicates the label id of the business ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -69,6 +73,7 @@ export interface BusinessAbilityInfo {
    * Indicates the description id of the business ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -79,6 +84,7 @@ export interface BusinessAbilityInfo {
    * Indicates the icon id of the business ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -89,6 +95,7 @@ export interface BusinessAbilityInfo {
    * Enumerates types of the business ability info
    *
    * @type { businessAbilityRouter.BusinessType }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
@@ -99,6 +106,7 @@ export interface BusinessAbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
