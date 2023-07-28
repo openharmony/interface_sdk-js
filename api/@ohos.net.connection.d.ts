@@ -759,7 +759,7 @@ declare namespace connection {
   export interface ReceiveNetCapabilities {
     /**
      * Defines the handle of the data network.
-     * @type { number }
+     * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
      */
