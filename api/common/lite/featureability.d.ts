@@ -14,6 +14,7 @@
  */
 
 /**
+ * @typedef SubscribeMessageResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  * @deprecated since 8
@@ -21,30 +22,39 @@
 export interface SubscribeMessageResponse {
   /**
    * Peer device ID.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   deviceId: string;
 
   /**
    * Name of the bundle where the peer ability has been located. The name is case sensitive.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   bundleName: string;
 
   /**
    * Peer ability name, which is case sensitive.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   abilityName: string;
 
   /**
    * Messages received from the device.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   message: string;
 }
 
 /**
+ * @typedef SendMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  * @deprecated since 8
@@ -52,19 +62,25 @@ export interface SubscribeMessageResponse {
 export interface SendMessageOptions {
   /**
    * Destination device ID.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   deviceId: string;
 
   /**
    * Name of the destination bundle where the ability has been located. The name is case sensitive.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   bundleName: string;
 
   /**
    * Destination ability name, which is case sensitive.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   abilityName: string;
 
@@ -72,30 +88,39 @@ export interface SendMessageOptions {
    * Messages sent to the destination device.
    * A maximum of 1 KB of data can be transmitted at a time.
    * If more than 1 KB of data needs to be transmitted, split the messages into multiple parts to transmit.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   message?: string;
 
   /**
    * Called when the messages are sent successfully.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   success?: () => void;
 
   /**
    * Called when the messages fail to be sent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   complete?: () => void;
 }
 
 /**
+ * @typedef SubscribeMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  * @deprecated since 8
@@ -103,28 +128,34 @@ export interface SendMessageOptions {
 export interface SubscribeMessageOptions {
   /**
    * Called when the messages are sent successfully.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   success?: (data: SubscribeMessageResponse) => void;
 
   /**
    * Called when the messages fail to be sent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
+   * @deprecated since 8
    */
   fail?: (data: string, code: number) => void;
 }
 
 /**
- * @since 5
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
+ * @since 5
  * @deprecated since 8
  * @useinstead ohos.ability.featureAbility.FeatureAbility
  */
 export declare class FeatureAbility {
   /**
    * Sends messages to the destination device.
-   * @param options Options.
+   * @param { SendMessageOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @systemapi
    * @since 5
    * @deprecated since 8
    */
@@ -132,8 +163,9 @@ export declare class FeatureAbility {
 
   /**
    * Listens for messages sent from other devices.
-   * @param options Options.
+   * @param { SubscribeMessageOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @systemapi
    * @since 5
    * @deprecated since 8
    */
@@ -142,6 +174,7 @@ export declare class FeatureAbility {
   /**
    * Cancel the listening for messages sent from other devices.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @systemapi
    * @since 5
    * @deprecated since 8
    */

@@ -41,7 +41,7 @@ export default class UIExtensionContentSession {
   /**
    * Sets the callback for the ui extension to receive data from an ui extension component.
    *
-   * @param { (object) => void } callback Indicates the receive data callback to set.
+   * @param { (data: { [key: string]: Object }) => void } callback Indicates the receive data callback to set.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
