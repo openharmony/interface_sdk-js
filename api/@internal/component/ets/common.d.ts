@@ -3998,8 +3998,21 @@ declare interface ClickEvent extends BaseEvent {
   y: number;
 }
 
-
+/**
+ * The hover action triggers this method invocation.
+ *
+ * @interface HoverEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
 declare interface HoverEvent extends BaseEvent {
+  /**
+   * The blocking hover event pops up.
+   *
+   * @type { ?(() => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   stopPropagation?: () => void;
 }
 
@@ -4029,12 +4042,40 @@ declare interface MouseEvent extends BaseEvent {
    */
   action: MouseAction;
 
+  /**
+   * X coordinate of the mouse point relative to the left edge of the device screen.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   displayX: number;
 
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the device screen.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   displayY: number;
 
+  /**
+   * X coordinate of the mouse point relative to the left edge of the current window.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   windowX: number;
 
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   windowY: number;
 
   /**
@@ -4401,11 +4442,27 @@ declare interface PixelMapMock {
   release(): void;
 }
 
-
+/**
+ * Enum for Drag Behavior.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
 declare enum DragBehavior {
-
+  /**
+   * If drag use copy event, then set DragBehavior.COPY.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   COPY,
-
+  /**
+   * If drag use move event, then set DragBehavior.MOVE.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   MOVE
 }
 
@@ -4434,17 +4491,48 @@ declare type Summary = import('../api/@ohos.data.UDMF').default.Summary;
  */
 declare type UnifiedDataType = import('../api/@ohos.data.UDMF').default.UnifiedDataType;
 
-
+/**
+ * Enum for Drag Result.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
 declare enum DragRet {
-
+  /**
+   * If drag success, return DragRet.DRAG_SUCCESS.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   DRAG_SUCCESS,
-
+  /**
+   * If drag fail, return DragRet.DRAG_FAILED.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   DRAG_FAILED,
-
+  /**
+   * If drag action cancel, return DragRet.DRAG_CANCELED.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   DRAG_CANCELED,
-
+  /**
+   * If node allow drop in, return DragRet.DROP_ENABLED.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   DROP_ENABLED,
-
+  /**
+   * If node don't allow drop in, return DragRet.DROP_DISABLED.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   DROP_DISABLED
 }
 
@@ -4456,13 +4544,40 @@ declare enum DragRet {
  * @since 7
  */
 declare interface DragEvent {
-
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getDisplayX(): number;
 
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getDisplayY(): number;
 
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getWindowX(): number;
 
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window.
+   * 
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getWindowY(): number;
 
   /**
@@ -4487,8 +4602,22 @@ declare interface DragEvent {
    */
   getY(): number;
 
+  /**
+  * If copy is COPY, this DragEvent is a copy event.
+  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+  * @default COPY
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 10
+  */
   dragBehavior: DragBehavior;
 
+  /**
+   * If useCustomDropAnimation is true, System will not use drop animation.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   useCustomDropAnimation: boolean;
 
   /**
@@ -4521,10 +4650,31 @@ declare interface DragEvent {
    */
   getSummary(): Summary;
 
+  /**
+   * Set dragEvent result to DragEvent.
+   *
+   * @param { DragRet } dragRet - the return of dragEvent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   setResult(dragRet: DragRet): void;
 
+  /**
+   * Get dragEvent result from DragEvent.
+   *
+   * @returns { DragRet } - dragRet Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getResult(): DragRet;
 
+  /**
+   * Get the rectangle of drag window.
+   *
+   * @returns { Rectangle } - getPreview rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   getPreviewRect(): Rectangle;
 
   /**
@@ -7886,6 +8036,14 @@ declare class CommonMethod<T> {
    */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
+  /**
+   * This function is called when the drag event is end.
+   *
+   * @param { (event?: DragEvent, extraParams?: string) => void } event - indicates the function to be called.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -7899,6 +8057,14 @@ declare class CommonMethod<T> {
    */
   allowDrop(value: Array<UnifiedDataType>): T;
 
+  /**
+   * Enable the selectable area can be dragged.
+   *
+   * @param { boolean } value - true means the area can be dragged, false means the area can't be dragged.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   draggable(value: boolean): T;
 
   /**
