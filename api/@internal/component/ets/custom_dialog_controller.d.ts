@@ -187,6 +187,27 @@ declare interface CustomDialogControllerOptions {
    * @since 10
    */
   showInSubWindow?: boolean;
+
+  /**
+   * Background color of dialog.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  backgroundColor?: ResourceColor;
+ 
+  /**
+   * Corner radius of dialog.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  cornerRadius?: Dimension | BorderRadiuses;
+
 }
 
 /**
