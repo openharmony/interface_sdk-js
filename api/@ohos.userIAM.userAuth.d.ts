@@ -628,14 +628,6 @@ declare namespace userAuth {
    */
   enum UserAuthType {
     /**
-     * Authentication type pin.
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    PIN = 1,
-
-    /**
      * Authentication type face.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -805,8 +797,6 @@ declare namespace userAuth {
    * @interface AuthInstance
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.userIAM.userAuth.UserAuthInstance
    */
   interface AuthInstance {
     /**
@@ -816,7 +806,6 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     on: (name: AuthEventKey, callback: AuthEvent) => void;
 
@@ -827,7 +816,6 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     off: (name: AuthEventKey) => void;
 
@@ -848,7 +836,6 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     start: () => void;
 
@@ -861,7 +848,6 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
-     * @deprecated since 10
      */
     cancel: () => void;
   }
@@ -896,282 +882,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.userIAM.userAuth.getUserAuthInstance
    */
   function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
-
-  /**
-   * Window mode type for user authentication widget.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  enum WindowModeType {
-    /**
-     * Window mode type is dialog box.
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    DIALOG_BOX = 1,
-
-    /**
-     * Window mode type is full screen.
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    FULLSCREEN = 2
-  }
-
-  /**
-   * Auth parameter.
-   *
-   * @typedef AuthParam
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 10
-   */
-  interface AuthParam {
-    /**
-     * Pass in challenge value.
-     *
-     * @type { Uint8Array }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    challenge: Uint8Array;
-
-    /**
-     * Credential type for authentication.
-     *
-     * @type { UserAuthType[] }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    authType: UserAuthType[];
-
-    /**
-     * Trust level of authentication result.
-     *
-     * @type { AuthTrustLevel }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    authTrustLevel: AuthTrustLevel;
-  }
-
-  /**
-   * Auth widget parameter.
-   *
-   * @typedef WidgetParam
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 10
-   */
-  interface WidgetParam {
-    /**
-     * Title of widget.
-     *
-     * @type { string }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    title: string;
-
-    /**
-     * The description text of navigation button.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    navigationButtonText?: string;
-
-    /**
-     * Full screen or not.
-     *
-     * @type { ?WindowModeType }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    windowMode?: WindowModeType;
-  }
-
-  /**
-   * Authentication result: authentication token, credential type for authentication succeed.
-   *
-   * @typedef UserAuthResult
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 10
-   */
-  interface UserAuthResult {
-    /**
-     * The authentication result.
-     *
-     * @type { number }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    result: number;
-
-    /**
-     * The authentication result if the authentication is passed.
-     *
-     * @type { ?Uint8Array }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    token?: Uint8Array;
-
-    /**
-     * Credential type for authentication succeed.
-     *
-     * @type { ?UserAuthType }
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    authType?: UserAuthType;
-  }
-
-  /**
-   * Asynchronous callback of authentication operation.
-   *
-   * @interface IAuthCallback
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 10
-   */
-  interface IAuthCallback {
-    /**
-     * The authentication result code is returned through the callback.
-     * If the authentication is passed, the authentication token is returned in extraInfo.
-     *
-     * @param { UserAuthResult } result Authentication result information.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    onResult(result: UserAuthResult): void;
-  }
-
-  /**
-   * User authentication instance, used to initiate a complete authentication.
-   *
-   * @interface UserAuthInstance
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 10
-   */
-  interface UserAuthInstance {
-    /**
-     * Turn on widget authentication result event listening.
-     *
-     * @param { 'result' } type Indicates the type of event.
-     * @param { IAuthCallback } callback Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    on(type: 'result', callback: IAuthCallback): void;
-
-    /**
-     * Turn off widget authentication result event listening.
-     *
-     * @param { 'result' } type Indicates the type of event.
-     * @param { IAuthCallback } callback Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    off(type: 'result', callback?: IAuthCallback): void;
-
-    /**
-     * Start this authentication, an instance can only perform authentication once.
-     *
-     * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters.
-     * @throws { BusinessError } 12500001 - Authentication failed.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @throws { BusinessError } 12500003 - The operation is canceled.
-     * @throws { BusinessError } 12500004 - The operation is time-out.
-     * @throws { BusinessError } 12500005 - The authentication type is not supported.
-     * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
-     * @throws { BusinessError } 12500007 - The authentication task is busy.
-     * @throws { BusinessError } 12500009 - The authenticator is locked.
-     * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
-     * @throws { BusinessError } 12500011 - The authentication is canceled from widget's navigation button.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    start(): void;
-
-    /**
-     * Cancel this authentication.
-     *
-     * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    cancel(): void;
-  }
-
-  /**
-   * Get user authentication instance with widget.
-   *
-   * @param { AuthParam } authParam Auth parameter.
-   * @param { WidgetParam } widgetParam Widget parameter.
-   * @returns { UserAuthInstance } Returns an authentication instance with widget.
-   * @throws { BusinessError } 401 - Incorrect parameters.
-   * @throws { BusinessError } 12500002 - General operation error.
-   * @throws { BusinessError } 12500005 - The authentication type is not supported.
-   * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @since 10
-   */
-  function getUserAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): UserAuthInstance;
-
-  /**
-   * Notice type for user authentication.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  enum NoticeType {
-    /**
-     * Notice from widget.
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    WIDGET_NOTICE = 1
-  }
-
-  /**
-   * Send notice to user authentication.
-   *
-   * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { NoticeType } noticeType Notice type for user authentication.
-   * @param { string } eventData The event data from widget.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - Incorrect parameters.
-   * @throws { BusinessError } 12500002 - General operation error.
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function sendNotice(noticeType: NoticeType, eventData: string): void;
 
   /**
    * Enum for operation result.
@@ -1259,87 +971,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    NOT_ENROLLED = 12500010,
-
-    /**
-     * Indicates that this operation is canceled from widget's navigation button.
-     *
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @since 10
-     */
-    CANCELED_FROM_WIDGET = 12500011
-  }
-
-  /**
-   * User authentication widget's manager, used to manage widget's client.
-   *
-   * @interface UserAuthWidgetMgr
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  interface UserAuthWidgetMgr {
-    /**
-     * Turn on authentication widget command event listening.
-     *
-     * @param { 'command' } type Indicates the type of event.
-     * @param { IAuthWidgetCallback } callback Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    on(type: 'command', callback: IAuthWidgetCallback): void;
-
-    /**
-     * Turn off authentication widget command event listening.
-     *
-     * @param { 'command' } type Indicates the type of event.
-     * @param { IAuthWidgetCallback } callback Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
-     * @throws { BusinessError } 12500002 - General operation error.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    off(type: 'command', callback?: IAuthWidgetCallback): void;
-  }
-
-  /**
-   * Get authentication instance with widget.
-   *
-   * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { number } version The version of widget.
-   * @returns { UserAuthWidgetMgr } Returns an authentication manager.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - Incorrect parameters.
-   * @throws { BusinessError } 12500002 - General operation error.
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function getUserAuthWidgetMgr(version: number): UserAuthWidgetMgr;
-
-  /**
-   * Asynchronous callback of authentication widget operation.
-   *
-   * @interface IAuthWidgetCallback
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  interface IAuthWidgetCallback {
-    /**
-     * The command data for authentication with widget is sent through the callback.
-     *
-     * @param { string } cmdData The command data for authentication with widget.
-     * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    sendCommand(cmdData: string): void;
+    NOT_ENROLLED = 12500010
   }
 }
 
