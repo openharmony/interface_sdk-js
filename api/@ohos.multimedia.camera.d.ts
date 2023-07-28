@@ -443,6 +443,16 @@ declare namespace camera {
     on(type: 'cameraStatus', callback: AsyncCallback<CameraStatusInfo>): void;
 
     /**
+     * Unsubscribes from camera status change event callback.
+     *
+     * @param { 'cameraStatus' } type - Event type.
+     * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to get the camera status change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'cameraStatus', callback?: AsyncCallback<CameraStatusInfo>): void;
+
+    /**
      * Subscribes camera mute change event callback.
      *
      * @param { 'cameraMute' } type - Event type.
@@ -452,6 +462,17 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Unsubscribes from camera mute change event callback.
+     *
+     * @param { 'cameraMute' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
 
     /**
      * Determines whether the camera device supports prelaunch.
@@ -857,6 +878,17 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', camera: CameraDevice, callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { CameraDevice } camera - Camera device.
+     * @param { ErrorCallback } callback - Callback used to get the camera input errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'error', camera: CameraDevice, callback?: ErrorCallback): void;
   }
 
   /**
@@ -1612,6 +1644,16 @@ declare namespace camera {
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
+     * Unsubscribes from focus status change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
      * Subscribes to error events.
      *
      * @param { 'error' } type - Event type.
@@ -1620,6 +1662,16 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Gets the supported filter effects.
@@ -1647,6 +1699,7 @@ declare namespace camera {
      * Sets a filter effect for a camera device.
      *
      * @param { number } filter - Filter effect to set. The filter must be included in {@link FilterType}
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -1935,6 +1988,16 @@ declare namespace camera {
     on(type: 'frameStart', callback: AsyncCallback<void>): void;
 
     /**
+     * Unsubscribes from frame start event callback.
+     *
+     * @param { 'frameStart' } type - Event type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'frameStart', callback?: AsyncCallback<void>): void;
+
+    /**
      * Subscribes frame end event callback.
      *
      * @param { 'frameEnd' } type - Event type.
@@ -1945,6 +2008,16 @@ declare namespace camera {
     on(type: 'frameEnd', callback: AsyncCallback<void>): void;
 
     /**
+     * Unsubscribes from frame end event callback.
+     *
+     * @param { 'frameEnd' } type - Event type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'frameEnd', callback?: AsyncCallback<void>): void;
+
+    /**
      * Subscribes to error events.
      *
      * @param { 'error' } type - Event type.
@@ -1953,6 +2026,16 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the preview output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Adds a deferred surface.
@@ -2197,6 +2280,16 @@ declare namespace camera {
     on(type: 'captureStart', callback: AsyncCallback<number>): void;
 
     /**
+     * Unsubscribes from capture start event callback.
+     *
+     * @param { 'captureStart' } type - Event type.
+     * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'captureStart', callback?: AsyncCallback<number>): void;
+
+    /**
      * Subscribes frame shutter event callback.
      *
      * @param { 'frameShutter' } type - Event type.
@@ -2205,6 +2298,16 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void;
+
+    /**
+     * Unsubscribes from frame shutter event callback.
+     *
+     * @param { 'frameShutter' } type - Event type.
+     * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to get the frame shutter information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void;
 
     /**
      * Subscribes capture end event callback.
@@ -2217,6 +2320,16 @@ declare namespace camera {
     on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void;
 
     /**
+     * Unsubscribes from capture end event callback.
+     *
+     * @param { 'captureEnd' } type - Event type.
+     * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to get the capture end information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void;
+
+    /**
      * Subscribes to error events.
      *
      * @param { 'error' } type - Event type.
@@ -2225,6 +2338,16 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the photo output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Checks whether PhotoOutput supports quick thumbnail.
@@ -2263,6 +2386,18 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'quickThumbnail', callback: AsyncCallback<image.PixelMap>): void;
+
+    /**
+     * Unsubscribes from camera thumbnail events.
+     * This method is valid only after enableQuickThumbnail(true) is called.
+     *
+     * @param { 'quickThumbnail' } type - Event type.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    off(type: 'quickThumbnail', callback?: AsyncCallback<image.PixelMap>): void;
   }
 
   /**
@@ -2376,6 +2511,16 @@ declare namespace camera {
     on(type: 'frameStart', callback: AsyncCallback<void>): void;
 
     /**
+     * Unsubscribes from frame start event callback.
+     *
+     * @param { 'frameStart' } type - Event type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'frameStart', callback?: AsyncCallback<void>): void;
+
+    /**
      * Subscribes frame end event callback.
      *
      * @param { 'frameEnd' } type - Event type.
@@ -2386,6 +2531,16 @@ declare namespace camera {
     on(type: 'frameEnd', callback: AsyncCallback<void>): void;
 
     /**
+     * Unsubscribes from frame end event callback.
+     *
+     * @param { 'frameEnd' } type - Event type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'frameEnd', callback?: AsyncCallback<void>): void;
+
+    /**
      * Subscribes to error events.
      *
      * @param { 'error' } type - Event type.
@@ -2394,6 +2549,16 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 
   /**
@@ -2545,6 +2710,16 @@ declare namespace camera {
     on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void;
 
     /**
+     * Unsubscribes from metadata objects available event callback.
+     *
+     * @param { 'metadataObjectsAvailable' } type - Event type.
+     * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void;
+
+    /**
      * Subscribes to error events.
      *
      * @param { 'error' } type - Event type.
@@ -2553,6 +2728,16 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 }
 
