@@ -2383,14 +2383,6 @@ declare interface ItemDragInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
-/**
- * DragItemInfo object description
- *
- * @interface DragItemInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
 declare interface DragItemInfo {
   /**
    * Uses the pixelMap object for drawing.
@@ -2398,14 +2390,6 @@ declare interface DragItemInfo {
    * @type { ?PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Uses the pixelMap object for drawing.
-   *
-   * @type { ?PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   pixelMap?: PixelMap;
 
@@ -2416,14 +2400,6 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
-   *
-   * @type { ?CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   builder?: CustomBuilder;
 
   /**
@@ -2432,14 +2408,6 @@ declare interface DragItemInfo {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Sets the extra info for drag event.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   extraInfo?: string;
 }
@@ -4035,7 +4003,6 @@ declare interface ClickEvent extends BaseEvent {
  *
  * @interface HoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 10
  */
 declare interface HoverEvent extends BaseEvent {
@@ -4044,7 +4011,6 @@ declare interface HoverEvent extends BaseEvent {
    *
    * @type { ?(() => void) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   stopPropagation?: () => void;
@@ -4057,14 +4023,6 @@ declare interface HoverEvent extends BaseEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
-/**
- * The mouse click action triggers this method invocation.
- *
- * @interface MouseEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
 declare interface MouseEvent extends BaseEvent {
   /**
    * Mouse button of the click event.
@@ -4072,14 +4030,6 @@ declare interface MouseEvent extends BaseEvent {
    * @type { MouseButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Mouse button of the click event.
-   *
-   * @type { MouseButton }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   button: MouseButton;
 
@@ -4090,14 +4040,6 @@ declare interface MouseEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * Mouse action of the click event.
-   *
-   * @type { MouseAction }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   action: MouseAction;
 
   /**
@@ -4105,7 +4047,6 @@ declare interface MouseEvent extends BaseEvent {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   displayX: number;
@@ -4115,7 +4056,6 @@ declare interface MouseEvent extends BaseEvent {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   displayY: number;
@@ -4125,7 +4065,6 @@ declare interface MouseEvent extends BaseEvent {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   windowX: number;
@@ -4135,7 +4074,6 @@ declare interface MouseEvent extends BaseEvent {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   windowY: number;
@@ -4169,14 +4107,6 @@ declare interface MouseEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   x: number;
 
   /**
@@ -4186,14 +4116,6 @@ declare interface MouseEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   y: number;
 
   /**
@@ -4202,14 +4124,6 @@ declare interface MouseEvent extends BaseEvent {
    * @type { ?(() => void) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * The blocking event pops up.
-   *
-   * @type { ?(() => void) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   stopPropagation?: () => void;
 }
@@ -4533,7 +4447,6 @@ declare interface PixelMapMock {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 10
  */
 declare enum DragBehavior {
@@ -4541,16 +4454,13 @@ declare enum DragBehavior {
    * If drag use copy event, then set DragBehavior.COPY.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   COPY,
-
   /**
    * If drag use move event, then set DragBehavior.MOVE.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   MOVE
@@ -4586,7 +4496,6 @@ declare type UnifiedDataType = import('../api/@ohos.data.UDMF').default.UnifiedD
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 10
  */
 declare enum DragRet {
@@ -4594,43 +4503,34 @@ declare enum DragRet {
    * If drag success, return DragRet.DRAG_SUCCESS.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   DRAG_SUCCESS,
-
   /**
    * If drag fail, return DragRet.DRAG_FAILED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   DRAG_FAILED,
-
   /**
    * If drag action cancel, return DragRet.DRAG_CANCELED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   DRAG_CANCELED,
-
   /**
    * If node allow drop in, return DragRet.DROP_ENABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   DROP_ENABLED,
-
   /**
    * If node don't allow drop in, return DragRet.DROP_DISABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   DROP_DISABLED
@@ -4643,21 +4543,12 @@ declare enum DragRet {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
-/**
- * DragEvent object description
- *
- * @interface DragEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
 declare interface DragEvent {
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getDisplayX(): number;
@@ -4667,7 +4558,6 @@ declare interface DragEvent {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getDisplayY(): number;
@@ -4677,7 +4567,6 @@ declare interface DragEvent {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getWindowX(): number;
@@ -4687,7 +4576,6 @@ declare interface DragEvent {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getWindowY(): number;
@@ -4714,22 +4602,20 @@ declare interface DragEvent {
    */
   getY(): number;
 
- /**
+  /**
   * If copy is COPY, this DragEvent is a copy event.
   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
   * @default COPY
   * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
   * @since 10
   */
- dragBehavior: DragBehavior;
+  dragBehavior: DragBehavior;
 
   /**
    * If useCustomDropAnimation is true, System will not use drop animation.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   useCustomDropAnimation: boolean;
@@ -4769,7 +4655,6 @@ declare interface DragEvent {
    *
    * @param { DragRet } dragRet - the return of dragEvent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   setResult(dragRet: DragRet): void;
@@ -4779,7 +4664,6 @@ declare interface DragEvent {
    *
    * @returns { DragRet } - dragRet Data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getResult(): DragRet;
@@ -4789,7 +4673,6 @@ declare interface DragEvent {
    *
    * @returns { Rectangle } - getPreview rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   getPreviewRect(): Rectangle;
@@ -6089,7 +5972,7 @@ declare class CommonMethod<T> {
    * @param { Array<Rectangle> | Rectangle } value
    * @returns { T } return the component attribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform 
+   * @crossplatform
    * @since 10
    */
   mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
@@ -6695,16 +6578,6 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * Trigger a hover event.
-   *
-   * @param { (isHover?: boolean, event?: HoverEvent) => void } event callback of onHover,
-   * isHover described entry or leave component, use HoverEvent to set up stopPropagation.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   onHover(event: (isHover?: boolean, event?: HoverEvent) => void): T;
 
   /**
@@ -6715,15 +6588,6 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * Set hover effect.
-   *
-   * @param { HoverEffect } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   hoverEffect(value: HoverEffect): T;
 
   /**
@@ -6733,15 +6597,6 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Trigger a mouse event.
-   *
-   * @param { (event?: MouseEvent) => void } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   onMouse(event: (event?: MouseEvent) => void): T;
 
@@ -8138,16 +7993,6 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
-   *
-   * @param { (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
@@ -8157,15 +8002,6 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.\
-   *
-   * @param { (event?: DragEvent, extraParams?: string) => void } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -8177,15 +8013,6 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   *
-   * @param { (event?: DragEvent, extraParams?: string) => void } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -8195,15 +8022,6 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
-   *
-   * @param { (event?: DragEvent, extraParams?: string) => void } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -8216,16 +8034,6 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   *
-   * @param { (event?: DragEvent, extraParams?: string) => void } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -8234,7 +8042,6 @@ declare class CommonMethod<T> {
    * @param { (event?: DragEvent, extraParams?: string) => void } event - indicates the function to be called.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
@@ -8256,7 +8063,6 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the area can be dragged, false means the area can't be dragged.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   draggable(value: boolean): T;
