@@ -92,7 +92,7 @@ function checkAllNode(node, sourcefile, fileName) {
     checkEventSubscription(node, sourcefile, fileName);
 
     if (commentNodeWhiteList.includes(node.kind)) {
-      checkJSDoc(node, sourcefile, fileName, true);
+      checkJSDoc(node, sourcefile, fileName, true, false);
     }
   }
   checkAnyInAPI(node, sourcefile, fileName);

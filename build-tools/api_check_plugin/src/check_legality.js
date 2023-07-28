@@ -247,7 +247,7 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
   }
 }
 
-function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard) {
+function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard, useWhitelist) {
   const checkInfoArray = [];
   const lastComment = parseJsDoc(node).length > 0 ? [parseJsDoc(node).pop()] : [];
   const comments = isGuard ? lastComment : parseJsDoc(node);
@@ -259,10 +259,10 @@ function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard) {
   comments.forEach((comment, index) => {
     const errorLogs = [];
     // 继承校验
-    checkInheritTag(comment, node, sourcefile, fileName, index);
+    checkInheritTag(comment, node, sourcefile, fileName, index, useWhitelist);
     // 值检验
     comment.tags.forEach(tag => {
-      const checkAPIDecorator = checkAPITagName(tag, node, sourcefile, fileName, index);
+      const checkAPIDecorator = checkAPITagName(tag, node, sourcefile, fileName, index, useWhitelist);
       if (!checkAPIDecorator.checkResult) {
         errorLogs.push(checkAPIDecorator);
       }
@@ -281,15 +281,11 @@ function checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard) {
 }
 exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
 
-function checkJSDoc(node, sourcefile, fileName, isGuard) {
-  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard);
-
-  let isMissingTagWhitetFile = true;
-  let isIllegalTagWhitetFile = true;
-  let isOrderTagWhitetFile = true;
-  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
-  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
-  isOrderTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkOrderResult);
+function checkJSDoc(node, sourcefile, fileName, isGuard, useWhitelist) {
+  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, fileName, isGuard, useWhitelist);
+  let isMissingTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag) : true;
+  let isIllegalTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag) : true;
+  let isOrderTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkOrderResult) : true;
 
   verificationResult.forEach(item => {
     let errorInfo = '';
