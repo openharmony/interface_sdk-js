@@ -884,13 +884,13 @@ declare namespace inputMethod {
      *
      * @param { 'sendKeyboardStatus' } type - event type, fixed as 'sendKeyboardStatus'.
      * @param { function } callback - processes sendKeyboardStatus command.
-     *     The keyBoardStatus is provided for this callback.
+     *     The keyboardStatus is provided for this callback.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'sendKeyboardStatus', callback: (keyBoardStatus: KeyboardStatus) => void): void;
+    on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void;
 
     /**
      * Unregister the callback of sendKeyboardStatus.
@@ -901,7 +901,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'sendKeyboardStatus', callback?: (keyBoardStatus: KeyboardStatus) => void): void;
+    off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void;
 
     /**
      * Register a callback and when IME sends functionKey, the callback will be invoked.
