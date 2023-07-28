@@ -625,7 +625,15 @@ declare namespace connection {
      * @crossplatform
      * @since 10
      */
-    on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
+    on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle,
+      /**
+       * Defines the network capability set.
+       * @type { NetCapabilities }
+       * @syscap SystemCapability.Communication.NetManager.Core
+       * @crossplatform
+       * @since 10
+       */
+      netCap: NetCapabilities }>): void;
 
     /**
      * Registers a listener for netConnectionPropertiesChange events.
