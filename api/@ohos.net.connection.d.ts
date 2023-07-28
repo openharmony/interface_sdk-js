@@ -620,20 +620,12 @@ declare namespace connection {
     /**
      * Registers a listener for **netCapabilitiesChange** events.
      * @param { 'netCapabilitiesChange' } type - Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback used to return the result.
+     * @param { Callback<ReceiveNetCapabilities> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
      */
-    on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle,
-      /**
-       * Defines the network capability set.
-       * @type { NetCapabilities }
-       * @syscap SystemCapability.Communication.NetManager.Core
-       * @crossplatform
-       * @since 10
-       */
-      netCap: NetCapabilities }>): void;
+    on(type: 'netCapabilitiesChange', callback: Callback<ReceiveNetCapabilities>): void;
 
     /**
      * Registers a listener for netConnectionPropertiesChange events.
@@ -755,6 +747,32 @@ declare namespace connection {
      * @since 8
      */
     bearerPrivateIdentifier?: string;
+  }
+
+  /**
+   * Receive information about changes in network capabilities.
+   * @interface ReceiveNetCapabilities
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
+   */
+  export interface ReceiveNetCapabilities {
+    /**
+     * Defines the handle of the data network.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 10
+     */
+    netHandle: NetHandle;
+
+    /**
+     * Defines the network capability set.
+     * @type { NetCapabilities }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
+     */
+    netCap: NetCapabilities
   }
 
   /**
