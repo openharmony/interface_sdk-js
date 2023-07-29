@@ -261,6 +261,21 @@ declare namespace xml {
     setDocType(text: string): void;
   }
 
+  /**
+   * The event types represented by XML elements.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * The event types represented by XML elements.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
   enum EventType {
     /**
      * Start a document.
