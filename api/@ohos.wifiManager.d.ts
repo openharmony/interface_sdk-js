@@ -82,7 +82,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
-   * @useinstead wifiManager.getScanInfoList
    */
   function getScanResults(): Promise<Array<WifiScanInfo>>;
 
@@ -96,7 +95,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
-   * @useinstead wifiManager.getScanInfoList
    */
   function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
@@ -110,7 +108,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
-   * @useinstead wifiManager.getScanInfoList
    */
   function getScanResultsSync(): Array<WifiScanInfo>;
 
