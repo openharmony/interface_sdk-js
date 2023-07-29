@@ -1944,7 +1944,8 @@ declare namespace audio {
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @throws { BusinessError } 6800101 - if input parameter value error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -1954,7 +1955,8 @@ declare namespace audio {
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @throws { BusinessError } 6800101 - if input parameter value error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
