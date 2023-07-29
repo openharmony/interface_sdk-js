@@ -191,6 +191,7 @@ declare namespace avSession {
      * @since 9
      */
     sessionId: string;
+
     /**
      * Process id of session
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
@@ -200,6 +201,7 @@ declare namespace avSession {
      * @since 9
      */
     pid?: number;
+
     /**
      * User id
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
@@ -214,7 +216,7 @@ declare namespace avSession {
   /**
    * Register session create callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { 'sessionCreate' } type - Registration Type, session creation
+   * @param { 'sessionCreate' } type - Registration Type, 'sessionCreate'
    * @param { function } callback - Used to handle ('sessionCreate' command)
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -228,7 +230,7 @@ declare namespace avSession {
   /**
    * Register session destroy callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { 'sessionDestroy' } type - Registration Type, session deletion
+   * @param { 'sessionDestroy' } type - Registration Type, 'sessionDestroy'
    * @param { function } callback - Used to handle ('sessionDestroy' command)
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -242,7 +244,7 @@ declare namespace avSession {
   /**
    * Register top session changed callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { 'topSessionChange' } type - Registration Type, top priority session change
+   * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to handle ('topSessionChange' command)
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -256,7 +258,7 @@ declare namespace avSession {
   /**
    * Unregister session create callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { 'sessionCreate' } type - Registration Type, session creation
+   * @param { 'sessionCreate' } type - Registration Type, session creation, 'sessionCreate'
    * @param { function } callback - Used to unregister listener for ('sessionCreate') command
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -270,7 +272,7 @@ declare namespace avSession {
   /**
    * Unregister session destroy callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { 'sessionDestroy' } type - Registration Type, session deletion
+   * @param { 'sessionDestroy' } type - Registration Type, session deletion, 'sessionDestroy'
    * @param { function } callback - Used to unregister listener for ('sessionDestroy') command
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -284,7 +286,7 @@ declare namespace avSession {
   /**
    * Unregister top session changed callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { 'topSessionChange' } type - Registration Type, top priority session change
+   * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to unregister listener for ('topSessionChange') command
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -297,7 +299,7 @@ declare namespace avSession {
 
   /**
    * Register Session service death callback, notifying the application to clean up resources.
-   * @param { 'sessionServiceDie' } type - Registration Type
+   * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback - Used to handle ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -310,7 +312,7 @@ declare namespace avSession {
 
   /**
    * Unregister Session service death callback, notifying the application to clean up resources.
-   * @param { 'sessionServiceDie' } type - Registration Type
+   * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback -  Used to unregister listener for ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -431,6 +433,7 @@ declare namespace avSession {
    * Start device discovery.
    * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 401 - parameter check failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -441,6 +444,7 @@ declare namespace avSession {
    * Start device discovery.
    * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 401 - parameter check failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -469,6 +473,7 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 401 - parameter check failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -479,6 +484,7 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 401 - parameter check failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -516,6 +522,7 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
    * @throws {BusinessError} 6600101 - Session service exception
    * @throws {BusinessError} 6600102 - session does not exist
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -531,6 +538,7 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @returns { Promise<AVCastController> } Promise for the AVCastController
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
    * @throws {BusinessError} 6600101 - server exception
    * @throws {BusinessError} 6600102 - session does not exist
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -575,6 +583,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
+   * @throws { BusinessError } 401 - parameter check failed
    * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
@@ -586,6 +595,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 401 - parameter check failed
    * @throws { BusinessError } 6600109 - The remote connection is not established
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
@@ -599,6 +609,7 @@ declare namespace avSession {
    * @since 10
    */
   type AVSessionType = 'audio' | 'video';
+
   /**
    * AVSession object.
    * @interface AVSession
@@ -861,7 +872,7 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { 'play' } type - Command to register.
+     * @param { 'play' } type - Command to register 'play'.
      * @param { function } callback - Used to handle ('play') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -878,7 +889,7 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { 'pause' } type - Command to register.
+     * @param { 'pause' } type - Command to register 'pause'.
      * @param { function } callback - Used to handle ('pause') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -895,7 +906,7 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { 'stop' } type - Command to register.
+     * @param { 'stop' } type - Command to register 'stop'.
      * @param { function } callback - Used to handle ('stop') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -912,7 +923,7 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { 'playNext' } type - Command to register.
+     * @param { 'playNext' } type - Command to register 'playNext'.
      * @param { function } callback - Used to handle ('playNext') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -929,7 +940,7 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { 'playPrevious' } type - Command to register.
+     * @param { 'playPrevious' } type - Command to register 'playPrevious'.
      * @param { function } callback - Used to handle ('playPrevious') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -946,7 +957,7 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { 'fastForward' } type - Command to register.
+     * @param { 'fastForward' } type - Command to register 'fastForward'.
      * @param { function } callback - Used to handle ('fastForward') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -963,7 +974,7 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { 'rewind' } type - Command to register.
+     * @param { 'rewind' } type - Command to register 'rewind'.
      * @param { function } callback - Used to handle ('rewind') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -976,7 +987,7 @@ declare namespace avSession {
     /**
      * Unregister play command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'play' } type - Command to register.
+     * @param { 'play' } type - Command to register 'play'.
      * @param { function } callback - Used to handle ('play') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -989,7 +1000,7 @@ declare namespace avSession {
     /**
      * Unregister pause command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'pause' } type - Command to register.
+     * @param { 'pause' } type - Command to register 'pause'.
      * @param { function } callback - Used to handle ('pause') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1002,7 +1013,7 @@ declare namespace avSession {
     /**
      * Unregister stop command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'stop' } type - Command to register.
+     * @param { 'stop' } type - Command to register 'stop'.
      * @param { function } callback - Used to handle ('stop') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1015,7 +1026,7 @@ declare namespace avSession {
     /**
      * Unregister playNext command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'playNext' } type - Command to register.
+     * @param { 'playNext' } type - Command to register 'playNext'.
      * @param { function } callback - Used to handle ('playNext') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1028,7 +1039,7 @@ declare namespace avSession {
     /**
      * Unregister playPrevious command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'playPrevious' } type - Command to register.
+     * @param { 'playPrevious' } type - Command to register 'playPrevious'.
      * @param { function } callback - Used to handle ('playPrevious') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1041,7 +1052,7 @@ declare namespace avSession {
     /**
      * Unregister fastForward command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'fastForward' } type - Command to register.
+     * @param { 'fastForward' } type - Command to register 'fastForward'.
      * @param { function } callback - Used to handle ('fastForward') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1054,7 +1065,7 @@ declare namespace avSession {
     /**
      * Unregister rewind command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'rewind' } type - Command to register.
+     * @param { 'rewind' } type - Command to register 'rewind'.
      * @param { function } callback - Used to handle ('rewind') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1164,7 +1175,7 @@ declare namespace avSession {
 
     /**
      * Register media key handling callback
-     * @param { 'handleKeyEvent' } type - Registration Type
+     * @param { 'handleKeyEvent' } type - Registration Type 'handleKeyEvent'
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1176,7 +1187,7 @@ declare namespace avSession {
 
     /**
      * Unregister media key handling callback
-     * @param { 'handleKeyEvent' } type - Registration Type
+     * @param { 'handleKeyEvent' } type - Registration Type 'handleKeyEvent'
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1188,7 +1199,7 @@ declare namespace avSession {
 
     /**
      * Register session output device change callback
-     * @param { 'outputDeviceChange' } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1201,7 +1212,7 @@ declare namespace avSession {
 
     /**
      * Unregister session output device change callback
-     * @param { 'outputDeviceChange' } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1214,7 +1225,7 @@ declare namespace avSession {
 
     /**
      * Register session custom command change callback
-     * @param { 'commonCommand' } type - Registration Type
+     * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to handle event when the common command is received
      * The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed
@@ -1227,7 +1238,7 @@ declare namespace avSession {
 
     /**
      * Unregister session custom command change callback
-     * @param { 'commonCommand' } type - Registration Type
+     * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to cancel a specific listener
      * The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed
@@ -1240,7 +1251,7 @@ declare namespace avSession {
 
     /**
      * Register the item to play from the playlist change callback
-     * @param { 'skipToQueueItem' } type - Registration Type
+     * @param { 'skipToQueueItem' } type - Registration Type 'skipToQueueItem'
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1253,7 +1264,7 @@ declare namespace avSession {
 
     /**
      * Unregister the item to play from the playlist change callback
-     * @param { 'skipToQueueItem' } type - Registration Type
+     * @param { 'skipToQueueItem' } type - Registration Type 'skipToQueueItem'
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1364,6 +1375,7 @@ declare namespace avSession {
      * @since 10
      */
     command: AVCastControlCommandType;
+
     /**
      * Parameter carried in the command.
      * The seek command must carry the number parameter.
@@ -1389,6 +1401,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when set surface completed.
+     * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -1400,6 +1413,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -1546,6 +1560,8 @@ declare namespace avSession {
      * Register listener for current media item playback events.
      * @param { 'mediaItemChange' } type Type of the playback event to listen for.
      * @param { Callback<AVQueueItem> } callback Callback used to listen for current item changed.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1554,6 +1570,8 @@ declare namespace avSession {
     /**
      * Unregister listener for current media item playback events.
      * @param { 'mediaItemChange' } type Type of the playback event to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1562,8 +1580,10 @@ declare namespace avSession {
     /**
      * Register playback command callback sent by remote side or media center.
      * Application needs update the new media resource when receive these commands by using playItem.
-     * @param { 'playNext' } type - Type of the playback event to listen for.
+     * @param { 'playNext' } type - Type of the 'playback' event to listen for.
      * @param { Callback<void> } callback - Used to handle 'playNext' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1572,7 +1592,9 @@ declare namespace avSession {
     /**
      * Unregister playback command callback sent by remote side or media center.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'playNext' } type - Type of the playback event to listen for.
+     * @param { 'playNext' } type - Type of the 'playback' event to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1581,8 +1603,10 @@ declare namespace avSession {
     /**
      * Register playback command callback sent by remote side or media center.
      * Application needs update the new media resource when receive these commands by using playItem.
-     * @param { 'playPrevious' } type - Type of the playback event to listen for.
+     * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
      * @param { Callback<void> } callback - Used to handle 'playPrevious' command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1591,7 +1615,9 @@ declare namespace avSession {
     /**
      * Unregister playback command callback sent by remote side or media center.
      * When canceling the callback, need to update the supported commands list.
-     * @param { 'playPrevious' } type - Type of the playback event to listen for.
+     * @param { 'playPrevious' } type - Type of the 'playPrevious' to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1599,8 +1625,10 @@ declare namespace avSession {
 
     /**
      * Register listens for playback events.
-     * @param { 'seekDone' } type - Type of the playback event to listen for.
+     * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1608,7 +1636,9 @@ declare namespace avSession {
 
     /**
      * Unregister listens for playback events.
-     * @param { 'seekDone' } type - Type of the playback event to listen for.
+     * @param { 'seekDone' } type - Type of the 'seekDone' to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1616,8 +1646,10 @@ declare namespace avSession {
 
     /**
      * Register listener for video size change event, used at remote side.
-     * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
+     * @param { 'videoSizeChange' } type - Type of the 'videoSizeChange' to listen for.
      * @param { function } callback - Callback used to return video size.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 10
@@ -1626,7 +1658,9 @@ declare namespace avSession {
 
     /**
      * Unregister listener for video size change event, used at remote side.
-     * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
+     * @param { 'videoSizeChange' } type - Type of the 'videoSizeChange' to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 10
@@ -1635,28 +1669,33 @@ declare namespace avSession {
 
     /**
      * Register listeners for playback error events.
-     * @param { 'error' } type Type of the playback error event to listen for.
+     * @param { 'error' } type Type of the 'error' to listen for.
      * @param { ErrorCallback } callback Callback used to listen for the playback error event.
+     * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
+
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
      * Unregister listens for playback error events.
-     * @param { 'error' } type Type of the playback error event to listen for.
+     * @param { 'error' } type Type of the 'error' to listen for.
+     * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 5400101 - No memory.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -1676,12 +1715,14 @@ declare namespace avSession {
      * @since 10
      */
     STATE_CONNECTING = 0,
+
     /**
      * A connection state indicating the device is connected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     STATE_CONNECTED = 1,
+
     /**
      * The default connection state indicating the device is disconnected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1704,6 +1745,7 @@ declare namespace avSession {
      * @since 10
      */
     assetId: string;
+
     /**
      * The title of this media, for display in media center.
      * @type { ?string }
@@ -1711,6 +1753,7 @@ declare namespace avSession {
      * @since 10
      */
     title?: string;
+
     /**
      * The artist of this media
      * @type { ?string }
@@ -1718,6 +1761,7 @@ declare namespace avSession {
      * @since 10
      */
     artist?: string;
+
     /**
      * The author of this media
      * @type { ?string }
@@ -1725,6 +1769,7 @@ declare namespace avSession {
      * @since 10
      */
     author?: string;
+
     /**
      * The album of this media
      * @type { ?string }
@@ -1732,6 +1777,7 @@ declare namespace avSession {
      * @since 10
      */
     album?: string;
+
     /**
      * The writer of this media
      * @type { ?string }
@@ -1739,6 +1785,7 @@ declare namespace avSession {
      * @since 10
      */
     writer?: string;
+
     /**
      * The composer of this media
      * @type { ?string }
@@ -1746,6 +1793,7 @@ declare namespace avSession {
      * @since 10
      */
     composer?: string;
+
     /**
      * The duration of this media, used to automatically calculate playback position
      * @type { ?number }
@@ -1753,6 +1801,7 @@ declare namespace avSession {
      * @since 10
      */
     duration?: number;
+
     /**
      * The image of the media as a {@link PixelMap} or an uri formatted String,
      * used to display in media center.
@@ -1760,6 +1809,7 @@ declare namespace avSession {
      * @since 10
      */
     mediaImage?: image.PixelMap | string;
+
     /**
      * The publishDate of the media
      * @type { ?Date }
@@ -1767,6 +1817,7 @@ declare namespace avSession {
      * @since 10
      */
     publishDate?: Date;
+
     /**
      * The subtitle of the media, used for display
      * @type { ?string }
@@ -1774,6 +1825,7 @@ declare namespace avSession {
      * @since 10
      */
     subtitle?: string;
+
     /**
      * The discription of the media, used for display
      * @type { ?string }
@@ -1781,6 +1833,7 @@ declare namespace avSession {
      * @since 10
      */
     description?: string;
+
     /**
      * The lyric of the media, it should be in standard lyric format
      * @type { ?string }
@@ -1788,6 +1841,7 @@ declare namespace avSession {
      * @since 10
      */
     lyric?: string;
+
     /**
      * The previous playable media id.
      * Used to tell the controller if there is a previous playable media
@@ -1796,6 +1850,7 @@ declare namespace avSession {
      * @since 10
      */
     previousAssetId?: string;
+
     /**
      * The next playable media id.
      * Used to tell the controller if there is a next playable media
@@ -1827,6 +1882,7 @@ declare namespace avSession {
      * @since 10
      */
     title?: string;
+
     /**
      * The subtitle of the media, used for display
      * @type { ?string }
@@ -1834,6 +1890,7 @@ declare namespace avSession {
      * @since 10
      */
     subtitle?: string;
+
     /**
      * The description of this media
      * @type { ?string }
@@ -1841,6 +1898,7 @@ declare namespace avSession {
      * @since 10
      */
     description?: string;
+
     /**
      * The image of this media asset displayed in the media center.
      * It can be a {@link PixelMap} or a URI formatted string,
@@ -1854,6 +1912,7 @@ declare namespace avSession {
      * @since 10
      */
     extras?: {[key: string]: Object};
+
     /**
      * The type of this media, such as video, audio and so on.
      * @type { ?string }
@@ -1861,6 +1920,7 @@ declare namespace avSession {
      * @since 10
      */
     mediaType?: string;
+
     /**
      * The size of this media.
      * @type { ?number }
@@ -1868,6 +1928,7 @@ declare namespace avSession {
      * @since 10
      */
     mediaSize?: number;
+
     /**
      * The album title of this media
      * @type { ?string }
@@ -1875,6 +1936,7 @@ declare namespace avSession {
      * @since 10
      */
     albumTitle?: string;
+
     /**
      * The album cover uri of this media
      * @type { ?string }
@@ -1882,6 +1944,7 @@ declare namespace avSession {
      * @since 10
      */
     albumCoverUri?: string;
+
     /**
      * The lyric content of the media, it should be in standard lyric format
      * @type { ?string }
@@ -1889,6 +1952,7 @@ declare namespace avSession {
      * @since 10
      */
     lyricContent?: string;
+
     /**
      * The lyric uri of the media.
      * @type { ?string }
@@ -1896,6 +1960,7 @@ declare namespace avSession {
      * @since 10
      */
     lyricUri?: string;
+
     /**
      * The artist of this media.
      * @type { ?string }
@@ -1903,6 +1968,7 @@ declare namespace avSession {
      * @since 10
      */
     artist?: string;
+
     /**
      * The uri of the media, used to locate the media in some special cases
      * @type { ?string }
@@ -1910,12 +1976,14 @@ declare namespace avSession {
      * @since 10
      */
     mediaUri?: string;
+
     /**
      * Media file descriptor.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     fdSrc?: media.AVFileDescriptor;
+
     /**
      * The duration of this media
      * @type { ?number }
@@ -1923,6 +1991,7 @@ declare namespace avSession {
      * @since 10
      */
     duration?: number;
+
     /**
      * Media start position, described by milliseconds.
      * @type { ?number }
@@ -1930,6 +1999,7 @@ declare namespace avSession {
      * @since 10
      */
     startPosition?: number;
+
     /**
      * Media credits position, described by milliseconds.
      * @type { ?number }
@@ -1937,6 +2007,7 @@ declare namespace avSession {
      * @since 10
      */
     creditsPosition?: number;
+
     /**
      * Application name.
      * @type { ?string }
@@ -1960,6 +2031,7 @@ declare namespace avSession {
      * @since 10
      */
     itemId: number;
+
     /**
      * The media description of the item in the playlist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1982,6 +2054,7 @@ declare namespace avSession {
      * @since 10
      */
     state?: PlaybackState;
+
     /**
      * Current playback speed
      * @type { ?number }
@@ -1989,12 +2062,14 @@ declare namespace avSession {
      * @since 10
      */
     speed?: number;
+
     /**
      * Current playback position of this media. See {@link PlaybackPosition}
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     position?: PlaybackPosition;
+
     /**
      * The current buffered time, the maximum playable position
      * @type { ?number }
@@ -2002,12 +2077,14 @@ declare namespace avSession {
      * @since 10
      */
     bufferedTime?: number;
+
     /**
      * Current playback loop mode. See {@link LoopMode}
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     loopMode?: LoopMode;
+
     /**
      * Current Favorite Status
      * @type { ?boolean }
@@ -2015,6 +2092,7 @@ declare namespace avSession {
      * @since 10
      */
     isFavorite?: boolean;
+
     /**
      * Current active item id
      * @type { ?number }
@@ -2022,6 +2100,7 @@ declare namespace avSession {
      * @since 10
      */
     activeItemId?: number;
+
     /**
      * Current player volume
      * @type { ?number }
@@ -2029,6 +2108,7 @@ declare namespace avSession {
      * @since 10
      */
     volume?: number;
+
     /**
      * Current custom media packets
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2051,6 +2131,7 @@ declare namespace avSession {
      * @since 10
      */
     elapsedTime: number;
+
     /**
      * Record the system time when elapsedTime is set.
      * @type { number }
@@ -2096,18 +2177,21 @@ declare namespace avSession {
      * @since 10
      */
     DEVICE_TYPE_LOCAL = 0,
+
     /**
      * A device type indicating the route is on a TV.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
     DEVICE_TYPE_TV = 2,
+
     /**
      * A device type indicating the route is on a smart speaker.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
     DEVICE_TYPE_SMART_SPEAKER = 3,
+
     /**
      * A device type indicating the route is on a bluetooth device.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2136,6 +2220,7 @@ declare namespace avSession {
      * @since 10
      */
     deviceId: string;
+
     /**
      * Device name. The length of the deviceName array is greater than 1
      * if output to multiple devices at the same time.
@@ -2143,12 +2228,14 @@ declare namespace avSession {
      * @since 10
      */
     deviceName: string;
+
     /**
      * device type.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
     deviceType: DeviceType;
+
     /**
      * device ip address if available.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2156,6 +2243,7 @@ declare namespace avSession {
      * @since 10
      */
     ipAddress?: string;
+
     /**
      * device provider which supplies the route capability.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -2311,6 +2399,7 @@ declare namespace avSession {
      * @since 9
      */
     sessionId: string;
+
     /**
      * Session type, currently supports audio or video
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -2318,6 +2407,7 @@ declare namespace avSession {
      * @since 9
      */
     type: AVSessionType;
+
     /**
      * The session tag set by the application
      * @type { string }
@@ -2326,6 +2416,7 @@ declare namespace avSession {
      * @since 9
      */
     sessionTag: string;
+
     /**
      * The elementName of the ability that created this session. See {@link ElementName} in bundle/elementName.d.ts
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -2333,6 +2424,7 @@ declare namespace avSession {
      * @since 9
      */
     elementName: ElementName;
+
     /**
      * Session active state
      * @type { boolean }
@@ -2341,6 +2433,7 @@ declare namespace avSession {
      * @since 9
      */
     isActive: boolean;
+
     /**
      * Is it the top priority session
      * @type { boolean }
@@ -2349,6 +2442,7 @@ declare namespace avSession {
      * @since 9
      */
     isTopSession: boolean;
+
     /**
      * The current output device information.
      * It will be undefined if this is a local session.
@@ -2372,6 +2466,7 @@ declare namespace avSession {
      * @since 10
      */
     readonly sessionId: string;
+
     /**
      * Get the playback status of the current session
      * @param { AsyncCallback<AVPlaybackState> } callback - The triggered asyncCallback when (getAVPlaybackState).
@@ -2464,6 +2559,7 @@ declare namespace avSession {
      * Set the item in the playlist to be played
      * @param { number } itemId - The serial number of the item to be played
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -2476,6 +2572,7 @@ declare namespace avSession {
      * Set the item in the playlist to be played
      * @param { number } itemId - The serial number of the item to be played
      * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -2859,7 +2956,7 @@ declare namespace avSession {
 
     /**
      * Register session output device change callback
-     * @param { 'outputDeviceChange' } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
@@ -2872,7 +2969,7 @@ declare namespace avSession {
 
     /**
      * Unregister session output device change callback
-     * @param { 'outputDeviceChange' } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type 'outputDeviceChange'
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo} and related connection state {@link ConnectionState}.
      * @throws { BusinessError } 401 - parameter check failed
@@ -2911,7 +3008,7 @@ declare namespace avSession {
 
     /**
      * Register session playlist change callback
-     * @param { 'queueItemsChange' } type - Registration Type
+     * @param { 'queueItemsChange' } type - Registration Type 'queueItemsChange'
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
      * @throws { BusinessError } 401 - parameter check failed
@@ -2924,7 +3021,7 @@ declare namespace avSession {
 
     /**
      * Unregister session playlist change callback
-     * @param { 'queueItemsChange' } type - Registration Type
+     * @param { 'queueItemsChange' } type - Registration Type 'queueItemsChange'
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
      * @throws { BusinessError } 401 - parameter check failed
@@ -2937,7 +3034,7 @@ declare namespace avSession {
 
     /**
      * Register the name of session playlist change callback
-     * @param { 'queueTitleChange' } type - Registration Type
+     * @param { 'queueTitleChange' } type - Registration Type 'queueTitleChange'
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
      * @throws { BusinessError } 401 - parameter check failed
@@ -2950,7 +3047,7 @@ declare namespace avSession {
 
     /**
      * Unregister the name of session playlist change callback
-     * @param { 'queueTitleChange' } type - Registration Type
+     * @param { 'queueTitleChange' } type - Registration Type 'queueTitleChange'
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
      * @throws { BusinessError } 401 - parameter check failed
@@ -2963,7 +3060,7 @@ declare namespace avSession {
 
     /**
      * Register the custom media packets change callback
-     * @param { 'extrasChange' } type - Registration Type
+     * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed
@@ -2976,7 +3073,7 @@ declare namespace avSession {
 
     /**
      * Unregister the custom media packets change callback
-     * @param { 'extrasChange' } type - Registration Type
+     * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed
@@ -3009,6 +3106,7 @@ declare namespace avSession {
      * @since 10
      */
     command: AVControlCommandType;
+
     /**
      * parameter of the command. Whether this command requires parameters, see {@link AVSessionCommand}
      * seek command requires a number parameter
