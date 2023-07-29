@@ -761,6 +761,7 @@ declare namespace connection {
      * Defines the handle of the data network.
      * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
      * @since 10
      */
     netHandle: NetHandle;
