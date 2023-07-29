@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * System print
