@@ -1871,6 +1871,7 @@ declare namespace wifiManager {
 
     /** 
      * CA certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -1885,6 +1886,7 @@ declare namespace wifiManager {
 
     /** 
      * Client certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
