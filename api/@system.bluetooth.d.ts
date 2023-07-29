@@ -39,7 +39,7 @@ export interface StopBLEScanOptions {
  * @since 6
  */
 export interface BluetoothDevice {
-  addrType: "public" | "random";
+  addrType: 'public' | 'random';
   addr: string;
   rssi: number;
   txpower: string;
