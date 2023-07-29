@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import type Context from './application/BaseContext';
 
 /**
  * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
@@ -34,8 +35,26 @@ declare namespace contact {
    * creation fails.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.addContact#addContact
    */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
+
+  /**
+   * Creates a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact information.
+   * @param { AsyncCallback<number> } callback - Returns the contact ID (which can be obtained
+   * by {@link Contact#getId()}) if the creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the
+   * creation fails.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
    * Creates a contact.
@@ -46,8 +65,25 @@ declare namespace contact {
    * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.addContact#addContact
    */
   function addContact(contact: Contact): Promise<number>;
+
+  /**
+   * Creates a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact information.
+   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
+   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function addContact(context: Context, contact: Contact): Promise<number>;
 
   /**
    * Select contact.
@@ -57,8 +93,21 @@ declare namespace contact {
    * Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.selectContact#selectContacts
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
+
+  /**
+   * Select contact.
+   *
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   * Returns the contact list which user select; returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 10
+   */
+  function selectContacts(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
    * Select contact.
@@ -68,8 +117,43 @@ declare namespace contact {
    * returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.selectContact#selectContacts
    */
   function selectContact(): Promise<Array<Contact>>;
+
+  /**
+   * Select contact.
+   *
+   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 10
+   */
+  function selectContacts(): Promise<Array<Contact>>;
+
+  /**
+   * Select contact with option.
+   *
+   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
+   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 10
+   */
+  function selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void;
+
+  /**
+   * Select contact with option.
+   *
+   * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
+   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 10
+   */
+  function selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>;
 
   /**
    * Deletes a specified contact.
@@ -79,8 +163,24 @@ declare namespace contact {
    * @param { AsyncCallback<void> } callback - Returns true if the contact is deleted; returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.deleteContact#deleteContact
    */
   function deleteContact(key: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Deletes a specified contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } key - Indicates the unique query key of a contact to delete.
+   * @param { AsyncCallback<void> } callback - Returns true if the contact is deleted; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function deleteContact(context: Context, key: string, callback: AsyncCallback<void>): void;
 
   /**
    * Deletes a specified contact.
@@ -90,8 +190,24 @@ declare namespace contact {
    * @returns { Promise<void> } Returns true if the contact is deleted, returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.deleteContact#deleteContact
    */
   function deleteContact(key: string): Promise<void>;
+
+  /**
+   * Deletes a specified contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } key - Indicates the unique query key of a contact to delete.
+   * @returns { Promise<void> } Returns true if the contact is deleted, returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function deleteContact(context: Context, key: string): Promise<void>;
 
   /**
    * Queries a specified contact of specified attributes.
@@ -101,9 +217,25 @@ declare namespace contact {
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContact#queryContact
    */
   function queryContact(key: string, callback: AsyncCallback<Contact>): void;
-  
+
+  /**
+   * Queries a specified contact of specified attributes.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } key - Indicates the unique query key of a contact.
+   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContact(context: Context, key: string, callback: AsyncCallback<Contact>): void;
+
   /**
    * Queries a specified contact of specified attributes.
    *
@@ -114,9 +246,27 @@ declare namespace contact {
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContact#queryContact
    */
   function queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
-  
+
+  /**
+   * Queries a specified contact of specified attributes.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } key - Indicates the unique query key of a contact.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
+
   /**
    * Queries a specified contact of specified attributes.
    *
@@ -127,12 +277,30 @@ declare namespace contact {
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContact#queryContact
    */
   function queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
-  
+
   /**
    * Queries a specified contact of specified attributes.
-   * 
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } key - Indicates the unique query key of a contact.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
+
+  /**
+   * Queries a specified contact of specified attributes.
+   *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact.
    * @param { Holder } holder - Indicates the contact holder.
@@ -141,9 +309,28 @@ declare namespace contact {
    * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContact#queryContact
    */
   function queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
-  
+
+  /**
+   * Queries a specified contact of specified attributes.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } key - Indicates the unique query key of a contact.
+   * @param { Holder } holder - Indicates the contact holder.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<Contact> } callback - Returns the specified contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
+
   /**
    * Queries a specified contact of specified attributes.
    *
@@ -155,8 +342,27 @@ declare namespace contact {
    * @returns { Promise<Contact> } Returns the specified contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContact#queryContact
    */
   function queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
+
+  /**
+   * Queries a specified contact of specified attributes.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } key - Indicates the unique query key of a contact.
+   * @param { Holder } holder - Indicates the contact holder.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @returns { Promise<Contact> } Returns the specified contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
    * Queries contacts with query conditions.
@@ -165,9 +371,24 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContacts#queryContacts
    */
   function queryContacts(callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts with query conditions.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts with query conditions.
    *
@@ -177,9 +398,26 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContacts#queryContacts
    */
   function queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
-    
+
+  /**
+   * Queries contacts with query conditions.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts with query conditions.
    *
@@ -189,9 +427,26 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContacts#queryContacts
    */
   function queryContacts(attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
-    
+
+  /**
+   * Queries contacts with query conditions.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts with query conditions.
    *
@@ -203,9 +458,28 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContacts#queryContacts
    */
   function queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
-    
+
+  /**
+   * Queries contacts with query conditions.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts with query conditions.
    *
@@ -217,8 +491,27 @@ declare namespace contact {
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContacts#queryContacts
    */
   function queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
+
+  /**
+   * Queries contacts with query conditions.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
    * Queries contacts by a specified email address.
@@ -228,9 +521,25 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
    */
   function queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a specified email address.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } email - Indicates the email address.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a specified email address and contact holder.
    *
@@ -241,9 +550,28 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
    */
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a specified email address and contact holder.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } email - Indicates the email address.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByEmail(context: Context, email: string, holder: Holder,
+    callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a specified email address and contact attributes.
    *
@@ -254,9 +582,28 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
    */
   function queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a specified email address and contact attributes.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } email - Indicates the email address.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes,
+    callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a specified email address, contact holder, and contact attributes.
    *
@@ -269,9 +616,29 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
    */
   function queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a specified email address, contact holder, and contact attributes.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } email - Indicates the email address.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns a {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a specified email address, contact holder, and contact attributes.
    *
@@ -284,8 +651,28 @@ declare namespace contact {
    * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByEmail#queryContactsByEmail
    */
   function queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
+
+  /**
+   * Queries contacts by a specified email address, contact holder, and contact attributes.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } email - Indicates the email address.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * If this parameter is null, all attributes are used for matching.
+   * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
    * Queries contacts by a phone number.
@@ -296,9 +683,26 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
    */
   function queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a phone number.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * Only full match is supported, and wildcards are not supported.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a phone number and contact holder.
    *
@@ -310,9 +714,28 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a phone number and contact holder.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * Only full match is supported, and wildcards are not supported.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a phone number and contact attribute.
    *
@@ -324,9 +747,28 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
    */
   function queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a phone number and contact attribute.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * Only full match is supported, and wildcards are not supported.
+   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * If this parameter is null, all attributes will be used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a phone number, contact holder and contact attribute.
    *
@@ -340,9 +782,31 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
-  
+
+  /**
+   * Queries contacts by a phone number, contact holder and contact attribute.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * Only full match is supported, and wildcards are not supported.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * If this parameter is null, all attributes will be used for matching.
+   * @param { AsyncCallback<Array<Contact>> } callback - Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes,
+    callback: AsyncCallback<Array<Contact>>): void;
+
   /**
    * Queries contacts by a phone number, contact holder and contact attribute.
    *
@@ -356,8 +820,29 @@ declare namespace contact {
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryContactsByPhoneNumber#queryContactsByPhoneNumber
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
+
+  /**
+   * Queries contacts by a phone number, contact holder and contact attribute.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } phoneNumber - Indicates the phone number.
+   * Only full match is supported, and wildcards are not supported.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * If this parameter is null, all attributes will be used for matching.
+   * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
    * Queries contact groups.
@@ -366,8 +851,23 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryGroups#queryGroups
    */
   function queryGroups(callback: AsyncCallback<Array<Group>>): void;
+
+  /**
+   * Queries contact groups.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryGroups(context: Context, callback: AsyncCallback<Array<Group>>): void;
 
   /**
    * Queries contact groups by contact holder.
@@ -378,9 +878,26 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryGroups#queryGroups
    */
   function queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void;
-  
+
+  /**
+   * Queries contact groups by contact holder.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { AsyncCallback<Array<Group>> } callback - Returns the contact group list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>): void;
+
   /**
    * Queries contact groups by contact holder.
    *
@@ -390,8 +907,25 @@ declare namespace contact {
    * @returns { Promise<Array<Group>> } Returns the contact group list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryGroups#queryGroups
    */
   function queryGroups(holder?: Holder): Promise<Array<Group>>;
+
+  /**
+   * Queries contact groups by contact holder.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @returns { Promise<Array<Group>> } Returns the contact group list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryGroups(context: Context, holder?: Holder): Promise<Array<Group>>;
 
   /**
    * Queries contact holders.
@@ -400,8 +934,23 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Holder>> } callback - Returns the {@code Holder} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryHolders#queryHolders
    */
   function queryHolders(callback: AsyncCallback<Array<Holder>>): void;
+
+  /**
+   * Queries contact holders.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { AsyncCallback<Array<Holder>> } callback - Returns the {@code Holder} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>): void;
 
   /**
    * Queries contact holders.
@@ -410,8 +959,23 @@ declare namespace contact {
    * @returns { Promise<Array<Holder>> } Returns the {@code Holder} list object.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryHolders#queryHolders
    */
   function queryHolders(): Promise<Array<Holder>>;
+
+  /**
+   * Queries contact holders.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @returns { Promise<Array<Holder>> } Returns the {@code Holder} list object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryHolders(context: Context): Promise<Array<Holder>>;
 
   /**
    * Obtains the query key of a contact based on a specified ID.
@@ -421,9 +985,25 @@ declare namespace contact {
    * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryKey#queryKey
    */
   function queryKey(id: number, callback: AsyncCallback<string>): void;
-  
+
+  /**
+   * Obtains the query key of a contact based on a specified ID.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { number } id - Indicates the contact ID.
+   * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryKey(context: Context, id: number, callback: AsyncCallback<string>): void;
+
   /**
    * Obtains the query key of a contact based on a specified ID and holder.
    *
@@ -434,9 +1014,27 @@ declare namespace contact {
    * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryKey#queryKey
    */
   function queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void;
-  
+
+  /**
+   * Obtains the query key of a contact based on a specified ID and holder.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { number } id - Indicates the contact ID.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @param { AsyncCallback<string> } callback - Returns the query key of the contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>): void;
+
   /**
    * Obtains the query key of a contact based on a specified ID and holder.
    *
@@ -447,8 +1045,26 @@ declare namespace contact {
    * @returns { Promise<string> } Returns the query key of the contact.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryKey#queryKey
    */
   function queryKey(id: number, holder?: Holder): Promise<string>;
+
+  /**
+   * Obtains the query key of a contact based on a specified ID and holder.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { number } id - Indicates the contact ID.
+   * @param { Holder } holder - Indicates the contact holder.
+   * If this parameter is null, the default holder is used for matching.
+   * @returns { Promise<string> } Returns the query key of the contact.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryKey(context: Context, id: number, holder?: Holder): Promise<string>;
 
   /**
    * Queries information about "my card".
@@ -457,9 +1073,24 @@ declare namespace contact {
    * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryMyCard#queryMyCard
    */
   function queryMyCard(callback: AsyncCallback<Contact>): void;
-  
+
+  /**
+   * Queries information about "my card".
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryMyCard(context: Context, callback: AsyncCallback<Contact>): void;
+
   /**
    * Queries information about "my card".
    *
@@ -469,9 +1100,26 @@ declare namespace contact {
    * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryMyCard#queryMyCard
    */
   function queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
-  
+
+  /**
+   * Queries information about "my card".
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<Contact> } callback - Returns information about "my card".
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
+
   /**
    * Queries information about "my card".
    *
@@ -481,8 +1129,25 @@ declare namespace contact {
    * @returns { Promise<Contact> } Returns information about "my card".
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.queryMyCard#queryMyCard
    */
   function queryMyCard(attrs?: ContactAttributes): Promise<Contact>;
+
+  /**
+   * Queries information about "my card".
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * If this parameter is null, all attributes are used for matching.
+   * @returns { Promise<Contact> } Returns information about "my card".
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
    * Updates specified attributes of a contact.
@@ -493,9 +1158,26 @@ declare namespace contact {
    * Returns true if the update is successful; returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.updateContact#updateContact
    */
   function updateContact(contact: Contact, callback: AsyncCallback<void>): void;
-  
+
+  /**
+   * Updates specified attributes of a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact whose information is to update.
+   * @param { AsyncCallback<void> } callback - The callback of updateContact.
+   * Returns true if the update is successful; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>): void;
+
   /**
    * Updates specified attributes of a contact.
    *
@@ -507,9 +1189,28 @@ declare namespace contact {
    * Returns true if the update is successful; returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.updateContact#updateContact
    */
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
-  
+
+  /**
+   * Updates specified attributes of a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact whose information is to update.
+   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * If this parameter is null, all attributes are used for matching.
+   * @param { AsyncCallback<void> } callback - The callback of updateContact.
+   * Returns true if the update is successful; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
+
   /**
    * Updates specified attributes of a contact.
    *
@@ -520,8 +1221,26 @@ declare namespace contact {
    * @returns { Promise<void> } Returns {@code true} if the update is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.updateContact#updateContact
    */
   function updateContact(contact: Contact, attrs?: ContactAttributes): Promise<void>;
+
+  /**
+   * Updates specified attributes of a contact.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact whose information is to update.
+   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * If this parameter is null, all attributes are used for matching.
+   * @returns { Promise<void> } Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise<void>;
 
   /**
    * Checks whether the contact ID is in the local phone book.
@@ -532,33 +1251,84 @@ declare namespace contact {
    * Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.isLocalContact#isLocalContact
    */
   function isLocalContact(id: number, callback: AsyncCallback<boolean>): void;
-  
+
   /**
    * Checks whether the contact ID is in the local phone book.
-   * 
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { number } id - Indicates the contact ID.
+   * @param { AsyncCallback<boolean> } callback - The callback of isLocalContact.
+   * Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether the contact ID is in the local phone book.
+   *
    * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - Indicates the contact ID.
    * @returns { Promise<boolean> } Returns {@code true} if the contact ID is in the local phone book,
    * returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.isLocalContact#isLocalContact
    */
   function isLocalContact(id: number): Promise<boolean>;
 
   /**
+   * Checks whether the contact ID is in the local phone book.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { number } id - Indicates the contact ID.
+   * @returns { Promise<boolean> } Returns {@code true} if the contact ID is in the local phone book,
+   * returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function isLocalContact(context: Context, id: number): Promise<boolean>;
+
+  /**
    * Checks whether the contact ID is of "my card".
-   * 
+   *
    * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - Indicates the contact ID.
    * @param { AsyncCallback<boolean> } callback - The callback of isMyCard.
    * Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.deleteContact#deleteContact
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
-  
+
+  /**
+   * Checks whether the contact ID is of "my card".
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { number } id - Indicates the contact ID.
+   * @param { AsyncCallback<boolean> } callback - The callback of isMyCard.
+   * Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void;
+
   /**
    * Checks whether the contact ID is of "my card".
    *
@@ -567,19 +1337,53 @@ declare namespace contact {
    * @returns { Promise<boolean> } Returns true if the contact ID is of "my card", returns false otherwise.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @deprecated since 10
+   * @useinstead contact.isMyCard#isMyCard
    */
   function isMyCard(id: number): Promise<boolean>;
 
   /**
+   * Checks whether the contact ID is of "my card".
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { number } id - Indicates the contact ID.
+   * @returns { Promise<boolean> } Returns true if the contact ID is of "my card", returns false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @since 10
+   */
+  function isMyCard(context: Context, id: number): Promise<boolean>;
+
+  /**
+   * ContactSelectionOptions Object
+   *
+   * @interface ContactSelectionOptions
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 10
+   */
+  interface ContactSelectionOptions {
+    /**
+     * Indicates the Single-select or multiple-select.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.Contacts
+     * @since 10
+     */
+    isMultiSelect?: boolean;
+  }
+
+  /**
    * Provides methods for contact information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Contact {
     /**
      * Indicates the contact ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -589,7 +1393,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact ID.
-     * 
+     *
      * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
@@ -599,7 +1403,7 @@ declare namespace contact {
 
     /**
      * Indicates the query key that identifies the contact.
-     * 
+     *
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
@@ -609,7 +1413,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact attributes.
-     * 
+     *
      * @type { ?ContactAttributes }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -618,7 +1422,7 @@ declare namespace contact {
 
     /**
      * Indicates an email address of the contact.
-     * 
+     *
      * @type { ?Email[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -627,7 +1431,7 @@ declare namespace contact {
 
     /**
      * Indicates an event (special date) of the contact.
-     * 
+     *
      * @type { ?Event[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -636,7 +1440,7 @@ declare namespace contact {
 
     /**
      * Indicates a group of the contact.
-     * 
+     *
      * @type { ?Group[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -645,7 +1449,7 @@ declare namespace contact {
 
     /**
      * Indicates an IM address of the contact.
-     * 
+     *
      * @type { ?ImAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -654,7 +1458,7 @@ declare namespace contact {
 
     /**
      * Indicates a phone number of the contact.
-     * 
+     *
      * @type { ?PhoneNumber[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -663,7 +1467,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact portrait.
-     * 
+     *
      * @type { ?Portrait }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -672,7 +1476,7 @@ declare namespace contact {
 
     /**
      * Indicates a postal address of the contact.
-     * 
+     *
      * @type { ?PostalAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -681,7 +1485,7 @@ declare namespace contact {
 
     /**
      * Indicates a relation of the contact.
-     * 
+     *
      * @type { ?Relation[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -690,7 +1494,7 @@ declare namespace contact {
 
     /**
      * Indicates a Session Initiation Protocol (SIP) address of the contact.
-     * 
+     *
      * @type { ?SipAddress[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -699,7 +1503,7 @@ declare namespace contact {
 
     /**
      * Indicates a website of the contact.
-     * 
+     *
      * @type { ?Website[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -708,7 +1512,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact name.
-     * 
+     *
      * @type { ?Name }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -717,7 +1521,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact nickname.
-     * 
+     *
      * @type { ?NickName }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -726,7 +1530,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact note.
-     * 
+     *
      * @type { ?Note }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -735,7 +1539,7 @@ declare namespace contact {
 
     /**
      * Indicates organization information about the contact.
-     * 
+     *
      * @type { ?Organization }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -745,14 +1549,14 @@ declare namespace contact {
 
   /**
    * Provides methods for contact attributes information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class ContactAttributes {
     /**
      * Indicates the contact attributes.
-     * 
+     *
      * @type { Attribute[] }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -762,7 +1566,7 @@ declare namespace contact {
 
   /**
    * Provides methods for attribute information
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
@@ -770,7 +1574,7 @@ declare namespace contact {
   enum Attribute {
     /**
      * Indicates the contact event.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -778,7 +1582,7 @@ declare namespace contact {
 
     /**
      * Indicates the email address.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -786,7 +1590,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact group.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -794,7 +1598,7 @@ declare namespace contact {
 
     /**
      * Indicates the instant messaging (IM) address.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -802,7 +1606,7 @@ declare namespace contact {
 
     /**
      * Indicates the name.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -810,7 +1614,7 @@ declare namespace contact {
 
     /**
      * Indicates the nickname.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -818,7 +1622,7 @@ declare namespace contact {
 
     /**
      * Indicates the note.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -826,7 +1630,7 @@ declare namespace contact {
 
     /**
      * Indicates the organization.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -834,7 +1638,7 @@ declare namespace contact {
 
     /**
      * Indicates the phone number.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -842,7 +1646,7 @@ declare namespace contact {
 
     /**
      * Indicates the portrait.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -850,7 +1654,7 @@ declare namespace contact {
 
     /**
      * Indicates the postal address.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -858,7 +1662,7 @@ declare namespace contact {
 
     /**
      * Indicates the relation.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -866,7 +1670,7 @@ declare namespace contact {
 
     /**
      * Indicates the Session Initiation Protocol (SIP) address.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -874,7 +1678,7 @@ declare namespace contact {
 
     /**
      * Indicates the website.
-     * 
+     *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
@@ -883,14 +1687,14 @@ declare namespace contact {
 
   /**
    * Provides methods for email information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Email {
     /**
      * Indicates a custom label.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -900,7 +1704,7 @@ declare namespace contact {
 
     /**
      * Indicates a home email.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -910,7 +1714,7 @@ declare namespace contact {
 
     /**
      * Indicates a work email.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -920,7 +1724,7 @@ declare namespace contact {
 
     /**
      * Indicates an email of the OTHER type.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -930,7 +1734,7 @@ declare namespace contact {
 
     /**
      * Indicates an invalid label ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -940,7 +1744,7 @@ declare namespace contact {
 
     /**
      * Indicates the email address.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -949,7 +1753,7 @@ declare namespace contact {
 
     /**
      * Indicates the label name of an attribute.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -958,7 +1762,7 @@ declare namespace contact {
 
     /**
      * Indicates the displayed email name.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -967,7 +1771,7 @@ declare namespace contact {
 
     /**
      * Indicates the label id.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -977,14 +1781,14 @@ declare namespace contact {
 
   /**
    * Provides methods for event information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Event {
     /**
      * Indicates a custom label.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -994,7 +1798,7 @@ declare namespace contact {
 
     /**
      * Indicates an anniversary event.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1004,7 +1808,7 @@ declare namespace contact {
 
     /**
      * Indicates an event of the OTHER type.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1014,7 +1818,7 @@ declare namespace contact {
 
     /**
      * Indicates an birthday event.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1024,7 +1828,7 @@ declare namespace contact {
 
     /**
      * Indicates an invalid label ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1034,7 +1838,7 @@ declare namespace contact {
 
     /**
      * Indicates the event date.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1043,7 +1847,7 @@ declare namespace contact {
 
     /**
      * Indicates the label name of an attribute.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1052,7 +1856,7 @@ declare namespace contact {
 
     /**
      * Indicates the label id.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1062,14 +1866,14 @@ declare namespace contact {
 
   /**
    * Provides methods for group information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Group {
     /**
      * Indicates the contact group ID.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1078,7 +1882,7 @@ declare namespace contact {
 
     /**
      * Indicates the contact group title.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1088,14 +1892,14 @@ declare namespace contact {
 
   /**
    * Provides methods for holder information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Holder {
     /**
      * Indicates the bundle name of a contact holder.
-     * 
+     *
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
@@ -1105,7 +1909,7 @@ declare namespace contact {
 
     /**
      * Indicates the displayed name of a contact holder.
-     * 
+     *
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.Applications.ContactsData
@@ -1115,7 +1919,7 @@ declare namespace contact {
 
     /**
      * Indicates the holder ID.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1125,14 +1929,14 @@ declare namespace contact {
 
   /**
    * Provides methods for ImAddress information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class ImAddress {
     /**
      * Indicates a custom label.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1142,7 +1946,7 @@ declare namespace contact {
 
     /**
      * Indicates an AIM instant message.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1152,7 +1956,7 @@ declare namespace contact {
 
     /**
      * Indicates a Windows Live instant message.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1162,7 +1966,7 @@ declare namespace contact {
 
     /**
      * Indicates a Yahoo instant message.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1172,7 +1976,7 @@ declare namespace contact {
 
     /**
      * Indicates a Skype instant message.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1182,7 +1986,7 @@ declare namespace contact {
 
     /**
      * Indicates a QQ instant message.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1192,7 +1996,7 @@ declare namespace contact {
 
     /**
      * Indicates an ICQ instant message.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1202,7 +2006,7 @@ declare namespace contact {
 
     /**
      * Indicates a Jabber instant message.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1212,7 +2016,7 @@ declare namespace contact {
 
     /**
      * Indicates an invalid label ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1222,7 +2026,7 @@ declare namespace contact {
 
     /**
      * Indicates the IM address.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1231,7 +2035,7 @@ declare namespace contact {
 
     /**
      * Indicates the label name of an attribute.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1240,7 +2044,7 @@ declare namespace contact {
 
     /**
      * Indicates the label id.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1250,14 +2054,14 @@ declare namespace contact {
 
   /**
    * Provides methods for name information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Name {
     /**
      * Indicates the family name of the contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1266,7 +2070,7 @@ declare namespace contact {
 
     /**
      * Indicates the phonetic family name of the contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1275,7 +2079,7 @@ declare namespace contact {
 
     /**
      * Indicates the full name of the contact.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1284,7 +2088,7 @@ declare namespace contact {
 
     /**
      * Indicates the given name of the contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1293,7 +2097,7 @@ declare namespace contact {
 
     /**
      * Indicates the phonetic given name of the contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1302,7 +2106,7 @@ declare namespace contact {
 
     /**
      * Indicates the middle name of the contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1311,7 +2115,7 @@ declare namespace contact {
 
     /**
      * Indicates the phonetic middle name of the contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1320,7 +2124,7 @@ declare namespace contact {
 
     /**
      * Indicates the prefix of the contact name.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1329,7 +2133,7 @@ declare namespace contact {
 
     /**
      * Indicates the suffix of this contact name.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1339,14 +2143,14 @@ declare namespace contact {
 
   /**
    * Provides methods for nick name information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class NickName {
     /**
      * Indicates the nickname of the contact.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1356,14 +2160,14 @@ declare namespace contact {
 
   /**
    * Provides methods for note information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Note {
     /**
      * Indicates the note content.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1373,14 +2177,14 @@ declare namespace contact {
 
   /**
    * Provides methods for organization information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Organization {
     /**
      * Indicates the name of the organization to which the contact belongs.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1389,7 +2193,7 @@ declare namespace contact {
 
     /**
      * Indicates the title of the organization.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1399,14 +2203,14 @@ declare namespace contact {
 
   /**
    * Provides methods for phone number information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class PhoneNumber {
     /**
      * Indicates a custom label.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1416,7 +2220,7 @@ declare namespace contact {
 
     /**
      * Indicates a home number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1426,7 +2230,7 @@ declare namespace contact {
 
     /**
      * Indicates a mobile phone number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1436,7 +2240,7 @@ declare namespace contact {
 
     /**
      * Indicates a work number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1446,7 +2250,7 @@ declare namespace contact {
 
     /**
      * Indicates a work fax number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1456,7 +2260,7 @@ declare namespace contact {
 
     /**
      * Indicates a home fax number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1466,7 +2270,7 @@ declare namespace contact {
 
     /**
      * Indicates a pager number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1476,7 +2280,7 @@ declare namespace contact {
 
     /**
      * Indicates a number of the OTHER type.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1486,7 +2290,7 @@ declare namespace contact {
 
     /**
      * Indicates a callback number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1496,7 +2300,7 @@ declare namespace contact {
 
     /**
      * Indicates a car number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1506,7 +2310,7 @@ declare namespace contact {
 
     /**
      * Indicates a company director number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1516,7 +2320,7 @@ declare namespace contact {
 
     /**
      * Indicates an Integrated Services Digital Network (ISDN) number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1526,7 +2330,7 @@ declare namespace contact {
 
     /**
      * Indicates a main number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1536,7 +2340,7 @@ declare namespace contact {
 
     /**
      * Indicates a number of the OTHER_FAX type.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1546,7 +2350,7 @@ declare namespace contact {
 
     /**
      * Indicates a radio number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1556,7 +2360,7 @@ declare namespace contact {
 
     /**
      * Indicates a telex number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1566,7 +2370,7 @@ declare namespace contact {
 
     /**
      * Indicates a teletypewriter (TTY) or test-driven development (TDD) number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1576,7 +2380,7 @@ declare namespace contact {
 
     /**
      * Indicates a work mobile phone number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1586,7 +2390,7 @@ declare namespace contact {
 
     /**
      * Indicates a work pager number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1596,7 +2400,7 @@ declare namespace contact {
 
     /**
      * Indicates an assistant number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1606,7 +2410,7 @@ declare namespace contact {
 
     /**
      * Indicates an MMS number.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1616,7 +2420,7 @@ declare namespace contact {
 
     /**
      * Indicates an invalid label ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1626,7 +2430,7 @@ declare namespace contact {
 
     /**
      * Indicates the label name of an attribute.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1635,7 +2439,7 @@ declare namespace contact {
 
     /**
      * Indicates the phone number of the contact.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1644,7 +2448,7 @@ declare namespace contact {
 
     /**
      * Indicates the label id.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1654,14 +2458,14 @@ declare namespace contact {
 
   /**
    * Provides methods for portrait information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Portrait {
     /**
      * Indicates the uri of the contact portrait.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1671,14 +2475,14 @@ declare namespace contact {
 
   /**
    * Provides methods for postal address information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class PostalAddress {
     /**
      * Indicates a custom label.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1688,7 +2492,7 @@ declare namespace contact {
 
     /**
      * Indicates a home address.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1698,7 +2502,7 @@ declare namespace contact {
 
     /**
      * Indicates a work address.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1708,7 +2512,7 @@ declare namespace contact {
 
     /**
      * Indicates an address of the OTHER type.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1718,7 +2522,7 @@ declare namespace contact {
 
     /**
      * Indicates an invalid label ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1728,7 +2532,7 @@ declare namespace contact {
 
     /**
      * Indicates the city where this contact is located.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1737,7 +2541,7 @@ declare namespace contact {
 
     /**
      * Indicates the country/region where this contact is located.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1746,7 +2550,7 @@ declare namespace contact {
 
     /**
      * Indicates the label name of an attribute.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1755,7 +2559,7 @@ declare namespace contact {
 
     /**
      * Indicates the neighborhood where this contact is located.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1764,7 +2568,7 @@ declare namespace contact {
 
     /**
      * Indicates the post box of this contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1773,7 +2577,7 @@ declare namespace contact {
 
     /**
      * Indicates the postal address of this contact.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1782,7 +2586,7 @@ declare namespace contact {
 
     /**
      * Indicates the postal code of this contact.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1791,7 +2595,7 @@ declare namespace contact {
 
     /**
      * Indicates the area where this contact is located.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1800,7 +2604,7 @@ declare namespace contact {
 
     /**
      * Indicates the street where this contact is located.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1809,7 +2613,7 @@ declare namespace contact {
 
     /**
      * Indicates the label id.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1819,14 +2623,14 @@ declare namespace contact {
 
   /**
    * Provides methods for relation information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Relation {
     /**
      * Indicates a custom label.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1836,7 +2640,7 @@ declare namespace contact {
 
     /**
      * Indicates an assistant.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1846,7 +2650,7 @@ declare namespace contact {
 
     /**
      * Indicates a brother.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1856,7 +2660,7 @@ declare namespace contact {
 
     /**
      * Indicates a child.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1866,7 +2670,7 @@ declare namespace contact {
 
     /**
      * Indicates a domestic partner.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1876,7 +2680,7 @@ declare namespace contact {
 
     /**
      * Indicates a father.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1886,7 +2690,7 @@ declare namespace contact {
 
     /**
      * Indicates a friend.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1896,7 +2700,7 @@ declare namespace contact {
 
     /**
      * Indicates a manager.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1906,7 +2710,7 @@ declare namespace contact {
 
     /**
      * Indicates a mother.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1916,7 +2720,7 @@ declare namespace contact {
 
     /**
      * Indicates a parent.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1926,7 +2730,7 @@ declare namespace contact {
 
     /**
      * Indicates a partner.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1936,7 +2740,7 @@ declare namespace contact {
 
     /**
      * Indicates a referrer.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1946,7 +2750,7 @@ declare namespace contact {
 
     /**
      * Indicates a relative.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1956,7 +2760,7 @@ declare namespace contact {
 
     /**
      * Indicates a sister.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1966,7 +2770,7 @@ declare namespace contact {
 
     /**
      * Indicates a spouse.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1976,7 +2780,7 @@ declare namespace contact {
 
     /**
      * Indicates an invalid label ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1986,7 +2790,7 @@ declare namespace contact {
 
     /**
      * Indicates the label name of an attribute.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -1995,7 +2799,7 @@ declare namespace contact {
 
     /**
      * Indicates the relation name.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2004,7 +2808,7 @@ declare namespace contact {
 
     /**
      * Indicates the label id.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2014,14 +2818,14 @@ declare namespace contact {
 
   /**
    * Provides methods for sip address information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class SipAddress {
     /**
      * Indicates a custom label.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2031,7 +2835,7 @@ declare namespace contact {
 
     /**
      * Indicates a home SIP address.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2041,7 +2845,7 @@ declare namespace contact {
 
     /**
      * Indicates a work SIP address.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2051,7 +2855,7 @@ declare namespace contact {
 
     /**
      * Indicates an SIP address of the OTHER type.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2061,7 +2865,7 @@ declare namespace contact {
 
     /**
      * Indicates an invalid label ID.
-     * 
+     *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2071,7 +2875,7 @@ declare namespace contact {
 
     /**
      * Indicates the label name of an attribute.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2080,7 +2884,7 @@ declare namespace contact {
 
     /**
      * Indicates the SIP address.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2089,7 +2893,7 @@ declare namespace contact {
 
     /**
      * Indicates the label id.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2099,14 +2903,14 @@ declare namespace contact {
 
   /**
    * Provides methods for website information
-   * 
+   *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Website {
     /**
      * Indicates the website.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
