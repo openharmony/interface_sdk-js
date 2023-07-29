@@ -86,7 +86,6 @@ declare namespace wifiManager {
    */
   function getScanResults(): Promise<Array<WifiScanInfo>>;
 
-
   /**
    * Obtain the scanned sta list.
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
