@@ -66,7 +66,7 @@ declare namespace intelligentVoice {
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    off(type: 'serviceChange'): void;
+    off(type: 'serviceChange', callback?: Callback<ServiceChangeType>): void;
   }
 
   /**
@@ -155,7 +155,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - if input parameter type or number mismatch.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - if input parameter value error.
+   * @throws { BusinessError } 22700102 - Input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @since 10
    */
@@ -169,7 +169,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - if input parameter type or number mismatch.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - if input parameter value error.
+   * @throws { BusinessError } 22700102 - Input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @since 10
    */
@@ -183,7 +183,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - if input parameter type or number mismatch.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - if input parameter value error.
+   * @throws { BusinessError } 22700102 - Input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @since 10
    */
@@ -197,7 +197,7 @@ declare namespace intelligentVoice {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - if input parameter type or number mismatch.
    * @throws { BusinessError } 22700101 - No memory.
-   * @throws { BusinessError } 22700102 - if input parameter value error.
+   * @throws { BusinessError } 22700102 - Input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @since 10
    */
@@ -334,47 +334,56 @@ declare namespace intelligentVoice {
    */
   enum IntelligentVoiceErrorCode {
     /**
+     * No memory.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    INTELLIGENT_VOICE_NO_MEMORY = 22700101,
+    /**
+     * Input parameter value error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    INTELLIGENT_VOICE_INVALID_PARAM = 22700102,
+  }
+
+  /**
+   * Enumerates intelligent voice result.
+   * @enum {number}
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @since 10
+   */
+  enum IntelligentVoiceResult {
+    /**
      * Success.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
     INTELLIGENT_VOICE_SUCCESS = 0,
     /**
-     * Memory is insufficient.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_NO_MEMORY = 22700101,
-    /**
-     * Invalid parameter.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_INVALID_PARAM = 22700102,
-    /**
      * Init failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    INTELLIGENT_VOICE_INIT_FAILED = 22700103,
+    INTELLIGENT_VOICE_INIT_FAILED = -1,
     /**
      * Enroll failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    INTELLIGENT_VOICE_ENROLL_FAILED = 22700104,
+    INTELLIGENT_VOICE_ENROLL_FAILED = -2,
     /**
      * Commit enroll failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    INTELLIGENT_VOICE_COMMIT_ENROLL_FAILED = 22700105,
+    INTELLIGENT_VOICE_COMMIT_ENROLL_FAILED = -3,
     /**
      * Recognize failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    INTELLIGENT_VOICE_RECOGNIZE_FAILED = 22700106,
+    INTELLIGENT_VOICE_RECOGNIZE_FAILED = -4,
   }
 
   /**
@@ -391,11 +400,11 @@ declare namespace intelligentVoice {
      */
     eventId: EnrollIntelligentVoiceEventType;
     /**
-     * Error code.
+     * Result.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    errCode: IntelligentVoiceErrorCode;
+    result: IntelligentVoiceResult;
     /**
      * Describes enroll event context.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -418,11 +427,11 @@ declare namespace intelligentVoice {
      */
     eventId: WakeupIntelligentVoiceEventType;
     /**
-     * Error code.
+     * Result.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    errCode: IntelligentVoiceErrorCode;
+    result: IntelligentVoiceResult;
     /**
      * Describes wakeup event context.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -463,7 +472,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -475,7 +484,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -545,7 +554,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -557,7 +566,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -569,7 +578,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -581,7 +590,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -594,7 +603,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -607,7 +616,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -619,7 +628,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<string> } callback - the callback used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -631,7 +640,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -688,7 +697,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -700,7 +709,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -712,7 +721,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -724,7 +733,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -737,7 +746,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -750,7 +759,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -762,7 +771,7 @@ declare namespace intelligentVoice {
      * @param { AsyncCallback<string> } callback - the callback used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -774,7 +783,7 @@ declare namespace intelligentVoice {
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -816,7 +825,7 @@ declare namespace intelligentVoice {
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    off(type: 'wakeupIntelligentVoiceEvent');
+    off(type: 'wakeupIntelligentVoiceEvent', callback?: Callback<WakeupIntelligentVoiceEngineCallbackInfo>): void;
   }
 }
 
