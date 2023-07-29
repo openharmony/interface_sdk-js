@@ -14,7 +14,7 @@
  */
 
 import type Want from './@ohos.application.Want';
-import type print from "./@ohos.print";
+import type print from './@ohos.print';
 
 /**
  * class of print extensionAbility.
