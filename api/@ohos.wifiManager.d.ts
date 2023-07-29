@@ -1871,10 +1871,11 @@ declare namespace wifiManager {
 
     /** 
      * CA certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    caCertAliases: string;
+    caCertAlias: string;
 
     /** 
      * CA certificate path
@@ -1885,10 +1886,11 @@ declare namespace wifiManager {
 
     /** 
      * Client certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    clientCertAliases: string;
+    clientCertAlias: string;
 
     /** 
      * content of user's certificate
