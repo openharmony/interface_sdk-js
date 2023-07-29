@@ -1286,28 +1286,6 @@ declare namespace photoAccessHelper {
      */
     unRegisterChange(uri: string, callback?: Callback<ChangeData>): void;
     /**
-     * Create a pop-up box to delete photos
-     *
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<string> } uriList - List of the asset uris to be deleted
-     * @param { AsyncCallback<void> } callback - Returns void
-     * @throws { BusinessError } 401 - if parameter is invalid
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 10
-     */
-    createDeleteRequest(uriList: Array<string>, callback: AsyncCallback<void>): void;
-    /**
-     * Create a pop-up box to delete photos
-     *
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<string> } uriList - List of the asset uris to be deleted
-     * @returns { Promise<void> } - Returns void
-     * @throws { BusinessError } 401 - if parameter is invalid
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 10
-     */
-    createDeleteRequest(uriList: Array<string>): Promise<void>;
-    /**
      * Release PhotoAccessHelper instance
      *
      * @param { AsyncCallback<void> } callback - Returns void
