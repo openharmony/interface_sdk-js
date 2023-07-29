@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import Want from './@ohos.application.Want';
-import print from "./@ohos.print";
+import type Want from './@ohos.application.Want';
+import type print from "./@ohos.print";
 
 /**
  * class of print extensionAbility.
