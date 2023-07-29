@@ -245,7 +245,7 @@ declare namespace promptAction {
     buttons?: [Button, Button?, Button?];
 
     /**
-     * Mask Region of dialog. The size cannot exceed the main window.
+     * Mask Region of dialog. The size can't exceed the main window.
      *
      * @type { ?Rectangle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
