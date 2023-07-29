@@ -122,12 +122,6 @@ declare namespace webSocket {
    * Receive the reason for closing a WebSocket connection.
    * @interface CloseReason
    * @syscap SystemCapability.Communication.NetStack
-   * @since 10
-   */
-  /**
-   * Receive the reason for closing a WebSocket connection.
-   * @interface CloseReason
-   * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
    */
@@ -136,22 +130,10 @@ declare namespace webSocket {
      * Error code.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
-    /**
-     * Error code.
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
     code: number;
-    /**
-     * Error cause.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 10
-     */
     /**
      * Error cause.
      * @type {string}
