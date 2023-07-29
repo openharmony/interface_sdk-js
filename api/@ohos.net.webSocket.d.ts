@@ -119,6 +119,50 @@ declare namespace webSocket {
   }
 
   /**
+   * Receive the reason for closing a WebSocket connection.
+   * @interface CloseReason
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 10
+   */
+  /**
+   * Receive the reason for closing a WebSocket connection.
+   * @interface CloseReason
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
+  export interface CloseReason {
+    /**
+     * Error code.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    /**
+     * Error code.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 10
+     */
+    code: number;
+    /**
+     * Error cause.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 10
+     */
+    /**
+     * Error cause.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 10
+     */
+    reason: string;
+  }
+
+  /**
    * <p>Defines a WebSocket object. Before invoking WebSocket APIs,
    * you need to call webSocket.createWebSocket to create a WebSocket object.</p>
    * @interface WebSocket
@@ -395,7 +439,7 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -403,18 +447,18 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    on(type: 'close', callback: AsyncCallback<{ code: number, reason: string }>): void;
+    on(type: 'close', callback: AsyncCallback<CloseReason>): void;
 
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -422,13 +466,13 @@ declare namespace webSocket {
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    off(type: 'close', callback?: AsyncCallback<{ code: number, reason: string }>): void;
+    off(type: 'close', callback?: AsyncCallback<CloseReason>): void;
 
     /**
      * Enables listening for the error events of a WebSocket connection.
