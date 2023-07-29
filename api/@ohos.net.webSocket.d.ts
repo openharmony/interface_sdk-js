@@ -120,12 +120,12 @@ declare namespace webSocket {
 
   /**
    * Receive the reason for closing a WebSocket connection.
-   * @interface CloseReason
+   * @interface CloseResult
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
    */
-  export interface CloseReason {
+  export interface CloseResult {
     /**
      * Error code.
      * @type {number}
@@ -421,7 +421,7 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -429,18 +429,18 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    on(type: 'close', callback: AsyncCallback<CloseReason>): void;
+    on(type: 'close', callback: AsyncCallback<CloseResult>): void;
 
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -448,13 +448,13 @@ declare namespace webSocket {
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseReason> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    off(type: 'close', callback?: AsyncCallback<CloseReason>): void;
+    off(type: 'close', callback?: AsyncCallback<CloseResult>): void;
 
     /**
      * Enables listening for the error events of a WebSocket connection.
