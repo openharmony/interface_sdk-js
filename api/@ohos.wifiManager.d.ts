@@ -74,7 +74,34 @@ declare namespace wifiManager {
 
   /**
    * Obtain the scanned sta list.
-   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
+   * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
+   * @returns { Promise<Array<WifiScanInfo>> } Returns information about scanned Wi-Fi hotspot if any.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
+   */
+  function getScanResults(): Promise<Array<WifiScanInfo>>;
+
+  /**
+   * Obtain the scanned sta list.
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
+   * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
+   * @param { AsyncCallback<Array<WifiScanInfo>> } callback - Returns information about scanned Wi-Fi hotspot if any.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
+   */
+  function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
+
+  /**
+   * Obtain the scanned sta list.
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
+   * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
    * @returns { Array<WifiScanInfo> } Returns information about scanned Wi-Fi hotspot if any.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -82,7 +109,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-  function getScanInfoList(): Array<WifiScanInfo>;
+  function getScanResultsSync(): Array<WifiScanInfo>;
 
   /**
    * User can trigger scan even Wi-Fi is disabled.
@@ -464,13 +491,13 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function updateDeviceConfig(config: WifiDeviceConfig): number;
+  function updateNetwork(config: WifiDeviceConfig): number;
 
   /**
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId Identifies the network to disable.
+   * @param { number } netId Identifies the network to disable.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -480,7 +507,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function disableDeviceConfig(networkId: number): void;
+  function disableNetwork(netId: number): void;
 
   /**
    * Remove all the saved Wi-Fi configurations.
@@ -493,7 +520,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function removeAllDeviceConfigs(): void;
+  function removeAllNetwork(): void;
 
   /**
    * Remove a Wi-Fi DeviceConfig with networkId.
@@ -501,7 +528,7 @@ declare namespace wifiManager {
    * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
    * The application can only delete Wi-Fi DeviceConfig it has created.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId - Indicate the ID of the Wi-Fi DeviceConfig.
+   * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -511,7 +538,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function removeDeviceConfig(networkId: number): void;
+  function removeDevice(id: number): void;
 
   /**
    * Check whether the current device supports the specified band.
@@ -653,7 +680,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function getHotspotStations(): Array<StationInfo>;
+  function getStations(): Array<StationInfo>;
 
   /**
    * Obtain information about the P2P connection.
@@ -766,7 +793,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function createP2pGroup(config: WifiP2PConfig): void;
+  function createGroup(config: WifiP2PConfig): void;
 
   /**
    * Remove a P2P group.
@@ -777,7 +804,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function removeP2pGroup(): void;
+  function removeGroup(): void;
 
   /**
    * Initiate a P2P connection to a device with the specified configuration.
@@ -812,7 +839,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function startDiscoverP2pDevices(): void;
+  function startDiscoverDevices(): void;
 
   /**
    * Stop discover Wi-Fi P2P devices.
@@ -823,7 +850,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function stopDiscoverP2pDevices(): void;
+  function stopDiscoverDevices(): void;
 
   /**
    * Delete the persistent P2P group with the specified network ID.
@@ -838,7 +865,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function deletePersistentP2pGroup(netId: number): void;
+  function deletePersistentGroup(netId: number): void;
 
   /**
    * Obtain information about the groups.
@@ -881,7 +908,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function setP2pDeviceName(devName: string): void;
+  function setDeviceName(devName: string): void;
 
   /**
    * Subscribe Wi-Fi status change events.
@@ -1334,71 +1361,61 @@ declare namespace wifiManager {
    * Wi-Fi EAP method.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   enum EapMethod {
     /**
      * EAP NONE
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_NONE,
     /**
      * EAP PEAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_PEAP,
     /**
      * EAP TLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_TLS,
     /**
      * EAP TTLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_TTLS,
     /**
      * EAP PWD
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_PWD,
     /**
      * EAP SIM
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_SIM,
     /**
      * EAP AKA
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_AKA,
     /**
      * EAP AKA PRIME
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_AKA_PRIME,
     /**
      * EAP UNAUTH TLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_UNAUTH_TLS
   }
@@ -1407,64 +1424,55 @@ declare namespace wifiManager {
    * Wi-Fi phase 2 method.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   enum Phase2Method {
     /**
      * Phase2 NONE
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_NONE,
     /**
      * Phase2 PAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_PAP,
     /**
      * Phase2 MSCHAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_MSCHAP,
     /**
      * Phase2 MSCHAPV2
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_MSCHAPV2,
     /**
      * Phase2 GTC
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_GTC,
     /**
      * Phase2 SIM
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_SIM,
     /**
      * Phase2 AKA
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_AKA,
     /**
      * Phase2 AKA+
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_AKA_PRIME
   }
@@ -1588,127 +1596,114 @@ declare namespace wifiManager {
    * Wi-Fi EAP config.
    * @typedef WifiEapConfig
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   interface WifiEapConfig {
     /** 
      * EAP authentication method 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapMethod: EapMethod;
 
     /** 
      * Phase 2 authentication method
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     phase2Method: Phase2Method;
 
     /** 
      * The identity
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     identity: string;
 
     /** 
      * Anonymous identity
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     anonymousIdentity: string;
 
     /** 
      * Password
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     password: string;
 
     /** 
      * CA certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     caCertAliases: string;
 
     /** 
      * CA certificate path
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     caPath: string;
 
     /** 
      * Client certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     clientCertAliases: string;
 
     /** 
      * content of user's certificate
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     certEntry: Uint8Array;
 
     /** 
      * Password of user's certificate
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     certPassword: string;
 
     /** 
      * Alternate subject match
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     altSubjectMatch: string;
 
     /** 
      * Domain suffix match
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     domainSuffixMatch: string;
 
     /** 
      * Realm for Passpoint credential
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     realm: string;
 
     /** 
      * Public Land Mobile Network of the provider of Passpoint credential
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     plmn: string;
 
     /** 
      * Sub ID of the SIM card
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapSubId: number;
   }
@@ -1813,9 +1808,9 @@ declare namespace wifiManager {
 
     /**
      * EAP config info.
+     * @type { ?WifiEapConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapConfig?: WifiEapConfig;
 
@@ -2520,7 +2515,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    channel: number;
+    channel?: number;
 
     /**
      * The password of the Wi-Fi hotspot
@@ -2544,7 +2539,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    ipAddress: string;
+    ipAddress?: string;
   }
 
   /**
