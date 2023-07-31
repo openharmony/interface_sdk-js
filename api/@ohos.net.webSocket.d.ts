@@ -119,7 +119,7 @@ declare namespace webSocket {
   }
 
   /**
-   * Receive the reason for closing a WebSocket connection.
+   * The result for closing a WebSocket connection.
    * @interface CloseResult
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
