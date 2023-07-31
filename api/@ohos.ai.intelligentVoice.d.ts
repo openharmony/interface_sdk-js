@@ -120,6 +120,7 @@ declare namespace intelligentVoice {
   interface EnrollIntelligentVoiceEngineDescriptor {
     /**
      * Wakeup phrase.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -135,12 +136,14 @@ declare namespace intelligentVoice {
   interface WakeupIntelligentVoiceEngineDescriptor {
     /**
      * Need reconfirm.
+     * @type { boolean }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
     needReconfirm: boolean;
     /**
      * Wakeup phrase.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -212,12 +215,14 @@ declare namespace intelligentVoice {
   interface EnrollEngineConfig {
     /**
      * Language that enroll engine supports.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
     language: string;
     /**
      * Region that enroll engine supports.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -260,12 +265,14 @@ declare namespace intelligentVoice {
   interface WakeupHapInfo {
     /**
      * Bundle name.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
     bundleName: string;
     /**
      * Ability name.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -358,11 +365,11 @@ declare namespace intelligentVoice {
      */
     TOO_NOISY = -3,
     /**
-     * Too lound.
+     * Too loud.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    TOO_LOUND = -4,
+    TOO_LOUD = -4,
     /**
      * Interval large.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -392,12 +399,14 @@ declare namespace intelligentVoice {
   interface EnrollCallbackInfo {
     /**
      * Result.
+     * @type { EnrollResult }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
     result: EnrollResult;
     /**
      * Describes enroll event context.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -413,18 +422,21 @@ declare namespace intelligentVoice {
   interface WakeupIntelligentVoiceEngineCallbackInfo {
     /**
      * Wakeup event id.
+     * @type { WakeupIntelligentVoiceEventType }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
     eventId: WakeupIntelligentVoiceEventType;
     /**
      * Is success.
+     * @type { boolean }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
     isSuccess: boolean;
     /**
      * Describes wakeup event context.
+     * @type { string }
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
