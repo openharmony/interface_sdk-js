@@ -215,6 +215,7 @@ endc
 endx
 endy
 enrolled
+enrolls
 enumeratable
 erasing
 eration
@@ -440,6 +441,7 @@ mutes
 narrowband
 nci
 ndef
+needreconfirm
 neglects
 negotiated
 neighborhoods
@@ -565,6 +567,7 @@ reassociate
 rebounds
 recalculated
 reconfiguration
+reconfirm
 recovered
 recovering
 recursions
@@ -812,6 +815,7 @@ voicemail
 volte
 volumemanager
 vorbis
+vpr
 vsync
 wakes
 waking
