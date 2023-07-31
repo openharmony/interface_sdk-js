@@ -2842,7 +2842,7 @@ declare namespace window {
      * Whether the window supports thr wide gamut setting.
      *
      * @returns { Promise<boolean> } Promise used to return the result. 
-     *   The value true means that the wide-gamut color space is supported, and false means the opposite.
+     *  The value true means that the wide-gamut color space is supported, and false means the opposite.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
