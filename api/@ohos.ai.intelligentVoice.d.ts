@@ -134,11 +134,11 @@ declare namespace intelligentVoice {
    */
   interface WakeupIntelligentVoiceEngineDescriptor {
     /**
-     * Need ap algorithm engine.
+     * Need reconfirm.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    needApAlgEngine: boolean;
+    needReconfirm: boolean;
     /**
      * Wakeup phrase.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -273,39 +273,6 @@ declare namespace intelligentVoice {
   }
 
   /**
-   * Enumerates enroll intelligent voice event type.
-   * @enum {number}
-   * @syscap SystemCapability.AI.IntelligentVoice.Core
-   * @since 10
-   */
-  enum EnrollIntelligentVoiceEventType {
-    /**
-     * Enroll None.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_EVENT_ENROLL_NONE = 0,
-    /**
-     * Init done.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_EVENT_ENROLL_INIT_DONE = 1,
-    /**
-     * Enroll complete.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_EVENT_ENROLL_COMPLETE = 2,
-    /**
-     * Commit enroll complete.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_EVENT_COMMIT_ENROLL_COMPLETE = 3,
-  }
-
-  /**
    * Enumerates wakeup intelligent voice event type.
    * @enum {number}
    * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -345,66 +312,90 @@ declare namespace intelligentVoice {
      * @since 10
      */
     INTELLIGENT_VOICE_INVALID_PARAM = 22700102,
-  }
-
-  /**
-   * Enumerates intelligent voice result.
-   * @enum {number}
-   * @syscap SystemCapability.AI.IntelligentVoice.Core
-   * @since 10
-   */
-  enum IntelligentVoiceResult {
-    /**
-     * Success.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_SUCCESS = 0,
     /**
      * Init failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    INTELLIGENT_VOICE_INIT_FAILED = -1,
-    /**
-     * Enroll failed.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_ENROLL_FAILED = -2,
+    INTELLIGENT_VOICE_INIT_FAILED = 22700103,
     /**
      * Commit enroll failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    INTELLIGENT_VOICE_COMMIT_ENROLL_FAILED = -3,
-    /**
-     * Recognize failed.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @since 10
-     */
-    INTELLIGENT_VOICE_RECOGNIZE_FAILED = -4,
+    INTELLIGENT_VOICE_COMMIT_ENROLL_FAILED = 22700104,
   }
 
   /**
-   * Describes enroll intelligent voice engine callback information.
-   * @typedef EnrollIntelligentVoiceEngineCallbackInfo
+   * Enumerates enroll result.
+   * @enum {number}
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @since 10
    */
-  interface EnrollIntelligentVoiceEngineCallbackInfo {
+  enum EnrollResult {
     /**
-     * Enroll event id.
+     * Success.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    eventId: EnrollIntelligentVoiceEventType;
+    SUCCESS = 0,
+    /**
+     * Vpr train failed.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    VPR_TRAIN_FAILED = -1,
+    /**
+     * Wakeup phrase not match.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    WAKEUP_PHRASE_NOT_MATCH = -2,
+    /**
+     * Too noisy.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    TOO_NOISY = -3,
+    /**
+     * Too lound.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    TOO_LOUND = -4,
+    /**
+     * Interval large.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    INTERVAL_LARGE = -5,
+    /**
+     * Different person.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    DIFFERENT_PERSON = -6,
+    /**
+     * Unknown error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @since 10
+     */
+    UNKNOWN_ERROR = -100,
+  }
+
+  /**
+   * Describes enroll callback information.
+   * @typedef EnrollCallbackInfo
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @since 10
+   */
+  interface EnrollCallbackInfo {
     /**
      * Result.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    result: IntelligentVoiceResult;
+    result: EnrollResult;
     /**
      * Describes enroll event context.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -427,11 +418,11 @@ declare namespace intelligentVoice {
      */
     eventId: WakeupIntelligentVoiceEventType;
     /**
-     * Result.
+     * Is success.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    result: IntelligentVoiceResult;
+    isSuccess: boolean;
     /**
      * Describes wakeup event context.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -469,48 +460,50 @@ declare namespace intelligentVoice {
      * Initials the engine, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { EnrollEngineConfig } config - config indicates enroll engine configuration.
-     * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
+     * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
      * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700103 - Init failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    init(config: EnrollEngineConfig, callback: AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo>): void;
+    init(config: EnrollEngineConfig, callback: AsyncCallback<void>): void;
     /**
      * Initials the engine, This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { EnrollEngineConfig } config - config indicates enroll engine configuration.
-     * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
+     * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
      * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700103 - Init failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    init(config: EnrollEngineConfig): Promise<EnrollIntelligentVoiceEngineCallbackInfo>;
+    init(config: EnrollEngineConfig): Promise<void>;
     /**
-     * Starts the engine, This method uses an asynchronous callback to return the result.
+     * Enrolls for result, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { boolean } isLast - isLast indicates if it is the last time to start.
-     * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
+     * @param { boolean } isLast - isLast indicates if it is the last time to enroll.
+     * @param { AsyncCallback<EnrollCallbackInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    start(isLast: boolean, callback: AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo>): void;
+    enrollForResult(isLast: boolean, callback: AsyncCallback<EnrollCallbackInfo>): void;
     /**
-     * Starts the engine, This method uses a promise to return the result.
+     * Enrolls for result, This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { boolean } isLast - isLast indicates if it is the last time to start.
-     * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
+     * @param { boolean } isLast - isLast indicates if it is the last time to enroll.
+     * @returns { Promise<EnrollCallbackInfo> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    start(isLast: boolean): Promise<EnrollIntelligentVoiceEngineCallbackInfo>;
+    enrollForResult(isLast: boolean): Promise<EnrollCallbackInfo>;
     /**
      * Stops the engine, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
@@ -532,21 +525,23 @@ declare namespace intelligentVoice {
     /**
      * commit enroll, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
+     * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 22700104 - Commit enroll failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    commit(callback: AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo>): void;
+    commit(callback: AsyncCallback<void>): void;
     /**
      * commit enroll, This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
+     * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 22700104 - Commit enroll failed.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
-    commit(): Promise<EnrollIntelligentVoiceEngineCallbackInfo>;
+    commit(): Promise<void>;
     /**
      * Sets wakeup hap information, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
