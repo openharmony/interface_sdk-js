@@ -27,8 +27,8 @@ declare namespace windowAnimationManager {
   /**
    * Set the window animation controller.
    *
+   * @param { WindowAnimationController } controller - Window animation controller.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @param controller Window animation controller.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -37,9 +37,9 @@ declare namespace windowAnimationManager {
   /**
    * Minimize the window target with animation.
    *
+   * @param { WindowAnimationTarget } windowTarget - The window target to be minimized.
+   * @param { AsyncCallback<WindowAnimationFinishedCallback> } callback - Returns the animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @param windowTarget The window target to be minimized.
-   * @param callback Returns the animation finished callback.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -49,9 +49,9 @@ declare namespace windowAnimationManager {
   /**
    * Minimize the window target with animation.
    *
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @param windowTarget The window target to be minimized.
+   * @param { WindowAnimationTarget }windowTarget - The window target to be minimized.
    * @returns { Promise<WindowAnimationFinishedCallback> } Promise used to return the animation finished callback.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -68,35 +68,35 @@ declare namespace windowAnimationManager {
   export interface RRect {
     /**
      * The X-axis coordinate of the upper left vertex of the round rect, in pixels.
-     * @type { number }
+     * @type {number}
      * @since 9
      */
     left: number;
 
     /**
      * The Y-axis coordinate of the upper left vertex of the round rect, in pixels.
-     * @type { number }
+     * @type {number}
      * @since 9
      */
     top: number;
 
     /**
      * Width of the round rect, in pixels.
-     * @type { number }
+     * @type {number}
      * @since 9
      */
     width: number;
 
     /**
      * Height of the round rect, in pixels.
-     * @type { number }
+     * @type {number}
      * @since 9
      */
     height: number;
 
     /**
      * Radius of the round corner of the round rect, in pixels.
-     * @type { number }
+     * @type {number}
      * @since 9
      */
     radius: number;
