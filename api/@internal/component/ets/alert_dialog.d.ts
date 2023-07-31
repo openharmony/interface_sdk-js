@@ -181,6 +181,126 @@ declare enum DialogAlignment {
 }
 
 /**
+* The arrangement of buttons in dialog.
+*
+* @enum { number }
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 10
+*/
+declare enum DialogButtonDirection {
+  /**
+   * Two or fewer buttons are arranged horizontally,
+   * and two or more buttons are arranged vertically.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  AUTO = 0,
+
+  /**
+   * Buttons are arranged horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  HORIZONTAL = 1,
+
+  /**
+   * Buttons are arranged vertically.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  VERTICAL = 2,
+}
+
+/**
+ * Base button param used for AlertDialogParamWithOptions.
+ *
+ * @interface AlertDialogButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface AlertDialogButtonOptions {
+  /**
+   * Enable switch of button.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  enabled?: boolean;
+
+  /**
+   * Default focus switch of button.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  defaultFocus?: boolean;
+
+  /**
+   * Style of button.
+   *
+   * @type { ?DialogButtonStyle }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  style?: DialogButtonStyle;
+
+  /**
+   * Text content of button.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  value: ResourceStr;
+
+  /**
+   * Text color of button.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  fontColor?: ResourceColor;
+
+  /**
+   * Background color of button.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Method executed by the callback.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  action: () => void;
+}
+
+/**
  * Base param used for AlertDialog.show method.
  *
  * @interface AlertDialogParam
@@ -715,6 +835,35 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 }
 
 /**
+ * Defines the dialog param with options.
+ *
+ * @interface AlertDialogParamWithOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface AlertDialogParamWithOptions extends AlertDialogParam {
+  /**
+   * The array of buttons.
+   * @type { Array<AlertDialogButtonOptions> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  buttons: Array<AlertDialogButtonOptions>;
+
+  /**
+   * The arrangement of buttons.
+   * @type { ?DialogButtonDirection }
+   * @default DialogButtonDirection.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  buttonDirection?: DialogButtonDirection;
+}
+
+/**
  * Defines AlertDialog which uses show method to show alert dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -738,17 +887,17 @@ declare class AlertDialog {
   /**
    * Invoking method display.
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } value
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions} value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons);
+  static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }
 
 declare module "AlertDialogParam" {
   module "AlertDialogParam" {
     // @ts-ignore
-    export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment };
+    export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions };
   }
 }
