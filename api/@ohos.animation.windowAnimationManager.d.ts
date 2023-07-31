@@ -171,7 +171,7 @@ declare namespace windowAnimationManager {
      * Called on starting an application form launcher.
      *
      * @param { WindowAnimationTarget } startingWindowTarget  - indicates Window target of the starting application.
-     * @param { WindowAnimationFinishedCallback } finishCallback Animation finished callback.
+     * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -181,8 +181,8 @@ declare namespace windowAnimationManager {
     /**
      * Called on starting an application form recent.
      *
-     * @param startingWindowTarget Window target of the starting application.
-     * @param finishCallback Animation finished callback.
+     * @param { WindowAnimationTarget } startingWindowTarget - Window target of the starting application.
+     * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -192,8 +192,8 @@ declare namespace windowAnimationManager {
     /**
      * Called on starting an application form other.
      *
-     * @param startingWindowTarget Window target of the starting application.
-     * @param finishCallback Animation finished callback.
+     * @param { WindowAnimationTarget } startingWindowTarget - Window target of the starting application.
+     * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -203,9 +203,9 @@ declare namespace windowAnimationManager {
     /**
      * Called on application transition.
      *
-     * @param fromWindowTarget Window target of the source application.
-     * @param toWindowTarget Window target of the destination application.
-     * @param finishCallback Animation finished callback.
+     * @param { WindowAnimationTarget } fromWindowTarget - Window target of the source application.
+     * @param { WindowAnimationTarget } toWindowTarget - Window target of the destination application.
+     * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -215,8 +215,8 @@ declare namespace windowAnimationManager {
     /**
      * Called on minimizing a window.
      *
-     * @param minimizingWindowTarget Window target of the minimizing window.
-     * @param finishCallback Animation finished callback.
+     * @param { WindowAnimationTarget } minimizingWindowTarget - Window target of the minimizing window.
+     * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -226,8 +226,8 @@ declare namespace windowAnimationManager {
     /**
      * Called on closing a window.
      *
-     * @param closingWindowTarget Window target of the closing window.
-     * @param finishCallback Animation finished callback.
+     * @param { WindowAnimationTarget }closingWindowTarget - Window target of the closing window.
+     * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -236,7 +236,7 @@ declare namespace windowAnimationManager {
     /**
      * Called on unlocking the screen.
      *
-     * @param finishCallback Animation finished callback.
+     * @param {WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -246,8 +246,8 @@ declare namespace windowAnimationManager {
     /**
      * Called on window animation targets update.
      *
-     * @param fullScreenWindowTarget The fullscreen window target.
-     * @param floatingWindowTargets All the floating window targets.
+     * @param { WindowAnimationTarget } fullScreenWindowTarget - The fullscreen window target.
+     * @param { Array<WindowAnimationTarget> } floatingWindowTargets - All the floating window targets.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
