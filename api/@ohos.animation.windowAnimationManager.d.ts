@@ -18,6 +18,7 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * Window animation manager.
  *
+ * @namespace windowAnimationManager
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
  * @since 9
@@ -59,6 +60,7 @@ declare namespace windowAnimationManager {
   /**
    * Round rect.
    *
+   * @interface RRect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -66,30 +68,35 @@ declare namespace windowAnimationManager {
   export interface RRect {
     /**
      * The X-axis coordinate of the upper left vertex of the round rect, in pixels.
+     * @type { number }
      * @since 9
      */
     left: number;
 
     /**
      * The Y-axis coordinate of the upper left vertex of the round rect, in pixels.
+     * @type { number }
      * @since 9
      */
     top: number;
 
     /**
      * Width of the round rect, in pixels.
+     * @type { number }
      * @since 9
      */
     width: number;
 
     /**
      * Height of the round rect, in pixels.
+     * @type { number }
      * @since 9
      */
     height: number;
 
     /**
      * Radius of the round corner of the round rect, in pixels.
+     * @type { number }
      * @since 9
      */
     radius: number;
@@ -98,6 +105,7 @@ declare namespace windowAnimationManager {
   /**
    * Window animation target.
    *
+   * @interface WindowAnimationTarget
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -105,24 +113,28 @@ declare namespace windowAnimationManager {
   export interface WindowAnimationTarget {
     /**
      * The bundle name of the window animation target.
+     * @type { string }
      * @since 9
      */
     readonly bundleName: string;
 
     /**
     /* The ability name of the window animation target.
+     * @type { string }
      * @since 9
      */
     readonly abilityName: string;
 
     /**
     /* The window bounds of the window animation target.
+     * @type { RRect }
      * @since 9
      */
     readonly windowBounds: RRect;
 
     /**
     /* The mission id of the window animation target.
+     * @type { number }  
      * @since 9
      */
     readonly missionId: number;
@@ -131,6 +143,7 @@ declare namespace windowAnimationManager {
   /**
    * Window animation finished callback.
    *
+   * @interface WindowAnimationFinishedCallback
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -148,6 +161,7 @@ declare namespace windowAnimationManager {
   /**
    * Window animation controller.
    *
+   * @interface WindowAnimationController
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -156,8 +170,8 @@ declare namespace windowAnimationManager {
     /**
      * Called on starting an application form launcher.
      *
-     * @param startingWindowTarget Window target of the starting application.
-     * @param finishCallback Animation finished callback.
+     * @param { WindowAnimationTarget } startingWindowTarget  - indicates Window target of the starting application.
+     * @param { WindowAnimationFinishedCallback } finishCallback Animation finished callback.
      * @systemapi Hide this for inner system use.
      * @since 9
      */
