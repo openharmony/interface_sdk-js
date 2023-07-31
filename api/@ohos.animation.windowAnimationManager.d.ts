@@ -28,7 +28,6 @@ declare namespace windowAnimationManager {
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @param controller Window animation controller.
-   * @returns void.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -40,7 +39,6 @@ declare namespace windowAnimationManager {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @param windowTarget The window target to be minimized.
    * @param callback Returns the animation finished callback.
-   * @returns void.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -52,7 +50,7 @@ declare namespace windowAnimationManager {
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @param windowTarget The window target to be minimized.
-   * @returns Returns the animation finished callback.
+   * @returns { Promise<WindowAnimationFinishedCallback> } Promise used to return the animation finished callback.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
