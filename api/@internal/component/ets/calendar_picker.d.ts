@@ -81,7 +81,7 @@ declare interface CalendarOptions {
 interface CalendarPickerInterface {
   /**
    * Defines the CalendarPicker constructor.
-   * @param { ?CalendarOptions } options - the option of th calendarPicker.
+   * @param { CalendarOptions } options - the option of th calendarPicker.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -101,7 +101,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   /**
    * Set the alignment between entry and calendar dialog.
    * @param { CalendarAlign } alignType - The type of alignment between entry and calendar dialog.
-   * @param { ?Offset } offset - The offset between entry and calendar dialog.
+   * @param { Offset } offset - The offset between entry and calendar dialog.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -175,7 +175,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 declare class CalendarPickerDialog {
   /**
    * Invoking method display.
-   * @param { ?CalendarDialogOptions } options - the option of th calendarPicker.
+   * @param { CalendarDialogOptions } options - the option of th calendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
