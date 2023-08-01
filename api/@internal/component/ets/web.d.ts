@@ -2126,6 +2126,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   * @deprecated since 10
+   * @useinstead ohos.web.webview.webview.WebviewController#setCustomUserAgent
    */
   userAgent(userAgent: string): WebAttribute;
 
