@@ -2724,7 +2724,8 @@ declare namespace window {
     /**
      * Unregister the callback of dialogTargetTouch
      *
-     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', indicating the click event of the target window in the modal window mode.
+     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', 
+     *  indicating the click event of the target window in the modal window mode.
      * @param { Callback<void> } callback - Callback invoked when the click event occurs in the target window of the modal window mode.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2840,7 +2841,8 @@ declare namespace window {
     /**
      * Whether the window supports thr wide gamut setting.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value true means that the wide-gamut color space is supported, and false means the opposite.
+     * @returns { Promise<boolean> } Promise used to return the result. 
+     *  The value true means that the wide-gamut color space is supported, and false means the opposite.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
