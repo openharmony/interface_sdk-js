@@ -16,7 +16,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This module provides the capabilities to manage the state and data of cloud file synchronization.
+ * Provides the capabilities to manage the state and data of cloud file synchronization.
  *
  * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager

@@ -544,11 +544,11 @@ declare namespace process {
   type EventListener = (evt: Object) => void;
   
   /**
-   * Provides the ConditionType type,including the timeout,the killSignal,the maxBuffer.
+   * Provides the ConditionType type,including timeout, killSignal, maxBuffer.
    *
    * @typedef ConditionType
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
+   * @systemapi Hide this for inner system use
    * @since 10
    * @test
    */
@@ -559,7 +559,7 @@ declare namespace process {
      *
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
+     * @systemapi Hide this for inner system use
      * @since 10
      * @test
      */
@@ -570,7 +570,7 @@ declare namespace process {
      *
      * @type { ?(number | string) }
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
+     * @systemapi Hide this for inner system use
      * @since 10
      * @test
      */
@@ -581,20 +581,20 @@ declare namespace process {
      *
      * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
+     * @systemapi Hide this for inner system use
      * @since 10
      * @test
      */
     maxBuffer?: number;
   }
   /**
-   * Return a child process object and spawns a new ChildProcess to run the command.
+   * Returns a child process object and spawns a new ChildProcess to run the command.
    *
    * @param { string } command - String of the shell commands executed by the child process.
    * @param { ConditionType } options - This is an object. The object contains three parameters. Timeout is the running time of the child
    * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
    * maximum buffer area for standard input and output.
-   * @returns { ChildProcess } Return a child process object.
+   * @returns { ChildProcess } Returns a child process object.
    * @syscap SystemCapability.Utils.Lang
    * @systemapi Hide this for inner system use
    * @since 7

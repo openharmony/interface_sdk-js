@@ -15,8 +15,8 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import { AsyncCallback } from "./@ohos.base";
-import { Callback } from "./@ohos.base";
+import { AsyncCallback } from './@ohos.base';
+import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
@@ -127,43 +127,17 @@ declare namespace webview {
      * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
-     * @deprecated since 10
-     * @useinstead SecureDnsMode#OFF
-     */
-    Off = 0,
-    /**
-     * By default, the set HttpDns server is used for dns resolution, and if it fails,
-     * the system dns is used for resolution.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
-     * @deprecated since 10
-     * @useinstead SecureDnsMode#AUTO
-     */
-    Auto = 1,
-    /**
-     * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
-     * fall back to the system dns, which will directly cause the page to fail to load.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
-     * @deprecated since 10
-     * @useinstead SecureDnsMode#SECURE_ONLY
-     */
-    SecureOnly = 2,
-    /**
-     * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
      */
     OFF = 0,
     /**
-     * By default, the set HttpDns server is used for dns resolution, and if it fails,
+     * By default, the user-settings of HttpDns is used for dns resolution, and if it fails,
      * the system dns is used for resolution.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     AUTO = 1,
     /**
-     * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
+     * Use the user-settings of HttpDns for dns resolution. If it fails, it will not
      * fall back to the system dns, which will directly cause the page to fail to load.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10

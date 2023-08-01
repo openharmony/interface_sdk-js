@@ -19,14 +19,14 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare enum MessageLevel {
   /**
    * Debug level.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Debug,
@@ -34,7 +34,7 @@ declare enum MessageLevel {
   /**
    * Error level.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Error,
@@ -42,7 +42,7 @@ declare enum MessageLevel {
   /**
    * Info level.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Info,
@@ -50,7 +50,7 @@ declare enum MessageLevel {
   /**
    * Log level.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Log,
@@ -58,7 +58,7 @@ declare enum MessageLevel {
   /**
    * Warn level.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Warn,
@@ -68,14 +68,14 @@ declare enum MessageLevel {
  * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare enum MixedMode {
   /**
    * Allows all sources.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   All,
@@ -83,7 +83,7 @@ declare enum MixedMode {
   /**
    * Allows sources Compatibly.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Compatible,
@@ -91,7 +91,7 @@ declare enum MixedMode {
   /**
    * Don't allow unsecure sources from a secure origin.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   None,
@@ -101,14 +101,14 @@ declare enum MixedMode {
  * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare enum HitTestType {
   /**
    * The edit text.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   EditText,
@@ -116,7 +116,7 @@ declare enum HitTestType {
   /**
    * The email address.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Email,
@@ -124,7 +124,7 @@ declare enum HitTestType {
   /**
    * The HTML::a tag with src=http.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   HttpAnchor,
@@ -132,7 +132,7 @@ declare enum HitTestType {
   /**
    * The HTML::a tag with src=http + HTML::img.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   HttpAnchorImg,
@@ -140,7 +140,7 @@ declare enum HitTestType {
   /**
    * The HTML::img tag.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Img,
@@ -148,7 +148,7 @@ declare enum HitTestType {
   /**
    * The map address.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Map,
@@ -156,7 +156,7 @@ declare enum HitTestType {
   /**
    * The phone number.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Phone,
@@ -164,7 +164,7 @@ declare enum HitTestType {
   /**
    * Other unknown HitTest.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Unknown,
@@ -174,14 +174,14 @@ declare enum HitTestType {
  * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare enum CacheMode {
   /**
    * load cache when they are available and not expired, otherwise load online.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Default,
@@ -189,7 +189,7 @@ declare enum CacheMode {
   /**
    * load cache when they are available, otherwise load online.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   None,
@@ -197,7 +197,7 @@ declare enum CacheMode {
   /**
    * Load cache first, then online.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Online,
@@ -205,7 +205,7 @@ declare enum CacheMode {
   /**
    * load cache and not online.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   Only,
@@ -215,14 +215,14 @@ declare enum CacheMode {
  * Enum type supplied to {@link darkMode} for setting the web dark mode.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum WebDarkMode {
   /**
    * Disable the web dark mode.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Off,
@@ -230,7 +230,7 @@ declare enum WebDarkMode {
   /**
    * Enable the web dark mode.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   On,
@@ -238,7 +238,7 @@ declare enum WebDarkMode {
   /**
    * Make web dark mode follow the system.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Auto,
@@ -264,7 +264,7 @@ declare enum WebCaptureMode {
  * Defines the Media Options.
  *
  * @interface WebMediaOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 10
  */
 declare interface WebMediaOptions {
@@ -272,7 +272,7 @@ declare interface WebMediaOptions {
    * The time interval for audio playback to resume.
    *
    * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   resumeInterval?: number;
@@ -280,7 +280,7 @@ declare interface WebMediaOptions {
    * Whether the audio of each web is exclusive.
    *
    * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   audioExclusive?: boolean;
@@ -307,14 +307,14 @@ declare interface ScreenCaptureConfig {
 /**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class FullScreenExitHandler {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -322,7 +322,7 @@ declare class FullScreenExitHandler {
   /**
    * Exit the full screen mode.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   exitFullScreen(): void;
@@ -332,14 +332,14 @@ declare class FullScreenExitHandler {
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum RenderExitReason {
   /**
    * Render process non-zero exit status.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   ProcessAbnormalTermination,
@@ -347,7 +347,7 @@ declare enum RenderExitReason {
   /**
    * SIGKILL or task manager kill.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   ProcessWasKilled,
@@ -355,7 +355,7 @@ declare enum RenderExitReason {
   /**
    * Segmentation fault.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   ProcessCrashed,
@@ -363,7 +363,7 @@ declare enum RenderExitReason {
   /**
    * Out of memory.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   ProcessOom,
@@ -371,7 +371,7 @@ declare enum RenderExitReason {
   /**
    * Unknown reason.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   ProcessExitUnknown,
@@ -381,14 +381,14 @@ declare enum RenderExitReason {
  * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum SslError {
   /**
    * General error.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Invalid,
@@ -396,7 +396,7 @@ declare enum SslError {
   /**
    * Hostname mismatch.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   HostMismatch,
@@ -404,7 +404,7 @@ declare enum SslError {
   /**
    * The certificate date is invalid.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   DateInvalid,
@@ -412,7 +412,7 @@ declare enum SslError {
   /**
    * The certificate authority is not trusted.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Untrusted,
@@ -422,14 +422,14 @@ declare enum SslError {
  * Enum type supplied to {@link FileSelectorParam} when onFileSelectorShow being called.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum FileSelectorMode {
   /**
    * Allows single file to be selected.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   FileOpenMode,
@@ -437,7 +437,7 @@ declare enum FileSelectorMode {
   /**
    * Allows multiple files to be selected.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   FileOpenMultipleMode,
@@ -445,7 +445,7 @@ declare enum FileSelectorMode {
   /**
    * Allows file folders to be selected.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   FileOpenFolderMode,
@@ -453,7 +453,7 @@ declare enum FileSelectorMode {
   /**
    * Allows select files to save.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   FileSaveMode,
@@ -462,14 +462,14 @@ declare enum FileSelectorMode {
 /**
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class FileSelectorParam {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -477,7 +477,7 @@ declare class FileSelectorParam {
   /**
     * Gets the title of this file selector.
     * @returns { string } Return the title of this file selector.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @syscap SystemCapability.Web.Webview.Core
     * @since 9
     */
   getTitle(): string;
@@ -485,7 +485,7 @@ declare class FileSelectorParam {
   /**
     * Gets the FileSelectorMode of this file selector.
     * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @syscap SystemCapability.Web.Webview.Core
     * @since 9
     */
   getMode(): FileSelectorMode;
@@ -493,7 +493,7 @@ declare class FileSelectorParam {
   /**
     * Gets an array of acceptable MMIE type.
     * @returns { Array<string> } Return an array of acceptable MMIE type.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @syscap SystemCapability.Web.Webview.Core
     * @since 9
     */
   getAcceptType(): Array<string>;
@@ -502,7 +502,7 @@ declare class FileSelectorParam {
    * Gets whether this file selector use a live media captured value.
    *
    * @returns { boolean } Return {@code true} if captured media; return {@code false} otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   isCapture(): boolean;
@@ -511,14 +511,14 @@ declare class FileSelectorParam {
 /**
  * Defines the js result.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class JsResult {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   constructor();
@@ -526,7 +526,7 @@ declare class JsResult {
   /**
    * Handle the user's JavaScript result if cancel the dialog.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   handleCancel(): void;
@@ -534,7 +534,7 @@ declare class JsResult {
   /**
    * Handle the user's JavaScript result if confirm the dialog.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   handleConfirm(): void;
@@ -543,7 +543,7 @@ declare class JsResult {
    * Handle the user's JavaScript result if confirm the prompt dialog.
    *
    * @param { string } result
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   handlePromptConfirm(result: string): void;
@@ -552,14 +552,14 @@ declare class JsResult {
 /**
  * Defines the file selector result, related to {@link onFileSelectorShow} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class FileSelectorResult {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -568,7 +568,7 @@ declare class FileSelectorResult {
    * select a list of files.
    *
    * @param { Array<string> } fileList
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   handleFileList(fileList: Array<string>): void;
@@ -577,14 +577,14 @@ declare class FileSelectorResult {
 /**
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class HttpAuthHandler {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -595,7 +595,7 @@ declare class HttpAuthHandler {
    * @param { string } userName
    * @param { string } password
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   confirm(userName: string, password: string): boolean;
@@ -603,7 +603,7 @@ declare class HttpAuthHandler {
   /**
    * cancel.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   cancel(): void;
@@ -612,7 +612,7 @@ declare class HttpAuthHandler {
    * isHttpAuthInfoSaved.
    *
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   isHttpAuthInfoSaved(): boolean;
@@ -621,14 +621,14 @@ declare class HttpAuthHandler {
 /**
  * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class SslErrorHandler {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -636,7 +636,7 @@ declare class SslErrorHandler {
   /**
    * Confirm to use the SSL certificate.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   handleConfirm(): void;
@@ -644,7 +644,7 @@ declare class SslErrorHandler {
   /**
    * Cancel this request.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   handleCancel(): void;
@@ -653,14 +653,14 @@ declare class SslErrorHandler {
 /**
  * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class ClientAuthenticationHandler {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -670,7 +670,7 @@ declare class ClientAuthenticationHandler {
    *
    * @param { string } priKeyFile - The file that store private key.
    * @param { string } certChainFile - The file that store client certificate chain.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   confirm(priKeyFile: string, certChainFile: string): void;
@@ -679,7 +679,7 @@ declare class ClientAuthenticationHandler {
    * Confirm to use the authUri.The authUri can be obtained from certificate management.
    *
    * @param { string } authUri is the key of credentials.The credentials contain sign info and client certificates info.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   confirm(authUri: string): void;
@@ -687,7 +687,7 @@ declare class ClientAuthenticationHandler {
   /**
    * Cancel this certificate request.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   cancel(): void;
@@ -695,7 +695,7 @@ declare class ClientAuthenticationHandler {
   /**
    * Ignore this certificate request temporarily.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   ignore(): void;
@@ -705,14 +705,14 @@ declare class ClientAuthenticationHandler {
  * Defines the accessible resource type, related to {@link onPermissionRequest} method.
  *
  * @enum { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum ProtectedResourceType {
   /**
    * The MidiSysex resource.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   MidiSysex = 'TYPE_MIDI_SYSEX',
@@ -720,7 +720,7 @@ declare enum ProtectedResourceType {
   /**
    * The video capture resource, such as camera.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   VIDEO_CAPTURE = 'TYPE_VIDEO_CAPTURE',
@@ -728,7 +728,7 @@ declare enum ProtectedResourceType {
   /**
    * The audio capture resource, such as microphone.
    * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE'
@@ -737,14 +737,14 @@ declare enum ProtectedResourceType {
 /**
  * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class PermissionRequest {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -752,7 +752,7 @@ declare class PermissionRequest {
   /**
    * Reject the request.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   deny(): void;
@@ -761,7 +761,7 @@ declare class PermissionRequest {
    * Gets the source if the webpage that attempted to access the restricted resource.
    *
    * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getOrigin(): string;
@@ -770,7 +770,7 @@ declare class PermissionRequest {
    * Gets the resource that the webpage is trying to access.
    *
    * @returns { Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getAccessibleResource(): Array<string>;
@@ -779,7 +779,7 @@ declare class PermissionRequest {
    * Grant origin access to a given resource.
    *
    * @param { Array<string> } resources
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   grant(resources: Array<string>): void;
@@ -826,14 +826,14 @@ declare class ScreenCaptureHandler {
 /**
  * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class DataResubmissionHandler {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -841,7 +841,7 @@ declare class DataResubmissionHandler {
   /**
    * Resend related form data.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   resend(): void;
@@ -849,7 +849,7 @@ declare class DataResubmissionHandler {
   /**
    * Do not resend related form data.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   cancel(): void;
@@ -858,14 +858,14 @@ declare class DataResubmissionHandler {
 /**
  * Defines the onWindowNew callback, related to {@link onWindowNew} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class ControllerHandler {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -874,7 +874,7 @@ declare class ControllerHandler {
    * Set WebController object.
    *
    * @param { WebviewController } controller
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   setWebController(controller: WebviewController): void;
@@ -884,14 +884,14 @@ declare class ControllerHandler {
  * Defines the context menu source type, related to {@link onContextMenuShow} method.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum ContextMenuSourceType {
   /**
    * Other source types.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   None,
@@ -899,7 +899,7 @@ declare enum ContextMenuSourceType {
   /**
    * Mouse.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Mouse,
@@ -907,7 +907,7 @@ declare enum ContextMenuSourceType {
   /**
    * Long press.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   LongPress,
@@ -917,14 +917,14 @@ declare enum ContextMenuSourceType {
  * Defines the context menu media type, related to {@link onContextMenuShow} method.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum ContextMenuMediaType {
   /**
    * Not a special node or other media types.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   None,
@@ -932,7 +932,7 @@ declare enum ContextMenuMediaType {
   /**
    * Image.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Image,
@@ -942,14 +942,14 @@ declare enum ContextMenuMediaType {
  * Defines the context menu input field type, related to {@link onContextMenuShow} method.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum ContextMenuInputFieldType {
   /**
    * Not an input field.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   None,
@@ -957,7 +957,7 @@ declare enum ContextMenuInputFieldType {
   /**
    * The plain text type.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   PlainText,
@@ -965,7 +965,7 @@ declare enum ContextMenuInputFieldType {
   /**
    * The password type.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Password,
@@ -973,7 +973,7 @@ declare enum ContextMenuInputFieldType {
   /**
    * The number type.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Number,
@@ -981,7 +981,7 @@ declare enum ContextMenuInputFieldType {
   /**
    * The telephone type.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Telephone,
@@ -989,7 +989,7 @@ declare enum ContextMenuInputFieldType {
   /**
    * Other types.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   Other,
@@ -999,7 +999,7 @@ declare enum ContextMenuInputFieldType {
  * Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
  *
  * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare enum ContextMenuEditStateFlags {
@@ -1013,14 +1013,14 @@ declare enum ContextMenuEditStateFlags {
 /**
  * Defines the context menu param, related to {@link WebContextMenuParam} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
 declare class WebContextMenuParam {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -1029,7 +1029,7 @@ declare class WebContextMenuParam {
    * Horizontal offset coordinates of the menu within the Web component.
    *
    * @returns { number } The context menu x coordinate.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   x(): number;
@@ -1038,7 +1038,7 @@ declare class WebContextMenuParam {
    * Vertical offset coordinates for the menu within the Web component.
    *
    * @returns { number } The context menu y coordinate.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   y(): number;
@@ -1047,7 +1047,7 @@ declare class WebContextMenuParam {
    * If the long-press location is the link returns the link's security-checked URL.
    *
    * @returns { string } If relate to a link return link url, else return null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getLinkUrl(): string;
@@ -1056,7 +1056,7 @@ declare class WebContextMenuParam {
    * If the long-press location is the link returns the link's original URL.
    *
    * @returns { string } If relate to a link return unfiltered link url, else return null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getUnfilteredLinkUrl(): string;
@@ -1065,7 +1065,7 @@ declare class WebContextMenuParam {
    * Returns the SRC URL if the selected element has a SRC attribute.
    *
    * @returns { string } If this context menu is "src" attribute, return link url, else return null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getSourceUrl(): string;
@@ -1074,7 +1074,7 @@ declare class WebContextMenuParam {
    * Long press menu location has image content.
    *
    * @returns { boolean } Return whether this context menu has image content.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   existsImageContents(): boolean;
@@ -1083,7 +1083,7 @@ declare class WebContextMenuParam {
    * Returns the type of context node.
    *
    * @returns { ContextMenuMediaType } Returns the type of context node.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getMediaType(): ContextMenuMediaType;
@@ -1092,7 +1092,7 @@ declare class WebContextMenuParam {
    * Returns the text of the selection.
    *
    * @returns { string } Returns the text of the selection.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getSelectionText(): string;
@@ -1101,7 +1101,7 @@ declare class WebContextMenuParam {
    * Returns the context menu source type.
    *
    * @returns { ContextMenuSourceType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getSourceType(): ContextMenuSourceType;
@@ -1110,7 +1110,7 @@ declare class WebContextMenuParam {
    * Returns input field type if the context menu was invoked on an input field.
    *
    * @returns { ContextMenuInputFieldType } Input field type if the context menu was invoked on an input field.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getInputFieldType(): ContextMenuInputFieldType;
@@ -1119,7 +1119,7 @@ declare class WebContextMenuParam {
    * Returns whether the context is editable.
    *
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   isEditable(): boolean;
@@ -1128,7 +1128,7 @@ declare class WebContextMenuParam {
    * Returns the context editable flags {@link ContextMenuEditStateFlags}.
    *
    * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getEditStateFlags(): number;
@@ -1143,7 +1143,7 @@ declare class WebContextMenuResult {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -1152,7 +1152,7 @@ declare class WebContextMenuResult {
    * When close context menu without other call in WebContextMenuResult,
    * User should call this function to close menu
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   closeContextMenu(): void;
@@ -1161,7 +1161,7 @@ declare class WebContextMenuResult {
    * If WebContextMenuParam has image content, this function will copy image related to this context menu.
    * If WebContextMenuParam has no image content, this function will do nothing.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   copyImage(): void;
@@ -1169,7 +1169,7 @@ declare class WebContextMenuResult {
   /**
    * Executes the copy operation related to this context menu.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   copy(): void;
@@ -1177,7 +1177,7 @@ declare class WebContextMenuResult {
   /**
    * Executes the paste operation related to this context menu.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   paste(): void;
@@ -1185,7 +1185,7 @@ declare class WebContextMenuResult {
   /**
    * Executes the cut operation related to this context menu.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   cut(): void;
@@ -1193,7 +1193,7 @@ declare class WebContextMenuResult {
   /**
    * Executes the selectAll operation related to this context menu.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   selectAll(): void;
@@ -1202,7 +1202,7 @@ declare class WebContextMenuResult {
 /**
  * Encompassed message information as parameters to {@link onConsole} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class ConsoleMessage {
@@ -1213,7 +1213,7 @@ declare class ConsoleMessage {
    * @param { string } sourceId - The Web source file's path and name.
    * @param { number } lineNumber - The line number of the console message.
    * @param { MessageLevel } messageLevel - The console log level.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.ConsoleMessage#constructor
@@ -1223,7 +1223,7 @@ declare class ConsoleMessage {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   constructor();
@@ -1232,7 +1232,7 @@ declare class ConsoleMessage {
    * Gets the message of a console message.
    *
    * @returns { string } Return the message of a console message.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getMessage(): string;
@@ -1241,7 +1241,7 @@ declare class ConsoleMessage {
    * Gets the Web source file's path and name of a console message.
    *
    * @returns { string } Return the Web source file's path and name of a console message.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getSourceId(): string;
@@ -1250,7 +1250,7 @@ declare class ConsoleMessage {
    * Gets the line number of a console message.
    *
    * @returns { number } Return the line number of a console message.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getLineNumber(): number;
@@ -1259,7 +1259,7 @@ declare class ConsoleMessage {
    * Gets the message level of a console message.
    *
    * @returns { MessageLevel } Return the message level of a console message, which can be {@link MessageLevel}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getMessageLevel(): MessageLevel;
@@ -1268,20 +1268,20 @@ declare class ConsoleMessage {
 /**
  * Encompassed message information as parameters to {@link onConsole} method.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 /**
  * Defines the Web resource request.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class WebResourceRequest {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   constructor();
@@ -1290,7 +1290,7 @@ declare class WebResourceRequest {
    * Gets request headers.
    *
    * @returns { Array<Header> } Return the request headers
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getRequestHeader(): Array<Header>;
@@ -1299,7 +1299,7 @@ declare class WebResourceRequest {
    * Gets the request URL.
    *
    * @returns { string } Return the request URL.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getRequestUrl(): string;
@@ -1308,7 +1308,7 @@ declare class WebResourceRequest {
    * Check whether the request is associated with gesture.
    *
    * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   isRequestGesture(): boolean;
@@ -1317,7 +1317,7 @@ declare class WebResourceRequest {
    * Check whether the request is for getting the main frame.
    *
    * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   isMainFrame(): boolean;
@@ -1326,7 +1326,7 @@ declare class WebResourceRequest {
    * Check whether the request redirects.
    *
    * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   isRedirect(): boolean;
@@ -1335,7 +1335,7 @@ declare class WebResourceRequest {
    * Get request method.
    *
    * @returns { string } Return the request method.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   getRequestMethod(): string;
@@ -1344,14 +1344,14 @@ declare class WebResourceRequest {
 /**
  * Defines the Web resource response.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class WebResourceResponse {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   constructor();
@@ -1360,7 +1360,7 @@ declare class WebResourceResponse {
    * Gets the response data.
    *
    * @returns { string } Return the response data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getResponseData(): string;
@@ -1369,7 +1369,7 @@ declare class WebResourceResponse {
    * Gets the response encoding.
    *
    * @returns { string } Return the response encoding.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getResponseEncoding(): string;
@@ -1378,7 +1378,7 @@ declare class WebResourceResponse {
    * Gets the response MIME type.
    *
    * @returns { string } Return the response MIME type.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getResponseMimeType(): string;
@@ -1387,7 +1387,7 @@ declare class WebResourceResponse {
    * Gets the reason message.
    *
    * @returns { string } Return the reason message.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getReasonMessage(): string;
@@ -1396,7 +1396,7 @@ declare class WebResourceResponse {
    * Gets the response headers.
    *
    * @returns { Array<Header> } Return the response headers.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getResponseHeader(): Array<Header>;
@@ -1405,7 +1405,7 @@ declare class WebResourceResponse {
    * Gets the response code.
    *
    * @returns { number } Return the response code.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getResponseCode(): number;
@@ -1414,7 +1414,7 @@ declare class WebResourceResponse {
    * Sets the response data.
    *
    * @param { string | number | Resource } data - the response data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
@@ -1436,7 +1436,7 @@ declare class WebResourceResponse {
    * Sets the response encoding.
    *
    * @param { string } encoding the response encoding.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   setResponseEncoding(encoding: string);
@@ -1445,7 +1445,7 @@ declare class WebResourceResponse {
    * Sets the response MIME type.
    *
    * @param { string } mimeType the response MIME type.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   setResponseMimeType(mimeType: string);
@@ -1454,7 +1454,7 @@ declare class WebResourceResponse {
    * Sets the reason message.
    *
    * @param { string } reason the reason message.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   setReasonMessage(reason: string);
@@ -1463,7 +1463,7 @@ declare class WebResourceResponse {
    * Sets the response headers.
    *
    * @param { Array<Header> } header the response headers.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   setResponseHeader(header: Array<Header>);
@@ -1472,7 +1472,7 @@ declare class WebResourceResponse {
    * Sets the response code.
    *
    * @param { number } code the response code.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   setResponseCode(code: number);
@@ -1481,7 +1481,7 @@ declare class WebResourceResponse {
    * Sets the response is ready or not.
    *
    * @param { boolean } IsReady whether the response is ready.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   setResponseIsReady(IsReady: boolean);
@@ -1491,7 +1491,7 @@ declare class WebResourceResponse {
  * Defines the Web's request/response header.
  *
  * @interface Header
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare interface Header {
@@ -1499,7 +1499,7 @@ declare interface Header {
    * Gets the key of the request/response header.
    *
    * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   headerKey: string;
@@ -1508,7 +1508,7 @@ declare interface Header {
    * Gets the value of the request/response header.
    *
    * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   headerValue: string;
@@ -1517,14 +1517,14 @@ declare interface Header {
 /**
  * Defines the Web resource error.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class WebResourceError {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   constructor();
@@ -1533,7 +1533,7 @@ declare class WebResourceError {
    * Gets the info of the Web resource error.
    *
    * @returns { string } Return the info of the Web resource error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getErrorInfo(): string;
@@ -1542,7 +1542,7 @@ declare class WebResourceError {
    * Gets the code of the Web resource error.
    *
    * @returns { number } Return the code of the Web resource error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   getErrorCode(): number;
@@ -1557,7 +1557,7 @@ declare class JsGeolocation {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   constructor();
@@ -1568,7 +1568,7 @@ declare class JsGeolocation {
    * @param { string } origin - The origin that ask for the geolocation permission.
    * @param { boolean } allow - The geolocation permission status.
    * @param { boolean } retain - Whether to allow the geolocation permission status to be saved to the system.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   invoke(origin: string, allow: boolean, retain: boolean): void;
@@ -1577,14 +1577,14 @@ declare class JsGeolocation {
 /**
  * Defines the Web cookie.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare class WebCookie {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   constructor();
@@ -1592,7 +1592,7 @@ declare class WebCookie {
   /**
    * Sets the cookie.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebCookieManager#setCookie
@@ -1602,7 +1602,7 @@ declare class WebCookie {
   /**
    * Saves the cookies.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebCookieManager#saveCookieAsync
@@ -1621,7 +1621,7 @@ declare class WebController {
   /**
    * Constructor.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    */
@@ -1630,7 +1630,7 @@ declare class WebController {
   /**
    * Let the Web inactive.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#onInactive
@@ -1640,7 +1640,7 @@ declare class WebController {
   /**
    * Let the Web active.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#onActive
@@ -1651,7 +1651,7 @@ declare class WebController {
    * Let the Web zoom by.
    *
    * @param { number } factor The zoom factor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#zoom
@@ -1661,7 +1661,7 @@ declare class WebController {
   /**
    * Clears the history in the Web.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#clearHistory
@@ -1673,7 +1673,7 @@ declare class WebController {
    *
    * @param { { script: string;
    * callback?: (result: string) => void } } options The options with a piece of code and a callback.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#runJavaScript
@@ -1685,7 +1685,7 @@ declare class WebController {
    *
    * @param { { data: string; mimeType: string; encoding: string; baseUrl?: string;
    * historyUrl?: string } } options The options with the data or URL and other information.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#loadData
@@ -1696,7 +1696,7 @@ declare class WebController {
    * Loads the given URL.
    *
    * @param { { url: string | Resource; headers?: Array<Header> } } options The options with the URL and other information.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#loadUrl
@@ -1706,7 +1706,7 @@ declare class WebController {
   /**
    * refreshes the current URL.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#refresh
@@ -1716,7 +1716,7 @@ declare class WebController {
   /**
    * Stops the current load.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#stop
@@ -1727,7 +1727,7 @@ declare class WebController {
    * Registers the JavaScript object and method list.
    *
    * @param { { object: object; name: string; methodList: Array<string> } } options - The option with the JavaScript object and method list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#registerJavaScriptProxy
@@ -1738,7 +1738,7 @@ declare class WebController {
    * Deletes a registered JavaScript object with given name.
    *
    * @param { string } name - The name of a registered JavaScript object to be deleted.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#deleteJavaScriptRegister
@@ -1749,7 +1749,7 @@ declare class WebController {
    * Gets the type of HitTest.
    *
    * @returns { HitTestType } The type of HitTest.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#getHitTest
@@ -1759,7 +1759,7 @@ declare class WebController {
   /**
    * Gets the request focus.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#requestFocus
@@ -1770,7 +1770,7 @@ declare class WebController {
    * Checks whether the web page can go back.
    *
    * @returns { boolean } Whether the web page can go back.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#accessBackward
@@ -1781,7 +1781,7 @@ declare class WebController {
    * Checks whether the web page can go forward.
    *
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#accessForward
@@ -1793,7 +1793,7 @@ declare class WebController {
    *
    * @param { number } step The number of steps.
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#accessStep
@@ -1803,7 +1803,7 @@ declare class WebController {
   /**
    * Goes back in the history of the web page.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#backward
@@ -1813,7 +1813,7 @@ declare class WebController {
   /**
    * Goes forward in the history of the web page.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebviewController#forward
@@ -1824,7 +1824,7 @@ declare class WebController {
    * Gets network cookie manager
    *
    * @returns { WebCookie }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    * @deprecated since 9
    */
@@ -1835,7 +1835,7 @@ declare class WebController {
  * Defines the Web options.
  *
  * @interface WebOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare interface WebOptions {
@@ -1843,7 +1843,7 @@ declare interface WebOptions {
    * Sets the address of the web page to be displayed.
    *
    * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   src: string | Resource;
@@ -1851,14 +1851,14 @@ declare interface WebOptions {
    * Sets the controller of the Web.
    *
    * @type { WebController | WebviewController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Sets the controller of the Web.
    *
    * @type { WebController | WebviewController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
   */
   controller: WebController | WebviewController;
@@ -1868,7 +1868,7 @@ declare interface WebOptions {
  * Defines the Web interface.
  *
  * @interface WebInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 interface WebInterface {
@@ -1877,7 +1877,7 @@ interface WebInterface {
    *
    * @param { WebOptions } value
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   (value: WebOptions): WebAttribute;
@@ -1895,7 +1895,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
@@ -1905,7 +1905,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   fileAccess(fileAccess: boolean): WebAttribute;
@@ -1916,7 +1916,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
    * {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
@@ -1926,7 +1926,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
@@ -1936,7 +1936,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   imageAccess(imageAccess: boolean): WebAttribute;
@@ -1946,7 +1946,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   mixedMode(mixedMode: MixedMode): WebAttribute;
@@ -1956,7 +1956,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   zoomAccess(zoomAccess: boolean): WebAttribute;
@@ -1966,7 +1966,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   geolocationAccess(geolocationAccess: boolean): WebAttribute;
@@ -1978,7 +1978,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * name: string;methodList: Array<string>;
    * controller: WebController } } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
@@ -1988,7 +1988,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * name: string;methodList: Array<string>;
    * controller: WebController | WebviewController } } javaScriptProxy - The JavaScript object to be injected.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
@@ -1999,7 +1999,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } password - {@code true} means the Web can save the password; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 10
    */
@@ -2010,7 +2010,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
@@ -2020,7 +2020,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { WebDarkMode } mode - The dark mode, which can be {@link WebDarkMode}.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   darkMode(mode: WebDarkMode): WebAttribute;
@@ -2030,7 +2030,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } access {@code true} means enable the force dark algorithm; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   forceDarkAccess(access: boolean): WebAttribute;
@@ -2040,7 +2040,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { WebMediaOptions } options The media options, which can be {@link WebMediaOptions}.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   mediaOptions(options: WebMediaOptions): WebAttribute;
@@ -2050,7 +2050,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 10
    */
@@ -2061,7 +2061,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } wideViewModeAccess {@code true} means the Web access meta 'viewport' in HTML; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 10
    */
@@ -2072,7 +2072,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } overviewModeAccess {@code true} means the Web access overview mode; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
@@ -2082,7 +2082,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { number } textZoomAtio The ratio of the text zoom.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.WebAttribute#textZoomRatio
@@ -2094,7 +2094,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { number } textZoomRatio The ratio of the text zoom.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   textZoomRatio(textZoomRatio: number): WebAttribute;
@@ -2104,7 +2104,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   databaseAccess(databaseAccess: boolean): WebAttribute;
@@ -2114,7 +2114,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { number } percent the initial scale for the Web.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   initialScale(percent: number): WebAttribute;
@@ -2124,7 +2124,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { string } userAgent The Web's user agent.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   userAgent(userAgent: string): WebAttribute;
@@ -2134,7 +2134,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function at the end of web page loading.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
@@ -2144,7 +2144,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onPageBegin(callback: (event?: { url: string }) => void): WebAttribute;
@@ -2154,7 +2154,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the page loading progress changes.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onProgressChange(callback: (event?: { newProgress: number }) => void): WebAttribute;
@@ -2164,7 +2164,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onTitleReceive(callback: (event?: { title: string }) => void): WebAttribute;
@@ -2174,7 +2174,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when requesting to hide the geolocation permission.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onGeolocationHide(callback: () => void): WebAttribute;
@@ -2184,7 +2184,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when requesting to show the geolocation permission.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onGeolocationShow(callback: (event?: { origin: string, geolocation: JsGeolocation }) => void): WebAttribute;
@@ -2194,7 +2194,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the Web gets the focus.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onRequestSelected(callback: () => void): WebAttribute;
@@ -2204,7 +2204,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onAlert(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
@@ -2214,7 +2214,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onBeforeUnload(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
@@ -2224,7 +2224,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onConfirm(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
@@ -2234,7 +2234,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onPrompt(callback: (event?: { url: string, message: string, value: string, result: JsResult }) => boolean): WebAttribute;
@@ -2244,7 +2244,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the web page receives a JavaScript console message.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onConsole(callback: (event?: { message: ConsoleMessage }) => boolean): WebAttribute;
@@ -2254,7 +2254,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the web page receives a web resource loading error.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onErrorReceive(callback: (event?: { request: WebResourceRequest, error: WebResourceError }) => void): WebAttribute;
@@ -2264,7 +2264,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the web page receives a web resource loading HTTP error.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onHttpErrorReceive(callback: (event?: { request: WebResourceRequest,
@@ -2275,7 +2275,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when starting to download.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onDownloadStart(callback: (event?: { url: string, userAgent: string, contentDisposition: string, mimetype: string,
@@ -2286,7 +2286,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when the Web page refreshes accessed history.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   onRefreshAccessedHistory(callback: (event?: { url: string, isRefreshed: boolean }) => void): WebAttribute;
@@ -2296,7 +2296,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when the URL loading is intercepted.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 10
    * @useinstead ohos.web.WebAttribute#onLoadIntercept
@@ -2308,7 +2308,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.WebAttribute#onSslErrorEventReceive
@@ -2320,7 +2320,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered when the render process exits.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onRenderExited(callback: (event?: { renderExitReason: RenderExitReason }) => void): WebAttribute;
@@ -2330,7 +2330,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered when the file selector shows.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onShowFileSelector(callback: (event?: { result: FileSelectorResult,
@@ -2341,7 +2341,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered when the render process exits.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.WebAttribute#onRenderExited
@@ -2353,7 +2353,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered when the file selector shows.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.WebAttribute#onShowFileSelector
@@ -2365,7 +2365,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered when the url loading.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onResourceLoad(callback: (event: { url: string }) => void): WebAttribute;
@@ -2375,7 +2375,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the web component exit the full screen mode.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onFullScreenExit(callback: () => void): WebAttribute;
@@ -2385,7 +2385,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered function when the web component enter the full screen mode.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onFullScreenEnter(callback: (event: { handler: FullScreenExitHandler }) => void): WebAttribute;
@@ -2395,7 +2395,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered when the scale of WebView changed.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onScaleChange(callback: (event: { oldScale: number, newScale: number }) => void): WebAttribute;
@@ -2405,7 +2405,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered when the browser needs credentials from the user.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
@@ -2415,7 +2415,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when the resources loading is intercepted.
    * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onInterceptRequest(callback: (event?: { request: WebResourceRequest }) => WebResourceResponse): WebAttribute;
@@ -2426,7 +2426,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered callback when the host application that web content from the specified origin is
    *     attempting to access the resources.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onPermissionRequest(callback: (event?: { request: PermissionRequest }) => void): WebAttribute;
@@ -2446,7 +2446,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when called to allow custom display of the context menu.
    * @returns { WebAttribute } If custom display return true.Otherwise, default display return false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
@@ -2456,7 +2456,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } access True if it needs to be triggered manually by the user else false.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   mediaPlayGestureAccess(access: boolean): WebAttribute;
@@ -2467,7 +2467,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback Function Triggered when the host application call searchAllAsync
    * or searchNext api on WebController and the request is valid.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onSearchResultReceive(callback: (event?: { activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean }) => void): WebAttribute
@@ -2477,7 +2477,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback Function Triggered when the scroll bar slides to the specified position.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
@@ -2487,7 +2487,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
@@ -2497,7 +2497,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when needs ssl client certificate from the user.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
@@ -2508,7 +2508,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when web page requires the user to create a window.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onWindowNew(callback: (event: {isAlert: boolean, isUserTrigger: boolean, targetUrl: string,
@@ -2519,7 +2519,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when web page requires the user to close a window.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onWindowExit(callback: () => void): WebAttribute;
@@ -2529,7 +2529,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
@@ -2539,7 +2539,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
@@ -2549,7 +2549,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { string } family Standard font set series.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   webStandardFont(family: string): WebAttribute;
@@ -2559,7 +2559,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { string } family Serif font set series.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   webSerifFont(family: string): WebAttribute;
@@ -2569,7 +2569,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { string } family Sans serif font set series.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   webSansSerifFont(family: string): WebAttribute;
@@ -2579,7 +2579,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { string } family Fixed font set series.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   webFixedFont(family: string): WebAttribute;
@@ -2589,7 +2589,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { string } family fantasy font set series.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   webFantasyFont(family: string): WebAttribute;
@@ -2599,7 +2599,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { string } family Cursive font set series.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   webCursiveFont(family: string): WebAttribute;
@@ -2609,7 +2609,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   defaultFixedFontSize(size: number): WebAttribute;
@@ -2619,7 +2619,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   defaultFontSize(size: number): WebAttribute;
@@ -2629,7 +2629,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   minFontSize(size: number): WebAttribute;
@@ -2639,7 +2639,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * 
    * @param { number } size Font size.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   minLogicalFontSize(size: number): WebAttribute;
@@ -2649,7 +2649,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   blockNetwork(block: boolean): WebAttribute;
@@ -2659,7 +2659,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
@@ -2669,7 +2669,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
@@ -2680,7 +2680,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered callback when the application receive an new url of an
    * apple-touch-icon.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onTouchIconUrlReceived(callback: (event: {url: string,
@@ -2692,7 +2692,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered callback when the application receive a new favicon for the
    * current web page.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onFaviconReceived(callback: (event: { favicon: PixelMap }) => void): WebAttribute;
@@ -2703,7 +2703,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback The triggered callback when previous page will no longer be drawn and next
    * page begin to draw.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onPageVisible(callback: (event: { url: string }) => void): WebAttribute;
@@ -2713,7 +2713,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback to decision whether resend form data or not.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   onDataResubmitted(callback: (event: { handler: DataResubmissionHandler }) => void): WebAttribute;
@@ -2723,7 +2723,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } isEnabled True if it needs to enable smooth mode.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   pinchSmooth(isEnabled: boolean): WebAttribute;
@@ -2735,7 +2735,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * If it is false and user behavior, the window can be opened automatically through JavaScript.
    * Otherwise, the window cannot be opened.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   allowWindowOpenMethod(flag: boolean): WebAttribute;
@@ -2745,7 +2745,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The playing state of audio on web page.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
@@ -2755,7 +2755,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   onFirstContentfulPaint(callback: (event?: { navigationStartTick: number,
@@ -2766,7 +2766,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { function } callback The triggered callback when the resources loading is intercepted.
    * @returns { WebAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   onLoadIntercept(callback: (event: { data: WebResourceRequest }) => boolean): WebAttribute;
@@ -2794,7 +2794,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 /**
  * Defines Web Component.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare const Web: WebInterface;
@@ -2802,7 +2802,7 @@ declare const Web: WebInterface;
 /**
  * Defines Web Component instance.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
 declare const WebInstance: WebAttribute;

@@ -15,8 +15,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const { exportDiffInfo } = require('../../diff_api/src/api_diff');
-const { StatusCode } = require('../../diff_api/src/reporter');
+const { exportDiffInfo } = require('../../api_diff/src/api_diff');
+const { StatusCode } = require('../../api_diff/src/reporter');
 const { parseJsDoc, requireTypescriptModule, ErrorType, LogType, ErrorLevel, ErrorValueInfo, getCheckApiVersion,
   FUNCTION_TYPES } = require('./utils');
 const ts = requireTypescriptModule();

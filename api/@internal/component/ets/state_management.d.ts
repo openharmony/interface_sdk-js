@@ -20,27 +20,12 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
-/**
- * Defines the ColorMode of device.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
 declare enum ColorMode {
   /**
    * Light mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Light mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   LIGHT = 0,
 
@@ -49,13 +34,6 @@ declare enum ColorMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Dark mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   DARK,
 }
@@ -67,27 +45,12 @@ declare enum ColorMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
-/**
- * Defines the LayoutDirection of device.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
 declare enum LayoutDirection {
   /**
    * Elements are laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   */
-  /**
-   * Elements are laid out from left to right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   LTR,
 
@@ -97,13 +60,6 @@ declare enum LayoutDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Elements are laid out from right to left.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   RTL,
 
   /**
@@ -111,13 +67,6 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
-   */
-  /**
-   * Elements are laid out from auto.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
    */
   Auto,
 }

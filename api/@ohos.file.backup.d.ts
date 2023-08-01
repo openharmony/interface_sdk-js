@@ -227,7 +227,7 @@ declare namespace backup {
      *
      * @permission ohos.permission.BACKUP
      * @param { string[] } bundlesToBackup Bundles to backup.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
@@ -287,7 +287,7 @@ declare namespace backup {
      * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
      *     You can use the getLocalCapabilities method to obtain the value.
      * @param { string[] } bundlesToBackup Bundles to restore.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
@@ -329,7 +329,7 @@ declare namespace backup {
      * @permission ohos.permission.BACKUP
      * @param { FileMeta } fileMeta Metadata of the file to be sent. Make sure that the backup framework holds
      *     this file by calling getFileHandle.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900020 - Invalid argument
@@ -366,7 +366,7 @@ declare namespace backup {
      * @permission ohos.permission.BACKUP
      * @param { FileMeta } fileMeta Metadata of the file to be sent. Note that all the files should come
      *     from the backup procedure or the getLocalCapabilities method.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900020 - Invalid argument

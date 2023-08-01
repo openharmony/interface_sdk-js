@@ -396,8 +396,8 @@ declare namespace tag {
   /**
    * Register tag foreground dispatch. Dispatches to this application only if a tag discovered.
    *
-   * @param { ElementName } elementName - The element name of application.
-   * @param { number[] } discTech - The technologies list to set for discovering.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -411,7 +411,7 @@ declare namespace tag {
   /**
    * Unregister tag foreground dispatch.
    *
-   * @param { ElementName } elementName - The element name of application.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.

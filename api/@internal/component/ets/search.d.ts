@@ -584,6 +584,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 10
    */
   selectionMenuHidden(value: boolean): SearchAttribute;
+
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  customKeyboard(value: CustomBuilder): SearchAttribute;
 }
 
 /**

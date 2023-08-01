@@ -603,14 +603,6 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { LabelStyle } value - The label style configuration on button.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set button label style.
-   *
-   * @param { LabelStyle } value - The label style configuration on button.
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */

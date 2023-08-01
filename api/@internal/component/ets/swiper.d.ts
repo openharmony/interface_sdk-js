@@ -385,7 +385,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  isShowBackground?: boolean;
+  showBackground?: boolean;
 
   /**
    * When the indicator show, set the arrow position is side of the indicator or in the middle of content area.

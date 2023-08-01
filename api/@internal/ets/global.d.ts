@@ -573,3 +573,15 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;
+
+ /**
+  * Mark moduleNamespace which loaded by dynamic-import is collectable.
+  *
+  * @param { Object } namespace moduleNamespace to be marked.
+  * @throws { BusinessError } 401 - if type of object is not moduleNameSpace.
+  * @syscap SystemCapability.Utils.Lang
+  * @systemapi
+  * @stagemodelonly
+  * @since 10
+  */
+export declare function markModuleCollectable(namespace: Object): void;

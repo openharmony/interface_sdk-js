@@ -20,8 +20,8 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  *
  * @extends UIExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
  * @systemapi Hide this for inner system use.
+ * @StageModelOnly
  * @since 10
  */
 export default class UserAuthExtensionAbility extends UIExtensionAbility {

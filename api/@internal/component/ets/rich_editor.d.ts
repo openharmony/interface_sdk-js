@@ -913,6 +913,16 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 10
    */
   bindSelectionMenu(spanType: RichEditorSpanType, content: CustomBuilder, responseType: ResponseType, options?: SelectionMenuOptions): RichEditorAttribute;
+
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  customKeyboard(value: CustomBuilder): RichEditorAttribute;
 }
 
 /**

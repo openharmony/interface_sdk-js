@@ -42,7 +42,7 @@ declare namespace baseProfile {
    */
   export enum ConnectionStrategy {
     /**
-     * The value of connection strategy unknown.
+     * The value of connection strategy unsupported.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi

@@ -25,7 +25,7 @@ export interface BundleVersion {
   /**
    * Indicates bundle`s version code.
    *
-   * @type {number}
+   * @type { number }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10
@@ -35,7 +35,7 @@ export interface BundleVersion {
   /**
    * Indicates bundle`s version name.
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
    * @since 10

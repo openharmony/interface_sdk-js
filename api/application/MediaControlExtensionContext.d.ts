@@ -19,8 +19,8 @@ import UIExtensionContext from './UIExtensionContext';
  * The context of media control extension. It allows access to UIExtension-specific resources.
  *
  * @extends UIExtensionContext
- * @systemapi
  * @syscap SystemCapability.Multimedia.AVSession.Core
+ * @systemapi
  * @StageModelOnly
  * @since 10
  */

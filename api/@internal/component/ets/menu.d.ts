@@ -97,6 +97,18 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @since 10
    */
   fontColor(value: ResourceColor): MenuAttribute;
+
+  /**
+   * Sets the radius of the corner around the menu.
+   * When the radius is less than the menu width, the default border radius is used.
+   * 
+   * @param { Dimension | BorderRadiuses } radius - the border radius.
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  radius(value: Dimension | BorderRadiuses): MenuAttribute;
 }
 
 /**

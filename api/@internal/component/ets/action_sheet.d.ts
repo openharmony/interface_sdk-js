@@ -114,6 +114,15 @@ interface ActionSheetOptions
    * @since 10
    */
   title: string | Resource;
+  
+  /**
+   * Subtitle Properties
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  subtitle?: ResourceStr;
 
   /**
    * message Properties
@@ -149,6 +158,36 @@ interface ActionSheetOptions
    */
   confirm?: {
     /**
+     * Enable switch of confirmation button
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    enabled?: boolean;
+
+    /**
+     * Default focus switch of confirmation button
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    defaultFocus?: boolean;
+    
+    /**
+     * Style of confirmation button.
+     * @type { ?DialogButtonStyle }
+     * @default DialogButtonStyle.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    style?: DialogButtonStyle;
+
+    /**
      * Text content of the confirmation button.
      *
      * @type { string | Resource }
@@ -168,14 +207,14 @@ interface ActionSheetOptions
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Method executed by the callback.
      *
-     * @type { function }
+     * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -267,6 +306,16 @@ interface ActionSheetOptions
    * @since 10
    */
   offset?: { dx: number | string | Resource; dy: number | string | Resource };
+
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
 }
 
 /**
