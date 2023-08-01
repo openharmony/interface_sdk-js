@@ -421,7 +421,7 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
+     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -429,7 +429,7 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
+     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -440,7 +440,7 @@ declare namespace webSocket {
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
+     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -448,7 +448,7 @@ declare namespace webSocket {
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
+     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
