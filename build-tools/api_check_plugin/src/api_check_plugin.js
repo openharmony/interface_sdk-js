@@ -26,7 +26,7 @@ const { checkJSDoc } = require('./check_legality');
 const { checkNaming } = require('./check_naming');
 const { checkEventSubscription } = require('./check_event_subscription');
 const { checkAnyInAPI } = require('./check_any');
-const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList } = require('./utils');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList, splitPath } = require('./utils');
 const ts = requireTypescriptModule();
 const result = require('../check_result.json');
 const rules = require('../code_style_rule.json');
@@ -40,8 +40,16 @@ function checkAPICodeStyle(url) {
 }
 
 function getMdFiles(url) {
+  const mdFiles = [];
   const content = fs.readFileSync(url, 'utf-8');
-  const mdFiles = content.split(/[(\r\n)\r\n]+/);
+  const filePathArr = content.split(/[(\r\n)\r\n]+/);
+  filePathArr.forEach(filePath => {
+    const pathElements = new Set();
+    splitPath(filePath, pathElements);
+    if (!pathElements.has('build-tools')) {
+      mdFiles.push(filePath);
+    }
+  })
   return mdFiles;
 }
 

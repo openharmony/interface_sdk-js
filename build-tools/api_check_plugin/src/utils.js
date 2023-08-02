@@ -436,3 +436,12 @@ exports.checkVersionNeedCheck = checkVersionNeedCheck;
 const FUNCTION_TYPES = [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
   ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor];
 exports.FUNCTION_TYPES = FUNCTION_TYPES;
+
+function splitPath(filePath, pathElements) {
+  let spliteResult = path.parse(filePath);
+  if (spliteResult.base !== '') {
+    pathElements.add(spliteResult.base);
+    splitPath(spliteResult.dir, pathElements);
+  }
+}
+exports.splitPath = splitPath;
