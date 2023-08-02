@@ -4475,42 +4475,42 @@ declare type UnifiedDataType = import('../api/@ohos.data.UDMF').default.UnifiedD
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare enum DragRet {
+declare enum DragResult {
   /**
-   * If drag success, return DragRet.DRAG_SUCCESS.
+   * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DRAG_SUCCESS,
+  DRAG_SUCCESSFUL = 0,
   /**
-   * If drag fail, return DragRet.DRAG_FAILED.
+   * If drag fail, return DragResult.DRAG_FAILED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DRAG_FAILED,
+  DRAG_FAILED = 1,
   /**
-   * If drag action cancel, return DragRet.DRAG_CANCELED.
+   * If drag action cancel, return DragResult.DRAG_CANCELED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DRAG_CANCELED,
+  DRAG_CANCELED = 2,
   /**
-   * If node allow drop in, return DragRet.DROP_ENABLED.
+   * If node allow drop in, return DragResult.DROP_ENABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DROP_ENABLED,
+  DROP_ENABLED = 3,
   /**
-   * If node don't allow drop in, return DragRet.DROP_DISABLED.
+   * If node don't allow drop in, return DragResult.DROP_DISABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DROP_DISABLED
+  DROP_DISABLED = 4
 }
 
 /**
@@ -4630,20 +4630,20 @@ declare interface DragEvent {
   /**
    * Set dragEvent result to DragEvent.
    *
-   * @param { DragRet } dragRet - the return of dragEvent.
+   * @param { DragResult } dragResult - the return of dragEvent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  setResult(dragRet: DragRet): void;
+  setResult(dragResult: DragResult): void;
 
   /**
    * Get dragEvent result from DragEvent.
    *
-   * @returns { DragRet } - dragRet Data.
+   * @returns { DragResult } - dragResult Data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  getResult(): DragRet;
+  getResult(): DragResult;
 
   /**
    * Get the rectangle of drag window.
