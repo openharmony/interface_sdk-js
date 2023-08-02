@@ -2041,7 +2041,7 @@ declare class TransitionEffect<
 > {
   /**
    * Defines an identity transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2051,7 +2051,7 @@ declare class TransitionEffect<
 
   /**
    * Defines an opacity transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2061,7 +2061,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2077,7 +2077,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide & switch transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8720,11 +8720,12 @@ declare class CommonMethod<T> {
    * Reuse id is used for identify the reuse type for each custom node.
    *
    * @param { string } id - The id for reusable custom node.
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  reuseId(id: string)
+  reuseId(id: string): T;
 
   /**
    * Sets how content is drawn within nodes duration animation
@@ -9675,6 +9676,15 @@ declare class CustomComponent extends CommonAttribute {
    * @since 10
    */
   aboutToReuse?(params: { [key: string]: unknown }): void;
+
+  /**
+   * aboutToRecycle Method
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  aboutToRecycle?(): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
