@@ -51,8 +51,8 @@ declare namespace intelligentVoice {
      * Subscribes service change events. When the state of intelligent voice service changes,
      * the callback is invoked.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the serviceChange event is supported.
-     * @param { Callback<ServiceChangeType>Callback<ServiceChangeType> } callback - Callback is invoked when the event is triggered.
+     * @param { 'serviceChange' } type - Type of the event to listen for. Only the serviceChange event is supported.
+     * @param { Callback<ServiceChangeType> } callback - Callback is invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
@@ -61,7 +61,8 @@ declare namespace intelligentVoice {
     /**
      * Unsubscribes service change events.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the serviceChange event is supported.
+     * @param { 'serviceChange' } type - Type of the event to listen for. Only the serviceChange event is supported.
+     * @param { Callback<ServiceChangeType> } [callback] - Callback is invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
@@ -168,7 +169,7 @@ declare namespace intelligentVoice {
    * Obtains an {@link EnrollIntelligentVoiceEngine} instance. This method uses a promise to return the EnrollIntelligentVoiceEngine instance.
    * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
    * @param { EnrollIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates enroll intelligent voice engine descriptor.
-   * @returns { Promise<EnrollIntelligentVoiceEngine>; } the promise used to return the EnrollIntelligentVoiceEngine instance.
+   * @returns { Promise<EnrollIntelligentVoiceEngine> } the promise used to return the EnrollIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - if input parameter type or number mismatch.
    * @throws { BusinessError } 22700101 - No memory.
@@ -817,7 +818,7 @@ declare namespace intelligentVoice {
      * Subscribes wakeup intelligent voice events. When wakeup intelligent voice events reach,
      * the callback is invoked.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
+     * @param { 'wakeupIntelligentVoiceEvent' } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
      * @param { Callback<WakeupIntelligentVoiceEngineCallbackInfo> } callback - the callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -827,7 +828,8 @@ declare namespace intelligentVoice {
     /**
      * Unsubscribes wakeup intelligent voice events.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
+     * @param { 'wakeupIntelligentVoiceEvent' } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
+     * @param { Callback<WakeupIntelligentVoiceEngineCallbackInfo> } [callback] - the callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
