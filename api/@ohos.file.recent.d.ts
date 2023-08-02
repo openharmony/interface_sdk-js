@@ -14,10 +14,12 @@
  */
 
 /**
- * This module provides the recycling ability to the file manager.
+ * Provides the recycling ability to the file manager.
  *
- * @namespace trash
+ * @namespace recent
  * @syscap SystemCapability.FileManagement.UserFileService
+ * @systemapi
+ * @StageModelOnly
  * @since 10
  */
 declare namespace recent {
@@ -38,6 +40,7 @@ declare namespace recent {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     readonly uri: string;
@@ -49,6 +52,7 @@ declare namespace recent {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     readonly srcPath: string;
@@ -60,6 +64,7 @@ declare namespace recent {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     readonly fileName: string;
@@ -71,6 +76,7 @@ declare namespace recent {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     readonly mode: number;
@@ -82,6 +88,7 @@ declare namespace recent {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     readonly size: number;
@@ -93,6 +100,7 @@ declare namespace recent {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     readonly mtime: number;
@@ -104,6 +112,7 @@ declare namespace recent {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     readonly ctime: number;
