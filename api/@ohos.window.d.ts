@@ -448,13 +448,16 @@ declare namespace window {
     /**
      * 
      * @type { number } 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     left: number;
     /**
      * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     top: number;
     /**
@@ -462,6 +465,7 @@ declare namespace window {
      * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     width: number;
     /**
@@ -469,6 +473,7 @@ declare namespace window {
      * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     height: number;
   }
@@ -820,7 +825,6 @@ declare namespace window {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
-     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -2846,6 +2850,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -2860,6 +2865,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -3714,12 +3720,14 @@ declare namespace window {
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @since 9
      */
     /**
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @crossplatform
      * @since 10
      */
@@ -3728,12 +3736,14 @@ declare namespace window {
      * The window stage gains focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @since 9
      */
     /**
      * The window stage gains focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @crossplatform
      * @since 10
      */
@@ -3742,12 +3752,14 @@ declare namespace window {
      * The window stage loses focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @since 9
      */
     /**
      * The window stage loses focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @crossplatform
      * @since 10
      */
@@ -3756,12 +3768,14 @@ declare namespace window {
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @since 9
      */
     /**
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly 
      * @crossplatform
      * @since 10
      */
