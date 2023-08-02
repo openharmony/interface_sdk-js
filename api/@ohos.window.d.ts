@@ -2623,7 +2623,7 @@ declare namespace window {
     /**
      * Register the callback of avoidAreaChange
      *
-     * @param { 'avoidAreaChange' } type: - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2634,7 +2634,7 @@ declare namespace window {
     /**
      * Unregister the callback of avoidAreaChange
      *
-     * @param { 'avoidAreaChange' } type: - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
