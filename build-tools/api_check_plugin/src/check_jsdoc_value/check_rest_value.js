@@ -332,7 +332,7 @@ function checkPermissionTag(tag, node, fileName) {
   const tagValue = tag.name + tag.description;
   const permissionArr = tagValue.replace(/\s|\(|\)/g, '').replace(/(or|and)/g, '$').split('$');
   permissionArr.forEach(permissionStr => {
-    if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr) && permissionStr !== 'N/A') ||
+    if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr)) ||
       permissionStr === '') {
       hasPermissionError = true;
       errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_PERMISSION;
