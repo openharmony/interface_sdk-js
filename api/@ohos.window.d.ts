@@ -2411,8 +2411,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
@@ -2440,8 +2440,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     loadContent(path: string, storage: LocalStorage): Promise<void>;
@@ -3652,8 +3652,8 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @stagemodelonly     
    * @crossplatform
-   * @StageModelOnly
    * @since 10
    */
   enum WindowStageEventType {
@@ -3747,8 +3747,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     getMainWindow(): Promise<Window>;
@@ -3769,8 +3769,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
@@ -3791,8 +3791,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     getMainWindowSync(): Window;
@@ -3817,8 +3817,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     createSubWindow(name: string): Promise<Window>;
@@ -3843,8 +3843,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
@@ -3863,8 +3863,8 @@ declare namespace window {
      * @returns { Promise<Array<Window>> }
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     getSubWindow(): Promise<Array<Window>>;
@@ -3883,8 +3883,8 @@ declare namespace window {
      * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
@@ -3911,8 +3911,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
@@ -3939,8 +3939,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
@@ -3965,8 +3965,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
@@ -3991,8 +3991,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
@@ -4017,8 +4017,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly     
      * @crossplatform
-     * @StageModelOnly
      * @since 10
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
