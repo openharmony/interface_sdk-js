@@ -333,7 +333,7 @@ declare interface NavigationMenuItem {
   /**
    * Trigger by navigation menu item click.
    *
-   * @type { ?(() => void) }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -636,7 +636,7 @@ declare interface ToolbarItem {
   /**
    * Trigger by navigation toolbar item click.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -966,7 +966,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Trigger callback when title mode change finished at free mode.
    *
-   * @param { (titleMode: NavigationTitleMode) => void } callback
+   * @param { function } callback
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -985,7 +985,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Trigger callback when the visibility of navigation bar change.
    *
-   * @param { (isVisible: boolean) => void } callback
+   * @param { function } callback
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -996,7 +996,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Set builder for user-defined NavDestination component.
    *
-   * @param { (name: string, param: unknown) => void } builder The builder function of NavDestination component.
+   * @param { function } builder The builder function of NavDestination component.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
