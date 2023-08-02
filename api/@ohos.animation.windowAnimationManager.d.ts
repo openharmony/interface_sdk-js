@@ -78,6 +78,8 @@ declare namespace windowAnimationManager {
     /**
      * The Y-axis coordinate of the upper left vertex of the round rect, in pixels.
      * @type {number}
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     top: number;
@@ -86,6 +88,7 @@ declare namespace windowAnimationManager {
      * Width of the round rect, in pixels.
      * @type {number}
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     width: number;
@@ -93,6 +96,8 @@ declare namespace windowAnimationManager {
     /**
      * Height of the round rect, in pixels.
      * @type {number}
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     height: number;
@@ -100,6 +105,8 @@ declare namespace windowAnimationManager {
     /**
      * Radius of the round corner of the round rect, in pixels.
      * @type {number}
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     radius: number;
@@ -117,6 +124,8 @@ declare namespace windowAnimationManager {
     /**
      * The bundle name of the window animation target.
      * @type { string }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     readonly bundleName: string;
@@ -124,6 +133,8 @@ declare namespace windowAnimationManager {
     /**
     /* The ability name of the window animation target.
      * @type { string }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     readonly abilityName: string;
@@ -131,6 +142,8 @@ declare namespace windowAnimationManager {
     /**
     /* The window bounds of the window animation target.
      * @type { RRect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     readonly windowBounds: RRect;
@@ -138,6 +151,8 @@ declare namespace windowAnimationManager {
     /**
     /* The mission id of the window animation target.
      * @type { number }  
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     readonly missionId: number;
