@@ -68,7 +68,7 @@ declare namespace windowAnimationManager {
   export interface RRect {
     /**
      * The X-axis coordinate of the upper left vertex of the round rect, in pixels.
-     * @type {number}
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -77,7 +77,7 @@ declare namespace windowAnimationManager {
 
     /**
      * The Y-axis coordinate of the upper left vertex of the round rect, in pixels.
-     * @type {number}
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -86,7 +86,7 @@ declare namespace windowAnimationManager {
 
     /**
      * Width of the round rect, in pixels.
-     * @type {number}
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -95,7 +95,7 @@ declare namespace windowAnimationManager {
 
     /**
      * Height of the round rect, in pixels.
-     * @type {number}
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -104,7 +104,7 @@ declare namespace windowAnimationManager {
 
     /**
      * Radius of the round corner of the round rect, in pixels.
-     * @type {number}
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -170,6 +170,7 @@ declare namespace windowAnimationManager {
     /**
      * The function of window animation finished callback.
      *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -190,6 +191,7 @@ declare namespace windowAnimationManager {
      *
      * @param { WindowAnimationTarget } startingWindowTarget  - indicates Window target of the starting application.
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -201,6 +203,7 @@ declare namespace windowAnimationManager {
      *
      * @param { WindowAnimationTarget } startingWindowTarget - Window target of the starting application.
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -212,6 +215,7 @@ declare namespace windowAnimationManager {
      *
      * @param { WindowAnimationTarget } startingWindowTarget - Window target of the starting application.
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -224,6 +228,7 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationTarget } fromWindowTarget - Window target of the source application.
      * @param { WindowAnimationTarget } toWindowTarget - Window target of the destination application.
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -235,6 +240,7 @@ declare namespace windowAnimationManager {
      *
      * @param { WindowAnimationTarget } minimizingWindowTarget - Window target of the minimizing window.
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -246,6 +252,7 @@ declare namespace windowAnimationManager {
      *
      * @param { WindowAnimationTarget }closingWindowTarget - Window target of the closing window.
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -255,6 +262,7 @@ declare namespace windowAnimationManager {
      * Called on unlocking the screen.
      *
      * @param {WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -266,6 +274,7 @@ declare namespace windowAnimationManager {
      *
      * @param { WindowAnimationTarget } fullScreenWindowTarget - The fullscreen window target.
      * @param { Array<WindowAnimationTarget> } floatingWindowTargets - All the floating window targets.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */

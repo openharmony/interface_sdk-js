@@ -446,18 +446,28 @@ declare namespace window {
    */
   interface Rect {
     /**
+     * 
+     * @type { number } 
      * @crossplatform
      */
     left: number;
     /**
+     * @type { number } 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      */
     top: number;
     /**
+     * 
+     * @type { number } 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      */
     width: number;
     /**
+     * 
+     * @type { number } 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      */
     height: number;
@@ -474,6 +484,7 @@ declare namespace window {
     /**
      * Whether avoidArea is visible on screen
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -482,6 +493,7 @@ declare namespace window {
     /**
      * Rectangle on the left of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -490,6 +502,7 @@ declare namespace window {
     /**
      * Rectangle on the top of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -498,6 +511,7 @@ declare namespace window {
     /**
      * Rectangle on the right of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -506,6 +520,7 @@ declare namespace window {
     /**
      * Rectangle on the bottom of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -531,12 +546,14 @@ declare namespace window {
     /**
      * The width of the window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The width of the window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -552,6 +569,7 @@ declare namespace window {
     /**
      * The height of the window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -578,12 +596,14 @@ declare namespace window {
     /**
      * The position and size of the window
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The position and size of the window
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -593,6 +613,7 @@ declare namespace window {
     /**
      * Window type
      *
+     * @type { WindowType } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -601,6 +622,7 @@ declare namespace window {
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
      */
@@ -609,6 +631,7 @@ declare namespace window {
     /**
      * Whether the window layout is in full screen mode(whether the window is immersive). The default value is false.
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -617,6 +640,7 @@ declare namespace window {
     /**
      * Whether the window can gain focus. The default value is true
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -625,6 +649,7 @@ declare namespace window {
     /**
      * Whether the window is touchable. The default value is false
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -639,6 +664,7 @@ declare namespace window {
     /**
      * Brightness value of window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -648,6 +674,7 @@ declare namespace window {
     /**
      * The dimbehind value of window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      * @deprecated since 9
@@ -663,6 +690,7 @@ declare namespace window {
     /**
      * Whether keep screen on.
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -672,6 +700,7 @@ declare namespace window {
     /**
      * Whether make window in privacy mode or not.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -680,6 +709,7 @@ declare namespace window {
     /**
      * Whether is round corner or not.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      * @deprecated since 9
@@ -689,6 +719,7 @@ declare namespace window {
     /**
      * Whether is transparent or not.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -697,6 +728,7 @@ declare namespace window {
     /**
      * Window id.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -738,6 +770,7 @@ declare namespace window {
     /**
      * The scale param of x direction. Default is 1.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -747,6 +780,7 @@ declare namespace window {
     /**
      * The scale param of y direction. Default is 1.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -756,6 +790,7 @@ declare namespace window {
     /**
      * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -765,6 +800,7 @@ declare namespace window {
     /**
      * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -784,6 +820,7 @@ declare namespace window {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -793,6 +830,7 @@ declare namespace window {
     /**
      * The rotate degree of y direction. Default value is 0.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -802,6 +840,7 @@ declare namespace window {
     /**
      * The rotate degree of z direction. Default value is 0.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -811,6 +850,7 @@ declare namespace window {
     /**
      * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -820,6 +860,7 @@ declare namespace window {
     /**
      * The param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -839,6 +880,7 @@ declare namespace window {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -848,6 +890,7 @@ declare namespace window {
     /**
      * The translate pixel param of y direction. Default is 0.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -857,6 +900,7 @@ declare namespace window {
     /**
      * The translate pixel param of z direction. Default is 0.f
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -876,6 +920,7 @@ declare namespace window {
     /**
      * The target window with animation
      *
+     * @type { Window }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -950,6 +995,7 @@ declare namespace window {
     /**
      * Indicates window id.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -959,6 +1005,7 @@ declare namespace window {
     /**
      * Indicates window type
      *
+     * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -967,12 +1014,14 @@ declare namespace window {
     /**
      * Indicates window context.
      *
+     * @type { BaseContext }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates window context.
      *
+     * @type { BaseContext }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -982,12 +1031,14 @@ declare namespace window {
     /**
      * Indicates display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -997,12 +1048,14 @@ declare namespace window {
     /**
      * Indicates Parent window id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates Parent window id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
