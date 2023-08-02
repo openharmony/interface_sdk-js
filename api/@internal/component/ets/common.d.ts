@@ -2041,7 +2041,7 @@ declare class TransitionEffect<
 > {
   /**
    * Defines an identity transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2051,7 +2051,7 @@ declare class TransitionEffect<
 
   /**
    * Defines an opacity transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2061,7 +2061,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2077,7 +2077,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide & switch transition effect
-   * @constant
+   *
    * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
