@@ -535,7 +535,7 @@ declare namespace intelligentVoice {
      */
     stop(): Promise<void>;
     /**
-     * commit enroll, This method uses an asynchronous callback to return the result.
+     * Commit enroll, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -545,7 +545,7 @@ declare namespace intelligentVoice {
      */
     commit(callback: AsyncCallback<void>): void;
     /**
-     * commit enroll, This method uses a promise to return the result.
+     * Commit enroll, This method uses a promise to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @returns { Promise<void> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
