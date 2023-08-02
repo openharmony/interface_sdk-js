@@ -932,27 +932,12 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
-  /**
-   * Configuration parameters for window creation.
-   *
-   * @interface Configuration
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   interface Configuration {
     /**
      * Indicates window id.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates window id.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     name: string;
 
@@ -970,13 +955,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * Indicates window context.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     ctx?: BaseContext;
 
     /**
@@ -985,13 +963,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * Indicates display ID.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     displayId?: number;
 
     /**
@@ -999,13 +970,6 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates Parent window id
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     parentId?: number;
   }
@@ -1024,21 +988,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
-  /**
-   * Create a window with a specific configuration
-   *
-   * @param { Configuration } config - Parameters for window creation.
-   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300001 - Repeated operation.
-   * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
-   * @throws { BusinessError } 1300009 - The parent window is invalid.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
@@ -1054,21 +1003,6 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
-   */
-  /**
-   * Create a window with a specific configuration
-   *
-   * @param { Configuration } config - Parameters for window creation.
-   * @returns { Promise<Window> } Promise used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300001 - Repeated operation.
-   * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
-   * @throws { BusinessError } 1300009 - The parent window is invalid.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
    */
   function createWindow(config: Configuration): Promise<Window>;
 
