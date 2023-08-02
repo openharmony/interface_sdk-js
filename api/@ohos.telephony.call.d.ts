@@ -1214,7 +1214,7 @@ declare namespace call {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to be subscribed to.
-   * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
+   * @param { Callback<AudioDeviceCallbackInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1226,14 +1226,14 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceInfo>): void;
+  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceCallbackInfo>): void;
 
   /**
    * Unsubscribe from the audioDeviceChange event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to unsubscribe from.
-   * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
+   * @param { Callback<AudioDeviceCallbackInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -1245,7 +1245,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceInfo>): void;
+  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceCallbackInfo>): void;
 
   /**
    * Judge whether to allow another new call.
@@ -2054,10 +2054,10 @@ declare namespace call {
   function canSetCallTransferTime(slotId: number): Promise<boolean>;
 
   /**
-   * Enters the secret code on the keypad.
+   * Enters the special code on the keypad.
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } inputCode - Indicates the secret code to enter.
+   * @param { string } inputCode - Indicates the special code to enter.
    * @param { AsyncCallback<void> } callback - The callback of inputDialerSpecialCode.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2072,10 +2072,10 @@ declare namespace call {
   function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Enters the secret code on the keypad.
+   * Enters the special code on the keypad.
    *
    * @permission ohos.permission.PLACE_CALL
-   * @param { string } inputCode - Indicates the secret code to enter.
+   * @param { string } inputCode - Indicates the special code to enter.
    * @returns { Promise<void> } The promise returned by the inputDialerSpecialCode.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -2286,12 +2286,12 @@ declare namespace call {
   /**
    * Indicates the information of the audio device.
    *
-   * @interface AudioDeviceInfo
+   * @interface AudioDeviceCallbackInfo
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export interface AudioDeviceInfo {
+  export interface AudioDeviceCallbackInfo {
     /**
      * Indicates the list of support audio device.
      *
