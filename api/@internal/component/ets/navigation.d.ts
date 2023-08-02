@@ -333,7 +333,7 @@ declare interface NavigationMenuItem {
   /**
    * Trigger by navigation menu item click.
    *
-   * @type { function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
