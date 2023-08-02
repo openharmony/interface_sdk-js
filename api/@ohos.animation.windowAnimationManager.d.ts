@@ -70,6 +70,7 @@ declare namespace windowAnimationManager {
      * The X-axis coordinate of the upper left vertex of the round rect, in pixels.
      * @type {number}
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     left: number;
