@@ -446,27 +446,19 @@ declare namespace window {
    */
   interface Rect {
     /**
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
      */
     left: number;
     /**
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
      */
     top: number;
     /**
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
      */
     width: number;
     /**
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 10
      */
     height: number;
   }
@@ -824,7 +816,7 @@ declare namespace window {
     /**
      * The rotate degree of y direction. Default value is 0.f
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -834,7 +826,7 @@ declare namespace window {
     /**
      * The rotate degree of z direction. Default value is 0.f
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -844,7 +836,7 @@ declare namespace window {
     /**
      * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -854,7 +846,7 @@ declare namespace window {
     /**
      * The param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -874,7 +866,7 @@ declare namespace window {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -884,7 +876,7 @@ declare namespace window {
     /**
      * The translate pixel param of y direction. Default is 0.f
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -894,7 +886,7 @@ declare namespace window {
     /**
      * The translate pixel param of z direction. Default is 0.f
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -1008,14 +1000,14 @@ declare namespace window {
     /**
      * Indicates window context.
      *
-     * @type { BaseContext }
+     * @type { ?BaseContext }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates window context.
      *
-     * @type { BaseContext }
+     * @type { ?BaseContext }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1025,14 +1017,14 @@ declare namespace window {
     /**
      * Indicates display ID.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates display ID.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1042,14 +1034,14 @@ declare namespace window {
     /**
      * Indicates Parent window id
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates Parent window id
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
