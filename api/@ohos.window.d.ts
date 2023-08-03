@@ -760,7 +760,6 @@ declare namespace window {
     /**
      * The scale param of x direction. Default is 1.f
      *
-     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
