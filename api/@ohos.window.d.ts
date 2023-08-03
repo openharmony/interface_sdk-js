@@ -454,6 +454,7 @@ declare namespace window {
      */
     top: number;
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      */
     width: number;
