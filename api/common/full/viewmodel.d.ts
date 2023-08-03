@@ -436,7 +436,7 @@ export interface AnimateOptions {
    * Duration of the animation, in milliseconds.
    * The default value is 0.
    *
-   * @type { duration }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -594,6 +594,7 @@ export interface AnimationResult {
   /**
    * The animation is started.
    *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -601,6 +602,7 @@ export interface AnimationResult {
   /**
    * The animation is finished.
    *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -608,6 +610,7 @@ export interface AnimationResult {
   /**
    * The animation is canceled.
    *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -615,6 +618,7 @@ export interface AnimationResult {
   /**
    * The animation is repeated.
    *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -686,7 +690,7 @@ export interface Element {
   /**
    * If 0.5 is returned, 50% of the current component is visible.
    *
-   * @param { { ratios: Array<number> } } param Scope of Monitoring components.
+   * @param { object } param Scope of Monitoring components.
    * @returns { observer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -806,7 +810,7 @@ export interface ScrollParam {
   /**
    * Offset for scrolling in the horizontal direction, in px.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -815,7 +819,7 @@ export interface ScrollParam {
   /**
    * Offset for scrolling in the vertical direction, in px.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -824,7 +828,7 @@ export interface ScrollParam {
   /**
    * Whether a sliding animation is displayed when scroll position is changed.
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -907,7 +911,7 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled to the top.
    * If smooth is set to true, the list is smoothly scrolled to the top.
    *
-   * @param { { smooth: boolean } } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -917,7 +921,7 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled to the bottom.
    * If smooth is set to true, the list is smoothly scrolled to the bottom.
    *
-   * @param { { smooth: boolean } } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -929,7 +933,7 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled to another page.
    * If smooth is set to true, the list is smoothly scrolled to another page.
    *
-   * @param { { reverse: boolean; smooth: boolean } } params
+   * @param { object } params
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -941,7 +945,7 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled.
    * If smooth is set to true, the list is smoothly scrolled.
    *
-   * @param { { reverse: boolean; smooth: boolean } } params
+   * @param { object } params
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -950,7 +954,7 @@ export interface ListElement extends Element {
   /**
    * Collapses a group.
    *
-   * @param { {groupid: string} } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -958,6 +962,10 @@ export interface ListElement extends Element {
     /**
      * groupid: ID of the group to collapse.
      * All groups are collapsed when groupid is not specified.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 4
      */
     groupid: string;
   }): void;
@@ -965,7 +973,7 @@ export interface ListElement extends Element {
   /**
    * Expands a group.
    *
-   * @param { {groupid: string} } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -973,6 +981,10 @@ export interface ListElement extends Element {
     /**
      * groupid: ID of the group to expand.
      * All groups are expanded when groupid is not specified.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 4
      */
     groupid: string;
   }): void;
@@ -998,13 +1010,17 @@ export interface SwiperElement extends Element {
   /**
    * Scrolls the child component to the position at the specified index.
    *
-   * @param { {index: number} } position
+   * @param { object } position
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
   swipeTo(position: {
     /**
      * specified position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 4
      */
     index: number;
   }): void;
@@ -1046,6 +1062,7 @@ export interface CameraTakePhotoOptions {
   /**
    * Callback function for successful interface invocation.
    *
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -1054,6 +1071,7 @@ export interface CameraTakePhotoOptions {
   /**
    * Callback function for interface invocation failure.
    *
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -1062,6 +1080,7 @@ export interface CameraTakePhotoOptions {
   /**
    * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
    *
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -1219,7 +1238,7 @@ export interface MenuElement extends Element {
    * When the visible space on the right is insufficient, the menu is moved leftward.
    * When the visible space in the lower part is insufficient, the menu is moved upward.
    *
-   * @param { { x: number; y: number } } position
+   * @param { object } position
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1240,17 +1259,25 @@ export interface ChartElement extends Element {
    * datasets[index].data is not updated. Only line charts support this attribute.
    * The value is incremented by 1 based on the horizontal coordinate and is related to the xAxis min/max setting.
    *
-   * @param { {serial: number;data: Array<number>;} } params
+   * @param { object } params
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
   append(params: {
     /**
      * Set the data subscript of the line chart to be updated.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 4
      */
     serial: number;
     /**
      * Set the new data.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 4
      */
     data: Array<number>;
   }): void;
@@ -1268,7 +1295,7 @@ export interface InputElement extends Element {
    * Obtains or loses the focus of a component.
    * When the component type is set to text, email, date, time, number, or password, the input method can be displayed or collapsed.
    *
-   * @param { { focus: boolean } } param If focus is not passed, the default value true is used.
+   * @param { object } param If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1278,7 +1305,7 @@ export interface InputElement extends Element {
    * Displays the error message.
    * This attribute is available when the component type is set to text, email, date, time, number, or password.
    *
-   * @param { { error: string } } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1308,7 +1335,7 @@ export interface ButtonElement extends Element {
    * NOTE
    * The text displayed on the progress bar is changed based on the value.
    *
-   * @param { { progress: number } } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1326,7 +1353,7 @@ export interface TextAreaElement extends Element {
   /**
    * Obtains or loses the focus of a component, which can display or collapse the input method.
    *
-   * @param { { focus: boolean } } param If focus is not passed, the default value true is used.
+   * @param { object } param If focus is not passed, the default value true is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1377,7 +1404,7 @@ export interface VideoElement extends Element {
   /**
    * Specifies the video playing position.
    *
-   * @param { { currenttime: number } } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1386,7 +1413,7 @@ export interface VideoElement extends Element {
   /**
    * Requests to enter the full screen mode.
    *
-   * @param { { screenOrientation: 'default' } } param
+   * @param { object } param
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -1455,7 +1482,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
    *
-   * @type { string | CanvasGradient | CanvasPattern }
+   * @type { ?(string | CanvasGradient | CanvasPattern) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1467,7 +1494,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
    *
-   * @type { string | CanvasGradient | CanvasPattern }
+   * @type { ?(string | CanvasGradient | CanvasPattern) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -3122,7 +3149,7 @@ export interface ScrollOptions {
   /**
    * Callback function for successful interface invocation.
    *
-   * @type { ?((result: Object) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -3131,7 +3158,7 @@ export interface ScrollOptions {
   /**
    * Callback function for interface invocation failure.
    *
-   * @type { ?((result: Object) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -3140,7 +3167,7 @@ export interface ScrollOptions {
   /**
    * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
    *
-   * @type { ?((result: Object) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -3294,7 +3321,7 @@ export interface ViewModel {
    * this.$element('xxx'): Obtain the component whose ID is xxx.
    * this.$element(): Obtain the root component.
    *
-   * @param { ?string } id Component ID.
+   * @param { string } id Component ID.
    * @returns {AnimationElement &CanvasElement &
    * object &WebElement &CameraElement &ListElement &
    * SwiperElement &DialogElement &ImageAnimatorElement &

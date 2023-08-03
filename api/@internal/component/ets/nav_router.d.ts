@@ -144,7 +144,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
    * Trigger callback when NavigationView state change.
    *
-   * @param { (isActivated: boolean) => void } callback
+   * @param { function } callback
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -152,7 +152,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
    * Trigger callback when NavigationView state change.
    *
-   * @param { (isActivated: boolean) => void } callback
+   * @param { function } callback
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

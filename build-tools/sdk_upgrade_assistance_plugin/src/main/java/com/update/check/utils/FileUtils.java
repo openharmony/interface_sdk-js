@@ -176,6 +176,7 @@ public class FileUtils {
      *
      * @param jsonFilePath jsonFilePath
      * @return sdk version
+     * @throws IOException If an I/O error occurs
      */
     public static String getSdkVersionFromJsonFile(String jsonFilePath) {
         try {

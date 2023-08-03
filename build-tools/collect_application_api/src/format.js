@@ -35,7 +35,7 @@ function collectBaseApi(importFiles, applicationApis) {
     }
   });
 
-  let noRepeatImportFiles = [...new Set(APP_API_FILES)]
+  let noRepeatImportFiles = [...new Set(APP_API_FILES)];
   const baseApis = parseFiles(noRepeatImportFiles);
   return compareApis(baseApis, applicationApis, SDK_API_FILES);
 }
@@ -51,8 +51,8 @@ function compareApis(baseApis, applicationApis, sdkFiles) {
         path.basename(sdkFile).replace(/\.d\.ts/, '') === applicationApi.packageName) {
         applicationApi.moduleName = handleImportClass(sdkFile);
       }
-    })
-  })
+    });
+  });
 
   for (let i = 0; i < applicationApis.length; i++) {
     for (let j = 0; j < baseApis.length; j++) {
@@ -73,7 +73,7 @@ exports.collectBaseApi = collectBaseApi;
 function deleteUndefinedApi(applicationApis) {
   for (let i = 0; i < applicationApis.length; i++) {
     if (applicationApis[i] === undefined) {
-      applicationApis.splice(i, 1)
+      applicationApis.splice(i, 1);
     }
   }
   return applicationApis;
@@ -104,11 +104,11 @@ function handleImportClass(filePath) {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   ts.transpileModule(fileContent, {
     compilerOptions: {
-      "target": ts.ScriptTarget.ES2017
+      'target': ts.ScriptTarget.ES2017,
     },
     fileName: filePath.replace(/\.d\.ts/, '.ts'),
-    transformers: { before: [isExportClass()] }
-  })
+    transformers: { before: [isExportClass()] },
+  });
   return exportClass;
 }
 
@@ -120,19 +120,19 @@ function isExportClass() {
         if (ts.isClassDeclaration(statement)) {
           exportClass = statement.name.escapedText;
         } else if (ts.isExportAssignment(statement)) {
-          exportClass = statement.expression.escapedText
+          exportClass = statement.expression.escapedText;
         }
-      })
+      });
       return sourcefile;
-    }
-  }
+    };
+  };
 }
 
 function compareComponentApi(applicationApi, baseApi, callApisInApp, componentApiIndexSet, index) {
   let applyApi = JSON.parse(JSON.stringify(baseApi));
   applyApi.pos = applicationApi.callLocation;
-  if (applicationApi.moduleName.match(new RegExp(baseApi.className.replace(/Attribute|Interface/, ''), 'i'))
-    && applicationApi.apiName === baseApi.methodName && !componentApiIndexSet.has(index)) {
+  if (applicationApi.moduleName.match(new RegExp(baseApi.className.replace(/Attribute|Interface/, ''), 'i')) &&
+    applicationApi.apiName === baseApi.methodName && !componentApiIndexSet.has(index)) {
     applyApi.className = applicationApi.moduleName;
     callApisInApp.push(applyApi);
     componentApiIndexSet.add(index);
@@ -142,9 +142,9 @@ function compareComponentApi(applicationApi, baseApi, callApisInApp, componentAp
     applyApi.notes = 'CommonMethod';
     callApisInApp.push(applyApi);
     componentApiIndexSet.add(index);
-  } else if (applicationApi.notes === '比较API' && applicationApi.apiName === baseApi.methodName
-    && baseApi.className.match(new RegExp(applicationApi.moduleName, 'i'))
-    && baseApi.className !== 'CommonMethod' && !componentApiIndexSet.has(index)) {
+  } else if (applicationApi.notes === '比较API' && applicationApi.apiName === baseApi.methodName &&
+    baseApi.className.match(new RegExp(applicationApi.moduleName, 'i')) &&
+    baseApi.className !== 'CommonMethod' && !componentApiIndexSet.has(index)) {
     callApisInApp.push(applyApi);
     componentApiIndexSet.add(index);
   }

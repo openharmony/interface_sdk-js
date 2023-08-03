@@ -17,7 +17,6 @@
  * The xml module provides utilities for converting XML text to Javascript object, XML generation and parsing.
  *
  * @namespace xml
- * @permission N/A
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -25,7 +24,6 @@
  * The xml module provides utilities for converting XML text to Javascript object, XML generation and parsing.
  *
  * @namespace xml
- * @permission N/A
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -34,7 +32,6 @@ declare namespace xml {
   /**
    * The XmlSerializer interface is used to generate an xml file.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @name XmlSerializer
@@ -42,7 +39,6 @@ declare namespace xml {
   /**
    * The XmlSerializer interface is used to generate an xml file.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -56,9 +52,8 @@ declare namespace xml {
      * The input parameter is a DataView.
      * The input parameter is an encoding format of string type.
      *
-     * @permission N/A
-     * @param { ArrayBuffer | DataView } buffer - buffer buffer A instance, the new XmlPullParser with.
-     * @param { string } encoding - encoding [encoding='utf8']  this is its encoding.
+     * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
+     * @param { string } encoding - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -70,9 +65,8 @@ declare namespace xml {
      * The input parameter is a DataView.
      * The input parameter is an encoding format of string type.
      *
-     * @permission N/A
-     * @param { ArrayBuffer | DataView } buffer - buffer buffer A instance, the new XmlPullParser with.
-     * @param { string } encoding - encoding [encoding='utf8']  this is its encoding.
+     * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
+     * @param { string } encoding - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -83,9 +77,8 @@ declare namespace xml {
     /**
      * Write an attribute.
      *
-     * @permission N/A
-     * @param { string } name - name name Key name of the attribute.
-     * @param { string } value - value value Values of attribute.
+     * @param { string } name - Key name of the attribute.
+     * @param { string } value - Values of attribute.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -93,9 +86,8 @@ declare namespace xml {
     /**
      * Write an attribute.
      *
-     * @permission N/A
-     * @param { string } name - name name Key name of the attribute.
-     * @param { string } value - value value Values of attribute.
+     * @param { string } name - Key name of the attribute.
+     * @param { string } value - Values of attribute.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -106,8 +98,7 @@ declare namespace xml {
     /**
      * Add an empty element.
      *
-     * @permission N/A
-     * @param { string } name - name  name Key name of the attribute.
+     * @param { string } name - Key name of the attribute.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -115,8 +106,7 @@ declare namespace xml {
     /**
      * Add an empty element.
      *
-     * @permission N/A
-     * @param { string } name - name  name Key name of the attribute.
+     * @param { string } name - Key name of the attribute.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -127,14 +117,12 @@ declare namespace xml {
     /**
      * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -144,8 +132,7 @@ declare namespace xml {
     /**
      * Writes a element start tag with the given name.
      *
-     * @permission N/A
-     * @param { string } name - name name Name of the element.
+     * @param { string } name - Name of the element.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -153,8 +140,7 @@ declare namespace xml {
     /**
      * Writes a element start tag with the given name.
      *
-     * @permission N/A
-     * @param { string } name - name name Name of the element.
+     * @param { string } name - Name of the element.
      * @throws { BusinessError } 401 - The type of name must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -165,14 +151,12 @@ declare namespace xml {
     /**
      * Writes end tag of the element.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Writes end tag of the element.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -182,9 +166,8 @@ declare namespace xml {
     /**
      * Writes the namespace of the current element tag.
      *
-     * @permission N/A
-     * @param { string } prefix - prefix prefix Values name of the prefix.
-     * @param { string } namespace - namespace namespace Values of namespace.
+     * @param { string } prefix - Values name of the prefix.
+     * @param { string } namespace - Values of namespace.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -192,9 +175,8 @@ declare namespace xml {
     /**
      * Writes the namespace of the current element tag.
      *
-     * @permission N/A
-     * @param { string } prefix - prefix prefix Values name of the prefix.
-     * @param { string } namespace - namespace namespace Values of namespace.
+     * @param { string } prefix - Values name of the prefix.
+     * @param { string } namespace - Values of namespace.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -205,8 +187,7 @@ declare namespace xml {
     /**
      * Writes the comment.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of comment.
+     * @param { string } text - Values of comment.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -214,8 +195,7 @@ declare namespace xml {
     /**
      * Writes the comment.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of comment.
+     * @param { string } text - Values of comment.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -226,8 +206,7 @@ declare namespace xml {
     /**
      * Writes the CDATA.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of CDATA.
+     * @param { string } text -  Values of CDATA.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -235,8 +214,7 @@ declare namespace xml {
     /**
      * Writes the CDATA.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of CDATA.
+     * @param { string } text - Values of CDATA.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -247,8 +225,7 @@ declare namespace xml {
     /**
      * Writes the text.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of text.
+     * @param { string } text - Values of text.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -256,8 +233,7 @@ declare namespace xml {
     /**
      * Writes the text.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of text.
+     * @param { string } text - Values of text.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -268,8 +244,7 @@ declare namespace xml {
     /**
      * Writes the DOCTYPE.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of docType.
+     * @param { string } text - Values of docType.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -277,8 +252,7 @@ declare namespace xml {
     /**
      * Writes the DOCTYPE.
      *
-     * @permission N/A
-     * @param { string } text - text text Values of docType.
+     * @param { string } text - Values of docType.
      * @throws { BusinessError } 401 - The type of text must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -287,18 +261,31 @@ declare namespace xml {
     setDocType(text: string): void;
   }
 
+  /**
+   * The event types represented by XML elements.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * The event types represented by XML elements.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
   enum EventType {
     /**
      * Start a document.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Start a document.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -307,14 +294,12 @@ declare namespace xml {
     /**
      * End a document.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * End a document.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -323,14 +308,12 @@ declare namespace xml {
     /**
      * Start a tag.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Start a tag.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -339,14 +322,12 @@ declare namespace xml {
     /**
      * End a tag.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * End a tag.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -355,14 +336,12 @@ declare namespace xml {
     /**
      * Character data.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Character data.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -371,14 +350,12 @@ declare namespace xml {
     /**
      * A CDATA sections.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * A CDATA sections.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -387,14 +364,12 @@ declare namespace xml {
     /**
      * An XML comment.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * An XML comment.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -403,14 +378,12 @@ declare namespace xml {
     /**
      * An XML document type declaration.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * An XML document type declaration.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -419,14 +392,12 @@ declare namespace xml {
     /**
      * An XML processing instruction declaration.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * An XML processing instruction declaration.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -435,14 +406,12 @@ declare namespace xml {
     /**
      * An entity reference.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * An entity reference.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -451,14 +420,12 @@ declare namespace xml {
     /**
      * A whitespace.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * A whitespace.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -470,7 +437,6 @@ declare namespace xml {
    * The current parse info.
    *
    * @typedef ParseInfo
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -478,7 +444,6 @@ declare namespace xml {
    * The current parse info.
    *
    * @typedef ParseInfo
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -487,7 +452,6 @@ declare namespace xml {
     /**
      * The current column number, starting from 1.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -495,7 +459,6 @@ declare namespace xml {
     /**
      * The current column number, starting from 1.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -505,7 +468,6 @@ declare namespace xml {
     /**
      * The current depth of the element.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -513,7 +475,6 @@ declare namespace xml {
     /**
      * The current depth of the element.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -523,7 +484,6 @@ declare namespace xml {
     /**
      * The current line number, starting from 1.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -531,7 +491,6 @@ declare namespace xml {
     /**
      * The current line number, starting from 1.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -541,7 +500,6 @@ declare namespace xml {
     /**
      * The current element's name.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -549,7 +507,6 @@ declare namespace xml {
     /**
      * The current element's name.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -559,7 +516,6 @@ declare namespace xml {
     /**
      * The current element's namespace.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -567,7 +523,6 @@ declare namespace xml {
     /**
      * The current element's namespace.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -577,7 +532,6 @@ declare namespace xml {
     /**
      * The current element's prefix.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -585,7 +539,6 @@ declare namespace xml {
     /**
      * The current element's prefix.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -595,7 +548,6 @@ declare namespace xml {
     /**
      * The text content of the current event as String.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -603,7 +555,6 @@ declare namespace xml {
     /**
      * The text content of the current event as String.
      *
-     * @permission N/A
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -613,7 +564,6 @@ declare namespace xml {
     /**
      * Returns true if the current element is empty.
      *
-     * @permission N/A
      * @returns { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -621,7 +571,6 @@ declare namespace xml {
     /**
      * Returns true if the current element is empty.
      *
-     * @permission N/A
      * @returns { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -631,7 +580,6 @@ declare namespace xml {
     /**
      * Checks whether the current TEXT event contains only whitespace characters.
      *
-     * @permission N/A
      * @returns { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -639,7 +587,6 @@ declare namespace xml {
     /**
      * Checks whether the current TEXT event contains only whitespace characters.
      *
-     * @permission N/A
      * @returns { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -649,7 +596,6 @@ declare namespace xml {
     /**
      * Returns the number of attributes of the current start tag.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -657,7 +603,6 @@ declare namespace xml {
     /**
      * Returns the number of attributes of the current start tag.
      *
-     * @permission N/A
      * @returns { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -670,7 +615,6 @@ declare namespace xml {
    * Parse options for XmlPullParser.
    *
    * @typedef ParseOptions
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
@@ -678,7 +622,6 @@ declare namespace xml {
    * Parse options for XmlPullParser.
    *
    * @typedef ParseOptions
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -687,14 +630,12 @@ declare namespace xml {
     /**
      * Whether to parsing Doctype of the elements.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to parsing Doctype of the elements.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -704,14 +645,12 @@ declare namespace xml {
     /**
      * Whether to ignore parsing texts of the elements.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Whether to ignore parsing texts of the elements.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -721,14 +660,12 @@ declare namespace xml {
     /**
      * Tag value callback function.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Tag value callback function.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -738,14 +675,12 @@ declare namespace xml {
     /**
      * Attribute value callback function.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Attribute value callback function.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -755,14 +690,12 @@ declare namespace xml {
     /**
      * Token value callback function.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Token value callback function.
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -773,7 +706,6 @@ declare namespace xml {
   /**
    * The XmlPullParser interface is used to parse the existing xml file.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @name XmlPullParser
@@ -781,7 +713,6 @@ declare namespace xml {
   /**
    * The XmlPullParser interface is used to parse the existing xml file.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -791,9 +722,8 @@ declare namespace xml {
     /**
      * A constructor used to create a new XmlPullParser instance.
      *
-     * @permission N/A
-     * @param { ArrayBuffer | DataView } buffer - buffer buffer A instance, the new XmlPullParser with.
-     * @param { string } encoding - encoding [encoding='utf8']  this is its encoding.
+     * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
+     * @param { string } encoding - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
@@ -801,9 +731,8 @@ declare namespace xml {
     /**
      * A constructor used to create a new XmlPullParser instance.
      *
-     * @permission N/A
-     * @param { ArrayBuffer | DataView } buffer - buffer buffer A instance, the new XmlPullParser with.
-     * @param { string } encoding - encoding [encoding='utf8']  this is its encoding.
+     * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
+     * @param { string } encoding - [encoding='utf8']  this is its encoding.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -814,8 +743,7 @@ declare namespace xml {
     /**
      * Starts parsing the XML file.
      *
-     * @permission N/A
-     * @param { ParseOptions } option - option option parse options for XmlPullParser, the interface including
+     * @param { ParseOptions } option - Parse options for XmlPullParser, the interface including
 	 * two Boolean variables and three callback functions.
      * @throws { BusinessError } 401 - The type of option must be ParseOptions.
      * @syscap SystemCapability.Utils.Lang
@@ -824,8 +752,7 @@ declare namespace xml {
     /**
      * Starts parsing the XML file.
      *
-     * @permission N/A
-     * @param { ParseOptions } option - option option parse options for XmlPullParser, the interface including
+     * @param { ParseOptions } option - Parse options for XmlPullParser, the interface including
 	 * two Boolean variables and three callback functions.
      * @throws { BusinessError } 401 - The type of option must be ParseOptions.
      * @syscap SystemCapability.Utils.Lang

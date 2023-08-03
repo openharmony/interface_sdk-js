@@ -12,8 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const { requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
-  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile } = require('../utils');
+const {
+  requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
+  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile,
+} = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
 const whiteLists = require('../../config/jsdocCheckWhiteList.json');
@@ -50,18 +52,18 @@ function isAscendingOrder(tags) {
 
 // check jsdoc order
 function checkApiOrder(comments) {
-  let checkOrderRusult = [];
+  const checkOrderRusult = [];
   comments.forEach(docInfo => {
     if (isAscendingOrder(docInfo.tags)) {
       checkOrderRusult.push({
         checkResult: true,
-        errorInfo: "",
+        errorInfo: '',
       });
     } else {
-      let errorInfo = ErrorValueInfo.ERROR_ORDER;
+      const errorInfo = ErrorValueInfo.ERROR_ORDER;
       checkOrderRusult.push({
         checkResult: false,
-        errorInfo
+        errorInfo: errorInfo,
       });
     }
   });
@@ -69,10 +71,9 @@ function checkApiOrder(comments) {
 }
 exports.checkApiOrder = checkApiOrder;
 
-function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
-  let isIllegalTagWhitetFile = true;
-  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
-  let APITagNameResult = {
+function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec, useWhitelist) {
+  let isIllegalTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag) : true;
+  const APITagNameResult = {
     checkResult: true,
     errorInfo: '',
   };
@@ -90,8 +91,8 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
 exports.checkAPITagName = checkAPITagName;
 
 function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
-  let parentTagArr = [];
-  if (ts.isSourceFile(node)) {
+  const parentTagArr = [];
+  if (ts.isSourceFile(node.parent)) {
     return inheritResult;
   }
   if (!ts.isModuleBlock(node.parent)) {
@@ -99,10 +100,10 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
     if (comments.length > 0 && Array.isArray(comments[comments.length - 1].tags)) {
       comments[comments.length - 1].tags.forEach(tag => {
         parentTagArr.push(tag.tag);
-      })
+      });
       if (parentTagArr.includes(inheritTag)) {
         inheritResult.checkResult = false;
-        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [inheritTag])
+        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [inheritTag]);
       } else {
         checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
       }
@@ -114,23 +115,22 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
   return inheritResult;
 }
 
-function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
-  let isMissingTagWhitetFile = true;
-  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
-  let inheritResult = {
+function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex, useWhitelist) {
+  let isMissingTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag) : true;
+  const inheritResult = {
     checkResult: true,
     errorInfo: '',
   };
-  let tagArr = [];
+  const tagArr = [];
   if (commentNodeWhiteList.includes(node.kind)) {
     comment.tags.forEach(tag => {
-      tagArr.push(tag.tag)
-    })
+      tagArr.push(tag.tag);
+    });
     inheritArr.forEach((inheritTag, index) => {
       if (!tagArr.includes(inheritTag)) {
         checkParentInheritTag(node, inheritArr[index], inheritResult, JSocIndex);
       }
-    })
+    });
     if (!inheritResult.checkResult && isMissingTagWhitetFile) {
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.API,
         ErrorLevel.MIDDLE);

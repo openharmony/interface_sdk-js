@@ -20,7 +20,7 @@ const urlSuffix = '/systemres/main/config.json';
 
 exports.checkJSDoc = function (node, sourceFile, fileName) {
   const checkLegality = require('./src/check_legality');
-  return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, fileName, false);
+  return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, fileName, false, false);
 };
 
 exports.initEnv = function (version) {
@@ -43,7 +43,7 @@ exports.initEnv = function (version) {
       resolve();
     });
   });
-}
+};
 
 function updatePermissionConfig(url, callback) {
   let requestText;

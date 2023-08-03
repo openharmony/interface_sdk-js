@@ -119,7 +119,7 @@ interface CircleInterface {
   /**
    * use new function to set the value.
    * 
-   * @param { ?CircleOptions } value
+   * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -127,7 +127,7 @@ interface CircleInterface {
   /**
    * use new function to set the value.
    * 
-   * @param { ?CircleOptions } value
+   * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -136,7 +136,7 @@ interface CircleInterface {
   /**
    * use new function to set the value.
    * 
-   * @param { ?CircleOptions } value
+   * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -148,7 +148,7 @@ interface CircleInterface {
   /**
    * Set the value..
    *
-   * @param { ?CircleOptions } value
+   * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -156,7 +156,7 @@ interface CircleInterface {
   /**
    * Set the value..
    *
-   * @param { ?CircleOptions } value
+   * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -165,7 +165,7 @@ interface CircleInterface {
   /**
    * Set the value..
    *
-   * @param { ?CircleOptions } value
+   * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

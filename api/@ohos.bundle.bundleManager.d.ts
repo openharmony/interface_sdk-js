@@ -413,14 +413,6 @@ declare namespace bundleManager {
     DRIVER = 18,
 
     /**
-     * Indicates extension info with type of appAccountAuthorization
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    APP_ACCOUNT_AUTHORIZATION = 19,
-
-    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

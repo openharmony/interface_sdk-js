@@ -180,12 +180,14 @@ interface TextPickerInterface {
  * Style the text selector.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Style the text selector.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -255,7 +257,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Called when the pop-up value is returned.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -266,7 +268,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Called when the Cancel button in the pop-up window is clicked.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -277,7 +279,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Called when the OK button in the pop-up window is clicked.
    *
-   * @param { (value: string | string[], index: number | number[]) => void } callback - the callback of onChange.
+   * @param { function } callback - the callback of onChange.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -286,7 +288,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * This event is triggered when a TextPicker item is selected.
    * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
    *
-   * @param { (value: string | string[], index: number | number[]) => void } callback - the callback of onChange.
+   * @param { function } callback - the callback of onChange.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -377,14 +379,14 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   /**
    * Called when the default height of the selected element is set.
    *
-   * @type { number | string }
+   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the default height of the selected element is set.
    *
-   * @type { number | string }
+   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -433,14 +435,14 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   /**
    * Called when the OK button in the dialog is clicked.
    *
-   * @type { ?((value: TextPickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the OK button in the dialog is clicked.
    *
-   * @type { ?((value: TextPickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -450,14 +452,14 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   /**
    * Called when the Cancel button in the dialog is clicked.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -467,19 +469,49 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   /**
    * This event is triggered when a TextPicker text is selected in dialog.
    *
-   * @type { ?((value: TextPickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * This event is triggered when a TextPicker text is selected in dialog.
    *
-   * @type { ?((value: TextPickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   onChange?: (value: TextPickerResult) => void;
+
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
+
+  /**
+   * Defines the dialog alignment of the screen.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Defines the dialog offset.
+   *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Offset;
 }
 
 /**

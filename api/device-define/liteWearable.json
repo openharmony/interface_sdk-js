@@ -12,6 +12,7 @@
     "SystemCapability.Security.Huks.Core",
     "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
     "SystemCapability.Sensors.Sensor.Lite",
-    "SystemCapability.Sensors.MiscDevice.Lite"
+    "SystemCapability.Sensors.MiscDevice.Lite",
+    "SystemCapability.Communication.NetStack"
   ]
 }

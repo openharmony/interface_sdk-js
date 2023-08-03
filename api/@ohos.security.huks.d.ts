@@ -1468,11 +1468,15 @@ declare namespace huks {
      */
     HUKS_STORAGE_PERSISTENT = 1,
     /**
+     * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
     /**
+     * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
@@ -1500,7 +1504,20 @@ declare namespace huks {
    * @since 10
    */
   export enum HuksRsaPssSaltLenType {
+    /**
+     * Salt length that matches the digest length.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 10
+     */
     HUKS_RSA_PSS_SALT_LEN_DIGEST = 0,
+
+    /**
+     * Maximum salt length.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 10
+     */
     HUKS_RSA_PSS_SALT_LEN_MAX = 1
   }
 
@@ -1713,12 +1730,16 @@ declare namespace huks {
     HUKS_TAG_UNWRAP_ALGORITHM_SUITE = HuksTagType.HUKS_TAG_TYPE_UINT | 26,
 
     /**
+     * Key storage type, which can be HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 29,
 
     /**
+     * RSA salt length type. For details, see HuksRsaPssSaltLenType.
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */

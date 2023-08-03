@@ -196,7 +196,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission.
@@ -219,7 +220,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission.
@@ -247,7 +249,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission.
@@ -270,7 +273,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission.
@@ -328,14 +332,16 @@ declare namespace abilityAccessCtrl {
      *        <ul>
      *        <li>{@code empty} - Indicates that the application can be notified if the specified permission state of any applications changes.
      *        </li>
-     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications change.
+     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified
+     *                                permission state of the specified applications change.
      *        </li>
      *        </ul>
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
      *        <ul>
      *        <li>{@code empty} - Indicates that the application can be notified if any permission state of the specified applications changes.
      *        </li>
-     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications changes.
+     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified
+     *                                permission state of the specified applications changes.
      *        </li>
      *        </ul>
      * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering permissions.

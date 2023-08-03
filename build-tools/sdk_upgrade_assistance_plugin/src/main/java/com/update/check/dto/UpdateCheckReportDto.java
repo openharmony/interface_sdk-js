@@ -28,7 +28,7 @@ public class UpdateCheckReportDto {
     private String sourceFileName;
     private String pos;
     private List<ApiDiffResultDto.Changelog> changelogs;
-    private Integer changeType;
+    private String changeType;
 
     /**
      * UpdateCheckReportDto
@@ -49,7 +49,7 @@ public class UpdateCheckReportDto {
     public UpdateCheckReportDto(ApiDiffResultDto apiDto,
                                 String reminderInformation,
                                 CollectApplicationApiDto collApiDto,
-                                int changeType) {
+                                String changeType) {
         this.apiDefinition = apiDto.getRawText();
         this.reminderInformation = reminderInformation;
         this.sourceFileName = collApiDto.getSourceFileName();
@@ -98,11 +98,11 @@ public class UpdateCheckReportDto {
         this.changelogs = changelogs;
     }
 
-    public Integer getChangeType() {
+    public String getChangeType() {
         return changeType;
     }
 
-    public void setChangeType(Integer changeType) {
+    public void setChangeType(String changeType) {
         this.changeType = changeType;
     }
 }

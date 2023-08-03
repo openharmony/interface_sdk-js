@@ -333,7 +333,7 @@ declare interface NavigationMenuItem {
   /**
    * Trigger by navigation menu item click.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -399,7 +399,7 @@ declare class NavPathStack {
    * @crossplatform
    * @since 10
    */
-  push(info: NavPathInfo): void;
+  pushPath(info: NavPathInfo): void;
 
   /**
    * Pushes the specified route page into the stack.
@@ -410,7 +410,7 @@ declare class NavPathStack {
    * @crossplatform
    * @since 10
    */
-  pushName(name: string, param: unknown): void;
+  pushPathByName(name: string, param: unknown): void;
 
   /**
    * Pops the top route page out of the stack.
@@ -431,7 +431,7 @@ declare class NavPathStack {
    * @crossplatform
    * @since 10
    */
-  popTo(name: string): number;
+  popToName(name: string): number;
 
   /**
    * Pops the specified route page out of the stack.
@@ -636,7 +636,7 @@ declare interface ToolbarItem {
   /**
    * Trigger by navigation toolbar item click.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -920,7 +920,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    * @deprecated since 10
-   * @useinstead toolbarConfiguration
+   * @useinstead navigation/NavigationAttribute#toolbarConfiguration
    */
   toolBar(value: object | CustomBuilder): NavigationAttribute;
 
@@ -966,7 +966,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Trigger callback when title mode change finished at free mode.
    *
-   * @param { (titleMode: NavigationTitleMode) => void } callback
+   * @param { function } callback
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -985,7 +985,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Trigger callback when the visibility of navigation bar change.
    *
-   * @param { (isVisible: boolean) => void } callback
+   * @param { function } callback
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -996,7 +996,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Set builder for user-defined NavDestination component.
    *
-   * @param { (name: string, param: unknown) => void } builder The builder function of NavDestination component.
+   * @param { function } builder The builder function of NavDestination component.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

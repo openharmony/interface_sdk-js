@@ -40,18 +40,30 @@
 interface RectInterface {
   /**
    * Use new function to create Rect.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Use new function to create Rect.
-   * @form
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Use new function to create Rect.
-   * @form
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   new (
     value?:
@@ -71,13 +83,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { {width?: number | string;
-  * height?: number | string;
-  * radius?: number | string | Array<any>;
-  * } | {width?: number | string;
-  * height?: number | string;
-  * radiusWidth?: number | string;
-  * radiusHeight?: number | string; } } value
+   * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -85,13 +91,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { {width?: number | string;
-  * height?: number | string;
-  * radius?: number | string | Array<any>;
-  * } | {width?: number | string;
-  * height?: number | string;
-  * radiusWidth?: number | string;
-  * radiusHeight?: number | string; } } value
+   * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -100,13 +100,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { {width?: number | string;
-   * height?: number | string;
-   * radius?: number | string | Array<any>;
-   * } | {width?: number | string;
-   * height?: number | string;
-   * radiusWidth?: number | string;
-   * radiusHeight?: number | string; } } value
+   * @param { object } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

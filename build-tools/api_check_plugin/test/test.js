@@ -14,17 +14,17 @@
  */
 
 function checkEntryLocalText(url, prId) {
-  const path = require("path");
+  const path = require('path');
   let result = [];
   try {
     let execSync = require("child_process").execSync;
-    execSync("cd ../../diff_api && npm install && cd ../api_check_plugin && npm install");
+    execSync("cd ../../api_diff && npm install && cd ../api_check_plugin && npm install");
     const { excelApiCheckResult, apiCheckArr, removeDir } =
-    require(path.resolve(__dirname, "../src/utils"));
-    const { scanEntry } = require("../src/api_check_plugin");
+    require(path.resolve(__dirname, '../src/utils'));
+    const { scanEntry } = require('../src/api_check_plugin');
     result = scanEntry(url, prId);
     excelApiCheckResult(apiCheckArr);
-    removeDir(path.resolve(__dirname, "../../diff_api/node_modules"));
+    removeDir(path.resolve(__dirname, "../../api_diff/node_modules"));
     removeDir(path.resolve(__dirname, "../node_modules"));
   } catch (error) {
     result.push(`API_CHECK_ERROR :${error}`);
@@ -36,10 +36,10 @@ function checkEntryLocalText(url, prId) {
       result.unshift(errorInfo);
     });
     const { writeResultFile } = require('../src/utils');
-    writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
+    writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
   }
 }
 
 // 修改为实际的prId
 const prId = 'xxx';
-checkEntryLocalText("./mdFiles.txt", prId);
+checkEntryLocalText('./mdFiles.txt', prId);

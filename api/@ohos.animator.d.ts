@@ -286,7 +286,7 @@ export interface AnimatorResult {
    * @crossplatform
    * @since 10
    */
-   reverse(): void;
+  reverse(): void;
 
   /**
    * Trigger when vsync callback.

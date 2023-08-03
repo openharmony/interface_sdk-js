@@ -535,6 +535,15 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @since 10
    */
   strokeWidth?: Length;
+  /**
+   * Defines the stroke radius property.
+   *
+   * @type { ?(PX | VP | LPX | Resource) }
+   * @default strokeWidth / 2
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  strokeRadius?: PX | VP | LPX | Resource;
 }
 
 /**
@@ -850,12 +859,14 @@ interface ProgressInterface {
  * Defines the progress attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the progress attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */

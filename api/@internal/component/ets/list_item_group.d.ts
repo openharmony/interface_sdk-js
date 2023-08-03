@@ -134,7 +134,7 @@ interface ListItemGroupInterface {
   /**
    * Called when interface is called.
    *
-   * @param { ?ListItemGroupOptions } options
+   * @param { ListItemGroupOptions } options
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -142,7 +142,7 @@ interface ListItemGroupInterface {
   /**
    * Called when interface is called.
    *
-   * @param { ?ListItemGroupOptions } options
+   * @param { ListItemGroupOptions } options
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

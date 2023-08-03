@@ -80,7 +80,7 @@ interface AlphabetIndexerInterface {
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
    *
-   * @param { { arrayValue: Array<string>; selected: number } } value
+   * @param { object } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -89,7 +89,7 @@ interface AlphabetIndexerInterface {
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
    *
-   * @param { { arrayValue: Array<string>; selected: number } } value
+   * @param { object } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -117,7 +117,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -246,27 +246,11 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of the unselected font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set the unselected font color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of the unselected font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   popupUnselectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
-  /**
-   * Set the background color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of background.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * Set the background color of non-alphabetic part of the pop-up window.
    *
@@ -335,15 +319,6 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    */
   popupFont(value: Font): AlphabetIndexerAttribute;
 
-  /**
-   * Set the font style of non-alphabetic part of the prompt pop-up window.
-   * Family and style are not supported currently and will be fixed in future.
-   *
-   * @param { Font } value - indicates the style of the font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * Set the font style of non-alphabetic part of the prompt pop-up window.
    * Family and style are not supported currently and will be fixed in future.
@@ -420,7 +395,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -428,7 +403,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -439,7 +414,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback and return the strings which display on pop-up.
    *
-   * @param { (index: number) => Array<string> } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -447,7 +422,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback and return the strings which display on pop-up.
    *
-   * @param { (index: number) => Array<string> } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -458,7 +433,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Pop-up selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -466,7 +441,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Pop-up selection callback.
    *
-   * @param { (index: number) => void } callback
+   * @param { function } callback
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

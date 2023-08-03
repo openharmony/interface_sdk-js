@@ -23,7 +23,7 @@ import { LogUtil } from '../utils/logUtil';
 import { StringResource, StringUtils } from '../utils/stringUtils';
 import type {
   Context, LogReporter, CheckLogResult, ModifyLogResult, LogWriter, JSDocModifyType,
-  JSDocCheckErrorType
+  JSDocCheckErrorType, CommentData
 } from './typedef';
 import { comment, Options, sourceParser, rawInfo } from './typedef';
 import ts, { CommentRange, TransformationContext, TransformationResult } from 'typescript';
@@ -88,8 +88,8 @@ export class ContextImpl implements Context {
 export class OutputFileHelper {
 
   static getOutputFilePath(inputParam: InputParameter, sourceFile: string): string {
-    return inputParam.isHandleMultiFiles() ? OutputFileHelper.getMultiOutputFilePath(inputParam, sourceFile)
-      : OutputFileHelper.getSingleOutputFilePath(inputParam);
+    return inputParam.isHandleMultiFiles() ? OutputFileHelper.getMultiOutputFilePath(inputParam, sourceFile) :
+      OutputFileHelper.getSingleOutputFilePath(inputParam);
   }
 
   static getMultiOutputFilePath(inputParam: InputParameter, sourceFile: string): string {
@@ -402,7 +402,7 @@ export class CommentHelper {
     }
     commentInfo.parsedComment = parsedComments[0];
     commentInfo.description = parsedComments[0].description;
-    parsedComments[0].tags.forEach((tagObject: any) => {
+    parsedComments[0].tags.forEach((tagObject: CommentData) => {
       commentInfo.commentTags.push({
         tag: tagObject.tag,
         name: tagObject.name,
@@ -450,8 +450,8 @@ export class CommentHelper {
   }
 
   private static fixReferenceComment(commentInfo: comment.CommentInfo, parsedCommentInfos: Array<comment.CommentInfo>): void {
-    if (commentInfo.isMultiLine || commentInfo.isApiComment
-      || !StringUtils.hasSubstring(commentInfo.text, this.REFERENCE_COMMENT_REGEXP)) {
+    if (commentInfo.isMultiLine || commentInfo.isApiComment ||
+      !StringUtils.hasSubstring(commentInfo.text, this.REFERENCE_COMMENT_REGEXP)) {
       return;
     }
     parsedCommentInfos.push(this.getEmptyLineComment());
@@ -552,7 +552,7 @@ class CommentWriter {
     const START_POSITION_INDEX = 2;
     if (commentInfo.isMultiLine) {
       // 删除起始 /* 和末尾 */ 符号
-      plainComment = plainComment.substring(START_POSITION_INDEX, plainComment.length - 2);
+      plainComment = plainComment.substring(START_POSITION_INDEX, plainComment.length - START_POSITION_INDEX);
     }
     return plainComment;
   }
@@ -1043,7 +1043,7 @@ export namespace logWriter {
       const results: JsonResult = {
         checkResults: undefined,
         modifyResults: undefined
-      }
+      };
       if (checkResults) {
         results.checkResults = checkResults;
       }

@@ -138,12 +138,14 @@ interface TimePickerInterface {
  * Defines the TimePicker attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the TimePicker attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -203,7 +205,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
    * This event is triggered when a TimePicker time is selected.
    *
-   * @param { (value: TimePickerResult) => void } callback
+   * @param { function } callback
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -211,7 +213,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
    * This event is triggered when a TimePicker time is selected.
    *
-   * @param { (value: TimePickerResult) => void } callback
+   * @param { function } callback
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -284,16 +286,46 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   selectedTextStyle?: PickerTextStyle;
 
   /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
+
+  /**
+   * Defines the dialog alignment of the screen.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Defines the dialog offset.
+   *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Offset;
+
+  /**
    * Called when the OK button in the dialog is clicked.
    *
-   * @type { ?((value: TimePickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the OK button in the dialog is clicked.
    *
-   * @type { ?((value: TimePickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -303,14 +335,14 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   /**
    * Called when the Cancel button in the dialog is clicked.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -320,14 +352,14 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   /**
    * This event is triggered when a TimePicker Time or time is selected in dialog.
    *
-   * @type { ?((value: TimePickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * This event is triggered when a TimePicker Time or time is selected in dialog.
    *
-   * @type { ?((value: TimePickerResult) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

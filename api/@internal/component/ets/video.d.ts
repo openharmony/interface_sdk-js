@@ -560,7 +560,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video is played.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -568,7 +568,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video is played.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -579,7 +579,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video is paused.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -587,7 +587,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video is paused.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -598,7 +598,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video playback ends.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -606,7 +606,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video playback ends.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -617,7 +617,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video enters and exits the full screen.
    *
-   * @param { (event?: {fullscreen: boolean;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -625,7 +625,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video enters and exits the full screen.
    *
-   * @param { (event?: {fullscreen: boolean;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -634,6 +634,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onFullscreenChange(callback: (event?: {
     /**
      * Play the flag in full screen.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -643,7 +645,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video preparation is complete.
    *
-   * @param { (event?: {duration: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -651,7 +653,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the video preparation is complete.
    *
-   * @param { (event?: {duration: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -660,6 +662,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onPrepared(callback: (event?: {
     /**
      * Playback duration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -669,7 +673,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the time information is reported when the progress bar process is operated.
    *
-   * @param { (event?: {time: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -677,7 +681,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the time information is reported when the progress bar process is operated.
    *
-   * @param { (event?: {time: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -686,6 +690,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onSeeking(callback: (event?: {
     /**
      * Play time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -695,7 +701,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the playback time information is reported after the operation progress bar is completed.
    *
-   * @param { (event?: {time: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -703,7 +709,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the playback time information is reported after the operation progress bar is completed.
    *
-   * @param { (event?: {time: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -712,6 +718,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onSeeked(callback: (event?: {
     /**
      * Play time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -721,7 +729,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the playback progress changes.
    *
-   * @param { (event?: {time: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -729,7 +737,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when the playback progress changes.
    *
-   * @param { (event?: {time: number;}) => void } callback
+   * @param { function } callback
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -738,6 +746,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onUpdate(callback: (event?: {
     /**
      * Play time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -747,7 +757,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when playback fails.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -755,7 +765,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when playback fails.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

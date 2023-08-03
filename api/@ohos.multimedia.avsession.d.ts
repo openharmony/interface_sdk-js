@@ -1365,16 +1365,17 @@ declare namespace avSession {
      */
     command: AVCastControlCommandType;
     /**
-     * parameter of the command.
-     * seek command requires a number parameter
-     * setVolume command requires a number parameter
-     * toggleFavorite command requires assetId {@link AVMediaDescription.mediaId} parameter
-     * setSpeed the parameter sees {@link #media.PlaybackSpeed}.
-     * other commands need no parameter
+     * Parameter carried in the command.
+     * The seek command must carry the number parameter.
+     * The setVolume command must carry the number parameter.
+     * The toggleFavorite command must carry the {@link AVMediaDescription.assetId} parameter.
+     * The setSpeed command must carry the {@link #media.PlaybackSpeed} parameter.
+     * The setLoopMode command must carry the {@link LoopMode} parameter.
+     * Other commands do not need to carry parameters.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
-    parameter?: media.PlaybackSpeed | number;
+    parameter?: media.PlaybackSpeed | number | string | LoopMode;
   }
 
   /**
@@ -1818,7 +1819,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    mediaId: string;
+    assetId: string;
     /**
      * The title of this media, for display in media center.
      * @type { ?string }
@@ -1841,20 +1842,12 @@ declare namespace avSession {
      */
     description?: string;
     /**
-     * The image of the media as a {@link PixelMap},
-     * used to display in media center.
+     * The image of this media asset displayed in the media center.
+     * It can be a {@link PixelMap} or a URI formatted string,
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    icon?: image.PixelMap;
-    /**
-     * The image of the media as an uri formatted String,
-     * used to display in media center.
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
-     */
-    iconUri?: string;
+    mediaImage?: image.PixelMap | string;
     /**
      * Any additional attributes that can be represented as key-value pairs
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2131,11 +2124,11 @@ declare namespace avSession {
    */
   interface DeviceInfo {
     /**
-     * The playback type supported by the device, can be union of {@link AVCastCategory}
+     * The playback type supported by the device. See {@link AVCastCategory}
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    castCategory: number;
+    castCategory: AVCastCategory;
     /**
      * Audio device id.The length of the audioDeviceId array is greater than 1
      * if output to multiple devices at the same time.
@@ -3001,7 +2994,7 @@ declare namespace avSession {
    * @since 10
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-    'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
 
   /**
    * The definition of command to be sent to the session

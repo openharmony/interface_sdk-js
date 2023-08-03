@@ -110,14 +110,14 @@ declare namespace userFileManager {
   /**
    * File position
    *
-   * @enum { number } File position, which indicates the file is in local device or cloud
+   * @enum { number } File position, which indicates the file is on local device or cloud
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @since 10
    */
   enum PositionType {
     /**
-     * File exists only in local device
+     * File exists only on local device
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -125,7 +125,7 @@ declare namespace userFileManager {
      */
     LOCAL = 1,
     /**
-     * File exists only in cloud
+     * File exists only on cloud
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -133,7 +133,7 @@ declare namespace userFileManager {
      */
     CLOUD,
     /**
-     * File exists in both local and cloud
+     * File exists on both local and cloud
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi

@@ -2409,7 +2409,7 @@ declare namespace window {
      *
      * @returns { UIContext } the object of UIContext.
      * @throws { BusinessError } 401 - If param is invalid
-     * @throws { BusinessError } 1300002 - If window state is abnormally
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
@@ -2658,7 +2658,8 @@ declare namespace window {
     /**
      * Unregister the callback of dialogTargetTouch
      *
-     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', indicating the click event of the target window in the modal window mode.
+     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', 
+     *  indicating the click event of the target window in the modal window mode.
      * @param { Callback<void> } callback - Callback invoked when the click event occurs in the target window of the modal window mode.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2685,7 +2686,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
-    off(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+    off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
     /**
      * Bind dialog to the target window.
@@ -2774,7 +2775,8 @@ declare namespace window {
     /**
      * Whether the window supports thr wide gamut setting.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value true means that the wide-gamut color space is supported, and false means the opposite.
+     * @returns { Promise<boolean> } Promise used to return the result. 
+     *  The value true means that the wide-gamut color space is supported, and false means the opposite.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9

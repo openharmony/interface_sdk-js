@@ -102,14 +102,16 @@ interface WaterFlowInterface {
 
 /**
  * Defines the water flow attribute.
- *
+ * 
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the water flow attribute.
- *
+ * 
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -241,8 +243,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
 
   /**
    * Called when setting whether to enable scroll by gesture or mouse.
-   * @param { boolean }
-   * @default true
+   * @param { boolean } value
    * @returns { WaterFlowAttribute } The attribute of the waterflow
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -253,7 +254,6 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   /**
    * Called to setting the friction.
    * @param { number | Resource } value - options for scrolling friction.
-   * @default not wearable-product is 0.6, wearable-product is 0.9; (the value should be more than 0. if abnormal value, default value will be set)
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -264,7 +264,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   /**
    * Called when the water flow begins to arrive.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -272,7 +272,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   /**
    * Called when the water flow begins to arrive.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -283,7 +283,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   /**
    * Called when the water flow reaches the end.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -291,7 +291,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   /**
    * Called when the water flow reaches the end.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { WaterFlowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -302,7 +302,7 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   /**
    * Called when scrolling begin each frame.
    *
-   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event
+   * @param { function } event
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -634,8 +634,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @deprecated since 10
-   * @useinstead common.CommonMethod#draggable
    * @form
    */
   draggable(value: boolean): ImageAttribute;
@@ -644,17 +642,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    *
-   * @param { (event?: {
-   *   width: number;
-  *   height: number;
-  *   componentWidth: number;
-  *   componentHeight: number;
-  *   loadingStatus: number;
-  *   contentWidth: number;
-  *   contentHeight: number;
-  *   contentOffsetX: number;
-  *   contentOffsetY: number;
-  * }) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -663,17 +651,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    *
-   * @param { (event?: {
-   *   width: number;
-  *   height: number;
-  *   componentWidth: number;
-  *   componentHeight: number;
-  *   loadingStatus: number;
-  *   contentWidth: number;
-  *   contentHeight: number;
-  *   contentOffsetX: number;
-  *   contentOffsetY: number;
-  * }) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -683,17 +661,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    *
-   * @param { (event?: {
-   *   width: number;
-   *   height: number;
-   *   componentWidth: number;
-   *   componentHeight: number;
-   *   loadingStatus: number;
-   *   contentWidth: number;
-   *   contentHeight: number;
-   *   contentOffsetX: number;
-   *   contentOffsetY: number;
-   * }) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -717,7 +685,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * This callback is triggered when an exception occurs during image loading.
    *
-   * @param { (event?: {componentWidth: number; componentHeight: number}) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -725,7 +693,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * This callback is triggered when an exception occurs during image loading.
    *
-   * @param { (event?: {componentWidth: number; componentHeight: number}) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -734,7 +702,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * This callback is triggered when an exception occurs during image loading.
    *
-   * @param { (event?: {componentWidth: number; componentHeight: number}) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -769,8 +737,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.
    *
-   * @param { (event?: {componentWidth: number; componentHeight: number; message: string
-   * }) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -780,8 +747,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.
    *
-   * @param { (event?: {componentWidth: number; componentHeight: number; message: string
-   * }) => void } callback
+   * @param { function } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -827,7 +793,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -836,7 +802,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -846,7 +812,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -39,6 +39,39 @@ declare enum RichEditorDeleteDirection {
 }
 
 /**
+ * Defines span type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum RichEditorSpanType {
+  /**
+   * text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TEXT = 0,
+
+  /**
+   * image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  IMAGE = 1,
+
+  /**
+   * mixed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MIXED = 2,
+}
+
+/**
  * Defines the span position.
  *
  * @interface RichEditorSpanPosition
@@ -121,7 +154,7 @@ declare interface RichEditorTextStyle {
   /**
    * font decoration.
    *
-   * @type { ?( type: TextDecorationType; color ?: ResourceColor; ) }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -175,7 +208,7 @@ declare interface RichEditorImageSpanStyle {
   /**
    * image size.
    *
-   * @type { ?[Dimension; Dimension;] }
+   * @type { ?[Dimension, Dimension] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -524,12 +557,12 @@ declare interface RichEditorImageSpanOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface RichEditorSpanStyleOptions extends RichEditorRange {}
+declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 
 /**
  * Defines text span style option of RichEditor.
  *
- * @interface RichEditorSpanStyleOptions
+ * @interface RichEditorUpdateTextSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -677,6 +710,37 @@ declare interface RichEditorOptions {
    */
   controller: RichEditorController;
 }
+
+/**
+ * Defines the selection menu options.
+ * 
+ * @interface SelectionMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SelectionMenuOptions {
+  /**
+   * Callback function when the selection menu appears.
+   * 
+   * @type { ?(() => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onAppear?: () => void;
+
+  /**
+   * Callback function when the selection menu disappears.
+   * 
+   * @type { ?(() => void) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onDisappear?: () => void;
+}
+
 declare class RichEditorController {
   /**
    * Get caret offset from controller.
@@ -701,7 +765,7 @@ declare class RichEditorController {
    * Add a text span.
    *
    * @param { string } value - text value.
-   * @param { ?RichEditorTextSpanOptions } options span info.
+   * @param { RichEditorTextSpanOptions } options span info.
    * @returns { number } span index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -712,7 +776,7 @@ declare class RichEditorController {
    * Add a image span.
    *
    * @param { PixelMap| ResourceStr } value - image value.
-   * @param { ?RichEditorImageSpanOptions } options image span info.
+   * @param { RichEditorImageSpanOptions } options image span info.
    * @returns { number } span index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -731,7 +795,7 @@ declare class RichEditorController {
   /**
    * Delete span.
    *
-   * @param { ?RichEditorRange } value range for deleting.
+   * @param { RichEditorRange } value range for deleting.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -740,12 +804,20 @@ declare class RichEditorController {
   /**
    * Get span content.
    *
-   * @param { ?RichEditorRange } value range for getting span info.
+   * @param { RichEditorRange } value range for getting span info.
    * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
+
+  /**
+   * close the select menu when menu is on.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  closeSelectionMenu(): void;
 }
 
 /**
@@ -759,7 +831,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Called when on ready.
    *
-   * @param { () => void } callback The triggered function when rich editor is ready.
+   * @param { function } callback The triggered function when rich editor is ready.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -769,7 +841,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Called when the content is selected.
    *
-   * @param { (value: RichEditorSelection) => void } callback The triggered function when select text.
+   * @param { function } callback The triggered function when select text.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -779,7 +851,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Get text value information when about to input.
    *
-   * @param { (value: RichEditorInsertValue) => boolean } callback The triggered function when text content is about to insert.
+   * @param { function } callback The triggered function when text content is about to insert.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -789,7 +861,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Get text value information when completed input.
    *
-   * @param { (value: RichEditorTextSpanResult) => void } callback The triggered function when text content has been inserted.
+   * @param { function } callback The triggered function when text content has been inserted.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -799,7 +871,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Get text value information when about to delete.
    *
-   * @param { (value: RichEditorDeleteValue) => boolean } callback The triggered function when text content is about to delete.
+   * @param { function } callback The triggered function when text content is about to delete.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -809,12 +881,48 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Notify that the deletion has been completed
    *
-   * @param { () => void } callback The triggered function when text content has been deleted.
+   * @param { function } callback The triggered function when text content has been deleted.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   onDeleteComplete(callback: () => void): RichEditorAttribute;
+
+  /**
+   * Allow replication.
+   *
+   * @param { CopyOptions } value - Indicates the type of copy option.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  copyOptions(value: CopyOptions): RichEditorAttribute;
+
+  /**
+   * Bind to the selection menu.
+   *
+   * @param { RichEditorSpanType } spanType - Indicates the type of selection menu.
+   * @param { CustomBuilder } content - Indicates the content of selection menu.
+   * @param { ResponseType } responseType - Indicates response type of selection menu.
+   * @param { ?SelectionMenuOptions } options - Indicates the options of selection menu.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  bindSelectionMenu(spanType: RichEditorSpanType, content: CustomBuilder, responseType: ResponseType, options?: SelectionMenuOptions): RichEditorAttribute;
+
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  customKeyboard(value: CustomBuilder): RichEditorAttribute;
 }
 
 /**
