@@ -446,10 +446,12 @@ declare namespace window {
    */
   interface Rect {
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      */
     left: number;
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      */
     top: number;
@@ -459,6 +461,7 @@ declare namespace window {
      */
     width: number;
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      */
     height: number;
