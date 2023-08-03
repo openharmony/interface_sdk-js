@@ -446,19 +446,27 @@ declare namespace window {
    */
   interface Rect {
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     left: number;
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     top: number;
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     width: number;
     /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     height: number;
   }
@@ -806,6 +814,7 @@ declare namespace window {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
