@@ -448,6 +448,7 @@ declare namespace window {
     /**
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 7
      */
     left: number;
     /**
