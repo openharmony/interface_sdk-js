@@ -15,102 +15,156 @@
 
 /**
  * Create Blank.
+ *
+ * @interface BlankInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Create Blank.
- * @form
+ *
+ * @interface BlankInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Create Blank.
- * @form
+ *
+ * @interface BlankInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
+   *
+   * @param { number | string } min
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The minimum size of the blank fill assembly on the container spindle.
-   * @form
+   *
+   * @param { number | string } min
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * The minimum size of the blank fill assembly on the container spindle.
-   * @form
+   *
+   * @param { number | string } min
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (min?: number | string): BlankAttribute;
 }
 
 /**
  * Inheritance CommonMethod Set Styles
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Inheritance CommonMethod Set Styles
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Inheritance CommonMethod Set Styles
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
    * color: set color.
+   *
+   * @param { ResourceColor } value
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * color: set color.
-   * @form
+   *
+   * @param { ResourceColor } value
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * color: set color.
-   * @form
+   *
+   * @param { ResourceColor } value
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   color(value: ResourceColor): BlankAttribute;
 }
 
 /**
  * Defines Blank Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Blank Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Blank Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Blank: BlankInterface;
 
 /**
  * Defines Blank Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines Blank Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Blank Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const BlankInstance: BlankAttribute;

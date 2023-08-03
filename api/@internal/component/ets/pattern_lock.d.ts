@@ -15,19 +15,26 @@
 
 /**
  * Provides methods for control pattern lock component.
+ *
  * @since 9
  */
 /**
  * Provides methods for control pattern lock component.
+ *
  * @crossplatform
  * @since 10
  */
 declare class PatternLockController {
   /**
    * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   /**
    * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -35,9 +42,14 @@ declare class PatternLockController {
 
   /**
    * Reset pattern lock.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   /**
    * Reset pattern lock.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -46,10 +58,16 @@ declare class PatternLockController {
 
 /**
  * Provides an interface for generating PatternLock.
+ *
+ * @interface PatternLockInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Provides an interface for generating PatternLock.
+ *
+ * @interface PatternLockInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -59,20 +77,34 @@ interface PatternLockInterface {
 
 /**
  * Provides methods for attribute pattern lock component.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Provides methods for attribute pattern lock component.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * The square side length of pattern lock component.
+   *
+   * @param { Length } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The square side length of pattern lock component.
+   *
+   * @param { Length } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -80,10 +112,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * Circle radius.
+   *
+   * @param { Length } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Circle radius.
+   *
+   * @param { Length } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -91,10 +131,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * The background color.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The background color.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -102,10 +150,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * Regular color.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Regular color.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -113,10 +169,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * The color when cell is selected.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The color when cell is selected.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -124,10 +188,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * The color when cell is active state.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The color when cell is active state.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -135,10 +207,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * The path line color.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The path line color.
+   *
+   * @param { ResourceColor } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -146,10 +226,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * The path line stroke width.
+   *
+   * @param { number | string } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The path line stroke width.
+   *
+   * @param { number | string } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -157,10 +245,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * Called when the pattern input completed.
+   *
+   * @param { function } callback
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when the pattern input completed.
+   *
+   * @param { function } callback
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -168,10 +264,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * Called when judging whether the input state can be reset by touch pattern lock.
+   *
+   * @param { boolean } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when judging whether the input state can be reset by touch pattern lock.
+   *
+   * @param { boolean } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -180,10 +284,14 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
 /**
  * Defines PatternLock Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines PatternLock Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -191,10 +299,14 @@ declare const PatternLock: PatternLockInterface;
 
 /**
  * Defines PatternLock Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines PatternLock Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

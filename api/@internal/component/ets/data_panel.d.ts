@@ -15,51 +15,72 @@
 
 /**
  * DataPanelType enum
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * DataPanelType enum
- * @form
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * DataPanelType enum
- * @form
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare enum DataPanelType {
   /**
    * Line Type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Line Type
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Line Type
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   Line,
 
   /**
    * Line Rainbow
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Line Rainbow
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Line Rainbow
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   Circle,
 }
@@ -92,6 +113,7 @@ declare type ColorStop = {
 
 /**
  * LinearGradient class
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -99,6 +121,7 @@ declare type ColorStop = {
 declare class LinearGradient {
   /**
    * Constructor.
+   *
    * @param { ColorStop[] } colorStops - the LinearGradient constructor parameter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -109,17 +132,19 @@ declare class LinearGradient {
 
 /**
  * Defines the options of Shadow.
+ *
+ * @interface DataPanelShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare interface DataPanelShadowOption {
-
+declare interface DataPanelShadowOptions {
   /**
    * Current shadow radius.
-   * @type { number | Resource } radius - the current shadow radius.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @type { ?(number | Resource) } radius - the current shadow radius.
    * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -127,9 +152,10 @@ declare interface DataPanelShadowOption {
 
   /**
    * Current shadow colors.
-   * @type { Array<ResourceColor | LinearGradient> } colors - the current shadow colors.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @type { ?(Array<ResourceColor | LinearGradient>) } colors - the current shadow colors.
    * @default Consistent with valueColors
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -137,9 +163,10 @@ declare interface DataPanelShadowOption {
 
   /**
    * Current shadow offsetX.
-   * @type { number | Resource } offsetX - the current shadow offsetX.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @type { ?(number | Resource) } offsetX - the current shadow offsetX.
    * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -147,9 +174,10 @@ declare interface DataPanelShadowOption {
 
   /**
    * Current shadow offsetY
-   * @type { number | Resource } offsetY - the current shadow offsetY.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @type { ?(number | Resource) } offsetY - the current shadow offsetY.
    * @default 5
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -158,142 +186,222 @@ declare interface DataPanelShadowOption {
 
 /**
  * Defines the options of DataPanel.
+ *
+ * @interface DataPanelOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the options of DataPanel.
- * @form
+ *
+ * @interface DataPanelOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the options of DataPanel.
- * @form
+ *
+ * @interface DataPanelOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface DataPanelOptions {
   /**
    * Current data value. the max length is 9.
+   *
+   * @type { number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Current data value. the max length is 9.
-   * @form
+   *
+   * @type { number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Current data value. the max length is 9.
-   * @form
+   *
+   * @type { number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   values: number[];
 
   /**
    * Maximum value of the current data.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Maximum value of the current data.
-   * @form
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Maximum value of the current data.
-   * @form
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   max?: number;
 
   /**
    * DataPanel Type
+   *
+   * @type { ?DataPanelType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * DataPanel Type
-   * @form
+   *
+   * @type { ?DataPanelType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * DataPanel Type
-   * @form
+   *
+   * @type { ?DataPanelType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   type?: DataPanelType;
 }
 
 /**
  * Defines the DataPanel component.
+ *
+ * @interface DataPanelInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the DataPanel component.
- * @form
+ *
+ * @interface DataPanelInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the DataPanel component.
- * @form
+ *
+ * @interface DataPanelInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface DataPanelInterface {
   /**
    * Return a DataPanel.
+   *
+   * @param { DataPanelOptions } options
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Return a DataPanel.
-   * @form
+   *
+   * @param { DataPanelOptions } options
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Return a DataPanel.
-   * @form
+   *
+   * @param { DataPanelOptions } options
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (options: DataPanelOptions): DataPanelAttribute;
 }
 
 /**
  * Defines the DataPanel attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the DataPanel attribute functions.
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the DataPanel attribute functions.
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
    * Disable the special effect of the data ratio chart.
+   *
+   * @param { boolean } value
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Disable the special effect of the data ratio chart.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Disable the special effect of the data ratio chart.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   closeEffect(value: boolean): DataPanelAttribute;
 
   /**
    * Set the value colors of the data ratio chart.
+   *
    * @param { Array<ResourceColor | LinearGradient> } value - the value colors of the data ratio chart.
+   * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -302,7 +410,9 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
 
   /**
    * Set track background color of the data ratio chart.
+   *
    * @param { ResourceColor } value - track background color of the data ratio chart.
+   * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -311,7 +421,9 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
 
   /**
    * Set the stroke width of the data ratio chart.
+   *
    * @param { Length } value - the stroke width of the data ratio chart.
+   * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -320,44 +432,58 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
 
   /**
    * Set the shadow width of the data ratio chart.
-   * @param { DataPanelShadowOption } value - the track shadow width of the data ratio chart.
+   *
+   * @param { DataPanelShadowOptions } value - the track shadow width of the data ratio chart.
+   * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  trackShadow(value: DataPanelShadowOption): DataPanelAttribute;
+  trackShadow(value: DataPanelShadowOptions): DataPanelAttribute;
 }
 
 /**
  * Defines DataPanel Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines DataPanel Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines DataPanel Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const DataPanel: DataPanelInterface
 
 /**
  * Defines DataPanel Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines DataPanel Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines DataPanel Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const DataPanelInstance: DataPanelAttribute;

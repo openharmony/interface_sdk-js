@@ -15,29 +15,42 @@
 
 /**
  * Defines XComponentController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare class XComponentController {
   /**
    * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   constructor();
 
   /**
    * Get the id of surface created by XComponent.
+   *
+   * @returns { string } The id of surface created by XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   getXComponentSurfaceId(): string;
 
   /**
    * Get the context of native XComponent.
+   *
+   * @returns { Object } The context of native XComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   getXComponentContext(): Object;
 
   /**
    * Set the surface size created by XComponent.
+   *
+   * @param { object } value - surface size
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   setXComponentSurfaceSize(value: {
@@ -48,18 +61,26 @@ declare class XComponentController {
 
 /**
  * Defines XComponent.
+ *
+ * @interface XComponentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 interface XComponentInterface {
   /**
    * Constructor parameters
+   *
+   * @param { object } value - Indicates the options of the xcomponent.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 
   /**
    * Constructor parameters
-   * @param { { id: string; type: XComponentType; libraryname?: string; controller?: XComponentController } } value - Indicates the options of the xcomponent.
+   *
+   * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -69,17 +90,27 @@ interface XComponentInterface {
 
 /**
  * Defines XComponentAttribute.
+ *
+ * @extends CommonMethod
  * @since 8
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent surface is created.
+   *
+   * @param { function } [callback] - Called when judging whether the xcomponent surface is created.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   onLoad(callback: (event?: object) => void): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
+   *
+   * @param { function } event - Called when judging whether the xcomponent is destroyed.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   onDestroy(event: () => void): XComponentAttribute;
@@ -87,12 +118,16 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
 
 /**
  * Defines XComponent Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare const XComponent: XComponentInterface;
 
 /**
  * Defines XComponent Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare const XComponentInstance: XComponentAttribute;

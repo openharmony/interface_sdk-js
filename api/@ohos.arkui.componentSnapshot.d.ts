@@ -18,15 +18,16 @@ import image from './@ohos.multimedia.image'
 
 /**
  * This module allows developers to export snapshot image from a component or a custom builder.
+ *
  * @namespace componentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare namespace componentSnapshot {
-
   /**
    * Take a snapshot of the target component.
+   *
    * @param { string } id - Target component ID, set by developer through .id attribute.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - if parameter check fails.
@@ -39,10 +40,11 @@ declare namespace componentSnapshot {
 
   /**
    * Take a snapshot of the target component.
+   *
    * @param { string } id - Target component ID, set by developer through .id attribute.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - if parameter check fails.
    * @throws { BusinessError } 100001 - if id is not valid.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -51,6 +53,7 @@ declare namespace componentSnapshot {
 
   /**
    * Generate a snapshot from a custom component builder.
+   *
    * @param { CustomBuilder } builder - Builder function of a custom component.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - if parameter check fails.
@@ -63,10 +66,11 @@ declare namespace componentSnapshot {
 
   /**
    * Generate a snapshot from a custom component builder.
+   *
    * @param { CustomBuilder } builder - Builder function of a custom component.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - if parameter check fails.
    * @throws { BusinessError } 100001 - if builder is not a valid build function.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

@@ -58,8 +58,9 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
       }
       const minLev = Math.min(...levArr);
       const indexArr = overwriteIndexOf(minLev, levArr);
+      const MAX_LENGTH = 5;
       for (let i = 0; i < indexArr.length; i++) {
-        if (i === 5) {
+        if (i === MAX_LENGTH) {
           break;
         }
         suggest.push(dictionariesArr[indexArr[i]]);
@@ -70,7 +71,7 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
   }
 }
 
-/** 
+/**
  *  check base word
  * @param {string} word
  * @return true or false
@@ -97,7 +98,7 @@ function splitComplexWords(complexWord) {
       basicWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
     }
   }
-  let newBaseWords = [];
+  const newBaseWords = [];
   basicWords.forEach(word => {
     if (/[0-9]/g.test(word)) {
       newBaseWords.concat(word.split(/0-9/g));

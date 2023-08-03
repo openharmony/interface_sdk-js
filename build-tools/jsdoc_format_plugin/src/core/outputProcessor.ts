@@ -19,7 +19,8 @@ import { FileUtils } from '../utils/fileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { StringUtils } from '../utils/stringUtils';
 import { CommentHelper } from './coreImpls';
-import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
+import type { Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
+import { comment} from './typedef';
 
 export class OutputProcessor implements ISourceCodeProcessor {
   async process(context: Context, content: string): Promise<ProcessResult> {
@@ -88,7 +89,7 @@ class NumberLiteralCaseRule {
     return this.content;
   }
 
-  private nodeVisitor(node: ts.Node) {
+  private nodeVisitor(node: ts.Node): void {
     if (!ts.isNumericLiteral(node)) {
       node.forEachChild((child) => {
         this.nodeVisitor(child);
@@ -98,7 +99,8 @@ class NumberLiteralCaseRule {
     if (!this.isHexString(value)) {
       return;
     }
-    let literalStr = value.substring(2, value.length);
+    const START_POSITION_INDEX = 2;
+    let literalStr = value.substring(START_POSITION_INDEX, value.length);
     let replacement = undefined;
     if (this.upperCase && !this.isHexUpperCase(literalStr)) {
       replacement = `0x${literalStr.toUpperCase()}`;

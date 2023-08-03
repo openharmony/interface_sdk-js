@@ -13,19 +13,24 @@
  * limitations under the License.
  */
 
-const fs = require('fs');
-const path = require('path');
-const url = `${__dirname.replace('src', '')}\\version_diff_collection`;
-const urlObject = fs.readFileSync(__dirname.replace('\\src', '') + '\\url.json', 'utf-8');
+const https = require('https');
+const { StatusCode, StatusMessages } = require('./reporter');
 
-const oldVersion = JSON.parse(urlObject).oldVersion;
-const newVersion = JSON.parse(urlObject).newVersion;
-
-filiterVersion(oldVersion, newVersion, url);
-function filiterVersion(oldVersion, newVersion, url) {
-  let versionArr = fs.readdirSync(url);
+async function mergeDataBetweenVersion(oldVersion, newVersion, allVersionUrl) {
   const oldVersionNumber = oldVersion.replace(/\./g, '');
   const newVersionNumber = newVersion.replace(/\./g, '');
+  const url = allVersionUrl.replace('allVersion.json', '');
+  let versionArr = [];
+  await downloadFiles(allVersionUrl).then((versionNumbers) => {
+    versionArr = JSON.parse(versionNumbers);
+  }).catch(err => {
+    console.log('ERROR CODE:', err.code);
+  })
+
+  if (versionArr.length === 0) {
+    return [];
+  }
+
   for (let i = 0; i < versionArr.length; i++) {
     const version = versionArr[i].replace(/\./g, '');
     if (version < oldVersionNumber || version > newVersionNumber) {
@@ -33,134 +38,298 @@ function filiterVersion(oldVersion, newVersion, url) {
       i--;
     }
   }
-
   let orderVersionArr = versionArr.sort((a, b) => {
-    return a.replace(/\./g, '') - b.replace(/\./g, '');
+    return a.replace(/\.|.json/g, '') - b.replace(/\.|.json/g, '');
   });
-
-  formatExcelData(orderVersionArr);
+  return formatExcelData(orderVersionArr, url);
 }
 
-// 合并前两个版本的数据，作为初始数据
-function formatExcelData(orderVersionArr) {
-  let initialData = [];
+function downloadFiles(allVersionUrl) {
+  return new Promise((resolve, reject) => {
+    getVersionsData(allVersionUrl, (versions) => {
+      if (versions) {
+        resolve(versions);
+      } else {
+        reject({ code: -1 });
+      }
+    })
+  })
+}
+
+function getLink(url, fileName) {
+  return `${url}${fileName}.json`;
+}
+
+function getVersionsData(versionUrl, callback) {
+  let json = '';
+  const SUCCESS_CODE =200;
+  const request = https.get(versionUrl, { timeout: 2000 }, function (res) {
+    if (res.statusCode !== SUCCESS_CODE) {
+      return;
+    }
+    res.on('data', function (d) {
+      json += d;
+    })
+  }).on('error', function (e) {
+    console.log('ERROR:', e.message);
+  }).on('close', () => {
+    callback(json);
+  }).on('timeout', () => {
+    request.destroy();
+  });
+}
+
+/**
+ * 将最老版本changelog中函数有变化的数据作为初始数据，去跟其他版本的changelog数据进行合并。
+ * @param {Array} orderVersionArr 
+ * @param {String} url 
+ * @returns {Array}
+ */
+async function formatExcelData(orderVersionArr, url) {
   let allMergeData = [];
-  if (orderVersionArr.length === 1) {
-    let versionUrl = `${url}\\${orderVersionArr[0]}`;
-    allMergeData = getSingleVersionData(versionUrl);
-  } else if (orderVersionArr.length > 1) {
-    let oldestVersionUrl = `${url}\\${orderVersionArr[0]}`;
-    let nearOldVersionUrl = `${url}\\${orderVersionArr[1]}`;
-    let oldestData = getSingleVersionData(oldestVersionUrl);
-    let nearOldVersionData = getSingleVersionData(nearOldVersionUrl);
-    const dataObject = compareDiffApi(oldestData, nearOldVersionData);
-    initialData = dataObject.initialData;
-    oldestData = dataObject.oldestData;
-    nearOldVersionData = dataObject.nearOldVersionData;
-    initialData = initialData.concat(oldestData, nearOldVersionData);
-    allMergeData = mergeAllData(initialData, orderVersionArr);
-  }
-  exports.allMergeData = allMergeData;
-}
-
-function compareDiffApi(oldestData, nearOldVersionData) {
-  let initialData = [];
-  let oldestVersionIndexes = [];
-  let nearOldestVersionIndexes = [];
-  for (let i = 0; i < oldestData.length; i++) {
-    for (let j = 0; j < nearOldVersionData.length; j++) {
-      let oldData = oldestData[i];
-      let newData = nearOldVersionData[j];
-      if (oldData.subsystem === newData.subsystem && oldData.diffNew === newData.diffOld &&
-                oldData.packageName === newData.packageName) {
-        initialData.push(collectData(oldData.diffOld, newData.diffNew, oldData.subsystem, oldData.packageName));
-        oldestVersionIndexes.push(i);
-        nearOldestVersionIndexes.push(j);
-      }
-    }
-  }
-  oldestVersionIndexes.forEach(index => {
-    oldestData.splice(index, 1);
+  const versionUrl = getLink(url, orderVersionArr[0]);
+  let oldestVersionData = [];
+  const MAX_LENGTH =2;
+  await downloadFiles(versionUrl).then(versionData => {
+    oldestVersionData = JSON.parse(versionData);
+  }).catch(err => {
+    console.log('ERROR CODE:', err.code);
   });
 
-  nearOldestVersionIndexes.forEach(index => {
-    nearOldestVersionIndexes.splice(index, 1);
-  });
-  return { initialData, oldestData, nearOldVersionData };
-}
-
-// 收集一个版本的所有API变更数据
-function getSingleVersionData(versionUrl) {
-  let singleVersionFiles = fs.readdirSync(versionUrl);
-  let oneVersionData = []
-  singleVersionFiles.forEach(file => {
-    let filePath = path.join(versionUrl, file);
-    let subsystem = file.replace('.md', '');
-    let fileContent = fs.readFileSync(filePath, 'utf-8');
-    let oneSubsystemDataArr = fileContent.split('\r\n');
-    let index = oneSubsystemDataArr.length;
-
-    while (index--) {
-      if (oneSubsystemDataArr[index] === '') {
-        oneSubsystemDataArr.splice(index, 1);
-      }
-    }
-
-    // 用 | 分隔开表格里的一行数据，得到新旧版本以及文件名
-    for (let i = 2; i < oneSubsystemDataArr.length; i++) {
-      const regx = /(?<!\\)\|/g;
-      let oneDataArr = oneSubsystemDataArr[i].split(regx);
-      const diffOld = oneDataArr[1].replace(/\\/g, '').trim();
-      const diffNew = oneDataArr[2].replace(/\\/g, '').trim();
-      const packageName = oneDataArr[3].trim();
-      if (oneDataArr.length === 5) {
-        oneVersionData.push(collectData(diffOld, diffNew, subsystem, packageName));
-      }
-    }
-  });
-  return oneVersionData;
-}
-
-// 用初始数据跟其他版本的数据比较合并
-function mergeAllData(initialData, orderVersionArr) {
-  let number = 2;
-  while (number < orderVersionArr.length) {
-    let versionUrl = `${url}\\${orderVersionArr[number]}`;
-    let oneVersionData = getSingleVersionData(versionUrl);
-    initialData = mergeData(initialData, oneVersionData)
-    number++;
+  if (orderVersionArr.length < MAX_LENGTH) {
+    return allMergeData;
   }
-  return initialData;
+
+  oldestVersionData.forEach(oldestData => {
+    if (oldestData.newApi !== oldestData.oldApi) {
+      oldestData.version = orderVersionArr[0];
+      allMergeData.push(oldestData);
+    }
+  })
+  await mergeAllData(orderVersionArr, url, allMergeData);
+  return allMergeData;
 }
 
-// 合并初始数据和邻近版本的数据
-function mergeData(initialData, oneVersionData) {
-  let indexList = [];
-  for (let i = 0; i < initialData.length; i++) {
-    const data = initialData[i];
-    for (let j = 0; j < oneVersionData.length; j++) {
-      if (data.subsystem === oneVersionData[j].subsystem && data.packageName === oneVersionData[j].packageName &&
-                data.diffNew === oneVersionData[j].diffOld) {
-        initialData[i].diffNew = oneVersionData[j].diffNew;
-        indexList.push(j);
+/**
+ * 将初始数据挨个跟下一个版本的changelog数据进行比较合并。
+ * 
+ * @param {Array} orderVersionArr 
+ * @param {String} url 
+ * @param {Array} allMergeData 
+ */
+async function mergeAllData(orderVersionArr, url, allMergeData) {
+  let index = 1;
+  while (index < orderVersionArr.length) {
+    const versionUrl = getLink(url, orderVersionArr[index]);
+    let newVersionData = [];
+    await downloadFiles(versionUrl).then(versionData => {
+      newVersionData = JSON.parse(versionData);
+    }).catch(err => {
+      console.log('ERROR CODE:', err.code);
+    });
+    mergeTwoVersionData(allMergeData, newVersionData, orderVersionArr[index]);
+    index++;
+  }
+
+}
+
+/**
+ * 跟下一个版本的数据进行合并
+ * 
+ * @param {Array} allMergeData 
+ * @param {Array} newVersionData 
+ */
+function mergeTwoVersionData(allMergeData, newVersionData, currentVersion) {
+  let indexListSet = new Set();
+  for (let i = 0; i < allMergeData.length; i++) {
+    const data = allMergeData[i];
+    for (let j = 0; j < newVersionData.length; j++) {
+      if (!indexListSet.has(j) && data.newDtsName === newVersionData[j].oldDtsName &&
+        compareApiText(data.newApi, newVersionData[j].oldApi,) && data.newApi !== data.oldApi) {
+        allMergeData[i].newApi = newVersionData[j].newApi;
+        allMergeData[i].version = currentVersion;
+        indexListSet.add(j);
       }
     }
   }
 
-  indexList.forEach(index => {
-    oneVersionData.splice(index, 1);
+  newVersionData.forEach((data, index) => {
+    if (!indexListSet.has(index)) {
+      data.version = currentVersion;
+      allMergeData.push(data);
+    }
+  })
+}
+
+/**
+ * 比较旧版本的newApi和新版本的oldApi,判断是否一样
+ * 
+ * @param {string} oldApiText 
+ * @param {string} newApiText 
+ * @returns {Boolean}
+ */
+function compareApiText(oldApiText, newApiText) {
+  if (formatApi(oldApiText) === formatApi(newApiText) && formatApi(oldApiText) !== undefined) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * 格式化API定义内容，排除空格，换行，符号对比较API的影响。
+ * 
+ * @param {string} apiText 
+ * @returns {string}
+ */
+function formatApi(apiText) {
+  if (!apiText) {
+    return;
+  }
+  return apiText.replace(/\r|\n|\s+|\,|\;/g, '');
+}
+
+/**
+ * 将数组形式的changelog数据转换成Map
+ * 
+ * @param {Array} dataInChangelogs 
+ * @returns {Map}
+ */
+function covertToMap(dataInChangelogs) {
+  let dataMap = new Map();
+  dataInChangelogs.forEach(data => {
+    const dataSignature = getSignature(data.newDtsName, data.oldApi);
+    if (!dataMap.get(dataSignature)) {
+      dataMap.set(dataSignature, [data]);
+    } else {
+      const dataArr = dataMap.get(dataSignature);
+      dataArr.push(data);
+      dataMap.set(dataSignature, dataArr);
+    }
+  })
+  return dataMap;
+}
+
+function getSignature(dtsName, apiText) {
+  const handledDtsName = handleDtsName(dtsName).dtsPath;
+  return `${handledDtsName}#${formatApi(apiText)}`;
+}
+
+function addChangelogLink(changelogsData, diffsData, diffs) {
+  diffsData.forEach(diffData => {
+    changelogsData.forEach(changelogData => {
+      diffData.changelogs.add({
+        version: changelogData.version,
+        url: changelogData.changelog
+      });
+
+      if (changelogData.oldType !== changelogData.newType) {
+        diffData.status = StatusMessages[StatusCode.CLASS_CHANGES];
+        diffData.StatusCode = StatusCode.CLASS_CHANGES;
+        diffData.oldMessage = changelogData.oldApi;
+        diffData.newMessage = changelogData.newApi;
+      }
+
+      if (changelogData.oldDtsName !== changelogData.newDtsName) {
+        diffData.status = StatusMessages[StatusCode.DTS_CHANGED];
+        diffData.StatusCode = StatusCode.DTS_CHANGED;
+        diffData.oldMessage = changelogData.oldDtsName;
+        diffData.newMessage = changelogData.newDtsName;
+      }
+
+      if (changelogData.newApi === changelogData.oldApi || changelogData.newApi === 'N/A') {
+
+        return;
+      }
+
+      if (diffData.statusCode === StatusCode.DELETE) {
+        const newApiSignature = getSignature(changelogData.newDtsName, changelogData.newApi);
+        diffs.delete(newApiSignature);
+        diffData.status = StatusMessages[StatusCode.FUNCTION_CHANGES];
+        diffData.StatusCode = StatusCode.FUNCTION_CHANGES;
+        diffData.oldMessage = changelogData.oldApi;
+        diffData.newMessage = changelogData.newApi;
+      } else if (diffData.statusCode === StatusCode.DELETE_CLASS) {
+        diffData.status = StatusMessages[StatusCode.CLASS_CHANGES];
+        diffData.StatusCode = StatusCode.CLASS_CHANGES;
+        diffData.oldMessage = changelogData.oldApi;
+        diffData.newMessage = changelogData.newApi;
+      }
+    })
+  })
+  return diffsData;
+}
+
+function mergeDiffsAndChangelogs(changelogs, diffs) {
+  changelogs.forEach((data, dataSignature) => {
+    const diffsData = diffs.get(dataSignature);
+    if (diffsData) {
+      diffs.set(dataSignature, addChangelogLink(data, diffsData, diffs));
+      changelogs.delete(dataSignature);
+    } else {
+      data.forEach(changelogData => {
+        const newApiSignature = getSignature(changelogData.newDtsName, changelogData.newApi);
+        const diffsData = diffs.get(newApiSignature);
+        if (!diffsData) {
+          return;
+        }
+        diffsData.forEach(diffData => {
+          diffData.changelog.add(changelogData.changelog);
+        })
+        changelogs.delete(dataSignature);
+      });
+    }
   })
 
-  return initialData.concat(oneVersionData);
+  changelogs.forEach((changelogData, signature) => {
+    changelogData.forEach(changelogApi => {
+      if (diffs.get(signature)) {
+        diffs.get(signature).push(formatChangelogApi(changelogApi));
+      } else {
+        diffs.set(signature, [formatChangelogApi(changelogApi)]);
+      }
+    })
+  })
+
+  return diffs;
 }
 
-function collectData(oldData, newData, subsystem, fileName) {
+function formatChangelogApi(changelogApi) {
+  const filePathObj = handleDtsName(changelogApi.newDtsName);
   return {
-    flag: '函数有变化',
-    diffOld: oldData,
-    diffNew: newData,
-    subsystem: subsystem,
-    packageName: fileName,
+    packageName: '',
+    className: changelogApi.newType,
+    rawText: changelogApi.newApi,
+    dtsName: filePathObj.dtsPath,
+    hint: "",
+    changelogs: [{
+      version: changelogApi.version,
+      url: changelogApi.changelog
+    }],
+    statusCode: StatusCode.CHANGELOG,
+    status: StatusMessages[StatusCode.CHANGELOG],
+    oldMessage: changelogApi.oldApi,
+    newMessage: changelogApi.newApi
   }
 }
 
+function handleDtsName(dtsName) {
+  let packageName = dtsName;
+  let dtsPath = dtsName;
+  if (dtsName.indexOf('api/@internal/component/ets') > -1) {
+    packageName === 'ArkUI';
+    dtsPath.replace('api/@internal/component/ets', 'component')
+  } else if (dtsName.indexOf('api/@internal/ets') > -1) {
+    packageName = dtsName.replace('api/@internal/ets', 'api/@internal/full');
+    dtsPath = packageName;
+  }
+  return { packageName, dtsPath };
+}
+
+
+async function mergeDiffWithChangeLog(diffs, oldVersion, newVersion, allVersionUrl) {
+  const dataInChangelogs = await mergeDataBetweenVersion(oldVersion, newVersion, allVersionUrl);
+  const dataMapInChangelogs = covertToMap(dataInChangelogs);
+  return mergeDiffsAndChangelogs(dataMapInChangelogs, diffs);
+}
+
+exports.applyChangeLogs = mergeDiffWithChangeLog;

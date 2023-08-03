@@ -151,7 +151,8 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { string } moduleName - Indicates the module name of the application.
-   * @param { AsyncCallback<boolean> } callback - The callback of checking module removable result.The result is true if the module is removable, false otherwise.
+   * @param { AsyncCallback<boolean> } callback - The callback of checking module removable result.
+   *  The result is true if the module is removable, false otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.

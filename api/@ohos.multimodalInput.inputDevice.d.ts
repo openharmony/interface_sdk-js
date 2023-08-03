@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { Callback, AsyncCallback } from './basic';
+import type { Callback, AsyncCallback } from './@ohos.base';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
@@ -474,8 +474,10 @@ declare namespace inputDevice {
    *
    * @param { number } delay - Repeat delay time, the unit is ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatDelay(delay: number, callback: AsyncCallback<void>): void;
@@ -485,19 +487,47 @@ declare namespace inputDevice {
    *
    * @param { number } delay - Repeat delay time, the unit is ms.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatDelay(delay: number): Promise<void>;
+
+  /**
+   * Get the Keyboard Repetition Delay.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getKeyboardRepeatDelay(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the Keyboard Repetition Delay.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getKeyboardRepeatDelay(): Promise<number>;
 
   /**
    * Setting the Keyboard Key Repetition Rate.
    *
    * @param { number } rate - Repetition rate, the unit is ms.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatRate(rate: number, callback: AsyncCallback<void>): void;
@@ -507,11 +537,37 @@ declare namespace inputDevice {
    *
    * @param { number } rate - Repetition rate, the unit is ms.
    * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
    * @since 10
    */
   function setKeyboardRepeatRate(rate: number): Promise<void>;
+
+  /**
+   * Get Keyboard Key Repetition Rate.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getKeyboardRepeatRate(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get Keyboard Key Repetition Rate.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getKeyboardRepeatRate(): Promise<number>;
 }
 
 export default inputDevice;

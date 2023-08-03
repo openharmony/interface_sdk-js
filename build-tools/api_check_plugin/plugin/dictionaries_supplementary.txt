@@ -32,6 +32,7 @@ apecified
 appselect
 arcs
 arfcn
+arkui
 arrarybuffer
 arraybuffer
 arrlist
@@ -110,6 +111,7 @@ coincides
 collaborated
 collapses
 collations
+collectable
 colno
 complies
 compresses
@@ -213,6 +215,7 @@ endc
 endx
 endy
 enrolled
+enrolls
 enumeratable
 erasing
 eration
@@ -292,12 +295,15 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hogp
+hsp
 hspa
 hspap
 htmltext
 huks
 hwid
 icq
+id
 idm
 ifaces
 ima
@@ -371,6 +377,7 @@ lenum
 lfloat
 libraryname
 lifted
+lifts
 lintptr
 listened
 llbackfn
@@ -444,6 +451,7 @@ nlink
 nmea
 nnrt
 nopadding
+mori
 normalizer
 notifies
 notifying
@@ -520,13 +528,18 @@ pread
 precisiontype
 precomposed
 precon
+preconnect
+preconnected
+preconnectable
 preempted
 preferentially
+prelaunch
 preloads
 premises
 premultiplied
 premultiply
 prepares
+preresolve
 presently
 prevgroup
 prikey
@@ -553,6 +566,7 @@ reassociate
 rebounds
 recalculated
 reconfiguration
+reconfirm
 recovered
 recovering
 recursions
@@ -567,6 +581,7 @@ remotedevice
 removable
 renderbuffer
 renderbuffertarget
+repayment
 repeates
 resizeable
 resmgr
@@ -601,6 +616,7 @@ sae
 sak
 satellites
 scdma
+scene
 sco
 scrambling
 screenlock
@@ -798,6 +814,7 @@ voicemail
 volte
 volumemanager
 vorbis
+vpr
 vsync
 wakes
 waking

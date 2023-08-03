@@ -15,11 +15,18 @@
 
 /**
  * Provides an interface for RichText component.
+ *
+ * @interface RichTextInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 interface RichTextInterface {
   /**
    * Set value.
+   *
+   * @param { string } content
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   (content: string): RichTextAttribute;
@@ -27,17 +34,28 @@ interface RichTextInterface {
 
 /**
  * Defines the RichText attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**
    * Triggered when the RichText loading starts.
+   *
+   * @param { function } callback
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   onStart(callback: () => void): RichTextAttribute;
 
   /**
    * Triggered when the RichText loading ends.
+   *
+   * @param { function } callback
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   onComplete(callback: () => void): RichTextAttribute;
@@ -45,12 +63,16 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
 
 /**
  * Defines RichText Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare const RichText: RichTextInterface;
 
 /**
  * Defines RichText Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare const RichTextInstance: RichTextAttribute;

@@ -26,6 +26,7 @@ export interface ContinuableInfo {
    * Indicates the original deviceId to continue mission.
    *
    * @type {string}
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */
@@ -35,6 +36,7 @@ export interface ContinuableInfo {
    * Indicates bundle name.
    *
    * @type {string}
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system user.
    * @since 10
    */

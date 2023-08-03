@@ -45,12 +45,16 @@ declare namespace promptAction {
 
     /**
      * Text to display.
+     *
      * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Text to display.
+     *
      * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -60,14 +64,18 @@ declare namespace promptAction {
      * Duration of toast dialog box. The default value is 1500.
      * The recommended value ranges from 1500ms to 10000ms.
      * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
-     * @type { number }
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Duration of toast dialog box. The default value is 1500.
      * The recommended value ranges from 1500ms to 10000ms.
      * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
-     * @type { number }
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -75,12 +83,16 @@ declare namespace promptAction {
 
     /**
      * The distance between toast dialog box and the bottom of screen.
-     * @type { string | number }
+     *
+     * @type { ?string | number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * The distance between toast dialog box and the bottom of screen.
-     * @type { string | number }
+     *
+     * @type { ?string | number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -102,12 +114,16 @@ declare namespace promptAction {
 
     /**
      * The text displayed in the button.
+     *
      * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * The text displayed in the button.
+     *
      * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -115,12 +131,16 @@ declare namespace promptAction {
 
     /**
      * The foreground color of button.
+     *
      * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * The foreground color of button.
+     *
      * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -142,12 +162,16 @@ declare namespace promptAction {
 
     /**
      * Index of the selected button, starting from 0.
+     *
      * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Index of the selected button, starting from 0.
+     *
      * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -169,12 +193,16 @@ declare namespace promptAction {
 
     /**
      * Title of the text to display.
-     * @type { string | Resource }
+     *
+     * @type { ?string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Title of the text to display.
-     * @type { string | Resource }
+     *
+     * @type { ?string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -182,12 +210,16 @@ declare namespace promptAction {
 
     /**
      * Text body.
-     * @type { string | Resource }
+     *
+     * @type { ?string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Text body.
-     * @type { string | Resource }
+     *
+     * @type { ?string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -197,16 +229,51 @@ declare namespace promptAction {
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
      * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
-     * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+     * More than one buttons are supported.
+     *
+     * @type { Array<Button> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
-    buttons?: [Button, Button?, Button?];
+    buttons?: Array<Button>;
+
+    /**
+     * Mask Region of dialog. The size can't exceed the main window.
+     *
+     * @type { ?Rectangle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    maskRect?: Rectangle;
+
+    /**
+     * Defines the dialog alignment of the screen.
+     *
+     * @type { ?DialogAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    alignment?: DialogAlignment;
+
+    /**
+     * Defines the dialog offset.
+     *
+     * @type { ?Offset }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    offset?: Offset;
   }
 
   /**
@@ -223,12 +290,16 @@ declare namespace promptAction {
   interface ActionMenuSuccessResponse {
     /**
      * Index of the selected button, starting from 0.
+     *
      * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Index of the selected button, starting from 0.
+     *
      * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -249,12 +320,16 @@ declare namespace promptAction {
   interface ActionMenuOptions {
     /**
      * Title of the text to display.
-     * @type { string | Resource }
+     *
+     * @type { ?string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Title of the text to display.
-     * @type { string | Resource }
+     *
+     * @type { ?string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -264,12 +339,16 @@ declare namespace promptAction {
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
     /**
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -278,8 +357,8 @@ declare namespace promptAction {
 
   /**
    * Displays the notification text.
+   *
    * @param { ShowToastOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @throws { BusinessError } 401 - if the type of message is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -287,8 +366,8 @@ declare namespace promptAction {
    */
   /**
    * Displays the notification text.
+   *
    * @param { ShowToastOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @throws { BusinessError } 401 - if the type of message is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -299,6 +378,7 @@ declare namespace promptAction {
 
   /**
    * Displays the dialog box.
+   *
    * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -308,6 +388,7 @@ declare namespace promptAction {
    */
   /**
    * Displays the dialog box.
+   *
    * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -320,6 +401,7 @@ declare namespace promptAction {
 
   /**
    * Displays the dialog box.
+   *
    * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -329,6 +411,7 @@ declare namespace promptAction {
    */
   /**
    * Displays the dialog box.
+   *
    * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -341,6 +424,7 @@ declare namespace promptAction {
 
   /**
    * Displays the menu.
+   *
    * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -350,6 +434,7 @@ declare namespace promptAction {
    */
   /**
    * Displays the menu.
+   *
    * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -362,6 +447,7 @@ declare namespace promptAction {
 
   /**
    * Displays the dialog box.
+   *
    * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
@@ -371,6 +457,7 @@ declare namespace promptAction {
    */
   /**
    * Displays the dialog box.
+   *
    * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.

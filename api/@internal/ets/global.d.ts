@@ -32,6 +32,7 @@ import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
  */
 /**
  * Defines the console info.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -41,18 +42,16 @@ export declare class console {
   /**
    * Prints "debug" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Prints "debug" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -60,9 +59,8 @@ export declare class console {
   /**
    * Prints "debug" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -73,18 +71,16 @@ export declare class console {
   /**
    * Prints "log" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Prints "log" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -92,9 +88,8 @@ export declare class console {
   /**
    * Prints "log" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -105,18 +100,16 @@ export declare class console {
   /**
    * Prints "info" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Prints "info" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -124,9 +117,8 @@ export declare class console {
   /**
    * Prints "info" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -137,18 +129,16 @@ export declare class console {
   /**
    * Prints "warn" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Prints "warn" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -156,9 +146,8 @@ export declare class console {
   /**
    * Prints "warn" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -169,18 +158,16 @@ export declare class console {
   /**
    * Prints "error" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Prints "error" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -188,9 +175,8 @@ export declare class console {
   /**
    * Prints "error" logs.
    *
-   * @param { string } message - message Text to print.
-   * @param { any[] } arguments - arguments
-   * @static
+   * @param { string } message Text to print.
+   * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -354,11 +340,11 @@ export declare class console {
 /**
  * Sets the interval for repeatedly calling a function.
  *
- * @param { Function | string } handler - handler Indicates the function to be called after the timer goes off. For devices of "tv",
- * "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" 
- * types, this parameter must be a function.
- * @param { number } delay - delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
- * @param { any[] } arguments - arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @param { Function | string } handler Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
+ * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -366,11 +352,11 @@ export declare class console {
 /**
  * Sets the interval for repeatedly calling a function.
  *
- * @param { Function | string } handler - handler Indicates the function to be called after the timer goes off. For devices of "tv", 
- * "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" 
- * types, this parameter must be a function.
- * @param { number } delay - delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
- * @param { any[] } arguments - arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @param { Function | string } handler Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
+ * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -381,12 +367,12 @@ export declare function setInterval(handler: Function | string, delay: number, .
 /**
  * Sets a timer after which a function will be executed.
  *
- * @param { Function | string } handler - handler Indicates the function to be called after the timer goes off. For devices of "tv",
- * "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision"
- * types, this parameter must be a function.
- * @param { number } delay - delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter 
- * is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
- * @param { any[] } arguments - arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @param { Function | string } handler Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } delay Indicates the delay (in milliseconds) after which the function will be called.
+ * If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
+ * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -394,12 +380,12 @@ export declare function setInterval(handler: Function | string, delay: number, .
 /**
  * Sets a timer after which a function will be executed.
  *
- * @param { Function | string } handler - handler Indicates the function to be called after the timer goes off. For devices of "tv",
- * "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision"
- * types, this parameter must be a function.
- * @param { number } delay - delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter
- * is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
- * @param { any[] } arguments - arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @param { Function | string } handler Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } delay Indicates the delay (in milliseconds) after which the function will be called.
+ * If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
+ * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -410,14 +396,14 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
 /**
  * Cancel the interval set by " setInterval()".
  *
- * @param { number } intervalID - intervalID Indicates the timer ID returned by "setInterval()".
+ * @param { number } intervalID Indicates the timer ID returned by "setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Cancel the interval set by " setInterval()".
  *
- * @param { number } intervalID - intervalID Indicates the timer ID returned by "setInterval()".
+ * @param { number } intervalID Indicates the timer ID returned by "setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -427,14 +413,14 @@ export declare function clearInterval(intervalID?: number): void;
 /**
  * Cancel the timer set by "setTimeout()".
  *
- * @param { number } timeoutID - timeoutID Indicates the timer ID returned by "setTimeout()".
+ * @param { number } timeoutID Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Cancel the timer set by "setTimeout()".
  *
- * @param { number } timeoutID - timeoutID Indicates the timer ID returned by "setTimeout()".
+ * @param { number } timeoutID Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -443,11 +429,17 @@ export declare function clearTimeout(timeoutID?: number): void;
 
 /**
  * Defining syscap function.
+ *
+ * @param { string } syscap
+ * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defining syscap function.
+ *
+ * @param { string } syscap
+ * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -456,13 +448,19 @@ export declare function canIUse(syscap: string): boolean;
 
 /**
  * Obtains all attributes of the component with the specified ID.
- * @param id ID of the component whose attributes are to be obtained.
+ *
+ * @param { string } id ID of the component whose attributes are to be obtained.
+ * @returns { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Obtains all attributes of the component with the specified ID.
- * @param id ID of the component whose attributes are to be obtained.
+ *
+ * @param { string } id ID of the component whose attributes are to be obtained.
+ * @returns { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -471,11 +469,17 @@ export declare function getInspectorByKey(id: string): string;
 
 /**
  * Get components tree.
+ *
+ * @returns { Object }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Get components tree.
+ *
+ * @returns { Object }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -484,17 +488,23 @@ export declare function getInspectorTree(): Object;
 
 /**
  * Sends an event to the component with the specified ID.
- * @param id ID of the component for which the event is to be sent.
- * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
- * @param params Event parameters. If there is no parameter, pass an empty string "".
+ *
+ * @param { string } id ID of the component for which the event is to be sent.
+ * @param { number } action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param { string } params Event parameters. If there is no parameter, pass an empty string "".
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Sends an event to the component with the specified ID.
- * @param id ID of the component for which the event is to be sent.
- * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
- * @param params Event parameters. If there is no parameter, pass an empty string "".
+ *
+ * @param { string } id ID of the component for which the event is to be sent.
+ * @param { number } action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param { string } params Event parameters. If there is no parameter, pass an empty string "".
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -503,13 +513,19 @@ export declare function sendEventByKey(id: string, action: number, params: strin
 
 /**
  * Send touch event.
- * @param event TouchObject to be sent.
+ *
+ * @param { TouchObject } event TouchObject to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Send touch event.
- * @param event TouchObject to be sent.
+ *
+ * @param { TouchObject } event TouchObject to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -518,13 +534,19 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
 
 /**
  * Send key event.
- * @param event KeyEvent to be sent.
+ *
+ * @param { KeyEvent } event KeyEvent to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Send key event.
- * @param event KeyEvent to be sent.
+ *
+ * @param { KeyEvent } event KeyEvent to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -533,15 +555,33 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
 
 /**
  * Send mouse event.
- * @param event MouseEvent to be sent.
+ *
+ * @param { MouseEvent } event MouseEvent to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Send mouse event.
- * @param event MouseEvent to be sent.
+ *
+ * @param { MouseEvent } event MouseEvent to be sent.
+ * @returns { boolean }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;
+
+ /**
+  * Mark moduleNamespace which loaded by dynamic-import is collectable.
+  *
+  * @param { Object } namespace moduleNamespace to be marked.
+  * @throws { BusinessError } 401 - if type of object is not moduleNameSpace.
+  * @syscap SystemCapability.Utils.Lang
+  * @systemapi
+  * @stagemodelonly
+  * @since 10
+  */
+export declare function markModuleCollectable(namespace: Object): void;

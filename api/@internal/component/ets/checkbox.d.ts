@@ -15,151 +15,228 @@
 
 /**
  * Defines the options of Checkbox.
+ *
+ * @interface CheckboxOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the options of Checkbox.
- * @form
+ *
+ * @interface CheckboxOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the options of Checkbox.
- * @form
+ *
+ * @interface CheckboxOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface CheckboxOptions {
   /**
    * Current name of Checkbox.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Current name of Checkbox.
-   * @form
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Current name of Checkbox.
-   * @form
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   name?: string;
 
   /**
    * Sets the group of Checkbox.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the group of Checkbox.
-   * @form
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the group of Checkbox.
-   * @form
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   group?: string;
 }
 
 /**
  * Provides an interface for the Checkbox component.
+ *
+ * @interface CheckboxInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Provides an interface for the Checkbox component.
- * @form
+ *
+ * @interface CheckboxInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Provides an interface for the Checkbox component.
- * @form
+ *
+ * @interface CheckboxInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface CheckboxInterface {
   /**
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
+   *
+   * @param { CheckboxOptions } options
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
-   * @form
+   *
+   * @param { CheckboxOptions } options
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
-   * @form
+   *
+   * @param { CheckboxOptions } options
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (options?: CheckboxOptions): CheckboxAttribute;
 }
 
 /**
  * Defines the attribute functions of Checkbox.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the attribute functions of Checkbox.
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the attribute functions of Checkbox.
- * @form
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
    * setting whether checkbox is selected.
+   *
+   * @param { boolean } value
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * setting whether checkbox is selected.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * setting whether checkbox is selected.
-   * @form
+   *
+   * @param { boolean } value
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   select(value: boolean): CheckboxAttribute;
 
   /**
    * setting the display color of checkbox.
+   *
+   * @param { ResourceColor } value
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * setting the display color of checkbox.
-   * @form
+   *
+   * @param { ResourceColor } value
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * setting the display color of checkbox.
-   * @form
+   *
+   * @param { ResourceColor } value
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
    * Set the display border color of unselected checkbox.
+   *
    * @param { ResourceColor } value - The color of border when checkbox unselected.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set the display border color of unselected checkbox.
-   * @param { ResourceColor } value - The color of border when checkbox unselected.
+   * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -168,13 +245,9 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
 
   /**
    * Set the mark style of checkbox.
+   *
    * @param { MarkStyle } value - The style configuration of checkbox mark.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set the mark style of checkbox.
-   * @param { MarkStyle } value - The style configuration of checkbox mark.
+   * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -183,52 +256,76 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
 
   /**
    * Called when the selection status changes.
+   *
+   * @param { function } callback
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the selection status changes.
-   * @form
+   *
+   * @param { function } callback
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Called when the selection status changes.
-   * @form
+   *
+   * @param { function } callback
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   onChange(callback: (value: boolean) => void): CheckboxAttribute;
 }
 
 /**
  * Defines Checkbox Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Checkbox Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Checkbox Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const Checkbox: CheckboxInterface;
 
 /**
  * Defines Checkbox Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Checkbox Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines Checkbox Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const CheckboxInstance: CheckboxAttribute;

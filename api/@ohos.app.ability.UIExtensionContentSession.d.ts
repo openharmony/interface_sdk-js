@@ -43,7 +43,7 @@ export default class UIExtensionContentSession {
   /**
    * Sets the callback for the ui extension to receive data from an ui extension component.
    *
-   * @param { (object) => void } callback Indicates the receive data callback to set.
+   * @param { (data: { [key: string]: Object }) => void } callback Indicates the receive data callback to set.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -316,4 +316,45 @@ export default class UIExtensionContentSession {
    * @since 10
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
+
+  /**
+   * Sets the background color of the UI extension.
+   *
+   * @param { string } color the specified color.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  setWindowBackgroundColor(color: string): void;
+
+  /**
+   * Sets whether is private mode or not.
+   *
+   * @permission ohos.permission.PRIVACY_WINDOW
+   * @param { boolean } isPrivacyMode in private mode if true, or not if false.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
+
+  /**
+   * Sets whether is private mode or not.
+   *
+   * @permission ohos.permission.PRIVACY_WINDOW
+   * @param { boolean } isPrivacyMode in private mode if true, or not if false.
+   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 }

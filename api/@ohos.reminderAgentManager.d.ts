@@ -199,7 +199,7 @@ declare namespace reminderAgentManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-     ACTION_BUTTON_TYPE_CUSTOM = 2
+    ACTION_BUTTON_TYPE_CUSTOM = 2
   }
 
   /**
@@ -268,7 +268,7 @@ declare namespace reminderAgentManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-     wantAgent?: WantAgent;
+    wantAgent?: WantAgent;
   }
 
   /**

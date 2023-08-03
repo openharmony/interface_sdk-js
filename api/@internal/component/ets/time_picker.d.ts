@@ -15,20 +15,32 @@
 
 /**
  * Defines the struct of TimePickerResult.
+ *
+ * @interface TimePickerResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the struct of TimePickerResult.
+ *
+ * @interface TimePickerResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface TimePickerResult {
   /**
    * Application hour
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Application hour
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +48,16 @@ declare interface TimePickerResult {
 
   /**
    * Application minute
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Application minute
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -48,20 +66,32 @@ declare interface TimePickerResult {
 
 /**
  * Defines the options of TimePicker.
+ *
+ * @interface TimePickerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the options of TimePicker.
+ *
+ * @interface TimePickerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface TimePickerOptions {
   /**
    * Specifies the time selector check time.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Specifies the time selector check time.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -70,20 +100,34 @@ declare interface TimePickerOptions {
 
 /**
  * Defines the TimePicker Component.
+ *
+ * @interface TimePickerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the TimePicker Component.
+ *
+ * @interface TimePickerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface TimePickerInterface {
   /**
    * Defines the TimePicker constructor.
+   *
+   * @param { TimePickerOptions } options
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines the TimePicker constructor.
+   *
+   * @param { TimePickerOptions } options
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -92,20 +136,34 @@ interface TimePickerInterface {
 
 /**
  * Defines the TimePicker attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the TimePicker attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
+   *
+   * @param { boolean } value
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
+   *
+   * @param { boolean } value
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -113,7 +171,9 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 
   /**
    * Sets the text style of disappearing items
+   *
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+   * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -122,7 +182,9 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 
   /**
    * Sets the text style of normal items
+   *
    * @param { PickerTextStyle } value - indicates the text style of normal items.
+   * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -131,7 +193,9 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 
   /**
    * Sets the text style of selected items
+   *
    * @param { PickerTextStyle } value - indicates the text style of selected items.
+   * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -140,10 +204,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 
   /**
    * This event is triggered when a TimePicker time is selected.
+   *
+   * @param { function } callback
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * This event is triggered when a TimePicker time is selected.
+   *
+   * @param { function } callback
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -152,20 +224,32 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 
 /**
  * Defines the TimePickerDialogOptions for Data Picker Dialog.
+ *
+ * @interface TimePickerDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the TimePickerDialogOptions for Data Picker Dialog.
+ *
+ * @interface TimePickerDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface TimePickerDialogOptions extends TimePickerOptions {
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -173,7 +257,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * Text style of disappearing items
-   * @type { PickerTextStyle }
+   *
+   * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -182,7 +267,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * Text style of normal items
-   * @type { PickerTextStyle }
+   *
+   * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -191,7 +277,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * Text style of selected items
-   * @type { PickerTextStyle }
+   *
+   * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -199,11 +286,47 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   selectedTextStyle?: PickerTextStyle;
 
   /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
+
+  /**
+   * Defines the dialog alignment of the screen.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Defines the dialog offset.
+   *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Offset;
+
+  /**
    * Called when the OK button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the OK button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -211,10 +334,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * Called when the Cancel button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the Cancel button in the dialog is clicked.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -222,10 +351,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * This event is triggered when a TimePicker Time or time is selected in dialog.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * This event is triggered when a TimePicker Time or time is selected in dialog.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -234,20 +369,28 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
 /**
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
+ *
  * @since 8
  */
 /**
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
+ *
  * @crossplatform
  * @since 10
  */
 declare class TimePickerDialog {
   /**
    * Invoking method display.
+   *
+   * @param { TimePickerDialogOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoking method display.
+   *
+   * @param { TimePickerDialogOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -256,10 +399,14 @@ declare class TimePickerDialog {
 
 /**
  * Defines TimePicker Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines TimePicker Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -267,10 +414,14 @@ declare const TimePicker: TimePickerInterface;
 
 /**
  * Defines TimePicker Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines TimePicker Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

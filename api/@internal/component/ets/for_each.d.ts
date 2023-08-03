@@ -15,34 +15,61 @@
 
 /**
  * looping function.
+ *
+ * @interface ForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * looping function.
- * @form
+ *
+ * @interface ForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * looping function.
- * @form
+ *
+ * @interface ForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface ForEachInterface {
   /**
    * Set the value, array, and key.
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set the value, array, and key.
-   * @form
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set the value, array, and key.
-   * @form
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (
     arr: Array<any>,
@@ -53,17 +80,23 @@ interface ForEachInterface {
 
 /**
  * Defines ForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines ForEach Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines ForEach Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const ForEach: ForEachInterface;

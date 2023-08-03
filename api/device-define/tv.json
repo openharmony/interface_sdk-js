@@ -67,6 +67,7 @@
     "SystemCapability.Multimedia.Audio.Communication",
     "SystemCapability.Multimedia.Audio.Interrupt",
     "SystemCapability.Multimedia.Audio.Tone",
+    "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.Camera.DistributedCore",
     "SystemCapability.Multimedia.Image.Core",
@@ -170,6 +171,7 @@
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
-    "SystemCapability.ResourceSchedule.DeviceStandby"
+    "SystemCapability.ResourceSchedule.DeviceStandby",
+    "SystemCapability.Multimedia.Media.AVScreenCapture"
   ]
 }

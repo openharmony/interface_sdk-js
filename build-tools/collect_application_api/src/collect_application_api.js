@@ -37,13 +37,13 @@ function collectApis(url) {
 
 function deleteRepeatApis(allApis) {
   let allApisSet = new Set();
-  let noRepeatApis = []
+  let noRepeatApis = [];
   allApis.forEach(api => {
     allApisSet.add(JSON.stringify(api));
-  })
+  });
   allApisSet.forEach(item => {
-    noRepeatApis.push(JSON.parse(item))
-  })
+    noRepeatApis.push(JSON.parse(item));
+  });
   return noRepeatApis;
 }
 
@@ -55,11 +55,11 @@ function parseFileContent(applicationFiles, callback) {
       const fileName = path.basename(url).replace(/\.d.ts$|\.js/g, 'ts');
       ts.transpileModule(content, {
         compilerOptions: {
-          "target": ts.ScriptTarget.ES2017
+          'target': ts.ScriptTarget.ES2017,
         },
         fileName: fileName,
-        transformers: { before: [callback(url)] }
-      })
+        transformers: { before: [callback(url)] },
+      });
     }
   });
 }
@@ -78,13 +78,13 @@ function visitEachNode(url) {
         } else {
           collectApplicationApi(item, sourcefile, url, apiList);
         }
-      })
+      });
       apiList = addPackageName(apiList, importFiles);
-      handleInstantiatedCall(apiList)
+      handleInstantiatedCall(apiList);
       allCallApisInApp = allCallApisInApp.concat(collectBaseApi(importFiles, apiList));
       return sourcefile;
-    }
-  }
+    };
+  };
 }
 
 function handleInstantiatedCall(apiList) {
@@ -107,27 +107,27 @@ function handleInstantiatedCall(apiList) {
 
         }
       }
-    })
-  })
+    });
+  });
 }
 
 // 收集import的文件名和类
 function judgeImportFile(node, importFiles) {
   if (isImportFiles(node)) {
     let importFileName = node.moduleSpecifier.text;
-    if (node.importClause && node.importClause.name != undefined) {
+    if (node.importClause && node.importClause.name !== undefined) {
       importFiles.push({
         importFile: importFileName,
-        importClass: node.importClause.name.escapedText
-      })
+        importClass: node.importClause.name.escapedText,
+      });
     } else if (node.importClause.namedBindings !== undefined &&
       ts.isNamedImports(node.importClause.namedBindings)) {
       node.importClause.namedBindings.elements.forEach(element => {
         importFiles.push({
           importFile: importFileName,
-          importClass: element.name.escapedText
-        })
-      })
+          importClass: element.name.escapedText,
+        });
+      });
     }
   }
 }
@@ -151,7 +151,7 @@ function collectApplicationApi(node, sourcefile, url, apiList) {
       const moduleName = node.left.escapedText;
       const apiName = node.right.escapedText;
       apiList.push(collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, '', '', type, note, node));
-    }else{
+    } else {
       const type = 'API';
       const instantiateObject = '';
       const moduleName = node.left.escapedText;
@@ -195,7 +195,7 @@ function collectNewExpressionApi(node, url, sourcefile, apiList) {
 
 function isEtsComponentNode(node) {
   return ts.isEtsComponentExpression(node) || (ts.isCallExpression(node) && node.expression &&
-    ts.isIdentifier(node.expression) && etsComponentSet.has(node.expression.escapedText.toString()))
+    ts.isIdentifier(node.expression) && etsComponentSet.has(node.expression.escapedText.toString()));
 }
 
 // 收集生命周期类型的API。
@@ -223,7 +223,7 @@ function getLifeCycleApiWithoutValue(members, moduleName, type, note, node, apiL
       const apiName = member.name ? member.name.escapedText : '';
       apiList.push(collectAllApi(url, sourcefile, moduleName, apiName, '', '', '', type, note, node));
     }
-  })
+  });
 }
 
 function getValuableLifeCycleApi(members, moduleName, apiName, type, note, node, apiList, url, sourcefile) {
@@ -237,7 +237,7 @@ function getValuableLifeCycleApi(members, moduleName, apiName, type, note, node,
       value = member.name ? member.name.escapedText : '';
       apiList.push(collectAllApi(url, sourcefile, moduleName, apiName, '', '', value, type, note, node));
     }
-  })
+  });
 }
 
 function collectComponentApis(sourcefile, url, type, componentNode, apiList) {
@@ -251,9 +251,9 @@ function collectComponentApis(sourcefile, url, type, componentNode, apiList) {
         componentApiArr.forEach(componentApi => {
           apiList.push(collectAllApi(url, sourcefile, componentName, componentApi, '',
             '', '', type, notes, componentNode));
-        })
+        });
       }
-    })
+    });
   }
 }
 
@@ -294,8 +294,8 @@ function collectComponentApi(node, apiList, type, url, sourcefile) {
   } else if (ts.isCallExpression(node)) {
     let temp = node.parent;
     while (!ts.isExpressionStatement(temp) && !(ts.isCallExpression(temp) && ts.isCallExpression(temp.parent))) {
-      collectExpressionStatementApis(temp, url, sourcefile, componentName, type, notes, node, apiList)
-      temp = temp.parent
+      collectExpressionStatementApis(temp, url, sourcefile, componentName, type, notes, node, apiList);
+      temp = temp.parent;
     }
   }
 }
@@ -367,8 +367,8 @@ function addPackageName(apiList, importFiles) {
       if (api !== undefined && importData.importClass.match(new RegExp(api.moduleName, 'i'))) {
         api.packageName = importData.importFile;
       }
-    })
-  })
+    });
+  });
   return apiList;
 }
 
@@ -384,7 +384,7 @@ function collectOnOffApi(node, url, type, sourcefile) {
       if (ts.isStringLiteral(argument) || ts.isIdentifier(argument)) {
         apiName = node.name.escapedText + '_' + argument.text;
       }
-    })
+    });
   } else if (ts.isVariableDeclaration(node.parent.parent)) {
     instantiateObject = node.parent.parent.name.escapedText;
     apiName = node.name.escapedText;
@@ -393,15 +393,17 @@ function collectOnOffApi(node, url, type, sourcefile) {
     apiName = node.name.escapedText;
   }
   if (apiName !== '') {
-    return collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, '', '', type, note, node)
+    return collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, '', '', type, note, node);
   }
+  return {};
 }
 
 function isImportFiles(node) {
-  if (ts.isStringLiteral(node.moduleSpecifier) && ((node.moduleSpecifier.text).indexOf('@ohos.') != -1 ||
-    (node.moduleSpecifier.text).indexOf('@system.') != -1) && node.importClause !== undefined) {
+  if (ts.isStringLiteral(node.moduleSpecifier) && ((node.moduleSpecifier.text).indexOf('@ohos.') !== -1 ||
+    (node.moduleSpecifier.text).indexOf('@system.') !== -1) && node.importClause !== undefined) {
     return true;
   }
+  return false;
 }
 
 try {

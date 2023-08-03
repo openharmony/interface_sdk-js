@@ -15,7 +15,7 @@
 
 const fs = require('fs');
 const ts = require('typescript');
-const ExcelJS = require('exceljs')
+const ExcelJS = require('exceljs');
 const path = require('path');
 const { sys } = require('typescript');
 // 是否统计type类型API的开关，true表示统计
@@ -35,33 +35,33 @@ function parse(files) {
     fileContentList.push({
       fileName: path.basename(file).replace(/.d.ts$/g, '.ts'),
       fileContent: fileContent,
-      fileRoot: file
-    })
+      fileRoot: file,
+    });
   });
   fileContentList.forEach(item => {
     const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-    let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-      item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace((/\@|.ts$/g), "").replace(/D:\\/g, "")
+    let packageName = item.fileRoot.indexOf('component\\ets\\') >= 0 ||
+      item.fileRoot.indexOf('component/ets/') >= 0 ? 'ArkUI' : fileName.replace((/\@|.ts$/g), '').replace(/D:\\/g, '');
     ts.transpileModule(item.fileContent, {
       compilerOptions: {
-        "target": ts.ScriptTarget.ES2017
+        'target': ts.ScriptTarget.ES2017,
       },
       fileName: fileName,
-      transformers: { before: [getReturnDeclarationArr(packageName, exportApi, returnDeclarationArr)] }
-    })
+      transformers: { before: [getReturnDeclarationArr(packageName, exportApi, returnDeclarationArr)] },
+    });
   });
 
   fileContentList.forEach(item => {
     const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-    let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-      item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
+    let packageName = item.fileRoot.indexOf('component\\ets\\') >= 0 ||
+      item.fileRoot.indexOf('component/ets/') >= 0 ? 'ArkUI' : fileName.replace(/\@|.ts$/g, '').replace(/D:\\/g, '');
     ts.transpileModule(item.fileContent, {
       compilerOptions: {
-        "target": ts.ScriptTarget.ES2017
+        'target': ts.ScriptTarget.ES2017,
       },
       fileName: fileName,
-      transformers: { before: [processDeclarationSourceFile(packageName, api, exportApi, returnDeclarationArr, hash, item.fileRoot)] }
-    })
+      transformers: { before: [processDeclarationSourceFile(packageName, api, exportApi, returnDeclarationArr, hash, item.fileRoot)] },
+    });
   });
   return api;
 }
@@ -73,7 +73,7 @@ function visitAllNode(node, returnDeclarationArr) {
     returnDeclarationArr.add(node.type.typeName.getText());
   }
   node.getChildren().forEach(item => {
-    visitAllNode(item, returnDeclarationArr)
+    visitAllNode(item, returnDeclarationArr);
   });
 }
 
@@ -88,14 +88,14 @@ function getExportApi(node, packageName, exportApi) {
           deprecated: '',
           permission: 'N/A',
           sysCap: 'N/A',
-          model: ''
-        }
+          model: '',
+        };
         exportApi.push({
           packageName: packageName,
           className: stat.name.escapedText.toString(),
           methodName: '',
-          apiInfo: getApiInfo(stat, apiInfo)
-        })
+          apiInfo: getApiInfo(stat, apiInfo),
+        });
       }
     }
   });
@@ -108,9 +108,9 @@ const getReturnDeclarationArr = (packageName, exportApi, returnDeclarationArr) =
       visitAllNode(node, returnDeclarationArr);
       getExportApi(node, packageName, exportApi);
       return node;
-    }
-  }
-}
+    };
+  };
+};
 
 
 // 搜集API接口并去重
@@ -132,13 +132,13 @@ function processDeclarationSourceFile(packageName, api, exportApi, returnDeclara
           model: '',
           headimport: 'N/A',
           endexport: 'N/A',
-        }
+        };
         collectApi(packageName, api, stat, apiInfo, exportApi, returnDeclarationArr, hash, dtsPath,
           currentTypeList, currentClassFuncSet);
       });
       return node;
-    }
-  }
+    };
+  };
 }
 
 function getCurrentTypeList(statements, currentTypeList) {
@@ -147,8 +147,8 @@ function getCurrentTypeList(statements, currentTypeList) {
       if (stat.type.types) {
         let typeObj = {
           name: stat.name.escapedText,
-          value: []
-        }
+          value: [],
+        };
         stat.type.types.forEach(type => {
           if (type.literal && type.literal.text) {
             typeObj.value.push(type.literal.text);
@@ -191,7 +191,7 @@ function collectSpecialApi(stat, packageName, api, hash, currentClassFuncSet, dt
     let className = '';
     exportApi.forEach(item => {
       if (item.methodName === methodName && item.packageName === packageName) {
-        className = item.className
+        className = item.className;
         if (item.apiInfo) {
           apiInfo = item.apiInfo;
         }
@@ -223,7 +223,7 @@ function collectEnumDeclaration(stat, packageName, api, exportApi, returnDeclara
   const enumChildren = stat.members;
   let tmpApiInfo = getApiInfo(stat, apiInfo);
   collectEachChildNode(enumChildren, packageName, className, 'Enum', api, exportApi, returnDeclarationArr, hash,
-    tmpApiInfo, currentTypeList, dtsPath)
+    tmpApiInfo, currentTypeList, dtsPath);
 }
 
 function collectModuleDeclaration(stat, packageName, api, exportApi, returnDeclarationArr, hash, apiInfo, currentTypeList, dtsPath) {
@@ -231,14 +231,14 @@ function collectModuleDeclaration(stat, packageName, api, exportApi, returnDecla
   const moduleChildren = stat.body.statements;
   let tmpApiInfo = getApiInfo(stat, apiInfo);
   collectEachChildNode(moduleChildren, packageName, className, 'Field', api, exportApi, returnDeclarationArr, hash,
-    tmpApiInfo, currentTypeList, dtsPath)
+    tmpApiInfo, currentTypeList, dtsPath);
 }
 
 function collectTypeApi(child, packageName, className, api, hash, apiInfo, dtsPath) {
   let typeObj = {
     name: child.name.escapedText,
-    value: []
-  }
+    value: [],
+  };
   if (child.type.types) {
     child.type.types?.forEach(type => {
       collectTypeApiInTypes(type, apiInfo, child, api, hash, dtsPath, typeObj, packageName);
@@ -246,7 +246,7 @@ function collectTypeApi(child, packageName, className, api, hash, apiInfo, dtsPa
   } else if (child.type.members) {
     child.type.members?.forEach(member => {
       collectTypeApiInMembers(member, apiInfo, child, api, hash, dtsPath, typeObj, packageName, className);
-    })
+    });
   }
   return typeObj;
 }
@@ -260,7 +260,7 @@ function collectTypeApiInTypes(type, apiInfo, child, api, hash, dtsPath, typeObj
         getApiInfo(child, faterApiInfo), 'Type', api, hash, dtsPath, 1);
     }
   } else {
-    if (type.getText() != '') {
+    if (type.getText() !== '') {
       typeObj.value.push(type.getText());
       if (typeCollection && type.literal) {
         let faterApiInfo = JSON.parse(JSON.stringify(apiInfo));
@@ -281,7 +281,7 @@ function collectTypeApiInMembers(member, apiInfo, child, api, hash, dtsPath, typ
           getApiInfo(child, faterApiInfo), 'Type', api, hash, dtsPath, 3);
       }
     } else {
-      if (type.getText() != '') {
+      if (type.getText() !== '') {
         typeObj.value.push(type.getText());
         if (typeCollection) {
           let faterApiInfo = JSON.parse(JSON.stringify(apiInfo));
@@ -301,7 +301,7 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
       if (child.type) {
         let typeObj = collectTypeApi(child, packageName, className, api, hash, apiInfo, dtsPath);
         if (typeObj.value.length > 0) {
-          currentTypeList.push(typeObj)
+          currentTypeList.push(typeObj);
         }
       }
     }
@@ -313,10 +313,10 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
       exportApi.push({
         packageName: packageName,
         className: className,
-        methodName: child.getText().replace("export", '').replace('{', '').replace('}', '').replace(';', '').trim(),
-        apiInfo: faterApiInfo
-      })
-      return
+        methodName: child.getText().replace('export', '').replace('{', '').replace('}', '').replace(';', '').trim(),
+        apiInfo: faterApiInfo,
+      });
+      return;
     }
     if (ts.isInterfaceDeclaration(child)) {
       collectInterfaceDeclaration(child, packageName, api, exportApi, returnDeclarationArr, hash, faterApiInfo, currentTypeList, dtsPath);
@@ -334,7 +334,7 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
           hash, currentClassFunSet, dtsPath);
       } else {
         collectOtherApi(child, packageName, className, faterApiInfo, apiType, api,
-          hash, currentClassFunSet, child, dtsPath, returnDeclarationArr)
+          hash, currentClassFunSet, child, dtsPath, returnDeclarationArr);
       }
     }
   });
@@ -342,18 +342,18 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
 
 function collectOtherApi(child, packageName, className, faterApiInfo, apiType, api,
   hash, currentClassFunSet, child, dtsPath, returnDeclarationArr) {
-  let methodName = "";
+  let methodName = '';
   if (isSpecialMethod(child)) {
     if (child.name) {
       methodName = child.name.getText();
     } else {
       methodName = className;
     }
-    apiType = 'Method'
+    apiType = 'Method';
   } else if (ts.isPropertyDeclaration(child) || ts.isPropertySignature(child)) {
     if (child.type && child.type.parameters) {
       methodName = child.name.escapedText;
-      apiType = 'Method'
+      apiType = 'Method';
     } else {
       methodName = child.name.escapedText;
       apiType = 'Field';
@@ -363,22 +363,22 @@ function collectOtherApi(child, packageName, className, faterApiInfo, apiType, a
       methodName = child.name.getText();
     }
   }
-  if (methodName !== "") {
+  if (methodName !== '') {
     addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
       hash, currentClassFunSet, child, dtsPath);
   } else {
-    if (child.getText().indexOf("constructor") === 0) {
+    if (child.getText().indexOf('constructor') === 0) {
       methodName = 'constructor';
       apiType = 'Method';
-    } else if (child.getText().indexOf("const") === 0) {
+    } else if (child.getText().indexOf('const') === 0) {
       const infoObj = collectFieleOrConstant(apiType, methodName, child, returnDeclarationArr);
       methodName = infoObj.methodName;
       apiType = infoObj.apiType;
     } else if (/\w+:\s*\w+/g.test(child.getText())) {
       apiType = 'Field';
-      methodName = child.getText().split(":")[0].trim();
+      methodName = child.getText().split(':')[0].trim();
     }
-    if (methodName != '') {
+    if (methodName !== '') {
       addApi(packageName, className, methodName, child.getText(),
         getApiInfo(child, faterApiInfo), apiType, api, hash, dtsPath, 5);
     }
@@ -392,20 +392,20 @@ function isSpecialMethod(child){
 }
 
 function collectFieleOrConstant(apiType, methodName, child, returnDeclarationArr) {
-  if (child.getText().replace("const", "").indexOf(":") > 0) {
-    if (returnDeclarationArr.has(child.getText().replace("const", "").split(":")[1].trim())) {
+  if (child.getText().replace('const', '').indexOf(':') > 0) {
+    if (returnDeclarationArr.has(child.getText().replace('const', '').split(':')[1].trim())) {
       apiType = 'Field';
     } else {
       apiType = 'Constant';
     }
-    methodName = child.getText().replace('const', "").split(":")[0].trim();
-  } else if (child.getText().replace("const", "").indexOf("=") > 0) {
-    if (returnDeclarationArr.has(child.getText().replace("const", "").split("=")[1].trim())) {
+    methodName = child.getText().replace('const', '').split(':')[0].trim();
+  } else if (child.getText().replace('const', '').indexOf('=') > 0) {
+    if (returnDeclarationArr.has(child.getText().replace('const', '').split('=')[1].trim())) {
       apiType = 'Field';
     } else {
       apiType = 'Constant';
     }
-    methodName = child.getText().replace('const', "").split("=")[0].trim();
+    methodName = child.getText().replace('const', '').split('=')[0].trim();
   }
   return { apiType, methodName };
 }
@@ -453,7 +453,7 @@ function collectSpecialSubscriptionTypeApi(param, packageName, className, faterA
   hash, currentClassFunSet, child, dtsPath) {
   param.type.types.forEach(type => {
     if (type.literal && type.literal.text) {
-      const methodName = child.name.escapedText + "_" + type.literal.text;
+      const methodName = child.name.escapedText + '_' + type.literal.text;
       addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
         hash, currentClassFunSet, child, dtsPath);
     }
@@ -466,7 +466,7 @@ function inCurrentTypeListApi(packageName, className, faterApiInfo, apiType, api
     currentTypeList.forEach(type => {
       if (type.name === param.type.typeName.escapedText) {
         type.value.forEach(typeString => {
-          let methodName = child.name.escapedText + "_" + typeString;
+          let methodName = child.name.escapedText + '_' + typeString;
           addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
             hash, currentClassFunSet, child, dtsPath);
         });
@@ -481,8 +481,8 @@ function inCurrentTypeListApi(packageName, className, faterApiInfo, apiType, api
 
 function collectTypeOrEventApi(packageName, className, faterApiInfo, apiType, api,
   hash, currentClassFunSet, child, dtsPath, param) {
-  const typeTextArr = param.getText().replace(/\s*/g, "").split(':');
-  if (typeTextArr[0] === "type" || typeTextArr[0] === "event") {
+  const typeTextArr = param.getText().replace(/\s*/g, '').split(':');
+  if (typeTextArr[0] === 'type' || typeTextArr[0] === 'event') {
     let methodName = child.name.escapedText + '_' + param.type.literal.text;
     addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
       hash, currentClassFunSet, child, dtsPath);
@@ -552,7 +552,7 @@ function handleSameNameApiJsDoc(api, firstApiInfo, packageName, className, metho
 }
 
 function getApiInfo(node, apiInfo) {
-  const notesStr = node.getFullText().replace(node.getText(), "");
+  const notesStr = node.getFullText().replace(node.getText(), '');
   apiInfo.model = getModelInfo(notesStr);
   apiInfo.errorCode = getErrorCode(notesStr);
   apiInfo.deprecated = getDeprecatedInfo(notesStr);
@@ -579,7 +579,7 @@ function getSinceVersion(notesStr) {
   if (/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
     notesStr.replace(/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g, (versionInfo) => {
       version = versionInfo.replace(/\@[S|s][I|i][N|n][C|c][E|e]/g, '').trim();
-    })
+    });
   } else {
     version = 'N/A';
   }
@@ -591,7 +591,7 @@ function getSyscap(notesStr) {
   if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
     notesStr.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
       syscap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
-    })
+    });
   }
   return syscap;
 }
@@ -607,14 +607,14 @@ function isForm(notesStr) {
 }
 
 function getPermissionInfo(notesStr) {
-  let permission = ''
+  let permission = '';
   if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
     notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
       permissionInfo => {
         permission = permissionInfo.replace(
           /\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
         return permission;
-      })
+      });
   } else {
     permission = 'N/A';
   }
@@ -629,7 +629,7 @@ function getDeprecatedInfo(notesStr) {
         deprecated = deprecatedInfo.replace(
           /\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*/g, '').trim();
 
-      })
+      });
   } else {
     deprecated = 'N/A';
   }
@@ -645,7 +645,7 @@ function getErrorCode(notesStr) {
       } else {
         errorCode += `,${code.replace(/\@throws { BusinessError } /, '')}`;
       }
-    })
+    });
   } else {
     errorCode = 'N/A';
   }
@@ -657,11 +657,11 @@ function getModelInfo(notesStr) {
   if (/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
     notesStr.replace(/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
       model = modelInfo;
-    })
+    });
   } else if (/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
     notesStr.replace(/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
       model = modelInfo;
-    })
+    });
   } else {
     model = 'N/A';
   }
@@ -680,14 +680,14 @@ function isCrossPlatform(notesStr) {
 
 function addApi(packageName, className, methodName, methodText, apiInfo, apiType, api, hash, dtsPath, type) {
   let recard = isNotMerge ? `${packageName}.${className}/${methodName}/${methodText}` :
-    `${packageName}.${className}/${methodName}`
+    `${packageName}.${className}/${methodName}`;
   if (!hash.has(recard)) {
     hash.add(recard);
     api.push({
       packageName: packageName,
       className: className,
       methodName: methodName,
-      methodText: methodText.replace(/export\s/g, ""),
+      methodText: methodText.replace(/export\s/g, ''),
       isSystemApi: apiInfo.isSystemApi,
       version: apiInfo.version,
       deprecated: apiInfo.deprecated,
@@ -698,8 +698,8 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
       dtsPath: dtsPath,
       errorCode: apiInfo.errorCode,
       formInfo: apiInfo.formInfo,
-      isCrossPlatform: apiInfo.isCrossPlatform
-    })
+      isCrossPlatform: apiInfo.isCrossPlatform,
+    });
   }
 }
 
@@ -713,10 +713,10 @@ function readFile(dir, utFiles) {
         readFile(filePath, utFiles);
       } else {
         if (/\.d\.ts/.test(filePath)) {
-          utFiles.push(filePath)
+          utFiles.push(filePath);
         }
       }
-    })
+    });
   } catch (e) {
     console.error('ETS ERROR: ' + e);
   }
@@ -731,7 +731,7 @@ function exportData() {
 }
 
 async function excel(api) {
-  let buffer = await getExcelBuffer(api)
+  let buffer = await getExcelBuffer(api);
   fs.writeFile('Js_Api.xlsx', buffer, function (err) {
     if (err) {
       console.error(err);
@@ -744,12 +744,12 @@ async function getExcelBuffer(api) {
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
   sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '类型', 'SysCap',
-    '权限', '支持起始版本', '访问级别', '是否为卡片', '是否支持跨平台']
+    '权限', '支持起始版本', '访问级别', '是否为卡片', '是否支持跨平台'];
   for (let i = 1; i <= api.length; i++) {
     const apiData = api[i - 1];
     sheet.getRow(i + 1).values = [apiData.packageName, apiData.className, apiData.methodName,
-    apiData.methodText, apiData.apiType, apiData.sysCap, apiData.permission,
-    apiData.version, apiData.isSystemApi, apiData.formInfo, apiData.isCrossPlatform]
+      apiData.methodText, apiData.apiType, apiData.sysCap, apiData.permission,
+      apiData.version, apiData.isSystemApi, apiData.formInfo, apiData.isCrossPlatform];
   }
   const buffer = await workbook.xlsx.writeBuffer();
   return buffer;
