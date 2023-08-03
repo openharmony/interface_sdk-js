@@ -769,7 +769,6 @@ declare namespace window {
     /**
      * The scale param of y direction. Default is 1.f
      *
-     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -779,7 +778,6 @@ declare namespace window {
     /**
      * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -789,7 +787,6 @@ declare namespace window {
     /**
      * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
