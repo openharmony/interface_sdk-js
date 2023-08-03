@@ -459,11 +459,13 @@ declare namespace window {
     /**
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 7
      */
     width: number;
     /**
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 7
      */
     height: number;
   }
