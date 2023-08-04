@@ -14,6 +14,48 @@
  */
 
 /**
+ * The options to help grid layout
+ *
+ * @interface GridLayoutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface GridLayoutOptions {
+  /**
+   * The size of most grid items, in [rows, columns], generally [1, 1]
+   *
+   * @type { [number, number] } regularSize
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  regularSize: [number, number];
+
+  /**
+   * The indexes of grid items with irregular size.
+   *
+   * @type { ?number[] } irregularIndexes
+   * @default number[] no irregular grid item
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  irregularIndexes?: number[];
+
+  /**
+   * Called to return the size of the irregular grid items with the specified index in [rows, columns].
+   *
+   * @type { ?function } onGetIrregularSizeByIndex, 
+   * all irregular grid items will occupy an entire line if not set
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onGetIrregularSizeByIndex?: (index: number) => [number, number]
+}
+
+/**
  * Defines the grid interface.
  *
  * @interface GridInterface
@@ -40,13 +82,14 @@ interface GridInterface {
   /**
    * Grid is returned when the parameter is transferred.
    *
-   * @param { Scroller } scroller
-   * @returns { GridAttribute }
+   * @param { Scroller } scroller - Controller bound to the grid
+   * @param { GridLayoutOptions } layoutOptions - The options to help grid layout
+   * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  (scroller?: Scroller): GridAttribute;
+  (scroller?: Scroller, layoutOptions?: GridLayoutOptions): GridAttribute;
 }
 
 /**
