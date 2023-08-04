@@ -360,6 +360,17 @@ declare namespace i18n {
     /**
      * Get the preferred language of App.
      *
+     * @param { string } language - the language to be set.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @since 9
+     */
+    static setAppPreferredLanguage(language: string): void;
+
+    /**
+     * Get the preferred language of App.
+     *
      * @returns { string } a string represent the preferred language of App.
      * @syscap SystemCapability.Global.I18n
      * @since 9
