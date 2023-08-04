@@ -841,13 +841,23 @@ declare namespace i18n {
      * @param { string } field - field values such as year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
      *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond
      * @param { number } [amount] - the amount of date or time to be added to the field.
-     * @throws {BusinessError} 401 - check param failed
-     * @throws {BusinessError} 890001 - param value not valid
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 11
      */
     add(field: string, amount: number): void;
+
+    /**
+     * Get the UTC milliseconds.
+     *
+     * @returns { number }  the calendar time as UTC milliseconds.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
+    getTimeInMillis(): number;
   }
 
   /**
