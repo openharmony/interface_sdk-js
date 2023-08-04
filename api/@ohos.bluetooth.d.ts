@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides methods to operate or manage Bluetooth.
@@ -237,7 +237,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:bluetoothDeviceFind
    */
-  function on(type: "bluetoothDeviceFind", callback: Callback<Array<string>>): void;
+  function on(type: 'bluetoothDeviceFind', callback: Callback<Array<string>>): void;
 
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
@@ -249,7 +249,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:bluetoothDeviceFind
    */
-  function off(type: "bluetoothDeviceFind", callback?: Callback<Array<string>>): void;
+  function off(type: 'bluetoothDeviceFind', callback?: Callback<Array<string>>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is bonded.
@@ -261,7 +261,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:bondStateChange
    */
-  function on(type: "bondStateChange", callback: Callback<BondStateParam>): void;
+  function on(type: 'bondStateChange', callback: Callback<BondStateParam>): void;
 
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is bonded.
@@ -273,7 +273,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:bondStateChange
    */
-  function off(type: "bondStateChange", callback?: Callback<BondStateParam>): void;
+  function off(type: 'bondStateChange', callback?: Callback<BondStateParam>): void;
 
   /**
    * Subscribe the event of a pairing request from a remote Bluetooth device.
@@ -285,7 +285,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:pinRequired
    */
-  function on(type: "pinRequired", callback: Callback<PinRequiredParam>): void;
+  function on(type: 'pinRequired', callback: Callback<PinRequiredParam>): void;
 
   /**
    * Unsubscribe the event of a pairing request from a remote Bluetooth device.
@@ -297,7 +297,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:pinRequired
    */
-  function off(type: "pinRequired", callback?: Callback<PinRequiredParam>): void;
+  function off(type: 'pinRequired', callback?: Callback<PinRequiredParam>): void;
 
   /**
    * Subscribe the event reported when the Bluetooth state changes.
@@ -309,7 +309,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:stateChange
    */
-  function on(type: "stateChange", callback: Callback<BluetoothState>): void;
+  function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 
   /**
    * Unsubscribe the event reported when the Bluetooth state changes.
@@ -321,7 +321,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:stateChange
    */
-  function off(type: "stateChange", callback?: Callback<BluetoothState>): void;
+  function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
   /**
    * Creates a Bluetooth server listening socket.
@@ -401,7 +401,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:sppRead
    */
-  function on(type: "sppRead", clientSocket: number, callback: Callback<ArrayBuffer>): void;
+  function on(type: 'sppRead', clientSocket: number, callback: Callback<ArrayBuffer>): void;
 
   /**
    * Unsubscribe the event reported when data is read from the socket.
@@ -412,7 +412,7 @@ declare namespace bluetooth {
    * @deprecated since 9
    * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:sppRead
    */
-  function off(type: "sppRead", clientSocket: number, callback?: Callback<ArrayBuffer>): void;
+  function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
   /**
    * Obtains the instance of profile.
@@ -496,7 +496,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile.on#event:connectionStateChange
      */
-    on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+    on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
      * Unsubscribe the event reported when the profile connection state changes .
@@ -507,7 +507,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile.off#event:connectionStateChange
      */
-    off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+    off(type: 'connectionStateChange', callback?: Callback<StateChangeParam>): void;
 
     /**
      * Obtains the playing state of device.
@@ -561,7 +561,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile.on#event:connectionStateChange
      */
-    on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+    on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
      * Unsubscribe the event reported when the profile connection state changes .
@@ -572,7 +572,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile.off#event:connectionStateChange
      */
-    off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+    off(type: 'connectionStateChange', callback?: Callback<StateChangeParam>): void;
   }
 
   namespace BLE {
@@ -643,7 +643,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.on#event:BLEDeviceFind
      */
-    function on(type: "BLEDeviceFind", callback: Callback<Array<ScanResult>>): void;
+    function on(type: 'BLEDeviceFind', callback: Callback<Array<ScanResult>>): void;
 
     /**
      * Unsubscribe BLE scan result.
@@ -655,7 +655,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.off#event:BLEDeviceFind
      */
-    function off(type: "BLEDeviceFind", callback?: Callback<Array<ScanResult>>): void;
+    function off(type: 'BLEDeviceFind', callback?: Callback<Array<ScanResult>>): void;
   }
 
   /**
@@ -762,7 +762,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:characteristicRead
      */
-    on(type: "characteristicRead", callback: Callback<CharacteristicReadReq>): void;
+    on(type: 'characteristicRead', callback: Callback<CharacteristicReadReq>): void;
 
     /**
      * Unsubscribe characteristic read event.
@@ -774,7 +774,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:characteristicRead
      */
-    off(type: "characteristicRead", callback?: Callback<CharacteristicReadReq>): void;
+    off(type: 'characteristicRead', callback?: Callback<CharacteristicReadReq>): void;
 
     /**
      * Subscribe characteristic write event.
@@ -786,7 +786,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:characteristicWrite
      */
-    on(type: "characteristicWrite", callback: Callback<CharacteristicWriteReq>): void;
+    on(type: 'characteristicWrite', callback: Callback<CharacteristicWriteReq>): void;
 
     /**
      * Unsubscribe characteristic write event.
@@ -798,7 +798,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:characteristicWrite
      */
-    off(type: "characteristicWrite", callback?: Callback<CharacteristicWriteReq>): void;
+    off(type: 'characteristicWrite', callback?: Callback<CharacteristicWriteReq>): void;
 
     /**
      * Subscribe descriptor read event.
@@ -810,7 +810,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:descriptorRead
      */
-    on(type: "descriptorRead", callback: Callback<DescriptorReadReq>): void;
+    on(type: 'descriptorRead', callback: Callback<DescriptorReadReq>): void;
 
     /**
      * Unsubscribe descriptor read event.
@@ -822,7 +822,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:descriptorRead
      */
-    off(type: "descriptorRead", callback?: Callback<DescriptorReadReq>): void;
+    off(type: 'descriptorRead', callback?: Callback<DescriptorReadReq>): void;
 
     /**
      * Subscribe descriptor write event.
@@ -835,7 +835,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:descriptorWrite
      */
-    on(type: "descriptorWrite", callback: Callback<DescriptorWriteReq>): void;
+    on(type: 'descriptorWrite', callback: Callback<DescriptorWriteReq>): void;
 
     /**
      * Unsubscribe descriptor write event.
@@ -847,7 +847,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:descriptorWrite
      */
-    off(type: "descriptorWrite", callback?: Callback<DescriptorWriteReq>): void;
+    off(type: 'descriptorWrite', callback?: Callback<DescriptorWriteReq>): void;
 
     /**
      * Subscribe server connection state changed event.
@@ -859,7 +859,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:connectStateChange
      */
-    on(type: "connectStateChange", callback: Callback<BLEConnectChangedState>): void;
+    on(type: 'connectStateChange', callback: Callback<BLEConnectChangedState>): void;
 
     /**
      * Unsubscribe server connection state changed event.
@@ -871,7 +871,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:connectStateChange
      */
-    off(type: "connectStateChange", callback?: Callback<BLEConnectChangedState>): void;
+    off(type: 'connectStateChange', callback?: Callback<BLEConnectChangedState>): void;
   }
 
   /**
@@ -1040,7 +1040,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#on#event:BLECharacteristicChange
      */
-    on(type: "BLECharacteristicChange", callback: Callback<BLECharacteristic>): void;
+    on(type: 'BLECharacteristicChange', callback: Callback<BLECharacteristic>): void;
 
     /**
      * Unsubscribe characteristic value changed event.
@@ -1052,7 +1052,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#off#event:BLECharacteristicChange
      */
-    off(type: "BLECharacteristicChange", callback?: Callback<BLECharacteristic>): void;
+    off(type: 'BLECharacteristicChange', callback?: Callback<BLECharacteristic>): void;
 
     /**
      * Subscribe client connection state changed event.
@@ -1064,7 +1064,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#on#event:BLEConnectionStateChange
      */
-    on(type: "BLEConnectionStateChange", callback: Callback<BLEConnectChangedState>): void;
+    on(type: 'BLEConnectionStateChange', callback: Callback<BLEConnectChangedState>): void;
 
     /**
      * Unsubscribe client connection state changed event.
@@ -1076,7 +1076,7 @@ declare namespace bluetooth {
      * @deprecated since 9
      * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#off#event:BLEConnectionStateChange
      */
-    off(type: "BLEConnectionStateChange", callback?: Callback<BLEConnectChangedState>): void;
+    off(type: 'BLEConnectionStateChange', callback?: Callback<BLEConnectChangedState>): void;
   }
 
   /**
