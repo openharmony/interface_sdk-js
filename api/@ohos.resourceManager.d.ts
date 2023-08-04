@@ -2444,6 +2444,258 @@ declare namespace resourceManager {
      * @since 10
      */
     removeResource(path: string) : void;
+
+    /**
+     * Obtains the raw file resource descriptor corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { RawFileDescriptor } The raw file resource descriptor.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFdSync(path: string): RawFileDescriptor;
+
+    /**
+     * Close the raw file resource descriptor corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    closeRawFdSync(path: string): void;
+
+    /**
+     * Obtains the rawfile resource list corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Array<string> } The rawfile resource list.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileListSync(path: string): Array<string>;
+
+    /**
+     * Obtains the raw file resource corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Uint8Array } the raw file resource corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileContentSync(path: string): Uint8Array;
+
+    /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                to use the density of current system dpi.
+     * @returns { Uint8Array } Indicates the obtained media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaContentSync(resId: number, density?: number): Uint8Array;
+
+    /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                to use the density of current system dpi.
+     * @returns { Uint8Array } Indicates the obtained media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getMediaContentSync(resource: Resource, density?: number): Uint8Array;
+
+     /**
+     * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                to use the density of current system dpi.
+     * @returns { string } Indicates the obtained Base64 code of the media file.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaContentBase64Sync(resId: number, density?: number): string;
+
+    /**
+     * Obtains the content of the specified screen density media file corresponding to the specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                to use the density of current system dpi.
+     * @returns { string } Indicates the obtained Base64 code of the media file.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getMediaContentBase64Sync(resource: Resource, density?: number): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the ID string corresponding to
+     * the specified number.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - Indicates the number.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getPluralStringValueSync(resId: number, num: number): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the resource object string corresponding to the
+     * specified number.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } num - Indicates the number.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getPluralStringValueSync(resource: Resource, num: number): string;
+
+    /**
+     * Obtains the array of character strings corresponding to a specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @returns { Array<string> } The array of character strings corresponding to the specified resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getStringArrayValueSync(resId: number): Array<string>;
+
+    /**
+     * Obtains the array of character strings corresponding to a specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @returns { Array<string> } The array of character strings corresponding to the specified resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @since 10
+     */
+    getStringArrayValueSync(resource: Resource): Array<string>;
+
+    /**
+     * Obtains the singular-plural character string represented by the name string corresponding to
+     * the specified number.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } num - Indicates the number.
+     * @returns { string } The singular-plural character string represented by the name string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getPluralStringByNameSync(resName: string, num: number): string;
+
+    /**
+     * Obtains the content of the specified screen density media file corresponding to a specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { Uint8Array } The obtained specified screen density media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaByNameSync(resName: string, density?: number): Uint8Array;
+
+    /**
+     * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *                 to use the density of current system dpi.
+     * @returns { string } The obtained Base64 code of the specified screen density media file.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getMediaBase64ByNameSync(resName: string, density?: number): string;
+
+    /**
+     * Obtains the array of character strings corresponding to a specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @returns { Array<string> } the array of character strings corresponding to the specified resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getStringArrayByNameSync(resName: string): Array<string>;
+
+    /**
+     * Obtains the device configuration.
+     *
+     * @returns { Configuration } the device configuration.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getConfigurationSync(): Configuration;
+
+    /**
+     * Obtains the device capability.
+     *
+     * @returns { DeviceCapability } the device capability.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getDeviceCapabilitySync(): DeviceCapability;
   }
 
   /**
