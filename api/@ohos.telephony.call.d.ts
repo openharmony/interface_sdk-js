@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides methods related to call management.

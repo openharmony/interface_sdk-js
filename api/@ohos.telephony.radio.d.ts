@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides interfaces for applications to obtain the network state, cell information, signal information,
@@ -840,7 +840,7 @@ declare namespace radio {
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
-  function isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void
+  function isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether the radio service is enabled.
@@ -2206,7 +2206,7 @@ declare namespace radio {
      * @since 8
      */
     data: CdmaCellInformation | GsmCellInformation | LteCellInformation | NrCellInformation | TdscdmaCellInformation
-      | WcdmaCellInformation;
+    | WcdmaCellInformation;
   }
 
   /**

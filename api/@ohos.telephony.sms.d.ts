@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides the capabilities and methods for obtaining Short Message Service (SMS) management objects.
