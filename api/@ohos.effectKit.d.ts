@@ -166,21 +166,47 @@ declare namespace effectKit {
 
   /**
    * Create a color picker to get color of an image.
-   * @since 9
+   * @param { image.PixelMap } source - the source pixelmap.
+   * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
+   * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @param image.PixelMap.
-   * @returns Returns the ColorPicker.
+   * @since 9
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
   /**
    * Create a color picker to get color of an image.
-   * @since 9
+   * @param { image.PixelMap } source - the source pixelmap.
+   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
+   * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
+   * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @param image.PixelMap.
-   * @returns Returns the ColorPicker.
+   * @since 10
+   */
+  function createColorPicker(source: image.PixelMap, region: Array<number>): Promise<ColorPicker>;
+
+  /**
+   * Create a color picker to get color of an image.
+   * @param { image.PixelMap } source - the source pixelmap.
+   * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
+   * @throws { BusinessError } 401 - Input parameter error.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 9
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
+  
+  /**
+   * Create a color picker to get color of an image.
+   * @param { image.PixelMap } source - the source pixelmap.
+   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
+   * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
+   * @throws { BusinessError } 401 - Input parameter error.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 10
+   */
+  function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void;
 }
 
 export default effectKit;

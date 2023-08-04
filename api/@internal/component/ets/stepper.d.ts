@@ -32,7 +32,7 @@ interface StepperInterface {
   /**
    * Called when the stepper component is used.
    *
-   * @param { { index?: number } } value
+   * @param { object } value
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -40,7 +40,7 @@ interface StepperInterface {
   /**
    * Called when the stepper component is used.
    *
-   * @param { { index?: number } } value
+   * @param { object } value
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -53,12 +53,14 @@ interface StepperInterface {
  * Defines the stepper attribute functions
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the stepper attribute functions
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -66,7 +68,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the finish label is clicked.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -74,7 +76,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the finish label is clicked.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -85,7 +87,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the skip label is clicked.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -93,7 +95,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the skip label is clicked.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -104,7 +106,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the change label is clicked.
    *
-   * @param { (prevIndex?: number, index?: number) => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -112,7 +114,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the change label is clicked.
    *
-   * @param { (prevIndex?: number, index?: number) => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -123,7 +125,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the next label is clicked.
    *
-   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -131,7 +133,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the next label is clicked.
    *
-   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -142,7 +144,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the previous label is clicked.
    *
-   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -150,7 +152,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the previous label is clicked.
    *
-   * @param { (index?: number, pendingIndex?: number) => void } callback
+   * @param { function } callback
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

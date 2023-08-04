@@ -40,25 +40,37 @@
 interface PathInterface {
   /**
    * Use new to create Path.
+   *
+   * @param { object } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Use new to create Path.
-   * @form
+   *
+   * @param { object } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Use new to create Path.
-   * @form
+   *
+   * @param { object } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   new (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 
   /**
    * Called when drawing path.
    *
-   * @param { ?({ width?: number | string; height?: number | string; commands?: string }) } value
+   * @param { object } value
    * @returns { PathAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -66,7 +78,7 @@ interface PathInterface {
   /**
    * Called when drawing path.
    *
-   * @param { ?({ width?: number | string; height?: number | string; commands?: string }) } value
+   * @param { object } value
    * @returns { PathAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -75,7 +87,7 @@ interface PathInterface {
   /**
    * Called when drawing path.
    *
-   * @param { ?({ width?: number | string; height?: number | string; commands?: string }) } value
+   * @param { object } value
    * @returns { PathAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -89,12 +101,14 @@ interface PathInterface {
  * Provides methods for attribute path component.
  *
  * @extends CommonShapeMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides methods for attribute path component.
  *
  * @extends CommonShapeMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -102,6 +116,7 @@ interface PathInterface {
  * Provides methods for attribute path component.
  *
  * @extends CommonShapeMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form

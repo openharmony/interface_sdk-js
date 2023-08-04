@@ -15,20 +15,32 @@
 
 /**
  * The information of sheet.
+ *
+ * @interface SheetInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The information of sheet.
+ *
+ * @interface SheetInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface SheetInfo {
   /**
    * Title Properties
+   * 
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Title Properties
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +48,16 @@ interface SheetInfo {
 
   /**
    * Icon Properties.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Icon Properties.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -47,10 +65,16 @@ interface SheetInfo {
 
   /**
    * Callback method after the operation.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback method after the operation.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -59,10 +83,16 @@ interface SheetInfo {
 
 /**
  * The options of ActionSheet.
+ *
+ * @interface ActionSheetOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The options of ActionSheet.
+ *
+ * @interface ActionSheetOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -70,21 +100,42 @@ interface ActionSheetOptions
 {
   /**
    * Title Properties
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Title Properties
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   title: string | Resource;
+  
+  /**
+   * Subtitle Properties
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  subtitle?: ResourceStr;
 
   /**
    * message Properties
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * message Properties
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -92,20 +143,62 @@ interface ActionSheetOptions
 
   /**
    * Invoke the commit function.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoke the commit function.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   confirm?: {
     /**
+     * Enable switch of confirmation button
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    enabled?: boolean;
+
+    /**
+     * Default focus switch of confirmation button
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    defaultFocus?: boolean;
+    
+    /**
+     * Style of confirmation button.
+     * @type { ?DialogButtonStyle }
+     * @default DialogButtonStyle.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    style?: DialogButtonStyle;
+
+    /**
      * Text content of the confirmation button.
+     *
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Text content of the confirmation button.
+     *
+     * @type { string | Resource }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -113,10 +206,16 @@ interface ActionSheetOptions
 
     /**
      * Method executed by the callback.
+     *
+     * @type { () => void }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Method executed by the callback.
+     *
+     * @type { () => void }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -125,10 +224,16 @@ interface ActionSheetOptions
 
   /**
    * Execute Cancel Function.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Execute Cancel Function.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -136,10 +241,16 @@ interface ActionSheetOptions
 
   /**
    * The Array of sheets
+   *
+   * @type { Array<SheetInfo> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The Array of sheets
+   *
+   * @type { Array<SheetInfo> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -147,10 +258,16 @@ interface ActionSheetOptions
 
   /**
    * Allows users to click the mask layer to exit.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Allows users to click the mask layer to exit.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -158,10 +275,16 @@ interface ActionSheetOptions
 
   /**
    * Alignment in the vertical direction.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Alignment in the vertical direction.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -169,32 +292,58 @@ interface ActionSheetOptions
 
   /**
    * Offset of the pop-up window relative to the alignment position.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Offset of the pop-up window relative to the alignment position.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   offset?: { dx: number | string | Resource; dy: number | string | Resource };
+
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
 }
 
 /**
  * Declare the ActionSheet
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Declare the ActionSheet
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class ActionSheet {
   /**
    * Invoking method display.
+   *
+   * @param { ActionSheetOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoking method display.
+   *
+   * @param { ActionSheetOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */

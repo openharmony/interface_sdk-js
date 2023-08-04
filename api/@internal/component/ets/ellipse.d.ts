@@ -41,7 +41,7 @@ interface EllipseInterface {
   /**
    * use new function to set the value.
    * 
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -49,7 +49,7 @@ interface EllipseInterface {
   /**
    * use new function to set the value.
    * 
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -58,7 +58,7 @@ interface EllipseInterface {
   /**
    * use new function to set the value.
    * 
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -70,7 +70,7 @@ interface EllipseInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -78,7 +78,7 @@ interface EllipseInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -87,7 +87,7 @@ interface EllipseInterface {
   /**
    * Set the value.
    *
-   * @param { ?{ width?: string | number; height?: string | number } } value
+   * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

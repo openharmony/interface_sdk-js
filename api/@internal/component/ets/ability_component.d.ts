@@ -20,17 +20,21 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponentInterface
  */
 interface AbilityComponentInterface {
   /**
    * Construct the ability component.
    * Called when the ability component is used.
    *
-   * @param { { want: import('../api/@ohos.app.ability.Want').default } } value
+   * @param { object } value
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead UIExtensionComponentInterface
    */
   (value: { want: import('../api/@ohos.app.ability.Want').default }): AbilityComponentAttribute;
 }
@@ -42,26 +46,32 @@ interface AbilityComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponentAttribute
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
    * Called when the component is connected to ability.
    *
-   * @param { () => void } callback - A callback instance used when connected.
+   * @param { function } callback - A callback instance used when connected.
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead UIExtensionComponent#onRemoteReady
    */
   onConnect(callback: () => void): AbilityComponentAttribute;
   /**
    * Called when the component is disconnected.
    *
-   * @param { () => void } callback - A callback instance used when disconnected.
+   * @param { function } callback - A callback instance used when disconnected.
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead UIExtensionComponent#onRelease
    */
   onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
@@ -71,6 +81,8 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponent
  */
 declare const AbilityComponent: AbilityComponentInterface;
 
@@ -79,5 +91,7 @@ declare const AbilityComponent: AbilityComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponentInstance
  */
 declare const AbilityComponentInstance: AbilityComponentAttribute;

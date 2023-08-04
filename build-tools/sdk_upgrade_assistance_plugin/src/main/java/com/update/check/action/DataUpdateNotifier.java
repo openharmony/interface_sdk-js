@@ -16,6 +16,7 @@
 package com.update.check.action;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -49,18 +50,22 @@ public class DataUpdateNotifier {
         /**
          * onUpdate
          *
-         * @since 23-04-07
+         * @param chooseType chooseType
+         * @param type restart or choose type
          */
-        void onUpdate();
+        void onUpdate(LinkedHashMap<String, Boolean> chooseType, String type);
     }
 
     /**
      * notifyDataChange
      *
-     * @since 23-04-07
+     * @param chooseType chooseType
+     * @param type restart or choose type
      */
-    public void notifyDataChange() {
-        listeners.forEach((UpdateListener::onUpdate));
+    public void notifyDataChange(LinkedHashMap<String, Boolean> chooseType, String type) {
+        for (UpdateListener listener : listeners) {
+            listener.onUpdate(chooseType, type);
+        }
     }
 
     /**

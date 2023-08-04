@@ -49,7 +49,7 @@ export class JSDocModifierImpl implements IJSDocModifier {
         LogUtil.i(this.tag, result.content);
       }
     } catch (error) {
-      LogUtil.e(this.tag, error);
+      LogUtil.e(this.tag, error as string);
     }
   }
 

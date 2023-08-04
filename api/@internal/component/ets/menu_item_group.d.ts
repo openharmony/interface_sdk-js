@@ -83,7 +83,7 @@ interface MenuItemGroupInterface {
   /**
    * Creates the MenuItemGroup component.
    *
-   * @param { ?MenuItemGroupOptions } value
+   * @param { MenuItemGroupOptions } value
    * @returns { MenuItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -91,7 +91,7 @@ interface MenuItemGroupInterface {
   /**
    * Creates the MenuItemGroup component.
    *
-   * @param { ?MenuItemGroupOptions } value
+   * @param { MenuItemGroupOptions } value
    * @returns { MenuItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

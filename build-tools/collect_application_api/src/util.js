@@ -17,100 +17,100 @@
 const path = require('path');
 const fs = require('fs');
 const etsComponentSet = new Set([
-  "AbilityComponent",
-  "AlphabetIndexer",
-  "Animator",
-  "Badge",
-  "Blank",
-  "Button",
-  "Calendar",
-  "Camera",
-  "Canvas",
-  "Checkbox",
-  "CheckboxGroup",
-  "Circle",
-  "ColorPicker",
-  "ColorPickerDialog",
-  "Column",
-  "ColumnSplit",
-  "Counter",
-  "DataPanel",
-  "DatePicker",
-  "Divider",
-  "EffectComponent",
-  "Ellipse",
-  "Flex",
-  "FormComponent",
-  "FormLink",
-  "Gauge",
-  "GeometryView",
-  "Grid",
-  "GridItem",
-  "GridContainer",
-  "Hyperlink",
-  "Image",
-  "ImageAnimator",
-  "Line",
-  "List",
-  "ListItem",
-  "ListItemGroup",
-  "LoadingProgress",
-  "Marquee",
-  "Menu",
-  "Navigation",
-  "Navigator",
-  "Option",
-  "PageTransitionEnter",
-  "PageTransitionExit",
-  "Panel",
-  "Path",
-  "PatternLock",
-  "Piece",
-  "PluginComponent",
-  "Polygon",
-  "Polyline",
-  "Progress",
-  "QRCode",
-  "Radio",
-  "Rating",
-  "Rect",
-  "Refresh",
-  "RelativeContainer",
-  "RemoteWindow",
-  "Row",
-  "RowSplit",
-  "RichText",
-  "Scroll",
-  "ScrollBar",
-  "Search",
-  "Section",
-  "Select",
-  "Shape",
-  "Sheet",
-  "SideBarContainer",
-  "Slider",
-  "Span",
-  "Stack",
-  "Stepper",
-  "StepperItem",
-  "Swiper",
-  "TabContent",
-  "Tabs",
-  "Text",
-  "TextPicker",
-  "TextClock",
-  "TextArea",
-  "TextInput",
-  "TextTimer",
-  "TimePicker",
-  "Toggle",
-  "Video",
-  "Web",
-  "XComponent",
-  "GridRow",
-  "GridCol",
-  "CustomDialogController",
-  "PanGesture"
+  'AbilityComponent',
+  'AlphabetIndexer',
+  'Animator',
+  'Badge',
+  'Blank',
+  'Button',
+  'Calendar',
+  'CalendarPicker',
+  'Camera',
+  'Canvas',
+  'Checkbox',
+  'CheckboxGroup',
+  'Circle',
+  'ColorPicker',
+  'ColorPickerDialog',
+  'Column',
+  'ColumnSplit',
+  'Counter',
+  'DataPanel',
+  'DatePicker',
+  'Divider',
+  'Ellipse',
+  'Flex',
+  'FormComponent',
+  'FormLink',
+  'Gauge',
+  'GeometryView',
+  'Grid',
+  'GridItem',
+  'GridContainer',
+  'Hyperlink',
+  'Image',
+  'ImageAnimator',
+  'Line',
+  'List',
+  'ListItem',
+  'ListItemGroup',
+  'LoadingProgress',
+  'Marquee',
+  'Menu',
+  'Navigation',
+  'Navigator',
+  'Option',
+  'PageTransitionEnter',
+  'PageTransitionExit',
+  'Panel',
+  'Path',
+  'PatternLock',
+  'Piece',
+  'PluginComponent',
+  'Polygon',
+  'Polyline',
+  'Progress',
+  'QRCode',
+  'Radio',
+  'Rating',
+  'Rect',
+  'Refresh',
+  'RelativeContainer',
+  'RemoteWindow',
+  'Row',
+  'RowSplit',
+  'RichText',
+  'Scroll',
+  'ScrollBar',
+  'Search',
+  'Section',
+  'Select',
+  'Shape',
+  'Sheet',
+  'SideBarContainer',
+  'Slider',
+  'Span',
+  'Stack',
+  'Stepper',
+  'StepperItem',
+  'Swiper',
+  'TabContent',
+  'Tabs',
+  'Text',
+  'TextPicker',
+  'TextClock',
+  'TextArea',
+  'TextInput',
+  'TextTimer',
+  'TimePicker',
+  'Toggle',
+  'Video',
+  'Web',
+  'XComponent',
+  'GridRow',
+  'GridCol',
+  'CustomDialogController',
+  'PanGesture'
 ]);
 exports.etsComponentSet = etsComponentSet;
 function readFile(dir, utFiles) {
@@ -124,7 +124,7 @@ function readFile(dir, utFiles) {
       } else {
         utFiles.push(filePath);
       }
-    })
+    });
   } catch (e) {
     console.log('ETS ERROR: ' + e);
   }
@@ -145,35 +145,39 @@ function collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, 
     interfaceName: interfaceName,
     value: value,
     type: type,
-    notes: notes
-  }
+    notes: notes,
+  };
 }
 
 let callMethod = {
+
   /**
    * 调用方式示例代码
    * const atManager = abilityAccessCtrl.createAtManager();
    * let result = await atManager.verifyAccessToken(tokenID, array[i]);
    */
   firstCallMethod:'实例化调用方式1',
+
   /**
    * 调用方式示例代码
    * private mCameraInput!: camera.CameraInput
    * this.mCameraInput.release()
    */
   secondCallMethod:'实例化调用方式2',
+
   /**
    * 调用方式示例代码
    * private mListeners:ArrayList<Listener> = new ArrayList();
    * this.mListeners.add(listener);
    */
   thirdCallMethod:'实例化调用方式3',
+
   /**
    * 调用方式示例代码
    * userAuthManager = new osAccount.UserAuth();
    * this.userAuthManager.authUser();
    */
-  fourthCallMethod:'实例化调用方式4'
-}
+  fourthCallMethod:'实例化调用方式4',
+};
 exports.collectAllApi = collectAllApi;
 exports.callMethod = callMethod;

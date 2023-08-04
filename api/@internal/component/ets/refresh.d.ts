@@ -235,12 +235,14 @@ interface RefreshInterface {
  * Defines the refresh attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the refresh attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -248,7 +250,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Called when the refresh state changes.
    *
-   * @param { (state: RefreshStatus) => void } callback
+   * @param { function } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -256,7 +258,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Called when the refresh state changes.
    *
-   * @param { (state: RefreshStatus) => void } callback
+   * @param { function } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -267,7 +269,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Called when the refresh state is entered.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -275,7 +277,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Called when the refresh state is entered.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

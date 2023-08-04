@@ -52,6 +52,7 @@ export default class ExtensionContext extends Context {
    *
    * @type { ExtensionAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
    * @since 9
    */
   extensionAbilityInfo: ExtensionAbilityInfo;

@@ -17,7 +17,7 @@ const result = require('../check_result.json');
 const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult, apiCheckInfoArr } = require('../src/utils');
 
 /**
- * 
+ *
  * @param {ts.Node} node current node
  * @param {ts.Sourcefile} sourcefile root node
  * @param {String} fileName full file name
@@ -28,7 +28,7 @@ const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult, apiCheckInfoArr } =
  */
 function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, type, level) {
   if (level === ErrorLevel.HIGH || level === ErrorLevel.MIDDLE) {
-    ApiCheckResult.format_check_result = false;
+    ApiCheckResult.formatCheckResult = false;
   }
   const checkFailFileNameSet = new Set(result.apiFiles);
   if (!checkFailFileNameSet.has(fileName)) {
@@ -41,22 +41,21 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
   apiCheckArr.push({
     errorType: errorType.description,
     fileName: `${baseFileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
-    type: type,
-    errorInfo: errorInfo,
+    type,
+    errorInfo,
     version: getApiInfo(node).version,
     basename: path.basename(fileName).replace(/\.d\.ts/g, ''),
-    level: level,
+    level,
     apiName: node.symbol ? node.symbol.escapedName : '',
-    apiFullText: node.getFullText()
+    apiFullText: node.getFullText(),
   });
 
   apiCheckInfoArr.push({
     id: errorType.id,
-    level: level,
+    level,
     location: `${baseFileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
     filePath: baseFileName,
-    message: errorMessage
+    message: errorMessage,
   });
-
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;

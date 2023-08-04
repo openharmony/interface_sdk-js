@@ -31,28 +31,28 @@ function parse(fileContentList) {
 
   fileContentList.forEach(item => {
     const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-    let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-			item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace((/\@|.ts$/g), "").replace(/D:\\/g, "")
+    let packageName = item.fileRoot.indexOf('component\\ets\\') >= 0 ||
+			item.fileRoot.indexOf('component/ets/') >= 0 ? 'ArkUI' : fileName.replace((/\@|.ts$/g), '').replace(/D:\\/g, '');
     ts.transpileModule(item.fileContent, {
       compilerOptions: {
-        "target": ts.ScriptTarget.ES2017
+        'target': ts.ScriptTarget.ES2017,
       },
       fileName: fileName,
-      transformers: { before: [getReturnDeclarationArr(packageName, exportApi, returnDeclarationArr)] }
-    })
+      transformers: { before: [getReturnDeclarationArr(packageName, exportApi, returnDeclarationArr)] },
+    });
   });
 
   fileContentList.forEach(item => {
     const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-    let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-			item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
+    let packageName = item.fileRoot.indexOf('component\\ets\\') >= 0 ||
+			item.fileRoot.indexOf('component/ets/') >= 0 ? 'ArkUI' : fileName.replace(/\@|.ts$/g, '').replace(/D:\\/g, '');
     ts.transpileModule(item.fileContent, {
       compilerOptions: {
-        "target": ts.ScriptTarget.ES2017
+        'target': ts.ScriptTarget.ES2017,
       },
       fileName: fileName,
-      transformers: { before: [processDeclarationSourceFile(packageName, api, exportApi, returnDeclarationArr, hash, item.fileRoot)] }
-    })
+      transformers: { before: [processDeclarationSourceFile(packageName, api, exportApi, returnDeclarationArr, hash, item.fileRoot)] },
+    });
   });
   return api;
 }
@@ -64,7 +64,7 @@ function visitAllNode(node, returnDeclarationArr) {
     returnDeclarationArr.add(node.type.typeName.getText());
   }
   node.getChildren().forEach(item => {
-    visitAllNode(item, returnDeclarationArr)
+    visitAllNode(item, returnDeclarationArr);
   });
 }
 
@@ -79,14 +79,14 @@ function getExportApi(node, packageName, exportApi) {
           deprecated: '',
           permission: 'N/A',
           sysCap: 'N/A',
-          model: ''
-        }
+          model: '',
+        };
         exportApi.push({
           packageName: packageName,
           className: stat.name.escapedText.toString(),
           methodName: '',
-          apiInfo: getApiInfo(stat, apiInfo)
-        })
+          apiInfo: getApiInfo(stat, apiInfo),
+        });
       }
     }
   });
@@ -99,9 +99,9 @@ const getReturnDeclarationArr = (packageName, exportApi, returnDeclarationArr) =
       visitAllNode(node, returnDeclarationArr);
       getExportApi(node, packageName, exportApi);
       return node;
-    }
-  }
-}
+    };
+  };
+};
 
 
 // 搜集API接口并去重
@@ -116,8 +116,8 @@ function processDeclarationSourceFile(packageName, api, exportApi, returnDeclara
           if (stat.type.types) {
             let typeObj = {
               name: stat.name.escapedText,
-              value: []
-            }
+              value: [],
+            };
             stat.type.types.forEach(type => {
               if (type.literal && type.literal.text) {
                 typeObj.value.push(type.literal.text);
@@ -140,13 +140,13 @@ function processDeclarationSourceFile(packageName, api, exportApi, returnDeclara
           model: '',
           headimport: 'N/A',
           endexport: 'N/A',
-        }
+        };
         collectApi(packageName, api, stat, apiInfo, exportApi, returnDeclarationArr, hash, dtsPath,
           currentTypeList, currentClassFuncSet);
       });
       return node;
-    }
-  }
+    };
+  };
 }
 
 function collectApi(packageName, api, stat, apiInfo, exportApi, returnDeclarationArr, hash, dtsPath, currentTypeList,
@@ -178,8 +178,8 @@ function collectApi(packageName, api, stat, apiInfo, exportApi, returnDeclaratio
       var methodName = stat.name.escapedText ? stat.name.escapedText.toString() : stat.name.text.toString();
       let className = '';
       exportApi.forEach(item => {
-        if (item.methodName == methodName && item.packageName == packageName) {
-          className = item.className
+        if (item.methodName === methodName && item.packageName === packageName) {
+          className = item.className;
           if (item.apiInfo) {
             apiInfo = item.apiInfo;
           }
@@ -222,7 +222,7 @@ function collectEnumDeclaration(stat, packageName, api, exportApi, returnDeclara
     addApi(packageName, className, '', '', tmpApiInfo, 'EnumDeclaration', api, hash, dtsPath, '13');
   }
   collectEachChildNode(enumChildren, packageName, className, 'Enum', api, exportApi, returnDeclarationArr, hash,
-    tmpApiInfo, currentTypeList, dtsPath)
+    tmpApiInfo, currentTypeList, dtsPath);
 }
 
 function collectModuleDeclaration(stat, packageName, api, exportApi, returnDeclarationArr, hash, apiInfo, currentTypeList, dtsPath) {
@@ -233,15 +233,15 @@ function collectModuleDeclaration(stat, packageName, api, exportApi, returnDecla
     addApi(packageName, className, '', '', tmpApiInfo, 'ModelDeclaration', api, hash, dtsPath, '11');
   }
   collectEachChildNode(moduleChildren, packageName, className, 'Field', api, exportApi, returnDeclarationArr, hash,
-    tmpApiInfo, currentTypeList, dtsPath)
+    tmpApiInfo, currentTypeList, dtsPath);
 }
 
 function collectTypeApi(child, packageName, className, faterApiType, api, exportApi, returnDeclarationArr,
   hash, apiInfo, dtsPath) {
   let typeObj = {
     name: child.name.escapedText,
-    value: []
-  }
+    value: [],
+  };
   if (child.type.types) {
     child.type.types?.forEach(type => {
       if (type.literal && type.literal.text) {
@@ -252,7 +252,7 @@ function collectTypeApi(child, packageName, className, faterApiType, api, export
             getApiInfo(child, faterApiInfo), 'Type', api, hash, dtsPath, 1);
         }
       } else {
-        if (type.getText() != '') {
+        if (type.getText() !== '') {
           typeObj.value.push(type.getText());
           if (typeCollection && type.literal) {
             let faterApiInfo = JSON.parse(JSON.stringify(apiInfo));
@@ -273,7 +273,7 @@ function collectTypeApi(child, packageName, className, faterApiType, api, export
               getApiInfo(child, faterApiInfo), 'Type', api, hash, dtsPath, 3);
           }
         } else {
-          if (type.getText() != '') {
+          if (type.getText() !== '') {
             typeObj.value.push(type.getText());
             if (typeCollection) {
               let faterApiInfo = JSON.parse(JSON.stringify(apiInfo));
@@ -283,7 +283,7 @@ function collectTypeApi(child, packageName, className, faterApiType, api, export
           }
         }
       });
-    })
+    });
   }
   return typeObj;
 }
@@ -297,7 +297,7 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
         let typeObj = collectTypeApi(child, packageName, className, faterApiType, api, exportApi, returnDeclarationArr,
           hash, apiInfo, dtsPath);
         if (typeObj.value.length > 0) {
-          currentTypeList.push(typeObj)
+          currentTypeList.push(typeObj);
         }
       }
     }
@@ -309,10 +309,10 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
       exportApi.push({
         packageName: packageName,
         className: className,
-        methodName: child.getText().replace("export", '').replace('{', '').replace('}', '').replace(';', '').trim(),
-        apiInfo: faterApiInfo
-      })
-      return
+        methodName: child.getText().replace('export', '').replace('{', '').replace('}', '').replace(';', '').trim(),
+        apiInfo: faterApiInfo,
+      });
+      return;
     }
     if (ts.isInterfaceDeclaration(child)) {
       collectInterfaceDeclaration(child, packageName, api, exportApi, returnDeclarationArr, hash, faterApiInfo, currentTypeList, dtsPath);
@@ -332,7 +332,7 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
           hash, apiInfo, currentClassFunSet, dtsPath);
       } else {
         collectOtherApi(child, packageName, className, faterApiInfo, apiType, api,
-          hash, currentClassFunSet, child, dtsPath, returnDeclarationArr)
+          hash, currentClassFunSet, child, dtsPath, returnDeclarationArr);
       }
     }
   });
@@ -340,7 +340,7 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
 
 function collectOtherApi(child, packageName, className, faterApiInfo, apiType, api,
   hash, currentClassFunSet, child, dtsPath, returnDeclarationArr) {
-  let methodName = "";
+  let methodName = '';
   if (ts.isMethodDeclaration(child) || ts.isMethodSignature(child) || ts.isFunctionDeclaration(child) ||
 		ts.isCallSignatureDeclaration(child) || ts.isConstructSignatureDeclaration(child) ||
 		ts.isIndexSignatureDeclaration(child)) {
@@ -349,11 +349,11 @@ function collectOtherApi(child, packageName, className, faterApiInfo, apiType, a
     } else {
       methodName = className;
     }
-    apiType = 'Method'
+    apiType = 'Method';
   } else if (ts.isPropertyDeclaration(child) || ts.isPropertySignature(child)) {
     if (child.type && child.type.parameters) {
       methodName = child.name.escapedText;
-      apiType = 'Method'
+      apiType = 'Method';
     } else {
       methodName = child.name.escapedText;
       apiType = 'Field';
@@ -363,21 +363,21 @@ function collectOtherApi(child, packageName, className, faterApiInfo, apiType, a
       methodName = child.name.getText();
     }
   }
-  if (methodName !== "") {
+  if (methodName !== '') {
     addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
       hash, currentClassFunSet, child, dtsPath);
   } else {
-    if (child.getText().indexOf("constructor") == 0) {
+    if (child.getText().indexOf('constructor') === 0) {
       methodName = 'constructor';
       apiType = 'Method';
-    } else if (child.getText().indexOf("const") == 0) {
+    } else if (child.getText().indexOf('const') === 0) {
       methodName = collectFieleOrConstant(apiType, methodName, child, returnDeclarationArr).methodName;
       apiType = collectFieleOrConstant(apiType, methodName, child, returnDeclarationArr).apiType;
     } else if (/\w+:\s*\w+/g.test(child.getText())) {
       apiType = 'Field';
-      methodName = child.getText().split(":")[0].trim();
+      methodName = child.getText().split(':')[0].trim();
     }
-    if (methodName != '') {
+    if (methodName !== '') {
       addApi(packageName, className, methodName, child.getText(),
         getApiInfo(child, faterApiInfo), apiType, api, hash, dtsPath, 5);
     }
@@ -385,20 +385,20 @@ function collectOtherApi(child, packageName, className, faterApiInfo, apiType, a
 }
 
 function collectFieleOrConstant(apiType, methodName, child, returnDeclarationArr) {
-  if (child.getText().replace("const", "").indexOf(":") > 0) {
-    if (returnDeclarationArr.has(child.getText().replace("const", "").split(":")[1].trim())) {
+  if (child.getText().replace('const', '').indexOf(':') > 0) {
+    if (returnDeclarationArr.has(child.getText().replace('const', '').split(':')[1].trim())) {
       apiType = 'Field';
     } else {
       apiType = 'Constant';
     }
-    methodName = child.getText().replace('const', "").split(":")[0].trim();
-  } else if (child.getText().replace("const", "").indexOf("=") > 0) {
-    if (returnDeclarationArr.has(child.getText().replace("const", "").split("=")[1].trim())) {
+    methodName = child.getText().replace('const', '').split(':')[0].trim();
+  } else if (child.getText().replace('const', '').indexOf('=') > 0) {
+    if (returnDeclarationArr.has(child.getText().replace('const', '').split('=')[1].trim())) {
       apiType = 'Field';
     } else {
       apiType = 'Constant';
     }
-    methodName = child.getText().replace('const', "").split("=")[0].trim();
+    methodName = child.getText().replace('const', '').split('=')[0].trim();
   }
   return { apiType, methodName };
 }
@@ -415,7 +415,7 @@ function collectOnOffApi(child, apiType, packageName, className, faterApiInfo, a
       } else if (param.type && param.type.types && param.type.types.length > 0) {
         param.type.types.forEach(type => {
           if (type.literal && type.literal.text) {
-            let methodName = child.name.escapedText + "_" + type.literal.text;
+            let methodName = child.name.escapedText + '_' + type.literal.text;
             addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
               hash, currentClassFunSet, child, dtsPath);
           }
@@ -447,9 +447,9 @@ function inCurrentTypeListApi(packageName, className, faterApiInfo, apiType, api
   dtsPath, currentTypeList, param) {
   if (currentTypeList && currentTypeList.length > 0) {
     currentTypeList.forEach(type => {
-      if (type.name == param.type.typeName.escapedText) {
+      if (type.name === param.type.typeName.escapedText) {
         type.value.forEach(typeString => {
-          let methodName = child.name.escapedText + "_" + typeString;
+          let methodName = child.name.escapedText + '_' + typeString;
           addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
             hash, currentClassFunSet, child, dtsPath);
         });
@@ -464,8 +464,8 @@ function inCurrentTypeListApi(packageName, className, faterApiInfo, apiType, api
 
 function collectTypeOrEventApi(packageName, className, faterApiInfo, apiType, api,
   hash, currentClassFunSet, child, dtsPath, param) {
-  const typeTextArr = param.getText().replace(/\s*/g, "").split(':');
-  if (typeTextArr[0] === "type" || typeTextArr[0] === "event") {
+  const typeTextArr = param.getText().replace(/\s*/g, '').split(':');
+  if (typeTextArr[0] === 'type' || typeTextArr[0] === 'event') {
     let methodName = child.name.escapedText + '_' + param.type.literal.text;
     addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
       hash, currentClassFunSet, child, dtsPath);
@@ -530,16 +530,16 @@ function notMergeSameNameFun(packageName, className, methodName, apiInfo, apiTyp
 }
 
 function getApiInfo(node, apiInfos) {
-  const notesStr = node.getFullText().replace(node.getText(), "");
+  const notesStr = node.getFullText().replace(node.getText(), '');
   let noteArr = notesStr.split('/**');
-  if (notesStr !== "" && noteArr.length <= 2) {
-    const note = 'one'
+  if (notesStr !== '' && noteArr.length <= 2) {
+    const note = 'one';
     return getParentApiInfo(node, 'NA', note);
-  } else if (notesStr !== "" && noteArr.length >= 3) {
+  } else if (notesStr !== '' && noteArr.length >= 3) {
     const note = 'two';
     const newNoteStr = noteArr[2];
     return getParentApiInfo(node, newNoteStr, note);
-  } else if (notesStr === "") {
+  } else if (notesStr === '') {
     const note = 'one';
     return getParentApiInfo(node, 'NA', note);
   }
@@ -547,7 +547,7 @@ function getApiInfo(node, apiInfos) {
 
 function matchLabelInfo(node, noteParagraph, note) {
   const noteInfo = {};
-  const notesStr = noteParagraph === 'NA' ? node.getFullText().replace(node.getText(), "") : noteParagraph;
+  const notesStr = noteParagraph === 'NA' ? node.getFullText().replace(node.getText(), '') : noteParagraph;
   noteInfo.note = note;
   noteInfo.model = getModelInfo(notesStr);
   noteInfo.errorCode = getErrorCode(notesStr);
@@ -562,22 +562,22 @@ function matchLabelInfo(node, noteParagraph, note) {
   if (/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
     notesStr.replace(/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g, (versionInfo) => {
       noteInfo.version = versionInfo.replace(/\@[S|s][I|i][N|n][C|c][E|e]/g, '').trim();
-    })
+    });
   } else {
     noteInfo.version = 'N/A';
   }
 
   if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
     notesStr.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
-      noteInfo.sysCap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim()
-    })
+      noteInfo.sysCap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
+    });
   }
 
   if (/\@[U|u][S|s][E|e][I|i][N|n][S|s][T|t][E|e][A|a][D|d]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
     notesStr.replace(/\@[U|u][S|s][E|e][I|i][N|n][S|s][T|t][E|e][A|a][D|d]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, useinsteadInfo => {
       noteInfo.useinsteadInfo = useinsteadInfo.replace(/\@[U|u][S|s][E|e][I|i][N|n][S|s][T|t][E|e][A|a][D|d]\s*/g, '')
         .replace(/\r|\n/ig, '').replace('*/', '');
-    })
+    });
   } else {
     noteInfo.useinsteadInfo = 'N/A';
   }
@@ -585,7 +585,7 @@ function matchLabelInfo(node, noteParagraph, note) {
   if (/\@[T|t][Y|y][P|p][E|e]\s\{\s(\S)+\s\}/g.test(notesStr)) {
     notesStr.replace(/\@[T|t][Y|y][P|p][E|e]\s\{\s(\S)+\s\}/g, typeInfo => {
       noteInfo.typeInfo = typeInfo.replace(/\@[T|t][Y|y][P|p][E|e]\s/g, '').replace('{', '').replace('}', '').trim();
-    })
+    });
   } else {
     noteInfo.typeInfo = 'N/A';
   }
@@ -593,14 +593,14 @@ function matchLabelInfo(node, noteParagraph, note) {
 }
 
 function getPermissionInfo(notesStr) {
-  let permission = ''
+  let permission = '';
   if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
     notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
       permissionInfo => {
         permission = permissionInfo.replace(
           /\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
         return permission;
-      })
+      });
   } else {
     permission = 'N/A';
   }
@@ -615,7 +615,7 @@ function getDeprecatedInfo(notesStr) {
         deprecated = deprecatedInfo.replace(
           /\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*/g, '').trim();
 				
-      })
+      });
   } else {
     deprecated = 'N/A';
   }
@@ -631,7 +631,7 @@ function getErrorCode(notesStr) {
       } else {
         errorCode += `,${code.replace(/\@throws (\{ BusinessError }|\{BusinessError})/, '')}`;
       }
-    })
+    });
   } else {
     errorCode = 'N/A';
   }
@@ -643,11 +643,11 @@ function getModelInfo(notesStr) {
   if (/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
     notesStr.replace(/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
       model = modelInfo;
-    })
+    });
   } else if (/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
     notesStr.replace(/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
       model = modelInfo;
-    })
+    });
   } else {
     model = 'N/A';
   }
@@ -662,7 +662,7 @@ function getParentApiInfo(node, noteStr, note) {
     } else if (node.parent) {
       apiInfo.sysCap = getParentApiInfo(node.parent, noteStr, apiInfo).sysCap;
     } else {
-      apiInfo.sysCap = "N/A";
+      apiInfo.sysCap = 'N/A';
     }
   }
   if (!apiInfo.deprecated) {
@@ -702,8 +702,8 @@ function addApiImport(packageName, headimport, api, dtsPath) {
     model: '',
     headimport: headimport,
     endexport: '',
-    dtsPath: dtsPath
-  })
+    dtsPath: dtsPath,
+  });
 }
 
 function addApiExport(packageName, endexport, api, dtsPath) {
@@ -721,20 +721,20 @@ function addApiExport(packageName, endexport, api, dtsPath) {
     model: '',
     headimport: '',
     endexport: endexport,
-    dtsPath: dtsPath
-  })
+    dtsPath: dtsPath,
+  });
 }
 
 function addApi(packageName, className, methodName, methodText, apiInfo, apiType, api, hash, dtsPath, type) {
   let recard = isNotMerge ? `${packageName}.${className}/${methodName}/${methodText}` :
-    `${packageName}.${className}/${methodName}`
+    `${packageName}.${className}/${methodName}`;
   if (!hash.has(recard)) {
     hash.add(recard);
     api.push({
       packageName: packageName,
       className: className,
       methodName: methodName,
-      methodText: methodText.replace(/export\s/g, ""),
+      methodText: methodText.replace(/export\s/g, ''),
       isSystemApi: apiInfo.isSystemApi,
       version: apiInfo.version,
       deprecated: apiInfo.deprecated,//废弃起始版本
@@ -748,8 +748,8 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
       useinsteadInfo: apiInfo.useinsteadInfo,
       errorCode: apiInfo.errorCode,
       typeInfo: apiInfo.typeInfo,
-      note: apiInfo.note
-    })
+      note: apiInfo.note,
+    });
   }
 }
 exports.parse = parse;

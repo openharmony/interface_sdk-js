@@ -32,8 +32,8 @@ declare namespace commonEvent {
   /**
    * Publishes an ordered, sticky, or standard common event.
    *
-   * @param { string } event name of the common event.
-   * @param { AsyncCallback<void> } callback Specified callback method.
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -44,10 +44,10 @@ declare namespace commonEvent {
   /**
    * Publishes an ordered, sticky, or standard common event.
    *
-   * @param { string } event name of the common event.
-   * @param { CommonEventPublishData } options Indicate the CommonEventPublishData containing the common event content
-   *                                           and attributes.
-   * @param { AsyncCallback<void> } callback Specified callback method.
+   * @param { string } event - name of the common event.
+   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event content
+   *                                             and attributes.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -58,9 +58,9 @@ declare namespace commonEvent {
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
-   * @param { string } event Specified the names of the common events.
-   * @param { number } userId Specified the user to receive the common events.
-   * @param { AsyncCallback<void> } callback Specified callback method.
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -72,11 +72,11 @@ declare namespace commonEvent {
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
-   * @param { string } event Specified the names of the common events.
-   * @param { number } userId Specified the user to receive the common events.
-   * @param { CommonEventPublishData } options Indicates the CommonEventPublishData containing the common event content
-   *                                           and attributes.
-   * @param { AsyncCallback<void> } callback Specified callback method.
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event content
+   *                                           	 and attributes.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -93,8 +93,8 @@ declare namespace commonEvent {
   /**
    * creates a CommonEventSubscriber for the SubscriberInfo.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo Indicates the information of the subscriber.
-   * @param { AsyncCallback<CommonEventSubscriber> } callback Specified callback method.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -108,7 +108,7 @@ declare namespace commonEvent {
   /**
    * create the CommonEventSubscriber for the SubscriberInfo.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo Indicates the information of the subscriber.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @returns { Promise<CommonEventSubscriber> } Returns common event subscriber object
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -120,8 +120,8 @@ declare namespace commonEvent {
   /**
    * subscribe an ordered, sticky, or standard common event.
    *
-   * @param { CommonEventSubscriber } subscriber Indicate the subscriber of the common event.
-   * @param { AsyncCallback<CommonEventData> } callback Specified callback method.
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<CommonEventData> } callback - Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -132,8 +132,8 @@ declare namespace commonEvent {
   /**
    * unsubscribe from an ordered, sticky, or standard common event.
    *
-   * @param { CommonEventSubscriber } subscriber Indicate the subscriber of the common event.
-   * @param { AsyncCallback<void> } [callback] Specified callback method.
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<void> } [callback] - Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9

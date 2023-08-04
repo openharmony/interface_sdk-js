@@ -15,6 +15,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager.d.ts';
+import type rpc from './@ohos.rpc';
 
 /**
  * @namespace image
@@ -653,27 +654,12 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9
    */
-  /**
-   * Enum for image formats.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
   enum ImageFormat {
     /**
      * YCBCR422 semi-planar format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * YCBCR422 semi-planar format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     YCBCR_422_SP = 1000,
 
@@ -682,13 +668,6 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * JPEG encoding format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     JPEG = 2000
   }
@@ -2362,15 +2341,44 @@ declare namespace image {
      * Get color space of pixel map.
      *
      * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980101 - If the image data abnormal.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
     /**
+     * Marshalling pixelmap and write into MessageSequence.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @throws { BusinessError } 62980115 - If the input parameter invalid.
+     * @throws { BusinessError } 62980097 - If the ipc error.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    marshalling(sequence: rpc.MessageSequence): void;
+
+    /**
+     * Creates a PixelMap object based on MessageSequence parameter.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 62980115 - If the input parameter invalid.
+     * @throws { BusinessError } 62980097 - If the ipc error.
+     * @throws { BusinessError } 62980096 - If fail to create async work.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    unmarshalling(sequence: rpc.MessageSequence): Promise<PixelMap>;
+
+    /**
      * Set color space of pixel map.
      *
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @throws { BusinessError } 62980111 - If the operation invalid.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -2549,15 +2557,11 @@ declare namespace image {
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
-     * return the array.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2569,14 +2573,11 @@ declare namespace image {
      * return the array.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
-     * return the array.
-     *
-     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2589,15 +2590,11 @@ declare namespace image {
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
-     * return the array.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2608,47 +2605,47 @@ declare namespace image {
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 10
-     */
-    /**
-     * Obtains the array of delay time in an image. This method uses a promise to return the array.
-     *
-     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
      */
-    getDelayTime(): Promise<Array<number>>;
+    getDelayTimeList(): Promise<Array<number>>;
 
     /**
      * Obtains the array of delay time in an image. This method uses a callback to to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 10
-     */
-    /**
-     * Obtains the array of delay time in an image. This method uses a callback to to return the array.
-     *
-     * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
      */
-    getDelayTime(callback: AsyncCallback<Array<number>>): void;
+    getDelayTimeList(callback: AsyncCallback<Array<number>>): void;
 
     /**
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 10
-     */
-    /**
-     * Obtains the count of frame in an image. This method uses a promise to return the number.
-     *
-     * @returns { Promise<number> } A Promise instance used to return the number.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -2659,13 +2656,13 @@ declare namespace image {
      * Obtains the count of frame in an image. This method uses a callback to to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 10
-     */
-    /**
-     * Obtains the count of frame in an image. This method uses a callback to to return the number.
-     *
-     * @param { AsyncCallback<number> } callback Callback used to return the number.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10

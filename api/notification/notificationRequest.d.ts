@@ -303,7 +303,7 @@ export interface NotificationRequest {
    * @default true
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 10
+   * @since 8
    */
   isRemoveAllowed?: boolean;
 

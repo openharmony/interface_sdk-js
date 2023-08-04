@@ -16,34 +16,43 @@
 /**
  * A static class pertaining to the product information.
  *
- * @since 6
+ * @namespace deviceInfo
  * @syscap SystemCapability.Startup.SystemInfo
+ * @since 6
  */
 declare namespace deviceInfo {
   /**
-  * Obtains the device type represented by a string,
-  * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
-  * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
-  * @syscap SystemCapability.Startup.SystemInfo
-  * @since 6
-  */
+   * Obtains the device type represented by a string,
+   * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
+   * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
+   *
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 6
+   */
   /**
-  * Obtains the device type represented by a string,
-  * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
-  * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
-  * @syscap SystemCapability.Startup.SystemInfo
-  * @crossplatform
-  * @since 10
-  */
+   * Obtains the device type represented by a string,
+   * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
+   * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
+   *
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
+   */
   const deviceType: string;
 
   /**
    * Obtains the device manufacturer represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
-    /**
+  /**
    * Obtains the device manufacturer represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -52,11 +61,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the device brand represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the device brand represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -65,11 +78,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the external product series represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the external product series represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -78,11 +95,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the product series represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the product series represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -91,11 +112,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the product model represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the product model represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -104,24 +129,32 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the software model represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
-   * @crossplatform
    * @since 6
    */
   /**
    * Obtains the software model represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 10
    */
   const softwareModel: string;
 
   /**
    * Obtains the hardware model represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the hardware model represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -130,6 +163,8 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the hardware profile represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    * @deprecated since 9
@@ -138,7 +173,9 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the device serial number represented by a string.
+   *
    * @permission ohos.permission.sec.ACCESS_UDID
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
@@ -146,11 +183,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the bootloader version number represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the bootloader version number represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -159,11 +200,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the application binary interface (Abi) list represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the application binary interface (Abi) list represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -172,11 +217,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the security patch level represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the security patch level represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -185,11 +234,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the product version represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the product version represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -198,11 +251,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the incremental version represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the incremental version represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -211,17 +268,19 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the OS release type represented by a string.
-   *
    * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
    * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the OS release type represented by a string.
-   *
    * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
    * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -230,11 +289,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the OS version represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the OS version represented by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -244,12 +307,16 @@ declare namespace deviceInfo {
   /**
    * Obtains the major (M) version number, which increases with any updates to the overall architecture.
    * <p>The M version number monotonically increases from 1 to 99.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the major (M) version number, which increases with any updates to the overall architecture.
    * <p>The M version number monotonically increases from 1 to 99.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -260,6 +327,8 @@ declare namespace deviceInfo {
    * Obtains the senior (S) version number, which increases with any updates to the partial
    * architecture or major features.
    * <p>The S version number monotonically increases from 0 to 99.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
@@ -267,6 +336,8 @@ declare namespace deviceInfo {
    * Obtains the senior (S) version number, which increases with any updates to the partial
    * architecture or major features.
    * <p>The S version number monotonically increases from 0 to 99.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -276,12 +347,16 @@ declare namespace deviceInfo {
   /**
    * Obtains the feature (F) version number, which increases with any planned new features.
    * <p>The F version number monotonically increases from 0 or 1 to 99.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the feature (F) version number, which increases with any planned new features.
    * <p>The F version number monotonically increases from 0 or 1 to 99.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -291,12 +366,16 @@ declare namespace deviceInfo {
   /**
    * Obtains the build (B) version number, which increases with each new development build.
    * <p>The B version number monotonically increases from 0 or 1 to 999.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the build (B) version number, which increases with each new development build.
    * <p>The B version number monotonically increases from 0 or 1 to 999.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -305,11 +384,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the SDK API version number.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the SDK API version number.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -318,11 +401,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the first API version number.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the first API version number.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -331,11 +418,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the version ID by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the version ID by a string.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -344,11 +435,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the build types of the same baseline code.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the build types of the same baseline code.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -357,11 +452,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the different build user of the same baseline code.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the different build user of the same baseline code.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -370,11 +469,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the different build host of the same baseline code.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the different build host of the same baseline code.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -383,11 +486,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the build time.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the build time.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -396,11 +503,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the version hash.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    */
   /**
    * Obtains the version hash.
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 10
@@ -408,7 +519,9 @@ declare namespace deviceInfo {
   const buildRootHash: string;
   /**
    * Obtains the device udid.
+   *
    * @permission ohos.permission.sec.ACCESS_UDID
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 7
    */
@@ -416,10 +529,11 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the Distribution OS name.
-   *
    * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS name.
    * distributionOsName will return the ISV OS name
    * If ISV not specified, it will return an empty string
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
@@ -427,10 +541,11 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the Distribution OS version.
-   *
    * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS version.
    * distributionOSVersion will return the ISV OS version
    * If ISV not specified, it will return the same value as osFullName
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
@@ -438,10 +553,11 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the Distribution OS version.
-   *
    * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api version.
    * distributionOSVersion will return the ISV OS api version
    * If ISV not specified, it will return the same value as sdkApiVersion
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
@@ -449,15 +565,15 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the Distribution OS release type.
-   *
    * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS release type.
    * distributionOSVersion will return the ISV OS release type
    * If ISV not specified, it will return the same value as osReleaseType
+   *
+   * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 10
    */
   const distributionOSReleaseType: string;
-
 }
 
 export default deviceInfo;

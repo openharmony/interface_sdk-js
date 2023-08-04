@@ -263,7 +263,7 @@ interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    *
-   * @param { ?CheckboxGroupOptions } options
+   * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -271,7 +271,7 @@ interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    *
-   * @param { ?CheckboxGroupOptions } options
+   * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -280,7 +280,7 @@ interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    *
-   * @param { ?CheckboxGroupOptions } options
+   * @param { CheckboxGroupOptions } options
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -379,27 +379,11 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @param { ResourceColor } value - The color of border when checkboxgroup unselected.
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set the display border color of unselected checkbox.
-   *
-   * @param { ResourceColor } value - The color of border when checkboxgroup unselected.
-   * @returns { CheckboxGroupAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   unselectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
-  /**
-   * Set the mark style of checkbox.
-   *
-   * @param { MarkStyle } value - The style configuration of checkboxgroup mark.
-   * @returns { CheckboxGroupAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * Set the mark style of checkbox.
    *
@@ -414,7 +398,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * Called when the selection status changes.
    *
-   * @param { (event: CheckboxGroupResult) => void } callback
+   * @param { function } callback
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -422,7 +406,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * Called when the selection status changes.
    *
-   * @param { (event: CheckboxGroupResult) => void } callback
+   * @param { function } callback
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -431,7 +415,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   /**
    * Called when the selection status changes.
    *
-   * @param { (event: CheckboxGroupResult) => void } callback
+   * @param { function } callback
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

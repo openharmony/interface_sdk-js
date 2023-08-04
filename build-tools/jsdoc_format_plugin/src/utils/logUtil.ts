@@ -34,25 +34,25 @@ export class LogLevelUtil {
 export class LogUtil {
   static logLevel: LogLevel = LogLevel.ERR;
 
-  static e(tag: string, message?: any) {
+  static e(tag: string, message?: string): void {
     if (LogUtil.logLevel <= LogLevel.ERR) {
       console.error(`${tag}: ${message}`);
     }
   }
 
-  static i(tag: string, message?: any) {
+  static i(tag: string, message?: string): void {
     if (LogUtil.logLevel <= LogLevel.INFO) {
       console.info(`${tag}: ${message}`);
     }
   }
 
-  static w(tag: string, message?: any) {
+  static w(tag: string, message?: string): void {
     if (LogUtil.logLevel <= LogLevel.WARN) {
       console.warn(`${tag}: ${message}`);
     }
   }
 
-  static d(tag: string, message?: any) {
+  static d(tag: string, message?: string): void {
     if (LogUtil.logLevel <= LogLevel.DEBUG) {
       console.debug(`${tag}: ${message}`);
     }

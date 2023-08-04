@@ -270,7 +270,7 @@ interface ButtonInterface {
    * Create Button with inner text label.
    *
    * @param { ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -279,7 +279,7 @@ interface ButtonInterface {
    * Create Button with inner text label.
    *
    * @param { ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -289,7 +289,7 @@ interface ButtonInterface {
    * Create Button with inner text label.
    *
    * @param { ResourceStr } label
-   * @param { ?ButtonOptions } options
+   * @param { ButtonOptions } options
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -597,14 +597,6 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   fontFamily(value: string | Resource): ButtonAttribute;
 
-  /**
-   * Set button label style.
-   *
-   * @param { LabelStyle } value - The label style configuration on button.
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * Set button label style.
    *

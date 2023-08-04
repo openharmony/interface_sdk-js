@@ -82,7 +82,7 @@ function isBasicType(node) {
 
 // check if the callback parameter of off function is optional
 function checkOffFunctions(nodes, sourcefile, fileName) {
-  let isAllCallbackNotOptional = true; 
+  let isAllCallbackMandatory = true; 
   let someoneMissingCallback = false;
   let someoneHasCallback = false;
   for (let node of nodes) {
@@ -95,12 +95,12 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
     } else {
       someoneHasCallback = true;
       if (lastParameter.questionToken !== undefined) {
-        isAllCallbackNotOptional = false;
+        isAllCallbackMandatory = false;
       }
     }
   }
   // has off fucntion with callback parameter which is not optional, and doesn't have off function without callback parameter
-  if (isAllCallbackNotOptional && !someoneMissingCallback) {
+  if (isAllCallbackMandatory && !someoneMissingCallback) {
     const checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_CALLBACK_OPTIONAL, []);
     addAPICheckErrorLogs(nodes[0], sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
@@ -109,7 +109,7 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
 
 function extendEventNames(node, allNames, checkNames) {
   const nodeType = node.parameters[0].type;
-  let eventName = ''
+  let eventName = '';
   if (nodeType.kind === ts.SyntaxKind.LiteralType) {
     eventName = nodeType.literal.text;
     allNames.add(eventName);
@@ -181,11 +181,11 @@ function checkEventSubscription(node, sourcefile, fileName) {
       }
     });
     // check the callback parameter of off function is optional
-    for (let event of offEventCheckNames) {
+    for (const event of offEventCheckNames) {
       checkOffFunctions(offEventNodes.get(event), sourcefile, fileName);
     }
     // check if the on and off functions of one event shows in pair
-    checkOnAndOffAppearInPair(node, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames, offEventCheckNames)
+    checkOnAndOffAppearInPair(node, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames, offEventCheckNames);
   }
 }
 exports.checkEventSubscription = checkEventSubscription;

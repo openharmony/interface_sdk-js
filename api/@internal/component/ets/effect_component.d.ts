@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides an Effect Component, which is invisible, but setting properties on this component defines an effect template
  * that child components can apply by setting useEffect(true).
+ *
+ * @interface EffectComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -24,6 +25,8 @@
 interface EffectComponentInterface {
   /**
    * Return effectComponent.
+   *
+   * @returns { EffectComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
@@ -33,6 +36,8 @@ interface EffectComponentInterface {
 
 /**
  * Defines the Effect Component attribute functions.
+ *
+ * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -41,6 +46,7 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
 
 /**
  * Defines Effect Component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -49,6 +55,7 @@ declare const EffectComponent: EffectComponentInterface;
 
 /**
  * Defines Effect Component instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
