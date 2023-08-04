@@ -483,7 +483,7 @@ declare namespace i18n {
      * @param { number } hour - the hour value.
      * @param { ?string } locale - specified the locale. If the locale is not given,
      *  the currnet app locale is used.
-     * @returns { string } the string of time period name. If the current locale does.
+     * @returns { string } the string of time period name.
      * @throws {BusinessError} 401 - check param failed.
      * @throws {BusinessError} 890001 - param value not valid.
      * not have a time period name, the return value may be empty string.
@@ -525,6 +525,14 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    */
+  /**
+   * Provides the options of PhoneNumberFormat.
+   *
+   * @interface PhoneNumberFormatOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @since 11
+   */
   export interface PhoneNumberFormatOptions {
     /**
      * Indicates the type to format phone number.
@@ -540,6 +548,14 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the type to format phone number.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
     type?: string;
   }
 
@@ -549,6 +565,13 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    */
+  /**
+   * Provides the API for formatting phone number strings
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @since 11
+   */
   export class PhoneNumberFormat {
     /**
      * A constructor used to create a PhoneNumberFormat object.
@@ -557,6 +580,15 @@ declare namespace i18n {
      * @param { PhoneNumberFormatOptions } [options] - format types: "E164", "RFC3966", "INTERNATIONAL", "NATIONAL".
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * A constructor used to create a PhoneNumberFormat object.
+     *
+     * @param { string } country - Indicates a character string containing the country information for the PhoneNumberFormat object.
+     * @param { PhoneNumberFormatOptions } [options] - format types: "E164", "RFC3966", "INTERNATIONAL", "NATIONAL".
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
      */
     constructor(country: string, options?: PhoneNumberFormatOptions);
 
@@ -568,6 +600,15 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
+    /**
+     * Judge whether phone number is valid.
+     *
+     * @param { string } number - Indicates the input phone number.
+     * @returns { boolean } a boolean indicates whether the input phone number is valid.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
     isValidNumber(number: string): boolean;
 
     /**
@@ -577,6 +618,15 @@ declare namespace i18n {
      * @returns { string } the formatted phone number.
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * Obtains the formatted phone number strings of number.
+     *
+     * @param { string } number - Indicates the input phone number to be formatted.
+     * @returns { string } the formatted phone number.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
      */
     format(number: string): string;
 
