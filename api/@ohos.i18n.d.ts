@@ -358,13 +358,13 @@ declare namespace i18n {
     static getFirstPreferredLanguage(): string;
 
     /**
-     * Get the preferred language of App.
+     * Set the preferred language of App.
      *
      * @param { string } language - the language to be set.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
-     * @since 9
+     * @since 11
      */
     static setAppPreferredLanguage(language: string): void;
 
@@ -476,6 +476,19 @@ declare namespace i18n {
      * @since 10
      */
     static getDateOrder(locale: string): string;
+
+    /**
+     * Get the time period name for the specified hour.
+     *
+     * @param { number } hour - the hour value.
+     * @param { ?string } locale - specified the locale. If the locale is not given,
+     *  the currnet app locale is used.
+     * @returns { string } the string of time period name. If the current locale does 
+     * not have a time period name, the return value may be empty string.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    static getTimePeriodName(hour:number, locale?: string): string;
   }
 
   /**
@@ -819,6 +832,20 @@ declare namespace i18n {
      * @since 10
      */
     isWeekend(date?: Date): boolean;
+
+    /**
+     * Adds or subtracts the specified amount of time to the given calendar field.
+     *
+     * @param { string } field - field values such as year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
+     *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond
+     * @param { number } [amount] - the amount of date or time to be added to the field.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
+    add(field: string, amount: number): void;
   }
 
   /**
@@ -1882,6 +1909,190 @@ declare namespace i18n {
      * @since 10
      */
     static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
+  }
+
+  /**
+   * Provides the informations of one holiday.
+   *
+   * @interface HolidayInfoItem
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export interface HolidayInfoItem {
+    /**
+     * Holiday base name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    baseName: string;
+
+    /**
+     * Holiday start year.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    year: number;
+
+    /**
+     * Holiday start month.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    month: number;
+
+    /**
+     * Holiday start day.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    day: number;
+
+    /**
+     * Holiday local name array.
+     *
+     * @type { ?Array<HolidayLocaleName> }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    localNames?: Array<HolidayLocaleName>;
+  }
+
+  /**
+   * Provides the informations of one holiday.
+   *
+   * @interface HolidayInfoItem
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export interface HolidayLocaleName {
+    /**
+     * Holiday locale name language id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    language: string;
+
+    /**
+     * Holiday local name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    name: string;
+  }
+
+  /**
+   * Provide some functions to manage holidays in a country or region. Partly follows the RFC2445 standard.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export class HolidayManager {
+    /**
+     * A constructor used to create a HolidayManager object.
+     *
+     * @param { String } icsPath - the path of the iCalendar formated file to create HolidayManager object.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    constructor(icsPath: String);
+
+    /**
+     * Returns true if the given date is a holiday. If the date is not given,
+     *  the date object of current time is used.
+     *
+     * @param { Date } [date] - Date object whose attribute is desired.
+     * @returns { boolean } whether the date is a holiday day.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    isHoliday(date?: Date): boolean;
+
+    /**
+     * Obtains holiday info array for showing time zone list
+     *
+     * @param { number } [year] - specified holiday year. If the year is not given,
+     *  the currnet year is used.
+     * @returns { Array<HolidayInfoItem> } holiday information array for one year.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    static getHolidayInfoItemArray(year?: number): Array<HolidayInfoItem>;
+  }
+
+  /**
+   * Provides the informations of one entity.
+   *
+   * @interface EntityInfoItem
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export interface EntityInfoItem {
+    /**
+     * Entity start position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    start: number;
+
+    /**
+     * Entity end position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    end: number;
+
+    /**
+     * Entity type. Field values such as phone_number, date
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    type: string;
+  }
+
+  /**
+   * Provide some functions to find named entity in text.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export class EntityManager {
+    /**
+     * A constructor used to create a EntityManager object.
+     *
+     * @param { ?String } locale - specified the locale. If the locale is not given,
+     *  the currnet app locale is used.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    constructor(locale?: String);
+
+    /**
+     * Obtains holiday info array for showing time zone list
+     *
+     * @param { string } [text] - the text to find entities.
+     * @returns { Array<EntityInfoItem> } entity information array found.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    findEntityInfo(text: string): Array<EntityInfoItem>;
   }
 }
 export default i18n;
