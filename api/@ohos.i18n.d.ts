@@ -483,7 +483,9 @@ declare namespace i18n {
      * @param { number } hour - the hour value.
      * @param { ?string } locale - specified the locale. If the locale is not given,
      *  the currnet app locale is used.
-     * @returns { string } the string of time period name. If the current locale does 
+     * @returns { string } the string of time period name. If the current locale does.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
      * not have a time period name, the return value may be empty string.
      * @syscap SystemCapability.Global.I18n
      * @since 11
@@ -2003,6 +2005,8 @@ declare namespace i18n {
      * A constructor used to create a HolidayManager object.
      *
      * @param { String } icsPath - the path of the iCalendar formated file to create HolidayManager object.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2014,6 +2018,7 @@ declare namespace i18n {
      *
      * @param { Date } [date] - Date object whose attribute is desired.
      * @returns { boolean } whether the date is a holiday day.
+     * @throws {BusinessError} 401 - check param failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2025,10 +2030,12 @@ declare namespace i18n {
      * @param { number } [year] - specified holiday year. If the year is not given,
      *  the currnet year is used.
      * @returns { Array<HolidayInfoItem> } holiday information array for one year.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
-    static getHolidayInfoItemArray(year?: number): Array<HolidayInfoItem>;
+    getHolidayInfoItemArray(year?: number): Array<HolidayInfoItem>;
   }
 
   /**
@@ -2073,12 +2080,14 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 11
    */
-  export class EntityManager {
+  export class EntityRecognizer {
     /**
-     * A constructor used to create a EntityManager object.
+     * A constructor used to create a EntityRecognizer object.
      *
      * @param { ?String } locale - specified the locale. If the locale is not given,
      *  the currnet app locale is used.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2089,6 +2098,7 @@ declare namespace i18n {
      *
      * @param { string } [text] - the text to find entities.
      * @returns { Array<EntityInfoItem> } entity information array found.
+     * @throws {BusinessError} 401 - check param failed.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
