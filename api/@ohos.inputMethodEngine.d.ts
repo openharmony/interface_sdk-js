@@ -809,6 +809,18 @@ declare namespace inputMethodEngine {
     deleteForward(length: number): Promise<boolean>;
 
     /**
+     * Delete text forward.
+     *
+     * @param { number } length - length of text which will be deleted forward.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    deleteForwardSync(length: number): void;
+
+    /**
      * Delete text backward.
      *
      * @param { number } length - length of text which will be deleted backward.
@@ -833,6 +845,18 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     deleteBackward(length: number): Promise<boolean>;
+
+    /**
+     * Delete text backward.
+     *
+     * @param { number } length - length of text which will be deleted backward.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    deleteBackwardSync(length: number): void;
 
     /**
      * Insert text into Editor.
@@ -861,6 +885,18 @@ declare namespace inputMethodEngine {
     insertText(text: string): Promise<boolean>;
 
     /**
+     * Insert text into Editor.
+     *
+     * @param { string } text - text which will be inserted.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    insertTextSync(text: string): void;
+
+    /**
      * Get the text before cursor.
      *
      * @param { number } length - the length of text which will be got.
@@ -885,6 +921,19 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     getForward(length: number): Promise<string>;
+
+    /**
+     * Get the text before cursor.
+     *
+     * @param { number } length - the length of text which will be got.
+     * @returns { string } the text string before cursor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getForwardSync(length: number): string;
 
     /**
      * Get the text after cursor.
@@ -913,6 +962,19 @@ declare namespace inputMethodEngine {
     getBackward(length: number): Promise<string>;
 
     /**
+     * Get the text after cursor.
+     *
+     * @param { number } length - the length of text which will be got.
+     * @returns { string } the text string after cursor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getBackwardSync(length: number): string;
+
+    /**
      * Get attribute about editor.
      *
      * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
@@ -931,6 +993,16 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     getEditorAttribute(): Promise<EditorAttribute>;
+
+    /**
+     * Get attribute about editor.
+     *
+     * @returns { EditorAttribute } the attribute of editor.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getEditorAttributeSync(): EditorAttribute;
 
     /**
      * Move cursor from input method.
@@ -955,6 +1027,17 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     moveCursor(direction: number): Promise<void>;
+
+    /**
+     * Move cursor from input method.
+     *
+     * @param { number } direction - Indicates the distance of cursor to be moved.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    moveCursorSync(direction: number): void;
 
     /**
      * Select text in editor by range.
