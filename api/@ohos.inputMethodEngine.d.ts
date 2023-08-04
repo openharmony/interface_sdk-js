@@ -1547,7 +1547,17 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    FLG_FLOATING
+    FLG_FLOATING,
+
+    /**
+     * Candidate column style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+     * When the flag is set, the soft keyboard is candidate column.</p>
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    FLG_CANDIDATE_COLUMN
   }
 
   /**
