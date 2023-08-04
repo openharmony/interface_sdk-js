@@ -2028,9 +2028,9 @@ declare namespace i18n {
   }
 
   /**
-   * Provides the informations of one holiday.
+   * Provides the informations holiday locale name.
    *
-   * @interface HolidayInfoItem
+   * @interface HolidayLocaleName
    * @syscap SystemCapability.Global.I18n
    * @since 11
    */
