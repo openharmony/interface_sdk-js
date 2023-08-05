@@ -514,7 +514,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 8
    */
   function getSimTelephoneNumber(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -537,7 +537,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 8
    */
   function getSimTelephoneNumber(slotId: number): Promise<string>;
 
