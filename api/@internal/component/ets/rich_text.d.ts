@@ -36,13 +36,14 @@ interface RichTextInterface {
  * Defines the RichText attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**
    * Triggered when the RichText loading starts.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -52,7 +53,7 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**
    * Triggered when the RichText loading ends.
    *
-   * @param { () => void } callback
+   * @param { function } callback
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8

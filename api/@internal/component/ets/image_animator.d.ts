@@ -346,7 +346,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation starts to play.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -354,7 +354,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation starts to play.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -366,7 +366,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation pauses.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -374,7 +374,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation pauses.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -386,7 +386,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, triggered when the animation is replayed
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -394,7 +394,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, triggered when the animation is replayed
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -405,7 +405,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation is canceled.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -413,7 +413,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation is canceled.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -425,7 +425,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation playback is complete.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -433,7 +433,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, which is triggered when the animation playback is complete.
    *
-   * @param { () => void } event
+   * @param { function } event
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

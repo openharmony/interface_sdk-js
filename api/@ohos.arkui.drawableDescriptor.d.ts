@@ -79,8 +79,9 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
 
   /**
    * Get the clip path info of the adaptive icon mask.
+   *
+   * @returns { string } Return the clip path info of mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns {string} Return the clip path info of mask.
    * @since 10
    */
   static getMaskClipPath(): string;

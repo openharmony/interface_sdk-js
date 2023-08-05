@@ -134,7 +134,7 @@ interface MenuItemInterface {
   /**
    * Creates the MenuItem component.
    *
-   * @param { ?(MenuItemOptions | CustomBuilder) } value
+   * @param { MenuItemOptions | CustomBuilder } value
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -142,7 +142,7 @@ interface MenuItemInterface {
   /**
    * Creates the MenuItem component.
    *
-   * @param { ?(MenuItemOptions | CustomBuilder) } value
+   * @param { MenuItemOptions | CustomBuilder } value
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -212,7 +212,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Triggers a callback when a menu item is selected or unchecked.
    *
-   * @param { (selected: boolean) => void } callback
+   * @param { function } callback
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -220,7 +220,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Triggers a callback when a menu item is selected or unchecked.
    *
-   * @param { (selected: boolean) => void } callback
+   * @param { function } callback
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

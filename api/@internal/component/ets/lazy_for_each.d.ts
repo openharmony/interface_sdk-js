@@ -267,8 +267,8 @@ interface LazyForEachInterface {
    * Enter the value to obtain the LazyForEach.
    *
    * @param { IDataSource } dataSource
-   * @param { (item: any, index?: number) => void } itemGenerator
-   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -277,8 +277,8 @@ interface LazyForEachInterface {
    * Enter the value to obtain the LazyForEach.
    *
    * @param { IDataSource } dataSource
-   * @param { (item: any, index?: number) => void } itemGenerator
-   * @param { ?((item: any, index?: number) => string) } keyGenerator
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

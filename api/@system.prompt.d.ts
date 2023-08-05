@@ -38,7 +38,7 @@ export interface ShowToastOptions {
    * The recommended value ranges from 1500 ms to 10000ms.
    * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000 ms.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    * @deprecated since 8
@@ -48,7 +48,7 @@ export interface ShowToastOptions {
   /**
    * The distance between toast dialog box and the bottom of screen.
    *
-   * @type { string | number }
+   * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
    * @deprecated since 8
@@ -141,6 +141,7 @@ export interface ShowDialogOptions {
   /**
    * Called when the dialog box is displayed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -149,6 +150,7 @@ export interface ShowDialogOptions {
   /**
    * Called when the operation is cancelled.
    *
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -157,6 +159,7 @@ export interface ShowDialogOptions {
   /**
    * Called when the dialog box is closed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -194,7 +197,7 @@ export interface ShowActionMenuOptions {
   /**
    * Called when the dialog box is displayed.
    *
-   * @type { ?((tapIndex: number, errMsg: string) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -203,7 +206,7 @@ export interface ShowActionMenuOptions {
   /**
    * Called when the operation is cancelled.
    *
-   * @type { ?((errMsg: string) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -212,7 +215,7 @@ export interface ShowActionMenuOptions {
   /**
    * Called when the dialog box is closed.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */

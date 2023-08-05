@@ -41,7 +41,7 @@ export default class UIExtensionContentSession {
   /**
    * Sets the callback for the ui extension to receive data from an ui extension component.
    *
-   * @param { (object) => void } callback Indicates the receive data callback to set.
+   * @param { function } callback - Indicates the receive data callback to set.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -86,8 +86,7 @@ export default class UIExtensionContentSession {
   terminateSelf(): Promise<void>;
 
   /**
-   * Sets the result code and data to be returned by the UI extension to the caller
-   * and destroys the UI extension.
+   * Destroys the UI extension while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
@@ -99,8 +98,7 @@ export default class UIExtensionContentSession {
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result code and data to be returned by the UI extension to the caller
-   * and destroys the UI extension.
+   * Destroys the UI extension while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } The promise returned by the function.
@@ -114,7 +112,7 @@ export default class UIExtensionContentSession {
   /**
    * Sets the background color of the UI extension.
    *
-   * @param { string } color the specified color.
+   * @param { string } color - the specified color.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -125,10 +123,11 @@ export default class UIExtensionContentSession {
   setWindowBackgroundColor(color: string): void;
 
   /**
-   * Sets whether is private mode or not.
+   * Sets whether this window is in privacy mode.
    *
    * @permission ohos.permission.PRIVACY_WINDOW
-   * @param { boolean } isPrivacyMode in private mode if true, or not if false.
+   * @param { boolean } isPrivacyMode - Whether the window is in privacy mode. The value true means that
+   *                                    the window is in privacy mode, and false means the opposite.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -139,11 +138,12 @@ export default class UIExtensionContentSession {
   setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
   /**
-   * Sets whether is private mode or not.
+   * Sets whether this window is in privacy mode.
    *
    * @permission ohos.permission.PRIVACY_WINDOW
-   * @param { boolean } isPrivacyMode in private mode if true, or not if false.
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * @param { boolean } isPrivacyMode - Whether the window is in privacy mode. The value true means that
+   *                                    the window is in privacy mode, and false means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

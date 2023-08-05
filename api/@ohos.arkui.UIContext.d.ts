@@ -25,12 +25,12 @@ import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
-import type componentUtils from './@ohos.componentUtils';
+import type componentUtils from './@ohos.arkui.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { AsyncCallback } from './@ohos.base';
 import { AnimateParam } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment } from 'AlertDialogParam';
+import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions } from 'AlertDialogParam';
 import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
@@ -245,7 +245,7 @@ export class Router {
    * @crossplatform
    * @since 10
    */
-  back(options: router.RouterOptions): void;
+  back(options?: router.RouterOptions): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
@@ -500,7 +500,8 @@ export class PromptAction {
 export class ComponentUtils {
   /**
    * Provide the ability to obtain the coordinates and size of component drawing areas.
-   * @param id ID of the component whose attributes are to be obtained.
+   *
+   * @param { string } id ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -538,7 +539,7 @@ export class UIContext {
   
   /**
    * get object UIInspector.
-   * @returns object UIInspector.
+   * @returns { UIInspector } object UIInspector.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -567,7 +568,7 @@ export class UIContext {
 
   /**
    * get object ComponentUtils.
-   * @returns object ComponentUtils.
+   * @returns { ComponentUtils } object ComponentUtils.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -590,7 +591,7 @@ export class UIContext {
    * Defining animation function
    *
    * @param { AnimateParam } value - animateTo parameters.
-   * @param { () => void } event
+   * @param { function } event
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -600,12 +601,12 @@ export class UIContext {
   /**
    * alertDialog display.
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } options - Options.
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons): void;
+  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 
   /**
    * actionSheet display.
@@ -650,7 +651,7 @@ export class UIContext {
   /**
    * Run custom functions inside the UIContext scope.
    *
-   * @param { () => void } callback The function called through UIContext.
+   * @param { function } callback The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

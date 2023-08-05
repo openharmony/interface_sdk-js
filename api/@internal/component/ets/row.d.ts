@@ -41,7 +41,7 @@ interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
    *
-   * @param { ?({ space?: string | number }) } value
+   * @param { object } value
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -49,7 +49,7 @@ interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
    *
-   * @param { ?({ space?: string | number }) } value
+   * @param { object } value
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -58,7 +58,7 @@ interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
    *
-   * @param { ?({ space?: string | number }) } value
+   * @param { object } value
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -72,12 +72,14 @@ interface RowInterface {
  * Defines the row attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the row attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -85,6 +87,7 @@ interface RowInterface {
  * Defines the row attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form

@@ -101,15 +101,18 @@ interface ShapeInterface {
 
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
@@ -118,10 +121,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Viewport of shape
    *
-   * @param { {x?: number | string;
-  * y?: number | string;
-  * width?: number | string;
-  * height?: number | string;} } value
+   * @param { object } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -129,10 +129,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Viewport of shape
    *
-   * @param { {x?: number | string;
-  * y?: number | string;
-  * width?: number | string;
-  * height?: number | string;} } value
+   * @param { object } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -141,14 +138,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Viewport of shape
    *
-   * @param { {x?: number | string;
-   * y?: number | string;
-   * width?: number | string;
-   * height?: number | string;} } value
+   * @param { object } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   viewPort(value: { x?: number | string; y?: number | string; width?: number | string; height?: number | string }): ShapeAttribute;
 

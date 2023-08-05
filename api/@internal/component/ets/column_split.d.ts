@@ -49,6 +49,7 @@ interface ColumnSplitInterface {
 
 /**
  * Provides an interface for the style of a divider including start margin and end margin
+ *
  * @interface ColumnSplitDividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -57,7 +58,8 @@ interface ColumnSplitInterface {
 interface ColumnSplitDividerStyle {
   /**
    * Define the start margin of the divider
-   * @type { Dimension }
+   *
+   * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -67,7 +69,8 @@ interface ColumnSplitDividerStyle {
 
   /**
    * Define the end margin of the divider
-   * @type { Dimension }
+   *
+   * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

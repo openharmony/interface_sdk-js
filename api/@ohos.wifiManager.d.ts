@@ -69,18 +69,79 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   * @deprecated since 10
+   * @useinstead wifiManager.startScan
    */
   function scan(): void;
 
   /**
+   * Scan Wi-Fi hotspot.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function startScan(): void;
+
+  /**
    * Obtain the scanned sta list.
-   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
+   * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
+   * @returns { Promise<Array<WifiScanInfo>> } Returns information about scanned Wi-Fi hotspot if any.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
+   * @deprecated since 10
+   * @useinstead wifiManager.getScanInfoList
+   */
+  function getScanResults(): Promise<Array<WifiScanInfo>>;
+
+
+  /**
+   * Obtain the scanned sta list.
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
+   * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
+   * @param { AsyncCallback<Array<WifiScanInfo>> } callback - Returns information about scanned Wi-Fi hotspot if any.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
+   * @deprecated since 10
+   * @useinstead wifiManager.getScanInfoList
+   */
+  function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
+
+  /**
+   * Obtain the scanned sta list.
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
+   * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
    * @returns { Array<WifiScanInfo> } Returns information about scanned Wi-Fi hotspot if any.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   * @deprecated since 10
+   * @useinstead wifiManager.getScanInfoList
+   */
+  function getScanResultsSync(): Array<WifiScanInfo>;
+
+  /**
+   * Obtain the scanned station list. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Array<WifiScanInfo> } Returns information about scanned Wi-Fi hotspot if any.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 10
    */
   function getScanInfoList(): Array<WifiScanInfo>;
 
@@ -217,6 +278,17 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
+   */
+  /**
+   * Obtain the list of all existed candidate Wi-Fi configurations which added by ourself.
+   * You can obtain only the Wi-Fi configurations you created on your own application.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Array<WifiDeviceConfig> } Returns the list of all existed Wi-Fi configurations you created on your application.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 10
    */
   function getCandidateConfigs(): Array<WifiDeviceConfig>;
 
@@ -460,6 +532,18 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Obtain the list of all existed Wi-Fi configurations.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
+   * @returns { Array<WifiDeviceConfig> } Returns the list of all existing Wi-Fi configurations you created on your application.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function getDeviceConfigs(): Array<WifiDeviceConfig>;
 
   /**
@@ -477,13 +561,13 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function updateDeviceConfig(config: WifiDeviceConfig): number;
+  function updateNetwork(config: WifiDeviceConfig): number;
 
   /**
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId Identifies the network to disable.
+   * @param { number } netId Identifies the network to disable.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -493,7 +577,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function disableDeviceConfig(networkId: number): void;
+  function disableNetwork(netId: number): void;
 
   /**
    * Remove all the saved Wi-Fi configurations.
@@ -506,7 +590,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function removeAllDeviceConfigs(): void;
+  function removeAllNetwork(): void;
 
   /**
    * Remove a Wi-Fi DeviceConfig with networkId.
@@ -514,7 +598,7 @@ declare namespace wifiManager {
    * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
    * The application can only delete Wi-Fi DeviceConfig it has created.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId - Indicate the ID of the Wi-Fi DeviceConfig.
+   * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -524,7 +608,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function removeDeviceConfig(networkId: number): void;
+  function removeDevice(id: number): void;
 
   /**
    * Check whether the current device supports the specified band.
@@ -666,7 +750,20 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function getHotspotStations(): Array<StationInfo>;
+  /**
+   * Obtain the list of stations that are connected to the Wi-Fi hotspot.
+   * This method can only be used on a device that serves as a Wi-Fi hotspot.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @returns { Array<StationInfo> } the list of clients that are connected to the Wi-Fi hotspot.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getStations(): Array<StationInfo>;
 
   /**
    * Obtain information about the P2P connection.
@@ -702,6 +799,16 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
+  /**
+   * Obtain information about the current p2p group.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<WifiP2pGroupInfo> } Returns p2p group information.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
+   */
   function getCurrentP2pGroup(): Promise<WifiP2pGroupInfo>;
 
   /**
@@ -713,6 +820,16 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
+   */
+  /**
+   * Obtain information about the current p2p group.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiP2pGroupInfo> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
    */
   function getCurrentP2pGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
@@ -726,6 +843,16 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
+  /**
+   * Obtain the information about the found devices.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<WifiP2pDevice[]> } Returns p2p device information.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
+   */
   function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
   
   /**
@@ -737,6 +864,16 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
+   */
+  /**
+   * Obtain the information about the found devices.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiP2pDevice[]> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
    */
   function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
@@ -779,7 +916,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function createP2pGroup(config: WifiP2PConfig): void;
+  function createGroup(config: WifiP2PConfig): void;
 
   /**
    * Remove a P2P group.
@@ -790,7 +927,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function removeP2pGroup(): void;
+  function removeGroup(): void;
 
   /**
    * Initiate a P2P connection to a device with the specified configuration.
@@ -802,6 +939,17 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
+   */
+  /**
+   * Initiate a P2P connection to a device with the specified configuration.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { WifiP2PConfig } config - Indicates the configuration for connecting to a specific group.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
    */
   function p2pConnect(config: WifiP2PConfig): void;
 
@@ -825,7 +973,16 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function startDiscoverP2pDevices(): void;
+  /**
+   * Start discover Wi-Fi P2P devices.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
+   */
+  function startDiscoverDevices(): void;
 
   /**
    * Stop discover Wi-Fi P2P devices.
@@ -836,7 +993,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
-  function stopDiscoverP2pDevices(): void;
+  function stopDiscoverDevices(): void;
 
   /**
    * Delete the persistent P2P group with the specified network ID.
@@ -851,7 +1008,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function deletePersistentP2pGroup(netId: number): void;
+  function deletePersistentGroup(netId: number): void;
 
   /**
    * Obtain information about the groups.
@@ -864,6 +1021,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9
+   */
+  /**
+   * Obtain information about the groups.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Promise<Array<WifiP2pGroupInfo>> } Returns the information about own device info.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @systemapi Hide this for inner system use.
+   * @since 10
    */
   function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
   
@@ -878,6 +1047,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9
+   */
+  /**
+   * Obtain information about the groups.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<Array<WifiP2pGroupInfo>> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @systemapi Hide this for inner system use.
+   * @since 10
    */
   function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
@@ -894,7 +1075,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function setP2pDeviceName(devName: string): void;
+  function setDeviceName(devName: string): void;
 
   /**
    * Subscribe Wi-Fi status change events.
@@ -1243,6 +1424,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
+  /**
+   * Subscribe P2P local device change events.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { "p2pDeviceChange" } type - event name.
+   * @param { Callback<WifiP2pDevice> } callback - the callback of on
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
+   */
   function on(type: "p2pDeviceChange", callback: Callback<WifiP2pDevice>): void;
 
   /**
@@ -1256,6 +1449,17 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
+   */
+  /**
+   * Unsubscribe P2P local device change events.
+   * @param { "p2pDeviceChange" } type - event name.
+   * @param { Callback<WifiP2pDevice> } callback - the callback of off
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
    */
   function off(type: "p2pDeviceChange", callback?: Callback<WifiP2pDevice>): void;
 
@@ -1271,6 +1475,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
+  /**
+   * Subscribe P2P peer device change events.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { "p2pPeerDeviceChange" } type - event name.
+   * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
+   */
   function on(type: "p2pPeerDeviceChange", callback: Callback<WifiP2pDevice[]>): void;
 
   /**
@@ -1284,6 +1500,17 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
+   */
+  /**
+   * Unsubscribe P2P peer device change events.
+   * @param { "p2pPeerDeviceChange" } type - event name.
+   * @param { Callback<WifiP2pDevice[]> } callback - the callback of off
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2801000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.P2P
+   * @since 10
    */
   function off(type: "p2pPeerDeviceChange", callback?: Callback<WifiP2pDevice[]>): void;
 
@@ -1344,74 +1571,86 @@ declare namespace wifiManager {
   function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
   /**
+   * Wi-Fi device address( mac / bssid ) type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.Core
+   * @since 10
+   */
+  enum DeviceAddressType {
+    /**
+     * random device address
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @since 10
+     */
+    RANDOM_DEVICE_ADDRESS,
+
+    /**
+     * real device address
+     * @syscap SystemCapability.Communication.WiFi.Core
+     * @since 10
+     */
+    REAL_DEVICE_ADDRESS,
+  }
+
+  /**
    * Wi-Fi EAP method.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   enum EapMethod {
     /**
      * EAP NONE
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_NONE,
     /**
      * EAP PEAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_PEAP,
     /**
      * EAP TLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_TLS,
     /**
      * EAP TTLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_TTLS,
     /**
      * EAP PWD
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_PWD,
     /**
      * EAP SIM
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_SIM,
     /**
      * EAP AKA
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_AKA,
     /**
      * EAP AKA PRIME
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_AKA_PRIME,
     /**
      * EAP UNAUTH TLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     EAP_UNAUTH_TLS
   }
@@ -1420,64 +1659,55 @@ declare namespace wifiManager {
    * Wi-Fi phase 2 method.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   enum Phase2Method {
     /**
      * Phase2 NONE
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_NONE,
     /**
      * Phase2 PAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_PAP,
     /**
      * Phase2 MSCHAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_MSCHAP,
     /**
      * Phase2 MSCHAPV2
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_MSCHAPV2,
     /**
      * Phase2 GTC
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_GTC,
     /**
      * Phase2 SIM
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_SIM,
     /**
      * Phase2 AKA
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_AKA,
     /**
      * Phase2 AKA+
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     PHASE2_AKA_PRIME
   }
@@ -1601,127 +1831,114 @@ declare namespace wifiManager {
    * Wi-Fi EAP config.
    * @typedef WifiEapConfig
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   interface WifiEapConfig {
     /** 
      * EAP authentication method 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapMethod: EapMethod;
 
     /** 
      * Phase 2 authentication method
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     phase2Method: Phase2Method;
 
     /** 
      * The identity
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     identity: string;
 
     /** 
      * Anonymous identity
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     anonymousIdentity: string;
 
     /** 
      * Password
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     password: string;
 
     /** 
      * CA certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
-    caCertAliases: string;
+    caCertAlias: string;
 
     /** 
      * CA certificate path
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     caPath: string;
 
     /** 
      * Client certificate alias
+     * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
-    clientCertAliases: string;
+    clientCertAlias: string;
 
     /** 
      * content of user's certificate
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     certEntry: Uint8Array;
 
     /** 
      * Password of user's certificate
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     certPassword: string;
 
     /** 
      * Alternate subject match
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     altSubjectMatch: string;
 
     /** 
      * Domain suffix match
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     domainSuffixMatch: string;
 
     /** 
      * Realm for Passpoint credential
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     realm: string;
 
     /** 
      * Public Land Mobile Network of the provider of Passpoint credential
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     plmn: string;
 
     /** 
      * Sub ID of the SIM card
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapSubId: number;
   }
@@ -1746,6 +1963,14 @@ declare namespace wifiManager {
      * @since 9
      */
     bssid?: string;
+
+    /**
+     * Wi-Fi bssid type.
+     * @type { ?DeviceAddressType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    bssidType?: DeviceAddressType;
 
     /**
      * Wi-Fi key: maximum length is 64.
@@ -1826,9 +2051,9 @@ declare namespace wifiManager {
 
     /**
      * EAP config info.
+     * @type { ?WifiEapConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapConfig?: WifiEapConfig;
 
@@ -1992,6 +2217,14 @@ declare namespace wifiManager {
      * @since 9
      */
     bssid: string;
+
+    /**
+     * Wi-Fi bssid type
+     * @type { DeviceAddressType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    bssidType: DeviceAddressType;
 
     /**
      * Hotspot capability
@@ -2597,7 +2830,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    channel: number;
+    channel?: number;
 
     /**
      * The password of the Wi-Fi hotspot
@@ -2621,7 +2854,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    ipAddress: string;
+    ipAddress?: string;
   }
 
   /**
@@ -2647,6 +2880,15 @@ declare namespace wifiManager {
      * @since 9
      */
     macAddress: string;
+
+    /**
+     * The MAC address type of the Wi-Fi client
+     * @type { ?DeviceAddressType }
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    macAddressType?: DeviceAddressType;
 
     /**
      * The IP address of the Wi-Fi client
@@ -2895,6 +3137,14 @@ declare namespace wifiManager {
     deviceAddress: string;
 
     /**
+     * Device mac address type
+     * @type { ?DeviceAddressType }
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 10
+     */
+    deviceAddressType?: DeviceAddressType;
+
+    /**
      * Primary device type
      *
      * @syscap SystemCapability.Communication.WiFi.P2P
@@ -2934,6 +3184,14 @@ declare namespace wifiManager {
      * @since 9
      */
     deviceAddress: string;
+
+    /**
+     * Device mac address type
+     * @type { ?DeviceAddressType }
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 10
+     */
+    deviceAddressType?: DeviceAddressType;
 
     /**
      * Group network ID. When creating a group, -1 indicates creates a temporary group,

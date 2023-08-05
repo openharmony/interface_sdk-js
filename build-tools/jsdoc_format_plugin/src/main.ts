@@ -31,7 +31,7 @@ function checkEnvVersion(): void {
   const requiredVersions = [ConstantValue.MAJOR_V, ConstantValue.MINOR_V, ConstantValue.PATCH_V];
   let showVersionWarning = true;
   const MAX_LENGTH = 4;
-  const LOOP_MAX_LENGTH =3;
+  const LOOP_MAX_LENGTH = 3;
   if (matchArray && matchArray.length === MAX_LENGTH) {
     for (let index = 0; index < LOOP_MAX_LENGTH; index++) {
       const curV = Number(matchArray[index + 1]);

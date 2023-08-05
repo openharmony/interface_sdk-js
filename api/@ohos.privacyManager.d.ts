@@ -34,7 +34,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+   *  or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
    * @throws { BusinessError } 12100007 - Service is abnormal.
@@ -62,7 +63,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+   *  or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
    * @throws { BusinessError } 12100007 - Service is abnormal.
@@ -135,7 +137,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100001 - The tokenID is 0, permissionName is longer than 256 bytes, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
-   * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input. It means the application specified by the tokenID has been using the specified permission.
+   * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input.
+   *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - Service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
@@ -157,7 +160,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100001 - The tokenID is 0, permissionName is longer than 256 bytes, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
    * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
-   * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input. It means the application specified by the tokenID has been using the specified permission.
+   * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input.
+   *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - Service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken

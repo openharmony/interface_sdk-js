@@ -16,6 +16,7 @@
 /**
  * Defines XComponentController
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare class XComponentController {
@@ -48,7 +49,7 @@ declare class XComponentController {
   /**
    * Set the surface size created by XComponent.
    *
-   * @param { { surfaceWidth: number; surfaceHeight: number } } value - surface size
+   * @param { object } value - surface size
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -69,7 +70,7 @@ interface XComponentInterface {
   /**
    * Constructor parameters
    *
-   * @param { { id: string; type: string; libraryname?: string; controller?: XComponentController } } value - Indicates the options of the xcomponent.
+   * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -79,7 +80,7 @@ interface XComponentInterface {
   /**
    * Constructor parameters
    *
-   * @param { {id: string;type: XComponentType;libraryname?: string;controller?: XComponentController;} } value - Indicates the options of the xcomponent.
+   * @param { object } value - Indicates the options of the xcomponent.
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -97,7 +98,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent surface is created.
    *
-   * @param { (event?: object) => void } [callback] - Called when judging whether the xcomponent surface is created.
+   * @param { function } [callback] - Called when judging whether the xcomponent surface is created.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -107,7 +108,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent is destroyed.
    *
-   * @param { () => void } event - Called when judging whether the xcomponent is destroyed.
+   * @param { function } event - Called when judging whether the xcomponent is destroyed.
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8

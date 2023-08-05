@@ -200,10 +200,13 @@ declare enum EnterKeyType {
 /**
  * Provides the method of switching the cursor position.
  *
+ * @extends TextContentControllerBase
  * @since 8
  */
 /**
  * Provides the method of switching the cursor position.
+ *
+ * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -254,6 +257,7 @@ declare class TextInputController extends TextContentControllerBase {
 
   /**
    * Exit edit state.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -424,6 +428,7 @@ interface CaretStyle {
   /**
    * Define the cursor width of CaretStyle.
    *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -462,12 +467,14 @@ interface PasswordIcon {
  * Defines the TextInput attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the TextInput attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -570,7 +577,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when judging whether the text editing change finished.
    *
-   * @param { (isEditing: boolean) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -582,7 +589,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when judging whether the text editing change finished.
    *
-   * @param { (isEditing: boolean) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -590,7 +597,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when judging whether the text editing change finished.
    *
-   * @param { (isEditing: boolean) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -601,7 +608,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
-   * @param { (enterKey: EnterKeyType) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -609,7 +616,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
-   * @param { (enterKey: EnterKeyType) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -620,7 +627,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the input of the input box changes.
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -628,7 +635,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the input of the input box changes.
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -638,7 +645,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Called when the text selection changes.
-   * @param { (selectionStart: number, selectionEnd: number) => void } callback - callback of the listened event.
+   *
+   * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -648,7 +656,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Called when the content scrolls.
-   * @param { (totalOffsetX: number, totalOffsetY: number) => void } callback - callback of the listened event.
+   *
+   * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -774,7 +783,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when the inputFilter of text is set.
    *
    * @param { ResourceStr } value
-   * @param { (value: string) => void } error
+   * @param { function } error
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -783,7 +792,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when the inputFilter of text is set.
    *
    * @param { ResourceStr } value
-   * @param { (value: string) => void } error
+   * @param { function } error
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -794,7 +803,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -802,7 +811,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -813,7 +822,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -821,7 +830,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -832,7 +841,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -840,7 +849,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { (value: string) => void } callback
+   * @param { function } callback
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1010,8 +1019,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Controls whether the selection menu pops up.
+   *
    * @param { boolean } value
-   * @default false
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1021,7 +1030,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Define bar state of the text input.
-   * @param { BarState }
+   *
+   * @param { BarState } value
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -1030,12 +1040,23 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Define max lines of the text input.
-   * @param { number }
+   *
+   * @param { number } value
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   maxLines(value: number): TextInputAttribute;
+
+  /**
+   * Define custom keyboard of the text input.
+   *
+   * @param { CustomBuilder } value
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  customKeyboard(value: CustomBuilder): TextInputAttribute;
 }
 
 /**

@@ -62,7 +62,7 @@ export interface MediaQueryList {
   /**
    * Called when the matches value changes.
    *
-   * @type { ?((matches: boolean) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -72,7 +72,7 @@ export interface MediaQueryList {
    * Adds a listening function to MediaQueryList.
    * The listening function must be added before onShow is called, that is, added to the onInit or onReady function.
    *
-   * @param { (event: MediaQueryEvent) => void } callback
+   * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -81,7 +81,7 @@ export interface MediaQueryList {
   /**
    * Removes a listening function from MediaQueryList.
    *
-   * @param { (event: MediaQueryEvent) => void } callback
+   * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */

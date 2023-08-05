@@ -49,14 +49,14 @@ declare interface SelectOption {
   /**
    * Option icon.
    *
-   * @type { ResourceStr }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Option icon.
    *
-   * @type { ResourceStr }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -163,12 +163,14 @@ declare enum MenuAlignType {
  * The commonMethod of select.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The commonMethod of select.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -366,7 +368,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Callback for selecting an item from the select.
    *
-   * @param { (index: number, value?: string) => void } callback
+   * @param { function } callback
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -374,7 +376,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Callback for selecting an item from the select.
    *
-   * @param { (index: number, value?: string) => void } callback
+   * @param { function } callback
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -17,7 +17,6 @@
  * The Buffer class is a global type for dealing with binary data directly. It can be constructed in a variety of ways.
  *
  * @namespace buffer
- * @permission N/A
  * @syscap SystemCapability.Utils.Lang
  * @since 9
  */
@@ -25,7 +24,6 @@
  * The Buffer class is a global type for dealing with binary data directly. It can be constructed in a variety of ways.
  *
  * @namespace buffer
- * @permission N/A
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -34,14 +32,12 @@ declare namespace buffer {
   /**
    * This parameter specifies the type of a common encoding format.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * This parameter specifies the type of a common encoding format.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -61,14 +57,12 @@ declare namespace buffer {
   /**
    * TypedArray inherits the features and methods of Int8Array
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * TypedArray inherits the features and methods of Int8Array
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -77,7 +71,6 @@ declare namespace buffer {
   /**
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
-   * @permission N/A
    * @param { number } size - size size The desired length of the new Buffer
    * @param { string | Buffer | number } fill - fill [fill=0] A value to pre-fill the new Buffer with
    * @param { BufferEncoding } encoding - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
@@ -89,7 +82,6 @@ declare namespace buffer {
   /**
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
-   * @permission N/A
    * @param { number } size - size size The desired length of the new Buffer
    * @param { string | Buffer | number } fill - fill [fill=0] A value to pre-fill the new Buffer with
    * @param { BufferEncoding } encoding - encoding [encoding='utf8']  If `fill` is a string, this is its encoding
@@ -104,7 +96,6 @@ declare namespace buffer {
   /**
    * Allocates a new Buffer for a fixed size bytes. The Buffer will not be initially filled.
    *
-   * @permission N/A
    * @param { number } size - size size The desired length of the new Buffer
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -114,7 +105,6 @@ declare namespace buffer {
   /**
    * Allocates a new Buffer for a fixed size bytes. The Buffer will not be initially filled.
    *
-   * @permission N/A
    * @param { number } size - size size The desired length of the new Buffer
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -127,7 +117,6 @@ declare namespace buffer {
   /**
    * Allocates a new un-pooled Buffer for a fixed size bytes. The Buffer will not be initially filled.
    *
-   * @permission N/A
    * @param { number } size - size size The desired length of the new Buffer
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -137,7 +126,6 @@ declare namespace buffer {
   /**
    * Allocates a new un-pooled Buffer for a fixed size bytes. The Buffer will not be initially filled.
    *
-   * @permission N/A
    * @param { number } size - size size The desired length of the new Buffer
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -152,7 +140,6 @@ declare namespace buffer {
    * This is not the same as [`String.prototype.length`], which does not account
    * for the encoding that is used to convert the string into bytes.
    *
-   * @permission N/A
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
    * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If `string` is a string, this is its encoding
    * @returns { number } The number of bytes contained within `string`
@@ -165,7 +152,6 @@ declare namespace buffer {
    * This is not the same as [`String.prototype.length`], which does not account
    * for the encoding that is used to convert the string into bytes.
    *
-   * @permission N/A
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
    * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If `string` is a string, this is its encoding
    * @returns { number } The number of bytes contained within `string`
@@ -182,7 +168,6 @@ declare namespace buffer {
   /**
    * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
    *
-   * @permission N/A
    * @param { Buffer[] | Uint8Array[] } list - list list List of `Buffer` or Uint8Array instances to concatenate
    * @param { number } totalLength - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
    * @returns { Buffer } Return a new allocated Buffer
@@ -194,7 +179,6 @@ declare namespace buffer {
   /**
    * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
    *
-   * @permission N/A
    * @param { Buffer[] | Uint8Array[] } list - list list List of `Buffer` or Uint8Array instances to concatenate
    * @param { number } totalLength - totalLength totalLength Total length of the `Buffer` instances in `list` when concatenated
    * @returns { Buffer } Return a new allocated Buffer
@@ -209,7 +193,6 @@ declare namespace buffer {
   /**
    * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
    *
-   * @permission N/A
    * @param { number[] } array - array array an array of bytes in the range 0 – 255
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -219,7 +202,6 @@ declare namespace buffer {
   /**
    * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
    *
-   * @permission N/A
    * @param { number[] } array - array array an array of bytes in the range 0 – 255
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -232,7 +214,6 @@ declare namespace buffer {
   /**
    * This creates a view of the ArrayBuffer without copying the underlying memory.
    *
-   * @permission N/A
    * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
    * SharedArrayBuffer, for example the .buffer property of a TypedArray.
    * @param { number } byteOffset - byteOffset [byteOffset = 0] Index of first byte to expose
@@ -247,7 +228,6 @@ declare namespace buffer {
   /**
    * This creates a view of the ArrayBuffer without copying the underlying memory.
    *
-   * @permission N/A
    * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
    * SharedArrayBuffer, for example the .buffer property of a TypedArray.
    * @param { number } byteOffset - byteOffset [byteOffset = 0] Index of first byte to expose
@@ -265,7 +245,6 @@ declare namespace buffer {
   /**
    * Copies the passed buffer data onto a new Buffer instance.
    *
-   * @permission N/A
    * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -275,7 +254,6 @@ declare namespace buffer {
   /**
    * Copies the passed buffer data onto a new Buffer instance.
    *
-   * @permission N/A
    * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -289,7 +267,6 @@ declare namespace buffer {
    * For the object whose value returned by valueof() function is strictly equal to object
    * or supports symbol To primitive object, a new buffer instance is created.
    *
-   * @permission N/A
    * @param { Object } object - object object An object supporting Symbol.toPrimitive or valueOf()
    * @param { number | string } offsetOrEncoding - offsetOrEncoding offsetOrEncoding A byte-offset or encoding
    * @param { number } length - length length A length
@@ -302,7 +279,6 @@ declare namespace buffer {
    * For the object whose value returned by valueof() function is strictly equal to object
    * or supports symbol To primitive object, a new buffer instance is created.
    *
-   * @permission N/A
    * @param { Object } object - object object An object supporting Symbol.toPrimitive or valueOf()
    * @param { number | string } offsetOrEncoding - offsetOrEncoding offsetOrEncoding A byte-offset or encoding
    * @param { number } length - length length A length
@@ -318,7 +294,6 @@ declare namespace buffer {
    * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
    * to be used when converting string into bytes.
    *
-   * @permission N/A
    * @param { String } string - string string  A string to encode
    * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding of string
    * @returns { Buffer } Return a new Buffer containing string
@@ -330,7 +305,6 @@ declare namespace buffer {
    * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
    * to be used when converting string into bytes.
    *
-   * @permission N/A
    * @param { String } string - string string  A string to encode
    * @param { BufferEncoding } encoding - encoding [encoding='utf8'] The encoding of string
    * @returns { Buffer } Return a new Buffer containing string
@@ -344,7 +318,6 @@ declare namespace buffer {
   /**
    * Returns true if obj is a Buffer, false otherwise
    *
-   * @permission N/A
    * @param { Object } obj - obj obj Objects to be judged
    * @returns { boolean } true or false
    * @syscap SystemCapability.Utils.Lang
@@ -353,7 +326,6 @@ declare namespace buffer {
   /**
    * Returns true if obj is a Buffer, false otherwise
    *
-   * @permission N/A
    * @param { Object } obj - obj obj Objects to be judged
    * @returns { boolean } true or false
    * @syscap SystemCapability.Utils.Lang
@@ -365,7 +337,6 @@ declare namespace buffer {
   /**
    * Returns true if encoding is the name of a supported character encoding, or false otherwise.
    *
-   * @permission N/A
    * @param { string } encoding - encoding encoding A character encoding name to check
    * @returns { boolean } true or false
    * @syscap SystemCapability.Utils.Lang
@@ -374,7 +345,6 @@ declare namespace buffer {
   /**
    * Returns true if encoding is the name of a supported character encoding, or false otherwise.
    *
-   * @permission N/A
    * @param { string } encoding - encoding encoding A character encoding name to check
    * @returns { boolean } true or false
    * @syscap SystemCapability.Utils.Lang
@@ -386,7 +356,6 @@ declare namespace buffer {
   /**
    * Compares buf1 to buf2
    *
-   * @permission N/A
    * @param { Buffer | Uint8Array } buf1 - buf1 buf1 A Buffer or Uint8Array instance.
    * @param { Buffer | Uint8Array } buf2 - buf2 buf2 A Buffer or Uint8Array instance.
    * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
@@ -399,7 +368,6 @@ declare namespace buffer {
   /**
    * Compares buf1 to buf2
    *
-   * @permission N/A
    * @param { Buffer | Uint8Array } buf1 - buf1 buf1 A Buffer or Uint8Array instance.
    * @param { Buffer | Uint8Array } buf2 - buf2 buf2 A Buffer or Uint8Array instance.
    * @returns { -1 | 0 | 1 } 0 is returned if target is the same as buf
@@ -415,7 +383,6 @@ declare namespace buffer {
   /**
    * Re-encodes the given Buffer or Uint8Array instance from one character encoding to another.
    *
-   * @permission N/A
    * @param { Buffer | Uint8Array } source - source source A Buffer or Uint8Array instance.
    * @param { string } fromEnc - fromEnc fromEnc The current encoding
    * @param { string } toEnc - toEnc toEnc To target encoding
@@ -427,7 +394,6 @@ declare namespace buffer {
   /**
    * Re-encodes the given Buffer or Uint8Array instance from one character encoding to another.
    *
-   * @permission N/A
    * @param { Buffer | Uint8Array } source - source source A Buffer or Uint8Array instance.
    * @param { string } fromEnc - fromEnc fromEnc The current encoding
    * @param { string } toEnc - toEnc toEnc To target encoding
@@ -443,14 +409,12 @@ declare namespace buffer {
   /**
    * The Buffer object is a method of handling buffers dedicated to binary data.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * The Buffer object is a method of handling buffers dedicated to binary data.
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -459,7 +423,6 @@ declare namespace buffer {
     /**
      * Returns the number of bytes in buf
      *
-     * @permission N/A
      * @throws { BusinessError } 10200013 - Cannot set property length of Buffer which has only a getter
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -467,7 +430,6 @@ declare namespace buffer {
     /**
      * Returns the number of bytes in buf
      *
-     * @permission N/A
      * @throws { BusinessError } 10200013 - Cannot set property length of Buffer which has only a getter
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -478,7 +440,6 @@ declare namespace buffer {
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
      *
-     * @permission N/A
      * @throws { BusinessError } 10200013 - Cannot set property buffer of Buffer which has only a getter
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -486,7 +447,6 @@ declare namespace buffer {
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
      *
-     * @permission N/A
      * @throws { BusinessError } 10200013 - Cannot set property buffer of Buffer which has only a getter
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -497,7 +457,6 @@ declare namespace buffer {
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
      *
-     * @permission N/A
      * @throws { BusinessError } 10200013 - Cannot set property byteOffset of Buffer which has only a getter
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -505,7 +464,6 @@ declare namespace buffer {
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
      *
-     * @permission N/A
      * @throws { BusinessError } 10200013 - Cannot set property byteOffset of Buffer which has only a getter
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -516,7 +474,6 @@ declare namespace buffer {
     /**
      * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
      *
-     * @permission N/A
      * @param { string | Buffer | Uint8Array | number } value - value value The value with which to fill buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to fill buf
      * @param { number } end - end [end = buf.length] Where to stop filling buf (not inclusive)
@@ -530,7 +487,6 @@ declare namespace buffer {
     /**
      * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
      *
-     * @permission N/A
      * @param { string | Buffer | Uint8Array | number } value - value value The value with which to fill buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to fill buf
      * @param { number } end - end [end = buf.length] Where to stop filling buf (not inclusive)
@@ -553,7 +509,6 @@ declare namespace buffer {
      * Compares buf with target and returns a number indicating whether buf comes before, after,
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
-     * @permission N/A
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
      * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin comparison
      * @param { number } targetEnd - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
@@ -572,7 +527,6 @@ declare namespace buffer {
      * Compares buf with target and returns a number indicating whether buf comes before, after,
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
-     * @permission N/A
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
      * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin comparison
      * @param { number } targetEnd - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
@@ -600,7 +554,6 @@ declare namespace buffer {
      * Copies data from a region of buf to a region in target, even if the target memory region overlaps with buf.
      * If sourceEnd is greater than the length of the target, the length of the target shall prevail, and the extra part will not be overwritten.
      *
-     * @permission N/A
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array to copy into
      * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin writing
      * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
@@ -616,7 +569,6 @@ declare namespace buffer {
      * Copies data from a region of buf to a region in target, even if the target memory region overlaps with buf.
      * If sourceEnd is greater than the length of the target, the length of the target shall prevail, and the extra part will not be overwritten.
      *
-     * @permission N/A
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array to copy into
      * @param { number } targetStart - targetStart [targetStart = 0] The offset within target at which to begin writing
      * @param { number } sourceStart - sourceStart [sourceStart = 0] The offset within buf from which to begin copying
@@ -634,7 +586,6 @@ declare namespace buffer {
     /**
      * Returns true if both buf and otherBuffer have exactly the same bytes, false otherwise
      *
-     * @permission N/A
      * @param { Uint8Array | Buffer } otherBuffer - otherBuffer otherBuffer A Buffer or Uint8Array with which to compare buf
      * @returns { boolean } true or false
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -644,7 +595,6 @@ declare namespace buffer {
     /**
      * Returns true if both buf and otherBuffer have exactly the same bytes, false otherwise
      *
-     * @permission N/A
      * @param { Uint8Array | Buffer } otherBuffer - otherBuffer otherBuffer A Buffer or Uint8Array with which to compare buf
      * @returns { boolean } true or false
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -657,7 +607,6 @@ declare namespace buffer {
     /**
      * Returns true if value was found in buf, false otherwise
      *
-     * @permission N/A
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
      * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
      * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, this is its encoding
@@ -669,7 +618,6 @@ declare namespace buffer {
     /**
      * Returns true if value was found in buf, false otherwise
      *
-     * @permission N/A
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
      * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
      * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, this is its encoding
@@ -684,7 +632,6 @@ declare namespace buffer {
     /**
      * The index of the first occurrence of value in buf
      *
-     * @permission N/A
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
      * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
      * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string,
@@ -697,7 +644,6 @@ declare namespace buffer {
     /**
      * The index of the first occurrence of value in buf
      *
-     * @permission N/A
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
      * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
      * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string,
@@ -713,7 +659,6 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator of buf keys (indices).
      *
-     * @permission N/A
      * @returns { IterableIterator<number> }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -721,7 +666,6 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator of buf keys (indices).
      *
-     * @permission N/A
      * @returns { IterableIterator<number> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -732,7 +676,6 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator for buf values (bytes).
      *
-     * @permission N/A
      * @returns { IterableIterator<number> }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -740,7 +683,6 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator for buf values (bytes).
      *
-     * @permission N/A
      * @returns { IterableIterator<number> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -751,7 +693,6 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator of [index, byte] pairs from the contents of buf.
      *
-     * @permission N/A
      * @returns { IterableIterator<[number, number]> }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -759,7 +700,6 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator of [index, byte] pairs from the contents of buf.
      *
-     * @permission N/A
      * @returns { IterableIterator<[number, number]> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -770,7 +710,6 @@ declare namespace buffer {
     /**
      * The index of the last occurrence of value in buf
      *
-     * @permission N/A
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
      * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
      * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, 
@@ -783,7 +722,6 @@ declare namespace buffer {
     /**
      * The index of the last occurrence of value in buf
      *
-     * @permission N/A
      * @param { string | number | Buffer | Uint8Array } value - value value What to search for
      * @param { number } byteOffset - byteOffset [byteOffset = 0] Where to begin searching in buf
      * @param { BufferEncoding } encoding - encoding [encoding='utf8'] If value is a string, 
@@ -799,7 +737,6 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -810,7 +747,6 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -824,7 +760,6 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -835,7 +770,6 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a signed, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -849,7 +783,6 @@ declare namespace buffer {
     /**
      * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -860,7 +793,6 @@ declare namespace buffer {
     /**
      * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, big-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -874,7 +806,6 @@ declare namespace buffer {
     /**
      * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -885,7 +816,6 @@ declare namespace buffer {
     /**
      * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { bigint } Return a unsigned, little-endian 64-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -899,7 +829,6 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian double from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, big-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -910,7 +839,6 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian double from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, big-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -924,7 +852,6 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian double from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, little-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -935,7 +862,6 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian double from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } Return a 64-bit, little-endian double
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -949,7 +875,6 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian float from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, big-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -960,7 +885,6 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian float from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, big-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -974,7 +898,6 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian float from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, little-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -985,7 +908,6 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian float from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a 32-bit, little-endian float
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -999,7 +921,6 @@ declare namespace buffer {
     /**
      * Reads a signed 8-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } Return a signed 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1010,7 +931,6 @@ declare namespace buffer {
     /**
      * Reads a signed 8-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } Return a signed 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1024,7 +944,6 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1035,7 +954,6 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1049,7 +967,6 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1060,7 +977,6 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } Return a signed, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1074,7 +990,6 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1085,7 +1000,6 @@ declare namespace buffer {
     /**
      * Reads a signed, big-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1099,7 +1013,6 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1110,7 +1023,6 @@ declare namespace buffer {
     /**
      * Reads a signed, little-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } Return a signed, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1125,7 +1037,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a big-endian,
      * two's complement signed value supporting up to 48 bits of accuracy
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1138,7 +1049,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a big-endian,
      * two's complement signed value supporting up to 48 bits of accuracy
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1154,7 +1064,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a little-endian,
      * two's complement signed value supporting up to 48 bits of accuracy.
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1167,7 +1076,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a little-endian,
      * two's complement signed value supporting up to 48 bits of accuracy.
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1182,7 +1090,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned 8-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } Reads an unsigned 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1193,7 +1100,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned 8-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } Reads an unsigned 8-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1207,7 +1113,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1218,7 +1123,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, big-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1232,7 +1136,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1243,7 +1146,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 16-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } Reads an unsigned, little-endian 16-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1257,7 +1159,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1268,7 +1169,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, big-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, big-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1282,7 +1182,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1293,7 +1192,6 @@ declare namespace buffer {
     /**
      * Reads an unsigned, little-endian 32-bit integer from buf at the specified offset
      *
-     * @permission N/A
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } Reads an unsigned, little-endian 32-bit integer
      * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -1308,7 +1206,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as
      * an unsigned big-endian integer supporting up to 48 bits of accuracy.
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1321,7 +1218,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as
      * an unsigned big-endian integer supporting up to 48 bits of accuracy.
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1337,7 +1233,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as an unsigned,
      * little-endian integer supporting up to 48 bits of accuracy.
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1350,7 +1245,6 @@ declare namespace buffer {
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as an unsigned,
      * little-endian integer supporting up to 48 bits of accuracy.
      *
-     * @permission N/A
      * @param { number } offset - offset offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
      * @returns { number }
@@ -1365,7 +1259,6 @@ declare namespace buffer {
     /**
      * Returns a new Buffer that references the same memory as the original, but offset and cropped by the start and end indices.
      *
-     * @permission N/A
      * @param { number } start - start [start = 0] Where the new Buffer will start
      * @param { number } end - end [end = buf.length] Where the new Buffer will end (not inclusive)
      * @returns { Buffer } Returns a new Buffer that references the same memory as the original
@@ -1375,7 +1268,6 @@ declare namespace buffer {
     /**
      * Returns a new Buffer that references the same memory as the original, but offset and cropped by the start and end indices.
      *
-     * @permission N/A
      * @param { number } start - start [start = 0] Where the new Buffer will start
      * @param { number } end - end [end = buf.length] Where the new Buffer will end (not inclusive)
      * @returns { Buffer } Returns a new Buffer that references the same memory as the original
@@ -1388,7 +1280,6 @@ declare namespace buffer {
     /**
      * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
      *
-     * @permission N/A
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 16-bits
      * @syscap SystemCapability.Utils.Lang
@@ -1397,7 +1288,6 @@ declare namespace buffer {
     /**
      * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
      *
-     * @permission N/A
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 16-bits
      * @syscap SystemCapability.Utils.Lang
@@ -1409,7 +1299,6 @@ declare namespace buffer {
     /**
      * Interprets buf as an array of unsigned 32-bit integers and swaps the byte order in-place.
      *
-     * @permission N/A
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 32-bits
      * @syscap SystemCapability.Utils.Lang
@@ -1418,7 +1307,6 @@ declare namespace buffer {
     /**
      * Interprets buf as an array of unsigned 32-bit integers and swaps the byte order in-place.
      *
-     * @permission N/A
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 32-bits
      * @syscap SystemCapability.Utils.Lang
@@ -1430,7 +1318,6 @@ declare namespace buffer {
     /**
      * Interprets buf as an array of unsigned 64-bit integers and swaps the byte order in-place.
      *
-     * @permission N/A
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 64-bits
      * @syscap SystemCapability.Utils.Lang
@@ -1439,7 +1326,6 @@ declare namespace buffer {
     /**
      * Interprets buf as an array of unsigned 64-bit integers and swaps the byte order in-place.
      *
-     * @permission N/A
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200009 - Buffer size must be a multiple of 64-bits
      * @syscap SystemCapability.Utils.Lang
@@ -1451,7 +1337,6 @@ declare namespace buffer {
     /**
      * Returns a JSON representation of buf
      *
-     * @permission N/A
      * @returns { Object } Returns a JSON
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -1459,7 +1344,6 @@ declare namespace buffer {
     /**
      * Returns a JSON representation of buf
      *
-     * @permission N/A
      * @returns { Object } Returns a JSON
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1470,7 +1354,6 @@ declare namespace buffer {
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
-     * @permission N/A
      * @param { string } encoding - encoding [encoding='utf8'] The character encoding to use
      * @param { number } start - start [start = 0] The byte offset to start decoding at
      * @param { number } end - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
@@ -1482,7 +1365,6 @@ declare namespace buffer {
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
-     * @permission N/A
      * @param { string } encoding - encoding [encoding='utf8'] The character encoding to use
      * @param { number } start - start [start = 0] The byte offset to start decoding at
      * @param { number } end - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
@@ -1497,7 +1379,6 @@ declare namespace buffer {
     /**
      * Writes string to buf at offset according to the character encoding in encoding
      *
-     * @permission N/A
      * @param { string } str - str str Writes string to buf at offset according to the character encoding in encoding
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write string
      * @param { number } length - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
@@ -1511,7 +1392,6 @@ declare namespace buffer {
     /**
      * Writes string to buf at offset according to the character encoding in encoding
      *
-     * @permission N/A
      * @param { string } str - str str Writes string to buf at offset according to the character encoding in encoding
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write string
      * @param { number } length - length [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
@@ -1528,7 +1408,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1540,7 +1419,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1555,7 +1433,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1567,7 +1444,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1582,7 +1458,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1594,7 +1469,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1609,7 +1483,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1621,7 +1494,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { bigint } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1636,7 +1508,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1648,7 +1519,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1663,7 +1533,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1675,7 +1544,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
      * @returns { number } offset plus the number of bytes written
@@ -1690,7 +1558,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1702,7 +1569,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1717,7 +1583,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1729,7 +1594,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1744,7 +1608,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
@@ -1756,7 +1619,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
@@ -1771,7 +1633,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -1783,7 +1644,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -1798,7 +1658,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -1810,7 +1669,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -1825,7 +1683,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1837,7 +1694,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1852,7 +1708,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1864,7 +1719,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -1879,7 +1733,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as big-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -1892,7 +1745,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as big-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -1908,7 +1760,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as little-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset  Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -1921,7 +1772,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as little-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset  Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -1937,7 +1787,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
@@ -1949,7 +1798,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
      * @returns { number } offset plus the number of bytes written
@@ -1964,7 +1812,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -1976,7 +1823,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -1991,7 +1837,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -2003,7 +1848,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
      * @returns { number } offset plus the number of bytes written
@@ -2018,7 +1862,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -2030,7 +1873,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -2045,7 +1887,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -2057,7 +1898,6 @@ declare namespace buffer {
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
      * @returns { number } offset plus the number of bytes written
@@ -2072,7 +1912,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as big-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -2085,7 +1924,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as big-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -2101,7 +1939,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as little-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -2114,7 +1951,6 @@ declare namespace buffer {
     /**
      * Writes byteLength bytes of value to buf at the specified offset as little-endian
      *
-     * @permission N/A
      * @param { number } value - value value Number to be written to buf
      * @param { number } offset - offset offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
      * @param { number } byteLength - byteLength byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
@@ -2131,14 +1967,12 @@ declare namespace buffer {
   /**
    * Process data as blob type
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * Process data as blob type
    *
-   * @permission N/A
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -2147,7 +1981,6 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @permission N/A
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - sources sources An array of string, <ArrayBuffer>,
      * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
      * @param { Object } options - options options {endings: string, type: string}
@@ -2160,7 +1993,6 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @permission N/A
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - sources sources An array of string, <ArrayBuffer>,
      * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
      * @param { Object } options - options options {endings: string, type: string}
@@ -2176,14 +2008,12 @@ declare namespace buffer {
     /**
      * The total size of the Blob in bytes
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * The total size of the Blob in bytes
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -2193,14 +2023,12 @@ declare namespace buffer {
     /**
      * The content-type of the Blob
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * The content-type of the Blob
      *
-     * @permission N/A
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -2210,7 +2038,6 @@ declare namespace buffer {
     /**
      * Returns a promise that fulfills with an <ArrayBuffer> containing a copy of the Blob data.
      *
-     * @permission N/A
      * @returns { Promise<ArrayBuffer> }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -2218,7 +2045,6 @@ declare namespace buffer {
     /**
      * Returns a promise that fulfills with an <ArrayBuffer> containing a copy of the Blob data.
      *
-     * @permission N/A
      * @returns { Promise<ArrayBuffer> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -2229,7 +2055,6 @@ declare namespace buffer {
     /**
      * Creates and returns a new Blob containing a subset of this Blob objects data. The original Blob is not altered
      *
-     * @permission N/A
      * @param { number } start - start start The starting index
      * @param { number } end - end end The ending index
      * @param { string } type - type type The content-type for the new Blob
@@ -2240,7 +2065,6 @@ declare namespace buffer {
     /**
      * Creates and returns a new Blob containing a subset of this Blob objects data. The original Blob is not altered
      *
-     * @permission N/A
      * @param { number } start - start start The starting index
      * @param { number } end - end end The ending index
      * @param { string } type - type type The content-type for the new Blob
@@ -2254,7 +2078,6 @@ declare namespace buffer {
     /**
      * Returns a promise that fulfills with the contents of the Blob decoded as a UTF-8 string.
      *
-     * @permission N/A
      * @returns { Promise<string> }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
@@ -2262,7 +2085,6 @@ declare namespace buffer {
     /**
      * Returns a promise that fulfills with the contents of the Blob decoded as a UTF-8 string.
      *
-     * @permission N/A
      * @returns { Promise<string> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

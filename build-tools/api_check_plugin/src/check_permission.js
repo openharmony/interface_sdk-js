@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 const fs = require('fs');
 const path = require('path');
 const { getAPINote, ErrorType, ErrorLevel, FileType, systemPermissionFile, checkOption } = require('./utils');
@@ -75,7 +74,7 @@ function checkPermission(node, sourcefile, fileName) {
           }
         });
       } else {
-        if (!permissionRuleSet.has(permissionNote) && !/N\/A/.test(permissionNote)) {
+        if (!permissionRuleSet.has(permissionNote)) {
           hasPermissionError = true;
           if (errorInfo !== '') {
             errorInfo += `,${permissionNote}`;
@@ -84,7 +83,6 @@ function checkPermission(node, sourcefile, fileName) {
           }
         }
       }
-
     }
   });
 

@@ -243,7 +243,7 @@ interface GridColInterface {
   /**
    * Defines the constructor of GridContainer.
    *
-   * @param { ?GridColOptions } option
+   * @param { GridColOptions } option
    * @returns { GridColAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -252,7 +252,7 @@ interface GridColInterface {
   /**
    * Defines the constructor of GridContainer.
    *
-   * @param { ?GridColOptions } option
+   * @param { GridColOptions } option
    * @returns { GridColAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

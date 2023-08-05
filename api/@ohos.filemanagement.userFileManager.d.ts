@@ -110,14 +110,14 @@ declare namespace userFileManager {
   /**
    * File position
    *
-   * @enum { number } File position, which indicates the file is in local device or cloud
+   * @enum { number } File position, which indicates the file is on local device or cloud
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @since 10
    */
   enum PositionType {
     /**
-     * File exists only in local device
+     * File exists only on local device
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -125,7 +125,7 @@ declare namespace userFileManager {
      */
     LOCAL = 1,
     /**
-     * File exists only in cloud
+     * File exists only on cloud
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -133,7 +133,7 @@ declare namespace userFileManager {
      */
     CLOUD,
     /**
-     * File exists in both local and cloud
+     * File exists on both local and cloud
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
@@ -362,6 +362,54 @@ declare namespace userFileManager {
      * @since 10
      */
     setHidden(hiddenState: boolean): Promise<void>;
+    /**
+     * Set user comment info to the asset.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } userComment - user comment info
+     * @param { AsyncCallback<void> } callback - Returns void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    setUserComment(userComment: string, callback: AsyncCallback<void>): void;
+    /**
+     * Set user comment info to the asset.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } userComment - user comment info
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    setUserComment(userComment: string): Promise<void>;
+    /**
+     * Get exif info of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<string> } callback - Returns exif info into a json string
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getExif(callback: AsyncCallback<string>): void;
+    /**
+     * Get exif info of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns exif info into a json string
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getExif(): Promise<string>;
   }
 
   /**
@@ -575,7 +623,23 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10
      */
-    HIDDEN
+    HIDDEN,
+    /**
+     * User comment info
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    USER_COMMENT,
+    /**
+     * Camera shot key
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    CAMERA_SHOT_KEY
   }
 
   /**
@@ -692,6 +756,15 @@ declare namespace userFileManager {
      * @since 10
      */
     subType?: PhotoSubType;
+    /**
+     * Camera shot key
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    cameraShotKey?: string;
   }
 
   /**
@@ -1468,6 +1541,34 @@ declare namespace userFileManager {
      * @since 9
      */
     delete(uri: string): Promise<void>;
+    /**
+     * Get the index of the asset in the album
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } photoUri - The photo asset uri.
+     * @param { string } albumUri - The album uri.
+     * @param { FetchOptions } options - fetch options
+     * @param { AsyncCallback<number> } callback - Returns the index of the asset in the album
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<number>): void;
+    /**
+     * Get the index of the asset in the album
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } photoUri - The photo asset uri.
+     * @param { string } albumUri - The album uri.
+     * @param { FetchOptions } options - fetch options
+     * @returns { Promise<number> } - Returns the index of the asset in the album
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions): Promise<number>;
     /**
      * Turn on monitor the data changes
      *
