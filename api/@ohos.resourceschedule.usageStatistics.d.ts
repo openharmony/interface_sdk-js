@@ -456,12 +456,12 @@ declare namespace usageStatistics {
     bundleName: string;
   }
 
-  /**
+    /**
    * Checks whether the application with a specified bundle name is in the idle state.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - Indicates the bundle name of the application to query.
-   * @param { AsyncCallback<boolean> } callback - the callback of isIdleState.
+   * @returns { boolean } 
    * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
    * The time range of the particular period is defined by the system, which may be hours or days.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -476,129 +476,54 @@ declare namespace usageStatistics {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
+  function isIdleState(bundleName: string): boolean;
 
-  /**
-   * Checks whether the application with a specified bundle name is in the idle state.
-   *
-   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to query.
-   * @returns { Promise<boolean> } the promise returned by isIdleState.
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function isIdleState(bundleName: string): Promise<boolean>;
-
-  /**
-   * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
-   *
-   * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
-   * <p> Returns the app group of the calling application.</p>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
-   * @throws { BusinessError } 10000005 - Application is not installed.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10100002 - Failed to get the application group information.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function queryAppGroup(callback: AsyncCallback<number>): void;
-
-  /**
-   * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
-   *
-   * @returns { Promise<number> } the promise returned by queryAppGroup.
-   * <p> Returns the app group of the calling application.</p>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
-   * @throws { BusinessError } 10000005 - Application is not installed.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10100002 - Failed to get the application group information.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function queryAppGroup(): Promise<number>;
-
-  /**
-   * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
-   *
-   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
-   * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
-   * <p> the usage priority group of the calling application.</p>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
-   * @throws { BusinessError } 10000005 - Application is not installed.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10100002 - Failed to get the application group information.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function queryAppGroup(bundleName: string, callback: AsyncCallback<number>): void;
-
-  /**
-   * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
-   *
-   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
-   * @returns { Promise<number> } the promise returned by queryAppGroup.
-   * <p> the usage priority group of the calling application.</p>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
-   * @throws { BusinessError } 10000005 - Application is not installed.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10100002 - Failed to get the application group information.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function queryAppGroup(bundleName: string): Promise<number>;
+     /**
+      * Queries the app group of the calling application.
+      * <p>The priority defined in a priority group restricts the resource usage of an application,
+      * for example, restricting the running of background tasks. </p>
+      * @returns { number } Returns the app group of the calling application.
+      * @throws { BusinessError } 201 - Permission denied.
+      * @throws { BusinessError } 202 - Not System App.
+      * @throws { BusinessError } 401 - Parameter error.
+      * @throws { BusinessError } 801 - Capability not supported.
+      * @throws { BusinessError } 10000001 - Memory operation failed.
+      * @throws { BusinessError } 10000002 - Parcel operation failed.
+      * @throws { BusinessError } 10000003 - System service operation failed.
+      * @throws { BusinessError } 10000004 - IPC failed.
+      * @throws { BusinessError } 10000005 - Application is not installed.
+      * @throws { BusinessError } 10000006 - Failed to get the application information.
+      * @throws { BusinessError } 10100002 - Failed to get the application group information.
+      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+      * @systemapi Hide this for inner system use.
+      * @since 9
+      */
+  function queryAppGroup(): number;
+   
+     /**
+      * Queries the usage priority group by bundleName.
+      * <p>The priority defined in a priority group restricts the resource usage of an application,
+      * for example, restricting the running of background tasks. </p>
+      *
+      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+      * @param { string } bundleName - name of the application.
+      * @returns { number } the usage priority group of the calling application.
+      * @throws { BusinessError } 201 - Permission denied.
+      * @throws { BusinessError } 202 - Not System App.
+      * @throws { BusinessError } 401 - Parameter error.
+      * @throws { BusinessError } 801 - Capability not supported.
+      * @throws { BusinessError } 10000001 - Memory operation failed.
+      * @throws { BusinessError } 10000002 - Parcel operation failed.
+      * @throws { BusinessError } 10000003 - System service operation failed.
+      * @throws { BusinessError } 10000004 - IPC failed.
+      * @throws { BusinessError } 10000005 - Application is not installed.
+      * @throws { BusinessError } 10000006 - Failed to get the application information.
+      * @throws { BusinessError } 10100002 - Failed to get the application group information.
+      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+      * @systemapi Hide this for inner system use.
+      * @since 9
+      */
+  function queryAppGroup(bundleName: string): number;
 
   /**
    * @interface BundleStatsMap
