@@ -4948,6 +4948,16 @@ declare interface SheetOptions extends BindOptions {
    * @since 10
    */
   dragBar?: boolean;
+
+  /**
+   * Defines sheet maskColor
+   * 
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskColor?: ResourceColor;
 }
 
 /**
