@@ -119,23 +119,6 @@ declare namespace launcherBundleManager {
   function getAllLauncherAbilityInfo(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
-   * Obtains launcher abilities info based on a given userId.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { number } userId - Indicates the id for the user.
-   * @returns { Array<LauncherAbilityInfo> } the LauncherAbilityInfo object.
-   * @throws { BusinessError } 201 - Verify permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not support.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 10
-   */
-  function getAllLauncherAbilityInfoSync(userId: number): Array<LauncherAbilityInfo>;
-
-  /**
    * Obtains shortcut info based on a given bundleName.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED

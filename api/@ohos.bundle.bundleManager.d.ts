@@ -970,23 +970,6 @@ declare namespace bundleManager {
   function getAllBundleInfo(bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
 
   /**
-   * Obtains BundleInfo of all bundles available in the system.
-   *
-   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
-   * @param { number } userId - Indicates the user id.
-   * @returns { Array<BundleInfo> } Returns a list of BundleInfo objects.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
-   */
-  function getAllBundleInfoSync(bundleFlags: number, userId?: number): Array<BundleInfo>;
-
-  /**
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
@@ -1035,23 +1018,6 @@ declare namespace bundleManager {
    * @since 9
    */
   function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
-
-  /**
-   * Obtains information about all installed applications of a specified user.
-   *
-   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
-   * @returns { Array<ApplicationInfo> } Returns a list of ApplicationInfo objects.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
-   */
-  function getAllApplicationInfoSync(appFlags: number, userId?: number): Array<ApplicationInfo>;
 
   /**
    * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1678,7 +1644,7 @@ declare namespace bundleManager {
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
 
-    /**
+  /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
    *
    * @param { string } moduleName - Indicates the moduleName of the application.
