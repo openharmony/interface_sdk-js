@@ -813,7 +813,7 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted forward.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -851,7 +851,7 @@ declare namespace inputMethodEngine {
      *
      * @param { number } length - length of text which will be deleted backward.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -889,7 +889,7 @@ declare namespace inputMethodEngine {
      *
      * @param { string } text - text which will be inserted.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -929,7 +929,7 @@ declare namespace inputMethodEngine {
      * @returns { string } the text string before cursor.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -968,7 +968,7 @@ declare namespace inputMethodEngine {
      * @returns { string } the text string after cursor.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
