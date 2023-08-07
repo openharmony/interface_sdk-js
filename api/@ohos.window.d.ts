@@ -445,28 +445,64 @@ declare namespace window {
    * @since 10
    */
   interface Rect {
+
     /**
+     * The left of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * The left of the Rect.
+     * 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 7
+     * @since 10
      */
     left: number;
+
     /**
+     * The top of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * The top of the Rect.
+     * 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 7
+     * @since 10
      */
     top: number;
+
     /**
+     * The width of the Rect.
+     * 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 7
      */
-    width: number;
     /**
+     * The width of the Rect.
+     * 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
+     */
+    width: number;
+
+    /**
+     * The height of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * The height of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     height: number;
   }
@@ -971,28 +1007,12 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
-  /**
-   * Configuration parameters for window creation.
-   *
-   * @interface Configuration
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   interface Configuration {
     /**
      * Indicates window id.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates window id.
-     *
-     * @type { string }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     name: string;
 
@@ -1012,14 +1032,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * Indicates window context.
-     *
-     * @type { ?BaseContext }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     ctx?: BaseContext;
 
     /**
@@ -1029,14 +1041,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * Indicates display ID.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     displayId?: number;
 
     /**
@@ -1045,14 +1049,6 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates Parent window id
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     parentId?: number;
   }
@@ -1071,21 +1067,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
-  /**
-   * Create a window with a specific configuration
-   *
-   * @param { Configuration } config - Parameters for window creation.
-   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300001 - Repeated operation.
-   * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
-   * @throws { BusinessError } 1300009 - The parent window is invalid.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
@@ -1101,21 +1082,6 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
-   */
-  /**
-   * Create a window with a specific configuration
-   *
-   * @param { Configuration } config - Parameters for window creation.
-   * @returns { Promise<Window> } Promise used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300001 - Repeated operation.
-   * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
-   * @throws { BusinessError } 1300009 - The parent window is invalid.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -2458,7 +2424,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3701,7 +3667,7 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @stagemodelonly     
+   * @StageModelOnly
    * @crossplatform
    * @since 10
    */
@@ -3710,14 +3676,14 @@ declare namespace window {
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @since 9
      */
     /**
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3726,14 +3692,14 @@ declare namespace window {
      * The window stage gains focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @since 9
      */
     /**
      * The window stage gains focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3742,14 +3708,14 @@ declare namespace window {
      * The window stage loses focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @since 9
      */
     /**
      * The window stage loses focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3758,14 +3724,14 @@ declare namespace window {
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @since 9
      */
     /**
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly 
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3804,7 +3770,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3826,7 +3792,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3848,7 +3814,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3874,7 +3840,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3900,7 +3866,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3920,7 +3886,7 @@ declare namespace window {
      * @returns { Promise<Array<Window>> }
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3940,7 +3906,7 @@ declare namespace window {
      * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3968,7 +3934,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -3996,7 +3962,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -4022,7 +3988,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -4048,7 +4014,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -4074,7 +4040,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly     
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
