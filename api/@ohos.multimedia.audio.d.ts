@@ -3384,6 +3384,14 @@ declare namespace audio {
      */
     SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
     /**
+     * Wakeup source type.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    SOURCE_TYPE_WAKEUP = 3,
+    /**
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
