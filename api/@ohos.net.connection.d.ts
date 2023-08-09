@@ -613,19 +613,19 @@ declare namespace connection {
     /**
      * Registers a listener for **netCapabilitiesChange** events.
      * @param { 'netCapabilitiesChange' } type - Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback used to return the result.
+     * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
     /**
      * Registers a listener for **netCapabilitiesChange** events.
      * @param { 'netCapabilitiesChange' } type - Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, netCap: NetCapabilities }> } callback - the callback used to return the result.
+     * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
      */
-    on(type: 'netCapabilitiesChange', callback: Callback<{ netHandle: NetHandle, netCap: NetCapabilities }>): void;
+    on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
 
     /**
      * Registers a listener for netConnectionPropertiesChange events.
@@ -747,6 +747,33 @@ declare namespace connection {
      * @since 8
      */
     bearerPrivateIdentifier?: string;
+  }
+
+  /**
+   * Receive information about changes in network capabilities.
+   * @interface NetCapabilityInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @since 10
+   */
+  export interface NetCapabilityInfo {
+    /**
+     * Defines the handle of the data network.
+     * @type { NetHandle }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
+     */
+    netHandle: NetHandle;
+
+    /**
+     * Defines the network capability set.
+     * @type { NetCapabilities }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
+     */
+    netCap: NetCapabilities;
   }
 
   /**

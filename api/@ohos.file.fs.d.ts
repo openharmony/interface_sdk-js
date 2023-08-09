@@ -45,6 +45,7 @@ declare namespace fileIo {
   export { createStream };
   export { createStreamSync };
   export { createWatcher };
+  export { dup };
   export { fdatasync };
   export { fdatasyncSync };
   export { fdopenStream };
@@ -292,7 +293,7 @@ declare namespace fileIo {
  * Access file.
  *
  * @param { string } path - path.
- * @returns { Promise<boolean> } return Promise
+ * @returns { Promise<boolean> } Returns the file is accessible or not in promise mode.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -315,7 +316,7 @@ declare function access(path: string): Promise<boolean>;
  * Access file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<boolean> } [callback] - callback.
+ * @param { AsyncCallback<boolean> } [callback] - The callback is used to return the file is accessible or not.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -335,7 +336,7 @@ declare function access(path: string): Promise<boolean>;
  * Access file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<boolean> } [callback] - callback.
+ * @param { AsyncCallback<boolean> } [callback] - The callback is used to return the file is accessible or not.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -358,7 +359,7 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * Access file with sync interface.
  *
  * @param { string } path - path.
- * @returns { boolean } access success
+ * @returns { boolean } Returns the file is accessible or not.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -378,7 +379,7 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * Access file with sync interface.
  *
  * @param { string } path - path.
- * @returns { boolean } access success
+ * @returns { boolean } Returns the file is accessible or not.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -401,7 +402,7 @@ declare function accessSync(path: string): boolean;
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -415,7 +416,7 @@ declare function accessSync(path: string): boolean;
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -432,7 +433,7 @@ declare function close(file: number | File): Promise<void>;
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -446,7 +447,7 @@ declare function close(file: number | File): Promise<void>;
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -494,7 +495,7 @@ declare function closeSync(file: number | File): void;
  * @param { string } src - source path.
  * @param { string } dest - destination path.
  * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -522,7 +523,7 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
  *
  * @param { string } src - source path.
  * @param { string } dest - destination path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -551,7 +552,7 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @param { string } src - source path.
  * @param { string } dest - destination path.
  * @param { number } mode - mode.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -580,7 +581,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
  * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -607,7 +608,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
  * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -636,7 +637,7 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  *
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -662,7 +663,7 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  *
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -692,7 +693,7 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
  * @param { number } [mode = 0] - mode.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -719,7 +720,7 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
  * @param { number } [mode = 0] - mode.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -920,7 +921,7 @@ declare function createStreamSync(path: string, mode: string): Stream;
  *
  * @param { string | File } file - file path, object.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { Promise<RandomAccessFile> } return Promise
+ * @returns { Promise<RandomAccessFile> } Returns the RandomAccessFile object which has been created in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -956,7 +957,7 @@ declare function createRandomAccessFile(file: string | File, mode?: number): Pro
  * Create class RandomAccessFile.
  *
  * @param { string | File } file - file path, object.
- * @param { AsyncCallback<RandomAccessFile> } [callback] - callback.
+ * @param { AsyncCallback<RandomAccessFile> } [callback] - The callback is used to return the RandomAccessFile object which has been created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -993,7 +994,7 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  *
  * @param { string | File } file - file path, object.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { AsyncCallback<RandomAccessFile> } [callback] - callback.
+ * @param { AsyncCallback<RandomAccessFile> } [callback] - The callback is used to return the RandomAccessFile object which has been created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1030,7 +1031,7 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  *
  * @param { string | File } file - file path, object.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { RandomAccessFile } createRandomAccessFile
+ * @returns { RandomAccessFile } Returns the RandomAccessFile object which has been created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1068,7 +1069,7 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number):
  * @param { string } path - path.
  * @param { number } events - listened events.
  * @param { WatchEventListener } listener - Callback to invoke when an event of the specified type occurs.
- * @returns { Watcher } Return watcher object.
+ * @returns { Watcher } Returns the Watcher object which has been created.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1088,10 +1089,27 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number):
 declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
 
 /**
+ * Duplicate fd to File Object.
+ *
+ * @param { number } fd - fd.
+ * @returns { File } return File
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function dup(fd: number): File;
+
+/**
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1106,7 +1124,7 @@ declare function createWatcher(path: string, events: number, listener: WatchEven
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1124,7 +1142,7 @@ declare function fdatasync(fd: number): Promise<void>;
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1139,7 +1157,7 @@ declare function fdatasync(fd: number): Promise<void>;
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1189,7 +1207,7 @@ declare function fdatasyncSync(fd: number): void;
  *
  * @param { number } fd - fd.
  * @param { string } mode - mode.
- * @returns { Promise<Stream> } return Promise
+ * @returns { Promise<Stream> } Returns the Stream object in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1227,7 +1245,7 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
  *
  * @param { number } fd - fd.
  * @param { string } mode - mode.
- * @param { AsyncCallback<Stream> } [callback] - callback.
+ * @param { AsyncCallback<Stream> } [callback] - The callback is used to return the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1265,7 +1283,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  *
  * @param { number } fd - fd.
  * @param { string } mode - mode.
- * @returns { Stream } open stream from fd
+ * @returns { Stream } Returns the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1302,7 +1320,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1317,7 +1335,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1335,7 +1353,7 @@ declare function fsync(fd: number): Promise<void>;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1350,7 +1368,7 @@ declare function fsync(fd: number): Promise<void>;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1400,7 +1418,8 @@ declare function fsyncSync(fd: number): void;
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @returns { Promise<string[]> } return Promise
+ * @returns { Promise<string[]> } Returns an Array containing the name of files or directories that meet the filter criteria in promise mode.
+ *      If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1414,7 +1433,8 @@ declare function fsyncSync(fd: number): void;
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @returns { Promise<string[]> } return Promise
+ * @returns { Promise<string[]> } Returns an Array containing the name of files or directories that meet the filter criteria.
+ *      If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1437,7 +1457,8 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - callback.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1450,7 +1471,8 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - callback.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1467,7 +1489,8 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - callback.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1481,7 +1504,8 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - callback.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1506,7 +1530,7 @@ declare function listFile(
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @returns { string[] } array of file name
+ * @returns { string[] } Returns an Array containing the name of files or directories that meet the filter criteria.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1520,7 +1544,7 @@ declare function listFile(
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @returns { string[] } array of file name
+ * @returns { string[] } Returns an Array containing the name of files or directories that meet the filter criteria.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1543,7 +1567,7 @@ declare function listFileSync(
  * Stat link file.
  *
  * @param { string } path - path.
- * @returns { Promise<Stat> } return Promise
+ * @returns { Promise<Stat> } Returns the Stat object in promise mode.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1563,7 +1587,7 @@ declare function lstat(path: string): Promise<Stat>;
  * Stat link file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<Stat> } [callback] - callback.
+ * @param { AsyncCallback<Stat> } [callback] - The callback is used to return the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1583,7 +1607,7 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * Stat link file with sync interface.
  *
  * @param { string } path - path.
- * @returns { Stat } lstat success
+ * @returns { Stat } Returns the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1603,7 +1627,7 @@ declare function lstatSync(path: string): Stat;
  * Make dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1626,7 +1650,7 @@ declare function lstatSync(path: string): Stat;
  * Make dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1652,7 +1676,7 @@ declare function mkdir(path: string): Promise<void>;
  * Make dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1675,7 +1699,7 @@ declare function mkdir(path: string): Promise<void>;
  * Make dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1748,7 +1772,7 @@ declare function mkdirSync(path: string): void;
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @returns { Promise<string> } return Promise
+ * @returns { Promise<string> } Returns the path to the new directory in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1771,7 +1795,7 @@ declare function mkdirSync(path: string): void;
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @returns { Promise<string> } return Promise
+ * @returns { Promise<string> } Returns the path to the new directory in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1797,7 +1821,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } [callback] - The callback is used to return the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1820,7 +1844,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } [callback] - The callback is used to return the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1846,7 +1870,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * Make temp dir with sync interface.
  *
  * @param { string } prefix - dir prefix.
- * @returns { string } directory name
+ * @returns { string } Returns the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1869,7 +1893,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * Make temp dir with sync interface.
  *
  * @param { string } prefix - dir prefix.
- * @returns { string } directory name
+ * @returns { string } Returns the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1897,7 +1921,7 @@ declare function mkdtempSync(prefix: string): string;
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1927,7 +1951,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1958,7 +1982,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } mode - move mode when duplicate file name exists.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1989,7 +2013,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2018,7 +2042,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2049,7 +2073,7 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2077,7 +2101,7 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2109,7 +2133,7 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2138,7 +2162,7 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2228,7 +2252,7 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { Promise<File> } return Promise
+ * @returns { Promise<File> } Returns the File object in Promise mode to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2263,7 +2287,7 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { Promise<File> } return Promise
+ * @returns { Promise<File> } Returns the File object in Promise mode to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2300,7 +2324,7 @@ declare function open(path: string, mode?: number): Promise<File>;
  * Open file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } [callback] - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2334,7 +2358,7 @@ declare function open(path: string, mode?: number): Promise<File>;
  * Open file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } [callback] - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2372,7 +2396,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } [callback] - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2407,7 +2431,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } [callback] - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2445,7 +2469,7 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { File } open fd
+ * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2480,7 +2504,7 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { File } open fd
+ * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2519,7 +2543,7 @@ declare function openSync(path: string, mode?: number): File;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2538,7 +2562,7 @@ declare function openSync(path: string, mode?: number): File;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2566,7 +2590,7 @@ declare function read(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2584,7 +2608,7 @@ declare function read(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2606,7 +2630,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2625,7 +2649,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2655,7 +2679,7 @@ declare function read(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } number of bytesRead
+ * @returns { number } Returns the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2674,7 +2698,7 @@ declare function read(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } number of bytesRead
+ * @returns { number } Returns the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2702,7 +2726,7 @@ declare function readSync(
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @returns { Promise<string> } return Promise
+ * @returns { Promise<string> } Returns the contents of the read file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2724,7 +2748,7 @@ declare function readSync(
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @returns { Promise<string> } return Promise
+ * @returns { Promise<string> } Returns the contents of the read file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2755,7 +2779,7 @@ declare function readText(
  * Read text.
  *
  * @param { string } filePath - file path.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } [callback] - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2776,7 +2800,7 @@ declare function readText(
  * Read text.
  *
  * @param { string } filePath - file path.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } [callback] - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2801,7 +2825,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } [callback] - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2823,7 +2847,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } [callback] - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2856,7 +2880,7 @@ declare function readText(
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @returns { string } readout result
+ * @returns { string } Returns the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2878,7 +2902,7 @@ declare function readText(
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @returns { string } readout result
+ * @returns { string } Returns the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2910,7 +2934,7 @@ declare function readTextSync(
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2938,7 +2962,7 @@ declare function readTextSync(
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2969,7 +2993,7 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Returns the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2997,7 +3021,7 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Returns the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3084,7 +3108,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * Delete dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3104,7 +3128,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * Delete dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3127,7 +3151,7 @@ declare function rmdir(path: string): Promise<void>;
  * Delete dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3147,7 +3171,7 @@ declare function rmdir(path: string): Promise<void>;
  * Delete dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3211,7 +3235,7 @@ declare function rmdirSync(path: string): void;
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Promise<Stat> } return Promise
+ * @returns { Promise<Stat> } Returns the Stat object in promise mode.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3232,7 +3256,7 @@ declare function rmdirSync(path: string): void;
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Promise<Stat> } return Promise
+ * @returns { Promise<Stat> } Returns the Stat object in promise mode.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3256,7 +3280,7 @@ declare function stat(file: string | number): Promise<Stat>;
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<Stat> } [callback] - callback.
+ * @param { AsyncCallback<Stat> } [callback] - The callback is used to return the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3277,7 +3301,7 @@ declare function stat(file: string | number): Promise<Stat>;
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<Stat> } [callback] - callback.
+ * @param { AsyncCallback<Stat> } [callback] - The callback is used to return the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3301,7 +3325,7 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * Get file information with sync interface.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Stat } stat success
+ * @returns { Stat } Returns the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3322,7 +3346,7 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * Get file information with sync interface.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Stat } stat success
+ * @returns { Stat } Returns the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3347,7 +3371,7 @@ declare function statSync(file: string | number): Stat;
  *
  * @param { string } target - target.
  * @param { string } srcPath - srcPath.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3372,7 +3396,7 @@ declare function symlink(target: string, srcPath: string): Promise<void>;
  *
  * @param { string } target - target.
  * @param { string } srcPath - srcPath.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3421,7 +3445,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3446,7 +3470,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3473,7 +3497,7 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
  * Truncate file.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3497,7 +3521,7 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
  * Truncate file.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3525,7 +3549,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3550,7 +3574,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3628,7 +3652,7 @@ declare function truncateSync(file: string | number, len?: number): void;
  * Delete file.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3651,7 +3675,7 @@ declare function truncateSync(file: string | number, len?: number): void;
  * Delete file.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3677,7 +3701,7 @@ declare function unlink(path: string): Promise<void>;
  * Delete file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3700,7 +3724,7 @@ declare function unlink(path: string): Promise<void>;
  * Delete file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } [callback] - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3775,7 +3799,7 @@ declare function unlinkSync(path: string): void;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3797,7 +3821,7 @@ declare function unlinkSync(path: string): void;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3829,7 +3853,7 @@ declare function write(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3850,7 +3874,7 @@ declare function write(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3875,7 +3899,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3897,7 +3921,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3931,7 +3955,7 @@ declare function write(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } on success number of bytesRead
+ * @returns { number } Returns the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3953,7 +3977,7 @@ declare function write(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } on success number of bytesRead
+ * @returns { number } Returns the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -4012,10 +4036,35 @@ declare interface File {
   readonly fd: number;
 
   /**
+   * File path
+   * 
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 14300002 - Invalid uri
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly path: string;
+
+  /**
+   * File name
+   * 
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly name: string;
+
+  /**
    * Lock file with blocking method.
    *
    * @param { boolean } exclusive - whether lock is exclusive.
-   * @returns { Promise<void> } return Promise
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4030,7 +4079,7 @@ declare interface File {
   /**
    * Lock file with blocking method.
    *
-   * @param { AsyncCallback<void> } callback - callback.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4046,7 +4095,7 @@ declare interface File {
    * Lock file with blocking method.
    *
    * @param { boolean } exclusive - whether lock is exclusive.
-   * @param { AsyncCallback<void> } callback - callback.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4150,7 +4199,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4179,7 +4228,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4202,7 +4251,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4227,12 +4276,13 @@ declare interface RandomAccessFile {
     },
     callback: AsyncCallback<number>
   ): void;
+
   /**
    * Write randomAccessFile with sync interface.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } on success number of bytes written
+   * @returns { number } Returns the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4261,7 +4311,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4286,7 +4336,7 @@ declare interface RandomAccessFile {
    * Read randomAccessFile.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4306,7 +4356,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4333,7 +4383,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } number of bytesRead
+   * @returns { number } Returns the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4522,7 +4572,7 @@ declare interface Stat {
   /**
    * Whether path/fd is block device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a block device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4531,7 +4581,7 @@ declare interface Stat {
   /**
    * Whether path/fd is block device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a block device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4542,7 +4592,7 @@ declare interface Stat {
   /**
    * Whether path/fd is character device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a character device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4551,7 +4601,7 @@ declare interface Stat {
   /**
    * Whether path/fd is character device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a character device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4562,7 +4612,7 @@ declare interface Stat {
   /**
    * Whether path/fd is directory.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a directory or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4571,7 +4621,7 @@ declare interface Stat {
   /**
    * Whether path/fd is directory.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a directory or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4582,7 +4632,7 @@ declare interface Stat {
   /**
    * Whether path/fd is fifo.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a fifo file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4591,7 +4641,7 @@ declare interface Stat {
   /**
    * Whether path/fd is fifo.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a fifo file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4602,7 +4652,7 @@ declare interface Stat {
   /**
    * Whether path/fd is file.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a normal file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4611,7 +4661,7 @@ declare interface Stat {
   /**
    * Whether path/fd is file.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a normal file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4622,7 +4672,7 @@ declare interface Stat {
   /**
    * Whether path/fd is socket.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a socket file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4631,7 +4681,7 @@ declare interface Stat {
   /**
    * Whether path/fd is socket.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a socket file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4642,7 +4692,7 @@ declare interface Stat {
   /**
    * Whether path/fd is symbolic link.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a symbolic link or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4651,7 +4701,7 @@ declare interface Stat {
   /**
    * Whether path/fd is symbolic link.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a symbolic link or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4672,7 +4722,7 @@ declare interface Stream {
   /**
    * Close stream.
    *
-   * @returns { Promise<void> } return Promise
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4687,7 +4737,7 @@ declare interface Stream {
   /**
    * Close stream.
    *
-   * @param { AsyncCallback<void> } [callback] - callback.
+   * @param { AsyncCallback<void> } [callback] - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4715,7 +4765,7 @@ declare interface Stream {
   /**
    * Flush stream.
    *
-   * @returns { Promise<void> } return Promise
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4736,7 +4786,7 @@ declare interface Stream {
   /**
    * Flush stream.
    *
-   * @param { AsyncCallback<void> } [callback] - callback.
+   * @param { AsyncCallback<void> } [callback] - Return the callback function.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4777,7 +4827,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of file bytes written to file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4806,7 +4856,7 @@ declare interface Stream {
    * Write stream.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4829,7 +4879,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4859,7 +4909,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } on success number of bytes written
+   * @returns { number } Returns the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4888,7 +4938,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4913,7 +4963,7 @@ declare interface Stream {
    * Read stream.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4933,7 +4983,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } [callback] - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4960,7 +5010,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } number of bytesRead
+   * @returns { number } Returns the number of file bytes read to file.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor

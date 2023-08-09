@@ -246,27 +246,11 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of the unselected font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set the unselected font color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of the unselected font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   popupUnselectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
-  /**
-   * Set the background color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of background.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * Set the background color of non-alphabetic part of the pop-up window.
    *
@@ -335,15 +319,6 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    */
   popupFont(value: Font): AlphabetIndexerAttribute;
 
-  /**
-   * Set the font style of non-alphabetic part of the prompt pop-up window.
-   * Family and style are not supported currently and will be fixed in future.
-   *
-   * @param { Font } value - indicates the style of the font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * Set the font style of non-alphabetic part of the prompt pop-up window.
    * Family and style are not supported currently and will be fixed in future.

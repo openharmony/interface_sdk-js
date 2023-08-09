@@ -42,6 +42,44 @@ declare enum SelectedMode {
 }
 
 /**
+ * Enum for the layout mode of the content in the tab bar.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum LayoutMode {
+
+  /**
+   * The the content is laid vertically or horizontally, according to its width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  AUTO = 0,
+  /**
+   * The the content is laid vertically
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  VERTICAL = 1,
+
+  /**
+   * The the content is laid horizontally
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  HORIZONTAL = 2
+}
+
+
+/**
  * Provide an interface for the style of an indicator including color, height, width, border radius
  * and margin top
  *
@@ -282,6 +320,17 @@ declare class SubTabBarStyle {
    * @since 10
    */
   labelStyle(value: LabelStyle): SubTabBarStyle;
+
+  /**
+   * Set the padding of the sub tab bar
+   *
+   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  padding(value: Padding | Dimension): SubTabBarStyle;
 }
 
 /**
@@ -329,6 +378,61 @@ declare class BottomTabBarStyle {
    * @since 10
    */
   static of(icon: ResourceStr, text: ResourceStr): BottomTabBarStyle;
+
+  /**
+   * Set the label style of the indicator
+   *
+   * @param { LabelStyle } value - indicates the label style of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  labelStyle(value: LabelStyle): BottomTabBarStyle;
+
+  /**
+   * Set the padding of the bottom tab bar
+   *
+   * @param { Padding | Dimension } value - indicates the padding of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  padding(value: Padding | Dimension): BottomTabBarStyle;
+
+  /**
+   * Set the layout mode of the bottom tab bar
+   *
+   * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  layoutMode(value: LayoutMode): BottomTabBarStyle;
+
+  /**
+   * Set the vertical alignment style of the bottom tab bar
+   *
+   * @param { VerticalAlign } value - indicates the vertical alignment of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  verticalAlign(value: VerticalAlign): BottomTabBarStyle;
+
+  /**
+   * Set the symmetric extensible of the bottom tab bar
+   *
+   * @param { boolean } value - indicates whether the bottom tab bar is extensible
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  symmetricExtensible(value: boolean): BottomTabBarStyle;
 }
 
 /**

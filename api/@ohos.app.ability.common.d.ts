@@ -14,6 +14,7 @@
  */
 
 import * as _UIAbilityContext from './application/UIAbilityContext';
+import type * as _UIExtensionContext from './application/UIExtensionContext';
 import * as _AbilityStageContext from './application/AbilityStageContext';
 import * as _ApplicationContext from './application/ApplicationContext';
 import * as _BaseContext from './application/BaseContext';
@@ -99,12 +100,14 @@ declare namespace common {
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
    * @since 9
    */
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
    * @crossplatform
    * @since 10
    */
@@ -194,6 +197,16 @@ declare namespace common {
    * @since 9
    */
   export type ConnectOptions = _ConnectOptions;
+
+  /**
+   * The context of UI extension. It allows access to
+   * UIExtension-specific resources.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  export type UIExtensionContext = _UIExtensionContext.default;
 }
 
 export default common;

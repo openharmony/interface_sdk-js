@@ -4379,12 +4379,6 @@ declare enum TextAlign {
    * Justify the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Justify the text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -4485,12 +4479,6 @@ declare enum TextOverflow {
    */
   Ellipsis,
 
-  /**
-   * When the text overflows its dimensions, the text will scroll for displaying.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * When the text overflows its dimensions, the text will scroll for displaying.
    *
@@ -5807,4 +5795,29 @@ declare enum RenderFit {
    * @since 10
    */
   RESIZE_COVER_BOTTOM_RIGHT = 15,
+}
+
+/**
+ * The Button Style of dialog,
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum DialogButtonStyle {
+  /**
+   * Default Style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  DEFAULT = 0,
+  
+  /**
+   * Highlight Style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  HIGHLIGHT = 1
 }

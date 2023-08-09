@@ -108,6 +108,42 @@ declare enum BarPosition {
 }
 
 /**
+ * Declare the layout style of the tab bar items.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum LayoutStyle {
+  /**
+   * The tab bar items are laid in the center of the tab bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  ALWAYS_CENTER = 0,
+  /**
+   * The tab bar items are laid in the tab bar by an average split.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  ALWAYS_AVERAGE_SPLIT = 1,
+  /**
+   * The tab bar items are laid in the center of the bar when their total length is more than half of the tab bar.
+   * Otherwise, they are laid in the center half of the tab bar with the same space between them. 
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  SPACE_BETWEEN_OR_CENTER = 2
+} 
+
+/**
  * @since 7
  */
 /**
@@ -239,6 +275,96 @@ interface DividerStyle {
 }
 
 /**
+ * Provides an interface for the grid column options of an tab bar including sm, md, lg, margin and gutter.
+ *
+ * @interface BarGridColumnOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+interface BarGridColumnOptions {
+  /**
+   * Define the occupied column number when the screen is of small size
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  sm?: number;
+
+  /**
+   * Define the occupied column number when the screen is of middle size
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  md?: number;
+
+  /**
+   * Define the occupied column number when the screen is of large size
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  lg?: number;
+
+  /**
+   * Define the margin size of the columns
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  margin?: Dimension;
+
+  /**
+   * Define the gutter size of the columns
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  gutter?: Dimension;
+}
+
+/**
+ * Provides an interface for the options for the scrollable bar mode including margin and nonScrollableLayoutStyle.
+ *
+ * @interface ScrollableBarModeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+interface ScrollableBarModeOptions {
+  /**
+   * Define the margin size of the bar items when the tab bar is scrollable.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  margin?: Dimension;
+
+  /**
+   * Define the layout style of the bar items when the tab bar is not scrollable.
+   *
+   * @type { ?LayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  nonScrollableLayoutStyle?: LayoutStyle;
+}
+
+/**
  * Defines the tabs attribute functions.
  *
  * @extends CommonMethod
@@ -312,6 +438,29 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   scrollable(value: boolean): TabsAttribute;
 
   /**
+   * Called when the graphic format of the bar chart is selected as fixed mode.
+   *
+   * @param { BarMode.Fixed } value
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  barMode(value: BarMode.Fixed): TabsAttribute;
+
+  /**
+   * Called when the graphic format of the bar chart is selected as scrollable mode.
+   *
+   * @param { BarMode.Scrollable } value
+   * @param { ScrollableBarModeOptions } [options] - options indicate the options for the scrollable bar mode
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  barMode(value: BarMode.Scrollable, options: ScrollableBarModeOptions): TabsAttribute;
+
+  /**
    * Called when the graphic format of the bar chart is selected.
    *
    * @param { BarMode } value
@@ -323,12 +472,13 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Called when the graphic format of the bar chart is selected.
    *
    * @param { BarMode } value
+   * @param { ScrollableBarModeOptions } [options] - options indicate the options for the scrollable bar mode
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  barMode(value: BarMode): TabsAttribute;
+  barMode(value: BarMode, options?: ScrollableBarModeOptions): TabsAttribute;
 
   /**
    * Called when the width of the bar graph is set.
@@ -411,6 +561,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onChange(event: (index: number) => void): TabsAttribute;
 
   /**
+   * Called when the tab is clicked.
+   *
+   * @param { function } event
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onTabBarClick(event: (index: number) => void): TabsAttribute;
+
+  /**
    * Set whether the edges of tab bar are fading.
    *
    * @param { boolean } value - indicates whether the edges of tab bar are fading.
@@ -451,6 +612,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 10
    */
   barBackgroundColor(value: ResourceColor): TabsAttribute;
+
+  /**
+   * Set the grid alignment options of the tab bar.
+   *
+   * @param { BarGridColumnOptions } value - indicates the bar grid alignment options.
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  barGridAlign(value: BarGridColumnOptions): TabsAttribute;
 }
 
 /**

@@ -159,6 +159,16 @@ declare interface CustomDialogControllerOptions {
   maskColor?: ResourceColor;
 
   /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
+
+  /**
    * Animation parameters of dialog opening.
    *
    * @type { ?AnimateParam }
@@ -187,6 +197,27 @@ declare interface CustomDialogControllerOptions {
    * @since 10
    */
   showInSubWindow?: boolean;
+
+  /**
+   * Background color of dialog.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  backgroundColor?: ResourceColor;
+ 
+  /**
+   * Corner radius of dialog.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  cornerRadius?: Dimension | BorderRadiuses;
+
 }
 
 /**

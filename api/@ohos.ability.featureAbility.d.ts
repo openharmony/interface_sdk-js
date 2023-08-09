@@ -109,8 +109,7 @@ declare namespace featureAbility {
   function startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>;
 
   /**
-   * Sets the result code and data to be returned by this Page ability to the caller
-   * and destroys this Page ability.
+   * Destroys the Page ability while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - Return the result of stopping Ability in the form of callback.
@@ -121,8 +120,7 @@ declare namespace featureAbility {
   function terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result code and data to be returned by this Page ability to the caller
-   * and destroys this Page ability.
+   * Destroys the Page ability while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } the promise returned by the function.

@@ -28,6 +28,7 @@ declare enum SizeType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Auto,
 
@@ -36,6 +37,7 @@ declare enum SizeType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   XS,
 
@@ -44,6 +46,7 @@ declare enum SizeType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   SM,
 
@@ -52,6 +55,7 @@ declare enum SizeType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   MD,
 
@@ -60,6 +64,7 @@ declare enum SizeType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   LG,
 }
@@ -128,8 +133,9 @@ interface GridContainerInterface {
   /**
    * Defines the constructor of GridContainer.
    *
-   * @param { ?GridContainerOptions } value
+   * @param { GridContainerOptions } value
    * @returns { GridContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    */

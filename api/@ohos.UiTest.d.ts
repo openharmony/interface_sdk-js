@@ -1086,7 +1086,7 @@ declare class On {
    * @since 9
    * @test
    */
-   /**
+  /**
    * Specifies the id of the target Component.
    *
    * @param { string } id The id value.
@@ -1178,7 +1178,7 @@ declare class On {
    * @since 9
    * @test
    */
-   /**
+  /**
    * Specifies the scrollable status of the target Component.
    *
    * @param { boolean } b The scrollable status,default to true.
@@ -1201,7 +1201,7 @@ declare class On {
    * @since 9
    * @test
    */
-   /**
+  /**
    * Specifies the enabled status of the target Component.
    *
    * @param { boolean } b The enabled status,default to true.

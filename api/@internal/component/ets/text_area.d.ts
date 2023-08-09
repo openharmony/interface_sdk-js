@@ -593,6 +593,16 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 10
    */
   maxLines(value: number): TextAreaAttribute;
+
+  /**
+   * Define custom keyboard of the text area.
+   *
+   * @param { CustomBuilder } value
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  customKeyboard(value: CustomBuilder): TextAreaAttribute;
 }
 
 /**

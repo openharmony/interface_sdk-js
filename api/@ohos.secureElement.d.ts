@@ -12,11 +12,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides APIs for mobile applications to access different SEs in mobile devices, such as SIMs or embedded SEs.
  * See "Open Mobile API Specification".
+ *
+ * @namespace omapi
+ * @since 10
  */
 declare namespace omapi {
   /**
@@ -24,7 +28,9 @@ declare namespace omapi {
    * The connection process can be quite long, so it happens in an asynchronous way. It is usable only
    * if the specified callback is called or if isConnected() returns true.
    *
-   * @param { AsyncCallback<SEService> } callback - The callback to return the service.
+   * @param { 'serviceState' } type nfc serviceState
+   * @param { Callback<ServiceState> } callback - The callback to return the service.
+   * @returns { SEService } The new SEService instance.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
@@ -34,6 +40,10 @@ declare namespace omapi {
 
   /**
    * SEService realizes the communication to available SEs on the device.
+   * 
+   * @typedef SEService
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 10
    */
   export interface SEService {
     /**
@@ -79,11 +89,15 @@ declare namespace omapi {
 
   /**
    * Reader represents the SE readers supported by this device.
+   * 
+   * @typedef Reader
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 10
    */
   export interface Reader {
     /**
      * Returns the name of this reader.
-     * If this reader is a SIM reader, then its name must be "SIM[Slot]".
+     * If this reader is a SIM reader, then its name must be "SIM[slot]".
      * If the reader is an embedded SE reader, then its name must be "eSE[slot]".
      *
      * @returns { string } The reader name, as a String.
@@ -133,6 +147,10 @@ declare namespace omapi {
    * Session represent a connection session to one of the SEs available on the device. These objects
    * can be used to get a communication channel with an applet in the SE. This channel can be the basic channel
    * or a logical channel.
+   *
+   * @typedef Session
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 10
    */
   export interface Session {
     /**
@@ -193,8 +211,7 @@ declare namespace omapi {
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
      * or Null if no applet is to be selected.
-     * @returns { Channel } An instance of channel if available. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -212,8 +229,7 @@ declare namespace omapi {
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
      * or Null if no applet is to be selected.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -228,20 +244,17 @@ declare namespace omapi {
     /**
      * Get access to the basic channel, as defined in [ISO 7816-4] (the one that has number 0). The obtained object
      * is an instance of the channel class.
-     *
      * Once this channel has been opened by a device application, it is considered as ‘locked’ by this device
      * application, and other calls to this method SHALL return Null, until the channel is closed.
      * Some SE plug-ins, such as those handling UICC, may prevent the use of the Basic Channel. In these cases,
      * a Null value SHALL be returned.
-     *
      * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
      * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
      * or Null if no applet is to be selected.
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @returns { Channel } An instance of channel if available. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -256,20 +269,17 @@ declare namespace omapi {
     /**
      * Get access to the basic channel, as defined in [ISO 7816-4] (the one that has number 0). The obtained object
      * is an instance of the channel class.
-     *
      * Once this channel has been opened by a device application, it is considered as ‘locked’ by this device
      * application, and other calls to this method SHALL return Null, until the channel is closed.
      * Some SE plug-ins, such as those handling UICC, may prevent the use of the Basic Channel. In these cases,
      * a Null value SHALL be returned.
-     *
      * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
      * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
      * or Null if no applet is to be selected.
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -286,8 +296,8 @@ declare namespace omapi {
      * existing applications. This method is equivalent to openLogicalChannel(aid, P2=0x00).
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
-     * @returns { Channel } An instance of channel if available. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @returns {  Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
+     * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -304,8 +314,8 @@ declare namespace omapi {
      * existing applications. This method is equivalent to openLogicalChannel(aid, P2=0x00).
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
+     * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -320,20 +330,17 @@ declare namespace omapi {
     /**
      * Open a logical channel with the SE, selecting the applet represented by the given AID (when the AID is not
      * Null and the length of the AID is not 0).
-     *
      * If the length of the AID is 0, the method will select the Issuer Security Domain of the SE by sending a SELECT
      * command with 0 length AID as defined in [GPCS].
-     *
      * If the AID is Null, the method SHALL only send a MANAGE CHANNEL Open and SHALL NOT send a
      * SELECT command. In this case, the default applet associated to the logical channel will be selected by default.
-     *
      * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
      * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @returns { Channel } An instance of channel if available. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
+     * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -348,20 +355,16 @@ declare namespace omapi {
     /**
      * Open a logical channel with the SE, selecting the applet represented by the given AID (when the AID is not
      * Null and the length of the AID is not 0).
-     *
      * If the length of the AID is 0, the method will select the Issuer Security Domain of the SE by sending a SELECT
      * command with 0 length AID as defined in [GPCS].
-     *
      * If the AID is Null, the method SHALL only send a MANAGE CHANNEL Open and SHALL NOT send a
      * SELECT command. In this case, the default applet associated to the logical channel will be selected by default.
-     *
      * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
      * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
      *
      * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
      * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the instance of channel. Null if the SE is unable to provide
-     * a new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
+     * @param { AsyncCallback<Channel> } callback - The callback to return the instance of channel. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -376,6 +379,10 @@ declare namespace omapi {
 
   /**
    * Channel represents an [ISO 7816-4] channel opened to a SE. It can be either a logical channel or the basic channel.
+   * 
+   * @typedef Channel
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 10
    */
   export interface Channel {
     /**
@@ -433,7 +440,7 @@ declare namespace omapi {
      * Transmit an APDU command (as per ISO/IEC 7816) to the SE.
      *
      * @param { number[] } command - The APDU command to be transmitted, as a byte array.
-     * @returns { number[] } The response received, as a byte array.
+     * @returns { Promise<number[]> } The response received, as a byte array.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -448,7 +455,7 @@ declare namespace omapi {
      * Transmit an APDU command (as per ISO/IEC 7816) to the SE.
      *
      * @param { number[] } command - The APDU command to be transmitted, as a byte array.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the response received, as a byte array.
+     * @param { AsyncCallback<number[]> } callback - The callback to return the response received, as a byte array.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - Illegal service state exception.
@@ -463,15 +470,26 @@ declare namespace omapi {
   /**
    * Secure Element service state definition.
    *
+   * @enum { number }
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10
    */
   enum ServiceState {
-    /** service disconnected */
+    /**
+     * Service is disconnected.
+     *
+     * @syscap SystemCapability.Communication.SecureElement
+     * @since 10
+     */
     DISCONNECTED = 0,
 
-    /** service connected */
-    CONNECTED = 1,
+    /**
+     * Service is connected.
+     *
+     * @syscap SystemCapability.Communication.SecureElement
+     * @since 10
+     */
+    CONNECTED = 1
   }
 }
 export default omapi;

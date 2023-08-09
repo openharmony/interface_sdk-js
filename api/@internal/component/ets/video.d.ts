@@ -634,6 +634,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onFullscreenChange(callback: (event?: {
     /**
      * Play the flag in full screen.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -660,6 +662,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onPrepared(callback: (event?: {
     /**
      * Playback duration.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -686,6 +690,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onSeeking(callback: (event?: {
     /**
      * Play time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -712,6 +718,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onSeeked(callback: (event?: {
     /**
      * Play time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -738,6 +746,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onUpdate(callback: (event?: {
     /**
      * Play time.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
