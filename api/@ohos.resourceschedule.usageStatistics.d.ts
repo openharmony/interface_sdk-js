@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022  Huawei Device Co., Ltd.
+ * Copyright (c) 2023  Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -518,7 +518,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   function isIdleStateSync(bundleName: string): boolean;
 
@@ -589,7 +589,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   function queryAppGroupSync(): number;
 
@@ -666,7 +666,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   function queryAppGroupSync(bundleName: string): number;
 
