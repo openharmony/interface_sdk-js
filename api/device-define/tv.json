@@ -1,6 +1,5 @@
 {
   "SysCaps": [
-    "SystemCapability.Applications.CalendarData",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
@@ -154,6 +153,7 @@
     "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
+    "SystemCapability.Applications.CalendarData",
     "SystemCapability.Applications.settings.Core",
     "SystemCapability.Cloud.AAID",
     "SystemCapability.Cloud.OAID",
