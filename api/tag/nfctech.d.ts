@@ -12,25 +12,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import tag from '../@ohos.nfc.tag';
 import { TagSession } from './tagSession';
-import { AsyncCallback, Callback } from '../basic';
+import { AsyncCallback, Callback } from '../@ohos.base';
 
 /**
  * Provides interfaces to control the read and write of tags that support the NFC-A technology.
- *
  * <p>This class is inherited from the {@link TagSession} abstract class, and provides methods to create
  * {@code NfcATag} objects and obtain the ATQA and SAK.
  *
+ * @typedef NfcATag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface NfcATag extends TagSession {
   /**
    * Obtains the SAK of an NFC-A tag.
    *
-   * @return Returns the SAK of the NFC-A tag.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number } Returns the SAK of the NFC-A tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getSak(): number;
@@ -38,9 +39,8 @@ export interface NfcATag extends TagSession {
   /**
    * Obtains the ATQA of an NFC-A tag.
    *
-   * @return Returns the ATQA of the NFC-A tag.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number[] } Returns the ATQA of the NFC-A tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getAtqa(): number[];
@@ -48,20 +48,19 @@ export interface NfcATag extends TagSession {
 
 /**
  * Provides interfaces to create an {@code NfcBTag} and perform I/O operations on the tag.
- *
  * <p>This class inherits from the {@link TagSession} abstract class and provides interfaces to create an
  * {@code NfcBTag} and obtain the tag information.
  *
+ * @typedef NfcBTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface NfcBTag extends TagSession {
   /**
    * Obtains the application data of a tag.
    *
-   * @return Returns the application data of the tag.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number[] } Returns the application data of the tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getRespAppData(): number[];
@@ -69,9 +68,8 @@ export interface NfcBTag extends TagSession {
   /**
    * Obtains the protocol information of a tag.
    *
-   * @return Returns the protocol information of the tag.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number[] } Returns the protocol information of the tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getRespProtocol(): number[];
@@ -79,20 +77,19 @@ export interface NfcBTag extends TagSession {
 
 /**
  * Provides methods for creating an NFC-F tag, obtaining tag information, and controlling tag read and write.
- *
  * <p>This class inherits from the {@link TagSession} abstract class and provides interfaces to create an
  * {@code NfcFTag} and obtain the tag information.
  *
+ * @typedef NfcFTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface NfcFTag extends TagSession {
   /**
    * Obtains the system code from this {@code NfcFTag} instance.
    *
-   * @return Returns the system code.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number[] } Returns the system code.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getSystemCode(): number[];
@@ -100,9 +97,8 @@ export interface NfcFTag extends TagSession {
   /**
    * Obtains the PMm (consisting of the IC code and manufacturer parameters) from this {@code NfcFTag} instance.
    *
-   * @return Returns the PMm.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number[] } Returns the PMm.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getPmm(): number[];
@@ -110,20 +106,19 @@ export interface NfcFTag extends TagSession {
 
 /**
  * Provides methods for creating an NFC-V tag, obtaining tag information, and controlling tag read and write.
- *
  * <p>This class inherits from the {@link TagSession} abstract class and provides interfaces to create an
  * {@code NfcVTag} and obtain the tag information.
  *
+ * @typedef NfcVTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface NfcVTag extends TagSession {
   /**
    * Obtains the response flags from this {@code NfcVTag} instance.
    *
-   * @return Returns the response flags.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number } Returns the response flags.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getResponseFlags(): number;
@@ -131,9 +126,8 @@ export interface NfcVTag extends TagSession {
   /**
    * Obtains the data storage format identifier (DSFID) from this {@code NfcVTag} instance.
    *
-   * @return Returns the DSFID.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @returns { number } Returns the DSFID.
+   * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
   getDsfId(): number;
@@ -142,538 +136,629 @@ export interface NfcVTag extends TagSession {
 /**
  * Provides methods for accessing IsoDep tag.
  *
+ * @typedef IsoDepTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface IsoDepTag extends TagSession {
- /**
-  * Get Historical bytes of the tag.
-  * @return the Historical bytes.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  getHistoricalBytes(): string;
+  /**
+   * Gets IsoDep Historical bytes of the tag, which is based on NfcA RF technology.
+   * It could be null if not based on NfcA.
+   *
+   * @returns { number[] } Returns the Historical bytes, the length could be 0.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  getHistoricalBytes(): number[];
 
- /**
-  * Get HiLayerResponse bytes of the tag.
-  * @return HiLayerResponse bytes
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  getHiLayerResponse(): string;
+  /**
+   * Gets IsoDep HiLayer Response bytes of the tag, which is based on NfcB RF technology.
+   * It could be null if not based on NfcB.
+   *
+   * @returns { number[] } Returns HiLayer Response bytes, the length could be 0.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  getHiLayerResponse(): number[];
 
- /**
-  * Check if externded apdu length supported or not.
-  * @return return true if externded apdu length supported, otherwise false.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Checks if extended apdu length supported or not.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { Promise<boolean> } Returns true if extended apdu length supported, otherwise false.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   isExtendedApduSupported(): Promise<boolean>;
+
+  /**
+   * Checks if extended apdu length supported or not.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { AsyncCallback<boolean> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   isExtendedApduSupported(callback: AsyncCallback<boolean>): void;
 }
 
-/**
- * NDEF records definition, see NFCForum-TS-NDEF_1.0.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export interface NdefRecord {
-  /** tnf of NdefRecord */
-  tnf: number;
-
-   /** RTD type of NdefRecord */
-  rtdType: string;
-
-   /** id of NdefRecord */
-  id: string;
-
-   /** payload of NdefRecord */
-  payload: string;
-}
-
-/**
- * TNF types definitions, see NFCForum-TS-NDEF_1.0.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export enum TnfType {
-  /** Empty */
-  TNF_EMPTY = 0x0,
-
-  /** NFC Forum well-known type [NFC RTD] */
-  TNF_WELL_KNOWN = 0x1,
-
-  /** Media-type as defined in RFC 2046 [RFC 2046] */
-  TNF_MEDIA = 0x2,
-
-  /** Absolute URI as defined in RFC 3986 [RFC 3986] */
-  TNF_ABSOLUTE_URI = 0x3,
-
-  /** NFC Forum external type [NFC RTD] */
-  TNF_EXT_APP = 0x4,
-
-  /** Unknown */
-  TNF_UNKNOWN = 0x5,
-
-  /** Unchanged (see section 2.3.3) */
-  TNF_UNCHANGED = 0x6,
-}
-
-/**
- * RTD types definitions, see NFC Record Type Definition (RTD) Specification.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
- export interface RtdType {
-  /** RTD type text */
-  RTD_TEXT: 'T';
-
-  /** RTD type URI */
-  RTD_URI: 'U';
-}
-
 export interface NdefMessage {
- /**
-  * Get all records of a ndef message.
-  * @return record list of a ndef message
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  getNdefRecords(): NdefRecord[];
-
- /**
-  * Create a ndef record with uri data.
-  * @param uri uri data for new a ndef record
-  * @return the instance of NdefRecord
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  makeUriRecord(uri: string): NdefMessage;
-
- /**
-  * Create a ndef record with text data.
-  * @param text text data for new a ndef record
-  * @param locale language code for the ndef record. if locale is null, use default locale
-  * @return the instance of NdefRecord
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  makeTextRecord(text: string, locale: string): NdefMessage;
-
- /**
-  * Create a ndef record with mime data.
-  * @param mimeType type of mime data for new a ndef record
-  * @param mimeData mime data for new a ndef record
-  * @return the instance of NdefRecord
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  makeMimeRecord(mimeType: string, mimeData: string): NdefMessage;
-
- /**
-  * Create a ndef record with external data.
-  * @param domainName domain name of issuing organization for the external data
-  * @param serviceName domain specific type of data for the external data
-  * @param externalData data payload of a ndef record
-  * @return the instance of NdefRecord
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  makeExternalRecord(domainName: string, serviceName: string, externalData: string): NdefMessage;
-
- /**
-  * Parse a ndef message into raw bytes.
-  * @param ndefMessage a ndef message to parse
-  * @return raw bytes of a ndef message
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  messageToString(ndefMessage: NdefMessage): string;
-}
-
-/**
- * NfcForum Type definition. The Ndef tag may use one of them.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
- export enum NfcForumType {
-  /** NFC FORUM TYPE 1 */
-  NFC_FORUM_TYPE_1 = 1,
-
-  /** NFC FORUM TYPE 2 */
-  NFC_FORUM_TYPE_2 = 2,
-
-  /** NFC FORUM TYPE 3 */
-  NFC_FORUM_TYPE_3 = 3,
-
-  /** NFC FORUM TYPE 4 */
-  NFC_FORUM_TYPE_4 = 4,
-
-  /** Mifare Classic */
-  MIFARE_CLASSIC = 101,
+  /**
+   * Obtains all records of an NDEF message.
+   *
+   * @returns { tag.NdefRecord[] } Records the list of NDEF records.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  getNdefRecords(): tag.NdefRecord[];
 }
 
 /**
  * Provides methods for accessing NDEF tag.
  *
+ * @typedef NdefTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface NdefTag extends TagSession {
- /**
-  * Create a ndef message with raw bytes.
-  * @param data raw bytes to parse ndef message
-  * @return the instance of NdefMessage
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  createNdefMessage(data: string): NdefMessage;
+  /**
+   * Gets the type of NDEF tag.
+   *
+   * @returns { tag.NfcForumType } The type of NDEF tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  getNdefTagType(): tag.NfcForumType;
 
- /**
-  * Create a ndef message with record list.
-  * @param ndefRecords record list to parse ndef message
-  * @return the instance of NdefMessage
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  createNdefMessage(ndefRecords: NdefRecord[]): NdefMessage;
-
- /**
-  * Get the type of the Ndef tag.
-  * @return type of Ndef tag.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  getNdefTagType(): NfcForumType;
-
- /**
-  * Get the ndef message that was read from ndef tag when tag discovery.
-  * @return ndef message.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Gets the NDEF message that was read from NDEF tag when tag discovery.
+   *
+   * @returns { NdefMessage } The instance of NdefMessage.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   getNdefMessage(): NdefMessage;
 
- /**
-  * Check if ndef tag is writable.
-  * @return return true if the tag is writable, otherwise return false.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  isNdefWritable(): Promise<boolean>;
-  isNdefWritable(callback: AsyncCallback<boolean>): void;
+  /**
+   * Checks if NDEF tag is writable.
+   *
+   * @returns { boolean } Returns true if the tag is writable, otherwise returns false.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  isNdefWritable(): boolean;
 
- /**
-  * Read ndef message on this tag.
-  * @return ndef message in tag.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Reads NDEF message on this tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { Promise<NdefMessage> } The NDEF message in tag.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   readNdef(): Promise<NdefMessage>;
+
+  /**
+   * Reads NDEF message on this tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { AsyncCallback<NdefMessage> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   readNdef(callback: AsyncCallback<NdefMessage>): void;
 
- /**
-  * Write ndef message into this tag.
-  * @param msg ndef message to write
-  * @return Error code of write. if return 0, means successful.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  writeNdef(msg: NdefMessage): Promise<number>;
-  writeNdef(msg: NdefMessage, callback: AsyncCallback<number>): void;
+  /**
+   * Writes NDEF message into this tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } msg - The NDEF message to be written.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  writeNdef(msg: NdefMessage): Promise<void>;
 
- /**
-  * Check ndef tag can be set read-only
-  * @return return true if the tag can be set readonly, otherwise return false.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  canSetReadOnly(): Promise<boolean>;
-  canSetReadOnly(callback: AsyncCallback<boolean>): void;
+  /**
+   * Writes NDEF message into this tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } msg - The NDEF message to be written.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  writeNdef(msg: NdefMessage, callback: AsyncCallback<void>): void;
 
- /**
-  * Set ndef tag read-only
-  * @return if return 0 means successful, otherwise the error code.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  setReadOnly(): Promise<number>;
-  setReadOnly(callback: AsyncCallback<number>): void;
+  /**
+   * Checks NDEF tag can be set read-only.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { boolean } Returns true if the tag can be set readonly, otherwise returns false.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  canSetReadOnly(): boolean;
 
- /**
-  * Convert the Nfc forum type into byte array defined in Nfc forum.
-  * @param type Nfc forum type of ndef tag
-  * @return Nfc forum type byte array
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  getNdefTagTypeString(type: NfcForumType): string;
-}
+  /**
+   * Sets the NDEF tag read-only.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  setReadOnly(): Promise<void>;
 
-/**
- * MifareClassic Type definition
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export enum MifareClassicType {
-  /** Mifare Type unknown */
-  TYPE_UNKNOWN = -1,
+  /**
+   * Sets the NDEF tag read-only.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  setReadOnly(callback: AsyncCallback<void>): void;
 
-  /** Mifare Classic */
-  TYPE_CLASSIC = 0,
-
-  /** Mifare Plus */
-  TYPE_PLUS = 1,
-
-  /** Mifare Pro */
-  TYPE_PRO = 2,
-}
-
-/**
- * MifareClassic Tag size.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export enum MifareTagSize {
-  /** 5 sectors per tag, 4 blocks per sector */
-  MC_SIZE_MINI = 320,
-
-  /** 16 sectors per tag, 4 blocks per sector */
-  MC_SIZE_1K = 1024,
-
-  /** 32 sectors per tag, 4 blocks per sector */
-  MC_SIZE_2K = 2048,
-
-  /** 40 sectors per tag, 4 blocks per sector */
-  MC_SIZE_4K = 4096,
+  /**
+   * Converts the NFC forum type into string defined in NFC forum.
+   *
+   * @param { tag.NfcForumType } type - NFC forum type of NDEF tag.
+   * @returns { string } The NFC forum string type.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  getNdefTagTypeString(type: tag.NfcForumType): string;
 }
 
 /**
  * Provides methods for accessing MifareClassic tag.
  *
+ * @typedef MifareClassicTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface MifareClassicTag extends TagSession {
- /**
-  * Authenticate a sector with the key.Only successful authentication sector can be operated.
-  * @param sectorIndex Index of sector to authenticate
-  * @param key key(6-bytes) to authenticate
-  * @param isKeyA KeyA flag. true means KeyA, otherwise KeyB
-  * @return Result of authenticattion. if return ture, means successful.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise<boolean>;
-  authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback: AsyncCallback<boolean>): void;
+  /**
+   * Authenticates a sector with the key.Only successful authentication sector can be operated.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } sectorIndex - Index of sector to authenticate.
+   * @param { number[] } key - The key(6-bytes) to authenticate.
+   * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise<void>;
 
- /**
-  * Read a block, one block size is 16 bytes.
-  * @param blockIndex index of block to read
-  * @return the block data
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  readSingleBlock(blockIndex: number): Promise<string>;
-  readSingleBlock(blockIndex: number, callback: AsyncCallback<string>): void;
+  /**
+   * Authenticates a sector with the key.Only successful authentication sector can be operated.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } sectorIndex - Index of sector to authenticate.
+   * @param { number[] } key - The key(6-bytes) to authenticate.
+   * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback: AsyncCallback<void>): void;
 
- /**
-  * Write a block, one block size is 16 bytes.
-  * @param blockIndex index of block to write
-  * @param data block data to write
-  * @return Error code of write. if return 0, means successful.
-  * @since 9
-  * @permission ohos.pemission.NFC_TAG
-  */
-  writeSingleBlock(blockIndex: number, data: string): Promise<number>;
-  writeSingleBlock(blockIndex: number, data: string, callback: AsyncCallback<number>): void;
+  /**
+   * Reads a block, one block size is 16 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to read.
+   * @returns { Promise<number[]> } Returns the block data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  readSingleBlock(blockIndex: number): Promise<number[]>;
 
- /**
-  * Increment a value block
-  * @param blockIndex index of block to increment
-  * @param value value to increment, none-negative
-  * @return Error code of increment. if return 0, means successful.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  incrementBlock(blockIndex: number, value: number): Promise<number>;
-  incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<number>): void;
+  /**
+   * Reads a block, one block size is 16 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to read.
+   * @param { AsyncCallback<number[]> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  readSingleBlock(blockIndex: number, callback: AsyncCallback<number[]>): void;
 
- /**
-  * Decrement a value block
-  * @param blockIndex index of block to decrement
-  * @param value value to increment, none-negative
-  * @return Error code of decrement. if return 0, means successful.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  decrementBlock(blockIndex: number, value: number): Promise<number>;
-  decrementBlock(blockIndex: number, value: number, callback: AsyncCallback<number>): void;
+  /**
+   * Writes a block, one block size is 16 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to write.
+   * @param { number[] } data - The block data to write.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  writeSingleBlock(blockIndex: number, data: number[]): Promise<void>;
 
- /**
-  * Copy from the value of register to the value block
-  * @param blockIndex index of value block to copy to
-  * @return if return 0, means successful. otherwise the error code
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  transferToBlock(blockIndex: number): Promise<number>;
-  transferToBlock(blockIndex: number, callback: AsyncCallback<number>): void;
+  /**
+   * Writes a block, one block size is 16 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to write.
+   * @param { number[] } data - The block data to write.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback<void>): void;
 
- /**
-  * Copy from the value block to the register
-  * @param blockIndex index of value block to copy from
-  * @return if return 0, means successful. otherwise the error code
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  restoreFromBlock(blockIndex: number): Promise<number>;
-  restoreFromBlock(blockIndex: number, callback: AsyncCallback<number>): void;
+  /**
+   * Increments the contents of a block, and stores the result in the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to increment.
+   * @param { number } value - The value to increment, none-negative.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  incrementBlock(blockIndex: number, value: number): Promise<void>;
 
- /**
-  * Get the number of sectors in mifareclassic tag
-  * @return the number of sectors.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Increments the contents of a block, and stores the result in the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to increment.
+   * @param { number } value - The value to increment, none-negative.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Decreases the contents of a block, and stores the result in the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to decrease.
+   * @param { number } value - The value to decrease, none-negative.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  decrementBlock(blockIndex: number, value: number): Promise<void>;
+
+  /**
+   * Decreases the contents of a block, and stores the result in the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to decrease.
+   * @param { number } value - The value to decrease, none-negative.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  decrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Writes the contents of the internal transfer buffer to a value block.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of value block to be written.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  transferToBlock(blockIndex: number): Promise<void>;
+
+  /**
+   * Writes the contents of the internal transfer buffer to a value block.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of value block to be written.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  transferToBlock(blockIndex: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Moves the contents of a block into the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of value block to be moved from.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  restoreFromBlock(blockIndex: number): Promise<void>;
+
+  /**
+   * Moves the contents of a block into the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of value block to be moved from.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  restoreFromBlock(blockIndex: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Gets the number of sectors in MifareClassic tag.
+   *
+   * @returns { number } Returns the number of sectors.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   getSectorCount(): number;
 
- /**
-  * Get the number of blocks in the sector.
-  * @param sectorIndex index of sector
-  * @return the number of blocks.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Gets the number of blocks in the sector.
+   *
+   * @param { number } sectorIndex - The index of sector.
+   * @returns { number } Returns the number of blocks.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   getBlockCountInSector(sectorIndex: number): number;
 
- /**
-  * Get the type of the MifareClassic tag.
-  * @return type of MifareClassic tag.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  getType(): MifareClassicType;
+  /**
+   * Gets the type of the MifareClassic tag.
+   *
+   * @returns { tag.MifareClassicType } Returns type of MifareClassic tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  getType(): tag.MifareClassicType;
 
- /**
-  * Get size of the tag in bytes, see {@code MifareTagSize}.
-  * @return size of the tag
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Gets size of the tag in bytes.
+   *
+   * @returns { number } Returns the size of the tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   getTagSize(): number;
 
- /**
-  * check if if tag is emulated
-  * @return return true if tag is emulated, otherwise return false.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Checks if the tag is emulated or not.
+   *
+   * @returns { boolean } Returns true if tag is emulated, otherwise false.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   isEmulatedTag(): boolean;
 
- /**
-  * Get the first block of the specific sector.
-  * @param sectorIndex index of sector
-  * @return index of first block in the sector
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Gets the first block of the specific sector.
+   *
+   * @param { number } sectorIndex - The index of sector.
+   * @returns { number } Returns index of first block in the sector.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   getBlockIndex(sectorIndex: number): number;
 
- /**
-  * Get the sector index, that the sector contains the specific block.
-  * @param blockIndex index of block
-  * @return the sector index
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
+  /**
+   * Gets the sector index, that the sector contains the specific block.
+   *
+   * @param { number } blockIndex - The index of block.
+   * @returns { number } Returns the sector index.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   getSectorIndex(blockIndex: number): number;
-}
-
-/**
- * MifareUltralight Type definition
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
- export enum MifareUltralightType {
-  /** Mifare Type unknown */
-  TYPE_UNKOWN = -1,
-
-  /** Mifare Ultralight */
-  TYPE_ULTRALIGHT = 1,
-
-  /** Mifare UltralightC */
-  TYPE_ULTRALIGHT_C = 2
 }
 
 /**
  * Provides methods for accessing MifareUltralight tag.
  *
+ * @typedef MifareUltralightTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface MifareUltralightTag extends TagSession {
- /**
-  * Read 4 pages, total is 16 bytes. page size is 4bytes.
-  * @param pageIndex index of page to read
-  * @return 4 pages data
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  readMultiplePages(pageIndex: number): Promise<string>;
-  readMultiplePages(pageIndex: number, callback: AsyncCallback<string>): void;
-
- /**
-  * Write a page, total 4 bytes.
-  * @param pageIndex index of page to write
-  * @param data page data to write
-  * @return Error code of write. if return 0, means successful.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  writeSinglePages(pageIndex: number, data: string): Promise<number>;
-  writeSinglePages(pageIndex: number, data: string, callback: AsyncCallback<number>): void;
+  /**
+   * Reads 4 pages, total is 16 bytes. Page size is 4 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } pageIndex - The index of page to read.
+   * @returns { Promise<number[]> } Returns 4 pages data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  readMultiplePages(pageIndex: number): Promise<number[]>;
 
   /**
-  * Get the type of the MifareUltralight tag in bytes.
-  * @return type of MifareUltralight tag.
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  getType(): MifareUltralightType;
+   * Reads 4 pages, total is 16 bytes. Page size is 4 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } pageIndex - The index of page to read.
+   * @param { AsyncCallback<number[]> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  readMultiplePages(pageIndex: number, callback: AsyncCallback<number[]>): void;
+
+  /**
+   * Writes a page, total 4 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } pageIndex - The index of page to write.
+   * @param { number[] } data - The page data to write.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  writeSinglePage(pageIndex: number, data: number[]): Promise<void>;
+
+  /**
+   * Writes a page, total 4 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } pageIndex - The index of page to write.
+   * @param { number[] } data - The page data to write.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  writeSinglePage(pageIndex: number, data: number[], callback: AsyncCallback<void>): void;
+
+  /**
+   * Gets the type of the MifareUltralight tag.
+   *
+   * @returns { tag.MifareUltralightType } Returns the type of MifareUltralight tag.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  getType(): tag.MifareUltralightType;
 }
 
 /**
  * Provides methods for accessing NdefFormatable tag.
  *
+ * @typedef NdefFormatableTag
+ * @syscap SystemCapability.Communication.NFC.Tag
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface NdefFormatableTag extends TagSession {
- /**
-  * Format a tag as NDEF tag, then write Ndef message into the Ndef Tag
-  * @param message Ndef message to write while format successful. it can be null, then only format the tag.
-  * @return if return 0, means successful. otherwise the error code
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  format(message: NdefMessage): Promise<number>;
-  format(message: NdefMessage, callback: AsyncCallback<number>): void;
+  /**
+   * Formats a tag as NDEF tag, writes NDEF message into the NDEF Tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  format(message: NdefMessage): Promise<void>;
 
- /**
-  * Format a tag as NDEF tag, then write Ndef message into the Ndef Tag, then set the tag readonly
-  * @param message Ndef message to write while format successful. it can be null, then only format the tag.
-  * @return if return 0, means successful. otherwise the error code
-  * @since 9
-  * @permission ohos.permission.NFC_TAG
-  */
-  formatReadOnly(message: NdefMessage): Promise<number>;
-  formatReadOnly(message: NdefMessage, callback: AsyncCallback<number>): void;
+  /**
+   * Formats a tag as NDEF tag, writes NDEF message into the NDEF Tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  format(message: NdefMessage, callback: AsyncCallback<void>): void;
+
+  /**
+   * Formats a tag as NDEF tag, writes NDEF message into the NDEF Tag, then sets the tag readonly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  formatReadOnly(message: NdefMessage): Promise<void>;
+
+  /**
+   * Formats a tag as NDEF tag, writes NDEF message into the NDEF Tag, then sets the tag readonly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
+   * @param { AsyncCallback<void> } callback The callback.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+  formatReadOnly(message: NdefMessage, callback: AsyncCallback<void>): void;
 }

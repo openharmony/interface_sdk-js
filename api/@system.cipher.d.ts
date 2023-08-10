@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Copyright (c) 2020-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,24 +15,28 @@
 
 /**
  * Defines the cipher response.
- * @since 3
+ *
+ * @typedef CipherResponse
  * @syscap SystemCapability.Security.Cipher
- * @permission N/A
+ * @since 3
  */
 export interface CipherResponse {
   /**
    * response text
-   * @since 3
+   *
+   * @type { string }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   text: string;
 }
 
 /**
  * Defines the rsa cipher options.
- * @since 3
+ *
+ * @typedef CipherRsaOptions
  * @syscap SystemCapability.Security.Cipher
- * @permission N/A
+ * @since 3
  */
 export interface CipherRsaOptions {
   /**
@@ -40,8 +44,10 @@ export interface CipherRsaOptions {
    * The options are as follows:
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
-   * @since 3
+   *
+   * @type { string }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   action: string;
 
@@ -52,8 +58,10 @@ export interface CipherRsaOptions {
    * For example, if the key length is 1024 bytes, the text cannot exceed 62 bytes (1024/8 - 66 = 62).
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
-   * @since 3
+   *
+   * @type { string }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   text: string;
 
@@ -61,46 +69,57 @@ export interface CipherRsaOptions {
    * Keys encrypted using RSA.
    * During encryption, this parameter is a public key.
    * During decryption, it is a private key.
-   * @since 3
+   *
+   * @type { string }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   key: string;
 
   /**
    * RSA algorithm padding.
    * The default value is RSA/None/OAEPWithSHA256AndMGF1Padding.
-   * @since 3
+   *
+   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   transformation?: string;
 
   /**
    * Called when data is encrypted or decrypted successfully.
-   * @since 3
+   *
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   success: (data: CipherResponse) => void;
 
   /**
    * Called when data fails to be encrypted or decrypted.
-   * @since 3
+   *
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   fail: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
-   * @since 3
+   *
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
    */
   complete: () => void;
 }
 
 /**
  * Defines the aes cipher options.
- * @since 3
+ *
+ * @typedef CipherAesOptions
  * @syscap SystemCapability.Security.Cipher
- * @permission N/A
+ * @since 3
  */
 export interface CipherAesOptions {
   /**
@@ -108,6 +127,8 @@ export interface CipherAesOptions {
    * The options are as follows:
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
+   *
+   * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -118,6 +139,8 @@ export interface CipherAesOptions {
    * The text to be encrypted must be a common text.
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
+   *
+   * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -125,6 +148,8 @@ export interface CipherAesOptions {
 
   /**
    * Key used for encryption or decryption, which is a character string encrypted using Base64.
+   *
+   * @type { string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -133,6 +158,8 @@ export interface CipherAesOptions {
   /**
    * Encryption mode and padding of the AES algorithm.
    * The default value is AES/CBC/PKCS5Padding.
+   *
+   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -142,6 +169,8 @@ export interface CipherAesOptions {
    * Initial vector for AES-based encryption and decryption.
    * The value is a character string encoded using Base64.
    * The default value is the key value.
+   *
+   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -150,6 +179,8 @@ export interface CipherAesOptions {
   /**
    * Offset of the initial vector for AES-based encryption and decryption.
    * The default value is 0.
+   *
+   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -158,6 +189,8 @@ export interface CipherAesOptions {
   /**
    * Length of the initial vector for AES-based encryption and decryption.
    * The default value is 16.
+   *
+   * @type { ?string }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -165,6 +198,8 @@ export interface CipherAesOptions {
 
   /**
    * Called when data is encrypted or decrypted successfully.
+   *
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -172,6 +207,8 @@ export interface CipherAesOptions {
 
   /**
    * Called when data fails to be encrypted or decrypted.
+   *
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -179,6 +216,8 @@ export interface CipherAesOptions {
 
   /**
    * Called when the execution is completed.
+   *
+   * @type { function }
    * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
@@ -187,22 +226,32 @@ export interface CipherAesOptions {
 
 /**
  * Defines the cipher functions.
- * @since 3
+ *
  * @syscap SystemCapability.Security.Cipher
- * @permission N/A
+ * @since 3
+ * @deprecated since 9
+ * @useinstead ohos.security.cryptoFramework.Cipher
  */
 export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
-   * @param options RSA options
+   *
+   * @param { CipherRsaOptions } options - RSA options
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
+   * @deprecated since 9
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   static rsa(options: CipherRsaOptions): void;
 
   /**
    * Encrypts or decrypts data using AES.
-   * @param options AES options
+   *
+   * @param { CipherAesOptions } options - AES options
    * @syscap SystemCapability.Security.Cipher
+   * @since 3
+   * @deprecated since 9
+   * @useinstead ohos.security.cryptoFramework.Cipher
    */
   static aes(options: CipherAesOptions): void;
 }

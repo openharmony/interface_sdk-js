@@ -13,133 +13,121 @@
  * limitations under the License.
  */
 
-import { AbilityInfo } from "./abilityInfo";
-import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
-import { Metadata } from './metadata'
+import { AbilityInfo } from './abilityInfo';
 
 /**
- * @name Obtains configuration information about an module.
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
+ * Obtains configuration information about a module.
  *
+ * @typedef HapModuleInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.HapModuleInfo
  */
 export interface HapModuleInfo {
   /**
-    * @default Indicates the name of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the name of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly name: string;
   /**
-    * @default Describes the hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Describes the hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly description: string;
   /**
-    * @default Indicates the description of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the description of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly descriptionId: number;
   /**
-    * @default Indicates the icon of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the icon of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly icon: string;
   /**
-    * @default Indicates the label of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the label of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly label: string;
   /**
-    * @default Indicates the label id of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the label id of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly labelId: number;
   /**
-    * @default Indicates the icon id of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the icon id of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly iconId: number;
   /**
-    * @default Indicates the background img of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the background img of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly backgroundImg: string;
   /**
-    * @default Indicates the supported modes of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the supported modes of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly supportedModes: number;
   /**
-    * @default Indicates the req capabilities of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the req capabilities of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly reqCapabilities: Array<string>;
   /**
-    * @default The device types that this hapmodule can run on
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default The device types that this hapmodule can run on
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly deviceTypes: Array<string>;
   /**
-    * @default Obtains configuration information about ability
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Obtains configuration information about ability
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly abilityInfo: Array<AbilityInfo>;
   /**
-    * @default Indicates the name of the .hap package to which the capability belongs
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the name of the .hap package to which the capability belongs
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly moduleName: string;
   /**
-    * @default Indicates the main ability name of this hapmodule
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the main ability name of this hapmodule
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly mainAbilityName: string;
   /**
-    * @default Indicates whether free installation of the hapmodule is supported
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates whether free installation of the hapmodule is supported
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly installationFree: boolean;
-
-  /**
-    * @default Indicates main elementName of the module
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly mainElementName: string;
-
-  /**
-    * @default Obtains configuration information about extension ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
-  /**
-    * @default Indicates the metadata of ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * 
-    */
-  readonly metadata: Array<Metadata>;
-  /**
-    * @default Indicates the hash value of the module
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-   readonly hashValue: string;
 }

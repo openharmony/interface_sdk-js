@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,27 +16,28 @@
 /**
  * A object that records the result of shell command executes.
  *
- * @since 8
+ * @typedef ShellCmdResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import ShellCmdResult from 'application/shellCmdResult.d'
- * @permission N/A
+ * @since 8
  */
 export interface ShellCmdResult {
-    /**
-     * the cmd standard result.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    stdResult: string;
+  /**
+   * the cmd standard result.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  stdResult: string;
 
-    /**
-     * shell cmd exec result.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    exitCode: number;
+  /**
+   * shell cmd exec result.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  exitCode: number;
 }
 
 export default ShellCmdResult;

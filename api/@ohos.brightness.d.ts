@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,19 +13,25 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { BusinessError } from './@ohos.base';
 
 /**
  * Provides interfaces to control the power of display.
  *
+ * @namespace brightness
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
+ * @systemapi
  * @since 7
  */
 declare namespace brightness {
   /**
    * Sets the screen brightness.
    *
-   * @param value Brightness value, ranging from 0 to 255.
+   * @param { number } value Brightness value, ranging from 0 to 255.
+   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 401 - If the value is not valid.
+   * @throws { BusinessError } 4700101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
    * @since 7
    */

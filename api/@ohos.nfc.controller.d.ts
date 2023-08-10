@@ -13,102 +13,150 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 
 /**
  * Provides methods to operate or manage NFC.
  *
- * @import import controller from '@ohos.nfc.controller';
- *
- * @since 7
+ * @namespace nfcController
  * @syscap SystemCapability.Communication.NFC.Core
+ * @since 7
  */
 declare namespace nfcController {
   enum NfcState {
-    /** Indicates that NFC is disabled. */
+    /** 
+     * Indicates that NFC is disabled.
+     *
+     * @syscap SystemCapability.Communication.NFC.Core
+     * @since 7
+     */
     STATE_OFF = 1,
 
-    /** Indicates that NFC is being enabled. */
+    /** 
+     * Indicates that NFC is being enabled.
+     * 
+     * @syscap SystemCapability.Communication.NFC.Core
+     * @since 7
+     */
     STATE_TURNING_ON = 2,
 
-    /** Indicates that NFC is enabled. */
+    /**
+     * Indicates that NFC is enabled.
+     * 
+     * @syscap SystemCapability.Communication.NFC.Core
+     * @since 7
+     */
     STATE_ON = 3,
 
-    /** Indicates that NFC is being disabled. */
-    STATE_TURNING_OFF = 4,
+    /** 
+     * Indicates that NFC is being disabled.
+     * 
+     * @syscap SystemCapability.Communication.NFC.Core
+     * @since 7 
+     */
+    STATE_TURNING_OFF = 4
   }
 
   /**
    * Checks whether a device supports NFC.
    *
-   * @return Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
-   *
+   * @returns { boolean } Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
+   * @deprecated since 9
+   * @useinstead global#canIUse("SystemCapability.Communication.NFC.Core")
    */
-  function isNfcAvailable(): boolean
+  function isNfcAvailable(): boolean;
 
   /**
    * register nfc state changed event.
    *
-   * @param type the type to register.
-   * @param callback Callback used to listen for the nfc state changed event.
-   *
+   * @param { 'nfcStateChange' } type The type to register.
+   * @param { Callback<NfcState> } callback Callback used to listen to the nfc state changed event.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
    */
-  function on(type: "nfcStateChange", callback: Callback<NfcState>): void
+  function on(type: 'nfcStateChange', callback: Callback<NfcState>): void;
 
   /**
    * unregister nfc state changed event.
    *
-   * @param type the type to unregister.
-   * @param callback Callback used to listen for the nfc state changed event.
-   *
+   * @param { 'nfcStateChange' } type The type to unregister.
+   * @param { Callback<NfcState> }  callback Callback used to listen to the nfc state changed event.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
    */
-  function off(type: "nfcStateChange", callback?: Callback<NfcState>): void
+  function off(type: 'nfcStateChange', callback?: Callback<NfcState>): void;
 
   /**
    * Enables NFC.
    *
-   * @return Returns {@code true} if NFC is enabled or has been enabled; returns {@code false} otherwise.
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   *
+   * @returns { boolean } Returns {@code true} if NFC is enabled or has been enabled; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
+   * @deprecated since 9
+   * @useinstead @ohos.nfc.controller.nfcController#enableNfc
    */
-  function openNfc(): boolean
+  function openNfc(): boolean;
+
+  /**
+   * Enables NFC.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100101 - NFC state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @since 9
+   */
+  function enableNfc(): void;
 
   /**
    * Disables NFC.
    *
-   * @return Returns {@code true} if NFC is disabled or has been disabled; returns {@code false} otherwise.
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   *
+   * @returns { boolean } Returns {@code true} if NFC is disabled or has been disabled; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
+   * @deprecated since 9
+   * @useinstead @ohos.nfc.controller.nfcController#disableNfc
    */
-  function closeNfc(): boolean
+  function closeNfc(): boolean;
+
+  /**
+   * Disables NFC.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100101 - NFC state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @since 9
+   */
+  function disableNfc(): void;
 
   /**
    * Checks whether NFC is enabled.
    *
-   * @return Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
-   *
+   * @returns { boolean } Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
    */
-  function isNfcOpen(): boolean
+  function isNfcOpen(): boolean;
 
   /**
    * Obtains the NFC status.
-   *
    * <p>The NFC status can be any of the following: <ul><li>{@link #STATE_OFF}: Indicates that NFC
    * is disabled. <li>{@link #STATE_TURNING_ON}: Indicates that NFC is being enabled.
    * <li>{@link #STATE_ON}: Indicates that NFC is enabled. <li>{@link #STATE_TURNING_OFF}: Indicates
    * that NFC is being disabled.</ul>
    *
-   * @return Returns the NFC status.
-   *
+   * @returns { NfcState } Returns the NFC status.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
    */
-  function getNfcState(): NfcState
+  function getNfcState(): NfcState;
 }
 
 export default nfcController;

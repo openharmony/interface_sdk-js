@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,50 +13,105 @@
  * limitations under the License.
  */
 
-import { AbilityDelegator } from './application/abilityDelegator';
+import { AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
+import { AbilityMonitor } from './application/AbilityMonitor';
+import { ShellCmdResult } from './application/shellCmdResult';
 
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
  *
- * @since 8
+ * @namespace abilityDelegatorRegistry
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
- * @permission N/A
+ * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry
  */
 declare namespace abilityDelegatorRegistry {
+  /**
+   * Get the AbilityDelegator object of the application.
+   *
+   * @returns { AbilityDelegator } the AbilityDelegator object initialized when the application is started.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#getAbilityDelegator
+   */
+  function getAbilityDelegator(): AbilityDelegator;
+
+  /**
+   * Get unit test parameters stored in the AbilityDelegatorArgs object.
+   *
+   * @returns { AbilityDelegatorArgs } the previously registered AbilityDelegatorArgs object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#getArguments
+   */
+  function getArguments(): AbilityDelegatorArgs;
+
+  /**
+   * Describes all lifecycle states of an ability.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry#AbilityLifecycleState
+   */
+  export enum AbilityLifecycleState {
     /**
-     * Get the AbilityDelegator object of the application.
+     * Indicates an invalid state.
      *
-     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return the AbilityDelegator object initialized when the application is started.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState
+     *             #UNINITIALIZED
      */
-    function getAbilityDelegator(): AbilityDelegator;
+    UNINITIALIZED,
 
     /**
-     * Get unit test parameters stored in the AbilityDelegatorArgs object.
+     * Indicates that the Ability is in the created state.
      *
-     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return the previously registered AbilityDelegatorArgs object.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#CREATE
      */
-    function getArguments(): AbilityDelegatorArgs;
+    CREATE,
 
     /**
-     * Describes all lifecycle states of an ability.
+     * Indicates that Ability is in the foreground state.
      *
-     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#FOREGROUND
      */
-    export enum AbilityLifecycleState {
-        UNINITIALIZED,
-        CREATE,
-        FOREGROUND,
-        BACKGROUND,
-        DESTROY,
-    }
+    FOREGROUND,
+
+    /**
+     * Indicates that the Ability is in the background state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#BACKGROUND
+     */
+    BACKGROUND,
+
+    /**
+     * Indicates that the Ability is in a destroyed state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityDelegatorRegistry/abilityDelegatorRegistry.AbilityLifecycleState#DESTROY
+     */
+    DESTROY
+  }
 }
 
 export default abilityDelegatorRegistry;

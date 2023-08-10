@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,36 +16,68 @@
 /**
  * The process data.
  *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
  * @since 8
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @systemapi hide for inner use.
- * @permission N/A
  */
 export default class ProcessData {
-    /**
-     * The bundle name.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    bundleName: string;
+  /**
+   * The bundle name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  bundleName: string;
 
-    /**
-     * The pid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    pid: number;
+  /**
+   * The pid.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  pid: number;
 
-    /**
-     * The uid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    uid: number;
+  /**
+   * The uid.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  uid: number;
+
+  /**
+   * The process state.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  state: number;
+
+  /**
+   * Whether the process is continuous task.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  isContinuousTask: boolean;
+
+  /**
+   * Whether the process is keep alive.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  isKeepAlive: boolean;
 }

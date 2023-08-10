@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,27 +15,156 @@
 
 /**
  * Create Blank.
+ *
+ * @interface BlankInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * Create Blank.
+ *
+ * @interface BlankInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Create Blank.
+ *
+ * @interface BlankInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
  */
 interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
+   *
+   * @param { number | string } min
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * The minimum size of the blank fill assembly on the container spindle.
+   *
+   * @param { number | string } min
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * The minimum size of the blank fill assembly on the container spindle.
+   *
+   * @param { number | string } min
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   (min?: number | string): BlankAttribute;
 }
 
 /**
  * Inheritance CommonMethod Set Styles
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * Inheritance CommonMethod Set Styles
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Inheritance CommonMethod Set Styles
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
    * color: set color.
+   *
+   * @param { ResourceColor } value
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * color: set color.
+   *
+   * @param { ResourceColor } value
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * color: set color.
+   *
+   * @param { ResourceColor } value
+   * @returns { BlankAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   color(value: ResourceColor): BlankAttribute;
 }
 
+/**
+ * Defines Blank Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Defines Blank Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Defines Blank Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
 declare const Blank: BlankInterface;
+
+/**
+ * Defines Blank Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Defines Blank Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Defines Blank Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
 declare const BlankInstance: BlankAttribute;

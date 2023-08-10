@@ -13,114 +13,116 @@
  * limitations under the License.
  */
 
- /**
-  * @name  Provides methods for obtaining information about the ability that a shortcut will start, including the target
-  *        bundle name and ability class name.
-  * @since 7
-  * @syscap SystemCapability.BundleManager.BundleFramework
-  * @permission NA
-  * @systemapi Hide this for inner system use
-  */
-  export interface ShortcutWant{
-    /**
-      * @default Indicates the target bundle of the shortcut want
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly targetBundle: string;
-    /**
-      * @default Indicates the target class of the shortcut want
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly targetClass: string;
-  }
-  
-   /**
-    * @name  Provides information about a shortcut, including the shortcut ID and label.
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @permission NA
-    *
-    */
-  export interface ShortcutInfo {
-    /**
-      * @default Indicates the ID of the application to which this shortcut belongs
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly id: string;
-    /**
-      * @default Indicates the name of the bundle containing the shortcut
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly bundleName: string;
-    /**
-      * @default Indicates the host ability of the shortcut
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly hostAbility: string;
-    /**
-      * @default Indicates the icon of the shortcut
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly icon: string;
-     /**
-      * @default Indicate s the icon id of the shortcut
-      * @since 8
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-     readonly iconId: number;
-    /**
-      * @default Indicates the label of the shortcut
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly label: string;
-     /**
-      * @default Indicates the label id of the shortcut
-      * @since 8
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-     readonly labelId: number;
-    /**
-      * @default Indicates the disableMessage of the shortcut
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly disableMessage: string;
-    /**
-      * @default Indicates the wants of the shortcut
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly wants: Array<ShortcutWant>;
-    /**
-      * @default Indicates whether the shortcut is static
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly isStatic?: boolean
-    /**
-      * @default Indicates whether the shortcut is homeshortcut
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly isHomeShortcut?: boolean;
-    /**
-      * @default Indicates whether the shortcut is enabled
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly isEnabled?: boolean;
+/**
+ * Provides methods for obtaining information about the ability that a shortcut will start, including the target
+ * bundle name, target module name and ability class name.
+ *
+ * @typedef ShortcutWant
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @systemapi Hide this for inner system use
+ * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
+ */
+export interface ShortcutWant {
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly targetBundle: string;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly targetClass: string;
+}
 
-    /**
-     * @default Indicates the moduleName of the shortcut
-     * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     */
-    readonly moduleName?: string;
-  }
+/**
+ * Provides information about a shortcut, including the shortcut ID and label.
+ *
+ * @typedef ShortcutInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 7
+ * @deprecated since 9
+ */
+export interface ShortcutInfo {
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly id: string;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly bundleName: string;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly hostAbility: string;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly icon: string;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
+  readonly iconId: number;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly label: string;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
+  readonly labelId: number;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly disableMessage: string;
+  /**
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly wants: Array<ShortcutWant>;
+  /**
+   * @default false
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly isStatic?: boolean;
+  /**
+   * @default false
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly isHomeShortcut?: boolean;
+  /**
+   * @default false
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
+  readonly isEnabled?: boolean;
+}

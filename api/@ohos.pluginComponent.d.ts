@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,11 +13,13 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-import Want from './@ohos.application.want';
+import { AsyncCallback } from './@ohos.base';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * Plugin component template property.
+ *
+ * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -28,14 +30,19 @@ interface PluginComponentTemplate {
 
 /**
  * Plugin component manager interface.
+ *
+ * @namespace pluginComponentManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare namespace pluginComponentManager {
-  type KVObject = {[key: string]: number | string | boolean | [] | KVObject}
+  type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
   /**
    * Plugin component push parameters.
+   *
+   * @interface PushParameters
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   interface PushParameters {
@@ -47,7 +54,27 @@ declare namespace pluginComponentManager {
   }
 
   /**
+   * Plugin component push parameters which is used in push function.
+   *
+   * @interface PushParameterForStage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  interface PushParameterForStage {
+    owner: Want;
+    target: Want;
+    name: string;
+    data: KVObject;
+    extraData: KVObject;
+    jsonPath?: string;
+  }
+
+  /**
    * Plugin component request parameters.
+   *
+   * @interface RequestParameters
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   interface RequestParameters {
@@ -58,7 +85,26 @@ declare namespace pluginComponentManager {
   }
 
   /**
+   * Plugin component request parameters which is used in request function.
+   *
+   * @interface RequestParameterForStage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  interface RequestParameterForStage {
+    owner: Want;
+    target: Want;
+    name: string;
+    data: KVObject;
+    jsonPath?: string;
+  }
+
+  /**
    * Plugin component request callback parameters.
+   *
+   * @interface RequestCallbackParameters
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   interface RequestCallbackParameters {
@@ -69,6 +115,9 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component request event result value.
+   *
+   * @interface RequestEventResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   interface RequestEventResult {
@@ -79,6 +128,8 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component push event callback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, data: KVObject,
@@ -86,6 +137,8 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component request event callback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
 
@@ -93,18 +146,54 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component push method.
+   *
+   * @param { PushParameters } param
+   * @param { AsyncCallback<void> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
   /**
    * Plugin component request method.
+   *
+   * @param { RequestParameters } param
+   * @param { AsyncCallback<RequestCallbackParameters> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
   /**
+   * Plugin component push method used to send the information of the template it provides.
+   *
+   * @param { PushParameterForStage } param - Plugin component push parameters for stage.
+   * @param { AsyncCallback<void> } callback - Plugin component push event callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  function push(param: PushParameterForStage, callback: AsyncCallback<void>): void;
+
+  /**
+   * Plugin component request method used to send a request for the information of the template it wants.
+   *
+   * @param { RequestParameterForStage } param - Plugin component request parameters for stage.
+   * @param { AsyncCallback<RequestCallbackParameters> } callback - Plugin component request event callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  function request(param: RequestParameterForStage, callback: AsyncCallback<RequestCallbackParameters>): void;
+
+  /**
    * Plugin component event listener.
+   *
+   * @param { string } eventType
+   * @param { OnPushEventCallback | OnRequestEventCallback } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;

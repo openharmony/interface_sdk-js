@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,58 +15,100 @@
 
 /**
  * PluginComponentTemplate
- * @since 9
+ *
+ * @interface PluginComponentTemplate
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 interface PluginComponentTemplate {
   /**
    * Defines the plugin source name.
-   * @since 9
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   source: string;
   /**
-   * Defines the ability name.
-   * @since 9
+   * Defines the bundle name of the Template.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
-  ability: string;
+  bundleName: string;
 }
 
 /**
  * Provides plugin component.
- * @since 9
+ *
+ * @interface PluginComponentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 interface PluginComponentInterface {
   /**
    * Called when setting the plugin.
-   * @since 9
+   *
+   * @param { object } value
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 }
 
 /**
- * Defines the plugin component attibute functions.
- * @since 9
+ * Defines the plugin component attribute functions.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
    * pluginComponent onComplete callback,
-   * @since 9
+   *
+   * @param { function } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   onComplete(callback: () => void): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
-   * @since 9
+   *
+   * @param { function } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 9
    */
   onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }
 
+/**
+ * Defines PluginComponent Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 9
+ */
 declare const PluginComponent: PluginComponentInterface;
+
+/**
+ * Defines PluginComponent Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 9
+ */
 declare const PluginComponentInstance: PluginComponentAttribute;

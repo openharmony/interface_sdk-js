@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,47 +13,89 @@
  * limitations under the License.
  */
 
-
 /**
  * Store unit testing-related parameters, including test case names, and test runner name.
  *
- * @since 8
+ * @typedef AbilityDelegatorArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityDelegatorArgs from 'application/abilityDelegatorArgs.d'
- * @permission N/A
+ * @since 8
+ */
+/**
+ * Store unit testing-related parameters, including test case names, and test runner name.
+ *
+ * @typedef AbilityDelegatorArgs
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 10
  */
 export interface AbilityDelegatorArgs {
-    /**
-     * the bundle name of the application being tested.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    bundleName: string;
+  /**
+   * the bundle name of the application being tested.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  /**
+   * the bundle name of the application being tested.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  bundleName: string;
 
-    /**
-     * the parameters used for unit testing.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    parameters: {[key: string]: string};
+  /**
+   * the parameters used for unit testing.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  /**
+   * the parameters used for unit testing.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  parameters: { [key: string]: string };
 
-    /**
-     * the class names of all test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    testCaseNames: string;
+  /**
+   * the class names of all test cases.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  /**
+   * the class names of all test cases.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  testCaseNames: string;
 
-    /**
-     * the class name of the test runner used to execute test cases.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    testRunnerClassName: string;
+  /**
+   * the class name of the test runner used to execute test cases.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 8
+   */
+  /**
+   * the class name of the test runner used to execute test cases.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
+  testRunnerClassName: string;
 }
 
 export default AbilityDelegatorArgs;

@@ -13,24 +13,26 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
-import { Context } from './app/context';
+import { AsyncCallback, Callback } from './@ohos.base';
+import Context from './application/Context';
 import image from './@ohos.multimedia.image';
 
 /**
  * @name mediaLibrary
  * @since 6
  * @syscap SystemCapability.Multimedia.MediaLibrary.Core
- * @import import media from '@ohos.multimedia.mediaLibrary'
+ * @deprecated since 9
+ * @useinstead ohos.file.picker
  */
 declare namespace mediaLibrary {
   /**
    * Obtains a MediaLibrary instance.
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    * @FAModelOnly
-   * @return Returns a MediaLibrary instance if the operation is successful; returns null otherwise.
+   * @returns Returns a MediaLibrary instance if the operation is successful; returns null otherwise.
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   function getMediaLibrary(): MediaLibrary;
   /**
@@ -39,7 +41,9 @@ declare namespace mediaLibrary {
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @StageModelOnly
    * @param context hap context information
-   * @return Instance of MediaLibrary
+   * @returns Instance of MediaLibrary
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   function getMediaLibrary(context: Context): MediaLibrary;
 
@@ -47,30 +51,40 @@ declare namespace mediaLibrary {
    * Enumeration types for different kind of Media Files
    * @since 8
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   enum MediaType {
     /**
      * File media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     FILE = 0,
     /**
      * Image media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     IMAGE,
     /**
      * Video media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     VIDEO,
     /**
      * Audio media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     AUDIO
   }
@@ -79,7 +93,6 @@ declare namespace mediaLibrary {
    * Describes media resource options.
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    * @deprecated since 9
    */
   interface MediaAssetOption {
@@ -110,7 +123,6 @@ declare namespace mediaLibrary {
    * Describes media selection options.
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    * @deprecated since 9
    */
   interface MediaSelectOption {
@@ -134,103 +146,136 @@ declare namespace mediaLibrary {
    * Provides methods to encapsulate file attributes.
    * @since 7
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   interface FileAsset {
     /**
      * File ID.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly id: number;
     /**
      * URI of the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly uri: string;
     /**
      * MIME type, for example, video/mp4, audio/mp4, or audio/amr-wb.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly mimeType: string;
     /**
-     * Media type, for example, IMAGE, VIDEO, FILE, AUDIO 
+     * Media type, for example, IMAGE, VIDEO, FILE, AUDIO
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly mediaType: MediaType;
     /**
      * Display name (with a file name extension) of the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     displayName: string;
     /**
      * File name title (without the file name extension).
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     title: string;
     /**
      * Relative Path of the file.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     relativePath: string;
     /**
      * Parent folder's file_id of the file.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly parent: number;
     /**
      * Data size of the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly size: number;
     /**
      * Date (timestamp) when the file was added.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly dateAdded: number;
     /**
      * Date (timestamp) when the file was modified.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly dateModified: number;
     /**
      * Date (timestamp) when the file was taken.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly dateTaken: number;
     /**
      * Artist of the audio file.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly artist: string;
     /**
      * audioAlbum of the audio file.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly audioAlbum: string;
     /**
      * Display width of the file. This is valid only for videos and images.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly width: number;
     /**
      * Display height of the file. This is valid only for videos and images.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly height: number;
     /**
@@ -238,30 +283,40 @@ declare namespace mediaLibrary {
      * The rotation angle can be 0, 90, 180, or 270 degrees. This is valid only for videos.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     orientation: number;
     /**
      * duration of the audio and video file.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly duration: number;
     /**
      * ID of the album where the file is located.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly albumId: number;
     /**
      * URI of the album where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly albumUri: string;
     /**
      * Name of the album where the file is located.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly albumName: string;
 
@@ -270,7 +325,9 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
-     * @param callback Callback return the result of isDerectory.
+     * @param callback Callback return the result of isDirectory.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     isDirectory(callback: AsyncCallback<boolean>): void;
     /**
@@ -278,14 +335,18 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
-    isDirectory():Promise<boolean>;
+    isDirectory(): Promise<boolean>;
     /**
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback no value will be returned.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -293,6 +354,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     commitModify(): Promise<void>;
     /**
@@ -302,6 +365,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
      * @param callback Callback return the fd of the file.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
@@ -310,6 +375,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     open(mode: string): Promise<number>;
     /**
@@ -319,6 +386,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
      * @param callback no value will be returned.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
@@ -327,6 +396,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     close(fd: number): Promise<void>;
     /**
@@ -335,6 +406,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return the thumbnail's pixelmap.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -344,6 +417,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param size thumbnail's size
      * @param callback Callback used to return the thumbnail's pixelmap.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getThumbnail(size: Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -352,6 +427,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param size thumbnail's size
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getThumbnail(size?: Size): Promise<image.PixelMap>;
     /**
@@ -359,8 +436,10 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param isFavorite ture is favorite file, false is not favorite file
+     * @param isFavorite true is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -368,7 +447,9 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param isFavorite ture is favorite file, false is not favorite file
+     * @param isFavorite true is favorite file, false is not favorite file
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     favorite(isFavorite: boolean): Promise<void>;
     /**
@@ -377,6 +458,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return true or false.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     isFavorite(callback: AsyncCallback<boolean>): void;
     /**
@@ -384,8 +467,10 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
-    isFavorite():Promise<boolean>;
+    isFavorite(): Promise<boolean>;
     /**
      * Set trash for the file when the file is located.
      * @since 8
@@ -393,6 +478,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
      * @param callback Callback used to return, No value is returned.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     trash(isTrash: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -401,6 +488,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     trash(isTrash: boolean): Promise<void>;
     /**
@@ -409,6 +498,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return true or false.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     isTrash(callback: AsyncCallback<boolean>): void;
     /**
@@ -416,128 +507,170 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
-    isTrash():Promise<boolean>;
+    isTrash(): Promise<boolean>;
   }
 
   /**
    * Describes MediaFetchOptions's selection
    * @since 8
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   enum FileKey {
     /**
      * File ID
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     ID = "file_id",
     /**
      * Relative Path
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     RELATIVE_PATH = "relative_path",
     /**
      * File name
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DISPLAY_NAME = "display_name",
     /**
      * Parent folder file id
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     PARENT = "parent",
     /**
      * Mime type of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     MIME_TYPE = "mime_type",
     /**
      * Media type of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     MEDIA_TYPE = "media_type",
     /**
      * Size of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     SIZE = "size",
     /**
      * Date of the file creation
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DATE_ADDED = "date_added",
     /**
      * Modify date of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DATE_MODIFIED = "date_modified",
     /**
      * Date taken of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DATE_TAKEN = "date_taken",
     /**
      * Title of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TITLE = "title",
     /**
      * Artist of the audio file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     ARTIST = "artist",
     /**
      * Audio album of the audio file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     AUDIOALBUM = "audio_album",
     /**
      * Duration of the audio and video file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DURATION = "duration",
     /**
      * Width of the image file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     WIDTH = "width",
     /**
      * Height of the image file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     HEIGHT = "height",
     /**
      * Orientation of the image file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     ORIENTATION = "orientation",
     /**
      * Album id of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     ALBUM_ID = "bucket_id",
     /**
      * Album name of the file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     ALBUM_NAME = "bucket_display_name",
   }
@@ -546,42 +679,56 @@ declare namespace mediaLibrary {
    * Fetch parameters applicable on images, videos, audios, albums and other media
    * @since 7
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   interface MediaFetchOptions {
     /**
      * Fields to retrieve, for example, selections: "media_type =? OR media_type =?".
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     selections: string;
     /**
      * Conditions for retrieval, for example, selectionArgs: [IMAGE, VIDEO].
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     selectionArgs: Array<string>;
     /**
-     * Sorting criterion of the retrieval results, for example, order: "datetaken DESC,display_name DESC, file_id DESC".
+     * Sorting criterion of the retrieval results, for example, order: "dateTaken DESC,display_name DESC, file_id DESC".
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     order?: string;
     /**
      * uri for retrieval
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     uri?: string;
     /**
      * networkId for retrieval
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     networkId?: string;
     /**
      * extendArgs for retrieval
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     extendArgs?: string;
   }
@@ -590,29 +737,36 @@ declare namespace mediaLibrary {
    * Implements file retrieval.
    * @since 7
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   interface FetchFileResult {
     /**
      * Obtains the total number of files in the file retrieval result.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return Total number of files.
+     * @returns Total number of files.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getCount(): number;
     /**
      * Checks whether the result set points to the last row.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return Whether the file is the last one.
+     * @returns Whether the file is the last one.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      * You need to check whether the file is the last one before calling getNextObject,
-     * which returns the next file only when True is returned for this method.
+     * which returns the next file only when False is returned for this method.
      */
     isAfterLast(): boolean;
     /**
      * Releases the FetchFileResult instance and invalidates it. Other methods cannot be called.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     close(): void;
     /**
@@ -620,33 +774,41 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getFirstObject(callback: AsyncCallback<FileAsset>): void;
     /**
      * Obtains the first FileAsset in the file retrieval result. This method uses a promise to return the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getFirstObject(): Promise<FileAsset>;
     /**
      * Obtains the next FileAsset in the file retrieval result.
      * This method uses a callback to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getNextObject(callback: AsyncCallback<FileAsset>): void;
     /**
      * Obtains the next FileAsset in the file retrieval result.
      * This method uses a promise to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getNextObject(): Promise<FileAsset>;
     /**
@@ -654,13 +816,17 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getLastObject(callback: AsyncCallback<FileAsset>): void;
     /**
      * Obtains the last FileAsset in the file retrieval result. This method uses a promise to return the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getLastObject(): Promise<FileAsset>;
     /**
@@ -670,6 +836,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param index Index of the file to obtain.
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getPositionObject(index: number, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -678,18 +846,22 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param index Index of the file to obtain.
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getPositionObject(index: number): Promise<FileAsset>;
-     /**
-     * Obtains all FileAssets in the file retrieval result.
-     * This method uses a callback to return the result. After this method is called, 
-     * close() is automatically called to release the FetchFileResult instance and invalidate it.
-     * In this case, other methods cannot be called.
-     * @since 7
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param callback Callback used to return a FileAsset array.
-     */
+    /**
+    * Obtains all FileAssets in the file retrieval result.
+    * This method uses a callback to return the result. After this method is called,
+    * close() is automatically called to release the FetchFileResult instance and invalidate it.
+    * In this case, other methods cannot be called.
+    * @since 7
+    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+    * @param callback Callback used to return a FileAsset array.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
+    */
     getAllObject(callback: AsyncCallback<Array<FileAsset>>): void;
     /**
      * Obtains all FileAssets in the file retrieval result.
@@ -698,7 +870,9 @@ declare namespace mediaLibrary {
      * In this case, other methods cannot be called.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return a FileAsset array.
+     * @returns A Promise instance used to return a FileAsset array.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getAllObject(): Promise<Array<FileAsset>>;
   }
@@ -708,48 +882,64 @@ declare namespace mediaLibrary {
    *
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   interface Album {
     /**
      * Album ID.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly albumId: number;
     /**
      * Album name.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     albumName: string;
     /**
      * Album uri.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly albumUri: string;
     /**
      * Date (timestamp) when the album was last modified.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly dateModified: number;
     /**
      * File count for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly count: number;
     /**
      * Relative path for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly relativePath: string;
     /**
      * coverUri for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly coverUri: string;
 
@@ -759,6 +949,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback, no value will be returned.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -766,6 +958,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     commitModify(): Promise<void>;
     /**
@@ -774,6 +968,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getFileAssets(callback: AsyncCallback<FetchFileResult>): void;
     /**
@@ -783,6 +979,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getFileAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
     /**
@@ -791,7 +989,9 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
-     * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
+     * @returns A Promise instance used to return the files in the format of a FetchFileResult instance.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getFileAssets(options?: MediaFetchOptions): Promise<FetchFileResult>;
   }
@@ -800,42 +1000,56 @@ declare namespace mediaLibrary {
    * Enumeration public directory that predefined
    * @since 8
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   enum DirectoryType {
     /**
      * predefined public directory for files token by Camera.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DIR_CAMERA = 0,
     /**
      * predefined public directory for VIDEO files.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DIR_VIDEO,
     /**
      * predefined public directory for IMAGE files.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DIR_IMAGE,
     /**
      * predefined public directory for AUDIO files.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DIR_AUDIO,
     /**
      * predefined public directory for DOCUMENTS files.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DIR_DOCUMENTS,
     /**
      * predefined public directory for DOWNLOAD files.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     DIR_DOWNLOAD
   }
@@ -845,6 +1059,8 @@ declare namespace mediaLibrary {
    *
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   interface MediaLibrary {
     /**
@@ -853,6 +1069,8 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type, public directory predefined in DirectoryType.
      * @param callback Callback return the FetchFileResult.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getPublicDirectory(type: DirectoryType, callback: AsyncCallback<string>): void;
     /**
@@ -860,7 +1078,9 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type public directory predefined in DirectoryType.
-     * @return A promise instance used to return the public directory in the format of string
+     * @returns A promise instance used to return the public directory in the format of string
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getPublicDirectory(type: DirectoryType): Promise<string>;
     /**
@@ -871,6 +1091,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param options, Media retrieval options.
      * @param callback, Callback return the FetchFileResult.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getFileAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
     /**
@@ -880,25 +1102,31 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param options Media retrieval options.
-     * @return A promise instance used to return the files in the format of a FetchFileResult instance
+     * @returns A promise instance used to return the files in the format of a FetchFileResult instance
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getFileAssets(options: MediaFetchOptions): Promise<FetchFileResult>;
     /**
-     * Turn on mornitor the data changes by media type
+     * Turn on monitor the data changes by media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
-    on(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback: Callback<void>): void;
+    on(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'fileChange' | 'remoteFileChange', callback: Callback<void>): void;
     /**
-     * Turn off mornitor the data changes by media type
+     * Turn off monitor the data changes by media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
-     off(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback?: Callback<void>): void;
+    off(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'fileChange' | 'remoteFileChange', callback?: Callback<void>): void;
     /**
      * Create File Asset
      * @since 8
@@ -908,6 +1136,8 @@ declare namespace mediaLibrary {
      * @param displayName file name
      * @param relativePath relative path
      * @param callback Callback used to return the FileAsset
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -918,7 +1148,9 @@ declare namespace mediaLibrary {
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
-     * @return A Promise instance used to return the FileAsset
+     * @returns A Promise instance used to return the FileAsset
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string): Promise<FileAsset>;
     /**
@@ -929,6 +1161,8 @@ declare namespace mediaLibrary {
      * @param uri FileAsset's URI
      * @param callback no value returned
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     deleteAsset(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -937,8 +1171,10 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri, FileAsset's URI
-     * @return A Promise instance, no value returned
+     * @returns A Promise instance, no value returned
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     deleteAsset(uri: string): Promise<void>;
     /**
@@ -948,6 +1184,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @param callback Callback used to return an album array.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getAlbums(options: MediaFetchOptions, callback: AsyncCallback<Array<Album>>): void;
     /**
@@ -956,7 +1194,9 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
-     * @return A Promise instance used to return an album array.
+     * @returns A Promise instance used to return an album array.
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getAlbums(options: MediaFetchOptions): Promise<Array<Album>>;
     /**
@@ -974,7 +1214,7 @@ declare namespace mediaLibrary {
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media resource option.
-     * @return Promise used to return the URI that stores the media resources.
+     * @returns Promise used to return the URI that stores the media resources.
      * @deprecated since 9
      */
     storeMediaAsset(option: MediaAssetOption): Promise<string>;
@@ -1005,7 +1245,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param images List of images to preview.
      * @param index Sequence number of the first image to preview.
-     * @return Promise used to return whether the operation is successful.
+     * @returns Promise used to return whether the operation is successful.
      * @deprecated since 9
      */
     startImagePreview(images: Array<string>, index?: number): Promise<void>;
@@ -1025,7 +1265,7 @@ declare namespace mediaLibrary {
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media selection option.
-     * @return Promise used to return the list of URIs that store the selected media resources.
+     * @returns Promise used to return the list of URIs that store the selected media resources.
      * @deprecated since 9
      */
     startMediaSelect(option: MediaSelectOption): Promise<Array<string>>;
@@ -1036,6 +1276,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
      * @param callback, Callback return the list of the active peer devices' information
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getActivePeers(callback: AsyncCallback<Array<PeerInfo>>): void;
     /**
@@ -1044,7 +1286,9 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
-     * @return Promise used to return the list of the active peer devices' information
+     * @returns Promise used to return the list of the active peer devices' information
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getActivePeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1054,6 +1298,8 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
      * @param callback Callback return the list of the all the peer devices' information
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getAllPeers(callback: AsyncCallback<Array<PeerInfo>>): void;
     /**
@@ -1062,7 +1308,9 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
-     * @return Promise used to return the list of the all the peer devices' information
+     * @returns Promise used to return the list of the all the peer devices' information
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     getAllPeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1070,41 +1318,53 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback no value returned
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     release(callback: AsyncCallback<void>): void;
     /**
      * Release MediaLibrary instance
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     release(): Promise<void>;
   }
 
   /**
-   * thumbnail's size which have width and heigh
+   * thumbnail's size which have width and height
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   interface Size {
     /**
      * Width of image file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     width: number;
     /**
      * Height of image file
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     height: number;
   }
-  
+
   /**
    * peer devices' information
    * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
    * @systemapi
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   interface PeerInfo {
     /**
@@ -1112,6 +1372,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly deviceName: string;
     /**
@@ -1119,6 +1381,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly networkId: string;
     /**
@@ -1126,6 +1390,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly deviceType: DeviceType;
     /**
@@ -1133,6 +1399,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     readonly isOnline: boolean;
   }
@@ -1142,13 +1410,17 @@ declare namespace mediaLibrary {
    * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
    * @systemapi
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.file.picker
    */
   enum DeviceType {
     /**
-     * Unknow device type
+     * Unknown device type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TYPE_UNKNOWN = 0,
     /**
@@ -1156,6 +1428,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TYPE_LAPTOP,
     /**
@@ -1163,6 +1437,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TYPE_PHONE,
     /**
@@ -1170,6 +1446,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TYPE_TABLET,
     /**
@@ -1177,6 +1455,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TYPE_WATCH,
     /**
@@ -1184,6 +1464,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TYPE_CAR,
     /**
@@ -1191,6 +1473,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
+     * @deprecated since 9
+     * @useinstead ohos.file.picker
      */
     TYPE_TV
   }

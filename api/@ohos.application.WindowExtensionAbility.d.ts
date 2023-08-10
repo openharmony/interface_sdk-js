@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,62 +13,60 @@
  * limitations under the License.
  */
 
-import rpc from "./@ohos.rpc";
-import ExtensionContext from "./application/ExtensionContext";
-import Want from './@ohos.application.Want';
+import rpc from './@ohos.rpc';
+import WindowExtensionContext from './application/WindowExtensionContext';
+import Want from './@ohos.app.ability.Want';
+import window from './@ohos.window';
 
 /**
  * class of window extension ability.
  *
- * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi hide for inner use.
  * @StageModelOnly
+ * @since 9
  */
 export default class WindowExtensionAbility {
-    /**
-     * Indicates window extension ability context.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @StageModelOnly
-     */
-    context: ExtensionContext;
+  /**
+   * Indicates window extension ability context.
+   *
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   * @since 9
+   */
+  context: WindowExtensionContext;
 
-    /**
-     * Called back when a window extension is first connected to an ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates connection information about the Window ability.
-     * @systemapi hide for inner use.
-     * @return Returns the proxy of the Window ability.
-     * @StageModelOnly
-     */
-    onConnect(want: Want): rpc.RemoteObject;
+  /**
+   * Called back when a window extension is first connected to an ability.
+   *
+   * @param { Want } want Indicates connection information about the Window ability.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   * @since 9
+   */
+  onConnect(want: Want): void;
 
-    /**
-     * Called back when all abilities connected to a window extension are disconnected.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates disconnection information about the window extension.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
-     */
-    onDisconnect(want: Want): void;
+  /**
+   * Called back when all abilities connected to a window extension are disconnected.
+   *
+   * @param { Want } want Indicates disconnection information about the window extension.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   * @since 9
+   */
+  onDisconnect(want: Want): void;
 
-    /**
-     * Called back when window is created.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
-     */
-    onWindowReady(window: Window): void;
+  /**
+   * Called back when window is created.
+   *
+   * @param { window.Window } window Current Window instance.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   * @since 9
+   */
+  onWindowReady(window: window.Window): void;
 }
-

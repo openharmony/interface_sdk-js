@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,84 +13,143 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.application.Configuration';
 import { AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
-import { ElementName }  from './bundle/elementName';
+import { ElementName } from './bundle/elementName';
 
 /**
  * The class of an ability manager.
  *
- * @since 8
+ * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @systemapi
+ * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.abilityManager/abilityManager
  */
 declare namespace abilityManager {
-
+  /**
+   * Status information for the Ability.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#AbilityState
+   */
+  export enum AbilityState {
     /**
-     * @name AbilityState
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
-     */
-    export enum AbilityState {
-        INITIAL = 0,
-        FOREGROUND = 9,
-        BACKGROUND = 10,
-        FOREGROUNDING = 11,
-        BACKGROUNDING = 12
-    }
-
-    /**
-     * Updates the configuration by modifying the configuration.
+     * Indicates that the ability is initial.
      *
-     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param config Indicates the new configuration.
-     * @systemapi Hide this for inner system use.
-     * @return -
-     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#INITIAL
      */
-    function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
-    function updateConfiguration(config: Configuration): Promise<void>;
+    INITIAL = 0,
 
     /**
-     * Get information about running abilitys
+     * Indicates that the ability is foreground.
      *
-     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @return Returns the array of {@link AbilityRunningInfo}.
-     * @permission ohos.permission.GET_RUNNING_INFO
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#FOREGROUND
      */
-    function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
-    function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
-
-     /**
-      * Get information about running extensions
-      *
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      * @param upperLimit Get the maximum limit of the number of messages
-      * @systemapi Hide this for inner system use.
-      * @return Returns the array of {@link ExtensionRunningInfo}.
-      * @permission ohos.permission.GET_RUNNING_INFO
-      */
-    function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
-    function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
+    FOREGROUND = 9,
 
     /**
-     * Get the top ability information of the display.
+     * Indicates that the ability is background.
      *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @return Returns the {@link ElementName} info of the top ability.
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#BACKGROUND
      */
-   function getTopAbility(): Promise<ElementName>;
-   function getTopAbility(callback: AsyncCallback<ElementName>): void;
+    BACKGROUND = 10,
+
+    /**
+     * Indicates that the ability is foregrounding.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#FOREGROUNDING
+     */
+    FOREGROUNDING = 11,
+
+    /**
+     * Indicates that the ability is backgrounding.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.abilityManager/abilityManager.AbilityState#BACKGROUNDING
+     */
+    BACKGROUNDING = 12
+  }
+
+  /**
+   * Updates the configuration by modifying the configuration.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { Configuration } config - Indicates the new configuration.
+   * @param { AsyncCallback<void> } callback - The specified callback method.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#updateConfiguration
+   */
+  function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
+
+  /**
+   * Updates the configuration by modifying the configuration.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { Configuration } config - Indicates the new configuration.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#updateConfiguration
+   */
+  function updateConfiguration(config: Configuration): Promise<void>;
+
+  /**
+   * Get information about running abilities
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of {@link AbilityRunningInfo}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#getAbilityRunningInfos
+   */
+  function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
+
+  /**
+   * Get information about running abilities
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The specified callback method.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.abilityManager/abilityManager#getAbilityRunningInfos
+   */
+  function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 }
 
 export default abilityManager;

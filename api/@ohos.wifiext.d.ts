@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides extended methods to operate or manage Wi-Fi.
@@ -26,77 +26,89 @@ import { AsyncCallback, Callback } from './basic';
  * @import import wifiext from '@ohos.wifiext';
  */
 declare namespace wifiext {
-    /**
-     * Enables a Wi-Fi hotspot.
-     *
-     * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
-     * @since 8
-     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-     * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     */
-     function enableHotspot(): boolean;
+  /**
+   * Enables a Wi-Fi hotspot.
+   *
+   * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+   * @since 8
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.enableHotspot
+   */
+  function enableHotspot(): boolean;
 
-     /**
-      * Disables a Wi-Fi hotspot.
-      *
-      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
-      * @since 8
-      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-      */
-     function disableHotspot(): boolean;
+  /**
+   * Disables a Wi-Fi hotspot.
+   *
+   * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+   * @since 8
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.disableHotspot
+   */
+  function disableHotspot(): boolean;
 
-    /**
-     * Obtains the supported power model.
-     *
-     * @return Returns the array of supported power model.
-     *
-     * @since 8
-     * @permission ohos.permission.GET_WIFI_INFO
-     * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     */
-     function getSupportedPowerModel(): Promise<Array<PowerModel>>;
-     function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
+  /**
+   * Obtains the supported power model.
+   *
+   * @returns Returns the array of supported power model.
+   *
+   * @since 8
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
+   */
+  function getSupportedPowerModel(): Promise<Array<PowerModel>>;
+  function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
 
-    /**
-     * Obtains the current Wi-Fi power mode.
-     *
-     * @return Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
-     *
-     * @since 8
-     * @permission ohos.permission.GET_WIFI_INFO
-     * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     */
-    function getPowerModel (): Promise<PowerModel>;
-    function getPowerModel (callback: AsyncCallback<PowerModel>): void;
+  /**
+   * Obtains the current Wi-Fi power mode.
+   *
+   * @returns Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
+   *
+   * @since 8
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
+   */
+  function getPowerModel(): Promise<PowerModel>;
+  function getPowerModel(callback: AsyncCallback<PowerModel>): void;
 
-    /**
-     * Set the current Wi-Fi power mode.
-     *
-     * @return Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
-     *
-     * @since 8
-     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-     * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     */
-    function setPowerModel(model: PowerModel) : boolean
+  /**
+   * Set the current Wi-Fi power mode.
+   *
+   * @returns Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
+   *
+   * @since 8
+   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.setPowerMode
+   */
+  function setPowerModel(model: PowerModel): boolean
 
-    /**
-     * The power model enumeration.
-     *
-     * @since 8
-     * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     */
-     export enum PowerModel {
-        /** Sleeping model. */
-        SLEEPING = 0,
+  /**
+   * The power model enumeration.
+   *
+   * @since 8
+   * @syscap SystemCapability.Communication.WiFi.AP.Extension
+   * @deprecated since 9
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt.PowerMode
+   */
+  export enum PowerModel {
+    /** Sleeping model. */
+    SLEEPING = 0,
 
-        /** General model. */
-        GENERAL = 1,
+    /** General model. */
+    GENERAL = 1,
 
-        /** Through wall model. */
-        THROUGH_WALL = 2,
-    }
+    /** Through wall model. */
+    THROUGH_WALL = 2,
+  }
 }
 
 export default wifiext;

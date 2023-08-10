@@ -35,10 +35,7 @@
           "name": "radio"
         },
         {
-          "name": "text",
-          "syscap": [
-            "SystemCapability.ArkUI.ArkUI.Full"
-          ]
+          "name": "text"
         },
         {
           "name": "email",
@@ -65,7 +62,16 @@
           ]
         },
         {
-          "name": "password",
+          "name": "password"
+        },
+        {
+          "name": "submit",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
+        },
+        {
+          "name": "reset",
           "syscap": [
             "SystemCapability.ArkUI.ArkUI.Full"
           ]
@@ -112,32 +118,20 @@
     },
     {
       "name": "placeholder",
-      "syscap": [
-        "SystemCapability.ArkUI.ArkUI.Full"
-      ],
       "required": false,
       "description": [
         {
-          "name": "Content of the hint text. This attribute is available only when the component type is set to text, email, date, or time.",
-          "syscap": [
-            "SystemCapability.ArkUI.ArkUI.Full"
-          ]
+          "name": "Content of the hint text. This attribute is available only when the component type is set to text, email, date, or time."
         }
       ],
       "type": "string"
     },
     {
       "name": "maxlength",
-      "syscap": [
-        "SystemCapability.ArkUI.ArkUI.Full"
-      ],
       "required": false,
       "description": [
         {
-          "name": "Maximum number of characters that can be entered in the input box. If no value is specified, the number of characters is not limited.",
-          "syscap": [
-            "SystemCapability.ArkUI.ArkUI.Full"
-          ]
+          "name": "Maximum number of characters that can be entered in the input box. If no value is specified, the number of characters is not limited."
         }
       ],
       "type": "string"

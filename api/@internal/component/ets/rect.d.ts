@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,12 +15,55 @@
 
 /**
  * Provides an interface for drawing rectangles.
+ *
+ * @interface RectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * Provides an interface for drawing rectangles.
+ *
+ * @interface RectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Provides an interface for drawing rectangles.
+ *
+ * @interface RectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
  */
 interface RectInterface {
   /**
    * Use new function to create Rect.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Use new function to create Rect.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Use new function to create Rect.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   new (
     value?:
@@ -30,16 +73,39 @@ interface RectInterface {
         radius?: number | string | Array<any>;
       }
       | {
-          width?: number | string;
-          height?: number | string;
-          radiusWidth?: number | string;
-          radiusHeight?: number | string;
-        },
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
   ): RectAttribute;
 
   /**
    * Called when a rectangle is created.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Called when a rectangle is created.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Called when a rectangle is created.
+   *
+   * @param { object } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   (
     value?:
@@ -49,36 +115,160 @@ interface RectInterface {
         radius?: number | string | Array<any>;
       }
       | {
-          width?: number | string;
-          height?: number | string;
-          radiusWidth?: number | string;
-          radiusHeight?: number | string;
-        },
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
   ): RectAttribute;
 }
 
 /**
+ * rect attribute declaration.
+ *
+ * @extends CommonShapeMethod
  * @since 7
+ */
+/**
+ * rect attribute declaration.
+ *
+ * @extends CommonShapeMethod
+ * @since 9
+ * @form
+ */
+/**
+ * rect attribute declaration.
+ *
+ * @extends CommonShapeMethod
+ * @crossplatform
+ * @since 10
+ * @form
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet width is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Called when the fillet width is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Called when the fillet width is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   radiusWidth(value: number | string): RectAttribute;
 
   /**
    * Called when the fillet height is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Called when the fillet height is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Called when the fillet height is set.
+   *
+   * @param { number | string } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   radiusHeight(value: number | string): RectAttribute;
 
   /**
    * Called when the fillet size is set.
+   *
+   * @param { number | string | Array<any> } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Called when the fillet size is set.
+   *
+   * @param { number | string | Array<any> } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Called when the fillet size is set.
+   *
+   * @param { number | string | Array<any> } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   radius(value: number | string | Array<any>): RectAttribute;
 }
 
+/**
+ * Defines Rect Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Defines Rect Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
 declare const Rect: RectInterface;
+
+/**
+ * Rect attribute.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @deprecated since 9
+ */
 declare const RectInStance: RectAttribute;
+
+/**
+ * Rect attribute.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare const RectInstance: RectAttribute;

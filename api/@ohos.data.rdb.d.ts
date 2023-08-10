@@ -13,702 +13,926 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from './basic';
-import { ResultSet } from './data/rdb/resultSet';
-import Context from "./application/BaseContext";
-import dataSharePredicates from './@ohos.data.dataSharePredicates';
+import { AsyncCallback, Callback } from './@ohos.base';
+import { ResultSet as _ResultSet } from './data/rdb/resultSet';
+import Context from './application/BaseContext';
 
 /**
  * Provides methods for rdbStore create and delete.
  *
- * @since 7
+ * @namespace rdb
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @import import data_rdb from '@ohos.data.rdb';
+ * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.data.relationalStore
  */
 declare namespace rdb {
-    /**
-     * Obtains an RDB store.
-     *
-     * You can set parameters of the RDB store as required. In general, this method is recommended
-     * to obtain a rdb store.
-     *
-     * @since 7
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @param context Indicates the context of application or capability.
-     * @param config Indicates the configuration of the database related to this RDB store. The configurations include
-     * the database path, storage mode, and whether the database is read-only.
-     * @param version Indicates the database version for upgrade or downgrade.
-     * @return Returns an RDB store {@link ohos.data.rdb.RdbStore}.
-     */
-    function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
-    function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
+  /**
+   * Obtains an RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { number } version - Indicates the database version for upgrade or downgrade.
+   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.getRdbStore
+   */
+  function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
 
-    /**
-     * Deletes the database with a specified name.
-     *
-     * @since 7
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @param context Indicates the context of application or capability.
-     * @param name Indicates the database name.
-     * @return Returns true if the database is deleted; returns false otherwise.
-     */
-    function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
-    function deleteRdbStore(context: Context, name: string): Promise<void>;
+  /**
+   * Obtains an RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { number } version - Indicates the database version for upgrade or downgrade.
+   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.getRdbStore
+   */
+  function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
 
+  /**
+   * Deletes the database with a specified name.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } name - Indicates the database name.
+   * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.deleteRdbStore
+   */
+  function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
+  /**
+   * Deletes the database with a specified name.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { string } name - Indicates the database name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.deleteRdbStore
+   */
+  function deleteRdbStore(context: Context, name: string): Promise<void>;
+
+  /**
+   * Indicates the database synchronization mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.SyncMode
+   */
+  enum SyncMode {
     /**
-     * Indicates the database synchronization mode.
+     * Indicates the data is pushed to remote device from local device.
      *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PUSH
      */
-    enum SyncMode {
-        /**
-         * Indicates the data is pushed to remote device from local device.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        SYNC_MODE_PUSH = 0,
-
-        /**
-         * Indicates the data is pulled from remote device to local device.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        SYNC_MODE_PULL = 1,
-    }
+    SYNC_MODE_PUSH = 0,
 
     /**
-     * Describes the subscription type.
+     * Indicates the data is pulled from remote device to local device.
      *
-     * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PULL
+     */
+    SYNC_MODE_PULL = 1
+  }
+
+  /**
+   * Describes the subscription type.
+   *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.SubscribeType
+   */
+  enum SubscribeType {
+    /**
+     * Subscription to remote data changes
+     *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
      */
-    enum SubscribeType {
-        /**
-         * Subscription to remote data changes
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        SUBSCRIBE_TYPE_REMOTE = 0,
-    }
+    SUBSCRIBE_TYPE_REMOTE = 0
+  }
+
+  /**
+   * Provides methods for managing the relational database (RDB).
+   * This class provides methods for creating, querying, updating, and deleting RDBs.
+   *
+   * @interface RdbStore
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.RdbStore
+   */
+  interface RdbStore {
+    /**
+     * Inserts a row of data into the target table.
+     *
+     * @param { string } table - Indicates the row of data to be inserted into the table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.insert
+     */
+    insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
 
     /**
-     * Provides methods for managing the relational database (RDB).
+     * Inserts a row of data into the target table.
      *
-     * This class provides methods for creating, querying, updating, and deleting RDBs.
-     *
-     * @since 7
+     * @param { string } table - Indicates the row of data to be inserted into the table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { Promise<number> } Return the row ID if the operation is successful. return -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import import data_rdb from '@ohos.data.rdb';
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.insert
      */
-    interface RdbStore {
-        /**
-         * Inserts a row of data into the target table.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param table Indicates the target table.
-         * @param values Indicates the row of data to be inserted into the table.
-         * @return Returns the row ID if the operation is successful; returns -1 otherwise.
-         */
-        insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
-        insert(table: string, values: ValuesBucket): Promise<number>;
-
-        /**
-         * Updates data in the database based on a a specified instance object of rdbPredicates.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param predicates Indicates the specified update condition by the instance object of RdbPredicates.
-         * @return Returns the number of affected rows.
-         */
-        update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
-        update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
-
-        /**
-         * Updates data in the database based on a a specified instance object of DataSharePredicates.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param table Indicates the target table.
-         * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param predicates Indicates the specified update condition by the instance object of DataSharePredicates.
-         * @return Returns the number of affected rows.
-         */
-        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
-        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
- 
-        /**
-         * Deletes data from the database based on a specified instance object of rdbPredicates.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param predicates Indicates the specified delete condition by the instance object of RdbPredicates.
-         * @return Returns the number of affected rows.
-         */
-        delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
-        delete(predicates: RdbPredicates): Promise<number>;
-
-        /**
-         * Deletes data from the database based on a specified instance object of DataSharePredicates.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param table Indicates the target table.
-         * @param predicates Indicates the specified delete condition by the instance object of DataSharePredicates.
-         * @return Returns the number of affected rows.
-         */
-        delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
-        delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
-
-        /**
-         * Queries data in the database based on specified conditions.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param predicates Indicates the specified query condition by the instance object of RdbPredicates.
-         * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
-         * @return Returns a ResultSet object if the operation is successful;
-         */
-        query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-        query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
-
-        /**
-         * Queries data in the database based on specified conditions.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param table Indicates the target table.
-         * @param predicates Indicates the specified query condition by the instance object of DataSharePredicates.
-         * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
-         * @return Returns a ResultSet object if the operation is successful;
-         */
-        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
-
-        /**
-         * Queries data in the database based on SQL statement.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param sql Indicates the SQL statement to execute.
-         * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
-         * @return Returns a ResultSet object if the operation is successful;
-         */
-        querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
-        querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
-
-        /**
-         * Executes an SQL statement that contains specified parameters but returns no value.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param sql Indicates the SQL statement to execute.
-         * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
-         */
-        executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
-        executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
-
-        /**
-         * beginTransaction before excute your sql
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        beginTransaction():void;
-
-        /**
-         * commit the the sql you have excuted.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        commit():void;
-
-        /**
-         * roll back the sql you have already excuted
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        rollBack():void;
-
-        /**
-         * Backs up a database in a specified name.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param destName Indicates the name that saves the database backup.
-         */
-        backup(destName:string, callback: AsyncCallback<void>):void;
-        backup(destName:string): Promise<void>;
-
-        /**
-         * Restores a database from a specified database file.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param srcName Indicates the name that saves the database file.
-         */
-        restore(srcName:string, callback: AsyncCallback<void>):void;
-        restore(srcName:string): Promise<void>;
-
-        /**
-         * Set table to be distributed table.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param tables the tables name you want to set
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         */
-        setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
-        setDistributedTables(tables: Array<string>): Promise<void>;
-
-        /**
-         * Obtain distributed table name of specified remote device according to local table name.
-         * When query remote device database, distributed table name is needed.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param device Indicates the remote device.
-         * @param table Indicates the local table name.
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @return the distributed table name.
-         */
-        obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
-        obtainDistributedTableName(device: string, table: string): Promise<string>;
-
-        /**
-         * Sync data between devices
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param mode Indicates the synchronization mode. The value can be PUSH, PULL.
-         * @param predicates Constraint synchronized data and devices.
-         * @param callback Indicates the callback used to send the synchronization result to the caller.
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         */
-        sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
-        sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
-
-        /**
-         * Registers an observer for the database. When data in the distributed database changes,
-         * the callback will be invoked.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param observer Indicates the observer of data change events in the distributed database.
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         */
-        on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-
-        /**
-         * Remove specified observer of specified type from the database.
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param observer Indicates the data change observer already registered.
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         */
-        off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-    }
+    insert(table: string, values: ValuesBucket): Promise<number>;
 
     /**
-     * Indicates possible value types
+     * Inserts a batch of data into the target table.
      *
-     * @since 7
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { AsyncCallback<number> } callback - The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import import data_rdb from '@ohos.data.rdb';
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
      */
-    type ValueType = number | string | boolean;
+    batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
     /**
-     * Values in buckets are stored in key-value pairs
+     * Inserts a batch of data into the target table.
      *
-     * @since 7
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { Promise<number> } Return the number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import import data_rdb from '@ohos.data.rdb';
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
      */
-    type ValuesBucket = {
-        [key: string]: ValueType | Uint8Array | null;
-    }
+    batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
 
     /**
-     * Manages relational database configurations.
+     * Updates data in the database based on a a specified instance object of RdbPredicates.
      *
-     * @since 7
+     * @param { ValuesBucket } values - Indicates Indicates the row of data to be updated in the database.
+     * The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import import data_rdb from '@ohos.data.rdb';
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.update
      */
-    interface StoreConfig {
-        name: string;
-    }
+    update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
     /**
-     * Manages relational database configurations.
+     * Updates data in the database based on a a specified instance object of RdbPredicates.
      *
-     * @since 7
+     * @param { ValuesBucket } values - Indicates Indicates the row of data to be updated in the database.
+     * The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @returns { Promise<number> } Return the number of affected rows.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import import data_rdb from '@ohos.data.rdb';
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.update
      */
-    class RdbPredicates {
-        /**
-         * A parameterized constructor used to create an RdbPredicates instance.
-         * name Indicates the table name of the database.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        constructor(name: string)
+    update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
 
-        /**
-         * Specify remote devices when syncing distributed database.
-         *
-         * @note When query database, this function should not be called.
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param devices Indicates specified remote devices.
-         * @return Returns the RdbPredicates self.
-         */
-        inDevices(devices: Array<string>): RdbPredicates;
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.delete
+     */
+    delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
-        /**
-         * Specify all remote devices which connect to local device when syncing distributed database.
-         *
-         * @note When query database, this function should not be called.
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @return Returns the RdbPredicates self.
-         */
-        inAllDevices(): RdbPredicates;
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @returns { Promise<number> } Return the number of affected rows.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.delete
+     */
+    delete(predicates: RdbPredicates): Promise<number>;
 
-        /**
-         * Configures the RdbPredicates to match the field whose data type is ValueType and value is equal
-         * to a specified value.
-         *
-         * @note This method is similar to = of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param value Indicates the value to match with the RdbPredicates.
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        equalTo(field: string, value: ValueType): RdbPredicates;
+    /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
+     * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.query
+     */
+    query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
-        /**
-         * Configures the RdbPredicates to match the field whose data type is ValueType and value is unequal to
-         * a specified value.
-         *
-         * @note This method is similar to != of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param value Indicates the value to match with the RdbPredicates.
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        notEqualTo(field: string, value: ValueType): RdbPredicates;
+    /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
+     * @returns { Promise<ResultSet> } Return the {@link ResultSet} object if the operation is successful.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.query
+     */
+    query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
-        /**
-         * Adds a left parenthesis to the RdbPredicates.
-         *
-         * @note This method is similar to ( of the SQL statement and needs to be used together with endWrap().
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @return Returns the RdbPredicates with the left parenthesis.
-         */
-        beginWrap(): RdbPredicates;
+    /**
+     * Queries data in the database based on SQL statement.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @param { AsyncCallback<ResultSet> } callback
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.querySql
+     */
+    querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
-        /**
-         * Adds a right parenthesis to the RdbPredicates.
-         *
-         * @note This method is similar to ) of the SQL statement and needs to be used together
-         * with beginWrap().
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @return Returns the RdbPredicates with the right parenthesis.
-         */
-        endWrap(): RdbPredicates;
+    /**
+     * Queries data in the database based on SQL statement.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { Promise<ResultSet> } Return the {@link ResultSet} object if the operation is successful.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.querySql
+     */
+    querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
-        /**
-         * Adds an or condition to the RdbPredicates.
-         *
-         * @note This method is similar to or of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @return Returns the RdbPredicates with the or condition.
-         */
-        or(): RdbPredicates;
+    /**
+     * Executes an SQL statement that contains specified parameters but returns no value.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @param { AsyncCallback<void> } callback - The callback of executeSql.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.executeSql
+     */
+    executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
-        /**
-         * Adds an and condition to the RdbPredicates.
-         *
-         * @note This method is similar to and of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @return Returns the RdbPredicates with the and condition.
-         */
-        and(): RdbPredicates;
+    /**
+     * Executes an SQL statement that contains specified parameters but returns no value.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.executeSql
+     */
+    executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
-        /**
-         * Configures the RdbPredicates to match the field whose data type is string and value
-         * contains a specified value.
-         *
-         * @note This method is similar to contains of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param value Indicates the value to match with the RdbPredicates.
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        contains(field: string, value: string): RdbPredicates;
+    /**
+     * Begin Transaction before execute your sql.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.beginTransaction
+     */
+    beginTransaction(): void;
 
-        /**
-         * Configures the RdbPredicates to match the field whose data type is string and value starts
-         * with a specified string.
-         *
-         * @note This method is similar to value% of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param value Indicates the value to match with the RdbPredicates.
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        beginsWith(field: string, value: string): RdbPredicates;
+    /**
+     * Commit the the sql you have executed.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.commit
+     */
+    commit(): void;
 
-        /**
-         * Configures the RdbPredicates to match the field whose data type is string and value
-         * ends with a specified string.
-         *
-         * @note This method is similar to %value of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param value Indicates the value to match with the RdbPredicates.
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        endsWith(field: string, value: string): RdbPredicates;
+    /**
+     * Roll back the sql you have already executed.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.rollBack
+     */
+    rollBack(): void;
 
-        /**
-         * Configures the RdbPredicates to match the fields whose value is null.
-         *
-         * @note This method is similar to is null of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        isNull(field: string): RdbPredicates;
+    /**
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
+     */
+    setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
 
-        /**
-         * Configures the RdbPredicates to match the specified fields whose value is not null.
-         *
-         * @note This method is similar to is not null of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        isNotNull(field: string): RdbPredicates;
+    /**
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
+     */
+    setDistributedTables(tables: Array<string>): Promise<void>;
 
-        /**
-         * Configures the RdbPredicates to match the fields whose data type is string and value is
-         * similar to a specified string.
-         *
-         * @note This method is similar to like of the SQL statement.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param value Indicates the value to match with the RdbPredicates. The percent sign (%) in the value
-         * is a wildcard (like * in a regular expression).
-         * @return Returns the RdbPredicates that match the specified field.
-         */
-        like(field: string, value: string): RdbPredicates;
+    /**
+     * Obtain distributed table name of specified remote device according to local table name.
+     * When query remote device database, distributed table name is needed.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } device - Indicates the remote device.
+     * @param { string } table - {string}: The distributed table name.
+     * @param { AsyncCallback<string> } callback
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
+     */
+    obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
 
-        /**
-         * Configures RdbPredicates to match the specified field whose data type is string and the value contains
-         * a wildcard.
-         *
-         * @note Different from like, the input parameters of this method are case-sensitive.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param value Indicates the value to match with RdbPredicates.
-         * @return Returns the SQL statement with the specified RdbPredicates.
-         */
-        glob(field: string, value: string): RdbPredicates;
+    /**
+     * Obtain distributed table name of specified remote device according to local table name.
+     * When query remote device database, distributed table name is needed.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } device - Indicates the remote device.
+     * @param { string } table
+     * @returns { Promise<string> } {string}: The distributed table name.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
+     */
+    obtainDistributedTableName(device: string, table: string): Promise<string>;
 
-        /**
-         * Restricts the value of the field to the range between low value and high value.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name.
-         * @param low Indicates the minimum value.
-         * @param high Indicates the maximum value.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        between(field: string, low: ValueType, high: ValueType): RdbPredicates;
+    /**
+     * Sync data between devices.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - Indicates the remote device.
+     * @param { RdbPredicates } predicates - {Array<[string, number]>}: Devices sync status array, {string}: device id, {number}: device sync status.
+     * @param { AsyncCallback<Array<[string, number]>> } callback
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.sync
+     */
+    sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
 
-        /**
-         * Configures RdbPredicates to match the specified field whose data type is int and value is
-         * out of a given range.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param low Indicates the minimum value to match with DataAbilityPredicates.
-         * @param high Indicates the maximum value to match with DataAbilityPredicates.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates;
+    /**
+     * Sync data between devices.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { SyncMode } mode - Indicates the remote device.
+     * @param { RdbPredicates } predicates
+     * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: Devices sync status array, {string}: device id, {number}: device sync status.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.sync
+     */
+    sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
 
-        /**
-         * Restricts the value of the field to be greater than the specified value.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name.
-         * @param value Indicates the String field.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        greaterThan(field: string, value: ValueType): RdbPredicates;
+    /**
+     * Registers an observer for the database. When data in the distributed database changes,
+     * the callback will be invoked.
+     *
+     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> } observer - {Array<string>}: The observer of data change events in the distributed database.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.on
+     */
+    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
-        /**
-         * Restricts the value of the field to be smaller than the specified value.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name.
-         * @param value Indicates the String field.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        lessThan(field: string, value: ValueType): RdbPredicates;
+    /**
+     * Remove specified observer of specified type from the database.
+     *
+     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> } observer - {Array<string>}: The data change observer already registered.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.off
+     */
+    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+  }
 
-        /**
-         * Restricts the value of the field to be greater than or equal to the specified value.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name.
-         * @param value Indicates the String field.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
+  /**
+   * Indicates possible value types
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.ValueType
+   */
+  type ValueType = number | string | boolean;
 
-        /**
-         * Restricts the value of the field to be smaller than or equal to the specified value.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name.
-         * @param value Indicates the String field.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
+  /**
+   * Values in buckets are stored in key-value pairs
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.ValuesBucket
+   */
+  type ValuesBucket = { [key: string]: ValueType | Uint8Array | null };
 
-        /**
-         * Restricts the ascending order of the return list. When there are several orders,
-         * the one close to the head has the highest priority.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name for sorting the return list.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        orderByAsc(field: string): RdbPredicates;
+  /**
+   * Manages relational database configurations.
+   *
+   * @interface StoreConfig
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.StoreConfig
+   */
+  interface StoreConfig {
+    name: string;
+  }
 
-        /**
-         * Restricts the descending order of the return list. When there are several orders,
-         * the one close to the head has the highest priority.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name for sorting the return list.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        orderByDesc(field: string): RdbPredicates;
+  /**
+   * Manages relational database configurations.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.RdbPredicates
+   */
+  class RdbPredicates {
+    /**
+     * A parameterized constructor used to create an RdbPredicates instance.
+     *
+     * @param { string } name - Indicates the table name of the database.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.constructor
+     */
+    constructor(name: string);
 
-        /**
-         * Restricts each row of the query result to be unique.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        distinct(): RdbPredicates;
+    /**
+     * Sync data between devices.
+     * When query database, this function should not be called.
+     *
+     * @param { Array<string> } devices - Indicates specified remote devices.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.inDevices
+     */
+    inDevices(devices: Array<string>): RdbPredicates;
 
-        /**
-         * Restricts the max number of return records.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param value Indicates the max length of the return list.
-         * @return Returns the SQL query statement with the specified RdbPredicates.
-         */
-        limitAs(value: number): RdbPredicates;
+    /**
+     * Specify all remote devices which connect to local device when syncing distributed database.
+     * When query database, this function should not be called.
+     *
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.inAllDevices
+     */
+    inAllDevices(): RdbPredicates;
 
-        /**
-         * Configures RdbPredicates to specify the start position of the returned result.
-         *
-         * @note Use this method together with limit(int).
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param rowOffset Indicates the start position of the returned result. The value is a positive integer.
-         * @return Returns the SQL query statement with the specified AbsPredicates.
-         */
-        offsetAs(rowOffset: number): RdbPredicates;
+    /**
+     * Configure the RdbPredicates to match the field whose data type is ValueType and value is equal
+     * to a specified value.
+     * This method is similar to = of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.equalTo
+     */
+    equalTo(field: string, value: ValueType): RdbPredicates;
 
-        /**
-         * Configures RdbPredicates to group query results by specified columns.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param fields Indicates the specified columns by which query results are grouped.
-         * @return Returns the RdbPredicates with the specified columns by which query results are grouped.
-         */
-        groupBy(fields: Array<string>): RdbPredicates;
+    /**
+     * Configure the RdbPredicates to match the field whose data type is ValueType and value is not equal to
+     * a specified value.
+     * This method is similar to != of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.notEqualTo
+     */
+    notEqualTo(field: string, value: ValueType): RdbPredicates;
 
-        /**
-         * Configures RdbPredicates to specify the index column.
-         *
-         * @note Before using this method, you need to create an index column.
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param indexName Indicates the name of the index column.
-         * @return Returns RdbPredicates with the specified index column.
-         */
-        indexedBy(field: string): RdbPredicates;
+    /**
+     * Adds a left parenthesis to the RdbPredicates.
+     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
+     *
+     * @returns { RdbPredicates } - The {@link RdbPredicates} with the left parenthesis.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.beginWrap
+     */
+    beginWrap(): RdbPredicates;
 
-        /**
-         * Configures RdbPredicates to match the specified field whose data type is ValueType array and values
-         * are within a given range.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param values Indicates the values to match with RdbPredicates.
-         * @return Returns RdbPredicates that matches the specified field.
-         */
-        in(field: string, value: Array<ValueType>): RdbPredicates;
+    /**
+     * Adds a right parenthesis to the RdbPredicates.
+     * This method is similar to ) of the SQL statement and needs to be used together
+     * with beginWrap().
+     *
+     * @returns { RdbPredicates } - The {@link RdbPredicates} with the right parenthesis.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.endWrap
+     */
+    endWrap(): RdbPredicates;
 
-        /**
-         * Configures RdbPredicates to match the specified field whose data type is ValueType array and values
-         * are out of a given range.
-         *
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param field Indicates the column name in the database table.
-         * @param values Indicates the values to match with RdbPredicates.
-         * @return Returns RdbPredicates that matches the specified field.
-         */
-        notIn(field: string, value: Array<ValueType>): RdbPredicates;
-    }
+    /**
+     * Adds an or condition to the RdbPredicates.
+     * This method is similar to or of the SQL statement.
+     *
+     * @returns { RdbPredicates } Returns the {@link RdbPredicates} with the or condition.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.or
+     */
+    or(): RdbPredicates;
+
+    /**
+     * Adds an and condition to the RdbPredicates.
+     * This method is similar to or of the SQL statement.
+     *
+     * @returns { RdbPredicates } Returns the {@link RdbPredicates} with the or condition.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.and
+     */
+    and(): RdbPredicates;
+
+    /**
+     * Configure the RdbPredicates to match the field whose data type is string and value
+     * contains a specified value.
+     * This method is similar to contains of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.contains
+     */
+    contains(field: string, value: string): RdbPredicates;
+
+    /**
+     * Configure the RdbPredicates to match the field whose data type is string and value starts
+     * with a specified string.
+     * This method is similar to value% of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.beginsWith
+     */
+    beginsWith(field: string, value: string): RdbPredicates;
+
+    /**
+     * Configure the RdbPredicates to match the field whose data type is string and value
+     * ends with a specified string.
+     * This method is similar to %value of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.endsWith
+     */
+    endsWith(field: string, value: string): RdbPredicates;
+
+    /**
+     * Configure the RdbPredicates to match the fields whose value is null.
+     * This method is similar to is null of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.isNull
+     */
+    isNull(field: string): RdbPredicates;
+
+    /**
+     * Configure the RdbPredicates to match the specified fields whose value is not null.
+     * This method is similar to is not null of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} self.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.isNotNull
+     */
+    isNotNull(field: string): RdbPredicates;
+
+    /**
+     * Configure the RdbPredicates to match the fields whose data type is string and value is
+     * similar to a specified string.
+     * This method is similar to like of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The {@link RdbPredicates} that match the specified field.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.like
+     */
+    like(field: string, value: string): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to match the specified field whose data type is string and the value contains
+     * a wildcard.
+     * Different from like, the input parameters of this method are case-sensitive.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.glob
+     */
+    glob(field: string, value: string): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to match the specified field whose data type is string and the value contains
+     * a wildcard.
+     *
+     * @param { string } field - Indicates the column name.
+     * @param { ValueType } low - Indicates the minimum value.
+     * @param { ValueType } high - Indicates the maximum value.
+     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.between
+     */
+    between(field: string, low: ValueType, high: ValueType): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to match the specified field whose data type is int and value is
+     * out of a given range.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } low - Indicates the minimum value.
+     * @param { ValueType } high - Indicates  the maximum value to.
+     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.notBetween
+     */
+    notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates;
+
+    /**
+     * Restricts the value of the field to be greater than the specified value.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThan
+     */
+    greaterThan(field: string, value: ValueType): RdbPredicates;
+
+    /**
+     * Restricts the value of the field to be smaller than the specified value.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.lessThan
+     */
+    lessThan(field: string, value: ValueType): RdbPredicates;
+
+    /**
+     * Restricts the value of the field to be greater than or equal to the specified value.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThanOrEqualTo
+     */
+    greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
+
+    /**
+     * Restricts the value of the field to be smaller than or equal to the specified value.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.lessThanOrEqualTo
+     */
+    lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
+
+    /**
+     * Restricts the ascending order of the return list. When there are several orders,
+     * the one close to the head has the highest priority.
+     *
+     * @param { string } field - Indicates the column name for sorting the return list.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.orderByAsc
+     */
+    orderByAsc(field: string): RdbPredicates;
+
+    /**
+     * Restricts the descending order of the return list. When there are several orders,
+     * the one close to the head has the highest priority.
+     *
+     * @param { string } field - Indicates the column name for sorting the return list.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.orderByDesc
+     */
+    orderByDesc(field: string): RdbPredicates;
+
+    /**
+     * Restricts each row of the query result to be unique.
+     *
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.distinct
+     */
+    distinct(): RdbPredicates;
+
+    /**
+     * Restricts the max number of return records.
+     *
+     * @param { number } value - Indicates the max length of the return list.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.limitAs
+     */
+    limitAs(value: number): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to specify the start position of the returned result.
+     * Use this method together with limit(int).
+     *
+     * @param { number } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.offsetAs
+     */
+    offsetAs(rowOffset: number): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to group query results by specified columns.
+     *
+     * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
+     * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.groupBy
+     */
+    groupBy(fields: Array<string>): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to specify the index column.
+     * Before using this method, you need to create an index column.
+     *
+     * @param { string } field - Indicates the name of the index column.
+     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.indexedBy
+     */
+    indexedBy(field: string): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
+     * are within a given range.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.in
+     */
+    in(field: string, value: Array<ValueType>): RdbPredicates;
+
+    /**
+     * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
+     * are out of a given range.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
+     * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.notIn
+     */
+    notIn(field: string, value: Array<ValueType>): RdbPredicates;
+  }
+
+  export type ResultSet = _ResultSet;
 }
 
 export default rdb;

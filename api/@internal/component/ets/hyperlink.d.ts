@@ -15,6 +15,9 @@
 
 /**
  * Defines the hyperlink interface.
+ *
+ * @interface HyperlinkInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 interface HyperlinkInterface {
@@ -22,22 +25,47 @@ interface HyperlinkInterface {
    * Return to get Hyperlink.
    * adress: Web page redirected by the hyperlink component.
    * content: Hyperlinks in the hyperlink component display text.
+   *
+   * @param { string | Resource } address
+   * @param { string | Resource } content
+   * @returns { HyperlinkAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
 
 /**
- * Defines the hyperlink attibute functions
+ * Defines the hyperlink attribute functions
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
    * Set Color
+   *
+   * @param { Color | number | string | Resource } value
+   * @returns { HyperlinkAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
 
+/**
+ * Defines Hyperlink Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
 declare const Hyperlink: HyperlinkInterface;
+
+/**
+ * Defines Hyperlink Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
 declare const HyperlinkInterface: HyperlinkAttribute;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,50 +16,53 @@
 /**
  * The definition of ConfigurationConstant.
  *
- * @since 8
+ * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
- * @permission N/A
+ * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant
  */
- declare namespace ConfigurationConstant {
+declare namespace ConfigurationConstant {
+  /**
+   * Color mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant#ColorMode
+   */
+  export enum ColorMode {
     /**
-     * @name ColorMode
+     * No color mode set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
      * @since 8
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_NOT_SET
      */
-    export enum ColorMode {
-        COLOR_MODE_NOT_SET = -1,
-        COLOR_MODE_DARK = 0,
-        COLOR_MODE_LIGHT = 1,
-    }
+    COLOR_MODE_NOT_SET = -1,
 
     /**
-     * @name Direction
-     * @since 9
+     * Dark mode.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_DARK
      */
-    export enum Direction {
-        DIRECTION_NOT_SET = -1,
-        DIRECTION_VERTICAL = 0,
-        DIRECTION_HORIZONTAL = 1,
-    }
+    COLOR_MODE_DARK = 0,
 
     /**
-     * @name ScreenDensity
-     * @since 9
+     * Light mode.
+     *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_LIGHT
      */
-    export enum ScreenDensity {
-        SCREEN_DENSITY_NOT_SET = 0,
-        SCREEN_DENSITY_SDPI = 120,
-        SCREEN_DENSITY_MDPI = 160,
-        SCREEN_DENSITY_LDPI = 240,
-        SCREEN_DENSITY_XLDPI = 320,
-        SCREEN_DENSITY_XXLDPI = 480,
-        SCREEN_DENSITY_XXXLDPI = 640,
-    }
+    COLOR_MODE_LIGHT = 1
+  }
 }
 
-export default ConfigurationConstant
+export default ConfigurationConstant;

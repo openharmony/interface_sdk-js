@@ -15,12 +15,16 @@
 
 /**
  * Defines the AppResponse info.
+ *
+ * @interface AppResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export interface AppResponse {
   /**
    * Application bundleName.
+   *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -28,6 +32,8 @@ export interface AppResponse {
 
   /**
    * Application name.
+   *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
@@ -35,6 +41,8 @@ export interface AppResponse {
 
   /**
    * Application version name.
+   *
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
@@ -42,6 +50,8 @@ export interface AppResponse {
 
   /**
    * Application version.
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
@@ -50,30 +60,44 @@ export interface AppResponse {
 
 /**
  * Defines the option of screenOnVisible interface.
+ *
+ * @interface ScreenOnVisibleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
 export interface ScreenOnVisibleOptions {
   /**
    * Whether to keep the application visible. The default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
   visible?: boolean;
 
   /**
    * Called when the application always keeps visible.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
   success?: () => void;
 
   /**
    * Called when the application fails to keep visible.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
   complete?: () => void;
@@ -81,12 +105,16 @@ export interface ScreenOnVisibleOptions {
 
 /**
  * Defines the option of RequestFullWindow interface.
+ *
+ * @interface RequestFullWindowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
 export interface RequestFullWindowOptions {
   /**
    * Defines the number of animation options.
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -95,12 +123,15 @@ export interface RequestFullWindowOptions {
 
 /**
  * Defines the app class info.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export default class App {
   /**
    * Obtains the declared information in the config.json file of an application.
+   *
+   * @returns { AppResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
@@ -108,29 +139,44 @@ export default class App {
 
   /**
    * Destroys the current ability.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
   static terminate(): void;
 
   /**
+   * Keeps the application visible after the screen is waken up.
+   * This method prevents the system from returning to the home screen when the screen is locked.
+   *
+   * @param { ScreenOnVisibleOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
+   * @deprecated since 8
+   */
+  static screenOnVisible(options?: ScreenOnVisibleOptions): void;
+
+  /**
    * Requests the application to run in full window.
    * In some scenarios, such as semi-modal FA, the FA runs in non-full window.
    * In this case, you can call this API.
    * This API is invalid for an application already in full-window mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param options Transition time from non-full window to full window, in milliseconds.
+   *
+   * @param { RequestFullWindowOptions } options Transition time from non-full window to full window, in milliseconds.
    * By default, the value is in direct proportion to the distance between the non-full window and the full window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   * @systemapi
+   * @deprecated since 8
+   * @useinstead startAbility
    */
   static requestFullWindow(options?: RequestFullWindowOptions): void;
 
   /**
    * Set image cache capacity of decoded image count.
    * if not set, the application will not cache any decoded image.
+   *
+   * @param { number } value capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param value capacity of decoded image count.
    * @since 7
    */
   static setImageCacheCount(value: number): void;
@@ -138,8 +184,9 @@ export default class App {
   /**
    * Set image cache capacity of raw image data size in bytes before decode.
    * if not set, the application will not cache any raw image data.
+   *
+   * @param { number } value capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param value capacity of raw image data size in bytes.
    * @since 7
    */
   static setImageRawDataCacheSize(value: number): void;
@@ -147,8 +194,9 @@ export default class App {
   /**
    * Set image file cache size in bytes on disk before decode.
    * if not set, the application will cache 100MB image files on disk.
+   *
+   * @param { number } value capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param value capacity of raw image data size in bytes.
    * @since 7
    */
   static setImageFileCacheSize(value: number): void;

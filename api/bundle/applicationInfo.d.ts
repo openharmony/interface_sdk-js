@@ -15,195 +15,184 @@
 
 import { ModuleInfo } from './moduleInfo';
 import { CustomizeData } from './customizeData';
-import { Metadata } from './metadata';
-import { Resource } from './../global/resource';
 
 /**
- * @name Obtains configuration information about an application
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
+ * Obtains configuration information about an application
  *
+ * @typedef ApplicationInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.ApplicationInfo
  */
 export interface ApplicationInfo {
   /**
-    * @default Indicates the application name, which is the same as {@code bundleName}
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the application name, which is the same as {@code bundleName}
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly name: string;
 
   /**
-    * @default Description of application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Description of application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly description: string;
 
   /**
-    * @default Indicates the description id of the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the description id of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly descriptionId: number;
 
   /**
-    * @default Indicates whether the application is a system application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates whether the application is a system application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly systemApp: boolean;
 
   /**
-    * @default Indicates whether or not this application may be instantiated
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates whether or not this application may be instantiated
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly enabled: boolean;
 
   /**
-    * @default Indicates the label of the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the label of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly label: string;
 
   /**
-    * @default Indicates the label id of the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the label id of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager.ApplicationInfo.labelIndex
+   */
   readonly labelId: string;
 
   /**
-    * @default Indicates the icon of the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the icon of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly icon: string;
 
   /**
-    * @default Indicates the icon id of the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the icon id of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager.ApplicationInfo.iconIndex
+   */
   readonly iconId: string;
 
   /**
-    * @default Process of application, if user do not set it ,the value equal bundleName
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Process of application, if user do not set it ,the value equal bundleName
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly process: string;
 
   /**
-    * @default Indicates the running mode supported by the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the running mode supported by the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly supportedModes: number;
 
   /**
-    * @default Indicates the path storing the module resources of the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the path storing the module resources of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly moduleSourceDirs: Array<string>;
 
   /**
-    * @default Indicates the permissions required for accessing the application.
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the permissions required for accessing the application.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly permissions: Array<string>;
 
   /**
-    * @default Indicates module information about an application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates module information about an application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly moduleInfos: Array<ModuleInfo>;
 
   /**
-    * @default Indicates the path where the {@code Entry.hap} file of the application is saved
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the path where the {@code Entry.hap} file of the application is saved
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7
+   * @deprecated since 9
+   */
   readonly entryDir: string;
 
   /**
-    * @default Indicates the application source code path
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the application source code path
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
   readonly codePath: string;
 
   /**
-    * @default Indicates the metadata of module
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the metadata of module
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
   readonly metaData: Map<string, Array<CustomizeData>>;
 
   /**
-    * @default Indicates the metadata of module
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly metadata: Map<string, Array<Metadata>>;
-
-  /**
-    * @default Indicates whether or not this application may be removable
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates whether or not this application may be removable
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
   readonly removable: boolean;
 
   /**
-    * @default Indicates the access token of the application
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the access token of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
   readonly accessTokenId: number;
 
   /**
-    * @default Indicates the uid of the application
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates the uid of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
   readonly uid: number;
 
   /**
-    * @default Indicates entity type of the application
-    * @since 8
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
+   * @default Indicates entity type of the application
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 8
+   * @deprecated since 9
+   */
   readonly entityType: string;
-
-  /**
-    * @default Indicates fingerprint of the certificate
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-   readonly fingerprint: string;
-
-    /**
-    * @default Indicates icon resource of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-    readonly iconResource: Resource;
-
-    /**
-    * @default Indicates label resource of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-     readonly labelResource: Resource;
-    /**
-    * @default Indicates description resource of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-     readonly descriptionResource: Resource;
 }

@@ -13,35 +13,43 @@
  * limitations under the License.
  */
 
-import { ElementName }  from './elementName';
+import { ElementName } from './elementName';
 
 /**
- * @name Contains basic remote ability information.
- * @since 8
+ * Contains basic remote ability information.
+ *
+ * @typedef RemoteAbilityInfo
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- *
- * @permission N/A
+ * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.bundle.distributedBundleManager.RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
-    /**
-     * @default Indicates the ability information
-     * @since 8
-     * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-     */
-    readonly elementName: ElementName;
-  
-    /**
-    * @default Indicates the label of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly label: string;
-  
-    /**
-    * @default Indicates the icon of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly icon: string;
+  /**
+   * @default Indicates the ability information
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   */
+  readonly elementName: ElementName;
+
+  /**
+   * @default Indicates the label of the ability
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   */
+  readonly label: string;
+
+  /**
+   * @default Indicates the icon of the ability
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   */
+  readonly icon: string;
 }

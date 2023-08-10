@@ -14,218 +14,266 @@
  */
 
 /**
- * @import import storage from '@system.storage';
- * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
- * @deprecated since 6
+ * @typedef GetStorageOptions
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
+ * @since 3
+ * @deprecated since 6
  */
 export interface GetStorageOptions {
   /**
    * Content index.
    * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   key: string;
 
   /**
    * Default value returned when the key does not exist.
    * If this parameter is not specified, an empty string is returned.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   default?: string;
 
   /**
    * Called when the stored content is read successfully.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   success?: (data: any) => void;
 
   /**
    * Called when the stored content fails to be read.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   complete?: () => void;
 }
 
 /**
- * @import import storage from '@system.storage';
- * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
- * @deprecated since 6
+ * @typedef SetStorageOptions
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
+ * @since 3
+ * @deprecated since 6
  */
 export interface SetStorageOptions {
   /**
    * Index of the stored content to be modified.
    * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   key: string;
 
   /**
    * Target storage content.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   value: string;
 
   /**
    * Called when the stored content is modified successfully.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   success?: () => void;
 
   /**
    * Called when the stored content fails to be modified.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   complete?: () => void;
 }
 
 /**
- * @import import storage from '@system.storage';
- * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
- * @deprecated since 6
+ * @typedef ClearStorageOptions
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
+ * @since 3
+ * @deprecated since 6
  */
 export interface ClearStorageOptions {
   /**
    * Called when the stored content is cleared successfully.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   success?: () => void;
 
   /**
    * Called when the stored content fails to be cleared.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   complete?: () => void;
 }
 
 /**
- * @import import storage from '@system.storage';
+ * @typedef DeleteStorageOptions
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+ * @FAModelOnly
  * @since 3
  * @deprecated since 6
- * @FAModelOnly
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  */
 export interface DeleteStorageOptions {
   /**
    * Content index.
    * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   key: string;
 
   /**
    * Called when the stored content is deleted successfully.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   success?: () => void;
 
   /**
    * Called when the stored content fails to be deleted.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
+   * @FAModelOnly
    * @since 3
    * @deprecated since 6
-   * @FAModelOnly
    */
   complete?: () => void;
 }
 
 /**
- * @import import storage from '@system.storage';
- * @since 3
- * @syscap SystemCapability.DistributedDataManager.Preferences.Core
- * @deprecated since 6
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
+ * @since 3
+ * @deprecated since 6
  */
 export default class Storage {
   /**
    * Reads the stored content.
-   * @param options Options.
-   * @deprecated since 6
+   *
+   * @param { GetStorageOptions } options - Indicates the target options.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
+   * @since 3
+   * @deprecated since 6
+   * @useinstead ohos.preferences.preferences.get
    */
   static get(options: GetStorageOptions): void;
 
   /**
    * Modifies the stored content.
-   * @param options Options.
-   * @deprecated since 6
+   *
+   * @param { SetStorageOptions } options - Indicates the target options.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
+   * @since 3
+   * @deprecated since 6
    */
   static set(options: SetStorageOptions): void;
 
   /**
    * Clears the stored content.
-   * @param options Options.
-   * @deprecated since 6
+   *
+   * @param { ClearStorageOptions } options - Indicates the target options.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
+   * @since 3
+   * @deprecated since 6
+   * @useinstead ohos.preferences.preferences.clear
    */
   static clear(options?: ClearStorageOptions): void;
 
   /**
    * Deletes the stored content.
-   * @param options Options.
-   * @deprecated since 6
+   *
+   * @param { DeleteStorageOptions } options - Indicates the target options.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
+   * @since 3
+   * @deprecated since 6
+   * @useinstead ohos.preferences.preferences.delete
    */
   static delete(options: DeleteStorageOptions): void;
 }

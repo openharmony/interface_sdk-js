@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,72 +16,78 @@
 /**
  * The ability or extension state data.
  *
- * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
- * @permission N/A
+ * @systemapi
+ * @since 8
  */
 export default class AbilityStateData {
-    /**
-     * The module name.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    moduleName: string;
+  /**
+   * The module name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  moduleName: string;
 
-    /**
-     * The bundle name.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    bundleName: string;
+  /**
+   * The bundle name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  bundleName: string;
 
-    /**
-     * The ability name.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    abilityName: string;
+  /**
+   * The ability name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  abilityName: string;
 
-    /**
-     * The pid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    pid: number;
+  /**
+   * The pid.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  pid: number;
 
-    /**
-     * The uid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    uid: number;
+  /**
+   * The uid.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  uid: number;
 
-    /**
-     * The application state.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    state: number;
+  /**
+   * The application state.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  state: number;
 
-    /**
-     * The ability type, page or service and so on.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    abilityType: number;
+  /**
+   * The ability type, page or service and so on.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   */
+  abilityType: number;
 }

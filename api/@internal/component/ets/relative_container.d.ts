@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,24 +15,70 @@
 
 /**
  * Provides ports for relative containers.
+ *
+ * @interface RelativeContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
+ */
+/**
+ * Provides ports for relative containers.
+ *
+ * @interface RelativeContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
  */
 interface RelativeContainerInterface {
-    (): RelativeContainerAttribute;
-}
-  
-/**
-* @since 9
-*/
-declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
+  (): RelativeContainerAttribute;
 }
 
 /**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
-declare const RelativeContainer : RelativeContainerInterface;
+/**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {}
 
 /**
+ * RelativeContainer
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
+ */
+/**
+ * RelativeContainer
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare const RelativeContainer: RelativeContainerInterface;
+
+/**
+ * RelativeContainerInstance
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * RelativeContainerInstance
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
  */
 declare const RelativeContainerInstance: RelativeContainerAttribute;

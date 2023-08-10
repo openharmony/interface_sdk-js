@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,43 +13,47 @@
  * limitations under the License.
  */
 
-import { HapModuleInfo } from "../bundle/hapModuleInfo";
-import { Configuration } from '../@ohos.application.Configuration';
-import Context from "./Context";
+import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
+import { Configuration } from '../@ohos.app.ability.Configuration';
+import Context from './Context';
+import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
 
 /**
  * The context of an extension. It allows access to extension-specific resources.
  *
- * @since 9
+ * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
  * @StageModelOnly
+ * @since 9
  */
 export default class ExtensionContext extends Context {
+  /**
+   * Indicates configuration information about an module.
+   *
+   * @type { HapModuleInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  currentHapModuleInfo: HapModuleInfo;
 
-    /**
-     * Indicates configuration information about an module.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     */
-    currentHapModuleInfo: HapModuleInfo;
+  /**
+   * Indicates configuration information.
+   *
+   * @type { Configuration }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  config: Configuration;
 
-    /**
-     * Indicates configuration information.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     */
-    config: Configuration;
-
-    /**
-     * Extension information.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    extensionAbilityInfo: ExtensionAbilityInfo;
+  /**
+   * Extension information.
+   *
+   * @type { ExtensionAbilityInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  extensionAbilityInfo: ExtensionAbilityInfo;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,29 +13,98 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides interfaces for layout in the vertical direction.
+ *
+ * @interface RowSplitInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * Provides interfaces for layout in the vertical direction.
+ *
+ * @interface RowSplitInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
  */
 interface RowSplitInterface {
   /**
    * Called when the layout along the vertical direction is set.
+   *
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Called when the layout along the vertical direction is set.
+   *
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   (): RowSplitAttribute;
 }
 
 /**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
    * Called when judging whether the split line can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Called when judging whether the split line can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   resizeable(value: boolean): RowSplitAttribute;
 }
 
+/**
+ * Defines RowSplit Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Defines RowSplit Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 declare const RowSplit: RowSplitInterface;
+
+/**
+ * Defines RowSplit Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Defines RowSplit Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 declare const RowSplitInstance: RowSplitAttribute;

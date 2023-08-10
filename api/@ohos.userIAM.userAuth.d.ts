@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,483 +13,1335 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * User authentication
- * @since 6
+ *
+ * @namespace userAuth
  * @syscap SystemCapability.UserIAM.UserAuth.Core
- * @permission ohos.permission.ACCESS_BIOMETRIC
+ * @since 6
  */
 declare namespace userAuth {
-    export enum AuthenticationResult {
-        /**
-         * Indicates that the device does not support authentication.
-         * @deprecated since 8
-         */
-        NO_SUPPORT = -1,
-
-        /**
-         * Indicates that authentication is success.
-         * @deprecated since 8
-         */
-        SUCCESS = 0,
-
-        /**
-         * Indicates the authenticator fails to identify user.
-         * @deprecated since 8
-         */
-        COMPARE_FAILURE = 1,
-
-        /**
-         * Indicates that authentication has been canceled.
-         * @deprecated since 8
-         */
-        CANCELED = 2,
-
-        /**
-         * Indicates that authentication has timed out.
-         * @deprecated since 8
-         */
-        TIMEOUT = 3,
-
-        /**
-         * Indicates a failure to open the camera.
-         * @deprecated since 8
-         */
-        CAMERA_FAIL = 4,
-
-        /**
-         * Indicates that the authentication task is busy. Wait for a few seconds and try again.
-         * @deprecated since 8
-         */
-        BUSY = 5,
-
-        /**
-         * Indicates incorrect parameters.
-         * @deprecated since 8
-         */
-        INVALID_PARAMETERS = 6,
-
-        /**
-         * Indicates that the authenticator is locked.
-         * @deprecated since 8
-         */
-        LOCKED = 7,
-
-        /**
-         * Indicates that the user has not enrolled the authenticator.
-         * @deprecated since 8
-         */
-        NOT_ENROLLED = 8,
-
-        /**
-         * Indicates other errors.
-         * @deprecated since 8
-         */
-        GENERAL_ERROR = 100,
-    }
-
+  /**
+   * Enum for authentication result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 6
+   * @deprecated since 8
+   * @useinstead ohos.userIAM.userAuth.ResultCode
+   */
+  export enum AuthenticationResult {
     /**
-     * Auth types
+     * Indicates that the device does not support authentication.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
      * @deprecated since 8
      */
-    type AuthType = "ALL" | "FACE_ONLY";
+    NO_SUPPORT = -1,
 
     /**
-     * Secure levels
+     * Indicates that authentication is success.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
      * @deprecated since 8
      */
-    type SecureLevel = "S1" | "S2" | "S3" | "S4";
-
-    interface Authenticator {
-        /**
-         * Execute authentication.
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @param type Indicates the authentication type.
-         * @param level Indicates the security level.
-         * @return Returns authentication result, which is specified by AuthenticationResult.
-         * @deprecated since 8
-         */
-        execute(type: AuthType, level: SecureLevel, callback: AsyncCallback<number>): void;
-        execute(type: AuthType, level: SecureLevel): Promise<number>;
-    }
+    SUCCESS = 0,
 
     /**
-     * Get Authenticator instance.
+     * Indicates the authenticator fails to identify user.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @return Returns an Authenticator.
+     * @since 6
      * @deprecated since 8
      */
-    function getAuthenticator(): Authenticator;
+    COMPARE_FAILURE = 1,
 
     /**
-     * User authentication.
-     * @since 8
+     * Indicates that authentication has been canceled.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
      */
-    class UserAuth {
-        /**
-         * Constructor to get the UserAuth class instance.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @return Returns the UserAuth class instance.
-         */
-        constructor();
-
-        /**
-         * Get version information.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @return Returns version information.
-         */
-        getVersion() : number;
-
-        /**
-         * Check whether the authentication capability is available.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @permission ohos.permission.ACCESS_BIOMETRIC
-         * @param authType Credential type for authentication.
-         * @param authTrustLevel Trust level of authentication result.
-         * @return Returns a check result, which is specified by getAvailableStatus.
-         */
-        getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel) : number;
-
-        /**
-         * Executes authentication.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @permission ohos.permission.ACCESS_BIOMETRIC
-         * @param challenge pass in challenge value.
-         * @param authType type of authentication.
-         * @param authTrustLevel Trust level of authentication result.
-         * @param callback Return result and acquireinfo through callback.
-         * @return Returns ContextId for cancel.
-         */
-        auth(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
-
-        /**
-         * Cancels authentication with ContextID.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @permission ohos.permission.ACCESS_BIOMETRIC
-         * @param contextID Cancel authentication and pass in ContextID.
-         * @return Returns a number value indicating whether Cancel authentication was successful.
-         */
-        cancelAuth(contextID : Uint8Array) : number;
-    }
-
-    interface IUserAuthCallback {
-        /**
-         * The authentication result code is returned through the callback.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @param result authentication result code.
-         * @param extraInfo pass the specific information for different situation.
-         * If the authentication is passed, the authentication token is returned in extrainfo,
-         * If the authentication fails, the remaining authentication times are returned in extrainfo,
-         * If the authentication executor is locked, the freezing time is returned in extrainfo.
-         */
-        onResult: (result : number, extraInfo : AuthResult) => void;
-
-        /**
-         * During an authentication, the TipsCode is returned through the callback.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         * @param module the executor type for authentication.
-         * @param acquire the tip code for different authentication executor.
-         * @param extraInfo reserved parameter.
-         */
-        onAcquireInfo ?: (module : number, acquire : number, extraInfo : any) => void;
-    }
+    CANCELED = 2,
 
     /**
-     * Authentication result: authentication token, remaining authentication times, freezing time.
-     * @since 8
+     * Indicates that authentication has timed out.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @param token pass the authentication result if the authentication is passed.
-     * @param remainTimes return the remaining authentication times if the authentication fails.
-     * @param freezingTime return the freezing time if the authectication executor is locked.
+     * @since 6
+     * @deprecated since 8
      */
-    interface AuthResult {
-        token ?: Uint8Array;
-        remainTimes ?: number;
-        freezingTime ?: number;
-    }
+    TIMEOUT = 3,
 
     /**
-     * Result code.
-     * @since 8
+     * Indicates a failure to open the camera.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
      */
-    enum ResultCode {
-        /**
-         * Indicates that the result is success or ability is supported.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        SUCCESS = 0,
-
-        /**
-         * Indicates the the result is failure or ability is not supported.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FAIL = 1,
-
-        /**
-         * Indicates other errors.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        GENERAL_ERROR = 2,
-
-        /**
-         * Indicates that this operation has been canceled.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        CANCELED = 3,
-
-        /**
-         * Indicates that this operation has timed out.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        TIMEOUT = 4,
-
-        /**
-         * Indicates that this authentication type is not supported.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        TYPE_NOT_SUPPORT = 5,
-
-        /**
-         * Indicates that the authentication trust level is not supported.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        TRUST_LEVEL_NOT_SUPPORT = 6,
-
-        /**
-         * Indicates that the authentication task is busy. Wait for a few seconds and try again.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        BUSY = 7,
-
-        /**
-         * Indicates incorrect parameters.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        INVALID_PARAMETERS = 8,
-
-        /**
-         * Indicates that the authenticator is locked.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        LOCKED = 9,
-
-        /**
-         * Indicates that the user has not enrolled the authenticator.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        NOT_ENROLLED = 10
-    }
+    CAMERA_FAIL = 4,
 
     /**
-     * Indicates the enumeration of prompt codes in the process of face authentication.
-     * @since 8
+     * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
      */
-    enum FaceTips {
-        /**
-         * Indicates that the obtained facial image is too bright due to high illumination.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_BRIGHT = 1,
-
-        /**
-         * Indicates that the obtained facial image is too dark due to low illumination.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_DARK = 2,
-
-        /**
-         * Indicates that the face is too close to the device.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_CLOSE = 3,
-
-        /**
-         * Indicates that the face is too far away from the device.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_FAR = 4,
-
-        /**
-         * Indicates that the device is too high, and that only the upper part of the face is captured.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_HIGH = 5,
-
-        /**
-         * Indicates that the device is too low, and that only the lower part of the face is captured.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_LOW = 6,
-
-        /**
-         * Indicates that the device is deviated to the right, and that only the right part of the face is captured.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_RIGHT = 7,
-
-        /**
-         * Indicates that the device is deviated to the left, and that only the left part of the face is captured.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_LEFT = 8,
-
-        /**
-         * Indicates that the face moves too fast during facial information collection.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
-
-        /**
-         * Indicates that the face is not facing the device.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_POOR_GAZE = 10,
-
-        /**
-         * Indicates that no face is detected.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE_AUTH_TIP_NOT_DETECTED = 11,
-    }
+    BUSY = 5,
 
     /**
-     * Indicates the enumeration of prompt codes in the process of fingerprint authentication.
-     * @since 8
+     * Indicates incorrect parameters.
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
      */
-    enum FingerprintTips {
-        /**
-         * Indicates that the image acquired is good.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FINGERPRINT_AUTH_TIP_GOOD = 0,
+    INVALID_PARAMETERS = 6,
 
-        /**
-         * Indicates that the fingerprint image is too noisy due to suspected or detected dirt on sensor.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FINGERPRINT_AUTH_TIP_DIRTY = 1,
+    /**
+     * Indicates that the authenticator is locked.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
+     */
+    LOCKED = 7,
 
-        /**
-         * Indicates that the fingerprint image is too noisy to process due to a detected condition.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FINGERPRINT_AUTH_TIP_INSUFFICIENT = 2,
+    /**
+     * Indicates that the user has not enrolled the authenticator.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
+     */
+    NOT_ENROLLED = 8,
 
-        /**
-         * Indicates that only a partial fingerprint image is detected.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FINGERPRINT_AUTH_TIP_PARTIAL = 3,
+    /**
+     * Indicates other errors.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
+     */
+    GENERAL_ERROR = 100
+  }
 
-        /**
-         * Indicates that the fingerprint image is incomplete due to quick motion.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FINGERPRINT_AUTH_TIP_TOO_FAST = 4,
+  /**
+   * Auth types
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 6
+   * @deprecated since 8
+   */
+  type AuthType = 'ALL' | 'FACE_ONLY';
 
-        /**
-         * Indicates that the fingerprint image is unreadable due to lack of motion.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FINGERPRINT_AUTH_TIP_TOO_SLOW = 5
-    }
+  /**
+   * Secure levels
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 6
+   * @deprecated since 8
+   */
+  type SecureLevel = 'S1' | 'S2' | 'S3' | 'S4';
+
+  /**
+   * Used to initiate authentication.
+   *
+   * @interface Authenticator
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 6
+   * @deprecated since 8
+   */
+  interface Authenticator {
+    /**
+     * Execute authentication.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param { AuthType } type - Indicates the authentication type.
+     * @param { SecureLevel } level - Indicates the security level.
+     * @param { AsyncCallback<number> } callback - Async callback of execute.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
+     */
+    execute(type: AuthType, level: SecureLevel, callback: AsyncCallback<number>): void;
+
+    /**
+     * Execute authentication.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param { AuthType } type - Indicates the authentication type.
+     * @param { SecureLevel } level - Indicates the security level.
+     * @returns { Promise<number> }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
+     */
+    execute(type: AuthType, level: SecureLevel): Promise<number>;
+  }
+
+  /**
+   * Get Authenticator instance.
+   *
+   * @returns { Authenticator } Returns an Authenticator.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 6
+   * @deprecated since 8
+   */
+  function getAuthenticator(): Authenticator;
+
+  /**
+   * User authentication.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.userIAM.userAuth.AuthInstance
+   */
+  class UserAuth {
+    /**
+     * Constructor to get the UserAuth class instance.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.getAuthInstance
+     */
+    constructor();
+
+    /**
+     * Get version information.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @returns { number } Returns version information.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.getVersion
+     */
+    getVersion(): number;
+
+    /**
+     * Check whether the authentication capability is available.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param { UserAuthType } authType - Credential type for authentication.
+     * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+     * @returns { number } Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum, **201** is
+     * check permission failed.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.getAvailableStatus
+     */
+    getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): number;
+
+    /**
+     * Executes authentication.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param { Uint8Array } challenge - Pass in challenge value.
+     * @param { UserAuthType } authType - Type of authentication.
+     * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+     * @param { IUserAuthCallback } callback - Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum,
+     * **201** is check permission failed.
+     * @returns { Uint8Array } Returns ContextId for cancel.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthInstance.start
+     */
+    auth(
+      challenge: Uint8Array,
+      authType: UserAuthType,
+      authTrustLevel: AuthTrustLevel,
+      callback: IUserAuthCallback
+    ): Uint8Array;
+
+    /**
+     * Cancel authentication with ContextID.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param { Uint8Array } contextID - Cancel authentication and pass in ContextID.
+     * @returns { number } Returns a number value indicating whether Cancel authentication was successful, the value of number is related to the ResultCode
+     * enum, **201** is check permission failed.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthInstance.cancel
+     */
+    cancelAuth(contextID: Uint8Array): number;
+  }
+
+  /**
+   * Asynchronous callback of authentication operation.
+   *
+   * @interface IUserAuthCallback
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.userIAM.userAuth.AuthEvent
+   */
+  interface IUserAuthCallback {
+    /**
+     * The authentication result code is returned through the callback.
+     * If the authentication is passed, the authentication token is returned in extraInfo,
+     * If the authentication fails, the remaining authentication times are returned in extraInfo,
+     * If the authentication executor is locked, the freezing time is returned in extraInfo.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
+     */
+    onResult: (result: number, extraInfo: AuthResult) => void;
+
+    /**
+     * During an authentication, the TipsCode is returned through the callback.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
+     */
+    onAcquireInfo?: (module: number, acquire: number, extraInfo: any) => void;
+  }
+
+  /**
+   * Authentication result: authentication token, remaining authentication times, freezing time.
+   *
+   * @typedef AuthResult
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.userIAM.userAuth.AuthResultInfo
+   */
+  interface AuthResult {
+    /**
+     * The authentication result if the authentication is passed.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    token?: Uint8Array;
+
+    /**
+     * The remaining authentication times if the authentication fails.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    remainTimes?: number;
+
+    /**
+     * The freezing time if the authentication executor is locked.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    freezingTime?: number;
+  }
+
+  /**
+   * Enum for operation result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.userIAM.userAuth.UserAuthResultCode
+   */
+  enum ResultCode {
+    /**
+     * Indicates that the result is success or ability is supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    SUCCESS = 0,
+
+    /**
+     * Indicates that authentication failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    FAIL = 1,
+
+    /**
+     * Indicates other errors.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    GENERAL_ERROR = 2,
+
+    /**
+     * Indicates that this operation has been canceled.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    CANCELED = 3,
+
+    /**
+     * Indicates that this operation has timed out.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    TIMEOUT = 4,
+
+    /**
+     * Indicates that this authentication type is not supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    TYPE_NOT_SUPPORT = 5,
+
+    /**
+     * Indicates that the authentication trust level is not supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    TRUST_LEVEL_NOT_SUPPORT = 6,
+
+    /**
+     * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    BUSY = 7,
+
+    /**
+     * Indicates incorrect parameters.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    INVALID_PARAMETERS = 8,
+
+    /**
+     * Indicates that the authenticator is locked.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    LOCKED = 9,
+
+    /**
+     * Indicates that the user has not enrolled the authenticator.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     */
+    NOT_ENROLLED = 10
+  }
+
+  /**
+   * The enumeration of prompt codes in the process of face authentication.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   */
+  enum FaceTips {
+    /**
+     * Indicates that the obtained facial image is too bright due to high illumination.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_BRIGHT = 1,
+
+    /**
+     * Indicates that the obtained facial image is too dark due to low illumination.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_DARK = 2,
+
+    /**
+     * Indicates that the face is too close to the device.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_CLOSE = 3,
+
+    /**
+     * Indicates that the face is too far away from the device.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_FAR = 4,
+
+    /**
+     * Indicates that the device is too high, and that only the upper part of the face is captured.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_HIGH = 5,
+
+    /**
+     * Indicates that the device is too low, and that only the lower part of the face is captured.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_LOW = 6,
+
+    /**
+     * Indicates that the device is deviated to the right, and that only the right part of the face is captured.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_RIGHT = 7,
+
+    /**
+     * Indicates that the device is deviated to the left, and that only the left part of the face is captured.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_LEFT = 8,
+
+    /**
+     * Indicates that the face moves too fast during facial information collection.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
+
+    /**
+     * Indicates that the face is not facing the device.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_POOR_GAZE = 10,
+
+    /**
+     * Indicates that no face is detected.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE_AUTH_TIP_NOT_DETECTED = 11
+  }
+
+  /**
+   * The enumeration of prompt codes in the process of fingerprint authentication.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   */
+  enum FingerprintTips {
+    /**
+     * Indicates that the image acquired is good.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FINGERPRINT_AUTH_TIP_GOOD = 0,
+
+    /**
+     * Indicates that the fingerprint image is too noisy due to suspected or detected dirt on sensor.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FINGERPRINT_AUTH_TIP_DIRTY = 1,
+
+    /**
+     * Indicates that the fingerprint image is too noisy to process due to a detected condition.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FINGERPRINT_AUTH_TIP_INSUFFICIENT = 2,
+
+    /**
+     * Indicates that only a partial fingerprint image is detected.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FINGERPRINT_AUTH_TIP_PARTIAL = 3,
+
+    /**
+     * Indicates that the fingerprint image is incomplete due to quick motion.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FINGERPRINT_AUTH_TIP_TOO_FAST = 4,
+
+    /**
+     * Indicates that the fingerprint image is unreadable due to lack of motion.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FINGERPRINT_AUTH_TIP_TOO_SLOW = 5
+  }
+
+  /**
+   * Credential type for authentication.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   */
+  enum UserAuthType {
+    /**
+     * Authentication type pin.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    PIN = 1,
+
+    /**
+     * Authentication type face.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FACE = 2,
+
+    /**
+     * Authentication type fingerprint.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    FINGERPRINT = 4
+  }
+
+  /**
+   * Trust level of authentication results.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 8
+   */
+  enum AuthTrustLevel {
+    /**
+     * Authentication result trusted level 1.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    ATL1 = 10000,
+
+    /**
+     * Authentication result trusted level 2.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    ATL2 = 20000,
+
+    /**
+     * Authentication result trusted level 3.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    ATL3 = 30000,
+
+    /**
+     * Authentication result trusted level 4.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     */
+    ATL4 = 40000
+  }
+
+  /**
+   * Authentication events.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  type AuthEventKey = 'result' | 'tip';
+
+  /**
+   * Return information of Authentication events.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  type EventInfo = AuthResultInfo | TipInfo;
+
+  /**
+   * Asynchronous callback of authentication event.
+   *
+   * @interface AuthEvent
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  interface AuthEvent {
+    /**
+     * The authentication event callback.
+     *
+     * @param { EventInfo } result - Event info.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    callback(result: EventInfo): void;
+  }
+
+  /**
+   * Authentication result information.
+   *
+   * @typedef AuthResultInfo
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  interface AuthResultInfo {
+    /**
+     * The authentication result.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    result: number;
+
+    /**
+     * The authentication token if the authentication is passed.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    token?: Uint8Array;
+
+    /**
+     * The remaining authentication attempts if the authentication fails.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    remainAttempts?: number;
+
+    /**
+     * The lockout duration if the authentication executor is locked.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    lockoutDuration?: number;
+  }
+
+  /**
+   * Authentication tip info.
+   *
+   * @typedef TipInfo
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  interface TipInfo {
+    /**
+     * The authentication module of sending tip information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    module: number;
+
+    /**
+     * Tip information, used to prompt the business to perform some operations.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    tip: number;
+  }
+
+  /**
+   * Authentication instance, used to initiate a complete authentication.
+   *
+   * @interface AuthInstance
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.userIAM.userAuth.UserAuthInstance
+   */
+  interface AuthInstance {
+    /**
+     * Turn on authentication event listening.
+     *
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     * @deprecated since 10
+     */
+    on: (name: AuthEventKey, callback: AuthEvent) => void;
+
+    /**
+     * Turn off authentication event listening.
+     *
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     * @deprecated since 10
+     */
+    off: (name: AuthEventKey) => void;
+
+    /**
+     * Start this authentication, an instance can only perform authentication once.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500001 - Authentication failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500003 - The operation is canceled.
+     * @throws { BusinessError } 12500004 - The operation is time-out.
+     * @throws { BusinessError } 12500005 - The authentication type is not supported.
+     * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+     * @throws { BusinessError } 12500007 - The authentication task is busy.
+     * @throws { BusinessError } 12500009 - The authenticator is locked.
+     * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     * @deprecated since 10
+     */
+    start: () => void;
+
+    /**
+     * Cancel this authentication.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     * @deprecated since 10
+     */
+    cancel: () => void;
+  }
+
+  /**
+   * Check whether the authentication capability is available.
+   *
+   * @permission ohos.permission.ACCESS_BIOMETRIC
+   * @param { UserAuthType } authType - Credential type for authentication.
+   * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+   * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
+
+  /**
+   * Get Authentication instance.
+   *
+   * @param { Uint8Array } challenge - Pass in challenge value.
+   * @param { UserAuthType } authType - Credential type for authentication.
+   * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+   * @returns { AuthInstance } Returns an authentication instance.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.userIAM.userAuth.getUserAuthInstance
+   */
+  function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
+
+  /**
+   * Window mode type for user authentication widget.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  enum WindowModeType {
+    /**
+     * Window mode type is dialog box.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    DIALOG_BOX = 1,
+
+    /**
+     * Window mode type is full screen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FULLSCREEN = 2
+  }
+
+  /**
+   * Auth parameter.
+   *
+   * @typedef AuthParam
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  interface AuthParam {
+    /**
+     * Pass in challenge value.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    challenge: Uint8Array;
 
     /**
      * Credential type for authentication.
-     * @since 8
+     *
+     * @type { UserAuthType[] }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
      */
-    enum UserAuthType {
-        /**
-         * Authentication type face.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FACE = 2,
-
-        /**
-         * Authentication type fingerprint.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        FINGERPRINT = 4
-    }
+    authType: UserAuthType[];
 
     /**
-     * Trust level of authentication results.
-     * @since 8
+     * Trust level of authentication result.
+     *
+     * @type { AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
      */
-    enum AuthTrustLevel {
-        /**
-         * Authentication result trusted level 1.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        ATL1 = 10000,
+    authTrustLevel: AuthTrustLevel;
+  }
 
-        /**
-         * Authentication result trusted level 2.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        ATL2 = 20000,
+  /**
+   * Auth widget parameter.
+   *
+   * @typedef WidgetParam
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  interface WidgetParam {
+    /**
+     * Title of widget.
+     *
+     * @type { string }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    title: string;
 
-        /**
-         * Authentication result trusted level 3.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        ATL3 = 30000,
+    /**
+     * The description text of navigation button.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    navigationButtonText?: string;
 
-        /**
-         * Authentication result trusted level 4.
-         * @since 8
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        ATL4 = 40000
-    }
+    /**
+     * Display type of widget.
+     *
+     * @type { ?WindowModeType }
+     * @default WindowModeType.DIALOG_BOX
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    windowMode?: WindowModeType;
+  }
+
+  /**
+   * Authentication result: authentication token, credential type for authentication succeed.
+   *
+   * @typedef UserAuthResult
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  interface UserAuthResult {
+    /**
+     * The authentication result.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    result: number;
+
+    /**
+     * The authentication result if the authentication is passed.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    token?: Uint8Array;
+
+    /**
+     * Credential type for authentication succeed.
+     *
+     * @type { ?UserAuthType }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    authType?: UserAuthType;
+  }
+
+  /**
+   * Asynchronous callback of authentication operation.
+   *
+   * @interface IAuthCallback
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  interface IAuthCallback {
+    /**
+     * The authentication result code is returned through the callback.
+     * If the authentication is passed, the authentication token is returned in extraInfo.
+     *
+     * @param { UserAuthResult } result - Authentication result information.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    onResult(result: UserAuthResult): void;
+  }
+
+  /**
+   * User authentication instance, used to initiate a complete authentication.
+   *
+   * @interface UserAuthInstance
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  interface UserAuthInstance {
+    /**
+     * Turn on widget authentication result event listening.
+     *
+     * @param { 'result' } type - Indicates the type of event.
+     * @param { IAuthCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    on(type: 'result', callback: IAuthCallback): void;
+
+    /**
+     * Turn off widget authentication result event listening.
+     *
+     * @param { 'result' } type - Indicates the type of event.
+     * @param { IAuthCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    off(type: 'result', callback?: IAuthCallback): void;
+
+    /**
+     * Start this authentication, an instance can only perform authentication once.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500001 - Authentication failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500003 - The operation is canceled.
+     * @throws { BusinessError } 12500004 - The operation is time-out.
+     * @throws { BusinessError } 12500005 - The authentication type is not supported.
+     * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+     * @throws { BusinessError } 12500007 - The authentication task is busy.
+     * @throws { BusinessError } 12500009 - The authenticator is locked.
+     * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+     * @throws { BusinessError } 12500011 - The authentication is canceled from widget's navigation button.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    start(): void;
+
+    /**
+     * Cancel this authentication.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    cancel(): void;
+  }
+
+  /**
+   * Get user authentication instance with widget.
+   *
+   * @param { AuthParam } authParam - Auth parameter.
+   * @param { WidgetParam } widgetParam - Widget parameter.
+   * @returns { UserAuthInstance } Returns an authentication instance with widget.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  function getUserAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): UserAuthInstance;
+
+  /**
+   * Notice type for user authentication.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  enum NoticeType {
+    /**
+     * Notice from widget.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    WIDGET_NOTICE = 1
+  }
+
+  /**
+   * Send notice to user authentication.
+   *
+   * @permission ohos.permission.SUPPORT_USER_AUTH
+   * @param { NoticeType } noticeType - Notice type for user authentication.
+   * @param { string } eventData - The event data from widget.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function sendNotice(noticeType: NoticeType, eventData: string): void;
+
+  /**
+   * Enum for operation result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  enum UserAuthResultCode {
+    /**
+     * Indicates that the result is success or ability is supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    SUCCESS = 12500000,
+
+    /**
+     * Indicates that the authentication result is failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    FAIL = 12500001,
+
+    /**
+     * Indicates other errors.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    GENERAL_ERROR = 12500002,
+
+    /**
+     * Indicates that this operation is canceled.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    CANCELED = 12500003,
+
+    /**
+     * Indicates that this operation is time-out.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    TIMEOUT = 12500004,
+
+    /**
+     * Indicates that this authentication type is not supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    TYPE_NOT_SUPPORT = 12500005,
+
+    /**
+     * Indicates that the authentication trust level is not supported.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    TRUST_LEVEL_NOT_SUPPORT = 12500006,
+
+    /**
+     * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    BUSY = 12500007,
+
+    /**
+     * Indicates that the authenticator is locked.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    LOCKED = 12500009,
+
+    /**
+     * Indicates that the user has not enrolled the authenticator.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
+    NOT_ENROLLED = 12500010,
+
+    /**
+     * Indicates that this operation is canceled from widget's navigation button.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    CANCELED_FROM_WIDGET = 12500011
+  }
+
+  /**
+   * User authentication widget's manager, used to manage widget's client.
+   *
+   * @interface UserAuthWidgetMgr
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface UserAuthWidgetMgr {
+    /**
+     * Turn on authentication widget command event listening.
+     *
+     * @param { 'command' } type - Indicates the type of event.
+     * @param { IAuthWidgetCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    on(type: 'command', callback: IAuthWidgetCallback): void;
+
+    /**
+     * Turn off authentication widget command event listening.
+     *
+     * @param { 'command' } type - Indicates the type of event.
+     * @param { IAuthWidgetCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    off(type: 'command', callback?: IAuthWidgetCallback): void;
+  }
+
+  /**
+   * Get authentication instance with widget.
+   *
+   * @permission ohos.permission.SUPPORT_USER_AUTH
+   * @param { number } version - The version of widget.
+   * @returns { UserAuthWidgetMgr } Returns an authentication manager.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getUserAuthWidgetMgr(version: number): UserAuthWidgetMgr;
+
+  /**
+   * Asynchronous callback of authentication widget operation.
+   *
+   * @interface IAuthWidgetCallback
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface IAuthWidgetCallback {
+    /**
+     * The command data for authentication with widget is sent through the callback.
+     *
+     * @param { string } cmdData - The command data for authentication with widget.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    sendCommand(cmdData: string): void;
+  }
 }
 
 export default userAuth;

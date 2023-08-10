@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,12 +15,61 @@
 
 /**
  * looping function.
+ *
+ * @interface ForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
+ */
+/**
+ * looping function.
+ *
+ * @interface ForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * looping function.
+ *
+ * @interface ForEachInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
  */
 interface ForEachInterface {
   /**
    * Set the value, array, and key.
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Set the value, array, and key.
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Set the value, array, and key.
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
    */
   (
     arr: Array<any>,
@@ -29,4 +78,25 @@ interface ForEachInterface {
   ): ForEachInterface;
 }
 
+/**
+ * Defines ForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Defines ForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Defines ForEach Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
 declare const ForEach: ForEachInterface;

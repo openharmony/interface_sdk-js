@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,30 +18,44 @@ import { WantAgent } from '../@ohos.wantAgent';
 
 /**
  * Describes an action button displayed in a notification.
- * @name NotificationActionButton
- * @since 7
- * @permission N/A
+ *
+ * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
+ * @since 7
  */
 export interface NotificationActionButton {
   /**
    * Button title.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   title: string;
 
   /**
    * WantAgent of the button.
+   *
+   * @type { WantAgent }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
   wantAgent: WantAgent;
 
   /**
    * Extra information of the button.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 7
    */
-  extras?: {[key: string]: any};
+  extras?: { [key: string]: any };
 
   /**
    * User input
    *
+   * @type { ?NotificationUserInput }
+   * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
   userInput?: NotificationUserInput;

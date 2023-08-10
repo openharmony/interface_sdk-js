@@ -15,40 +15,56 @@
 
 /**
  * Get inspector node infos.
- * @since 7
+ *
+ * @returns { object }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @deprecated
+ * @since 7
+ * @deprecated since 9
+ * @useinstead getInspectorTree
  */
 declare function getInspectorNodes(): object;
 
 /**
  * Get inspector node info by node id.
- * @since 7
+ *
+ * @param { number } id
+ * @returns { object }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @deprecated
+ * @since 7
+ * @deprecated since 9
+ * @useinstead getInspectorByKey
  */
 declare function getInspectorNodeById(id: number): object;
 
 /**
  * Profiler tools for inspectors.
- * @since 8
+ *
+ * @namespace Profiler
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 8
  * @test
  */
 declare namespace Profiler {
   /**
    * Registers vsync callback for profiler.
-   * @param callback the callback info is json string with ui update info.
-   * @since 8
+   *
+   * @param { function } callback the callback info is json string with ui update info.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 8
    * @test
    */
   function registerVsyncCallback(callback: (info: string) => void): void;
 
   /**
    * Unregisters vsync callback.
-   * @since 8
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @since 8
    * @test
    */
   function unregisterVsyncCallback(): void;
@@ -56,8 +72,11 @@ declare namespace Profiler {
 
 /**
  * Set app background color.
- * @since 8
+ *
+ * @param { string } value
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 8
  * @test
  */
 declare function setAppBgColor(value: string): void;

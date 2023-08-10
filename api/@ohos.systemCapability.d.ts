@@ -12,7 +12,7 @@
   * See the License for the specific language governing permissions and
   * limitations under the License.
   */
-import { AsyncCallback, Callback } from './basic.d.ts';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
 * Provides interfaces to get system capability.
@@ -29,7 +29,7 @@ declare namespace systemCapability {
    * @since 9
    * @systemapi
    * @syscap SystemCapability.Developtools.Syscap
-   * @return system capability string.
+   * @returns system capability string.
    * @param callback indicates the system capability string result.
    */
   function querySystemCapabilities(callback: AsyncCallback<string>): void;

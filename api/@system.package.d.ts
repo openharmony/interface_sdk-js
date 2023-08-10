@@ -14,62 +14,79 @@
  */
 
 /**
+ * @typedef CheckPackageHasInstalledResponse
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
+ * @deprecated since 9
  */
 export interface CheckPackageHasInstalledResponse {
-    /**
-     * Whether the application exists, or whether the native application has been installed.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 3
-     */
-    result: boolean;
+  /**
+   * Whether the application exists, or whether the native application has been installed.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 3
+   * @deprecated since 9
+   */
+  result: boolean;
 }
 
 /**
+ * @typedef CheckPackageHasInstalledOptions
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
+ * @deprecated since 9
  */
 export interface CheckPackageHasInstalledOptions {
-    /**
-     * Application bundle name.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 3
-     */
-    bundleName: string;
+  /**
+   * Application bundle name.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 3
+   * @deprecated since 9
+   */
+  bundleName: string;
 
-    /**
-     * Called when native applications are installed.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 3
-     */
-    success?: (data: CheckPackageHasInstalledResponse) => void;
+  /**
+   * Called when native applications are installed.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 3
+   * @deprecated since 9
+   */
+  success?: (data: CheckPackageHasInstalledResponse) => void;
 
-    /**
-     * Called when native applications fail to be installed.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 3
-     */
-    fail?: (data: any, code: number) => void;
+  /**
+   * Called when native applications fail to be installed.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 3
+   * @deprecated since 9
+   */
+  fail?: (data: any, code: number) => void;
 
-    /**
-     * Called when the excution is completed.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 3
-     */
-    complete?: () => void;
+  /**
+   * Called when the execution is completed.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 3
+   * @deprecated since 9
+   */
+  complete?: () => void;
 }
 
 /**
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
- * @import package from '@system.package';
+ * @deprecated since 9
  */
 export default class Package {
-    /**
-     * Checks whethers an application exists, or whether a native application has been installed.
-     * @param options Options
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     */
-    static hasInstalled(options: CheckPackageHasInstalledOptions): void;
+  /**
+   * Checks whether an application exists, or whether a native application has been installed.
+   *
+   * @param { CheckPackageHasInstalledOptions } options Options
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 3
+   * @deprecated since 9
+   */
+  static hasInstalled(options: CheckPackageHasInstalledOptions): void;
 }
