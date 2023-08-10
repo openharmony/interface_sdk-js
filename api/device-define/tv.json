@@ -1,5 +1,6 @@
 {
   "SysCaps": [
+    "SystemCapability.Applications.CalendarData",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
