@@ -268,11 +268,11 @@ declare namespace installer {
     /**
      * Uninstall an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -289,10 +289,10 @@ declare namespace installer {
     /**
      * Uninstall an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -308,11 +308,11 @@ declare namespace installer {
     /**
      * Uninstall an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -329,11 +329,11 @@ declare namespace installer {
     /**
      * Recover an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -347,10 +347,10 @@ declare namespace installer {
     /**
      * Recover an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -363,11 +363,11 @@ declare namespace installer {
     /**
      * Recover an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -381,10 +381,10 @@ declare namespace installer {
     /**
      * Uninstall a shared bundle.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling shared bundle result.
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
@@ -399,10 +399,10 @@ declare namespace installer {
     /**
      * Uninstall a shared bundle.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
      * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
