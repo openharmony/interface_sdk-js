@@ -172,12 +172,39 @@ declare namespace picker {
   }
 
   /**
-   * DocumentSelectOptions Object. Currently not supported.
+   * DocumentSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
-  class DocumentSelectOptions {}
+  class DocumentSelectOptions {
+    /**
+     * The default opening uri of the picker window.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    defaultFilePathUri?: string;
+
+    /**
+     * Suffixes for file selected.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    fileSuffixFilters?: Array<string>;
+
+    /**
+     * Maximum number of files for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    maxSelectNumber?: number;
+  }
 
   /**
    * DocumentSaveOptions Object
@@ -195,6 +222,24 @@ declare namespace picker {
      * @since 9
      */
     newFileNames?: Array<string>;
+
+    /**
+     * The default opening uri of the picker window.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    defaultFilePathUri?: string;
+
+    /**
+     * Suffixes for file saved.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    fileSuffixChoices?: Array<string>;
   }
 
   /**
