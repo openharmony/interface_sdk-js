@@ -1148,6 +1148,17 @@ declare namespace inputMethodEngine {
     getTextIndexAtCursor(): Promise<number>;
 
     /**
+     * Get the index number of text at cursor.
+     *
+     * @returns { number } the index number of text at cursor.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getTextIndexAtCursorSync(): number;
+
+    /**
      * Send extend action code.
      *
      * @param { ExtendAction } action - action code which will be send.
