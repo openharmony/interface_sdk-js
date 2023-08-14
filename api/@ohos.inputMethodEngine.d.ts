@@ -581,20 +581,6 @@ declare namespace inputMethodEngine {
     createPanel(ctx: BaseContext, info: PanelInfo): Promise<Panel>;
 
     /**
-     * Creates a panel.
-     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
-     *
-     * @param { BaseContext } ctx - indicates the context on which the window depends.
-     * @param { PanelInfo } info - the info of panel to be created.
-     * @returns { Panel } the created panel.
-     * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800004 - not an input method extension.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    createPanelSync(ctx: BaseContext, info: PanelInfo): Panel;
-
-    /**
      * Destroys a panel.
      *
      * @param { Panel } panel - to be destroyed.
