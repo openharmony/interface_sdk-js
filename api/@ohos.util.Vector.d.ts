@@ -43,7 +43,7 @@ declare class Vector<T> {
   /**
    * Appends the specified element to the end of this vector.
    *
-   * @param { T } element - element element to be appended to this vector
+   * @param { T } element - Element to be appended to this vector
    * @returns { boolean } the boolean type, returns true if the addition is successful, and returns false if it fails.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -55,10 +55,8 @@ declare class Vector<T> {
    * vector. Shifts the element currently at that position (if any) and
    * any subsequent elements to the right (adds one to their index).
    *
-   * @param { T } element - element element element at which the specified element is to be inserted
-   * @param { number } index - index index index to be inserted
-   * @throws { BusinessError } 10200001 If index is greater than or equal to length, or less than 0,
-   * an exception is thrown and cannot be inserted
+   * @param { T } element - Element at which the specified element is to be inserted
+   * @param { number } index - Index to be inserted
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
@@ -67,7 +65,7 @@ declare class Vector<T> {
   /**
    * Check if vector contains the specified element
    *
-   * @param { T } element - element element element to be contained
+   * @param { T } element - Element to be contained
    * @returns { boolean } the boolean type,if vector contains the specified element,return true,else return false
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -77,7 +75,7 @@ declare class Vector<T> {
   /**
    * Returns the element at the specified position in this Vector,or returns undefined if vector is empty
    *
-   * @param { number } index - index index index to be contained
+   * @param { number } index - Index to be contained
    * @returns { T } the number type ,returns the lowest index such that or -1 if there is no such index.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -88,7 +86,7 @@ declare class Vector<T> {
    * Returns the index of the first occurrence of the specified element
    * in this vector, or -1 if this vector does not contain the element.
    *
-   * @param { T } element - element element current index
+   * @param { T } element - Element current index
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -119,7 +117,7 @@ declare class Vector<T> {
    * Find the corresponding element according to the index,
    * delete the element, and move the index of all elements to the right of the element forward by one.
    *
-   * @param { number } index - index index the index in the vector
+   * @param { number } index - The index in the vector
    * @returns { T } the T type ,returns undefined if vector is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @syscap SystemCapability.Utils.Lang
@@ -132,7 +130,7 @@ declare class Vector<T> {
    * if it is present.  If the vector does not contain the element, it is
    * unchanged.  More formally, removes the element with the lowest index
    *
-   * @param { T } element - element element element to remove
+   * @param { T } element - Element to remove
    * @returns { boolean } the boolean type ,If there is no such element, return false
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -142,8 +140,8 @@ declare class Vector<T> {
   /**
    * Replaces the element at the specified position in this Vector with the specified element
    *
-   * @param { number } index - index index to find
-   * @param { T } element - element element replaced element
+   * @param { number } index - Index to find
+   * @param { T } element - Element replaced element
    * @returns { T } the T type
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -154,8 +152,8 @@ declare class Vector<T> {
    * Returns in the index of the last occurrence of the specified element in this vector ,
    * or -1 if the vector does not contain the element.
    *
-   * @param { T } element - element element element to find
-   * @returns { number } the number type
+   * @param { T } element - Element to find
+   * @returns { number } The number type
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
@@ -165,8 +163,8 @@ declare class Vector<T> {
    * Returns the index of the last occurrence of the specified element in this vector ,searching backwards from index,
    * or returns -1 if the element is not found,or -1 if there is no such index
    *
-   * @param { T } element - element element to find
-   * @param { number } index - index index start index
+   * @param { T } element - Element to find
+   * @param { number } index - Index start index
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -177,8 +175,8 @@ declare class Vector<T> {
    * Returns the index of the first occurrence of the specified element in this vector ,searching forwards from index,
    * or returns -1 if the element is not found,or -1 if there is no such index
    *
-   * @param { T } element - element element to find
-   * @param { number } index - index index start index
+   * @param { T } element - Element to find
+   * @param { number } index - Index start index
    * @returns { number } the number type
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -188,10 +186,8 @@ declare class Vector<T> {
   /**
    * Removes from this vector all of the elements whose index is between fromIndex,inclusive,and toIndex ,exclusive.
    *
-   * @param { number } fromIndex - fromIndex fromIndex The starting position of the index, containing the value at that index position
-   * @param { number } toIndex - toIndex toIndex the end of the index, excluding the value at that index
-   * @throws { BusinessError } 10200001 If the fromIndex is out of range (greater than or equal to length or less than 0),
-   *  or if toIndex is less than fromIndex, an IndexOutOfBoundException is thrown
+   * @param { number } fromIndex - The starting position of the index, containing the value at that index position
+   * @param { number } toIndex - The end of the index, excluding the value at that index
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
@@ -200,11 +196,10 @@ declare class Vector<T> {
   /**
    * Replaces each element of this vector with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to four arguments.The function to be called
+   * @param { function } callbackFn - A function that accepts up to four arguments.The function to be called
    * for each element in the vector,Returns the result of an operation
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { Object } thisArg - The value passed to the function generally uses the
+   * "this" value.If this parameter is empty, "undefined" will be passed to the "this" value
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
@@ -216,7 +211,7 @@ declare class Vector<T> {
    * @param { function } callbackFn - callbackFn
    * callbackFn (required) A function that accepts up to four arguments.The function to be
    * called for each element in the vector
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
+   * @param { Object } thisArg - The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @syscap SystemCapability.Utils.Lang
    * @since 8
@@ -227,7 +222,7 @@ declare class Vector<T> {
    * Sorts this vector according to the order induced by the specified comparator,without comparator
    * this parameter, it will default to ASCII sorting
    *
-   * @param { function } comparator - comparator comparator
+   * @param { function } comparator - comparator
    * (Optional) A function that accepts up to two arguments.Specifies the sort order.
    * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an vector sorted
    * in ascending order;If it returns secondValue minus firstValue, it returns an vector sorted in descending order;
@@ -240,11 +235,9 @@ declare class Vector<T> {
   /**
    * Returns a view of the portion of this vector between the specified fromIndex,inclusive,and toIndex,exclusive
    *
-   * @param { number } fromIndex - fromIndex fromIndex The starting position of the index, containing the value at that index position
-   * @param { number } toIndex - toIndex toIndex the end of the index, excluding the value at that index
+   * @param { number } fromIndex - The starting position of the index, containing the value at that index position
+   * @param { number } toIndex - The end of the index, excluding the value at that index
    * @returns { Vector<T> }
-   * @throws { BusinessError } 10200001 If the fromIndex or toIndex index is out of range (greater than or equal to length or less than 0),
-   * or if toIndex is less than fromIndex, an IndexOutOfBoundException is thrown
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
@@ -271,7 +264,7 @@ declare class Vector<T> {
   /**
    * Sets the length of this vector
    *
-   * @param { number } newSize - newSize newSize
+   * @param { number } newSize - newSize
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
@@ -308,7 +301,7 @@ declare class Vector<T> {
    * If the newCapacity provided by the user is greater than or equal to length,
    * change the capacity of the vector to newCapacity, otherwise the capacity will not be changed
    *
-   * @param { number } newCapacity - newCapacity newCapacity
+   * @param { number } newCapacity - newCapacity
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
@@ -336,7 +329,7 @@ declare class Vector<T> {
    * Copies the components of this vector into the specified array,
    * to overwrite elements of the same index
    *
-   * @param { Array<T> } array - array array replaced array
+   * @param { Array<T> } array - Replaced array
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9

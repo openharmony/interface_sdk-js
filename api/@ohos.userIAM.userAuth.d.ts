@@ -164,9 +164,9 @@ declare namespace userAuth {
      * Execute authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @param { AuthType } type Indicates the authentication type.
-     * @param { SecureLevel } level Indicates the security level.
-     * @param { AsyncCallback<number> } callback Async callback of execute.
+     * @param { AuthType } type - Indicates the authentication type.
+     * @param { SecureLevel } level - Indicates the security level.
+     * @param { AsyncCallback<number> } callback - Async callback of execute.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 6
      * @deprecated since 8
@@ -177,8 +177,8 @@ declare namespace userAuth {
      * Execute authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @param { AuthType } type Indicates the authentication type.
-     * @param { SecureLevel } level Indicates the security level.
+     * @param { AuthType } type - Indicates the authentication type.
+     * @param { SecureLevel } level - Indicates the security level.
      * @returns { Promise<number> }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 6
@@ -232,8 +232,8 @@ declare namespace userAuth {
      * Check whether the authentication capability is available.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @param { UserAuthType } authType Credential type for authentication.
-     * @param { AuthTrustLevel } authTrustLevel Trust level of authentication result.
+     * @param { UserAuthType } authType - Credential type for authentication.
+     * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
      * @returns { number } Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum, **201** is
      * check permission failed.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -247,10 +247,10 @@ declare namespace userAuth {
      * Executes authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @param { Uint8Array } challenge Pass in challenge value.
-     * @param { UserAuthType } authType Type of authentication.
-     * @param { AuthTrustLevel } authTrustLevel Trust level of authentication result.
-     * @param { IUserAuthCallback } callback Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum,
+     * @param { Uint8Array } challenge - Pass in challenge value.
+     * @param { UserAuthType } authType - Type of authentication.
+     * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+     * @param { IUserAuthCallback } callback - Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum,
      * **201** is check permission failed.
      * @returns { Uint8Array } Returns ContextId for cancel.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -269,7 +269,7 @@ declare namespace userAuth {
      * Cancel authentication with ContextID.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @param { Uint8Array } contextID Cancel authentication and pass in ContextID.
+     * @param { Uint8Array } contextID - Cancel authentication and pass in ContextID.
      * @returns { number } Returns a number value indicating whether Cancel authentication was successful, the value of number is related to the ResultCode
      * enum, **201** is check permission failed.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -720,7 +720,7 @@ declare namespace userAuth {
     /**
      * The authentication event callback.
      *
-     * @param { EventInfo } result Event info.
+     * @param { EventInfo } result - Event info.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
@@ -870,8 +870,8 @@ declare namespace userAuth {
    * Check whether the authentication capability is available.
    *
    * @permission ohos.permission.ACCESS_BIOMETRIC
-   * @param { UserAuthType } authType Credential type for authentication.
-   * @param { AuthTrustLevel } authTrustLevel Trust level of authentication result.
+   * @param { UserAuthType } authType - Credential type for authentication.
+   * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 401 - Incorrect parameters.
    * @throws { BusinessError } 12500002 - General operation error.
@@ -886,9 +886,9 @@ declare namespace userAuth {
   /**
    * Get Authentication instance.
    *
-   * @param { Uint8Array } challenge Pass in challenge value.
-   * @param { UserAuthType } authType Credential type for authentication.
-   * @param { AuthTrustLevel } authTrustLevel Trust level of authentication result.
+   * @param { Uint8Array } challenge - Pass in challenge value.
+   * @param { UserAuthType } authType - Credential type for authentication.
+   * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
    * @returns { AuthInstance } Returns an authentication instance.
    * @throws { BusinessError } 401 - Incorrect parameters.
    * @throws { BusinessError } 12500002 - General operation error.
@@ -992,9 +992,10 @@ declare namespace userAuth {
     navigationButtonText?: string;
 
     /**
-     * Full screen or not.
+     * Display type of widget.
      *
      * @type { ?WindowModeType }
+     * @default WindowModeType.DIALOG_BOX
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -1050,7 +1051,7 @@ declare namespace userAuth {
      * The authentication result code is returned through the callback.
      * If the authentication is passed, the authentication token is returned in extraInfo.
      *
-     * @param { UserAuthResult } result Authentication result information.
+     * @param { UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
@@ -1068,8 +1069,8 @@ declare namespace userAuth {
     /**
      * Turn on widget authentication result event listening.
      *
-     * @param { 'result' } type Indicates the type of event.
-     * @param { IAuthCallback } callback Indicates the listener.
+     * @param { 'result' } type - Indicates the type of event.
+     * @param { IAuthCallback } callback - Indicates the listener.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1080,8 +1081,8 @@ declare namespace userAuth {
     /**
      * Turn off widget authentication result event listening.
      *
-     * @param { 'result' } type Indicates the type of event.
-     * @param { IAuthCallback } callback Indicates the listener.
+     * @param { 'result' } type - Indicates the type of event.
+     * @param { IAuthCallback } callback - Indicates the listener.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1126,8 +1127,8 @@ declare namespace userAuth {
   /**
    * Get user authentication instance with widget.
    *
-   * @param { AuthParam } authParam Auth parameter.
-   * @param { WidgetParam } widgetParam Widget parameter.
+   * @param { AuthParam } authParam - Auth parameter.
+   * @param { WidgetParam } widgetParam - Widget parameter.
    * @returns { UserAuthInstance } Returns an authentication instance with widget.
    * @throws { BusinessError } 401 - Incorrect parameters.
    * @throws { BusinessError } 12500002 - General operation error.
@@ -1161,8 +1162,8 @@ declare namespace userAuth {
    * Send notice to user authentication.
    *
    * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { NoticeType } noticeType Notice type for user authentication.
-   * @param { string } eventData The event data from widget.
+   * @param { NoticeType } noticeType - Notice type for user authentication.
+   * @param { string } eventData - The event data from widget.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - Incorrect parameters.
@@ -1282,8 +1283,8 @@ declare namespace userAuth {
     /**
      * Turn on authentication widget command event listening.
      *
-     * @param { 'command' } type Indicates the type of event.
-     * @param { IAuthWidgetCallback } callback Indicates the listener.
+     * @param { 'command' } type - Indicates the type of event.
+     * @param { IAuthWidgetCallback } callback - Indicates the listener.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1295,8 +1296,8 @@ declare namespace userAuth {
     /**
      * Turn off authentication widget command event listening.
      *
-     * @param { 'command' } type Indicates the type of event.
-     * @param { IAuthWidgetCallback } callback Indicates the listener.
+     * @param { 'command' } type - Indicates the type of event.
+     * @param { IAuthWidgetCallback } callback - Indicates the listener.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1310,7 +1311,7 @@ declare namespace userAuth {
    * Get authentication instance with widget.
    *
    * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { number } version The version of widget.
+   * @param { number } version - The version of widget.
    * @returns { UserAuthWidgetMgr } Returns an authentication manager.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -1334,7 +1335,7 @@ declare namespace userAuth {
     /**
      * The command data for authentication with widget is sent through the callback.
      *
-     * @param { string } cmdData The command data for authentication with widget.
+     * @param { string } cmdData - The command data for authentication with widget.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 10

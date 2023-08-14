@@ -35,6 +35,7 @@ declare namespace contextConstant {
      * System level device encryption area
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      * @since 9
      */
     EL1 = 0,
@@ -43,6 +44,7 @@ declare namespace contextConstant {
      * User credential encryption area
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      * @since 9
      */
     EL2 = 1

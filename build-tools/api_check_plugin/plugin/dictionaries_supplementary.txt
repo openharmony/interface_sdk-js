@@ -111,6 +111,7 @@ coincides
 collaborated
 collapses
 collations
+collectable
 colno
 complies
 compresses
@@ -214,6 +215,7 @@ endc
 endx
 endy
 enrolled
+enrolls
 enumeratable
 erasing
 eration
@@ -449,6 +451,7 @@ nlink
 nmea
 nnrt
 nopadding
+mori
 normalizer
 notifies
 notifying
@@ -531,6 +534,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+prelaunch
 preloads
 premises
 premultiplied
@@ -563,6 +567,7 @@ reassociate
 rebounds
 recalculated
 reconfiguration
+reconfirm
 recovered
 recovering
 recursions
@@ -577,6 +582,7 @@ remotedevice
 removable
 renderbuffer
 renderbuffertarget
+repayment
 repeates
 resizeable
 resmgr
@@ -809,6 +815,7 @@ voicemail
 volte
 volumemanager
 vorbis
+vpr
 vsync
 wakes
 waking

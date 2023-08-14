@@ -277,6 +277,7 @@ declare interface PageTransitionOptions {
   /**
    * RouteType in which the pageTransition can work.
    * @type { ?RouteType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
@@ -290,6 +291,7 @@ declare interface PageTransitionOptions {
   /**
    * PageTransition animation duration, in ms.
    * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
@@ -303,6 +305,7 @@ declare interface PageTransitionOptions {
   /**
    * PageTransition animation curve.
    * @type { ?(Curve | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
@@ -315,6 +318,7 @@ declare interface PageTransitionOptions {
   curve?: Curve | string | ICurve;
   /**
    * PageTransition animation delay time, in ms.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @type { ?number }
    * @since 7
    */

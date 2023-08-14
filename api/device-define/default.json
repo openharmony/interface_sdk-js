@@ -183,6 +183,7 @@
     "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
+    "SystemCapability.Applications.CalendarData",
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.settings.Core",
@@ -211,6 +212,7 @@
     "SystemCapability.ResourceSchedule.DeviceStandby",
     "SystemCapability.DistributedDataManager.UDMF.Core",
     "SystemCapability.Print.PrintFramework",
-    "SystemCapability.Multimedia.Media.AVScreenCapture"
+    "SystemCapability.Multimedia.Media.AVScreenCapture",
+    "SystemCapability.AI.IntelligentVoice.Core"
   ]
 }

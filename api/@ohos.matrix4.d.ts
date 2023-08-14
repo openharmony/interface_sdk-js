@@ -467,7 +467,8 @@ declare namespace matrix4 {
   /**
    * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
    *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
+   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } 
+   * options indicates a fourth-order matrix
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -475,7 +476,8 @@ declare namespace matrix4 {
   /**
    * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
    *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
+   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } 
+   * options indicates a fourth-order matrix
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -498,8 +500,8 @@ declare namespace matrix4 {
       number,
       number,
       number,
-      number,
-    ],
+      number
+    ]
   ): Matrix4Transit;
 
   /**
@@ -587,7 +589,7 @@ declare namespace matrix4 {
    * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
    *
    * @param { [number, number] } options
-   * @returns { Matrix4Transit } Return to Matrix4Transit
+   * @returns { [number, number] } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 10

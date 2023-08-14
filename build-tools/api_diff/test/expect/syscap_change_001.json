@@ -1,0 +1,44 @@
+[
+  {
+    "packageName": "api\\syscap_change_001.d.ts",
+    "className": "deviceControl",
+    "rawText": "declare deviceControl",
+    "dtsName": "syscap_change_001.d.ts",
+    "dtsPath": "api/syscap_change_001.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 8,
+    "status": "SysCap有变化",
+    "oldMessage": "",
+    "newMessage": "SystemCapability.Customization.EnterpriseDeviceManager",
+    "syscap": "Customization"
+  },
+  {
+    "packageName": "api\\syscap_change_001.d.ts",
+    "className": "deviceControl",
+    "rawText": "function resetFactory(admin: Want, callback: AsyncCallback<void>): void;",
+    "dtsName": "syscap_change_001.d.ts",
+    "dtsPath": "api/syscap_change_001.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 8,
+    "status": "SysCap有变化",
+    "oldMessage": "",
+    "newMessage": "SystemCapability.Customization.EnterpriseDeviceManager",
+    "syscap": "Customization"
+  },
+  {
+    "packageName": "api\\syscap_change_001.d.ts",
+    "className": "deviceControl",
+    "rawText": "function resetFactory(admin: Want): Promise<void>;",
+    "dtsName": "syscap_change_001.d.ts",
+    "dtsPath": "api/syscap_change_001.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 8,
+    "status": "SysCap有变化",
+    "oldMessage": "SystemCapability.Customization.EnterpriseDeviceManager",
+    "newMessage": "SystemCapability.Customization",
+    "syscap": "Customization"
+  }
+]

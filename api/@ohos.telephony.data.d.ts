@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides methods related to cellular data services.

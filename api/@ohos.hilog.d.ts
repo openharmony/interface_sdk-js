@@ -161,24 +161,11 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
-
-  /**
-   * Checks whether logs of the specified tag, and level can be printed.
-   *
-   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   * @param { string } tag Identifies the log tag.
-   * @param { LogLevel } level log level
-   * @returns { boolean }
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @since 10
-   */
   function isLoggable(domain: number, tag: string, level: LogLevel): boolean;
 
   /**
    * Log level define
    *
-   * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @since 7
    */
@@ -192,10 +179,75 @@ declare namespace hilog {
    * @since 10
    */
   enum LogLevel {
+    /**
+     * DEBUG Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @since 7
+     */
+    /**
+     * DEBUG Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @since 10
+     */
     DEBUG = 3,
+    /**
+     * INFO Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @since 7
+     */
+    /**
+     * INFO Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @since 10
+     */
     INFO = 4,
+    /**
+     * WARN Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @since 7
+     */
+    /**
+     * WARN Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @since 10
+     */
     WARN = 5,
+    /**
+     * ERROR Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @since 7
+     */
+    /**
+     * ERROR Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @since 10
+     */
     ERROR = 6,
+    /**
+     * FATAL Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @since 7
+     */
+    /**
+     * FATAL Log level define
+     *
+     * @syscap SystemCapability.HiviewDFX.HiLog
+     * @crossplatform
+     * @since 10
+     */
     FATAL = 7
   }
 }

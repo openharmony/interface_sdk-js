@@ -48,14 +48,13 @@ declare namespace distributedDeviceManager {
     deviceName: string;
 
     /**
-     * Device type. Currently, only support the following device types:
-     *    12 - Indicates a smart pc.
-     *    14 - Indicates a smart phone.
-     *    17 - Indicates a smart pad.
+     * Obtains the device type represented by a string,
+     * which can be {@code phone}, {@code tablet}, {@code tv}, {@code smartVision}, {@code car}.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @type { string }
      * @since 10
      */
-    deviceType: number;
+    deviceType: string;
 
     /**
      * Device network id.

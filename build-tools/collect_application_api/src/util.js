@@ -24,6 +24,7 @@ const etsComponentSet = new Set([
   'Blank',
   'Button',
   'Calendar',
+  'CalendarPicker',
   'Camera',
   'Canvas',
   'Checkbox',
