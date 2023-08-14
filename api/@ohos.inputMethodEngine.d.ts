@@ -1121,7 +1121,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    selectByMovementSyncz(movement: Movement): void;
+    selectByMovementSync(movement: Movement): void;
 
     /**
      * Get the index number of text at cursor.
