@@ -581,6 +581,20 @@ declare namespace inputMethodEngine {
     createPanel(ctx: BaseContext, info: PanelInfo): Promise<Panel>;
 
     /**
+     * Creates a panel.
+     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
+     *
+     * @param { BaseContext } ctx - indicates the context on which the window depends.
+     * @param { PanelInfo } info - the info of panel to be created.
+     * @returns { Panel } the created panel.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    createPanelSync(ctx: BaseContext, info: PanelInfo): Panel;
+
+    /**
      * Destroys a panel.
      *
      * @param { Panel } panel - to be destroyed.
@@ -1064,6 +1078,17 @@ declare namespace inputMethodEngine {
     selectByRange(range: Range): Promise<void>;
 
     /**
+     * Select text in editor by range.
+     *
+     * @param { Range } range - indicates the range of selected text in editor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    selectByRangeSync(range: Range): void;
+
+    /**
      * Select text in editor by cursor movement.
      *
      * @param { Movement } movement - indicates the movement of cursor when selecting.
@@ -1086,6 +1111,17 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     selectByMovement(movement: Movement): Promise<void>;
+
+    /**
+     * Select text in editor by cursor movement.
+     *
+     * @param { Movement } movement - indicates the movement of cursor when selecting.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    selectByMovementSyncz(movement: Movement): void;
 
     /**
      * Get the index number of text at cursor.
