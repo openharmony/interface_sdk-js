@@ -204,6 +204,25 @@ declare namespace preferences {
   function getPreferences(context: Context, options: Options): Promise<Preferences>;
 
   /**
+   * Obtains a {@link Preferences} instance matching a specified preferences file name.
+   * This interface is executed synchronously.
+   * <p>The {@link references} instance loads all data of the preferences file and
+   * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @returns { Preferences } The {@link Preferences} instance matching the specified preferences file name.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function getPreferencesSync(context: Context, options: Options): Preferences;
+
+  /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
    * from the cache which is performed by removePreferencesFromCache and deletes the
    * preferences file.
@@ -434,6 +453,25 @@ declare namespace preferences {
    * @since 10
    */
   function removePreferencesFromCacheSync(context: Context, name: string): void;
+
+  /**
+   * Deletes a {@link Preferences} instance matching a specified preferences file name
+   * from the cache. This interface is executed synchronously.
+   * <p>When deleting the {@link Preferences} instance, you must release all references
+   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+   * will occur.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 15501001 - Only supported in stage mode.
+   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @since 10
+   */
+  function removePreferencesFromCacheSync(context: Context, options: Options): void;
 
   /**
    * Provides interfaces to obtain and modify preferences data.
