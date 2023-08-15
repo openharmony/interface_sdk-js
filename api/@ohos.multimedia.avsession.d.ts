@@ -866,6 +866,16 @@ declare namespace avSession {
     getOutputDevice(): Promise<OutputDeviceInfo>;
 
     /**
+     * Get output device information
+     * @returns { OutputDeviceInfo } the OutputDeviceInfo
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    getOutputDeviceSync(): OutputDeviceInfo;
+
+    /**
      * Register play command callback.
      * As long as it is registered, it means that the ability supports this command.
      * If you cancel the callback, you need to call off {@link off}
@@ -2490,6 +2500,17 @@ declare namespace avSession {
     getAVPlaybackState(): Promise<AVPlaybackState>;
 
     /**
+     * Get the playback status of the current session
+     * @returns { AVPlaybackState } (AVPlaybackState) returned
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    getAVPlaybackStateSync(): AVPlaybackState;
+
+    /**
      * Get the metadata of the current session
      * @param { AsyncCallback<AVMetadata> } callback - The triggered asyncCallback when (getAVMetadata).
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2510,6 +2531,17 @@ declare namespace avSession {
      * @since 10
      */
     getAVMetadata(): Promise<AVMetadata>;
+
+    /**
+     * Get the metadata of the current session
+     * @returns { AVMetadata } (AVMetadata) returned
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    getAVMetadataSync(): AVMetadata;
 
     /**
      * Get the name of the playlist of the current session
@@ -2534,6 +2566,17 @@ declare namespace avSession {
     getAVQueueTitle(): Promise<string>;
 
     /**
+     * Get the name of the playlist of the current session
+     * @returns { string } (string) returned
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    getAVQueueTitleSync(): string;
+
+    /**
      * Get the playlist of the current session
      * @param { AsyncCallback<Array<AVQueueItem>> } callback - The triggered asyncCallback when (getAVQueueItems).
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2554,6 +2597,17 @@ declare namespace avSession {
      * @since 10
      */
     getAVQueueItems(): Promise<Array<AVQueueItem>>;
+
+    /**
+     * Get the playlist of the current session
+     * @returns { Array<AVQueueItem> } (Array<AVQueueItem>) returned
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    getAVQueueItemsSync(): Array<AVQueueItem>;
 
     /**
      * Set the item in the playlist to be played
@@ -2600,6 +2654,16 @@ declare namespace avSession {
      * @since 10
      */
     getOutputDevice(): Promise<OutputDeviceInfo>;
+
+    /**
+     * Get output device information
+     * @returns { OutputDeviceInfo } (OutputDeviceInfo) returned
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    getOutputDeviceSync(): OutputDeviceInfo;
 
     /**
      * Send media key event to this session
@@ -2687,6 +2751,17 @@ declare namespace avSession {
     isActive(): Promise<boolean>;
 
     /**
+     * Check if the current session is active
+     * @returns { boolean } boolean
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    isActiveSync(): boolean;
+
+    /**
      * Destroy the server controller
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2727,6 +2802,17 @@ declare namespace avSession {
      * @since 10
      */
     getValidCommands(): Promise<Array<AVControlCommandType>>;
+
+    /**
+     * Get commands supported by the current session
+     * @returns {Array<AVControlCommandType> } array of AVControlCommandType
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    getValidCommandsSync(): Array<AVControlCommandType>;
 
     /**
      * Send control commands to this session
