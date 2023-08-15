@@ -73,37 +73,49 @@ declare namespace cert {
      */
     ERR_CRYPTO_OPERATION = 19030001,
 
-    /* Indicates that the certificate signature verification failed.
+    /**
+     * Indicates that the certificate signature verification failed.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_CERT_SIGNATURE_FAILURE = 19030002,
 
-    /* Indicates that the certificate has not taken effect.
+    /**
+     * Indicates that the certificate has not taken effect.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_CERT_NOT_YET_VALID = 19030003,
 
-    /* Indicates that the certificate has expired.
+    /**
+     * Indicates that the certificate has expired.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_CERT_HAS_EXPIRED = 19030004,
 
-    /* Indicates that we failed to obtain the certificate issuer..
+    /**
+     * Indicates a failure to obtain the certificate issuer.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY = 19030005,
 
-    /* The key cannot be used for signing a certificate.
+    /**
+     * The key cannot be used for signing a certificate.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     ERR_KEYUSAGE_NO_CERTSIGN = 19030006,
 
-    /* The key cannot be used for digital signature.
+    /**
+     * The key cannot be used for digital signature.
+     *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
@@ -221,7 +233,7 @@ declare namespace cert {
   }
 
   /**
-   * Enum for the certificate extension oid type.
+   * Enumerates for the certificate extension object identifier (OID) types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Cert
@@ -229,7 +241,7 @@ declare namespace cert {
    */
   enum ExtensionOidType {
     /**
-     * Indicates to obtain the oid list of all entries.
+     * Indicates to obtain all types of OIDs, including critical and uncritical types.
      *
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -237,7 +249,7 @@ declare namespace cert {
     EXTENSION_OID_TYPE_ALL = 0,
 
     /**
-     * Indicates to obtain the oid list of all critical entries.
+     * Indicates to obtain OIDs of the critical type.
      *
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -245,7 +257,7 @@ declare namespace cert {
     EXTENSION_OID_TYPE_CRITICAL = 1,
 
     /**
-     * Indicates to obtain the oid list of all uncritical entries.
+     * Indicates to obtain OIDs of the uncritical type.
      *
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -444,8 +456,20 @@ declare namespace cert {
      * @returns { number } X509 cert serial number.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509Cert.getCertSerialNumber
      */
     getSerialNumber(): number;
+
+    /**
+     * Get X509 cert serial number.
+     *
+     * @returns { bigint } X509 cert serial number.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getCertSerialNumber(): bigint;
 
     /**
      * Get X509 cert issuer name.
@@ -605,6 +629,7 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType
      * @returns { DataBlob } cert item value.
+     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -666,7 +691,8 @@ declare namespace cert {
      * Get certificate extension oid list.
      *
      * @param { ExtensionOidType } valueType
-     * @returns { DataArray } cert extension oid list value.
+     * @returns { DataArray } cert extension OID list value.
+     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -681,6 +707,7 @@ declare namespace cert {
      * @param { ExtensionEntryType } valueType
      * @param { DataBlob } oid
      * @returns { DataBlob } cert extension entry value.
+     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.

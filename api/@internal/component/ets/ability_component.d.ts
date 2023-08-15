@@ -20,6 +20,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponentInterface
  */
 interface AbilityComponentInterface {
   /**
@@ -31,6 +33,8 @@ interface AbilityComponentInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead UIExtensionComponentInterface
    */
   (value: { want: import('../api/@ohos.app.ability.Want').default }): AbilityComponentAttribute;
 }
@@ -42,6 +46,8 @@ interface AbilityComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponentAttribute
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
@@ -52,6 +58,8 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead UIExtensionComponent#onRemoteReady
    */
   onConnect(callback: () => void): AbilityComponentAttribute;
   /**
@@ -62,6 +70,8 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead UIExtensionComponent#onRelease
    */
   onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
@@ -71,6 +81,8 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponent
  */
 declare const AbilityComponent: AbilityComponentInterface;
 
@@ -79,5 +91,7 @@ declare const AbilityComponent: AbilityComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @deprecated since 10
+ * @useinstead UIExtensionComponentInstance
  */
 declare const AbilityComponentInstance: AbilityComponentAttribute;

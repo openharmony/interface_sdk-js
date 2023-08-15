@@ -16,6 +16,7 @@
 /**
  * Provides methods for switching components.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
@@ -78,14 +79,14 @@ declare class SwiperController {
   /**
    * Called when need to stop the swiper animation.
    *
-   * @param { ?(() => void) } callback
+   * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when need to stop the swiper animation.
    *
-   * @param { ?(() => void) } callback
+   * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -283,16 +284,18 @@ declare class DotIndicator extends Indicator<DotIndicator> {
 
 /**
  * Set Swiper column count adaptation.
- * @form
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ * @form
  */
 declare type SwiperAutoFill = {
   /**
    * Set minSize size.
-   * @form
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @form
    */
   minSize: VP;
 };
@@ -382,7 +385,7 @@ declare interface ArrowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  isShowBackground?: boolean;
+  showBackground?: boolean;
 
   /**
    * When the indicator show, set the arrow position is side of the indicator or in the middle of content area.
@@ -458,6 +461,7 @@ declare interface ArrowStyle {
 declare enum SwiperDisplayMode {
   /**
    * Carousel map extension.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 10
@@ -468,6 +472,7 @@ declare enum SwiperDisplayMode {
 
   /**
    * The rotation chart is self linear.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 10
@@ -550,6 +555,7 @@ declare interface IndicatorStyle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   left?: Length;
 
@@ -559,6 +565,7 @@ declare interface IndicatorStyle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   top?: Length;
 
@@ -568,6 +575,7 @@ declare interface IndicatorStyle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   right?: Length;
 
@@ -577,6 +585,7 @@ declare interface IndicatorStyle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   bottom?: Length;
 
@@ -586,6 +595,7 @@ declare interface IndicatorStyle {
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   size?: Length;
 
@@ -595,6 +605,7 @@ declare interface IndicatorStyle {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   mask?: boolean;
 
@@ -604,6 +615,7 @@ declare interface IndicatorStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   color?: ResourceColor;
 
@@ -613,12 +625,15 @@ declare interface IndicatorStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 10
    */
   selectedColor?: ResourceColor;
 }
 
 /**
  * Provides an interface for swiper animation.
+ *
+ * @interface SwiperAnimationEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -626,8 +641,9 @@ declare interface IndicatorStyle {
 declare interface SwiperAnimationEvent {
   /**
    * Offset of the current page to the start position of the swiper main axis. The unit is vp.
-   * @default 0.0 vp
+   *
    * @type { number }
+   * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -635,8 +651,9 @@ declare interface SwiperAnimationEvent {
 
   /**
    * Offset of the target page to the start position of the swiper main axis. The unit is vp.
-   * @default 0.0 vp
+   *
    * @type { number }
+   * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -644,8 +661,9 @@ declare interface SwiperAnimationEvent {
 
   /**
    * Start speed of the page-turning animation. The unit is vp/s.
-   * @default 0.0 vp/s
+   *
    * @type { number }
+   * @default 0.0 vp/s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -656,6 +674,7 @@ declare interface SwiperAnimationEvent {
  * Defines the swiper attribute functions.
  *
  * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
@@ -881,7 +900,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * This command is invoked when the number of subcomponents is set.
    *
-   * @param { number | string } value
+   * @param { number | string | SwiperAutoFill } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -889,7 +908,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * This command is invoked when the number of subcomponents is set.
    *
-   * @param { number | string } value
+   * @param { number | string | SwiperAutoFill } value
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -993,6 +1012,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * The previous margin which can be used to expose a small portion of the previous item.
+   *
    * @param { Length } value - The length of previous margin.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1002,6 +1022,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * The next margin which can be used to expose a small portion of the latter item.
+   *
    * @param { Length } value - The length of next margin.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1019,10 +1040,12 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the swiper animation start.
-   * @param { (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void } event
+   *
+   * @param { function } event
    * "index": the index value of the swiper page that when animation start.
    * "targetIndex": the target index value of the swiper page that when animation start.
    * "extraInfo": the extra callback info.
+   * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1033,16 +1056,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when the swiper animation end.
    *
-   * @param { (index: number) => void } event - the index value of the swiper page that when animation end.
+   * @param { function } event - the index value of the swiper page that when animation end.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when the swiper animation end.
-   * @param { (index: number, extraInfo: SwiperAnimationEvent) => void } event
+   *
+   * @param { function } event
    * "index": the index value of the swiper page that when animation end.
    * "extraInfo": the extra callback info.
+   * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1052,9 +1077,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * Called when the swiper swipe with the gesture.
-   * @param { (index: number, extraInfo: SwiperAnimationEvent) => void } event
+   *
+   * @param { function } event
    * "index": the index value of the swiper page before gesture swipe.
    * "extraInfo": the extra callback info.
+   * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

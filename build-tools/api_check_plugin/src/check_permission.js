@@ -74,7 +74,7 @@ function checkPermission(node, sourcefile, fileName) {
           }
         });
       } else {
-        if (!permissionRuleSet.has(permissionNote) && !/N\/A/.test(permissionNote)) {
+        if (!permissionRuleSet.has(permissionNote)) {
           hasPermissionError = true;
           if (errorInfo !== '') {
             errorInfo += `,${permissionNote}`;

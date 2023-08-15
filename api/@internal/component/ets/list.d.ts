@@ -487,6 +487,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when need to decide how much lanes the list will show.
    *
    * @param { number | LengthConstrain } value
+   * @param { Dimension } gutter
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9

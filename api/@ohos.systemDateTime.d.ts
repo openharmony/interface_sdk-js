@@ -26,8 +26,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time.
    *
+   * @permission ohos.permission.SET_TIME
    * @param { number } time - Indicates the target timestamp(in milliseconds)
    * @param { AsyncCallback<void> } callback - The callback of setTime
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -38,8 +40,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time.
    *
+   * @permission ohos.permission.SET_TIME
    * @param { number } time - Indicates the target timestamp(in milliseconds)
    * @returns { Promise<void> } The promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -147,8 +151,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time.
    *
+   * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date
    * @param { AsyncCallback<void> } callback - The callback of setDate
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -160,8 +166,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time.
    * 
+   * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date
    * @returns { Promise<void> } The promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -193,8 +201,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time zone.
    *
+   * @permission ohos.permission.SET_TIME_ZONE
    * @param { string } timezone - The system time zone
    * @param { AsyncCallback<void> } callback - The callback of setTimezone
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
@@ -206,8 +216,10 @@ declare namespace systemDateTime {
   /**
    * Sets the system time zone.
    *
+   * @permission ohos.permission.SET_TIME_ZONE
    * @param { string } timezone -  The system time zone
    * @returns { Promise<void> } The promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission denied, Non system application use system APIs
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time

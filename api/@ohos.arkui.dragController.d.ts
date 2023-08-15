@@ -16,7 +16,7 @@
 /// <reference path="../component/common.d.ts" />
 
 import type { AsyncCallback } from './@ohos.base';
-import type UDMF from './@ohos.data.UDMF';
+import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 
 /**
@@ -44,11 +44,11 @@ declare namespace dragController {
 
     /**
     * Drag data.
-    * @type { ?UDMF.UnifiedData }
+    * @type { ?unifiedDataChannel.UnifiedData }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 10
     */
-    data?: UDMF.UnifiedData;
+    data?: unifiedDataChannel.UnifiedData;
 
     /**
     * Additional information about the drag info.

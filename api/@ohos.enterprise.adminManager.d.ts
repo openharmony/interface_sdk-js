@@ -504,6 +504,46 @@ declare namespace adminManager {
    * @since 9
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
+
+  /**
+   * Administrator authorize permissions to other applications.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   * @param { AsyncCallback<void> } callback - the callback of authorizeAdmin.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - authorize permission to the application failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function authorizeAdmin(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Administrator authorize permissions to other applications.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   * @returns { Promise<void> } the promise returned by the authorizeAdmin.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - authorize permission to the application failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;
 }
 
 export default adminManager;

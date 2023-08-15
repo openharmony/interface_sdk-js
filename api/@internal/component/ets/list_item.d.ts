@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Declare item ceiling attribute.
  *
@@ -29,6 +28,7 @@ declare enum Sticky {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   None,
 
@@ -37,6 +37,7 @@ declare enum Sticky {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Normal,
 
@@ -45,6 +46,7 @@ declare enum Sticky {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Opacity,
 }
@@ -63,6 +65,7 @@ declare enum EditMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   None,
 
@@ -71,6 +74,7 @@ declare enum EditMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Deletable,
 
@@ -79,6 +83,7 @@ declare enum EditMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Movable,
 }
@@ -156,17 +161,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  deleteAreaDistance?: Length;
-
-  /**
-   * Set whether to use default delete animation.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  useDefaultDeleteAnimation?: boolean;
+  actionAreaDistance?: Length;
 
   /**
    * Called when ListItem need to be deleted.
@@ -175,7 +170,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onDelete?: () => void;
+  onAction?: () => void;
 
   /**
    * Called when swipe entry delete area.
@@ -184,7 +179,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onEnterDeleteArea?: () => void;
+  onEnterActionArea?: () => void;
 
   /**
    * Called when swipe exit delete area.
@@ -193,7 +188,7 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onExitDeleteArea?: () => void;
+  onExitActionArea?: () => void;
 }
 
 /**
@@ -350,7 +345,7 @@ interface ListItemInterface {
 
   /**
    * Called when an interface is used.
-   * 
+   *
    * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -444,7 +439,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when judging whether it is selected.
    * This parameter supports $$ for two-way binding of variables.
-   * 
+   *
    * @param { boolean } value if the listItem is selected.
    * @returns { ListItemAttribute } the attribute of the listItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

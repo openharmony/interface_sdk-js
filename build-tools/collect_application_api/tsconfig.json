@@ -14,6 +14,7 @@
         "Blank",
         "Button",
         "Calendar",
+        "CalendarPicker",
         "Camera",
         "Canvas",
         "Checkbox",
@@ -27,11 +28,9 @@
         "DataPanel",
         "DatePicker",
         "Divider",
-        "EffectComponent",
         "Ellipse",
         "Flex",
         "FormComponent",
-        "FormLink",
         "Gauge",
         "GeometryView",
         "Grid",
@@ -142,6 +141,11 @@
             "instance": "CalendarInstance"
           },
           {
+            "name": "CalendarPicker",
+            "type": "CalendarPickerAttribute",
+            "instance": "CalendarPickerInstance"
+          },
+          {
             "name": "Camera",
             "type": "CameraAttribute",
             "instance": "CameraInstance"
@@ -207,11 +211,6 @@
             "instance": "DividerInstance"
           },
           {
-            "name": "EffectComponent",
-            "type": "EffectComponentAttribute",
-            "instance": "EffectComponentInstance"
-          },
-          {
             "name": "Ellipse",
             "type": "EllipseAttribute",
             "instance": "EllipseInstance"
@@ -225,11 +224,6 @@
             "name": "FormComponent",
             "type": "FormComponentAttribute",
             "instance": "FormComponentInstance"
-          },
-          {
-            "name": "FormLink",
-            "type": "FormLinkAttribute",
-            "instance": "FormLinkInstance"
           },
           {
             "name": "Gauge",
@@ -593,8 +587,11 @@
         "property": "stateStyles"
       },
       "customComponent": "CustomComponent",
+      "propertyDecorators": [],
+      "emitDecorators": [],
+      "libs": []
     },
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "importsNotUsedAsValues": "preserve",

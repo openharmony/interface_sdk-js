@@ -21,6 +21,7 @@
 /// <reference path="./blank.d.ts" />
 /// <reference path="./button.d.ts" />
 /// <reference path="./calendar.d.ts" />
+/// <reference path="./calendar_picker.d.ts" />
 /// <reference path="./canvas.d.ts" />
 /// <reference path="./checkbox.d.ts" />
 /// <reference path="./checkboxgroup.d.ts" />

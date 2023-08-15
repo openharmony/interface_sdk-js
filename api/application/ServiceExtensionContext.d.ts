@@ -1047,7 +1047,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
   /**
-   * Disconnect an ability to a service extension, in contrast to {@link connectAbility}.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - the connection id returned from connectAbility api.
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
@@ -1062,7 +1062,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnect an ability to a service extension, in contrast to {@link connectAbility}.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - the connection id returned from connectAbility api.
    * @returns { Promise<void> } The promise returned by the function.

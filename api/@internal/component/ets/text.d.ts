@@ -560,8 +560,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @deprecated since 10
-   * @useinstead common.CommonMethod#draggable
    */
   draggable(value: boolean): TextAttribute;
 
@@ -583,27 +581,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Called when the height adaptive policy is set.
-   *
-   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
 
-  /**
-   * Specify the indentation of the first line in a text-block.
-   *
-   * @param { Length } value - The length of text indent.
-   * @returns { TextAttribute } The attribute of the text.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
   /**
    * Specify the indentation of the first line in a text-block.
    *

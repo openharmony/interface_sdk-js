@@ -66,14 +66,14 @@ interface SheetInfo {
   /**
    * Callback method after the operation.
    *
-   * @type { () => void }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback method after the operation.
    *
-   * @type { () => void }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -114,6 +114,15 @@ interface ActionSheetOptions
    * @since 10
    */
   title: string | Resource;
+  
+  /**
+   * Subtitle Properties
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  subtitle?: ResourceStr;
 
   /**
    * message Properties
@@ -135,19 +144,49 @@ interface ActionSheetOptions
   /**
    * Invoke the commit function.
    *
-   * @type { ?{value: string | Resource; action: () => void;} }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoke the commit function.
    *
-   * @type { ?{value: string | Resource; action: () => void;} }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   confirm?: {
+    /**
+     * Enable switch of confirmation button
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    enabled?: boolean;
+
+    /**
+     * Default focus switch of confirmation button
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    defaultFocus?: boolean;
+    
+    /**
+     * Style of confirmation button.
+     * @type { ?DialogButtonStyle }
+     * @default DialogButtonStyle.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    style?: DialogButtonStyle;
+
     /**
      * Text content of the confirmation button.
      *
@@ -186,14 +225,14 @@ interface ActionSheetOptions
   /**
    * Execute Cancel Function.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Execute Cancel Function.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -254,19 +293,29 @@ interface ActionSheetOptions
   /**
    * Offset of the pop-up window relative to the alignment position.
    *
-   * @type { ?{ dx: number | string | Resource; dy: number | string | Resource } }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Offset of the pop-up window relative to the alignment position.
    *
-   * @type { ?{ dx: number | string | Resource; dy: number | string | Resource } }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   offset?: { dx: number | string | Resource; dy: number | string | Resource };
+
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: Rectangle;
 }
 
 /**

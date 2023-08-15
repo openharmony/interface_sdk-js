@@ -17,7 +17,6 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import Context from './application/Context';
 import { Filter } from './@ohos.file.fs';
-import image from './@ohos.multimedia.image';
 
 /**
  * This module provides the capability to access user public files.
@@ -217,6 +216,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     uri: string;
@@ -228,6 +228,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     relativePath: string;
@@ -239,6 +240,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     fileName: string;
@@ -250,6 +252,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     mode: number;
@@ -261,6 +264,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     size: number;
@@ -272,6 +276,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     mtime: number;
@@ -283,6 +288,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     mimeType: string;
@@ -457,6 +463,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     deviceType: number;
@@ -466,6 +473,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     uri: string;
@@ -477,6 +485,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     relativePath: string;
@@ -486,6 +495,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     displayName: string;
@@ -495,6 +505,7 @@ declare namespace fileAccess {
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     deviceFlags: number;
@@ -653,7 +664,7 @@ declare namespace fileAccess {
   }
 
   /**
-   * CopyResult describe the return information of the copy operation.
+   * Describes the return information of the copy operation.
    *
    * @interface CopyResult
    * @permission ohos.permission.FILE_ACCESS_MANAGER
@@ -683,6 +694,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     READ = 0o0,
@@ -692,6 +704,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     WRITE = 0o1,
@@ -701,6 +714,7 @@ declare namespace fileAccess {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     WRITE_READ = 0o2
@@ -717,76 +731,153 @@ declare namespace fileAccess {
    */
   enum FileKey {
     /**
-     * The key represents the file name, which is generic
+     * The key represents the file name.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     DISPLAY_NAME = 'display_name',
 
     /**
-     * The key represents the date of the file creation, which is generic
+     * The key represents the date of the file creation.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     DATE_ADDED = 'date_added',
 
     /**
-     * The key represents the modify date of the file, which is generic
+     * The key represents the modify date of the file.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     DATE_MODIFIED = 'date_modified',
 
     /**
-     * The key represents the relative path, which is generic
+     * The key represents the relative path.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     RELATIVE_PATH = 'relative_path',
 
     /**
-     * The key represents the file size, which is generic
+     * The key represents the file size.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
-    FILE_SIZE = 'size',
+    FILE_SIZE = 'size'
+  }
+
+  /**
+   * Describes the notifyType.
+   *
+   * @enum { number } NotifyType
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  enum NotifyType {
+    /**
+     * Type for add notification
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_ADD,
 
     /**
-     * The key represents width of the image file
+     * Type for delete notification
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
-    WIDTH = 'width',
+    NOTIFY_DELETE,
 
     /**
-     * The key represents height of the image file
+     * The file was moved into the monitored directory.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
-    HEIGHT = 'height',
+    NOTIFY_MOVED_TO,
 
     /**
-     * The key represents duration of the audio and video file
+     * The file in the monitored directory was moved.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
-    DURATION = 'duration'
+    NOTIFY_MOVED_FROM,
+
+    /**
+     * The monitored file or directory was moved.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_MOVE_SELF
+  }
+
+  /**
+   * The value of the notify callback function
+   *
+   * @interface NotifyMessage
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface NotifyMessage {
+    /**
+     * Indicates the change type.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { NotifyType }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    type: NotifyType;
+
+    /**
+     * Indicates the uris generated the change event.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    uris: Array<string>;
   }
 
   /**
@@ -1569,32 +1660,6 @@ declare namespace fileAccess {
     getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>): void;
 
     /**
-     * Get a PixelMap object by the uri in the promise way.
-     *
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } uri - Indicates the selected media file.
-     * @param { image.Size } size - Indicates Thumbnail's size.
-     * @returns { Promise<image.PixelMap> } Returns the PixelMap object.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @systemapi
-     * @since 10
-     */
-    getThumbnail(uri: string, size: image.Size): Promise<image.PixelMap>;
-
-    /**
-     * Get a PixelMap object by the uri in the asyncCallback way.
-     *
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { string } uri - Indicates the selected media file.
-     * @param { image.Size } size - Indicates Thumbnail's size.
-     * @param { AsyncCallback<image.PixelMap> } callback - The callback is used to Returns the PixelMap object.
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @systemapi
-     * @since 10
-     */
-    getThumbnail(uri: string, size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
-
-    /**
      * Get a RootIterator.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
@@ -1683,6 +1748,33 @@ declare namespace fileAccess {
      * @since 9
      */
     getRoots(callback: AsyncCallback<RootIterator>): void;
+
+    /**
+     * Turn on monitor the specified uri.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the file or directory to be monitored.
+     * @param { boolean } notifyForDescendants - Indicates Whether to monitor changes in descendants.
+     * @param { Callback<NotifyMessage> } callback - The callback is used to return the notify message.
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    registerObserver(uri: string, notifyForDescendants: boolean, callback: Callback<NotifyMessage>): void;
+
+    /**
+     * Turn off monitor the specified uri.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the file or directory the file that will cancel monitored.
+     * @param { Callback<NotifyMessage> } callback - The object bound to the uri.
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    unregisterObserver(uri: string, callback?: Callback<NotifyMessage>): void;
   }
 }
 

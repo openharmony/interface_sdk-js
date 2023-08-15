@@ -71,9 +71,8 @@ function checkApiOrder(comments) {
 }
 exports.checkApiOrder = checkApiOrder;
 
-function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
-  let isIllegalTagWhitetFile = true;
-  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
+function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec, useWhitelist) {
+  let isIllegalTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag) : true;
   const APITagNameResult = {
     checkResult: true,
     errorInfo: '',
@@ -93,7 +92,7 @@ exports.checkAPITagName = checkAPITagName;
 
 function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
   const parentTagArr = [];
-  if (ts.isSourceFile(node)) {
+  if (ts.isSourceFile(node.parent)) {
     return inheritResult;
   }
   if (!ts.isModuleBlock(node.parent)) {
@@ -116,9 +115,8 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
   return inheritResult;
 }
 
-function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
-  let isMissingTagWhitetFile = true;
-  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
+function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex, useWhitelist) {
+  let isMissingTagWhitetFile = useWhitelist ? !isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag) : true;
   const inheritResult = {
     checkResult: true,
     errorInfo: '',

@@ -14,6 +14,7 @@
  */
 
 /**
+ * @typedef StartBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
@@ -25,6 +26,7 @@ export interface StartBLEScanOptions {
 }
 
 /**
+ * @typedef StopBLEScanOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
@@ -35,11 +37,12 @@ export interface StopBLEScanOptions {
 }
 
 /**
+ * @typedef BluetoothDevice
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
 export interface BluetoothDevice {
-  addrType: "public" | "random";
+  addrType: 'public' | 'random';
   addr: string;
   rssi: number;
   txpower: string;
@@ -47,6 +50,7 @@ export interface BluetoothDevice {
 }
 
 /**
+ * @typedef BLEFoundResponse
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
@@ -55,6 +59,7 @@ export interface BLEFoundResponse {
 }
 
 /**
+ * @typedef SubscribeBLEFoundOptions
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
@@ -65,30 +70,43 @@ export interface SubscribeBLEFoundOptions {
 
 /**
  * Provides methods to manage BLE scan.
- * @since 6
+ *
  * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * @since 6
  */
 export default class Bluetooth {
   /**
    * Start BLE scan
-   * @param options Options
+   *
+   * @param { StartBLEScanOptions } options - Options
+   * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @since 6
    */
   static startBLEScan(options: StartBLEScanOptions): void;
 
   /**
    * Stop BLE scan
-   * @param options Options
+   *
+   * @param { StopBLEScanOptions } options - Options
+   * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @since 6
    */
   static stopBLEScan(options: StopBLEScanOptions): void;
 
   /**
    * Subscribe BLE found
-   * @param options Options
+   *
+   * @param { SubscribeBLEFoundOptions } options - Options
+   * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @since 6
    */
   static subscribeBLEFound(options: SubscribeBLEFoundOptions): void;
 
   /**
    * Stop the subscription of BLE found
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Lite
+   * @since 6
    */
   static unsubscribeBLEFound(): void;
 }

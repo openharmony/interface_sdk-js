@@ -122,7 +122,6 @@ declare namespace resourceManager {
      * Indicates a tablet.
      *
      * @syscap SystemCapability.Global.ResourceManager
-     * @crossplatform
      * @since 10
      */
     DEVICE_TYPE_TABLET = 0x01,
@@ -137,7 +136,6 @@ declare namespace resourceManager {
      * Indicates a car.
      *
      * @syscap SystemCapability.Global.ResourceManager
-     * @crossplatform
      * @since 10
      */
     DEVICE_TYPE_CAR = 0x02,
@@ -152,7 +150,6 @@ declare namespace resourceManager {
      * Indicates a PC.
      *
      * @syscap SystemCapability.Global.ResourceManager
-     * @crossplatform
      * @since 10
      */
     DEVICE_TYPE_PC = 0x03,
@@ -167,7 +164,6 @@ declare namespace resourceManager {
      * Indicates a smart TV.
      *
      * @syscap SystemCapability.Global.ResourceManager
-     * @crossplatform
      * @since 10
      */
     DEVICE_TYPE_TV = 0x04,
@@ -182,7 +178,6 @@ declare namespace resourceManager {
      * Indicates a wearable device.
      *
      * @syscap SystemCapability.Global.ResourceManager
-     * @crossplatform
      * @since 10
      */
     DEVICE_TYPE_WEARABLE = 0x06

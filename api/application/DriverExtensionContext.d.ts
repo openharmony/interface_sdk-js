@@ -18,6 +18,8 @@ import ExtensionContext from './ExtensionContext';
 /**
  * The context of driver extension. It allows access to
  * driverExtension-specific resources.
+ * 
+ * @extends ExtensionContext
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
  * @since 10
