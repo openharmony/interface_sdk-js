@@ -257,8 +257,6 @@ function compareJSDocs(oldApi, newApi, diffReporter) {
   diffPermission(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffForm(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffCrossplatform(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
-  diffSinceVersion(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
-  diffSyscap(diffReporter, oldApi, newApi, hint);
   diffDeprecated(diffReporter, oldApi, newApi, hint);
   diffApiLevel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);
   diffAppModel(diffReporter, oldTagItem, newTagItem, oldApi, newApi, hint);

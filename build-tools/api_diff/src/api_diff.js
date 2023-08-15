@@ -150,20 +150,20 @@ function getSycap(api) {
     return 'ArkUI';
   }
   while (curApi && !ts.isSourceFile(curApi.node)) {
-    if (!curApi.jsdoc || curApi.jsdoc.length === 0) {
+    const jsdoc = curApi.jsdoc ? curApi.jsdoc[curApi.jsdoc.length - 1] : [];
+    
+    if (!jsdoc) {
       return syscap;
     }
 
-    const jsdoc = curApi.jsdoc[curApi.jsdoc.length - 1];
-    if (!jsdoc.tags) {
-      return syscap;
-    }
-    const jsdocTagItem = curApi.jsdoc[curApi.jsdoc.length - 1].tags;
-    jsdocTagItem.forEach(tagInfo => {
+    const jsdocTagItem = jsdoc.tags ? jsdoc.tags : [];
+    for (let i = 0; i < jsdocTagItem.length; i++) {
+      const tagInfo = jsdocTagItem[i];
       if (tagInfo.tag === 'syscap') {
         syscap = tagInfo.name;
-      }
-    });
+      }      
+    }
+
     if (syscap) {
       return syscap;
     }
@@ -175,11 +175,10 @@ function getSycap(api) {
     if (/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(fileContent)) {
       fileContent.replace(/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
         syscap = sysCapInfo.replace(/\@syscap/g, '').trim();
-      });
+      })
     }
     return syscap;
   }
-  return syscap;
 }
 
 /**
