@@ -70,7 +70,7 @@ class ApiExcelWriter {
     const apiInfoSet = new Set();
     const subscribeWorkbook = new exceljs.Workbook();
     const subscribeSheet = subscribeWorkbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-    subscribeSheet.getRow(1).values = ['类名', '接口名', '接口类型', '方法声明', '接口路径'];
+    subscribeSheet.getRow(1).values = ['类名', '接口名', '接口类型', '方法声明', '接口全路径'];
     let lineNumber = 0;
     this.apiInfos.forEach((apiInfo, index) => {
       const typeName = apiInfo.qualifiedTypeName ? apiInfo.qualifiedTypeName : (apiInfo.typeName ? apiInfo.typeName : 'unnamed');
