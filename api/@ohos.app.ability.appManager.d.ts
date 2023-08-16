@@ -151,6 +151,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#on(type: 'applicationStateEvent', observer: ApplicationStateObserver)
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver): number;
 
@@ -169,6 +171,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#on(type: 'applicationStateEvent', observer: ApplicationStateObserver, bundleNameList: Array<string>)
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
@@ -186,6 +190,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#off(type: 'applicationStateEvent', observerId: number)
    */
   function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
 
@@ -203,8 +209,61 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#off(type: 'applicationStateEvent', observerId: number)
    */
   function off(type: 'applicationState', observerId: number): Promise<void>;
+
+  /**
+   * Register application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'applicationStateEvent' } type - applicationStateEvent.
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'applicationStateEvent', observer: ApplicationStateObserver): number;
+
+  /**
+   * Register application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'applicationStateEvent' } type - applicationStateEvent.
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'applicationStateEvent', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+
+  /**
+   * Unregister application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'applicationStateEvent' } type - applicationStateEvent.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'applicationStateEvent', observerId: number): void;
 
   /**
    * getForegroundApplications.
