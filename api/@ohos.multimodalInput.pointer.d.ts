@@ -365,7 +365,23 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
-    CURSOR_CIRCLE
+    CURSOR_CIRCLE,
+
+    /**
+     * Loading state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    LOADING,
+
+    /**
+     * Running state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    RUNNING
   }
 
   /**
@@ -557,6 +573,150 @@ declare namespace pointer {
    * @since 9
    */
   function isPointerVisible(): Promise<boolean>;
+
+  /**
+   * Set the color of pointer.
+   *
+   * @param { number } color - Indicates the color of pointer.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerColor(color: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the color of pointer.
+   *
+   * @param { number } color - Indicates the color of pointer.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerColor(color: number): Promise<void>;
+
+  /**
+   * Set the color of pointer.
+   *
+   * @param { number } color - Indicates the color of pointer.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerColorSync(color: number): void;
+
+  /**
+   * Get the color of pointer.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerColor(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the color of pointer.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerColor(): Promise<number>;
+
+  /**
+   * Get the color of pointer.
+   *
+   * @returns { number } Returns the pointer color through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerColorSync(): number;
+
+  /**
+   * Set the size of pointer.
+   *
+   * @param { number } size - Indicates the size of pointer.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSize(size: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the size of pointer.
+   *
+   * @param { number } size - Indicates the size of pointer.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSize(size: number): Promise<void>;
+
+  /**
+   * Set the size of pointer.
+   *
+   * @param { number } size - Indicates the size of pointer.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSizeSync(size: number): void;
+
+  /**
+   * Get the size of pointer.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerSize(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the size of pointer.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerSize(): Promise<number>;
+
+  /**
+   * Get the size of pointer.
+   *
+   * @returns { number } Returns the pointer size through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerSizeSync(): number;
 
   /**
    * Sets mouse primary button.
