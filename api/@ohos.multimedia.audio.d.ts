@@ -3457,7 +3457,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
-    setRenderRateSync(rate: AudioRendererRate): Promise<void>;
+    setRenderRate(rate: AudioRendererRate): Promise<void>;
 
     /**
      * Obtains the current render rate. This method uses an asynchronous callback to return the result.
@@ -3856,7 +3856,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
-    getCapturerInfo(): AudioCapturerInfo;
+    getCapturerInfoSync(): AudioCapturerInfo;
 
     /**
      * Obtains the capturer stream information. This method uses an asynchronous callback to return the result.
@@ -3878,7 +3878,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
-    getStreamInfo(): AudioStreamInfo;
+    getStreamInfoSync(): AudioStreamInfo;
 
     /**
      * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
@@ -3900,7 +3900,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
-    getAudioStreamId(): number;
+    getAudioStreamIdSync(): number;
 
     /**
      * Starts capturing. This method uses an asynchronous callback to return the result.
@@ -3959,7 +3959,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
-    getAudioTime(): number;
+    getAudioTimeSync(): number;
 
     /**
      * Stops capturing. This method uses an asynchronous callback to return the result.
@@ -4012,7 +4012,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
-    getBufferSize(): number;
+    getBufferSizeSync(): number;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
