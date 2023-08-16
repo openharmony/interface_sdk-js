@@ -9586,6 +9586,139 @@ declare interface LayoutChild {
 }
 
 /**
+ * Sub component layout info.
+ *
+ * @interface GeometryInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface GeometryInfo extends SizeResult {
+  /**
+   * Sub component borderWidth info.
+   *
+   * @type { EdgeWidth }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  borderWidth: EdgeWidth;
+
+  /**
+   * Sub component margin info.
+   *
+   * @type { Margin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  margin: Margin,
+
+  /**
+   * Sub component padding info.
+   *
+   * @type { Padding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  padding: Padding,
+}
+
+/**
+ * Sub component info passed from framework when layout happens.
+ *
+ * @interface Layoutable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface Layoutable {
+  /**
+   * Sub component name.
+   *
+   * @type { MeasureResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  measureResult: MeasureResult,
+
+  /**
+   * Call this layout method in onLayout callback to assign layout info to sub component.
+   *
+   * @param { Position } position
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  layout(position: Position): void,
+}
+
+/**
+ * Sub component info passed from framework when measure happens.
+ *
+ * @interface Measurable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface Measurable {
+  /**
+   * Call this measure method in onMeasure callback to supply sub component size.
+   *
+   * @param { ConstraintSizeOptions } childConstraint
+   * @returns { MeasureResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  measure(constraint: ConstraintSizeOptions) : MeasureResult,
+}
+
+/**
+ * Sub component SizeResult info.
+ *
+ * @interface SizeResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SizeResult {
+  /**
+   * Sub component width info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  width: number,
+
+  /**
+   * Sub component height info.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  height: number,
+}
+
+/**
+ * Sub component MeasureResult info.
+ *
+ * @interface MeasureResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface MeasureResult extends SizeResult {
+ 
+}
+
+/**
  * Custom Component
  *
  * @extends CommonAttribute
@@ -9705,19 +9838,23 @@ declare class CustomComponent extends CommonAttribute {
    * @param { ConstraintSizeOptions } constraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @deprecated since 10
+   * @useinstead common[CustomComponent]#onPlaceChildren
    * @form
    */
+  onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+
   /**
    * Custom component override this method to layout each of its sub components.
    *
-   * @param { Array<LayoutChild> } children
+   * @param { GeometryInfo } selfLayoutInfo
+   * @param { Array<Layoutable> } children
    * @param { ConstraintSizeOptions } constraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   * @form
    */
-  onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+  onPlaceChildren?(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void;
 
   /**
    * Custom component override this method to measure each of its sub components.
@@ -9726,19 +9863,23 @@ declare class CustomComponent extends CommonAttribute {
    * @param { ConstraintSizeOptions } constraint
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @form
-   */
-  /**
-   * Custom component override this method to measure each of its sub components.
-   *
-   * @param { Array<LayoutChild> } children
-   * @param { ConstraintSizeOptions } constraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
+   * @deprecated since 10
+   * @useinstead common[CustomComponent]#onMeasureSize
    * @form
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+
+  /**
+   * Custom component override this method to measure each of its sub components.
+   * @param { GeometryInfo } selfLayoutInfo
+   * @param { Array<Measurable> } children - indicate the measure child
+   * @param { ConstraintSizeOptions } constraint - indicate child constraint size
+   * @returns { SizeResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
 
   /**
    * onPageShow Method
