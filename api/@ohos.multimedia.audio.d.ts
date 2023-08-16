@@ -190,7 +190,7 @@ declare namespace audio {
    * @throws { BusinessError } 6800101 - Invalid parameter error.
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
-   * @since 9
+   * @since 10
    */
   function createTonePlayerSync(options: AudioRendererInfo): TonePlayer;
 
