@@ -367,6 +367,7 @@ lanes
 lasted
 lastmode
 latn
+layoutable
 lbitfield
 lboolean
 lbyte
