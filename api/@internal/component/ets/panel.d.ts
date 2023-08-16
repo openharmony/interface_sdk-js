@@ -152,19 +152,21 @@ declare enum PanelType {
 
 /**
  * Enum for custom content display area.
- * @enum number
+ *
+ * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum PanelHeight {
   /**
-   * The Panel adapt to the content height.
+   * The Panel adapts to the content height.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  WRAP_CONTENT = 0,
+  WRAP_CONTENT = 'wrapContent',
 }
 
 /**
