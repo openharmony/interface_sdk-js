@@ -26,27 +26,29 @@ const { checkJSDoc } = require('./check_legality');
 const { checkNaming } = require('./check_naming');
 const { checkEventSubscription } = require('./check_event_subscription');
 const { checkAnyInAPI } = require('./check_any');
-const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList, splitPath } = require('./utils');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList, splitPath,
+  isWhiteListFile } = require('./utils');
 const ts = requireTypescriptModule();
 const result = require('../check_result.json');
 const rules = require('../code_style_rule.json');
 const { checkApiChanges } = require('./check_diff_changes');
+const whiteLists = require('../config/jsdocCheckWhiteList.json');
 
-function checkAPICodeStyle(url) {
+function checkAPICodeStyle(url, isTestCase) {
   if (fs.existsSync(url)) {
-    const mdApiFiles = getMdFiles(url);
+    const mdApiFiles = getMdFiles(url, isTestCase);
     tsTransform(mdApiFiles, checkAPICodeStyleCallback);
   }
 }
 
-function getMdFiles(url) {
+function getMdFiles(url, isTestCase) {
   const mdFiles = [];
   const content = fs.readFileSync(url, 'utf-8');
   const filePathArr = content.split(/[(\r\n)\r\n]+/);
   filePathArr.forEach(filePath => {
     const pathElements = new Set();
     splitPath(filePath, pathElements);
-    if (!pathElements.has('build-tools')) {
+    if (!pathElements.has('build-tools') || isTestCase) {
       mdFiles.push(filePath);
     }
   })
@@ -99,8 +101,9 @@ function checkAllNode(node, sourcefile, fileName) {
     // check event subscription
     checkEventSubscription(node, sourcefile, fileName);
 
-    if (commentNodeWhiteList.includes(node.kind)) {
-      checkJSDoc(node, sourcefile, fileName, true, false);
+    const uesWhiteList = !isWhiteListFile(fileName, whiteLists.JSDocCheck);
+    if (commentNodeWhiteList.includes(node.kind) && uesWhiteList) {
+      checkJSDoc(node, sourcefile, fileName, true);
     }
   }
   checkAnyInAPI(node, sourcefile, fileName);
@@ -115,11 +118,11 @@ function checkAllNode(node, sourcefile, fileName) {
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
 
-function scanEntry(url, prId) {
+function scanEntry(url, prId, isTestCase) {
   if (prId && prId !== 'NA') {
     checkApiChanges(prId);
     // scan entry
-    checkAPICodeStyle(url);
+    checkAPICodeStyle(url, isTestCase);
   }
   result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
   return result.scanResult;

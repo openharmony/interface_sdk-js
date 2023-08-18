@@ -20,9 +20,9 @@ function checkEntryLocalText(url, prId) {
     let execSync = require("child_process").execSync;
     execSync("cd ../../api_diff && npm install && cd ../api_check_plugin && npm install");
     const { excelApiCheckResult, apiCheckArr, removeDir } =
-    require(path.resolve(__dirname, '../src/utils'));
+      require(path.resolve(__dirname, '../src/utils'));
     const { scanEntry } = require('../src/api_check_plugin');
-    result = scanEntry(url, prId);
+    result = scanEntry(url, prId, false);
     excelApiCheckResult(apiCheckArr);
     removeDir(path.resolve(__dirname, "../../api_diff/node_modules"));
     removeDir(path.resolve(__dirname, "../node_modules"));
