@@ -3709,6 +3709,139 @@ declare namespace window {
      * @since 10
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
+
+    /**
+     * Raise one app sub window above another.
+     *
+     * @param { number } windowId - Indicates target window id.
+     * @param { AsyncCallback<void> } callback - The callback of raiseAboveTarget.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseAboveTarget(windowId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Raise one app sub window above another.
+     *
+     * @param { number } windowId - Indicates target window id.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseAboveTarget(windowId: number): Promise<void>;
+
+    /**
+     * Set whether to enable an app sub window to raise itself by click.
+     *
+     * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
+     * @param { AsyncCallback<void> } callback - The callback of setRaiseByClickEnabled.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setRaiseByClickEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set whether to enable an app sub window to raise itself by click.
+     *
+     * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setRaiseByClickEnabled(enable: boolean): Promise<void>;
+
+    /**
+     * Minimize app main window.
+     *
+     * @param { AsyncCallback<void> } callback - The callback of Minimize.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    minimize(callback: AsyncCallback<void>): void;
+
+    /**
+     * Minimize app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    minimize(): Promise<void>;
+
+    /**
+     * Set whether to enable a window to resize by drag.
+     *
+     * @param { boolean } enable - Disable window to resize by drag if false.
+     * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setResizeByDragEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set whether to enable a window to resize by drag.
+     *
+     * @param { boolean } enable - Disable window to resize by drag if false.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setResizeByDragEnabled(enable: boolean): Promise<void>;
   }
   /**
    * Window stage callback event type
