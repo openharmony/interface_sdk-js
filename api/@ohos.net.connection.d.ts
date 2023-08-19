@@ -266,7 +266,7 @@ declare namespace connection {
   /**
    * Checks whether data traffic usage on the current network is metered.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { boolean } Returns true if the current network is metered, else returns flase.
+   * @returns { boolean } Returns true if the current network is metered, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
