@@ -2436,7 +2436,7 @@ declare namespace resourceManager {
 
     /**
      * Remove overlay resources during application runtime.
-     * 
+     *
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001010 - If loading the overlay failed.
@@ -2523,7 +2523,7 @@ declare namespace resourceManager {
      */
     getMediaContentSync(resource: Resource, density?: number): Uint8Array;
 
-     /**
+    /**
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource ID.
      *
      * @param { number } resId - Indicates the resource ID.
