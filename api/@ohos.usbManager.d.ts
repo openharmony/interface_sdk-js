@@ -55,6 +55,7 @@ declare namespace usbManager {
 
   /**
    * Requests the permission for a given application to access the USB device.
+   * The system application has access to the device by default, and there is no need to call this interface to apply.
    *
    * @param { string } deviceName - device name defined by USBDevice.name.
    * @returns { Promise<boolean> } indicates if the device access permissions are granted.
@@ -66,6 +67,7 @@ declare namespace usbManager {
 
   /**
    * Remove the permission for a given application to access the USB device.
+   * The system application has access to the device by default, and calling this interface will not have any impact.
    *
    * @param { string } deviceName - device name defined by USBDevice.name.
    * @returns { boolean } indicates if the device access permissions are removed.
@@ -77,6 +79,7 @@ declare namespace usbManager {
 
   /**
    * Add device access permission.
+   * The system application has access to the device by default, and calling this interface will not have any impact.
    *
    * @param { string } bundleName - refers to application that require access permissions.
    * @param { string } deviceName - device name defined by USBDevice.name.
