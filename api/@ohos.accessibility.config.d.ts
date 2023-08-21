@@ -50,7 +50,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const highContrastText: Config<boolean>;
+  var highContrastText: Config<boolean>;
   /**
    * Indicates the configuration of invert color.
    *
@@ -58,7 +58,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const invertColor: Config<boolean>;
+  var invertColor: Config<boolean>;
   /**
    * Indicates the configuration of daltonization color filter.
    *
@@ -66,7 +66,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const daltonizationColorFilter: Config<DaltonizationColorFilter>;
+  var daltonizationColorFilter: Config<DaltonizationColorFilter>;
   /**
    * Indicates the configuration of content timeout.
    *
@@ -74,7 +74,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const contentTimeout: Config<number>;
+  var contentTimeout: Config<number>;
   /**
    * Indicates the configuration of animation state.
    *
@@ -82,7 +82,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const animationOff: Config<boolean>;
+  var animationOff: Config<boolean>;
   /**
    * Indicates the configuration of brightness discount.
    *
@@ -90,7 +90,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const brightnessDiscount: Config<number>;
+  var brightnessDiscount: Config<number>;
   /**
    * Indicates the configuration of mouse key state.
    *
@@ -98,7 +98,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const mouseKey: Config<boolean>;
+  var mouseKey: Config<boolean>;
   /**
    * Indicates the configuration of mouse auto click.
    *
@@ -106,7 +106,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const mouseAutoClick: Config<number>;
+  var mouseAutoClick: Config<number>;
   /**
    * Indicates the configuration of short key state.
    *
@@ -114,7 +114,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const shortkey: Config<boolean>;
+  var shortkey: Config<boolean>;
   /**
    * Indicates the configuration of short key target.
    *
@@ -122,7 +122,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const shortkeyTarget: Config<string>;
+  var shortkeyTarget: Config<string>;
   /**
    * Indicates the configuration of captions state.
    *
@@ -130,7 +130,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const captions: Config<boolean>;
+  var captions: Config<boolean>;
   /**
    * Indicates the configuration of captions style.
    *
@@ -138,7 +138,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  const captionsStyle: Config<accessibility.CaptionsStyle>;
+  var captionsStyle: Config<accessibility.CaptionsStyle>;
 
   /**
    * Enable the accessibility extension ability.
