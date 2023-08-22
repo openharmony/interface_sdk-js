@@ -62,6 +62,23 @@ declare namespace appControl {
   function setDisposedStatus(appId: string, disposedWant: Want): Promise<void>;
 
   /**
+   * Set the disposed status of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appId - Indicates the app ID of the application.
+   * @param { Want } disposedWant - Indicates the disposed want.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700005 - The specified app ID is empty string.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 10
+   */
+  function setDisposedStatusSync(appId: string, disposedWant: Want): void;
+
+  /**
    * Obtains the disposed status of a specified bundle.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
@@ -96,6 +113,23 @@ declare namespace appControl {
   function getDisposedStatus(appId: string): Promise<Want>;
 
   /**
+   * Obtains the disposed status of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appId - Indicates the app ID of the application.
+   * @returns { Want } Returns the disposed status of a specified bundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700005 - The specified app ID is empty string.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 10
+   */
+  function getDisposedStatusSync(appId: string): Want;
+
+  /**
    * Delete the disposed status of a specified bundle.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
@@ -128,6 +162,22 @@ declare namespace appControl {
    * @since 9
    */
   function deleteDisposedStatus(appId: string): Promise<void>;
+
+  /**
+   * Delete the disposed status of a specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { string } appId - Indicates the app ID of the application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700005 - The specified app ID is empty string.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 10
+   */
+  function deleteDisposedStatusSync(appId: string): void;
 }
 
 export default appControl;
