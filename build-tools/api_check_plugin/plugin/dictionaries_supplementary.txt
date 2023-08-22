@@ -474,6 +474,7 @@ onmessageerror
 onrepeat
 oob
 oobinline
+openharmony
 oper
 operated
 operatorconfigs
