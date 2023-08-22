@@ -173,6 +173,7 @@
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.ResourceSchedule.DeviceStandby",
-    "SystemCapability.Multimedia.Media.AVScreenCapture"
+    "SystemCapability.Multimedia.Media.AVScreenCapture",
+    "SystemCapability.Multimedia.Media.SoundPool"
   ]
 }
