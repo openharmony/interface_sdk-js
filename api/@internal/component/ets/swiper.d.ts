@@ -982,7 +982,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when the index value changes.
    *
-   * @param { (index: number) => void } event
+   * @param { function } event
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -990,7 +990,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when the index value changes.
    *
-   * @param { (index: number) => void } event
+   * @param { function } event
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1033,7 +1033,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when the swiper animation start.
    *
-   * @param { (index: number) => void } event - the index value of the swiper page that when animation start.
+   * @param { function } event - the index value of the swiper page that when animation start.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9

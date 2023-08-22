@@ -79,7 +79,7 @@ declare interface NavRouterInterface {
   /**
    * NavDestination Constructor.
    *
-   * @param { RouteInfo } value Indicates the information of route page.
+   * @param { RouteInfo } value - Indicates the information of route page.
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -163,7 +163,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
    * Define the route mode.
    *
-   * @param { mode } mode The route mode of the NavRouter.
+   * @param { NavRouteMode } mode - The route mode of the NavRouter.
    * @returns { NavRouterAttribute } Returns the instance of the NavRouterAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

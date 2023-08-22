@@ -144,7 +144,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * You can listen to this callback,
    * Use the format attribute method to customize data display in the callback.
    *
-   * @param { function } event Listening date event callback.
+   * @param { function } event - Listening date event callback.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -157,7 +157,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * You can listen to this callback,
    * Use the format attribute method to customize data display in the callback.
    *
-   * @param { function } event Listening date event callback.
+   * @param { function } event - Listening date event callback.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

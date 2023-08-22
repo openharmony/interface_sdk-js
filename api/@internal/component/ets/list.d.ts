@@ -617,7 +617,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the ListItem split line style is set.
    *
-   * @param { object } value
+   * @param { object | null } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -625,7 +625,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the ListItem split line style is set.
    *
-   * @param { object } value
+   * @param { {strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;} | null } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -634,7 +634,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the ListItem split line style is set.
    *
-   * @param { object } value
+   * @param { {strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;} | null } value
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

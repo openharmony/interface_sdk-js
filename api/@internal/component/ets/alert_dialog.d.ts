@@ -571,14 +571,14 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -606,14 +606,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
    *
-   * @type { ?object }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * First button.
    *
-   * @type { ?object }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -703,14 +703,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -721,14 +721,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * Second button.
    *
-   * @type { ?object }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Second button.
    *
-   * @type { ?object }
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -818,14 +818,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10

@@ -47,7 +47,7 @@ declare class TSAlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAtt
   /**
    * Used for TS compiler.
    *
-   * @param { { arrayValue: Array<string>; selected: number } } value
+   * @param { object } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -237,17 +237,7 @@ declare class TSCalendarAttribute {
   /**
    * Used for TS compiler.
    *
-   * @param { {
-   * date: {
-   *   year: number;
-   *   month: number;
-   *   day: number;
-   * };
-   * currentData: MonthData;
-   * preData: MonthData;
-   * nextData: MonthData;
-   * controller?: CalendarController;
-   * } } value
+   * @param { object } value
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -845,15 +835,7 @@ declare class TSFormComponentAttribute extends CommonMethod<FormComponentAttribu
   /**
    * Used for TS compiler.
    *
-   * @param { {
-   * id: number;
-   * name: string;
-   * bundle: string;
-   * ability: string;
-   * module: string;
-   * dimension?: FormDimension;
-   * temporary?: boolean;
-   * } } value
+   * @param { object } value
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -895,7 +877,7 @@ declare class TSGaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { value: number; min?: number; max?: number } } options
+   * @param { object } options
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1342,7 +1324,7 @@ declare class TSMarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string } } value
+   * @param { object } value
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1473,12 +1455,7 @@ declare class TSPageTransitionEnterInterface extends CommonTransition<PageTransi
   /**
    * Used for TS compiler.
    *
-   * @param { {
-   * type?: RouteType;
-   * duration?: number;
-   * curve?: Curve | string;
-   * delay?: number;
-   * } } value
+   * @param { object } value
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1506,12 +1483,7 @@ declare class TSPageTransitionExitInterface extends CommonTransition<PageTransit
   /**
    * Used for TS compiler.
    *
-   * @param { {
-   * type?: RouteType;
-   * duration?: number;
-   * curve?: Curve | string;
-   * delay?: number;
-   * } } value
+   * @param { object } value
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1715,7 +1687,7 @@ declare class TSPluginComponentAttribute extends CommonMethod<PluginComponentAtt
   /**
    * Used for TS compiler.
    *
-   * @param { { template: PluginComponentTemplate; data: any } } value
+   * @param { object } value
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1983,7 +1955,8 @@ declare class TSRectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { object } value
+   * @param { | { width?: number | string;height?: number | string;radius?: number | string | Array<any>;}
+   * | {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2030,7 +2003,7 @@ declare class TSRefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { refreshing: boolean; offset?: number | string; friction?: number | string } } value
+   * @param { object } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3003,7 +2976,7 @@ declare class TSToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { type: ToggleType; isOn?: boolean } } options
+   * @param { object } options
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3047,11 +3020,7 @@ declare class TSVideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { {
-   * src?: string | Resource;
-   * previewUri?: string | PixelMap | Resource;
-   * controller?: VideoController;
-   * } } value
+   * @param { object } value
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3123,12 +3092,7 @@ declare class TSXComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { {
-   * id: string;
-   * type: string;
-   * libraryname?: string;
-   * controller?: XComponentController;
-   * } } value
+   * @param { object } value
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3272,7 +3236,7 @@ declare class TSPanGestureInterface {
   /**
    * Used for TS compiler.
    *
-   * @param { object } value
+   * @param { | {fingers?: number;direction?: PanDirection;distance?: number;} | PanGestureOptions } value
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

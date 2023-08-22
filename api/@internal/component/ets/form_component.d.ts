@@ -98,16 +98,7 @@ interface FormComponentInterface {
   /**
    * Set a new value.
    *
-   * @param { {
-   * id: number;
-   * name: string;
-   * bundle: string;
-   * ability: string;
-   * module: string;
-   * dimension?: FormDimension;
-   * temporary?: boolean;
-   * want?: import('../api/@ohos.app.ability.Want').default;
-   * } } value
+   * @param { object } value
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -135,7 +126,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Sets the display area size of the card.
    *
-   * @param { { width: number; height: number } } value
+   * @param { object } value
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

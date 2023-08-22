@@ -947,7 +947,7 @@ interface PanGestureInterface {
   /**
    * Set the value.
    *
-   * @param { object } value
+   * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -955,7 +955,7 @@ interface PanGestureInterface {
   /**
    * Set the value.
    *
-   * @param { object } value
+   * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
    * @returns { PanGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

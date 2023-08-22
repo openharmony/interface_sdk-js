@@ -142,7 +142,7 @@ declare interface DataPanelShadowOptions {
   /**
    * Current shadow radius.
    *
-   * @type { ?(number | Resource) } radius - the current shadow radius.
+   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -153,7 +153,7 @@ declare interface DataPanelShadowOptions {
   /**
    * Current shadow colors.
    *
-   * @type { ?(Array<ResourceColor | LinearGradient>) } colors - the current shadow colors.
+   * @type { ?Array<ResourceColor | LinearGradient> }
    * @default Consistent with valueColors
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -164,7 +164,7 @@ declare interface DataPanelShadowOptions {
   /**
    * Current shadow offsetX.
    *
-   * @type { ?(number | Resource) } offsetX - the current shadow offsetX.
+   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -175,7 +175,7 @@ declare interface DataPanelShadowOptions {
   /**
    * Current shadow offsetY
    *
-   * @type { ?(number | Resource) } offsetY - the current shadow offsetY.
+   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

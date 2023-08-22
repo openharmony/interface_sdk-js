@@ -1326,7 +1326,7 @@ declare class CalendarController {
   /**
    * To the specified element.
    *
-   * @param { { year: number; month: number; day: number } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1334,7 +1334,7 @@ declare class CalendarController {
   /**
    * To the specified element.
    *
-   * @param { { year: number; month: number; day: number } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
@@ -1364,13 +1364,7 @@ interface CalendarInterface {
   /**
    * Set value.
    *
-   * @param { {
-   *  date: { year: number; month: number; day: number };
-   *  currentData: MonthData;
-   *  preData: MonthData;
-   *  nextData: MonthData;
-   *  controller?: CalendarController;
-   *  } } value
+   * @param { object } value
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1379,13 +1373,7 @@ interface CalendarInterface {
   /**
    * Set value.
    *
-   * @param { {
-   *  date: { year: number; month: number; day: number };
-   *  currentData: MonthData;
-   *  preData: MonthData;
-   *  nextData: MonthData;
-   *  controller?: CalendarController;
-   *  } } value
+   * @param { object } value
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

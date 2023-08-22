@@ -102,7 +102,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * Sets the radius of the corner around the menu.
    * When the radius is less than the menu width, the default border radius is used.
    * 
-   * @param { Dimension | BorderRadiuses } radius - the border radius.
+   * @param { Dimension | BorderRadiuses } value - the border radius.
    * @returns { MenuAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
