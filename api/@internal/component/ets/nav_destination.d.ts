@@ -206,7 +206,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   /**
    * Invoked when the navDestination page is displayed.
    *
-   * @param { function } callback Indicates callback when the navDestination page is displayed.
+   * @param { function } callback - Indicates callback when the navDestination page is displayed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -217,7 +217,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   /**
    * Invoked when the navDestination is hidden.
    *
-   * @param { function } callback Indicates callback when the navDestination is hidden.
+   * @param { function } callback - Indicates callback when the navDestination is hidden.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -228,7 +228,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   /**
    * Invoked when the backButton is pressed.
    *
-   * @param { function } callback Indicates callback when the backButton is pressed.
+   * @param { function } callback - Indicates callback when the backButton is pressed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

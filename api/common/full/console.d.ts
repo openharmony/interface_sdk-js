@@ -21,7 +21,7 @@ export declare class console {
   /**
    * Prints "debug" logs.
    *
-   * @param { string } message Text to print.
+   * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
@@ -31,7 +31,7 @@ export declare class console {
   /**
    * Prints "log" logs.
    *
-   * @param { string } message Text to print.
+   * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
@@ -41,7 +41,7 @@ export declare class console {
   /**
    * Prints "info" logs.
    *
-   * @param { string } message Text to print.
+   * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
@@ -51,7 +51,7 @@ export declare class console {
   /**
    * Prints "warn" logs.
    *
-   * @param { string } message Text to print.
+   * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
@@ -61,7 +61,7 @@ export declare class console {
   /**
    * Prints "error" logs.
    *
-   * @param { string } message Text to print.
+   * @param { string } message - Text to print.
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3

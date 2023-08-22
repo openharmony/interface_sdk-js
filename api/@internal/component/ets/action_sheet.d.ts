@@ -207,14 +207,14 @@ interface ActionSheetOptions
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Method executed by the callback.
      *
-     * @type { () => void }
+     * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10

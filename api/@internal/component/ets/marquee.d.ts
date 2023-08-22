@@ -41,7 +41,7 @@ interface MarqueeInterface {
   /**
    * Create marquee.
    *
-   * @param { { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string } } value
+   * @param { object } value
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -49,7 +49,7 @@ interface MarqueeInterface {
   /**
    * Create marquee.
    *
-   * @param { { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string } } value
+   * @param { object } value
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -58,7 +58,7 @@ interface MarqueeInterface {
   /**
    * Create marquee.
    *
-   * @param { { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string } } value
+   * @param { object } value
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

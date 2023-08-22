@@ -17,8 +17,8 @@ export interface ViewModel {
   /**
    * Displays content based on the current system language and a path of the language resource key specified through $t.
    *
-   * @param { string } path Path of the language resource key
-   * @param { object | Array<any> } param Content used to replace placeholders during runtime. There are two types of placeholders available:
+   * @param { string } path - Path of the language resource key
+   * @param { object | Array<any> } [param] - Content used to replace placeholders during runtime. There are two types of placeholders available:
    *              1. Named placeholder, for example, {name}. The actual content must be of the object type, for example, $t('strings.object', {name: 'Hello world'}).
    *              2. Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world']).
    * @returns { string } content to display

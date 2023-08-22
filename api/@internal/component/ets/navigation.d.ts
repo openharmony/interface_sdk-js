@@ -352,8 +352,8 @@ declare class NavPathInfo {
   /**
    * Creates an instance of NavPathInfo.
    *
-   * @param { string } name The name of route page.
-   * @param { unknown } param The detailed parameter of the route page.
+   * @param { string } name - The name of route page.
+   * @param { unknown } param - The detailed parameter of the route page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -394,7 +394,7 @@ declare class NavPathStack {
   /**
    * Pushes the route page into the stack.
    *
-   * @param { NavPathInfo } info Indicates the route page to be pushed.
+   * @param { NavPathInfo } info - Indicates the route page to be pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -404,8 +404,8 @@ declare class NavPathStack {
   /**
    * Pushes the specified route page into the stack.
    *
-   * @param { string } name Indicates the name of the route page to be pushed.
-   * @param { unknown } param Indicates the detailed parameter of the route page to be pushed.
+   * @param { string } name - Indicates the name of the route page to be pushed.
+   * @param { unknown } param - Indicates the detailed parameter of the route page to be pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -425,7 +425,7 @@ declare class NavPathStack {
   /**
    * Pops the specified route page out of the stack.
    *
-   * @param { string } name Indicates the name of the route page to be popped.
+   * @param { string } name - Indicates the name of the route page to be popped.
    * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -436,7 +436,7 @@ declare class NavPathStack {
   /**
    * Pops the specified route page out of the stack.
    *
-   * @param { number } index Indicates the index of the route page to be popped.
+   * @param { number } index - Indicates the index of the route page to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -446,7 +446,7 @@ declare class NavPathStack {
   /**
    * Moves the specified route page to stack top.
    *
-   * @param { string } name Indicates the name of the route page to be moved to the top.
+   * @param { string } name - Indicates the name of the route page to be moved to the top.
    * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -457,7 +457,7 @@ declare class NavPathStack {
   /**
    * Moves the specified route page to stack top.
    *
-   * @param { number } index Indicates the index of the route page to be moved to the top.
+   * @param { number } index - Indicates the index of the route page to be moved to the top.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -486,7 +486,7 @@ declare class NavPathStack {
   /**
    * Obtains the param of the specified route page.
    *
-   * @param { number } index Indicates the index of the route page.
+   * @param { number } index - Indicates the index of the route page.
    * @returns { unknown | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -497,7 +497,7 @@ declare class NavPathStack {
   /**
    * Obtains the param of the specified route page.
    *
-   * @param { string } name Indicates the name of the route page.
+   * @param { string } name - Indicates the name of the route page.
    * @returns { Array<unknown> } Returns the detailed parameter of all the route pages named name.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -508,7 +508,7 @@ declare class NavPathStack {
   /**
    * Obtains the index of the specified route page.
    *
-   * @param { string } name Indicates the name of the route page.
+   * @param { string } name - Indicates the name of the route page.
    * @returns { Array<number> } Returns the index of all the route pages named name.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -563,7 +563,7 @@ interface NavigationInterface {
   /**
    * Called when the navigator view interface is used, with route table provided.
    *
-   * @param { NavPathStack } pathInfos The stack of the route table.
+   * @param { NavPathStack } pathInfos - The stack of the route table.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -721,7 +721,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Sets the minimum width and the maximum width of navigation bar.
    *
-   * @param { [Dimension, Dimension] } value The minimum and the maximum width of navigation bar.
+   * @param { [Dimension, Dimension] } value - The minimum and the maximum width of navigation bar.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -732,7 +732,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Sets the minimum width of content.
    *
-   * @param { Dimension } value The minimum width of content.
+   * @param { Dimension } value - The minimum width of content.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -996,7 +996,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Set builder for user-defined NavDestination component.
    *
-   * @param { function } builder The builder function of NavDestination component.
+   * @param { function } builder - The builder function of NavDestination component.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

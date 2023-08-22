@@ -83,7 +83,8 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { object } value
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -91,7 +92,8 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { object } value
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -100,7 +102,8 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { object } value
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -254,6 +257,7 @@ declare const Rect: RectInterface;
  * Rect attribute.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
  * @deprecated since 9
  */
 declare const RectInStance: RectAttribute;

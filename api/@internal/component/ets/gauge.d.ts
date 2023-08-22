@@ -43,7 +43,7 @@ interface GaugeInterface {
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
    *
-   * @param { { value: number; min?: number; max?: number } } options
+   * @param { object } options
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -53,7 +53,7 @@ interface GaugeInterface {
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
    *
-   * @param { { value: number; min?: number; max?: number } } options
+   * @param { object } options
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -64,7 +64,7 @@ interface GaugeInterface {
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
    *
-   * @param { { value: number; min?: number; max?: number } } options
+   * @param { object } options
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
