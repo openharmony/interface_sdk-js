@@ -1,5 +1,8 @@
 # 工具使用说明
 
+## 使用步骤
+在package.json同级目录下执行npm run build命令，生成dist文件夹
+
 ## 工具包结构
 
 ```
@@ -78,7 +81,7 @@ node api-collector.js --appDir 文件夹路径 --sdkRoot sdk根目录
 
 扫描多个应用不支持 --sdk 参数，因为 --sdk 参数限定了 sdk 的版本号，而每个应用的版本号并不一致。批量扫描应用时，sdk 的版本号统一从 build-profile.json5 中 compileSdkVersion 字段获取，若 build-profile.json5 文件不存在或 compileSdkVersion 没有，则跳过此工程。
 
-## 令参数
+## 指令参数
 
 --output 指定扫描报告的输出路径，不指定则默认输出在应用工程根目录
 
@@ -87,3 +90,20 @@ node api-collector.js --appDir 文件夹路径 --sdkRoot sdk根目录
 --scanTest 扫描 ohosTest 目录下的代码
 
 --debug 打开debug日志
+
+## 另一种使用方式
+上述工具运行方式将工具打包成脚本，直接使用。下面展示使用工具源码(便于调试)：
+
+1、[下载应用API解析工具源码](https://gitee.com/openharmony/interface_sdk-js/tree/master/build-tools/collect_application_api)
+
+2、在package.json同级目录下新建deps文件夹，将[typescript源码](https://gitee.com/openharmony/third_party_typescript/tree/master/build_package)下载并放置其中
+
+3、在package.json同级目录下执行npm install安装依赖
+
+4、在package.json同级目录下运行工具，例(扫面单个应用)：
+
+```shell
+node .\src\entry\main.js --app 工程根目录 --sdk sdk路径  --output 报告的输出路径
+```
+
+其余使用方式与前一种方式相同
