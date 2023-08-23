@@ -200,10 +200,23 @@ export interface ApplicationInfo {
    * Indicates the metadata of module
    *
    * @type { Map<string, Array<Metadata>> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationInfo#metadataArray
    */
   readonly metadata: Map<string, Array<Metadata>>;
+
+  /**
+   * Indicates the metadata of the application
+   *
+   * @type { Array<ModuleMetadata> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly metadataArray: Array<ModuleMetadata>;
 
   /**
    * Indicates whether or not this application may be removable
@@ -303,4 +316,33 @@ export interface ApplicationInfo {
    * @since 10
    */
   readonly debug: boolean;
+}
+
+/**
+ * Indicates the ModuleMetadata
+ *
+ * @typedef ModuleMetadata
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 10
+ */
+export interface ModuleMetadata {
+  /**
+   * Indicates the name of this hap module
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly moduleName: string;
+
+  /**
+   * Indicates the metadata of this hap module
+   *
+   * @type { Array<Metadata> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  readonly metadata: Array<Metadata>;
 }
