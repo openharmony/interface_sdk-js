@@ -34,6 +34,8 @@ declare namespace errorManager {
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead errorManager#on(type: 'errorEvent', observer: ErrorObserver)
    */
   function on(type: 'error', observer: ErrorObserver): number;
 
@@ -47,6 +49,8 @@ declare namespace errorManager {
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead errorManager#off(type: 'errorEvent', observerId: number)
    */
   function off(type: 'error', observerId: number, callback: AsyncCallback<void>): void;
 
@@ -60,8 +64,35 @@ declare namespace errorManager {
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead errorManager#off(type: 'errorEvent', observerId: number)
    */
   function off(type: 'error', observerId: number): Promise<void>;
+
+  /**
+   * Register error observer.
+   *
+   * @param { 'errorEvent' } type - errorEvent.
+   * @param { ErrorObserver } observer - The error observer.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 10
+   */
+  function on(type: 'errorEvent', observer: ErrorObserver): number;
+
+  /**
+   * Unregister error observer.
+   *
+   * @param { 'errorEvent' } type - errorEvent.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 10
+   */
+  function off(type: 'errorEvent', observerId: number): void;
 
   /**
    * The observer will be called by system when an error occurs.
