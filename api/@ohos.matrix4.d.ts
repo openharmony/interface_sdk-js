@@ -467,7 +467,7 @@ declare namespace matrix4 {
   /**
    * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
    *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } 
+   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -476,7 +476,7 @@ declare namespace matrix4 {
   /**
    * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
    *
-   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } 
+   * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
    * options indicates a fourth-order matrix
    * @returns { Matrix4Transit } Return to Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full

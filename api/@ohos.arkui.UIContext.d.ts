@@ -46,7 +46,7 @@ export class Font {
   /**
    * Register a customized font in the FontManager.
    *
-   * @param { font.FontOptions } options FontOptions
+   * @param { font.FontOptions } options - FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -63,7 +63,7 @@ export class Font {
 
   /**
    * Get font details according to the font name.
-   * @param { string } fontName font name
+   * @param { string } fontName - font name
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -501,7 +501,7 @@ export class ComponentUtils {
   /**
    * Provide the ability to obtain the coordinates and size of component drawing areas.
    *
-   * @param { string } id ID of the component whose attributes are to be obtained.
+   * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -651,7 +651,7 @@ export class UIContext {
   /**
    * Run custom functions inside the UIContext scope.
    *
-   * @param { function } callback The function called through UIContext.
+   * @param { function } callback - The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10

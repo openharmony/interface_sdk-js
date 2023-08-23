@@ -132,7 +132,7 @@ export interface ShowDialogOptions {
    * The array structure is {text:'button', color: '#666666'}.
    * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
    *
-   * @type { [Button, Button?, Button?] }
+   * @type { ?[Button, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -232,7 +232,7 @@ export default class Prompt {
   /**
    * Displays the notification text.
    *
-   * @param { ShowToastOptions } options Options.
+   * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -241,7 +241,7 @@ export default class Prompt {
   /**
    * Displays the dialog box.
    *
-   * @param { ShowDialogOptions } options Options.
+   * @param { ShowDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -250,7 +250,7 @@ export default class Prompt {
   /**
    * Displays the menu.
    *
-   * @param { ShowActionMenuOptions } options Options.
+   * @param { ShowActionMenuOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
