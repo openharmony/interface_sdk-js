@@ -17,8 +17,8 @@ import type { ErrorCallback, AsyncCallback, Callback } from '../@ohos.base';
 import type audio from '../@ohos.multimedia.audio';
 
 /**
- * Describes play parameters.
- *
+ * Interface for play parameters.
+ * @typedef PlayParameters
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 10
  */
@@ -69,9 +69,9 @@ export interface PlayParameters {
 }
 
 /**
- * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
+ * Interface for soundPool instance. Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
  * to create an SoundPool instance.
- *
+ * @typedef SoundPool
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 10
  */
@@ -80,7 +80,7 @@ export interface SoundPool {
    * Load the sound from the specified path.
    *
    * @param {string} uri The path to the audio file
-   * @param {AsyncCallback<void>} callback Callback a sound ID. This value can be used to play or unload the sound.
+   * @param {AsyncCallback<number>} callback Callback a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -92,7 +92,7 @@ export interface SoundPool {
    * Load the sound from the specified path.
    *
    * @param {string} uri The path to the audio file
-   * @returns Promise a sound ID. This value can be used to play or unload the sound.
+   * @returns {Promise<number>} Promise a sound ID. This value can be used to play or unload the sound.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -103,7 +103,7 @@ export interface SoundPool {
    * @param {number} fd A FileDescriptor object
    * @param {number} offset Offset to the start of the sound
    * @param {number} length Length of the sound
-   * @param {AsyncCallback<void>} callback Callback a sound ID. This value can be used to play or unload the sound.
+   * @param {AsyncCallback<number>} callback Callback a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -117,7 +117,7 @@ export interface SoundPool {
    * @param {number} fd A FileDescriptor object
    * @param {number} offset Offset to the start of the sound
    * @param {number} length Length of the sound
-   * @returns Promise a sound ID. This value can be used to play or unload the sound.
+   * @returns {Promise<number>} Promise a sound ID. This value can be used to play or unload the sound.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -147,8 +147,8 @@ export interface SoundPool {
    * Play a sound from a sound ID.
    *
    * @param {number} soundID Returned by the load()
-   * @param {PlayParameters} params Player parameters
-   * @returns Returns a non-zero streamID if successful, zero if it fails.
+   * @param {PlayParameters} [params] Player parameters
+   * @returns {Promise<number>} Promise used to return a non-zero streamID if successful, zero if it fails.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -167,7 +167,7 @@ export interface SoundPool {
    * Stop a stream which is playing.
    *
    * @param {number} streamID Returned by the play()
-   * @returns Promise used to return the result.
+   * @returns {Promise<void>} Promise used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -189,7 +189,7 @@ export interface SoundPool {
    *
    * @param {number} streamID Returned by the play()
    * @param {number} loop Loop mode (0 = no loop, -1 = loop forever)
-   * @returns Promise used to return the result.
+   * @returns {Promise<void>} Promise used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -211,7 +211,7 @@ export interface SoundPool {
    *
    * @param {number} streamID Returned by the play()
    * @param {number} priority Stream priority (0 = lowest priority)
-   * @returns Promise used to return the result.
+   * @returns {Promise<void>} Promise used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -233,7 +233,7 @@ export interface SoundPool {
    *
    * @param {number} streamID Returned by the play()
    * @param {audio.AudioRendererRate} rate Playback rate
-   * @returns Promise used to return the result.
+   * @returns {Promise<void>} Promise used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -257,7 +257,7 @@ export interface SoundPool {
    * @param {number} streamID Returned by the play()
    * @param {number} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    * @param {number} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
-   * @returns Promise used to return the result.
+   * @returns {Promise<void>} Promise used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -278,7 +278,7 @@ export interface SoundPool {
    * Unload a sound from a sound ID.
    *
    * @param {number} soundID Returned by the load()
-   * @returns Promise used to return the result.
+   * @returns {Promise<void>} Promise used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
@@ -295,7 +295,7 @@ export interface SoundPool {
   /**
    * Releases the soundPool. This method uses a promise to return the result.
    *
-   * @returns Promise used to return the result.
+   * @returns {Promise<void>} Promise used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */

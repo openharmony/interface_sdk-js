@@ -142,7 +142,7 @@ declare namespace media {
    *
    * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
    * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
-   * @returns A Promise instance used to return SoundPool instance if the operation is successful; returns null otherwise.
+   * @returns {Promise<SoundPool>} A Promise instance used to return SoundPool instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
