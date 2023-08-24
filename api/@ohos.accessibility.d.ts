@@ -47,8 +47,8 @@ declare namespace accessibility {
    * @since 7
    */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
-    'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
-    'scrollForward' | 'scrollBackward' | 'setSelection';
+  'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
+  'scrollForward' | 'scrollBackward' | 'setSelection';
 
   /**
    * The type of the accessibility event.
@@ -58,8 +58,8 @@ declare namespace accessibility {
    * @since 7
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
-    'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-    'textUpdate' | 'textSelectionUpdate' | 'scroll';
+  'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+  'textUpdate' | 'textSelectionUpdate' | 'scroll';
 
   /**
    * The change type of the windowsChange event.
@@ -380,7 +380,7 @@ declare namespace accessibility {
    * @since 8
    */
   type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
-    'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
+  'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
   /**
    * Indicates the style of captions.
    *
