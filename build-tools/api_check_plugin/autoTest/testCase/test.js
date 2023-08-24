@@ -27,9 +27,6 @@ describe('diffSingleFile', function () {
   if (!fs.existsSync(outputFilePath)) {
     fs.mkdirSync(outputFilePath);
   }
-  if (!fs.existsSync(outputFilePath)) {
-    fs.mkdirSync(outputFilePath);
-  }
   testCasesFileNames.forEach(fileName => {
     const expectFilePath = path.resolve(expectFileDir, `${fileName.replace(/.d.ts/g, '.txt')}`);
     it(`testDiff# ${fileName}`, function () {

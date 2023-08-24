@@ -21,7 +21,6 @@
 declare namespace dataUriUtils {
   /**
    * A test case for param tag's legal -more
-   * @param { string } uri Indicates the uri object from which the ID is to be obtained.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */

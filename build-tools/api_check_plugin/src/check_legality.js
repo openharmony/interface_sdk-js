@@ -60,7 +60,7 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
       return true;
     }
-    return currentNode.parameters && currentNode.parameters.length > 0;
+    return currentNode.parameters;
   }
   );
   // 'returns'
