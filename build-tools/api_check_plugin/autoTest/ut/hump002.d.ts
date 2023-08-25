@@ -21,7 +21,6 @@
 declare namespace batteryInfo {
   /**
    * A test case for naming order --small hump error
-   * @param
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 10
    */
