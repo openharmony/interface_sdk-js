@@ -2395,7 +2395,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2410,7 +2410,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2427,7 +2427,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2443,7 +2443,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2459,7 +2459,7 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @param { AsyncCallback<number> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2473,7 +2473,7 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @returns { Promise<number> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -3004,6 +3004,8 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -3012,6 +3014,8 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses a promise to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
