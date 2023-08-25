@@ -2002,8 +2002,8 @@ declare namespace audio {
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch
-     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - If input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2013,8 +2013,8 @@ declare namespace audio {
      * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the 
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch
-     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - If input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
@@ -2556,7 +2556,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2571,7 +2571,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2588,7 +2588,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2604,7 +2604,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2620,7 +2620,7 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @param { AsyncCallback<number> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2634,7 +2634,7 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @returns { Promise<number> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
