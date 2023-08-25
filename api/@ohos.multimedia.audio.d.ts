@@ -1971,24 +1971,18 @@ declare namespace audio {
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error. Return by callback.
-     * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    getPreferredOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error. Return by promise.
-     * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    getPreferredOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
 
     /**
      * Gets preferred output device for target audio renderer info.
@@ -2004,67 +1998,21 @@ declare namespace audio {
     /**
      * Subscribes to preferred output device change events. When preferred device for target audio renderer info changes,
      * registered clients will receive the callback.
-     * @param { 'preferredOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
-     * preferredOutputDeviceChangeForRendererInfo event is supported.
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 10
-     */
-    on(type: 'preferredOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
-    /**
-     * UnSubscribes to preferred output device change events.
-     * @param { 'preferredOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
-     * preferredOutputDeviceChangeForRendererInfo event is supported.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 10
-     */
-    off(type: 'preferredOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
-
-    /**
-     * Get input device for target audio capturer info.
-     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
-     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
-     * @throws { BusinessError } 6800301 - System error. Return by callback.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 10
-     */
-    getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
-    /**
-     * Get input device for target audio capturer info.
-     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
-     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
-     * @throws { BusinessError } 6800301 - System error. Return by promise.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 10
-     */
-    getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>;
-
-    /**
-     * Subscribes to preferred input device change events. When preferred device for target audio capturer info changes,
-     * registered clients will receive the callback.
-     * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
-     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
     /**
-     * Unsubscribes to preferred input device change events.
-     * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
+     * UnSubscribes to prefer output device change events.
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the 
+     * preferOutputDeviceChangeForRendererInfo event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -2608,7 +2556,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2623,7 +2571,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2640,7 +2588,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2656,7 +2604,7 @@ declare namespace audio {
      * @param { VolumeAdjustType } adjustType - Volume adjustment type.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2672,7 +2620,7 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @param { AsyncCallback<number> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2686,7 +2634,7 @@ declare namespace audio {
      * @param { number } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
      * @returns { Promise<number> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
      * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -3250,8 +3198,6 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -3260,8 +3206,6 @@ declare namespace audio {
      * Sets the current audio effect mode. This method uses a promise to return the result.
      * @param { AudioEffectMode } mode - Audio effect mode.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
