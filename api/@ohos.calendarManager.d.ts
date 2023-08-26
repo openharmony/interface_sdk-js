@@ -188,7 +188,7 @@ declare namespace calendarManager {
     /**
      * Add multiple events.
      * @param { Event[] } events - Indicates the information about multiple events.
-     * @param { AsyncCallback<number> } callback - The callback of addEvents
+     * @param { AsyncCallback<void> } callback - The callback of addEvents
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
@@ -224,7 +224,7 @@ declare namespace calendarManager {
     /**
      * Delete multiple events.
      * @param { number[] } ids - Indicates the IDs of multiple events.
-     * @param {AsyncCallback<number>} callback - The callback of deleteEvents.
+     * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
@@ -250,8 +250,8 @@ declare namespace calendarManager {
 
     /**
      * Query events based on filter conditions.
-     * @param { ?EventFilter } eventFilter - Indicates the filtering conditions of events.
-     * @param { ?(keyof Event)[] } eventKey - Expected column to be returned.
+     * @param { EventFilter } eventFilter - Indicates the filtering conditions of events.
+     * @param { (keyof Event)[] } eventKey - Expected column to be returned.
      * @returns { Promise<Event[]> } Information about events that match the filter conditions.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -286,7 +286,7 @@ declare namespace calendarManager {
 
     /**
      * Set calendar configure.
-     * @param { CalendarConfigure } config - calendar config to set
+     * @param { CalendarConfig } config - calendar config to set
      * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -295,7 +295,7 @@ declare namespace calendarManager {
 
     /**
      * Set calendar configure.
-     * @param { CalendarConfigure } config - calendar config to set
+     * @param { CalendarConfig } config - calendar config to set
      * @param { AsyncCallback<void> } callback - callback of setConfig
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
