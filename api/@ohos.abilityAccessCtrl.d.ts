@@ -510,3 +510,4 @@ declare namespace abilityAccessCtrl {
 
 export default abilityAccessCtrl;
 export { Permissions };
+export { PermissionRequestResult };
