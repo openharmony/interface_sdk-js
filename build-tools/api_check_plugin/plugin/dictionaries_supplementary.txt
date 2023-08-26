@@ -867,3 +867,4 @@ unadjustable
 unprepare
 unchained
 sar
+adapts
