@@ -383,6 +383,22 @@ declare namespace storageStatistics {
   function getTotalSize(): Promise<number>;
 
   /**
+   * Get the total size with sync interface
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @returns { number } return the total size
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @since 10
+   */
+  function getTotalSizeSync(): number;
+
+  /**
    * Get the freesize
    *
    * @permission ohos.permission.STORAGE_MANAGER
@@ -413,6 +429,22 @@ declare namespace storageStatistics {
    * @since 9
    */
   function getFreeSize(): Promise<number>;
+
+  /**
+   * Get the free size with sync interface
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @returns { number } return the free size
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @since 10
+   */
+  function getFreeSizeSync(): number;
 }
 
 export default storageStatistics;
