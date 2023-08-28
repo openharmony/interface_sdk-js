@@ -140,7 +140,9 @@ function checkPermissionChange(newPermission, oldPermission) {
  */
 function checkCurrentJSDocChange(newNodeJSDocs, statusCode, node) {
   const currentJSDoc = newNodeJSDocs[newNodeJSDocs.length - 1];
-  const lastJSDoc = newNodeJSDocs.length === 1 ? null : newNodeJSDocs[newNodeJSDocs.length - 2];
+  const NEW_JSDOCS_LENGTH = 1;
+  const NEW_JSDOC_INDEX = 2;
+  const lastJSDoc = newNodeJSDocs.length === NEW_JSDOCS_LENGTH ? null : newNodeJSDocs[newNodeJSDocs.length - NEW_JSDOC_INDEX];
 
   checkApiChangeVersion(currentJSDoc, lastJSDoc, node);
 
@@ -254,7 +256,7 @@ function analysisParamType(paramType) {
       types.push(type.getText());
     });
   } else {
-    types.push(paramType.getText())
+    types.push(paramType.getText());
   }
   return types;
 }
@@ -350,7 +352,7 @@ function analysisParameters(params) {
       order: index,
       isRequired: param.questionToken && param.questionToken.kind === ts.SyntaxKind.QuestionToken ? false : true,
       type: param.type
-    }
+    };
     paramInfoData.push(data);
   });
   return paramInfoData;

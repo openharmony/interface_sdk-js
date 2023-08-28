@@ -268,7 +268,8 @@ class SystemApiRecognizer {
     if (ts.isStringLiteral(moduleSpecifier, apiDecInfo)) {
       const useTypeFileName = apiDecInfo.apiNode.getSourceFile().fileName;
       const moduleRelativePaths = moduleSpecifier.getText().match(/^['"](.*)['"]$/);
-      if (moduleRelativePaths.length < 2) {
+      const MODULE_PATH_LENGTH = 2;
+      if (moduleRelativePaths.length < MODULE_PATH_LENGTH) {
         return;
       }
       const modulePath = path.resolve(path.dirname(useTypeFileName), `${moduleRelativePaths[1]}.d.ts`);
@@ -600,7 +601,7 @@ class SystemApiRecognizer {
       case ts.SyntaxKind.ModuleDeclaration:
         return `namespace ${node.name ? node.name.getText() : ''}`;
       case node.getText() === 'AsyncCallback' || node.getText() === 'Callback':
-        return;
+        return '';
       default:
         return node.getText();
     }
@@ -933,7 +934,8 @@ class ApiDeclarationInformation {
    */
   setDeprecated(deprecated) {
     const regExpResult = deprecated.match(/\s*since\s*(\d)+.*/);
-    if (regExpResult !== null && regExpResult.length === 2) {
+    const RESULT_LENGTH = 2;
+    if (regExpResult !== null && regExpResult.length === RESULT_LENGTH) {
       this.deprecated = regExpResult[1];
     }
   }
