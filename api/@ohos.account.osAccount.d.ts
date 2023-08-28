@@ -2153,6 +2153,56 @@ declare namespace osAccount {
   }
 
   /**
+   * Options for getting domain account information.
+   *
+   * @typedef GetDomainAccountInfoOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface GetDomainAccountInfoOptions {
+    /**
+     * Indicates the account name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    accountName: string;
+
+    /**
+     * Indicates the domain to which the account belongs.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    domain?: string;
+  }
+
+  /**
+   * Options for getting domain account information in the domain plugin.
+   *
+   * @typedef GetDomainAccountInfoPluginOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface GetDomainAccountInfoPluginOptions extends GetDomainAccountInfoOptions {
+    /**
+     * Indicates the caller UID.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    callerUid: number;
+  }
+
+  /**
    * Provides the definition of domain plugin.
    *
    * @interface DomainPlugin
@@ -2197,16 +2247,15 @@ declare namespace osAccount {
     authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
 
     /**
-     * Gets the domain account information based on its domain and account name.
+     * Gets the domain account information with the specified options.
      *
-     * @param { string } domain - Indicates the domain to which the account belongs.
-     * @param { string } accountName - Indicates the account name.
+     * @param { GetDomainAccountInfoPluginOptions } options - Indicates the options for getting domain account information.
      * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getAccountInfo(domain: string, accountName: string, callback: AsyncCallback<DomainAccountInfo>): void;
+    getAccountInfo(options: GetDomainAccountInfoPluginOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
     /**
      * Gets the domain authentication property for the specified domain account.
