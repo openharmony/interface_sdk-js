@@ -13,20 +13,21 @@
  limitations under the License.
 -->
 <idea-plugin>
-    <id>com.example.updateCheck</id>
+    <id>com.action.update.check</id>
 
     <name>UpdateCheck</name>
 
     <vendor email="free618@126.com" url="https://gitee.com/hrfgostop">Vendor Name</vendor>
 
     <description><![CDATA[
-     SDK upgrade aids. Help developers solve problems caused by upgrading the SDK</br>
+     SDK upgrade aids. Help developers solve problems caused by upgrading the SDK</br>After installing this plugin, you can receive prompt information that needs to be modified during use,
+     </br>which helps you locate the modification location and greatly facilitates developers.
   ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <notificationGroup displayType="BALLOON" id="com.huawei.update.check"/>
+        <notificationGroup displayType="BALLOON" id="com.update.check"/>
         <projectService serviceImplementation="com.update.check.action.UpdateCheckService" order="last" />
 
         <toolWindow factoryClass="com.update.check.action.view.ReporterToolWindowFactory" id="UpdateReport"
