@@ -15,12 +15,13 @@
 
 package com.update.check.action.view;
 
-import com.intellij.AbstractBundle;
-import com.intellij.reference.SoftReference;
+import com.update.check.log.Logger;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.PropertyKey;
-import java.lang.ref.Reference;
-import java.util.ResourceBundle;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 /**
  * ConstString
@@ -28,34 +29,42 @@ import java.util.ResourceBundle;
  * @since 23-04-07
  */
 public class ConstString {
+    private static final String LOG_TAG = ConstString.class.getName();
 
-    private static final String BUNDLE = "const";
+    private static final Logger LOGGER = Logger.createLogger();
 
-    private static Reference<ResourceBundle> outBundle;
+    private static Properties properties = new Properties();
+
+    /**
+     * load .properties file
+     */
+    public static void loadProperties() {
+        InputStream inputStream = null;
+        try {
+            inputStream = ConstString.class.getClassLoader().getResourceAsStream("const.properties");
+            properties.load(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+        } catch (IOException e) {
+            LOGGER.error(LOG_TAG, "get const.properties error!");
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException ie) {
+                LOGGER.error(LOG_TAG, "inputStream close error!");
+            }
+        }
+    }
 
     /**
      * get Fields
      *
      * @param key    key
-     * @param params object
      * @return field
      */
-    public static String get(@NotNull @PropertyKey(resourceBundle = BUNDLE) String key, @NotNull Object... params) {
-        return AbstractBundle.message(ConstString.getBundle(), key, params);
-    }
-
-    /**
-     * getBundle
-     *
-     * @return bundle
-     */
-    public static ResourceBundle getBundle() {
-        ResourceBundle bundle = SoftReference.dereference(ConstString.outBundle);
-        if (bundle == null) {
-            bundle = ResourceBundle.getBundle(ConstString.BUNDLE);
-            ConstString.outBundle = new SoftReference<>(bundle);
+    public static String get(@NotNull String key) {
+        if (properties.size() == 0) {
+            loadProperties();
         }
-
-        return bundle;
+        return properties.getProperty(key);
     }
+
 }
